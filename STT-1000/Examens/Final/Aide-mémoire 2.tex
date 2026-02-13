@@ -1,0 +1,523 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                             %
+%             Formules pour l'examen 2 de STT-1000           %
+%                                                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass [12pt]{article}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage[french]{babel}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{graphics}
+\pagenumbering{arabic}
+\textheight  23cm
+\textwidth 18.5cm \hoffset
+-3cm \voffset -2.5cm
+
+
+\parindent 0pt
+\usepackage{graphicx}
+
+\date{}
+\begin{document}
+
+\begin{center}
+{\bf STT-1000~~~~AIDE-MÉMOIRE POUR L'EXAMEN 2} \\
+\end{center}
+
+\noindent
+{\large {\bf 1. Estimation ponctuelle}}
+
+\vspace{0.1in}
+\noindent
+{\bf Biais} Soit $\hat{\theta}$, un estimateur d'un paramètre $\theta$. Le biais de $\hat{\theta}$ est
+$$\mbox{Biais}(\hat{\theta})=E(\hat{\theta})-\theta.$$
+
+\noindent
+{\bf Estimation de la moyenne} Soit $X_1,\ldots,X_n$ un échantillon aléatoire de taille $n$ d'une population où
+$X$ est distribuée selon une loi de moyenne $\mu$. Nous estimons habituellement $\mu$
+par la moyenne échantillonnale:
+$$\hat{\mu}=\overline{X}=\frac{1}{n}\sum_{i=1}^nX_i.$$
+
+\vspace{0.1in}
+\noindent
+{\bf Estimation de la variance} Soit $X_1,\ldots,X_n$ un échantillon aléatoire de taille $n$ d'une population où
+$X$ est distribuée selon une loi de variance $\sigma^2$. Nous estimons habituellement
+$\sigma^2$ par la variance échantillonnale:
+$$\hat{\sigma}^2=S^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\overline{X})^2.$$
+
+
+\vspace{0.2in}
+{\large {\bf 2. Les lois échantillonnales classiques}}
+
+\begin{small}
+\begin{displaymath}
+{\renewcommand{\arraystretch}{2}
+\begin{array}{|c||c|c|c|c|}
+\hline
+\mbox{Loi}& \mbox{Notation}& \mbox{Moyenne}& \mbox{Variance} &
+\mbox{Quantile d'ordre }1-\alpha\\[-0.5cm]
+&&&&P\mbox{(Variable$>$Quantile)}=\alpha\\
+\hline
+\mbox{\small Normale standard} & \displaystyle \mbox{N}(0,1)
+& \displaystyle 0
+& \displaystyle 1
+& \displaystyle Z_{\alpha}
+\\[.10cm]
+\hline
+\mbox{\small Khi-carré avec $k$ degrés de liberté}
+& \displaystyle \chi^2_k
+& \displaystyle k
+& \displaystyle 2k
+& \displaystyle \chi^2_{\alpha,k}
+\\[.10cm]
+\hline
+\mbox{\small $t$ de Student avec $k$ degrés de liberté} &
+\displaystyle t_k & \displaystyle 0
+& \displaystyle \frac{k}{k-2} & \displaystyle t_{\alpha,k}
+\\[.10cm]
+\hline
+\mbox{\small $F$ de Fisher avec $k$ et $m$ degrés de liberté}
+& \displaystyle F_{k,m} & \displaystyle \frac{m}{m-2}
+& \displaystyle \frac{2 m^2 (k+m-2)}{k(m-2)^2(m-4)}
+& \displaystyle F_{\alpha,k,m}\\[.10cm]
+\hline
+\end{array}}
+\end{displaymath}
+\end{small}
+
+\vspace{0.05 in}
+\begin{enumerate}
+\item[$\bullet$] Si $Z \sim N(0,1)$, alors $Z^2 \sim \chi^2_1$. 
+\item[$\bullet$] Si $Z_1, \ldots, Z_n$ sont i.i.d. $N(0,1)$, alors $\sum_{i=1}^n Z_i^2 \sim \chi^2_n$.
+\item[$\bullet$] Si $Z \sim N(0,1)$, $V \sim \chi^2_v$ et $Z$ et $V$ sont indépendantes, alors $ T = \frac{Z}{\sqrt{V/v}} \sim t_v$.
+\end{enumerate}
+
+\newpage
+\begin{enumerate}
+\item[$\bullet$] Soit $X_1, \ldots X_n$  i.i.d. $N(\mu, \sigma^2)$, alors $$\frac{\overline{X} - \mu}{\sqrt{S^2 / n}} = \frac{\overline{X} - \mu}{S / \sqrt{n}} \sim t_{n-1} \;\;\;\;\;\;\;\;\;\;\;\;\; Y = \frac{(n-1)S^2}{\sigma^2} \sim \chi^2_{n-1}.$$
+%\item[$\bullet$] Si $X\sim F_{k,m}$, alors $\displaystyle\frac{1}{X}\sim F_{m,k}$.
+\item[$\bullet$] Si $X_1,\ldots,X_n$ sont des variables aléatoires indépendantes
+avec $X_i\sim N(\mu_i,\sigma^2_i)$ et si $a_1,\ldots,a_n$ sont des constantes,
+alors $$Y=\sum_{i=1}^na_iX_i\sim N(\mu,\sigma^2) \mbox{ avec } \mu=\sum_{i=1}^na_i\mu_i \mbox{ et }\sigma^2=\sum_{i=1}^na_i^2\sigma_i^2.$$
+\end{enumerate}
+
+
+%\vspace{0.2in}
+\noindent {\large {\bf 3. Le théorème central limite}}
+
+\vspace{0.1in}
+\begin{itemize}
+\item
+Si $X_1, X_2,..., X_n$ sont des variables aléatoires
+indépendantes et identiquement distribuées, avec moyenne $\mu$
+et avec variance $0 < \sigma^2 < \infty$ et si $n$ est assez grand
+($n\ge  30$), alors
+$$
+\sum\limits_{j=1}^n X_j\approx N(n\mu, n\sigma^2) \Leftrightarrow
+{\sum\limits_{j=1}^n X_j-n\mu\over\sqrt{n\sigma^2}}\approx N(0,1)
+\Leftrightarrow
+{\overline{X}-\mu\over\sqrt{\sigma^2/n}}\approx N(0,1)
+\Leftrightarrow
+\overline{X}\approx N(\mu,\sigma^2/n).
+$$
+\item
+Dans le cas où les $X_j$ sont des variables aléatoires
+discrètes, on utilise la correction pour la continuité:
+\begin{eqnarray*}
+{\mathbb P}(X \leq b) &\cong& {\mathbb P}\left(X < b+\frac12\right), \quad {\mathbb
+P}(X < b) \cong {\mathbb P}\left(X < b - \frac12\right), \\ {\mathbb P}(X \geq a) &\cong& {\mathbb P}\left(X
+> a-\frac12\right), \quad {\mathbb P}(X > a) \cong {\mathbb P}\left(X > a+\frac12\right).
+\end{eqnarray*}
+\end{itemize}
+
+%\vspace{0.1in}
+{\large {\bf 4. Intervalles de confiance} } 
+
+1- Intervalles de confiance \`a $100(1-\alpha)\%$ pour une \textbf{moyenne}:
+
+\begin{table}[h!]
+\begin{center}
+\begin{tabular}{|c||c|}
+\hline
+Situation & Intervalle \\[4pt]
+\hline
+& \\[-12pt]
+Loi normale, variance connue & {\large $ \overline{X} \; \; \pm \; \; z_{\alpha/2}\frac{\sigma}{\sqrt{n}}$ }
+\\[8pt]
+Loi normale, variance inconnue & {\large $\overline{X} \; \; \pm \; \; t_{\alpha/2, n-1}\frac{S}{\sqrt{n}}$}
+\\[8pt]
+Loi inconnue, $n$ grand & {\large $\overline{X} \; \; \pm \; \; z_{\alpha/2}\frac{S}{\sqrt{n}}$ }\\[8pt]
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+2- Intervalle de confiance  \`a $100(1-\alpha)\%$ pour la \textbf{variance d'une loi normale}:
+$$\left[ \frac{(n-1)S^2}{\chi^2_{\alpha/2, n-1}} \ , \ \frac{(n-1)S^2}{\chi^2_{1-\alpha/2, n-1}}   \right]$$\\
+
+\vspace*{-0.4in}
+3-
+Intervalle de confiance \`a $100(1-\alpha)\%$ pour une \textbf{proportion}:
+$$ \hat{p} \pm z_{\alpha/2} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$$
+
+\vspace{0.4in}
+
+4- Intervalles de confiance à 100(1-$\alpha$)\% pour une différence de moyennes: 
+
+\begin{table}[h!]
+\begin{center}
+\begin{tabular}{|c||c|}
+\hline
+Situation & Intervalle \\[8pt]
+\hline
+& \\[-12pt]
+Lois normales, variances connues & {\large $ \overline{X}_1 - \overline{X}_2 \pm z_{\alpha_2} \sqrt{ \frac{\sigma^2_1}{n_1} + \frac{\sigma^2_2}{n_2}}$ }
+\\[10pt]
+Lois normales, variances inconnues, égales & {\large $ \overline{X}_1 - \overline{X}_2 \pm t_{\alpha_2; n_1 + n_2 - 2} S_p \sqrt{ \frac{1}{n_1} + \frac{1}{n_2}}$}
+\\[10pt]
+Lois normales, variances inconnues, inégales & {\large $ \overline{X}_1 - \overline{X}_2 \pm t_{\alpha_2; \nu} \sqrt{ \frac{S_1^2}{n_1} + \frac{S^2_2}{n_2}} $}\\[10pt]
+&  avec {\large $\nu = \displaystyle\frac{(s_1^2/n_1 + s^2_2/n_2)^2}{ \displaystyle \frac{s_1^2/n_1}{n_1 +1} + \frac{s^2_2/n_2}{n_2 + 1} } -2 $ }\\[8pt]
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+avec $$ S_p^2 = \frac{(n_1-1)S_1^2 + (n_2-1)S_2^2}{n_1 + n_2 - 2} $$
+
+\vspace{0.4in}
+
+5 - Intervalle de confiance à 100(1-$\alpha$)\% pour une différence de proportions: 
+
+
+$$ \hat{p}_1 - \hat{p}_2  \pm z_{\alpha_2} \sqrt{ \frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}$$
+
+
+\vspace{0.2 in}
+ {\large\bf 5. Tests d'hypothèses}
+\vspace{0.1 in}
+
+\begin{enumerate}
+\item[$\bullet$]
+$\mbox{ }$
+\vspace{-.5cm}
+
+%Les probabilités des erreurs de type I et II sont données par
+$\begin{array}{cclll}
+\alpha
+&=& \mathbb{P}\left(\mbox{erreur de type I}\right)
+&=& \mathbb{P}\left(\mbox{Rejeter }H_0~|~H_0\mbox{ est vraie}\right)
+\\
+\beta &=& \mathbb{P}\left(\mbox{erreur de type II}\right) &=&
+\mathbb{P}\left(\mbox{Ne pas rejeter }H_0~|~H_1\mbox{ est
+vraie}\right)
+\end{array}$\\
+
+\item[$\bullet$] La puissance est égale \`a $1-\beta=\mathbb{P}\left(\mbox{Rejeter }H_0~|~H_1\mbox{ est vraie}\right)$. \\
+\item[$\bullet$] Le seuil observé $\alpha^*$ (valeur $p$)
+est la probabilité d'obtenir une valeur au moins aussi extr\^eme que celle observée, si on répétait l'expérience et que $H_0$ était vraie. C'est la plus petite valeur de $\alpha$ \`a laquelle on peut rejeter $H_0$.
+\end{enumerate}
+
+\vspace*{-0.2 in}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline \multicolumn{3}{|c|}{{\bf Tests sur une moyenne $\mu$}}
+\\
+\hline &&\\Situation & Statistique du test& $H_{0}:\  \mu =
+\mu_{0}$
+\\
+& sous $H_{0}$  & $H_{1}:\  \mu > \mu_{0}$
+\\
+& & Rejeter $H_{0}$ si:
+\\\hline \hline & &
+ \\
+$ X_1,...,X_n$ indép. N($\mu$,$\sigma^2$) & $\displaystyle
+Z_{0}=\frac{{\overline X} - \mu_{0}}{\sigma /\sqrt{n}} \sim
+N(0,1)$ & $Z_{0}>Z_{\alpha}$
+\\
+où $\sigma^{2}$ est connue &  &
+\\
+\hline & &
+\\
+$ X_1,...,X_n$ indép. N($\mu$,$\sigma^2$) & $\displaystyle
+t_{0}=\frac{{\overline X} - \mu_{0}}{S / \sqrt{n}}\sim t_{n-1}$ &
+$t_{0}>t_{\alpha ,n-1}$
+\\
+où $\sigma^{2}$ est inconnue& &
+\\
+\hline
+&  &
+\\
+$ X_1,...,X_n$ indép., loi quelconque, & $\displaystyle
+Z_{0}=\frac{{\overline X} - \mu_{0}}{S / \sqrt{n}}\sim N(0,1)$ &
+$Z_{0}>Z_{\alpha}$
+\\
+où $\sigma^{2}$ est inconnue et $n$ est grand &
+approximativement &
+\\
+\hline
+\end{tabular}
+\end{center}
+
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline \multicolumn{3}{|c|}{{\bf Test sur une variance
+$\sigma^2$}}
+\\
+\hline Situation & Statistique du test & $H_{0}:\  \sigma^2 =
+\sigma^2_0$
+\\
+& sous $H_{0}$
+& $H_{1}: \sigma^2 > \sigma^2_0 $
+\\
+ & & Rejeter $H_{0}$ si:
+\\
+\hline
+\hline
+ &  &
+ \\
+$ X_1,...,X_n$ indép. N($\mu$,$\sigma^2$) & $\displaystyle
+\chi^2_0=\frac{(n-1)S^2}{\sigma^2_0}\sim\chi^2_{n-1}$ &
+$\chi^2_{0}>\chi^2_{\alpha,n-1}$
+\\
+$\mu$ est inconnue & &
+\\
+\hline 
+\multicolumn{3}{c}{ }
+\\
+\hline \multicolumn{3}{|c|}{{\bf Test sur une proportion $p$}}
+\\
+\hline &&\\Situation & Statistique du test & $H_{0}:\  p = p_{0}$
+\\
+& sous $H_{0}$ & $H_{1}:\  p > p_{0}$
+\\
+ & & Rejeter $H_{0}$ si:
+\\
+\hline \hline
+ &  &
+ \\
+$ X_1,...,X_n$ indép. Bernoulli($p$)
+ & $\displaystyle
+Z_{0}=\frac{{\hat p} - p_{0}}
+{\sqrt{\displaystyle\frac{p_{0}(1-p_{0})}{n}}} \sim N(0,1)$ &
+$Z_{0}>Z_{\alpha}$
+\\
+où $n$ est grand & approximativement &
+\\
+ & où ${\hat p}=\sum\limits_{i=1}^{n}X_i/n$ &
+\\
+\hline
+\end{tabular}
+\end{center}
+
+\newpage
+\vspace*{-0.4in}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+\multicolumn{3}{|c|}{{\bf Comparaison de deux moyennes $\mu_{1}$ et
+$\mu_{2}$ (échantillons indépendants)}}
+\\
+\hline Situation & Statistique du test & $H_{0}:\ \mu_{1} =
+\mu_{2}$
+\\
+& sous $H_{0}$
+& $H_{1}:\  \mu_{1} > \mu_{2}$
+\\
+&
+& Rejeter $H_{0}$ si:
+\\
+\hline
+\hline
+ $X_{1,1}, ..., X_{1,n_1}$ indép. N($\mu_1$, $\sigma^2_1$) &&\\
+ $X_{2,1}, ..., X_{2,n_2}$ indép. N($\mu_2$, $\sigma^2_2$) & $\displaystyle Z_0 =
+\frac{\overline X_1 -\overline X_2}{\sqrt{\frac{\sigma_1^2}{n_1} +
+\frac{\sigma^2_2}{n_2}}} \sim N(0,1)$ & $Z_0 > Z_{\alpha}$
+\\
+où $\sigma_{1}^{2}$ et $\sigma_{2}^{2}$ sont connues& &
+\\
+\hline
+$X_{1,1}, ..., X_{1,n_1}$ indép. N($\mu_1$, $\sigma^2_1$)& & \\
+$X_{2,1}, ..., X_{2,n_2}$ indép. N($\mu_2$, $\sigma^2_2$)&
+$\displaystyle t_0 = \frac{\overline X_1 -\overline X_2}{S_p
+\sqrt{\frac{1}{n_1} + \frac{1}{n_2}}} \sim t_{n_1+n_2-2}$ & $t_0 >
+t_{\alpha,n_1+n_2-2}$
+\\
+où $\sigma_{1}^{2}$ et $\sigma_{2}^{2}$ sont inconnues
+ & &
+\\
+mais égales $(\sigma_{1}^{2}=\sigma_{2}^{2})$ & où $S_p =
+\sqrt{\displaystyle\frac{(n_1-1)S_1^2 + (n_2-1)S_2^2}{n_1 + n_2
+-2}}$ &
+\\
+
+\hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+ \multicolumn{3}{|c|}{{\bf Comparaison de deux moyennes
+$\mu_1$ et $\mu_2$ (échantillons appariés)}}
+\\
+\hline Situation & Statistique du test & $H_{0}:\ \mu_1-\mu_2 = 0$
+\\
+& sous $H_{0}$ & $H_{1}:\  \mu_1-\mu_2 > 0$
+\\
+& & Rejeter $H_{0}$ si:
+\\
+\hline \hline 
+$X_{1,1}, ..., X_{1,n}$ indép. N($\mu_1$, $\sigma^2_1$)& & \\
+$X_{2,1}, ..., X_{2,n}$ indép. N($\mu_2$, $\sigma^2_2$)
+&$\displaystyle t_0 = \frac{\overline D}{S_D/\sqrt n} \sim
+t_{n-1}$ & $t_0 > t_{\alpha, n-1}$
+\\
+$D_j = X_{1j} - X_{2j}$  ({\small $j$=1, ...,
+n})&\multicolumn{2}{|c|}{ }
+\\
+$D_1, ...,D_n$ indép. N($\mu_1-\mu_2$, $\sigma^2_D$) &
+\multicolumn{2}{|c|}{$\overline D = \frac{1}{n}
+\displaystyle\sum^n_{j=1} Dj~~~,~~~S_D = \sqrt{\frac{1}{n-1}
+\displaystyle\sum^n_{j=1} (D_j - \overline D)^2}$}
+\\
+où $\sigma^2_D$ est inconnue& \multicolumn{2}{c|}{}
+\\
+\hline \multicolumn{3}{c}{ }
+\\
+
+%\hline \multicolumn{3}{|c|}{{\bf Comparaison de deux variances (échantillons indépendants)}}
+%\\
+%\hline &&\\Situation & Statistique du test & $H_{0}:\  \sigma^2_1 =
+%\sigma^2_2$
+%\\
+%& sous $H_{0}$ & $H_{1}:\  \sigma^2_1 > \sigma^2_2$
+%\\
+%&  & Rejeter $H_{0}$ si:
+%\\
+%\hline \hline $X_{1,1}, ..., X_{1,n_1}$ indép. N($\mu_1$, $\sigma^2_1$) & &
+%\\
+%$X_{2,1}, ..., X_{2,n_2}$ indép. N($\mu_2$, $\sigma^2_2$) & $\displaystyle F_0 = \frac{s_1^2}{s_2^2} {\sim}
+%F_{n_1-1, n_2-1}$ & $f_0 > F_{\alpha,n_1-1, n_2-1}$  \\
+%où $\sigma_{1}^{2}$ et $\sigma_{2}^{2}$ sont inconnues
+% &  & 
+%\\
+%\hline
+\end{tabular}
+\end{center}
+
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline \multicolumn{3}{|c|}{{\bf Comparaison de deux proportions
+$p_{1}$ et $p_{2}$ (échantillons indépendants)}}
+\\
+\hline Situation & Statistique du test & $H_{0}:\  p_{1} =
+p_{2}$
+\\
+& sous $H_{0}$ & $H_{1}:\  p_{1} > p_{2}$
+\\
+&  & Rejeter $H_{0}$ si:
+\\
+\hline \hline $X_{1}$: nombre de ``succès'' &   &
+\\
+parmi $n_{1}$ $(n_{1} \geq 30)$ & $\displaystyle Z_0 = \frac{(\hat
+p_1 - \hat p_2)} {\sqrt{\displaystyle\hat p (1-\hat p) \left(
+\frac{1}{n_1} + \frac{1}{n_2} \right)}} \stackrel{{\rm app}}{\sim}
+N(0,1)$ & $Z_0 > Z_{\alpha}$
+\\
+$X_{2}$: nombre de ``succès'' &  &
+\\
+parmi $n_{2}$ $(n_{2} \geq 30)$ & où $\displaystyle \hat p =
+\frac{(n_1 \hat{p}_1 + n_2 \hat{p}_2)}{n_1 + n_2}$ &
+\\
+\hline
+\end{tabular}
+\end{center}
+
+\newpage
+
+{\large\bf 6. Régression linéaire simple}
+
+
+\vspace{0.5cm}
+
+\textbf{Modèle:}  On observe $(x_1,y_1), (x_2, y_2),..., (x_n,y_n)$ et on
+suppose que $y_1, y_2,..., y_n$ sont les réalisations de
+variables aléatoires indépendantes $Y_1, Y_2,..., Y_n$ telles
+que pour chaque $i$ la loi de $Y_i$ est $N(\beta_0 + \beta_1 x_i,
+\sigma^2)$.
+
+\vspace{0.1 in}
+
+\textbf{Quantités utiles:} 
+
+\vspace{-0.4 in}
+\begin{align*}
+S_{xy}&=\sum\limits_{i=1}^n (x_i-\overline
+x)(y_i-\overline y) =  \sum\limits_{i=1}^n x_iy_i - n\;\overline
+x\;\overline y \\
+S_{xx} &=\sum\limits_{i=1}^n (x_i-\overline x)^2 =
+\sum\limits_{i=1}^n x_i^2 - n\;\overline x\;^2\\
+S_{yy} &=\sum\limits_{i=1}^n (y_i-\overline y)^2 =
+\sum\limits_{i=1}^n y_i^2 - n\;\overline y\;^2 \\
+R^2 &= \hat{\beta}_1^2 \frac{S_{xx}}{S_{yy}}
+\end{align*}
+
+\textbf{Estimateurs des paramètres:}
+
+$$ \bullet \; \; \hat{\beta}_1 =\frac{S_{xy}}{S_{xx}} \;\;\;\;\;\; \;\;\;\;\;\; \bullet \;\; \hat{\beta}_0 = \overline{y} - \hat{\beta}_1 \overline{x} $$
+$$ \bullet \;\; \hat{\sigma}^2 = \frac{1}{n-2} \sum_{i=1}^n (e_i)^2 = \frac{1}{n-2} \sum_{i=1}^n (y_i - \hat{y}_i)^2  = \frac{1}{n-2} \sum_{i=1}^n (y_i - (\hat{\beta}_0 + \hat{\beta}_1 x_i))^2$$
+
+\vspace{0.1in}
+\textbf{Test d'hypothèse pour $\beta_1$:}
+\vspace{0.1in}
+
+Hypothèse nulle:  $H_0:  \beta_1= \beta_{1,0}$
+
+Statistique du test sous $H_0$ : 
+$$ T_0 = \frac{\hat{\beta}_1 - \beta_{1,0}}{\sqrt{\hat{\sigma}^2/S_{xx}}} \sim t_{n-2}$$
+
+\vspace{0.05 in}
+On rejette si $H_0$ versus $H_1 : \beta_1 > \beta_{1,0}$ si $t_0 > t_{\alpha, n-2}$.
+
+
+
+%\vspace{0.1cm}
+\textbf{Intervalles de confiance:}
+\vspace{0.1cm}
+
+{\renewcommand{\arraystretch}{2.4}
+\begin{tabular}{|c|c|c|}
+\hline Quantité \`a estimer & Estimateur & Intervalle de
+confiance de niveau $1-\alpha$\\\hline
+
+\hline $\beta_1$ & $\displaystyle \hat{\beta}_1 =\frac{
+S_{xy}}{S_{xx}}$& $\hat{\beta}_1 \pm t_{\alpha/2,n-2}
+\sqrt{\displaystyle{\frac{\hat{\sigma}^2}{S_{xx}}}}$ \\[.20cm]
+
+\hline
+%$E(Y|x_0)$ & $\widehat{E(Y|x_0)}=\hat y_0=\hat{\beta}_0 +\hat{\beta}_1 x_0$
+Valeur moyenne de $Y$ en $x_0$ & $\hat y_0=\hat{\beta}_0 +\hat{\beta}_1 x_0$
+& $\hat y_0 \pm t_{\alpha/2,n-2}\sqrt{\hat{\sigma}^2\left(\displaystyle{\frac{1}{n} + \frac{(x_0 -\overline{x})^2}{S_{xx}}}\right)}$ \\[.20cm]
+
+\hline Observation future $y_0$ & $\hat y_0=\hat{\beta}_0 +
+\hat{\beta}_1 x_0$ & $\hat y_0 \pm t_{\alpha/2,n-2}
+\sqrt{\hat{\sigma}^2\left(\displaystyle{1 + \frac{1}{n} + \frac{(x_0 -
+\overline{x})^2}{S_{xx}}}\right)}$ \\[.20cm]
+
+\hline
+\end{tabular}
+}
+\begin{figure}[p]
+\makebox[\linewidth]{\includegraphics[scale = 0.9]{Student.pdf}}
+\end{figure}
+\begin{figure}[p]
+\makebox[\linewidth]{\includegraphics[scale = 0.9]{Khicarre.pdf}}
+\end{figure}
+
+\end{document} 

@@ -1,0 +1,335 @@
+\def\SigleNumero{STT-1000}
+\def\NomCours{Probabilités et statistique}
+\def\DateEvaluation{27 février 2025}
+\def\HeureEvaluation{18h30 à 21h20}
+\def\Session{}
+\def\NomEvaluation{Examen 1}
+\def\Ponderation{40}
+% Ne rien mettre entre les accolades si l'enseignant (ou l'enseignante) est aussi le coordonnateur (ou la coordonnatrice)
+\def\Coordonnatrice{}
+\def\Coordonnateur{}
+
+% Ne rien mettre entre les accolades s'il y a plus d'une section
+\def\Enseignant{}
+\def\Enseignante{}
+
+% Ne rien mettre entre les accolades s'il s'agit d'un cours à section unique
+% Mettre le nom de chacun des enseignants et enseignantes entre les accolades
+% Une case à cocher sera générée pour chacune des sections
+\def\SectionA{Rachid Kandri-Rody}
+\def\SectionB{Julien Miron}
+\def\SectionC{}
+\def\SectionD{}
+
+
+\def\Directives{
+\begin{enumerate}
+\item Matériel autorisé:
+\begin{itemize}
+\item Calculatrice scientifique {\bf autorisée par la faculté des sciences et de génie};
+\item Le feuillet de formules fourni avec l'examen. Celui-ci inclut la table de la loi normale. Veuillez ne rien écrire sur le feuillet de formules.
+\end{itemize}
+\item Assurez-vous que cette évaluation comporte \numquestions ~exercices répartis sur \numpages{}~pages, pour un total de \numpoints{}~points.\
+\item \textbf{Veuillez ne pas dégrafer votre examen.}
+\item Ajoutez vos initiales dans le bas de chaque page.
+\item Vous devez\textbf{ justifier toutes vos réponses} par une démarche claire, sauf pour les questions à choix de réponse.\
+\item Pour les vrais ou faux, vous pouvez mettre un X, un crochet ($\checkmark$) ou remplir la case.\
+\item Les vrais ou faux demande une justification. Aucun point ne sera donné sans justification, même si vous cochez la bonne réponse.
+\item Le verso des feuilles peut être utilisé comme brouillon, \textbf{mais ne sera pas corrigé}. Attention à ne rien dégrafer.
+\end{enumerate}
+}
+
+
+
+\documentclass{Evaluation}
+\usepackage{multicol,graphicx}
+\begin{document}
+
+\newpage
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+\begin{questions}
+
+%11111 Rachid: Proba cdn et Bayes
+\question
+La tuberculose bovine est une maladie très contagieuse. Cette maladie est apparue dans  le cheptel bovin d'un pays et touche $10 \%$ de ce cheptel. Des études statistiques ont montré que la probabilité pour un animal d'avoir un test positif à cette maladie sachant qu'il est malade est de $95 \%$  et que celle d'avoir un test négatif sachant qu'il n'est pas atteint par la maladie est de $90 \%$ . Définissons les événements suivants :\\
+\begin{tabular}{ l}
+$T$ : avoir un test positif à cette maladie pour un bovin choisi au hasard parmi le cheptel.\\
+$M$ : être malade pour un bovin choisi au hasard parmi le cheptel.
+\end{tabular}
+
+\medskip
+\begin{parts}
+\part [4] Déterminez la probabilité d'avoir un test positif à cette maladie pour un bovin choisi au hasard parmi le cheptel sachant que celui-ci n'est pas malade.
+
+\vspace{7cm}
+\part [4] Calculez la probabilité pour un bovin choisi au hasard parmi le cheptel d'avoir un test positif à cette maladie.
+
+\vspace{7cm}
+\part [4] Calculez la probabilité qu'un bovin choisi au hasard parmi le cheptel soit malade sachant que le test est positif.
+\end{parts}
+
+
+\newpage
+%22222 Rachid:  V.a discrete
+\question 
+Soit $X$ une variable aléatoire ayant une espérance mathématique \textbf{nulle} et dont la fonction de masse est donnée par
+$$
+\begin{array}{c|ccc}
+x&-1&0&1\\\hline
+&&&\\[-0.2cm]
+p(x) &\;\;\;\;a\;\;\;\;&\;\;\;\;b\;\;\;\;&\;\;\;\;2\,b\;\;\;\;
+\end{array}
+$$
+\begin{parts}
+\part [4] Montrez que $\displaystyle a=\frac{2}{5}$ et $\displaystyle b=\frac{1}{5}$.
+
+\vspace{6cm}
+\part [4] Calculez la variance de $X$.
+
+\vspace{6cm}
+
+\part [4] Calculez $E(-3X+1)$ et $V(-3X+1)$.
+\end{parts}
+
+
+\newpage
+%33333 Rachid: Lois binomiale, géométrique et Pascal
+\question
+Un vendeur d’ordinateurs a constaté que 30\% des clients qui entrent dans son magasin, faisaient l’achat d’un ordinateur et que les clients achètent les ordinateurs indépendamment les uns des autres.
+Définissez clairement les variables aléatoires qui interviennent dans vos calculs pour répondre aux questions suivantes.
+\begin{parts}
+\part [4] Quatre clients sont dans le magasin. Quelle est  la probabilité qu’au moins un d’entre eux achète un ordinateur?  
+
+\vspace{7cm}
+\part [4] Calculez la probabilité que 4 clients doivent entrer dans le magasin pour que le magasin vende son premier ordinateur? 
+
+\vspace{7cm}
+
+\part [4] Combien de clients, en moyenne, doivent entrer dans le magasin pour que le magasin vende son troisième ordinateur?  
+\end{parts}
+
+
+
+\newpage
+%44444 Rachid: Loi normale
+\question
+Le diamètre $X$ (exprimé en cm) des tomates livrées à une usine d'emballage
+américaine suit une loi normale $\mathcal{N}(7,\ \sigma^2)$ où l'écart-type $\sigma$ de $X$ est inconnu. Un tri automatique rejette
+toutes les tomates dont le diamètre n'est pas compris entre 6 cm et 8 cm.
+\begin{parts}
+\part [6] On constate que 10\% des tomates livrées sont rejetées par ce procédé de tri.\\ Calculez l'écart type $\sigma$.
+
+\vspace{10cm}
+\part [6] Le  directeur  veut  réduire  à  5\%  le  pourcentage  de  tomates  rejetées  lors  du  tri.  Ne
+pouvant  agir  sur  les  livraisons,  il  installe  un  système  de  tri  qui  rejette  les  tomates  de
+diamètre inférieur à $7-s$ ou supérieur à $7+s$. \\
+Calculez s.
+\end{parts}
+
+
+\newpage
+%55555 Rachid: Lois de Poisson, ex^ponentielle et Gamma.
+\question
+Les avions d’une grande compagnie aérienne atterrissent, dans un aéroport très achalandé, selon une loi de Poisson avec une moyenne de six avions à l’heure.
+
+Définir clairement les variables aléatoires qui interviennent dans vos calculs pour répondre aux questions suivantes.
+\begin{parts}
+\part [4] Calculez la probabilité de voir atterrir 2 avions ou plus en 15 minutes.
+
+\vspace{7cm}
+\part [4] Calculez la probabilité de devoir attendre plus de 20 minutes pour voir atterrir un avion. 
+
+\vspace{7cm}
+\part [4] Combien de temps, en moyenne, devriez-vous attendre pour voir atterrir, dans cet aéroport,  le cinquième avion de cette compagnie.
+\end{parts}
+
+
+
+\newpage
+%66666 Julien
+\question  Soit la variable aléatoire $X$ qui suit une loi uniforme sur l'intervalle $[a,b]$. Nous savons que $E(X)=4$ et $V(X)=3$. 
+
+\begin{parts}
+    \part[5] Donnez la fonction de densité de $X$.
+\begin{solution}
+    Il faut déduire $a$ et $b$ à partir de l'espérance et de la variance.
+
+    Nous avons 
+    \begin{align*}
+        E(X)=&\frac{a+b}{2}\\
+        4=&\frac{a+b}{2}\\
+        \text{et} &\\
+        V(X)=&\frac{(b-a)^2}{12}\\
+        3=&\frac{(b-a)^2}{12}
+    \end{align*}
+
+    On déduit que $a=8-b$, donc $36 = (b-(8-b))^2=(2b-8)^2$. Il existe donc deux solutions pour $b$. 
+    \begin{align*}
+        6=2b-8 & & -6=2b-8\\
+        b=7 & & b =1
+    \end{align*}
+
+Si $b=7$, nous avons $a=1$ et si $b=1$, nous avons $a=7$, ce qui est contradictoire avec l'intervalle $ [a,b]$, où il est sous-entendu que $b>a$.
+
+La fonction de densité est donc
+
+$$f(x)=\left\{
+			\begin{array}{ll}
+   \displaystyle \frac{1}{6}  & \mbox{si } x\in [1,7] \\
+    \displaystyle 0  & \mbox{ sinon, }
+			\end{array}
+			\right.$$
+
+\end{solution}
+    \vspace{10cm}
+    \part[4] Sachant que la fonction de répartition de $X$ est donnée par $F(x)=\displaystyle \frac{x-1}{6}$ pour $x\in [a,b]$ et $F(x)=0$ sinon, calculez $P(X>3|X>2)$.
+    \begin{solution}
+        \begin{align*}
+            P(X>3|X>2)=&\frac{P(X>3 \cap X>2)}{P(X>2)}\\
+            =& \frac{P(X>3)}{P(X>2)}\\
+            =& \frac{1-F(3)}{1-F(2)}\\
+            =& \frac{1-\frac{3-1}{6}}{1-\frac{2-1}{6}}\\
+            =& \frac{2/3}{5/6}\\
+            =& \frac{4}{5}
+        \end{align*}
+    \end{solution}
+\end{parts}
+\newpage
+%77777 Julien
+\question  On considère deux variables aléatoires discrètes $X_1$ et $X_2$ pour lesquelles la fonction de probabilité de masse conjointe est donnée par 
+
+\begin{center}
+\begin{tabular}{|cc||c|c|c|}\hline
+$p(x_1,x_2)$ & & \multicolumn{3}{c|}{$x_2$}  \\ \cline{3-5}
+ & & 0 & 2 & 4  \\ \hline
+ & 0 & 0 & 3/15 & 3/15  \\ \hline
+$x_1$ & 1 & 2/15 & 6/15  & 0  \\ \hline
+ & 2 & 0 &  1/15  &  0 \\ \hline
+\end{tabular}
+\end{center}
+
+\begin{parts}
+\part[4] Donnez la loi conditionnelle de $X_2$ sachant que $X_1 = 1$. Justifiez vos calculs.
+
+\begin{solution}
+ Par définition de la probabilité conditionnelle, on a 
+$$P(X_2 = x | X_1 = 1) = \frac{P(X_2=x \cap X_1=1)}{P(X_1=1)}$$
+
+On calcule d'abord $$P(X_1=1) = P(X_1=1 \cap X_2 = 0) + P(X_1=1 \cap X_2 = 2) + P(X_1=1 \cap X_2 = 4)  = 2/16 + 6/15 + 0 = 8/15.$$
+
+On a donc 
+$$P(X_2 = 0 | X_1 = 1) = \frac{P(X_2=0 \cap X_1=1)}{P(X_1=1)} = \frac{2/15}{8/15} = 1/4$$
+
+On obtient de la même façon $P(X_2 = 2 | X_1 = 1) = \frac{6/15}{8/15} = 3/4$ et $P(X_2 = 2 | X_1 = 1) = \frac{0}{8/15} = 0.$
+   
+\end{solution}
+
+
+\vspace{5cm}
+
+\part[4] Sachant que $E(X_1) = 2/3$ et que $E(X_2) = 2$, calculez la covariance entre $X_1$ et $X_2$. Laissez des traces de votre démarche.
+
+\begin{solution}
+Il n'y a que deux combinaisons des variables $X_1$ et $X_2$ qui donnent un produit non-nul. On a donc
+$$E(X_1X_2) = 2*6/15 + 4*1/15 = 16/15$$
+La covariance est donc $E(X_1X_2)-E(X_1)E(X_2) = 16/15 - 2/3*2 = 16/15-4/3 = -4/15.$
+\end{solution}
+
+\vspace{6cm}
+
+\part[4] Montrez, sans utiliser le résultat obtenu en (b), que les variables aléatoires $X_1$ et $X_2$ ne sont pas indépendantes.
+
+\begin{solution}
+On a calculé en (a) que $P(X_1=1) = 8/15$. 
+On voit aussi que $P(X_2=4) = 3/15. $
+Si Les variables aléatoires étaient indépendantes, alors on aurait $P(X_1=1 \cap X_2 = 4) = P(X_1=1)P(X_2=4) = 8/15 * 3/15 = 24/225.$ Or cette probabilité conjointe vaut plutôt zéro, montrant que les variables aléatoires ne sont pas indépendantes. 
+
+(Plusieurs autres réponses possibles.)
+\end{solution}
+
+\end{parts}
+\newpage
+%88888 Julien
+\question Soit $A$, $B$ et $C$ trois événements avec $P(A)=0,5$, $P(B)=0,5$, $P(C)=0,2$, $P(A\cap B)=0,25$. Nous avons aussi que $C$ est indépendant de l'événement $A$ et de l'événement $B$. Dites si chacun des énoncés ci-dessous est vrai ou faux. Votre réponse doit être justifiée en mots ou par des calculs. Un vrai ou faux sans justification n'aura aucun point.
+
+\vspace{0.5cm}
+\begin{parts}
+
+\part[3] Les événements $A$ et $B$ sont indépendants.
+
+     \begin{oneparcheckboxes}
+		\correctchoice VRAI
+		\choice FAUX
+\end{oneparcheckboxes}\\
+{\bf Justification:}
+\begin{solution}
+    Comme $P(A)P(B)=0,5 \times 0,5 = 0,25 = P(A\cap B)$, les événements sont indépendants.
+\end{solution}
+\vspace{4cm}
+
+\part[3] $P(A\cup C)= 0,6$.
+
+\begin{oneparcheckboxes}
+		\correctchoice VRAI
+		\choice FAUX
+\end{oneparcheckboxes}\\
+{\bf Justification:}
+\begin{solution}
+    Comme $A$ et $C$ sont indépendants, $P(A\cap C) = 0,5 \times 0,2 =0.1$.
+
+    Donc $P(A \cup C)=P(A)+P(C)-P(A\cap C)=0,5+0,2-0,1=0,6$
+\end{solution}
+\vspace{4cm}
+\part[3] Les événements $A$ et $B$ forment une partition de l'espace échantillonnal.
+
+     \begin{oneparcheckboxes}
+		\choice VRAI
+		\correctchoice FAUX
+\end{oneparcheckboxes}\\
+{\bf Justification:}
+\begin{solution}
+    Pour qu'ils forment une partition de $\mathcal{U}$, ils doivent être mutuellement exclusifs, i.e. $A\cap B= \emptyset$, ce qui devrait donner $P(A\cap B)=0$, ce qui n'est pas le cas.
+\end{solution}
+\end{parts}
+
+\newpage
+
+\question Après un certain nombre de tours pendant une partie de \textit{Scrabble}, les 15 lettres suivantes n'ont toujours pas été choisies et sont donc encore dans le sac:
+$$\{a, e, i, g, h, l, n, o, p, t, t, v, v, w, x\}.$$
+
+\begin{parts}
+    \part[4] Si Alex doit piger 4 lettres au hasard dans le sac, quelle est la probabilité que ces lettres soit les lettres de son prénom, dans le bon ordre? Laissez des traces de votre démarche.
+\begin{solution}
+    Soit l'événement $A:$ Alex pige les lettres de son nom dans l'ordre.
+    
+    Comme l'ordre est important, la probabilité est
+
+    \begin{align*}
+        P(A)&=\frac{1}{15}\times\frac{1}{14}\times\frac{1}{13}\times\frac{1}{12}\\
+        P(A)&= \frac{1}{32760}
+    \end{align*}
+\end{solution}
+
+    \vspace{8cm} 
+    \part[6] Supposons qu'Alex a pigé $\{i, g, t, w\}$. Il reste donc 
+$\{a, e, h, l, n, o, p, t, v, v, x\}$ dans le sac. C'est maintenant au tour d'Eva de piger 4 lettres. Quelle est la probabilité que parmi les 4 lettres qu'elle doit piger, elle pige les lettres qui forment son prénom (peu importe l'ordre)? Laissez des traces de votre démarche.
+\begin{solution}
+     Soit l'événement $E:$ Eva pige au moins les 3 lettres de son nom peu importe l'ordre.
+    
+    Comme l'ordre n'est pas important.
+
+    \begin{align*}
+        P(E)&= \frac{\binom{1}{1}\binom{1}{1}\binom{2}{1}\binom{8}{1}}{\binom{11}{4}}\\
+        &= \frac{16}{330}\\
+        &\approx 0,0485
+    \end{align*}
+\end{solution}
+\end{parts}
+
+
+
+
+
+
+\end{questions}
+\end{document} 

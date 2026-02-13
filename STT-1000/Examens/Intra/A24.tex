@@ -1,0 +1,450 @@
+\def\Ponderation{35}
+\def\SigleNumero{STT-1000}
+\def\NomCours{Probabilités et statstique}
+\def\DateEvaluation{24 octobre 2024}
+\def\HeureEvaluation{18h30 à 21h20}
+\def\Session{}
+\def\NomEvaluation{Examen 1}
+\def\Ponderation{40}
+% Ne rien mettre entre les accolades si l'enseignant (ou l'enseignante) est aussi le coordonnateur (ou la coordonnatrice)
+\def\Coordonnatrice{}
+\def\Coordonnateur{}
+
+% Ne rien mettre entre les accolades s'il y a plus d'une section
+\def\Enseignant{}
+\def\Enseignante{}
+
+% Ne rien mettre entre les accolades s'il s'agit d'un cours à section unique
+% Mettre le nom de chacun des enseignants et enseignantes entre les accolades
+% Une case à cocher sera générée pour chacune des sections
+\def\SectionA{Rachid Kandri-Rody}
+\def\SectionB{Julien Miron}
+\def\SectionC{}
+\def\SectionD{}
+
+
+\def\Directives{
+\begin{enumerate}
+\item Matériel autorisé:
+\begin{itemize}
+\item Calculatrice scientifique {\bf autorisée par la faculté des sciences et de génie};
+\item Le feuillet de formules fourni avec l'examen. Celui-ci inclut la table de la loi normale. Veuillez ne rien écrire sur le feuillet de formules.
+\end{itemize}
+\item Assurez-vous que cette évaluation comporte \numquestions ~exercices répartis sur \numpages{}~pages, pour un total de \numpoints{}~points.\
+\item \textbf{Veuillez ne pas dégrafer votre examen.}
+\item Ajoutez vos initiales dans le bas de chaque page.
+\item Vous devez\textbf{ justifier toutes vos réponses} par une démarche claire, sauf pour les questions à choix de réponse.\
+\item Lorsque des boîtes de réponses sont présentes, vous \textbf{\textit{devez}} y écrire vos réponses. N'écrivez que la réponse (aucun nom de variable ou unité de mesure).\
+\item Pour les questions à choix de réponse et les vrais ou faux, vous pouvez mettre un X, un crochet ($\checkmark$) ou remplir la case.\
+\item Certains vrais ou faux demande une justification. Aucun point ne sera donné sans justification, même si vous cochez la bonne réponse.
+\item Pour les questions à choix de réponse, lorsqu'il est écrit «cochez tous les énoncés qui sont vrais/faux», il est possible qu'un seul énoncé soit vrai.
+\item Le verso des feuilles peut être utilisé comme brouillon, \textbf{mais ne sera pas corrigé}. Attention à ne rien dégrafer.
+\end{enumerate}
+}
+
+
+
+\documentclass{Evaluation}
+\usepackage{multicol,graphicx}
+\begin{document}
+
+\newpage
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+\begin{questions}
+
+\question\label{module1_1} \textit{Les questions (a) et (b) sont indépendantes.}
+\begin{parts}
+\part On nous donne les probabilités suivantes:
+\[
+\begin{aligned}
+    & P(A) = 0,45 \\
+    & P(B) = 0,55 \\
+    & P(C) = 0,1 \\
+    & P(A\cap C) = 0 \\
+    & P(B\cap C) = 0 \\
+    & P(A | B) = 0,20 \\
+    & 
+\end{aligned}
+\]
+\begin{subparts}
+\subpart[3] Lequel des énoncés suivants est vrai?
+\begin{checkboxes}
+
+\choice $P(A \cup B) = 1$
+\choice $A$, $B$ et $C$ sont mutuellement exclusifs.
+\correctchoice $A$ et $C$ sont indépendants.
+\choice Comme $P(A)+P(B)=1$, l'intersection de $A$ et $B$ doit être vide, c'est-à-dire $A\cap B = \emptyset$.
+\choice $A$ et $C$ sont mutuellement exclusifs. 
+\choice Aucun des énoncés précédents n'est vrai.
+\vspace{0.1cm}
+\end{checkboxes}
+
+\vspace{0,5cm}
+
+\subpart[4] \(A\) et \(B\) sont indépendants.
+
+     \begin{oneparcheckboxes}
+		\choice VRAI
+		\correctchoice FAUX
+\end{oneparcheckboxes}\\
+{\bf Justification:}
+\vspace{4cm}
+\end{subparts}
+ 
+ 
+\part[3] Un certain item manufacturé est visuellement vérifié par deux inspecteurs à la suite. 
+Le premier inspecteur détecte 90\% des items défectueux. 
+Parmi les item défectueux qui passent le premier inspecteur sans être détectés, 60\% ne seront pas détectés par le deuxième inspecteur.
+Quelle est la probabilité qu'un item défectueux ne soit repéré par aucun inspecteur?
+
+\begin{checkboxes}
+    \choice $90\%$
+    \choice $60\%$
+    \choice $10\%$
+    \choice $40\%$
+    \choice $54\%$
+    \choice $6\%$
+    \choice $9\%$
+    \choice $4\%$
+    \choice $36\%$
+    \choice $24\%$
+    
+\end{checkboxes}
+\end{parts}
+\newpage
+
+\question
+Une compagnie d’assurances subdivise ses clients en assurance automobile en trois catégories : les jeunes (16 à 29 ans), les personnes d’âges moyen (30 à 59 ans) et les personnes âgées (60 ans et plus). Selon l’expérience de la compagnie, la probabilité qu’un jeune soit impliqué dans un accident pendant l’année est de 0.12, celle d’une personne d’âge moyen, de 0.06 et celle d’une personne âgée, de 0.10. La clientèle de la compagnie est formée de 30\% de jeunes, de 45\% de personnes d’âge moyen et de 25\% de personnes âgées. 
+
+\begin{parts}
+\part[5]  Si on choisit un client de cette compagnie au hasard, quelle est la probabilité que ce client ait un accident pendant l’année?	
+
+\begin{solution}
+    Désignons les événements suivants par :
+
+    J=''Le client choisi est jeune''
+
+    M=''Le client choisi est d'âge moyen''
+
+    A=''Le client choisi est âgé'
+
+    I=''Le client est impliqué dans un accident pendant l'année''
+
+    En utilisant la formule des probabilités totale, on obtient 
+    $$
+    \begin{array}{ccl}
+       P(I)  &=& P(J)P(I|J) + P(M)P(I|M)+P(A)P(I|A)\\  \\
+         &= & 0.30x0.12+0.45x0.06+0.25x0.10\\  \\
+          &=&0.0880
+    \end{array}
+   $$
+
+\end{solution}
+
+\vspace{4cm}
+\part[5]  Si on constate que le client choisi au hasard a eu un accident cette année, quelle est la probabilité que ce soit un jeune?                        
+\begin{solution}
+    Selon la formule de Bayes, on a:
+ $$
+    \begin{array}{ccl}
+       P(J|I)  &=& \frac{P(J)P(I|J)}{P(J)P(I|J) + P(M)P(I|M)+P(A)P(I|A)}\\  \\
+         &= & \frac{0.30x0.12}{0.45x0.06+0.25x0.10}\\ \\
+          &=&0.4091
+    \end{array}
+   $$  
+    
+\end{solution}
+\end{parts}
+\newpage
+
+ \question Une urne contient 25 balles.
+ Parmi ces balles, 5 sont rouges, 5 sont vertes, 5 sont bleues, 5 sont jaunes et 5 sont noires.
+ Pour chacune des couleurs, les balles sont numérotées de 1 à 5.
+
+\vspace{0.25cm}
+ \begin{parts}
+     \part[2] Combien existe-t-il de sous-ensembles contenant 5 balles?
+    \begin{solution}
+        On parle de sous-ensembles, donc l'ordre n'est pas important. Il s'agit donc d'une combinaison:
+        $$C_5^{25}=53130$$
+    \end{solution}
+     \vspace{5cm}
+
+    \part[2] Combien existe-t-il de sous-ensembles contenant 5 balles, dont au moins une noire?
+        \begin{solution}
+        Ici on peut simplement dire qu'il s'agit du nombre de sous-ensembles total moins ceux qui ne contiennent aucune balle noire.
+
+        $$C_5^{25}-C_{5}^{20}=37626$$
+
+        
+
+    \end{solution}
+     \vspace{7.5cm}
+     \part[3] Combien existe-t-il de sous-ensembles contenant 5 balles et exactement 2 balles jaunes?
+            \begin{solution}
+  On peut séparer en deux événements: piger 3 balles parmi les 20 et 2 balles parmi les jaunes:
+
+  $$C_{3}^{20}\times C_{2}^5=11400$$
+
+        
+
+    \end{solution}   
+
+
+ \end{parts}
+\newpage
+\question
+Un joueur de fléchette atteint la cible centrale avec une probabilité de 0.05. On suppose que les lancers sont indépendants.
+
+\begin{parts}
+    \part[4] Calculez la probabilité qu’il atteigne la cible pour la première fois au septième lancer.
+
+\begin{solution}
+    Soit la variable aléatoire:
+
+    X= le nombre de lancers nécessaires pour atteindre la cible pour la première fois.
+
+    X suit une loi géométrique de paramètre 0.05.
+
+    D'où
+    $$P(X=7)=0.05(1-0.05)^6 = 0.03675$$
+\end{solution}
+\vspace{1cm}
+\part[4] Calculez la probabilité qu’il atteigne la cible pour la deuxième fois au dixième lancer. 
+\begin{solution}
+    Soit la variable aléatoire:
+
+    X= le nombre de lancers nécessaires pour atteindre la cible pour la deuxième fois.
+
+    X suit une loi de Pascal de paramètre $r=2$ et $p=0.05$.
+
+    D'où
+    $$P(X=10)=\binom{9}{1}0.05^2(1-0.05)^9 = 0.015$$
+\end{solution}
+
+\end{parts}                                                      
+
+\newpage
+
+\question En analyse de survie, nous définissons la fonction de survie $S(x)$ comme étant la probabilité de survivre plus de $x$ unités de temps, c'est-à-dire $S(x)=P(X>x)$, où $X$ est la variable aléatoire qui mesure la durée de vie. 
+
+\vspace{0.5cm}
+ Soit la variable aléatoire $X$, dont la fonction de survie est donnée par 
+\[ S(x) =
+\begin{cases}
+   \displaystyle e^{-x^2}& \text{si } x \ge 0, \\
+    1 & \text{sinon}.
+\end{cases}
+\]
+
+\begin{parts}
+    \part[4]
+Donnez la fonction de répartition de $X$.
+       \begin{solution}
+    La fonction de répartition est $F(x)=P(X\le x)=1-P(X>x)=1-S(x)$. Donc
+
+    \[ F(x) =
+\begin{cases}
+   \displaystyle 1-e^{-x^2}& \text{si } x \ge 0, \\
+    0 & \text{sinon}.
+\end{cases}
+\]
+
+    \end{solution}
+\vspace{8cm}
+\part[2] Calculez $P(X\leq \sqrt{2} | X\leq \sqrt{3})$. 
+      \begin{solution}
+ \begin{align*}
+     P(X\leq \sqrt{2} | X\leq \sqrt{3})&= \frac{ P(X\leq \sqrt{2} \cap X\leq \sqrt{3})}{ P(X\leq \sqrt{3})}\\
+     &= \frac{ P(X\leq \sqrt{2}}{ P(X\leq \sqrt{3})}\\
+     &\frac{ 1-e^{-\sqrt{2}^2}}{1-e^{-\sqrt{3}^2}}\\
+     &= \frac{ 1-e^{-2}}{1-e^{-3}}\\
+     &\approx 0,90997
+ \end{align*}
+
+    \end{solution}
+
+\end{parts}
+
+\newpage
+\question Le passage des voitures sur un certain viaduc est régi par un processus de Poisson d'intensité 60 par heure.
+
+\begin{parts}
+   \part[7] Quelle est la probabilité que la prochaine voiture passe dans plus de 12 minutes, sachant qu'aucune voiture ne passera dans les 6 prochaines minutes?
+     \begin{solution}
+     
+     On peut résoudre de deux façons. 
+     
+     \textbf{Première façon:}
+     
+    Si on cherche une probabilité sur un intervalle de temps, la variable aléatoire $X$ qui mesure le temps entre deux événements suit une loi exponentielle de paramètre $\lambda=60$ (les unités sont des heures, si les étudiants ont transformé en minutes, ça marche).
+
+    
+Ici on cherche $P(X>\sfrac{1}{5}|X>\sfrac{1}{10})$. Comme la loi exponentielle est sans mémoire:
+\begin{align*}
+    P(X>\sfrac{1}{5}|X>\sfrac{1}{10}) &= P(X>\sfrac{1}{10})\\
+    &= 1- (1-e^{-6})\\
+    &= e^{-6}\\
+    &\approx 0,0025
+\end{align*}
+
+     \textbf{Deuxième façon:}
+
+On peut aussi dire que le nombre d'événements $Y$ sur un intervalle de 6 minutes suit une loi de Poisson de paramètre $\mu=\sfrac{1}{10}\times 60= 6$.
+
+Nous cherchons donc $P(Y_2=0|Y_1=0)$, où $Y_1$ est sur le premier intervalle de 6 minutes et $Y_2$ est sur le deuxième intervalle. Ces deux variables aléatoires sont indépendantes.
+
+\begin{align*}
+    P(Y_2=0|Y_1=0)&= \frac{P(Y_2=0 \cap Y_1=0)}{P(Y_1=0)}\\
+    &= \frac{P(Y_2=0 )P( Y_1=0)}{P(Y_1=0)}\\
+    &= P(Y_2=0 )\\
+    &= \frac{6^0e^{-6}}{0!}\\
+    &= e^{-6}\\
+    &\approx 0,0025
+\end{align*}
+
+
+    \end{solution}
+   \vspace{6cm}
+
+   \part[3] Quelle est l'espérance du temps avant que 6 voitures passent sur le viaduc?
+   \begin{solution}
+       $W$, le temps avant que 6 voitures ne passent suit une loi Gamma de paramètres $n=6$ et $\lambda = 60$.
+$$E(W)=\frac{n}{\lambda}=\frac{1}{10}$$
+
+On peut donner 1/10e d'heure ou 6 minutes. Les étudiants doivent avoir mentionner qu'il s'agit d'une Gamma.
+   \end{solution}
+\end{parts}
+
+\newpage
+
+\question Soit les variables aléatoires $X$ et $Y$.
+Voici le tableau qui représente la fonction de masse conjointe de $(X, Y)$ où $a$ et $b$ sont des probabilités.
+
+\begin{center}
+\large{
+\begin{tabular}{cc|cccc}
+$p(x,y)$ & & & $y$& &\\
+ & & 0 & 1 & 2 &3 \\ 
+ \hline
+ & -1 & $a$ & $\sfrac{10}{110}$  & $\sfrac{14}{110}$ & $b$\\
+$x$ & 2 & $\sfrac{23}{110}$ & $\sfrac{9}{110}$ & $\sfrac{1}{110}$& $\sfrac{30}{110}$\\
+& 4 & $\sfrac{3}{110}$ & $0$ & $\sfrac{3}{110}$& $\sfrac{9}{110}$\\
+\end{tabular}
+}
+ \end{center}
+\vspace{0.25cm}\vspace{0.25cm}
+ On sait que $E[Y|X=-1]=\displaystyle \frac{31}{55}$.
+\vspace{0.25cm}
+ \begin{parts}
+     \part[3] Que valent $a$ et $b$? \textit{Donnez vos réponses en fractions réduites.}
+\begin{solution}
+
+    Nous savons que $a+b=\sfrac{8}{110}$. Ce qui implique $a=\sfrac{8}{110}-b$
+
+    Nous avons $P(X=-1)=a+\sfrac{10}{110}+\sfrac{14}{110}+b=(\sfrac{8}{110}-b)+\sfrac{10}{110}+\sfrac{14}{110}+b=\sfrac{32}{110}$
+
+    La fonction de probabilité conditionnelle $Y|X=-1$ est $P(Y=0|X=-1)=\sfrac{110a}{32}$,  $P(Y=1|X=-1)=\sfrac{10}{32}$, $P(Y=2|X=-1)=\sfrac{14}{32}$, $P(Y=3|X=-1)=\sfrac{110b}{32}$.
+
+    Comme $E[Y|X=-1]=\displaystyle \frac{31}{55}$, nous écrivons $\displaystyle \frac{31}{55}=0\times \sfrac{110a}{32}+ 1 \times \sfrac{10}{32} + 2 \times \sfrac{14}{32} + 3 \times \sfrac{110b}{32}$
+
+    \begin{align*}
+        \frac{31}{55}&= \frac{10+28+330b}{32}\\
+         \frac{31}{55}&= \frac{38+330b}{32} \\
+         \frac{31*32}{55}&=38+330b\\
+         \frac{992}{55}-38&=330b\\
+         \frac{992-2090}{55}&=330b\\
+         \frac{-1098}{18150}&=b\\
+         b&= \frac{-183}{3025}
+    \end{align*}
+\end{solution}
+     \vfill
+     $a=$\boite{2}{1.3} $b=$\boite{2}{1.3}
+\newpage
+
+     \part[3] Est-ce que $X$ et $Y$ sont indépendantes? Justifier votre réponse.
+     
+     \begin{oneparcheckboxes}
+         \choice Oui
+         \choice Non
+     \end{oneparcheckboxes}
+
+     \vspace{10cm}
+
+     \part[4] Calculez $P(X=-1|Y=1)$.
+
+     \begin{solution}
+         \begin{align*}
+             P(X=-1|Y=1)&=\frac{P(X=-1\cap Y=1)}{P(Y=1)}\\
+                 &= \frac{\sfrac{10}{110}}{\sfrac{10}{110}+\sfrac{9}{110}+0}\\
+             &=\frac{\sfrac{10}{110}}{\sfrac{19}{110}}\\
+             &=\frac{10}{19}
+         \end{align*}
+     \end{solution}
+     \vfill
+
+   
+ \end{parts}
+
+
+
+\newpage
+\question
+Une composante électrique est reliée à un circuit principal à l’aide de deux branchements. Les observations passées ont permis de dire que le 
+nombre, noté X, de branchements défectueux sur une composante de 
+ce type choisie aléatoirement, possède la distribution suivante:
+\begin{center}
+\begin{tabular}{ c|ccc } 
+ $x_i$ & 0 & 1 & 2 \\  \hline
+ $p(x_i)$ & 0.80 & 0.19 & 0.01 \\ 
+\end{tabular}
+
+\begin{parts}
+    \part[4] Quel est le nombre moyen de branchements défectueux par composante?
+
+\begin{solution}
+   $$ E(X) =\sum_i x_ip(x_i) = 0x0.80 + 1x0.19 + 2x0.01 = 0.21$$
+\end{solution}
+\vspace{2cm}
+
+\vspace{0.5cm}
+    \part[4] Si vous choisissez aléatoirement quatre de ces composantes, quelle est la probabilité que deux 
+d’entre-elles aient exactement un branchement défectueux? 
+
+ \begin{solution}
+     Soit la variable aléatoire 
+
+     Y= nombre de composantes ayant un branchement défectueux parmi les quatre prélevés.
+
+     Y suit une loi binomiale de paramètres $n=4$ et $p=0.19$.
+
+     D'où
+     $$P(Y=2) = \binom{4}{2}0.19^2(1-0.19)^2 \simeq 0.1421$$
+ \end{solution}
+\end{parts}
+\end{center}
+
+\newpage
+\question[8]
+Soit trois éléments indépendants assemblés bout à bout. La longueur de chacun présente une 
+distribution normale avec une moyenne de 2 pouces et un écart-type de 0,2 pouce. Or, les assemblages produits doivent avoir une longueur totale de 5,7 à 6,3 pouces. Quelle proportion d’entre eux satisfait à cette exigence ?
+
+\begin{solution}
+    Soient $X_i$ la variable aléatoire qui désigne la longueur de l'élément $i,\ i=1, 2, 3$.
+
+    $X_i$ suit la loi normale de paramètres $\mu =2$ et $\sigma^2 =0.04$, par conséquent la longueur totale $Y=X_1+X_2+X_3$ suit la loi normale de paramètres $\mu =6$ et $\sigma^2 =0.12$.
+
+ Donc
+ $$
+ \begin{array}{ccl}
+     P(5.7\leq Y \leq 6.3) &=& P(\frac{5.7-6}{0.3464} < Z<\frac{6.3-6}{0.3464})  \\
+      &=& \Phi(0.866) -  \Phi(-0.866) \\
+      &=& 2 \Phi(0.866) -1 \\
+      &=& 2(0.80785) -1 \\
+      &=& 0.6157
+ \end{array}
+ $$
+ \end{solution}
+
+\end{questions}
+\end{document} 

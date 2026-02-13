@@ -1,0 +1,323 @@
+% Pour toute question sur l'utilisation de cette classe, écrivez à jerome.soucy(at)ulaval.ca
+% Nécessite la classe Evaluation.sty dans le même dossier ou dans le PATH de votre système
+% Nécessite le fichier logo_ul.pdf dans le même dossier un dans le PATH de votre système
+\def\Ponderation{35}
+\def\SigleNumero{STT-1000}
+\def\NomCours{Probabilités et statistique}
+\def\DateEvaluation{2 mars 2023}
+\def\HeureEvaluation{18h30 à 21h20}
+\def\Session{Été 2021}
+\def\NomEvaluation{Examen 1}
+
+% Ne rien mettre entre les accolades si l'enseignant (ou l'enseignante) est aussi le coordonnateur (ou la coordonnatrice)
+\def\Coordonnatrice{}
+\def\Coordonnateur{}
+
+% Ne rien mettre entre les accolades s'il y a plus d'une section
+\def\Enseignant{}
+\def\Enseignante{}
+
+% Ne rien mettre entre les accolades s'il s'agit d'un cours à section unique
+% Mettre le nom de chacun des enseignants et enseignantes entre les accolades
+% Une case à cocher sera générée pour chacune des sections
+\def\SectionA{Lajmi Lakhal-Chaieb}
+\def\SectionB{Julien Miron}
+\def\SectionC{}
+\def\SectionD{}
+
+
+\def\Directives{
+\begin{enumerate}
+\item Matériel autorisé:
+\begin{itemize}
+\item Calculatrice scientifique {\bf autorisée par la faculté des sciences et de génie};
+\item Le feuillet de formules fourni avec l'examen. Celui-ci inclut la table de la loi normale. Veuillez ne rien écrire sur le feuillet de formules.
+\end{itemize}
+\item Assurez-vous que cette évaluation comporte \numquestions ~questions réparties sur \numpages{}~pages, pour un total de \numpoints{}~points/.\
+\item \textbf{Veuillez ne pas dégrafer votre examen.}
+\item Ajoutez vos initiales dans le bas de chaque page de l'examen.
+\item Veuillez déposer votre carte d'identité \textbf{admise} avec photo sur votre bureau.\
+\item Vous devez\textbf{ justifier votre réponse} par une démarche claire, sauf pour les questions à choix de réponse.\
+\item Le verso des feuilles peut être utilisé comme brouillon, \textbf{mais ne sera pas corrigé}. Attention à ne rien dégrafer.
+\end{enumerate}
+}
+
+% Veuillez indiquer le type d'évaluation entre crochets
+% Examen : option à choisir pour un examen présentiel qui sera corrigé de manière classique. Un tableau des points sera affiché sur la page couverture.
+% Gradescope : option à choisir pour un examen qui sera corrigé via Gradescope. Aucun tableau de pointage n'apparaîtra et il y a quelques différences au niveau de la mise en page
+% TPS :
+% TPF :
+% Devoir :
+\documentclass{Evaluation}
+\usepackage{multicol,graphicx}
+\begin{document}
+
+\newpage
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+\begin{questions}
+\question[5] Soient $A$ et $B$ deux événements de $\mathcal{U}$ tels que 
+\begin{itemize}
+\item $\mathbb{P}(\overline{A \cup B})=0.4$
+\item $\mathbb{P}(A \cap \overline{B})=0.2$
+\item $\mathbb{P}(\overline{A}\cap B)=0.1$
+\end{itemize}
+Calculer $\mathbb{P}(A \cap B)$.
+
+\vspace{7cm}
+\question[5] Soient $A$, $B$ et $C$ trois événements de $\mathcal{U}$ tels que 
+\begin{itemize}
+\item $\mathbb{P}(A)=0.4$
+\item $\mathbb{P}(B)=0.5$
+\item $\mathbb{P}(C)=0.2$
+\item les événements $A$ et $B$ sont indépendants
+\item les événements $B$ et $C$ sont indépendants.
+\item les événements $A$ et $C$ sont mutuellements exclusifs.
+\end{itemize}
+Calculer $\mathbb{P}(A \cup B \cup C)$.
+\newpage
+
+\question[5] Une association est composée de 30 personnes. De combien de façons est-ce qu'on peut former un bureau exécutif composé d'un président, un vice-président, un trésorier et 4 membres?
+
+\vspace{8cm}
+\question[5] Une usine fabrique 3 types de télévisions qu'on nomme $A$, $B$ et $C$. On nous dit que $50\%$ des télévisions fabriqués sont de type $A$ et $20\%$ de type $B$. On nous dit aussi que $5\%$ de télévisions de type $A$, $10\%$ des télévisions de type $B$ et $15\%$ des télévisions de type $C$ sont défectueuses. Quelle est la probabilité qu'une télévision défectueuse soit~de~type~$B$?
+
+\begin{solution}
+$P(A)=0,5$, $P(B)=0,2$, donc $P(C)=0,3$.
+
+$P(D|A)=0,05$, $P(D|B)=0,1$ et $P(D|C)=0,15$.
+
+On cherche $P(B|D)$.
+
+\begin{align*}
+    P(B|D) = & \frac{P(B\cap D)}{P(D)}\\
+    =& \frac{P(D|B)P(B)}{P(D\cap A)+P(D\cap B) + P(D\cap C)}\\
+    =&\frac{P(D|B)P(B)}{P(D| A)P(A)+P(D|B)P(B) + P(D| C)P(C)}\\
+    =&\frac{0,1 \cdot 0,2}{0,05\cdot 0,5 + 0,1 \cdot 0,2 + 0,15 \cdot 0,3}\\
+    =& \frac{0,02}{0,09}\\
+    =& \frac{2}{9}
+\end{align*}
+\end{solution}
+\newpage
+\question[6] Soit $X$ une variable aléatoire discrète telle que $\mathbb{R}_X=\{0,1,2,3\}$. Sa fonction de distribution  de masse est donnée par :
+\begin{center}
+\begin{tabular}{ |c|c|c|c|c| } 
+ \hline
+ $x$ & 0 & 1 & 2 & 3 \\
+ \hline
+ $\mathbb{P}(X=x)$ & $a$ & 1/6 & b & 1/3 \\
+ \hline
+ \end{tabular}
+ \end{center}
+ où $a$ et $b$ sont des inconnus.
+On nous dit que $\mathbb{E}(X)=2$. Calculer $a$ et $b$.
+
+\newpage
+\question Soit $X$ une variable aléatoire continue dont la fonction de répartition est donnée par
+\[ F_X(x) = \begin{cases}
+\displaystyle 0 & \mbox{si } x < 0 \\
+\displaystyle x^2 & \mbox{si } 0 \le x < 1/2 \\
+\displaystyle \frac{3x-1}{2} & \mbox{si } 1/2 \le x < 1 \\
+\displaystyle 1 & \mbox{si } 1 \le x
+\end{cases} \]
+
+\begin{parts}
+    \part[4] Calculer $\mathbb{P}(X>1/2\ |\ 1/4<X<3/4)$.
+    \vspace{5cm}
+    \part[4] Donner la fonction de densité $f_X$ de $X$.
+    \vspace{4cm}
+    \part[4] En déduire $\mathbb{E}(X)$.
+\end{parts}
+\newpage
+ 
+\question Jean est un vendeur dans une boutique et à chaque fois qu'un client se présente, Jean a une chance sur 5 d'effectuer une vente. 
+
+\begin{parts}
+    \part[4] Quelle est la probabilité de conclure 2 ventes avec les 5 prochains clients?
+    \vspace{5cm}
+    \part[4] Quelle est la probabilité que le premier client avec qui Jean conclut une vente soit le deuxième ou le troisième client qui s'est présenté à la boutique?
+    \vspace{5cm}
+    \part[4] Quelle est la probabilité de devoir servir 8 clients pour effectuer deux ventes?
+\end{parts}
+\newpage
+
+
+\question Un médecin reçoit en moyenne 6 patients par heure. 
+
+\begin{parts}
+    \part[4] Quelle est la probabilité que 2 patients rentrent voir le médecin durant les 30 prochaines minutes ?
+    \begin{solution}
+    Processus de poisson d'intensité 1 patient / 10 minutes.\\
+    $X$: nombre de patients par 30 minutes\\
+    $X\sim$Poisson($\mu=1 \cdot 30 / 10$), donc $X\sim$Poisson($\mu=3$).\\
+    On cherche $P(X=2) = \displaystyle\frac{3^2e^{-3}}{2!}= \frac{9e^{-3}}{2}$
+    
+    \end{solution}
+    \vspace{5cm}
+    \part[4] Vous êtes le premier sur la liste des patients, quelle est la probabilité que vous attendiez plus que 12 minutes avant de voir le médecin ?
+    \begin{solution}
+     Processus de poisson d'intensité 1 patient / 10 minutes.\\
+        $Y$: temps entre deux patients\\
+        $Y\sim$Exp($\frac{1}{10}$)\\
+        On cherche $P(Y>12)=1-(1-e^{-12/10})=e^{-6/5}$
+    \end{solution}
+    \vspace{5cm}
+    \part[4] Dans combien de temps la cinquième personne sur la liste d'attente peut-elle espérer voir le médecin?
+    \begin{solution}
+      Processus de poisson d'intensité 1 patient / 12 minutes.\\
+    $W$: temps avant le 5e patient\\
+    $W\sim$Gamma($5, \frac{1}{10}$)\\
+    On cherche $\mathbb{E}(W)=5\cdot10=50$
+    \end{solution}
+\end{parts}
+\newpage
+
+\question Soient $X_1$, $X_2$ et $X_3$ trois variables aléatoires indépendentes telles que 
+\begin{itemize}
+\item $X_1 \sim {\cal N}(1,2)$
+\item $X_2 \sim {\cal N}(0,3)$
+\item $X_3 \sim {\cal N}(1,1)$
+\end{itemize}
+On pose $Y=X_1+X_2+2 X_3$.
+
+\begin{parts}
+    \part[3] Donner la loi de $Y$.
+    \vspace{5cm}
+    \part[4] Calculer $\mathbb{P}(0 \le Y \le 6)$.
+    \begin{solution}
+        Comme $Y\sim\mathcal{N}(3, 9)$\\
+        \begin{align*}
+            P(0\leq Y \leq 6) &= P\left(\frac{0-3}{3}\leq Z \leq \frac{6-3}{3}\right)\\
+            =& P(-1\leq Z \leq 1)\\
+            =& 2 \Phi(1) - 1\\
+            =& 2\cdot 0,84134 - 1\\
+            =&0,68268
+        \end{align*}
+    \end{solution}
+    \part[4] Trouver $m$ tel que $\mathbb{P}(Y>m)=0.4$.
+    \begin{solution}
+        On cherche $m$ t.q. $P(Y>m=0,4)$ ou $1-P(Y\leq m) =0,4$, donc
+        \begin{align*}
+            P(Y\leq m) =& 0,6\\
+            P\left(Z\leq \frac{m-3}{3}\right)=&0,6\\
+        \end{align*}
+        On trouve donc que $\displaystyle\frac{m-3}{3}=0,25$, donc $m=3,75$ (réponses entre 3,75 et 3,78 acceptées).
+    \end{solution}
+\end{parts}
+\newpage
+
+
+\question On lance trois dés standard à 6 faces et on définit les variables aléatoires $X$ et $Y$ comme suit:
+\begin{itemize}
+\item $X$ vaut 1 si les trois dés affichent le même chiffre et 0 sinon.
+\item $Y$ est le nombre de fois où le chiffre 6 apparait.
+\end{itemize}
+
+Voici le tableau qui représente la fonction de masse conjointe de $(X, Y)$ où $a$, $b$ et $c$ sont des probabilités.
+
+\begin{center}
+\large{
+\begin{tabular}{cc|cccc}
+$p(x,y)$ & & & $y$& &\\
+ & & 0 & 1 & 2 &3 \\ 
+ \hline
+ & 0 & $a$ & $\sfrac{75}{216}$  & $\sfrac{15}{216}$ & $c$\\
+$x$ & 1 & $\sfrac{5}{216}$ & $b$ & $0$& $\sfrac{1}{216}$\\
+\end{tabular}
+}
+ \end{center}
+
+\begin{parts}
+    \part[4] Que valent $a$, $b$ et $c$?
+    
+\vspace{4cm}
+    
+    \part[4] Est-ce que $X$ et $Y$ sont indépendentes ? Justifier votre réponse.
+\vspace{5cm}
+    \part[4] Calculer $\mathbb{E}[Y|X=1]$. \textit{Si vous n'avez pas trouvé $a$, $b$ et $c$, vous pouvez exprimer votre réponse en fonction d'une ou plusieurs de ces inconnues.}
+\end{parts}
+
+\newpage
+
+\question[]\label{micro}
+Dans un laboratoire de microtechnique, un technicien a étudié le temps de réaction (en millisecondes) d'un certain type de détecteur de mouvements. Les 21 valeurs suivantes sont des temps de réaction collectés au cours d'une journée par ordre croissant:
+
+\begin{center}
+\begin{tabular}{  c c c c c c c c }
+111  &111  &111  &112  &113  &113  &113 \\
+113 &114  &114  &114  &114 &115 & 116 \\
+118 & 118 & 118 & 119 & 125 &127 & 128\\
+\end{tabular}
+\end{center}
+
+Le diagramme en boîte ci-dessous a été tracé à partir de ces résultats. Il manque toutefois quelque chose à ce diagramme (il ne s'agit pas d'un titre ou de noms d'axes).
+
+\medskip
+
+\begin{parts}
+\part[6] Ajoutez \textbf{sur le diagramme} l'élément manquant et dites ce que vous avez fait (ceci \textit{doit} inclure des calculs) sous le diagramme.
+\begin{center}
+		\begin{tikzpicture}[x=0.4cm,y=0.9cm]
+         \draw[step=0.4cm,,dotted,color=black] (107,0) grid (130,4);
+		\draw[->] (107,0) -- (130,0) node[right] {$X$} ;
+		\foreach \X in {110,115,110,115,120,125,130} {
+			\draw (\X,0.05cm) -- (\X,-0.05cm) node[below] {$\X\strut$};}
+		\draw[ultra thick][fill=red!5] (113,1) rectangle (118,3);
+		\draw[ultra thick] (111,1) -- (111,3);
+		\draw[ultra thick] (111,2) -- (113,2);
+		\draw[ultra thick] (118,2) -- (125,2);
+		%\draw[ultra thick] (4,1) -- (4,3);
+		\draw[ultra thick] (125,1) -- (125,3);
+        \filldraw [black] (127, 2) circle (3pt);
+        \filldraw [black] (128, 2) circle (3pt);
+			\end{tikzpicture}\\
+	\end{center}
+\vspace{12cm}
+
+\pagesuivante{\ref{micro}}
+\newpage
+\suite{\ref{micro}}
+
+\part Vous apprenez que la plus grande observation (128) est erronée. Vous ne connaissez pas sa valeur, mais vous savez que celle-ci est plus grande que 150. Nous notons cette valeur XXX et nous savons que XXX~>~150. Le nouveau jeu de données est donc:
+
+\begin{center}
+\begin{tabular}{  c c c c c c c c }
+111  &111  &111  &112  &113  &113  &113 \\
+113 &114  &114  &114  &114 &115 & 116 \\
+118 & 118 & 118 & 119 & 125 &127 & XXX \\
+\end{tabular}
+\end{center}
+
+À partir de ce nouveau jeu de données, répondez aux questions suivantes. Nous nommons «jeu de données original» celui qui contient l'observation 128 et «nouveau jeu de données» celui qui contient l'observation XXX.
+
+\textbf{\textit{Inscrivez «Vrai» ou «Faux» dans les cases appropriées.}}
+
+\begin{subparts}
+\subpart[3]La médiane échantillonnale du nouveau jeu de données est supérieure à celle du jeu de données orginal.
+
+
+    \begin{oneparcheckboxes}
+        \correctchoice Vrai
+        \choice Faux
+    \end{oneparcheckboxes}
+
+\subpart[3] La moyenne échantillonnale du nouveau jeu de données est supérieure à celle du jeu de données original.
+
+
+    \begin{oneparcheckboxes}
+        \correctchoice Vrai
+        \choice Faux
+    \end{oneparcheckboxes}
+
+\subpart[3] La variance échantillonnale du nouveau jeu de données est supérieure à celle du jeu de données orignal.
+
+
+    \begin{oneparcheckboxes}
+        \correctchoice Vrai
+        \choice Faux
+    \end{oneparcheckboxes}
+
+\end{subparts}
+\end{parts}
+
+\end{questions}
+\end{document} 

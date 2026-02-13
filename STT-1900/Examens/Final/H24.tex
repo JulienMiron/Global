@@ -1,0 +1,903 @@
+\def\Ponderation{45}
+\def\SigleNumero{STT-1900}
+\def\NomCours{Méthodes statistiques pour ingénieurs}
+\def\DateEvaluation{2 mai 2024}
+\def\HeureEvaluation{18h30 à 21h20}
+\def\Session{Automne 2022}
+\def\NomEvaluation{Examen 2}
+
+\def\OptionsExam{11pt}
+
+% Ne rien mettre entre les accolades si l'enseignant (ou l'enseignante) est aussi le coordonnateur (ou la coordonnatrice)
+\def\Coordonnatrice{}
+\def\Coordonnateur{}
+
+% Ne rien mettre entre les accolades s'il y a plus d'une section
+\def\Enseignant{}
+\def\Enseignante{}
+
+% Ne rien mettre entre les accolades s'il s'agit d'un cours à section unique
+% Mettre le nom de chacun des enseignants et enseignantes entre les accolades
+% Une case à cocher sera générée pour chacune des sections
+\def\SectionA{Ting-Huei Chen}
+\def\SectionB{Julien Miron}
+\def\SectionC{}
+\def\SectionD{}
+
+% Concerne seulement les travaux pratiques : écrire entre les accolades le nombre maximal de membres pour une équipe
+\def\NombreLignes{}		
+
+% Si vous souhaitez qu'apparaisse une déclaration d'honneur au bas de la première page, écrivez quelque chose entre les accolades
+\def\EnLigne{}
+
+\def\Directives{
+	\begin{enumerate}
+\item Matériel autorisé:
+\begin{itemize}
+    \item Calculatrice scientifique autorisée par la faculté des sciences et de génie;
+    \item Le feuillet fourni avec cet examen;
+    \item Une seule feuille aide-mémoire manuscrite de format lettre (8.5''$\times$11'') recto-verso.
+    \end{itemize}
+\item Assurez-vous que cette évaluation comporte \numquestions ~questions réparties sur \numpages{}~pages, pour un total de \numpoints{}~points.\
+\item Veuillez ne pas dégrafer votre examen.
+\item Les tables de lois sont distribuées dans un deuxième feuillet. Attention à ne rien dégrafer.
+\item Veuillez ne rien écrire sur les tables de loi.
+  \item Lorsque des boîtes de réponses sont présentes, vous devez y écrire vos réponses. N'écrivez que la réponse (aucun nom de variable ou unité de mesure).\
+\item \textbf{Vous devez justifier votre raisonnement. Dans le cas contraire, aucun point ne sera accordé, même pour une bonne réponse}, sauf pour les questions à choix de réponse et les vrais ou faux. \
+\item Pour les questions à choix de réponse et les vrais ou faux, vous pouvez mettre un X, un crochet ($\checkmark$) ou remplir la case.
+
+\item Le verso des feuilles peut être utilisé comme brouillon, mais ne sera pas corrigé. Attention à ne rien dégrafer.
+\end{enumerate}
+}
+
+% Veuillez indiquer le type d'évaluation entre crochets
+% Examen : option à choisir pour un examen présentiel qui sera corrigé de manière classique. Un tableau des points sera affiché sur la page couverture.
+% Gradescope : option à choisir pour un examen qui sera corrigé via Gradescope. Aucun tableau de pointage n'apparaîtra et il y a quelques différences au niveau de la mise en page
+% TPS :
+% TPF :
+% Devoir :
+\documentclass[Gradescope]{Evaluation}
+\begin{document}
+
+\mbox{}
+%\newpage
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+
+\begin{questions}
+\question[5]\label{QCMicTests}
+Soit $X_1,\hdots,X_{16}$, des variables aléatoires indépendantes et identiquement distribuées selon une loi normale d'espérance $\mu$ et de variance $\sigma^2$. Un intervalle de confiance de niveau 95\% pour $\mu$ est $[2,848 ; 11,372]$.
+
+\medskip
+
+Parmi les énoncés suivants, cochez ceux qui sont vrais, en vous basant sur ce qui est mentionné plus haut et sachant qu'il y a cinq énoncés qui sont vrais. \textit{\textbf{Une réponse cochée alors qu'elle ne devrait pas l'être entraîne une pénalité de 1 point. Le minimum possible pour cette question est 0 point.}}
+    
+
+\medskip
+    \begin{checkboxes}
+        \choice Au seuil 1\%, nous rejetons $H_0: \mu=1,4$ pour $H_1:\mu \neq 1,4$.
+        \CorrectChoice Au seuil 5\%, nous rejetons $H_0: \mu=1,4$ pour $H_1:\mu \neq 1,4$.
+        \correctchoice Au seuil 10\%, nous rejetons $H_0: \mu=1,4$ pour $H_1:\mu \neq 1,4$.
+        \choice Au seuil 1\%, nous ne rejetons pas $H_0: \mu=1,4$ pour $H_1:\mu \neq 1,4$.
+        \choice Au seuil 5\%, nous ne rejetons pas $H_0: \mu=1,4$ pour $H_1:\mu \neq 1,4$.
+        \choice Au seuil 10\%, nous ne rejetons pas $H_0: \mu=1,4$ pour $H_1:\mu \neq 1,4$.
+        \correctchoice À variance égale, un intervalle de confiance construit avec $25$ observations serait forcément plus court.
+        \choice À variance égale, un intervalle de confiance construit avec $25$ observations serait forcément plus long.
+        \choice Nous savons que $\mu=7,11$.
+        \correctchoice Nous savons que $\overline{x}=7,11$.
+        \correctchoice Si l'intervalle de confiance a été construit en utilisant les quantiles de la loi de Student (donc en supposant la variance inconnue), $s=8$.
+        \choice Si l'intervalle de confiance a été construit en utilisant les quantiles de la loi normale (donc en supposant la variance connue), $\sigma =8$
+    \end{checkboxes}
+
+
+\vspace{1cm}
+
+\question [4] Nous nous intéressons aux prix des loyers des étudiants de l'Université Laval. 
+Avec un échantillon aléatoire de $n=241$ étudiants, nous obtenons l'intervalle de confiance à 95\%  pour $\mu$ suivant: $[550;1630]$. 
+Cochez tous les énoncés qui sont vrais parmi les suivants. \textit{\textbf{Une réponse cochée alors qu'elle ne devrait pas l'être entraîne une pénalité de 1 point. Le minimum possible pour cette question est 0 point.}}
+ 
+\begin{checkboxes}
+\choice Il y a 95\% des étudiants qui ont un loyer entre 550 \$ et 1630 \$
+\choice Si on choisissait un échantillon de 100 étudiants pour construire un nouvel intervalle de confiance à 95\% sur la moyenne, celui-ci aurait une plus faible probabilité de contenir la vraie valeur de $\mu$ que celui obtenu à partir de 241 étudiants.
+\choice Si on choisissait un autre échantillon de 241 étudiants pour construire un intervalle de confiance à 95\% sur la moyenne, l'intervalle obtenu aurait nécessairement la même longueur que celui-ci.
+\correctchoice Si on choisissait plusieurs échantillons de 241 étudiants dans cette population, et qu'on construisait avec chacun d'eux l'intervalle de confiance à 95\% pour $\mu$, alors environ 95\% de ces intervalles contiendraient la vraie valeur moyenne des loyers des étudiants de l'Université Laval. 
+\correctchoice Si on suppose que le prix des loyers ne suit pas une loi normale, l'intervalle de confiance est toujours valide, car $n\geq 30$, mais son niveau est approximatif.
+\end{checkboxes}
+
+
+\newpage
+
+\question[3] Soit la table d'analyse de la variance suivante obtenue à l'aide de \texttt{Rcmdr}:
+\begin{verbatim}
+>summary(ANOVAModel)
+            Df   Sum Sq   Mean Sq   F value    Pr(>F)    
+Raclette     4   926.12    231.53    238.72    0.0001 
+Residuals   48    46.55      0.97                      
+\end{verbatim}
+
+À partir de la table d'ANOVA, quelle affirmation parmi les suivantes est vraie? Une seule réponse est bonne.
+
+\begin{checkboxes}
+\choice La proportion de la variance totale expliquée par le facteur \texttt{Raclette} est égale à $0,0001$. 
+\choice Il y a 4 niveaux différents pour le facteur \texttt{Raclette}.
+\choice La variance du facteur \texttt{Raclette} est environ 20 fois plus grande que la variance du facteur \texttt{Residuals}.
+\correctchoice L'hypothèse nulle supposait que les moyennes des différents niveaux du facteur \texttt{Raclette} étaient toutes égales.
+\choice L'hypothèse nulle supposait que les moyennes des différents niveaux du facteur \texttt{Residuals} étaient toutes égales.
+\choice Il s'agit d'une ANOVA à blocs aléatoires.
+\choice Il manque la ligne d'interaction entre \texttt{Raclette} et \texttt{Residuals}.
+\end{checkboxes}
+
+\vspace{1cm}
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+
+
+\question Soit $X_1,\hdots, X_{25}$, des variables aléatoires indépendantes de loi normale d'espérance $\mu$ et de variance $\sigma^2$. Voici plusieurs intervalles:
+\begin{center}
+    
+\begin{tabular}{|c|c|c|c|c|}
+	\cline{1-2}\cline{4-5}
+	&&&&\\[-3mm]
+	% Puissance et alpha
+	1 &  $\displaystyle \overline {X}\Mypm t_{\sfrac{\alpha}{2};24}\frac{S}{\sqrt{25}}$
+	% puissance:  ici, conditionnellement à \mu=\mu_0 plutôt que \mu=\mu_1 
+	% bon alpha
+	 & \hspace{0.3cm} &
+	 6 &  $\displaystyle \overline {X}\Mypm z_{\sfrac{\alpha}{2}}\frac{\sigma^2}{\sqrt{25}}$
+	% ici, \overline{X}- moyenne échantillonnale plutôt que \overline{X}- \mu_0 
+	\\[4mm]
+	\cline{1-2}\cline{4-5}
+	&&&&\\[-3mm]
+	 2 & $\displaystyle \overline {X}\Mypm t_{\sfrac{\alpha}{2};25}\frac{S}{\sqrt{25}}$
+	% ici  divisé par \sigma^2/n plutot que la racine
+	&  &
+	 7 & $\displaystyle \overline {X}\Mypm t_{\sfrac{\alpha}{2};24}\frac{S}{\sqrt{24}}$ 
+	% ici, bonne réponse pour alpha
+	\\[4mm]
+	\cline{1-2}\cline{4-5}
+	&&&&\\[-3mm]
+	 3 & $\displaystyle \overline {X}\Mypm t_{\sfrac{\alpha}{2};25}\frac{\sigma}{\sqrt{24}}$
+	% ici, conditionnellement à \mu=\mu_0  ET mauvais z_\alpha
+	 &  &
+	  8 & $\displaystyle \overline {X}\Mypm z_{\sfrac{\alpha}{2}}\frac{S}{\sqrt{25}}$
+	 % ici,  mauvais z_\alpha
+	 \\[4mm]
+	 \cline{1-2}\cline{4-5}
+	 &&&&\\[-3mm]
+	   4 & $\displaystyle \overline {X}\Mypm t_{\sfrac{\alpha}{2};25}\frac{\sigma}{\sqrt{25}}$
+	 % ici avec z_{\alpha/2} plutot que z_\alpha ET divisé par \sigma^2/n plutot que la racine
+	 &  &
+	  9 & $\displaystyle \left[\frac{24S^2}{\chi_{\sfrac{\alpha}{2};24}^2};\frac{24S^2}{\chi_{1-\sfrac{\alpha}{2};24}^2}\right]$
+	 % ici, centrer avec \mu_1 plutot que \mu_0 
+	 \\[5mm]
+	 \cline{1-2}\cline{4-5}
+	 &&&&\\[-3mm]
+	  5 & $\displaystyle \overline {X}\Mypm z_{\sfrac{\alpha}{2}}\frac{\sigma}{\sqrt{25}}$
+	 % ici avec z_{\alpha/2} plutot que z_\alpha	 
+	 &  &
+	  10 & $\displaystyle \left[\frac{25S^2}{\chi_{\sfrac{\alpha}{2};25}^2};\frac{25S^2}{\chi_{1-\sfrac{\alpha}{2};25}^2}\right]$
+	 % ici, divisé par \sigma^2/n plutot que \sqrt{ \sigma^2/n }
+	 \\[5mm]
+	 \cline{1-2}\cline{4-5}
+
+	
+\end{tabular}
+
+\end{center}
+
+Associez chacune des situations suivantes au numéro de l'intervalle de confiance de niveau $1-\alpha$ qui correspond. Une seule réponse est bonne pour chaque situation.
+
+\vspace{0.5cm}
+\begin{parts}
+    \part[3] Intervalle de confiance pour $\mu$ lorsque $\sigma^2$ est connue.
+
+ \medskip 
+ \begin{oneparcheckboxes}
+     \choice 1
+     \choice 2 
+     \choice 3 
+     \choice 4 
+     \CorrectChoice 5 
+     \choice 6 
+     \choice 7 
+     \choice 8 
+     \choice 9
+     \choice 10
+ 
+ \end{oneparcheckboxes}\medskip
+ 
+    \part[3] Intervalle de confiance pour $\sigma^2$.
+    
+\medskip  
+\begin{oneparcheckboxes}
+     \choice 1
+     \choice 2 
+     \choice 3 
+     \choice 4 
+     \choice 5 
+     \choice 6 
+     \choice 7 
+     \choice 8 
+     \CorrectChoice 9
+     \choice 10
+
+ \end{oneparcheckboxes}\medskip
+
+     \part[3] Intervalle de confiance pour $\mu$ lorsque $\sigma^2$ est inconnue.
+    
+\medskip  
+\begin{oneparcheckboxes}
+     \CorrectChoice 1
+     \choice 2 
+     \choice 3 
+     \choice 4 
+     \choice 5 
+     \choice 6 
+     \choice 7 
+     \choice 8 
+     \choice 9
+     \choice 10
+
+ \end{oneparcheckboxes}\medskip
+ \end{parts}
+
+
+\newpage
+
+\section*{Mise en situation - Exercices \ref{mise1}, \ref{mise2} et \ref{mise3}}
+Scénario A: Guillaume souhaite comparer la performance de trois marques de freins à disque pour vélo de route. Il choisit 5 cyclistes pour chaque marque de frein.
+
+\vspace{0.25cm}
+Scénario B: Émile lui dit que le poids des cyclistes ainsi que leur expérience pourrait avoir un impact sur la distance parcourue. Il choisit donc 5 cyclistes qui freineront tous avec les trois marques de freins.
+
+\vspace{0.25cm}
+Scénario C: Léon pense qu'il pourrait aussi être intéressant de comparer la performance de freinage des cycliste ainsi que l'interaction entre les cyclistes et les différents types de frein. Il choisit donc 5 cyclistes qui freineront tous avec les trois marques de freins, 3 fois chacun.
+
+\vspace{0.25cm}
+Les trois tables d'ANOVA proviennent des trois scénarios décrits plus haut. \textit{Les tables ne sont pas nécessairement dans l'ordre de présentation des scénarios.} Dans ces tables, \texttt{disq} fait référence à la variable disque, alors que \texttt{cyc} fait référence à la variable cycliste. Des valeur ont été remplacées par \texttt{AAA}, \texttt{BBB} et \texttt{CCC} dans la table ANOVA 1.
+\begin{verbatim}
+***********************************************************
+ANOVA 1
+             Df    Sum Sq    Mean Sq    F value      Pr(>F)    
+disq          2    167.78     83.890        AAA   0.0319481
+cyc           4    343.21     85.803        BBB   0.0107121
+disq:cyc      8    105.25     13.156        CCC   0.7646170
+Residuals    30    650.22     21.674
+***********************************************************
+ANOVA 2
+             Df    Sum Sq    Mean Sq    F value      Pr(>F)    
+disq          2     45.77     22.885      0.915   0.4267312
+Residuals    12    300.10     25.008
+***********************************************************
+ANOVA 3
+             Df    Sum Sq    Mean Sq    F value      Pr(>F)    
+disq          2     45.77     22.885      4.597   0.0468654
+cyc           4    260.28      62.57   
+Residuals     8     39.82      4.978
+***********************************************************
+\end{verbatim}
+
+\question[3]\label{mise1} Que vaut \texttt{AAA}?
+\begin{checkboxes}
+    \choice 83,890
+    \choice 41,945
+    \correctchoice 3,871
+    \choice 2
+    \choice Il n'est pas possible de trouver la valeur de \texttt{AAA} avec les informations données.
+\end{checkboxes}
+
+\vspace{0.5cm}
+\question[3] \label{mise2} Quelle association de scénario et de table d'ANOVA est la bonne? Ici, A1 veut dire que le scénario A est associé à la table d'ANOVA 1, par exemple.
+
+\begin{oneparcheckboxes}
+    \choice A1, B2, C3
+    \choice A1, B3, C2
+    \choice A2, B1, C3
+    \correctchoice A2, B3, C1
+    \choice A3, B1, C2
+    \choice A3, B2, C1
+\end{oneparcheckboxes}
+
+\vspace{0.5cm}
+\question[3]\label{mise3} Au seuil de 5\%, quelle conclusion pouvons-nous tirer de la table d'ANOVA 1? Une seule réponse est bonne.
+\begin{checkboxes}
+    \choice Il n'est pas possible de tirer de conclusion car nous ne connaissons pas les valeurs de \texttt{AAA}, \texttt{BBB} et \texttt{CCC}.
+    \choice L'interaction est significative, donc nous ne pouvons pas regarder les facteurs individuellement.
+    \choice L'interaction est significative et les deux facteurs pris individuellement sont significatifs.
+    \correctchoice L'interaction n'est pas significative, mais les deux facteurs pris individuellement sont significatifs.
+    \choice L'interaction n'est pas significative et les deux facteurs pris individuellement ne sont pas significatifs.
+\end{checkboxes}
+
+\newpage
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+
+ \question\label{1FQCM}
+
+Amandine s'intéresse à la quantité moyenne de sel par kilogramme de gruyère. Elle choisit au hasard 16 morceaux de 1 kilogramme. Dans l'échantillon, la quantité moyenne de sel par kilogramme est de $3,4 \,g$ et la variance échantillonnale est de $4,41 \, g^2$. Sachant que $X$, la quantité de sel, est une variable aléatoire qui suit une loi normale d'espérance $\mu$ et de variance $\sigma^2=4 \, g^2$, elle confronte les hypothèses suivantes, au seuil $\alpha=5\%$,
+\begin{align*}
+	H_0 &: \mu = 3 \cr
+	H_1 &: \mu > 3.
+\end{align*}
+
+\begin{parts}
+
+\part[2] Quelle est la valeur critique du test, arrondie à 3 décimales?
+
+\medskip
+\begin{oneparcheckboxes}
+    \CorrectChoice 1,645
+    \choice 1,960
+    \choice 0,800
+    \choice 0,762
+    \choice 2,131
+    \choice 1,753
+\end{oneparcheckboxes} 
+
+\vspace{0.2cm}
+\begin{oneparcheckboxes}
+    \choice Comme $n<30$, il est impossible de faire un test d'hypothèse valide.
+\end{oneparcheckboxes} 
+
+\vspace{0.5cm}
+\part[3] Le seuil observé du test est 0,212. Choisissez tous les énoncés qui sont vrais. \textit{\textbf{Une réponse cochée alors qu'elle ne devrait pas l'être entraîne une pénalité de 1 point. Le minimum possible pour cette question est 0 point.}}
+
+\medskip
+	\begin{checkboxes}
+	    \choice Au seuil $\alpha=5\%$, Amandine rejette $H_0$.
+		\CorrectChoice Au seuil $\alpha=5\%$, Amandine ne rejette pas $H_0$.
+		\choice Au seuil $\alpha=5\%$, la variance de la quantité de sel dans un kilogramme est significativement supérieure à $3 \, g$.
+		\choice Au seuil $\alpha=5\%$, nous ne pouvons pas dire si la quantité moyenne de sel dans un kilogramme est significativement différente de $3 \, g$.
+        \correctchoice Amandine rejetterait $H_0$ pour tous les tests dont le seuil est supérieur ou égal à 0,212.
+        \choice Amandine rejetterait $H_0$ pour tous les tests dont le seuil est inférieur ou égal à 0,212.
+  
+	\end{checkboxes}
+
+\end{parts}
+
+\question[12] Déterminez si les énoncés suivants sont vrais ou faux.
+
+\textbf{\textit{Une bonne réponse vaut 2 points, une mauvaise réponse vaut -1 point et une réponse vide vaut 0 point, pour un total minimum de 0 point.}}
+\smallskip
+
+\begin{parts}
+\part L'analyse de la variance à 1 facteur tente d'isoler la variabilité causée par des phénomènes externes afin que celle-ci n'impacte pas les résultats.
+
+\begin{oneparcheckboxes}
+    \choice Vrai
+    \correctchoice Faux
+\end{oneparcheckboxes}
+\vspace{0.5cm}
+
+\part Dans un test unilatéral de comparaison de moyennes, plus le seuil $\alpha$ est petit, plus la valeur-p est petite.
+
+\begin{oneparcheckboxes}
+    \choice Vrai
+    \correctchoice Faux
+\end{oneparcheckboxes}
+\vspace{0.5cm}
+\part En faisant une analyse de la variance à deux facteurs, la \textit{valeur-p} associée au terme d'interaction est égale à $0,1$. Au seuil $\alpha = 0,05$, l'interaction n'est pas significative et nous interprétons les facteurs individuellement.
+
+\begin{oneparcheckboxes}
+    \correctchoice Vrai
+    \choice Faux
+\end{oneparcheckboxes}
+\vspace{0.5cm}
+\part Dans un modèle de régression linéaire multiple, si l'intervalle de confiance à $95\%$ pour $\beta_0$ est $[0.345; 12.765]$, nous sommes certain qu'une relation linéaire existe entre $X$ et $Y$.
+
+\begin{oneparcheckboxes}
+    \choice Vrai
+    \correctchoice Faux
+\end{oneparcheckboxes}
+\vspace{0.5cm}
+\part Dans le contexte d'une régression linéaire simple, nous avons que $y_i=x_i$ pour $i=1, \dots, n$. L'estimateur de $\beta_0$ est 0 et l'estimateur de $\beta_1$ est 1.
+
+\begin{oneparcheckboxes}
+    \correctchoice Vrai
+    \choice Faux
+\end{oneparcheckboxes}
+\vspace{0.5cm}
+
+\part Dans le contexte d'une régression linéaire simple, si nous rejetons $H_0: \beta_1=0$ à l'aide du test $F$ au seuil $\alpha$, il est certain que nous rejetons $H_0: \beta_1=0$ à l'aide du test $t$ au seuil $\alpha$.
+
+\begin{oneparcheckboxes}
+    \correctchoice Vrai
+    \choice Faux
+\end{oneparcheckboxes}
+\vspace{0.5cm}
+\end{parts}
+\newpage
+
+
+
+
+\question[9]
+Deux populations sont distribuées selon des lois normales de moyennes $\mu_X$ et $\mu_Y$ et de variances $\sigma^2_X$ et $\sigma^2_Y$ inconnues qui sont supposées inégales. Soit les échantillons
+
+\begin{align*}
+X_{1}, \ldots, X_{n} \overset{i.i.d.}{\sim} N(\mu_1, \sigma^2_1), & & Y_{1}, \ldots, Y_{m} \overset{i.i.d.}{\sim} N(\mu_2, \sigma^2_2),
+\end{align*}
+où $n=8$ et $m=8$, et les hypothèses
+
+\begin{align*}
+	H_0 &: \mu_X - \mu_Y = 0, \cr
+	H_1 &: \mu_X - \mu_Y > 0.
+\end{align*}
+
+Sachant que $\alpha^*=0,01$, $\overline{y}=100 $,$s_X=12$ et $s_Y=12$, que vaut $\overline{x}$?
+
+
+\begin{solution}
+Nous devons commencer par trouver le nombre de degrés de liberté:
+
+
+\begin{align*}
+v&=\frac{\left(\frac{s_x^2}{n}+\frac{s_y^2}{m}\right)^2}{\frac{(s_x^2/n)^2}{n+1}+\frac{(s_y^2/m)^2}{m+1}}-2    \\
+&= \frac{\left(\frac{12^2}{8}+\frac{12^2}{8}\right)^2}{\frac{(12^2/8)^2}{8+1}+\frac{(12^2/8)^2}{8+1}}-2\\
+&=16
+\end{align*}
+Donc $T_0$ suit une student à 16 degrés de liberté. 
+
+En utilisant $\alpha^*=0,01$, on sait que $T_0=\frac{\overline{x}-\overline{y}}{\sqrt{\frac{s_X^2}{n}+\frac{s_Y^2}{m}}}=\frac{\overline{x}-100}{\sqrt{\frac{12^2}{8}+\frac{12^2}{8}}}=2,583$.
+
+D'où $\overline{x}=115,498$.
+
+\end{solution}
+
+\vfill
+$\overline{x}=$\boite{2}{1.3}
+\newpage 
+
+
+\question[4]  Benjamin veut vérifier si le type de fourrage que mange une vache laitière a un impact sur sa production de lait.
+Comme il pense qu'il y a de la variabilité qui est induite par les vaches, il décide de faire un plan par blocs. 
+Dans son expérience, une même vache mange du fourrage de type A pendant une semaine, de type B pendant une semaine et de type C pendant une semaine.
+Il obtient la table suivante:
+
+\begin{verbatim}
+              Df     Sum Sq    Mean Sq   F value    Pr(>F)   
+fourrage       2     706.11    353.055     44.35    0.0003 
+vache          5      12.25      2.450      
+Residuals      6      47.76      7.960
+\end{verbatim}
+
+À la lumière des résultats, est-ce que le plan par blocs était nécessaire dans ce cas? Pourquoi? Une seule réponse est bonne.
+\begin{checkboxes}
+\choice Oui, car nous savons que les vaches ne produisent pas toutes la même quantité de lait.
+\choice Oui, car nous rejetons $H_0$.
+\choice Oui, car la variabilité totale expliquée par les blocs est environ de 1,5\%.
+\choice Oui, car $MS_{trt}=353,055$.
+\choice Oui, car $MS_{blocs}=2,450$.
+\choice Oui, car $MS_{E}=7,960$.
+\choice Non, car nous rejetons $H_0$.
+\correctchoice Non, car la variabilité totale expliquée par les blocs ne vaut environ que 1,5\%.
+\choice Non, car $MS_{trt}=353,055$.
+\choice Non, car $MS_{blocs}=2,450$.
+\choice Non, car $MS_{E}=7,960$.
+
+\end{checkboxes}
+
+
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+\question Sophie a planifié une expérience afin d'étudier l'effet du canton (Vaud, Genève et Jura) et du type de logement (maison et appartement) sur le prix de vente du logement. Elle a évalué aléatoirement $\boldsymbol{k}$ logements pour chacune des 6 combinaisons. Voici une partie d'une sortie \texttt{R}.
+\begin{verbatim}
+            Df     Sum Sq    F value    Pr(>F)   
+canton       2     491994     11.543    0.0016 
+type         1     154939      7.270    0.0194  
+canton:type  2      95069      2.231    0.1501   
+Residuals   12     255728  
+\end{verbatim}
+
+\begin{parts}
+\part[3] Donnez $MS_{E}$, l'estimation de la variance des termes d'erreur.
+
+\vspace{4cm}
+Estimation de la variance = \boite{3.5}{1.3}
+
+\part[3] Trouvez la valeur de $\boldsymbol{k}$, le nombre de logements évalués par combinaison des facteurs.
+
+\vfill
+$k=$\boite{2}{1.3}
+
+
+\end{parts}
+
+
+
+\newpage
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+
+\question[9] Soit $X_1,\hdots, X_{36}$, des variables aléatoires indépendantes et identiquement distribuées selon une loi normale d'espérance~$\mu$ et de variance $\sigma^2=1296$.
+Nous désirons faire un \textbf{test unilatéral à droite} avec $H_0:\mu=10$ au seuil $\alpha = 0,025$.
+Nous avons les résultats suivants:
+\begin{align*}
+    \bar{x}= 11,34 &  & s^2=754.
+\end{align*}
+Si nous savons qu'en réalité $\mu=\mu_1$ et que la puissance du test est $0,13567$, que vaut $\mu_1$?
+
+
+\begin{solution}
+    La puissance est définie comme étant $1-\beta=P(Z_0>z_{\alpha}|\mu=\mu_1)$ qui est prob. de rejeter sachant que $H_0$ est fausse.
+
+    \begin{align*}
+        1-\beta &= P(Z_0>z_{\alpha}|\mu=\mu_1)\\
+        0,13567&= P\left(\frac{\bar{X}-\mu_0}{\sigma/\sqrt{n}}>z_{\alpha}|\mu=\mu_1\right)\\
+        0,13567&= P\left(\frac{\bar{X}-10}{36/6}>1,96|\mu=\mu_1\right)\\
+        0,86433&= P\left(\frac{\bar{X}-10}{6}\leq1,96|\mu=\mu_1\right)\\
+        0,86433&= P\left(\bar{X}\leq21,76|\mu=\mu_1\right)\\
+        0,86433&=P\left(\frac{\bar{X}-\mu_1}{6}\leq\frac{21,76-\mu_1}{6}|\mu=\mu_1\right)\\
+        0,86433&=P\left(Z\leq\frac{21,76-\mu_1}{6}|\mu=\mu_1\right)\\
+    \end{align*}
+
+Par la table de la loi normale centrée réduite, nous avons
+\begin{align*}
+    \frac{21,76-\mu_1}{6}=&1,1\\
+    21,76-\mu_1=6,6\\
+    \mu_1 =15,1
+\end{align*}
+\end{solution}
+\vfill
+$\mu_1=$\boite{2}{1.3}
+\newpage 
+
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+\question\label{test2variances}
+
+Nous voulons faire le test d'hypothèse suivant 
+\begin{align*}
+H_0 &:\sigma_1^2 = \sigma_2^2\\
+H_1 &:\sigma_1^2 \neq \sigma_2^2,
+\end{align*}
+
+où la variable 1 suit une loi normale de moyenne $\mu_1$ et de variance $\sigma_1^2$ et la variable 2 suit une loi normale de moyenne $\mu_2$ et de variance $\sigma_2^2$. Nous sélectionnons aléatoirement 30 observations de la variable 1 et 30 observations de la variable 2 de façon indépendante, et obtennons la sortie \texttt{Rcmdr} suivante où certaines valeurs ont été remplacées par \texttt{AAA} et \texttt{BBB}:
+
+\begin{verbatim}
+> var.test(x ~ obs, alternative='two.sided', conf.level=.95, data=donnees)
+
+	F test to compare two variances
+
+data:  x by obs
+F = 0.15,   num df = AAA,   denom df = BBB,   p-value = 0.00000204
+alternative hypothesis: true ratio of variances is not equal to 1
+95 percent   confidence interval:
+0.07139472   0.3151494
+sample estimates:
+ratio of variances 
+0.15
+\end{verbatim}
+
+\begin{parts}
+\part[2] Donnez la valeur de \texttt{AAA}, le nombre de degrés de liberté associés au numérateur de la statistique de test. 
+
+\vspace{1.5cm}
+\texttt{AAA}=\boite{2.5}{1.6}
+
+\part[2] Donnez la valeur de \texttt{BBB}, le nombre de degrés de liberté associés au dénominateur de la statistique de test.
+
+\vspace{1.5cm}
+\texttt{BBB}=\boite{2.5}{1.6}
+
+\part[3] On nous indique que la variance échantillonnale de la variable 1, $s_1^2$, vaut 6,69. Quelle est la valeur de la variance échantillonnale de la variable 2, soit $s_2^2$?
+
+\vspace{3.0cm}
+$s_2^2=$\boite{2.5}{1.6}
+
+\part[2] En utilisant l'information disponible dans la sortie \texttt{Rcmdr}, choisissez l'énoncé qui est vrai. 
+	\begin{checkboxes}
+		\CorrectChoice La variance de la variable 1 est significativement différente de celle de la variable~2 au seuil 5\%.
+		\choice La variance de la variable 1 n'est pas significativement différente de celle de la variable~2 au seuil 5\%.
+		\choice Au seuil 5\%, on ne peut rien conclure  à partir de la sortie \texttt{Rcmdr}.
+	\end{checkboxes}
+	
+
+%\part[3] Si on avait choisi un niveau de confiance à 90\%, l'intervalle de confiance aurait été
+%	\begin{checkboxes}
+%		\choice plus long.
+%		\CorrectChoice plus court.
+%		\choice de même longueur.
+%		\choice plus long ou plus court, on manque d'information pour le déterminer. 
+%	\end{checkboxes}
+
+
+\end{parts}
+
+	\begin{solution}
+		ZONE 1:  $n_1-1=30-1=29$\\
+		ZONE 2:  $n_2-1=30-1=29$\\
+		ZONE 3: $\displaystyle f_0= \frac{s_1^2}{s_2^2}$ alors
+		$ \displaystyle s_2^2 = \frac{s_1}{f_0}
+		= \frac{6,69}{0,15}
+		= 44,60	$ \\
+		ZONE 4: A. différent car valeur-p inférieure à 5\%.\\
+%		ZONE 5:	Plus court. 
+	\end{solution}
+
+\newpage 
+
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+\question\label{rls}
+
+Afin d'estimer le volume de bois disponible dans la forêt entre Burtigny et Saint-Oyens, nous aimerions modéliser le volume de bois d'un arbre à l'aide de sa circonférence. Nous disposons du volume ($Y$) et de la circonférence ($X$) de 31 arbres. Afin d'étudier le modèle $Y_i = \beta_0 + \beta_1 X_i + E_i$, en supposant que les postulats de régression linéaire sont respectés, nous avons les résultats suivants:
+
+\begin{verbatim}
+lm(formula = volume ~ circonf, data = foret)
+
+Coefficients:
+                 Estimate   Std. Error  t value   Pr(>|t|)
+(Intercept)       -36.943     6.546373   -5.643   0.000001
+circonf             5.066     2.456783    2.062   0.024135
+
+\end{verbatim}
+
+
+\begin{parts}
+	\part[2] Quelle est l'équation de la droite de régression permettant de prédire le volume de bois d'un arbre de circonférence précise?
+	
+\vspace{1cm}
+
+
+
+	\part[2] Calculez la prévision ponctuelle du volume de bois d'un arbre ayant une circonférence de 11. 
+	
+
+	
+	\begin{solution}$$ \widehat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_1 x_i
+		= -36.94348 + 5.065858  \times 11 = 18.78096$$
+		\end{solution}
+		\vspace{2cm}
+
+
+	\part[2] Gérard aimerait estimer le volume de bois de l'arbre devant sa maison. Cet arbre a une circonférence de 14. La prévision ponctuelle du volume de bois de cet arbre est environ 33.98. Choisissez l'intervalle de valeurs ayant 95\% de chances de contenir le volume de bois de cet arbre de circonférence 14.
+	
+	\begin{checkboxes}
+			\choice $ \displaystyle	33.98 \pm t_{0,05;29} \sqrt{MS_E \left[ \frac{1}{n} + \frac{(14-\overline{x})^2}{S_{XX}}\right]} $ 
+   \choice $ \displaystyle	33.98 \pm t_{0,025;1} \sqrt{MS_E \left[ \frac{1}{n} + \frac{(14-\overline{x})^2}{S_{XX}}\right]} $ 
+   			\choice $ \displaystyle	33.98 \pm t_{0,025;29} \sqrt{MS_E \left[ \frac{1}{n} + \frac{(14-\overline{x})^2}{S_{XX}}\right]} $ \vspace{0.2cm}
+			\correctchoice $ \displaystyle		33.98 \pm t_{0,025;29} \sqrt{MS_E \left[ 1+ \frac{1}{n} + \frac{(14-\overline{x})^2}{S_{XX}}\right]} $
+   \choice $ \displaystyle		33.98 \pm t_{0,025;1} \sqrt{MS_E \left[ 1+ \frac{1}{n} + \frac{(14-\overline{x})^2}{S_{XX}}\right]} $
+	\end{checkboxes}
+\vspace{0.5cm}
+
+\part[2] Quelle affirmation parmi les suivantes est vraie au seuil 1\%? 
+	\begin{checkboxes}
+			\choice La circonférence d'un arbre et le volume de celui-ci ne sont pas unis par une relation linéaire significative. 
+			\choice Nous ne pouvons pas prédire la valeur du volume de bois d'un arbre à partir de sa circonférence.
+			\choice La circonférence d'un arbre et le volume de celui-ci sont indépendants.  
+		\correctchoice La relation linéaire entre le volume de bois d'un arbre et sa circonférence est significative. 
+	\end{checkboxes}
+
+\end{parts}
+
+\newpage
+\question\label{RegMultiple} 
+Soit le modèle de régression linéaire multiple suivant:
+$$Y_i=\beta_0+\beta_1X_{i1}+\beta_2X_{i2}+\beta_3X_{i3}+\beta_4X_{i4}+\beta_5X_{i5}+E_i,$$
+où les $E_i$ sont  indépendants et identiquement distribuées de loi $\mathcal{N}(0,\,\sigma^2).$
+Nous ajustons ce modèle aux données recueillies et nous obtenons les sorties suivantes, avec deux éléments remplacés par \texttt{AAA} et \texttt{BBB}.
+
+\begin{verbatim}
+> summary(RegModel.2)
+Call:
+lm(formula = Y ~ X1 + X2 + X3 + X4 + X5, data = Donnees)
+
+Coefficients:
+            Estimate      Std. Error      t value         Pr(>|t|)
+(Intercept)  1.54046         0.19274        7.992         0.000001
+X1           0.15321         0.07522          AAA           0.0423 
+X2           0.06662         0.04895        1.361           0.1743
+X3           0.37692         0.08315        4.533         0.000001
+X4           0.36810         0.05893        6.246         0.000001 
+X5           0.14618         0.08388        1.743           0.0821 
+
+Residual standard error: 1.019  on 402 degrees of freedom
+Multiple R-squared:  0.5339,  Adjusted R-squared:  BBB
+F-statistic: 92.11  on  5 and  402  DF,  p-value:  0.000012
+\end{verbatim}
+
+\begin{parts}
+\part[2]  Quelle est la valeur de \texttt{AAA}?
+
+\medskip\begin{oneparcheckboxes}
+    \CorrectChoice 2.037 
+    \choice -1.251 
+    \choice 3.798
+    \choice -3.029 \medskip
+\end{oneparcheckboxes}
+
+\part[2] Au seuil de 5\%, l'effet de la variable indépendante $X_2$ sur la variable réponse $Y$ est-il significatif, lorsque les autres  variables sont dans le modèle?
+
+\medskip\begin{oneparcheckboxes}
+    \choice Oui.
+    \CorrectChoice Non.
+    \choice Nous n'avons pas assez d'information pour le savoir. \medskip
+\end{oneparcheckboxes}
+
+\part[2] Quelle est la valeur de \texttt{BBB}?
+
+\medskip\begin{oneparcheckboxes}
+    \choice 0.7815 
+    \CorrectChoice 0.5281 
+    \choice 0.2037 
+    \choice 0.6963
+\end{oneparcheckboxes}\medskip
+
+\begin{solution}
+\begin{eqnarray*}
+  R^2_{ajuste} &=& 1 -\dfrac{\dfrac{SS_E}{n-k-1}}{\dfrac{SS_T}{n-1}} \\
+   &=& 1-(1-R^2)\times \dfrac{n-1}{n-k-1} \\
+   &=& 1- (1-0.5339) \times \dfrac{407}{402}\\
+   &=& 0.5281 
+\end{eqnarray*}
+\end{solution}
+
+
+\part Nous voulons maintenant tester, au seuil 1\%, 
+\begin{align*}
+H_0 &: \text{aucune des variables $X_1,\; X_2,\; X_3,\; X_4,\; X_5$ n'a un effet sur la variable réponse $Y$ }\cr
+H_1 &: \text{au moins une variable indépendante a un effet sur $Y$. }
+\end{align*}
+
+
+\begin{subparts}
+    \subpart[1] Quelle est la valeur-p associée à ce test?
+
+\begin{checkboxes}
+        \choice 0,000001.
+        \choice 0,0423.
+        \choice 0,1743. 
+        \choice 0,0821
+        \CorrectChoice 0,000012.
+        \choice 0,01
+        \choice 0,05
+        \choice 0,10
+        \choice Nous n'avons pas assez d'information pour le savoir.
+    \end{checkboxes}
+
+\vspace{0.5cm}
+
+    \subpart[1] Quelle est la conclusion?
+
+    \medskip\begin{checkboxes}
+        \CorrectChoice Nous rejetons l'hypothèse nulle au seuil 1\%.
+        \choice Nous ne rejetons pas l'hypothèse nulle au seuil 1\%.
+        \choice Aucune des 5 variables explicatives n'a un effet sur $Y$ au seuil 1\%. 
+        \choice Nous ne pouvons pas conclure sur ce test d'hypothèses car nous n'avons pas assez d'information.
+    \end{checkboxes}
+
+\end{subparts}
+\end{parts}
+\end{questions}
+
+\end{document} 
+
+\newpage
+%%%%%%%%%%%%%%%% TABLES DE LOIS %%%%%%%%%%%%%%%%
+
+\begin{center}
+\includegraphics[page=1,scale=0.8]{Tables_lois.pdf}
+\end{center}
+
+\begin{center}
+\includegraphics[page=2,scale=0.8]{Tables_lois.pdf}
+\end{center}
+
+\begin{center}
+\includegraphics[page=3,scale=0.8]{Tables_lois.pdf}
+\end{center}
+\begin{center}
+
+\includegraphics[page=4,scale=0.8]{Tables_lois.pdf}
+\end{center}
+\begin{center}
+
+\includegraphics[page=5,scale=0.8]{Tables_lois.pdf}
+\end{center}
+\begin{center}
+
+\includegraphics[page=6,scale=0.8]{Tables_lois.pdf}
+\end{center}
+\begin{center}
+
+\includegraphics[page=7,scale=0.8]{Tables_lois.pdf}
+\end{center}
+\begin{center}
+
+\includegraphics[page=8,scale=0.8]{Tables_lois.pdf}
+\end{center}
+
+
+
+
+
+
+
+%\newpage
+%\mbox{}
+%\newpage
+
+
+%%%%%%%%%%%%%%%% QUESTION SPPLÉMENTAIRE %%%%%%%%%%%%%%%%
+%\question\label{cable} 
+
+
+%La société ROULEMENTABILLE fabrique des roulements à billes. Les tolérances exigées pour un client, la DUPONT S.A., sont particulièrement draconiennes. Pour cette raison, un contrôle de qualité est effectué sur chaque bille avant livraison. La proportion de pièces ne satisfaisant pas aux spécifications de diamètre est de 10\% et la proportion de pièces présentant un défaut de forme est de 20\%.\\
+
+%\begin{parts}
+%\part[] Question a.
+
+    %\bigskip
+
+    %Le chef d'atelier estime que ces deux types de défaut sont indépendants. Si l'on suppose qu'il a raison, quelle est la proportion de pièces présentant au moins un défaut?
+
+%\begin{solution}
+%\begin{itemize}\itemsep10pt
+       % \item[$\bullet$] Soient les événements $A$ = "défaut de diamètre" et $B$ = "défaut de forme".
+      %  \item[$\bullet$] On sait que: $P(A) = 0.1,\; P(B) = 0.2$,\\ \ \\
+      %   alors $P(A \cap B) = P(A) \times P(B)$ (car $A$ et $B$ sont supposés indépendants).
+     %    Donc, \begin{eqnarray*}
+      %            P(A \cup B)  &=& P(A) + P(B) - P(A \cap B) \\
+     %             &=& P(A) + P(B) – P(A) \times P(B) \\
+      %            &=& 0.1 + 0.2 – (0.1 \times 0.2) \\
+      %            &=&  0.28.
+     %          \end{eqnarray*}
+  %  \end{itemize}
+ %   La proportion de pièces présentant au moins un défaut est de \textbf{28\%}.
+%\end{solution}
+
+
+%\vspace{1cm}
+%\part[] Question b.
+
+\bigskip
+%Le directeur de la fabrication n'est pas d'accord. Lorsque les pièces présentent un défaut de forme, alors dans 30\% des cas les pièces présentent un diamètre non conforme aux spécifications. Si l'on suppose que le directeur a raison, quelle est la nouvelle proportion de pièces présentant au moins un défaut?    
+
+%\begin{solution}
+%\begin{itemize}\itemsep10pt
+ %           \item[$\bullet$] On nous indique que $P(A | B) = 0.3$. Alors,
+ %                           \begin{eqnarray*}
+  %                            P(A \cap B)  &=& P(A | B) \times P(B) \\
+   %                                     &=& 0.3 \times 0.2 \\
+    %                                    &=& 0.06
+     %                       \end{eqnarray*}
+      %       À la lumière de cette nouvelle information, On recalcule $P(A \cup B)$:
+       %                     \begin{eqnarray*}
+        %                      P(A \cup B)  &=& P(A) + P(B) - P(A \cap B) \\
+         %                               &=& 0.1 + 0.2 – 0.06 \\
+          %                              &=& 0.24
+           %                 \end{eqnarray*}
+        %\end{itemize}
+       % La proportion de pièces présentant au moins un défaut est de \textbf{24\%}.
+%\end{solution}
+
+
+%\end{parts}
+
+
+%\newpage
+%\mbox{}
+%\newpage
+
+%\end{questions}
+
+
+
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+\question[3]\label{probabilite} 
+
+On considère une expérience aléatoire dont deux événements  $A$ et $B$ sont tels que:\\ $P(A) = 0.3 \text{ et } P(A \cup B) = 0.7$.\\ 
+
+Calculer $P(\overline{B}|\overline{A})$. Justifiez votre réponse.\\
+
+\emptybox{15cm}
+
+\begin{solution}
+\begin{eqnarray*}
+   P(\overline{B}|\overline{A})      &=&  \dfrac{P(\overline{B}\cap \overline{A})}{P(\overline{A})}\\
+                                    &=&  \dfrac{P(\overline{B\cup A})}{1-P(A)}\\
+                                    &=&  \dfrac{1-P(B\cup A)}{1-P(A)}\\
+                                    &=&  \dfrac{1-0.7}{1-0.3}\\
+                                    &=&  \dfrac{3}{7} .
+\end{eqnarray*}
+\end{solution}
+
+
+
+
+\newpage

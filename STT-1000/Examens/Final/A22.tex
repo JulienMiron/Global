@@ -1,0 +1,383 @@
+% Pour toute question sur l'utilisation de cette classe, écrivez à jerome.soucy(at)ulaval.ca
+% Nécessite la classe Evaluation.sty dans le même dossier ou dans le PATH de votre système
+% Nécessite le fichier logo_ul.pdf dans le même dossier un dans le PATH de votre système
+\def\Ponderation{35}
+\def\SigleNumero{STT-1000}
+\def\NomCours{Probabilités et statistique}
+\def\DateEvaluation{11 décembre 2022 de 9h00 à 11h50}
+\def\Session{}
+\def\NomEvaluation{Examen 2}
+
+% Ne rien mettre entre les accolades si l'enseignant (ou l'enseignante) est aussi le coordonnateur (ou la coordonnatrice)
+\def\Coordonnatrice{}
+\def\Coordonnateur{}
+
+% Ne rien mettre entre les accolades s'il y a plus d'une section
+\def\Enseignant{}
+\def\Enseignante{}
+
+% Ne rien mettre entre les accolades s'il s'agit d'un cours à section unique
+% Mettre le nom de chacun des enseignants et enseignantes entre les accolades
+% Une case à cocher sera générée pour chacune des sections
+\def\SectionA{Anne-Sophie Charest}
+\def\SectionB{Julien Miron}
+\def\SectionC{}
+\def\SectionD{}
+
+% Concerne seulement les travaux pratiques : écrire entre les accolades le nombre maximal de membres pour une équipe
+\def\NombreLignes{}		
+
+% Si vous souhaitez qu'apparaisse une déclaration d'honneur au bas de la première page, écrivez quelque chose entre les accolades
+\def\EnLigne{}
+
+\def\Directives{
+\begin{enumerate}
+\item Matériel autorisé:
+\begin{itemize}
+\item Calculatrice scientifique {\bf autorisée par la faculté des sciences et de génie};
+\item Le feuillet de formules fourni avec l'examen. Celui-ci inclut la table de la loi normale.
+\end{itemize}
+\item Assurez-vous que cette \'evaluation comporte \numquestions ~questions réparties sur \numpages{}~pages, pour un total de \numpoints{}~points.\
+\item \textbf{Veuillez ne pas débrocher votre examen.}
+\item Veuillez déposer votre carte d'identité \textbf{admise} avec photo sur votre bureau.\
+\item Vous devez\textbf{ justifier votre réponse} par une démarche claire, sauf pour les questions à choix de réponse.\
+\item Pour les questions à choix de réponse, vous pouvez mettre un X, un crochet ($\checkmark$) ou remplir la case.
+\item Le verso des feuilles peut être utilisé comme brouillon, \textbf{mais ne sera pas corrigé}. Attention à ne rien débrocher.
+\end{enumerate}
+}
+
+% Veuillez indiquer le type d'évaluation entre crochets
+% Examen : option à choisir pour un examen présentiel qui sera corrigé de manière classique. Un tableau des points sera affiché sur la page couverture.
+% Gradescope : option à choisir pour un examen qui sera corrigé via Gradescope. Aucun tableau de pointage n'apparaîtra et il y a quelques différences au niveau de la mise en page
+% TPS :
+% TPF :
+% Devoir :
+\documentclass[Gradescope]{Evaluation}
+\usepackage{multicol,graphicx}
+\begin{document}
+
+\newpage
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+\begin{questions}
+
+%CHAPITRE 9 - 20%
+
+\question[8] Yasmine s'intéresse à une variable aléatoire $X$ suivant une loi Binomiale($n=70,p=0,3$). Elle souhaite calculer ${P( 18 < X < 35)}$, mais n'a pas accès à un ordinateur et n'a pas envie de faire tous les calculs à la main. En utilisant la méthode présentée en classe, calculez approximativement cette probabilité. 
+
+\begin{solution}
+On approxime la loi binomiale avec la loi normale, en utilisant la correction pour la continuité.\\
+
+On s'intéresse à $X = \sum_{i=1}^n X_i$ où chaque $X_i$ suit une loi Bernoulli(p).\\
+On sait donc que $E(X_i) = p =0.3$ et $V(X_i) = p(1-p)=0.3*0.7=0.21$. \\
+Le théorème central limite nous indique que $X \approx N(\mu = 70*0,3=21 ;  \sigma^2= 70*0.21=14,7$). 
+
+En utilisant la correction pour la continuité, on doit calculer $$P(17,5 \le X \le 35,5) \mbox{ où } X \sim N(21; 17,4).$$
+
+On commence par standardiser: 
+\begin{align*}
+P(17,5 \le X \le 35,5) &= P\left(\frac{17,5-21}{\sqrt{17,4}} \le \frac{X-21}{\sqrt{17,4}} \le \frac{35,5-21}{\sqrt{17,4}}\right) \\
+&= P( -0,839 \leq Z \leq 3,47) 
+\end{align*}
+
+On utilise maintenant la table de la loi normale:
+\begin{align*}
+P( -0,839 \leq Z \leq 3,47) & = P(Z \leq 3,47) - P(Z \leq -0,839) \\
+& = 0,99974 - (1-0,79954) = 0,79928
+\end{align*}
+
+
+
+\end{solution}
+\newpage
+%Ici, je donne directement la distribution Binomiale pour éviter que certains se mélangent dès le départ. 
+%3 pts bonne distribution; mu, sigma, normale
+%2 pts standardiser
+%2 pts lire table
+%1pt correction continuité
+
+\question[4] 
+Jean-Claude suppose que le temps d'attente à l'hôpital suit une exponentielle de moyenne 240 minutes. 
+Il veut construire un intervalle de confiance bilatéral à $95\%$ pour le vérifier.
+Il procède donc comme suit. 
+Il veut prend le temps d'attente de $16$ personnes choisies au hasard et connaître $\Bar{X}$ et $S^2$. 
+Il obtient $\Bar{x}=250$ et $s^2=59'536$.
+Comme il construit un intervalle de confiance bilatéral, il choisit $z_{\alpha/2}=1,96$, à partir de sa table de la loi normale.
+Son intervalle de confiance à $95\%$ est donc $[130,44;369,56]$.
+Comme celui-ci contient $240$, il se dit que cette valeur est plausible pour $\mu$. 
+Après avoir vérifié les résultats de Jean-Claude, vous constatez qu'il y a une erreur dans ce qu'il a fait. 
+Quelle est cette erreur?
+
+\begin{solution}
+   Comme $n=16<30$, on ne peut pas utiliser le TCL.
+\end{solution}
+\vspace{4cm}
+\question[2]
+%QCM - dans un exemple, choisir si paramètre ou estimateur; étonnamment pas si bien réussi l'an dernier
+Le poids des tomates d’un agriculteur suit une loi normale de moyenne $300$ grammes
+et de variance $100$ grammes$^2$. On prend des mesures sur 25 tomates choisies aléatoirement et on obtient une moyenne échantillonnale de 309 grammes et une variance échantillonnale de 118 grammes$^2$.
+Est-ce que la valeur de 118 grammes$^2$ est un paramètre ou une statistique ?
+
+\begin{oneparcheckboxes}
+\choice Un paramètre
+\choice Une statistique
+\end{oneparcheckboxes}
+\vspace{0.5cm}
+\question[2]
+Si $X \sim \chi^2_{24}$, alors $P(X<0)=P(X>0)=0.5$.
+
+\begin{oneparcheckboxes}
+\choice Vrai
+\choice Faux
+\end{oneparcheckboxes}
+\vspace{0.5cm}
+%volé de l'examen de reprise H22
+
+\question[4]
+Sachant que $\displaystyle \frac{(n-1)S^2}{\sigma^2}$ suit une loi du khi-carré à $n-1$ degrés de liberté, donnez $\text{Var}(S^2)$.
+
+\begin{solution}
+On peut calculer que 
+\begin{align*}
+Var(S^2) &= Var\left( \frac{\sigma^2}{(n-1)}\frac{(n-1)}{\sigma^2}S^2 \right)\\
+    &= \frac{\sigma^4}{(n-1)^2} Var\left(\frac{(n-1)}{\sigma^2}S^2\right)  \\
+    &= \frac{\sigma^4}{(n-1)^2}(2(n-1)) \\
+    &= \frac{2\sigma^4}{(n-1)}
+\end{align*}
+\end{solution}
+
+%CHAPITRE 10 - 40%
+
+\newpage
+
+\question[8]
+%volé de reprise H22
+On a construit un intervalle de confiance pour la proportion de personnes qui préfèrent le chocolat noir au chocolat au lait. On a utilisé un échantillon de $2400$ personnes, parmi lesquelles $960$ ont répondu qu’elles préféraient le chocolat noir. On a obtenu l’intervalle $[37, 83\%; 42, 17\%]$. Quel est le niveau de confiance de cet intervalle ?
+
+\begin{solution}
+La marge d'erreur de l'intervalle est 
+$$ \frac{42,17-37,82}{2} = 2,175\%$$ 
+On a donc 
+\begin{align*}
+0,02175 &= z_{\alpha/2}\sqrt{\frac{\hat{p}{(1-\hat{p}}}{n}} \\ 
+&= z_{\alpha/2} \sqrt{\frac{960/2400{(1-960/2400)}}{2400}}\\
+&= z_{\alpha/2} 0,01
+\end{align*}
+On trouve donc que $z_{\alpha/2} = 2,175$. La table nous indique que $\alpha/2 = 1-0.985 = 0.015$ et donc que $\alpha = 0.03$. Le niveau de confiance de l'intervalle est donc $0.97$. 
+\end{solution}
+\vspace{13cm}
+
+\question[4]
+%Volé de l'examen de reprise H22
+On s'intéresse aux frais d'inscriptions des étudiants de 1er cycle à temps plein au Québec. 
+Avec un échantillon aléatoire de $n=121$ étudiants de la population, on obtient l'intervalle de confiance à 95\% suivant: $[2\,550;2\,630]$. 
+Cochez tous les énoncés qui sont vrais parmi les suivants. (Aucune justification requise)
+
+\begin{checkboxes}
+\choice Il y a 95\% des étudiants de 1er cycle à temps plein au Québec qui paient des frais d'inscription entre 2\,550 \$ et 2\,630 \$
+\choice Si on pigeait un échantillon de 1\,000 étudiants pour construire un nouvel intervalle de confiance à 95\% sur la moyenne, celui-ci aurait une plus grande probabilité de contenir la vraie valeur de $\mu$ que celui obtenu à partir de 121 étudiants.
+\choice Si on pigeait un autre échantillon de 121 étudiants pour construire un intervalle de confiance à 95\% sur la moyenne, l'intervalle obtenu aurait la même longueur que celui-ci.
+\choice Si on pigeait plusieurs échantillons de 121 étudiants dans cette population, et qu'on construisait avec chacun d'eux l'intervalle de confiance à 95\% pour $\mu$, alors environ 95\% de ces intervalles contiendraient la vraie valeur moyenne des frais d'inscription des étudiants de 1er cycle à temps plein au Québec. 
+\end{checkboxes}
+
+
+\begin{solution}
+Seul le dernier énoncé est vrai. 
+\end{solution}
+
+\newpage
+\question[8]
+On souhaite effectuer une étude afin de savoir ce que les gens préfèrent entre la fondue et la raclette. Pour cette étude, on supposera que les réponses des gens $X_1,\hdots,X_n$ sont indépendantes et identiquement distribuées selon une Bernoulli($p$), où $p$ représente la probabilité de choisir la fondue. Quelle doit être la taille d'échantillon minimale si on désire que notre intervalle de confiance à 90\% pour $p$ ait une longueur maximale de $0,04$?
+\begin{solution}
+    fff
+\end{solution}
+
+
+\newpage
+
+\question
+On suppose deux populations distribuées selon des lois normales de moyennes $\mu_1$ et $\mu_2$ et de variances $\sigma^2_1$ et $\sigma^2_2$ inconnues qui sont supposées égales. Vous avez les échantillons
+
+\begin{align*}
+X_{11}, \ldots, X_{1n_1} \overset{i.i.d.}{\sim} N(\mu_1, \sigma^2_1), & & X_{21}, \ldots, X_{2n_2} \overset{i.i.d.}{\sim} N(\mu_2, \sigma^2_2),
+\end{align*}
+où $n_1=8$ et $n_2=8$. Vous avez construit un intervalle de confiance à $95\%$ pour $\mu_1-\mu_2$ et obtenu $[0,1; 4,39]$. Lors de la présentation des résultats, vous réalisez que vous avez pris en note que $S^2_1=4,52$, mais vous ne trouvez plus la valeur de $S^2_2$. 
+\begin{parts}
+    \part[8] Quelle est la valeur de $S^2_2$?
+    \vspace{14cm}
+    \part[2] Que pouvez-vous dire au sujet de $\mu_1-\mu_2$?
+\end{parts}
+
+
+
+\begin{solution}
+    
+\end{solution}
+
+\newpage
+\question
+Clara se déplace en autobus pour aller travailler et elle note minutieusement le temps nécessaire pour ses déplacements. Voici ses cinq derniers temps de déplacements, en minutes : 
+$$ 22, 25, 24, 21, 33.$$
+On peut supposer que ses temps de déplacements sont indépendants et suivent une loi normale de moyenne $\mu$ et de variance $\sigma^2$.
+
+\begin{parts}
+\part[6]
+%1 pt moyenne, 2 pts s2, 2 pts quantiles, 1pt IC
+Donnez un intervalle de confiance à 90\% pour la variance de ses temps de déplacement.
+\begin{solution}
+On doit d'abord calculer la variance échantillonnale. On trouve 
+$$\bar{x} = \frac{1}{5}(22+25+24+21+33) = 25$$
+On a ensuite 
+\begin{align*}
+s^2 &= \frac{1}{4}\left( (22-25)^2 + (25-25)^2 + (24-25)^2 + (21-25)^2 + (33-25)^2 \right)\\
+&= \frac{1}{4}(9+0+1+16+64) \\
+&= \frac{90}{4}\\
+&= 22,5 \mbox{ minutes}^2    
+\end{align*}  
+
+Puisque $\alpha = 0.1$ on doit chercher dans la table $\chi^2_{0.05,4} = 9,49$ et $\chi^2_{0.95,4} = 0,71$. 
+Notre intervalle est donc 
+$$ \left[ \frac{4*22,5}{9,49} = 9,48, \frac{4*22,5}{0.71} =126,76 \right] $$
+\end{solution}
+\vspace{10cm}
+\part[2] 
+Est-ce une bonne idée d'utiliser le point milieu de cet intervalle comme estimateur ponctuel pour $\sigma^2$? Justifiez votre réponse.
+%1pt pour non, 1 pt pour justification
+\begin{solution}
+Non. On sait que $s^2$ est non biaisé pour $\sigma^2$ et le centre de l'IC n'est pas $s^2$.
+\end{solution}
+\vspace{2.5cm}
+\part[2]
+Un collègue vous fait remarquer que la taille d'échantillon est très petite et que votre intervalle de confiance n'est probablement pas valide. Que lui répondez-vous?
+\begin{solution}
+Si les données suivent bien une loi normale, cet IC est valide peu importe la taille d'échantillon.
+\end{solution}
+
+\end{parts}
+
+%CHAPITRE 11 - 40%
+\newpage
+%\textbf{Chapitre 11 - 40 points}
+
+
+\question[]
+Une entreprise veut connaître la proportion des gens qui utilise leur produit phare afin de tester les hypothèses $H_0: p = 0,40$ contre $H_1:p<0,4$. 
+Elle sélectionne donc un échantillon de $n=36$ personnes et obtient une estimation de $\widehat{p}=0,385$. 
+En utilisant $\alpha = 0,05$, la compagnie rejettera $H_0$ si
+$$Z_0=\displaystyle \frac{\widehat{p}-p_0}{\sqrt{\displaystyle\frac{p_0(1-p_0)}{n}}}<-Z_{\alpha}=-1,64.$$
+
+
+\begin{parts}
+\part[8] Quelle est la puissance du test si la vraie valeur est $p=0,395$? 
+\begin{solution}
+    On a
+    \begin{align*}
+        1-\beta&=P(Z<-1,64|p_1=0,395)\\
+        &=P\left(\left.\frac{\widehat{p}-0,4}{\sqrt{\displaystyle\frac{0,4*0,6}{9}}}<1,64 \right| p_1=0,38\right)\\
+        &=P\left(\left.\widehat{p}<-1,64 \sqrt{\frac{0,4*0,6}{36}}+0,4\right|p_1=0,395\right)\\
+        &= P\left(Z<\frac{-1,64 \sqrt{\displaystyle\frac{0,4*0,6}{36}}+0,005}{\sqrt{\displaystyle\frac{0,395*0,605}{36}}}\right)\\
+        &= P\left(Z<-1,58214\right)\\
+        &\approx 1-0,94295\\
+        &\approx 0,05705
+    \end{align*}
+\end{solution}
+\vspace{11cm}
+\part[2] La puissance du test serait-elle plus grande ou plus petite si on avait un échantillon de $25$ observations au lieu de $10$ observations? 
+(\textit{Aucune justification requise})
+\begin{checkboxes}
+\choice La puissance serait plus grande avec $n=25$.
+\choice La puissance serait plus petite avec $n=25$.
+\choice La puissance serait la même avec $n=25$ et $n=10$.
+\choice On n'a pas assez d'information pour répondre à la question.
+\end{checkboxes}
+
+\part[2] La puissance du test serait-elle plus grande ou plus petite s'il avait décidé de faire un test bilatéral?
+(\textit{Aucune justification requise})
+\begin{checkboxes}
+\choice La puissance serait plus grande avec un test bilatéral.
+\choice La puissance serait plus petite avec un test bilatéral.
+\choice La puissance serait la même avec un test bilatéral.
+\choice On n'a pas assez d'information pour répondre à la question.
+\end{checkboxes}
+
+\end{parts}
+\newpage
+\question[4]
+%QCM - Indiquer quelles hypothèses sont valides
+%On peut modifier un peu.
+Soit $\mu$ le temps moyen que prend une machine pour assembler des composants électroniques. Le responsable du contrôle de processus veut tester $H_0:\mu=20$ vs $H_1:\mu\neq 20$ avec un échantillon aléatoire de 100 temps lors d'une journée donnée. La moyenne de l'échantillon est $\Bar{x}=21,7$ secondes et que la valeur-p du test est de $0,0294$. Cochez tous les énoncés qui sont vrais parmi les suivants.
+\begin{checkboxes}
+\choice Nous sommes certains de rejeter $H_0$ pour n'importe quel seuil $\alpha>0$, car la valeur-p est inférieure à $0,05$.
+\choice Nous rejetons $H_0$ au seuil $\alpha=0,01$
+\correctchoice Nous rejetons $H_0$ au seuil $\alpha=0,1$
+\correctchoice Si à la place nous faisions un test unilatéral avec $H_1>20$, nous rejetterions $H_0$ au seuil $\alpha=0,05$.
+\choice Comme $\Bar{x}\neq20$, nous rejetons $H_0$ peu importe le seuil $\alpha$.
+\end{checkboxes}
+
+\vspace{0.5cm}
+
+\question
+On s'intéresse au salaire des résidents d'une grande tour à condo. On sait que la distribution de ces salaires est bimodale. Notre hypothèse est que le salaire moyen est de $80 000\$$ et on veut tester si c'est bien le cas au seuil $\alpha = 0.05$. Un échantillon de 50 résidents nous donne un salaire moyen de $70 000\$$, avec un écart-type de $28 000\$$. 
+\begin{parts}
+
+\part[4]
+Expliquez, en mots, ce que représente une erreur de type II dans le contexte?
+
+\begin{solution}
+On fait une erreur de type II si on rejette $H_0$ alors que $H_1$ est vraie. Ici, on ferait une erreur de type II si on ne rejetait pas l'hypothèse nulle que le salaire moyen est $80 000\$$ alors que le salaire moyen est en effet différent de $80 0000\$$. 
+\end{solution}
+\vspace{5cm}
+
+\part[8] 
+Quel est le seuil observé (la valeur-p) pour ce test d'hypothèse? 
+%3pts statistique de test
+%2 pts loi normale et non t
+%1 pt lire table
+%2 pts bilatéral
+\begin{solution}
+
+La statistique de test est 
+
+$$ Z_0 = \frac{\bar{x}-\mu_0}{s/\sqrt{n}} = \frac{70 000-80 000}{28 000/\sqrt{49}} =  -2.5 $$
+
+Puisque le test est bilatéral, la valeur-p est 
+$$ 2*P(Z > 2.5 ) = 2*( 1- 0.99379) = 0,01242$$
+\end{solution}
+\end{parts}
+
+\newpage
+\question[4]
+Dans les situations suivantes, serait-il préférable d'utiliser un test de comparaison de moyennes pour des échantillons indépendants ou un test de comparaison de moyennes pour des échantillons appariés. 
+\begin{parts}
+    \part[1] On veut comparer le niveau en anglais des étudiants des cégeps de la région de Montréal à celui des étudiants des des cégeps de la région de Québec.
+    \vspace{1.5cm}
+    \part[1] On aimerait comparer la performance de deux de vélos de course en mesurant le temps qu'il faut pour monter le mont Bélair avec ces deux vélos.
+    \vspace{1.5cm}
+    \part[1] On veut comparer le temps moyen en secondes que prennent deux marques de four pour atteindre $200$ celsius.
+    \vspace{1.5cm}
+    \part[1] On veut connaître la fréquence cardiaque moyenne d'adultes dans la quarantaine avant et après un effort soutenu de 10 minutes.
+\end{parts}
+\vspace{1.5cm}
+\question[2]
+Pourquoi est-il indiqué sur la feuille de formules que la loi de la statistique de test pour une proportion est approximative?
+
+\vspace{3cm}
+\question[4]
+Parmi les hypothèses suivantes, lesquelles sont valides dans la construction de tests comme on les présente dans le cours?
+
+\begin{checkboxes}
+\correctchoice $H_0 : \mu = 12$ vs $H_1 : \mu > 12$
+\choice $H_0 : \mu \leq 12$ vs $H_1 : \mu > 12$
+\choice $H_0 : \bar{x} = 4$ vs $H_1 : \bar{x} \ne 4$
+\choice $H_0 : \sigma^2 < 1$ vs $H_1 : \sigma^2 > 1$
+\correctchoice $H_0: \sigma = 1$ vs $H_1: \sigma \neq 1$
+\end{checkboxes}
+\newpage
+\question[4]
+Interpréter en contexte le résultat d'un test d'hypothèse. 
+
+\end{questions}
+
+\vspace{1in}
+18,31.
+
+\end{document} 

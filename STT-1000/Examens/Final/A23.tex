@@ -1,0 +1,339 @@
+\def\Ponderation{37,5}
+\def\SigleNumero{STT-1000}
+\def\NomCours{Probabilités et statistique}
+\def\DateEvaluation{18 décembre 2023}
+\def\HeureEvaluation{18h30 à 21h30}
+\def\Session{Automne 2022}
+\def\NomEvaluation{Examen 2}
+
+\def\OptionsExam{11pt,answers}
+
+% Ne rien mettre entre les accolades si l'enseignant (ou l'enseignante) est aussi le coordonnateur (ou la coordonnatrice)
+\def\Coordonnatrice{}
+\def\Coordonnateur{}
+
+% Ne rien mettre entre les accolades s'il y a plus d'une section
+\def\Enseignant{}
+\def\Enseignante{}
+
+% Ne rien mettre entre les accolades s'il s'agit d'un cours à section unique
+% Mettre le nom de chacun des enseignants et enseignantes entre les accolades
+% Une case à cocher sera générée pour chacune des sections
+\def\SectionA{Ahmed Sid-Ali (en ligne)}
+\def\SectionB{Julien Miron (en présence)}
+\def\SectionC{}
+\def\SectionD{}
+
+% Concerne seulement les travaux pratiques : écrire entre les accolades le nombre maximal de membres pour une équipe
+\def\NombreLignes{}		
+
+% Si vous souhaitez qu'apparaisse une déclaration d'honneur au bas de la première page, écrivez quelque chose entre les accolades
+\def\EnLigne{}
+
+\def\Directives{
+\begin{enumerate}
+\item Matériel autorisé:
+\begin{itemize}
+\item Calculatrice scientifique {\bf autorisée par la faculté des sciences et de génie};
+\item Les feuillets de formules fournis avec l'examen. Ceux-ci incluent les tables de loi nécessaires. Veuillez \textbf{ne rien écrire} sur les feuillets de formules.
+\end{itemize}
+\item Assurez-vous que cette évaluation comporte \numquestions ~questions réparties sur \numpages{}~pages, pour un total de \numpoints{}~points.\
+\item Lorsque des boîtes de réponses sont présentes, vous \textbf{\textit{devez}} y écrire vos réponses.\
+\item Lorsque nécessaire, utilisez deux chiffres après la virgule.\
+\item \textbf{Veuillez ne pas dégrafer votre examen.}
+\item Ajoutez vos initiales dans le bas de chaque page de l'examen.
+\item Veuillez déposer votre carte d'identité admise avec photo sur votre bureau.\
+\item Vous devez justifier votre réponse par une démarche claire, sauf pour les questions à choix de réponse.\
+\item Le verso des feuilles peut être utilisé comme brouillon, \textbf{mais ne sera pas corrigé}. Attention à ne rien dégrafer.
+\end{enumerate}
+}
+
+% Veuillez indiquer le type d'évaluation entre crochets
+% Examen : option à choisir pour un examen présentiel qui sera corrigé de manière classique. Un tableau des points sera affiché sur la page couverture.
+% Gradescope : option à choisir pour un examen qui sera corrigé via Gradescope. Aucun tableau de pointage n'apparaîtra et il y a quelques différences au niveau de la mise en page
+% TPS :
+% TPF :
+% Devoir :
+\documentclass[Gradescope]{Evaluation}
+\begin{document}
+
+\mbox{}
+%\newpage
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+.
+\newpage
+\begin{questions}
+\question\label{QCMicTests}
+Un intervalle de confiance de niveau 95\% pour l'espérance $\mu$ est $[ 5,11 ; 9,11]$. Pour chaque énoncé qui suit, indiquez si l'énoncé est vrai, faux ou si nous n'avons pas assez d'information pour le savoir.
+
+\medskip
+
+\begin{parts}
+    \part[1] Au seuil 5\%, on ne rejette pas $H_0: \mu=5$ pour $H_1:\mu \neq 5$.
+
+\medskip
+    \begin{oneparcheckboxes}
+        \CorrectChoice Vrai 
+        \choice Faux
+        \choice Nous n'avons pas assez d'information pour le savoir.
+    \end{oneparcheckboxes}
+\medskip
+ 
+   \part[1] Au seuil 1\%, on rejette $H_0: \mu=4$ pour $H_1:\mu \neq 4$.
+
+ \medskip  \begin{oneparcheckboxes}
+        \choice Vrai 
+        \choice Faux
+        \CorrectChoice Nous n'avons pas assez d'information pour le savoir.
+\medskip    \end{oneparcheckboxes}
+    
+   \part[1] Au seuil 10\%, on rejette $H_0: \mu=4$ pour $H_1:\mu \neq 4$.
+
+\medskip   \begin{oneparcheckboxes}
+        \CorrectChoice Vrai 
+        \choice Faux
+        \choice Nous n'avons pas assez d'information pour le savoir.
+\medskip    \end{oneparcheckboxes}
+    
+   \part[1] Au seuil 5\%, on rejette $H_0: \sigma=1$ pour $H_1:\sigma \neq 1$.
+
+\medskip   \begin{oneparcheckboxes}
+        \choice Vrai 
+        \CorrectChoice Faux
+        \choice Nous n'avons pas assez d'information pour le savoir.
+\medskip    \end{oneparcheckboxes}
+    
+%   \part[1] Au seuil 1\%, on rejette $H_0: \mu=8$ pour $H_1:\mu \neq 8$.
+
+%\medskip   \begin{oneparcheckboxes}
+%        \choice Vrai 
+%        \CorrectChoice Faux
+%        \choice Nous n'avons pas assez d'information pour le savoir.
+%    \end{oneparcheckboxes}\medskip
+
+\end{parts}
+
+\vspace{0.5cm}
+\question[4] Soit une loi normale d'espérance $\mu$ et de variance $\sigma^2=64$.
+Nous voulons faire un test d'hypothèses au seuil $\alpha=0,05$ pour confronter 
+\begin{align*}
+    H_0:&\mu=600,\\
+    H_1:&\mu\neq 600.
+\end{align*} 
+Les valeurs critiques du test sont donc $-z_{0,025}=-1,96$ et $z_{0,025}=1,96$.
+Avec un échantillon aléatoire de $n=241$ étudiants, nous obtenons un seuil observé de $0,004$. 
+Cochez tous les énoncés qui sont vrais parmi les suivants. \textit{\textbf{Une réponse cochée alors qu'elle ne devrait pas l'être entraîne une pénalité de 1 point. Le minimum possible pour cette question est 0 point.}}
+ 
+\begin{checkboxes}
+\correctchoice Nous savons que $|z_0|>1,96$.
+\choice Nous savons que $|z_0|<1,96$.
+\correctchoice Nous rejetons $H_0$.
+\choice Nous ne rejetons pas $H_0$.
+\choice Nous sommes certains que l'intervalle de confiance à 95\% pour $\mu$ contient 600.
+\correctchoice Nous sommes certains que l'intervalle de confiance à 95\% pour $\mu$ ne contient pas 600.
+\choice Nous sommes certains que l'intervalle de confiance à 99\% pour $\mu$
+ contient 600.
+\choice Nous sommes certains que l'intervalle de confiance à 99\% pour $\mu$ ne contient pas 600.
+\choice Nous ne pouvons rien dire sur ce test car nous ne connaissons pas la statistique observée, $z_0$.
+\end{checkboxes}
+\vspace{0.5cm}
+
+
+\question[4]
+Parmi les statistiques descriptives suivantes, lesquelles sont des mesures de dispersion? \textit{\textbf{Une réponse cochée alors qu'elle ne devrait pas l'être entraîne une pénalité de 1 points. Le minimum possible pour cette question est 0 point.}}
+
+\begin{checkboxes}
+\correctchoice La moyenne échantillonnale
+\choice La médiane échantillonnale
+\choice Le mode échantillonnal
+\correctchoice La variance échantillonnale
+\choice L'écart interquartile
+\choice L'étendue
+\end{checkboxes}
+\newpage
+.
+\newpage
+\question[4]
+Soit $Z_1,Z_2$ et $Z_{3}$, des variables aléatoires normales centrées-réduites indépendantes et $\displaystyle W=Z_1^2+2Z_2^2+3Z_3^2$. 
+
+Que vaut Var$(W)$? \textbf{\textit{Donnez les détails de votre démarche. Une réponse sans démarche ne donnera aucun point.}}
+
+\begin{solution}
+
+\end{solution}
+
+\vspace{9cm}
+Var$(W)=$\boite{3}{1.5} 
+\question 
+Annabelle suppose que le temps d'attente dans un bureau de la SAAQ suit une loi exponentielle de moyenne 240 minutes.
+
+Elle veut construire un intervalle de confiance bilatéral à $95\%$ pour le vérifier. 
+Elle note alors le temps d'attente de $100$ personnes choisies au hasard et obtient une moyenne $\Bar{x}=250$, et une variance $s^2=59~536$. 
+À partir de ces résultats, elle construit un intervalle de confiance en utilisant le quantile $z_{0,025}$, à partir de sa table de la loi normale, et obtient l'intervalle $[130,44;369,56]$. 
+\begin{parts}
+    \part[2] Écrivez les hypothèses du test qu'Annabelle devrait faire à partir de cet intervalle de confiance, en lien avec son interrogation.
+    
+    \vspace{2cm}
+    \part[2] Quelle serait la décision du test en (a)?
+
+    \vspace{2cm}
+    \part[2] Le seuil du test sera-t-il exact? Pourquoi?
+\end{parts}
+
+\newpage
+.
+\newpage
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+\question\label{rls}
+
+Afin d'estimer le volume de bois disponible dans la forêt qui mène à La Barillette, nous aimerions modéliser le volume de bois d'un arbre à l'aide de sa circonférence. Nous disposons du volume ($Y$) et de la circonférence ($X$) de 31 arbres. Afin d'étudier le modèle $Y_i = \beta_0 + \beta_1 X_i + E_i$, en supposant que les postulats de régression linéaire sont respectés, nous avons résultats suivants:
+
+\begin{align*}
+	\sum_{i=1}^{31} x_i = 930;  \quad \sum_{i=1}^{31} x_i^2 = 28\;900 ; \quad \sum_{i=1}^{31} x_iy_i =113\;880;\quad
+	\sum_{i=1}^{31} y_i = 3\;596; \quad \sum_{i=1}^{31} y_i^2 = 446\;716.
+\end{align*}
+
+\begin{parts}
+	\part[8] Donnez les estimations de $\beta_0$ et $\beta_1$. \textbf{\textit{Donnez les détails de votre démarche. Des réponses sans démarche ne donneront aucun point.}}
+	
+	
+	\begin{solution} $$ \widehat{\beta}_1 
+		= \frac{S_{XY}}{S_{XX}}
+		= \frac{\sum x_iy_i - n\overline{x}\overline{y}}{\sum x_i^2 - n\overline{x}^2} 
+		= \frac{\displaystyle 13\; 887.86 -  \frac{410.7 \times  935.3}{31}}{\displaystyle 5\; 736.55 - \frac{410.7^2 }{ 31} }
+		= \frac{1496.644}{295.4374}
+		= 5.065858 $$
+	
+	$$ \widehat{\beta}_0 =  \overline{y}-\widehat{\beta}_1 \overline{x} 
+		= \frac{935.3}{31} -  5.065858 \frac{410.7}{31} 
+		= -36.94348 $$ 
+		
+		$$ \widehat{Y}_i = -36.94348 + 5.065858  x_i$$
+		\end{solution}
+	\vspace{17cm}
+
+$\widehat{\beta}_0=$\boite{3}{1.5} $\widehat{\beta}_1=$\boite{3}{1.5}
+
+\vspace{0.5cm}
+	\pagesuivante{\ref{rls}}
+
+\newpage 
+.
+\newpage
+\suite{\ref{rls}}
+
+
+	\part[2] Sophie aimerait estimer le volume de bois de l'arbre devant sa maison. Cet arbre a une circonférence de 28. La prévision ponctuelle du volume de bois de cet arbre est de 104. Choisissez l'intervalle de valeurs ayant 95\% de chances de contenir le volume de bois de cet arbre de circonférence 28.
+	
+	\begin{checkboxes}
+\choice $ \displaystyle	104 \pm t_{0,05;29} \sqrt{MS_E \left[ \frac{1}{n} + \frac{(28-\overline{x})^2}{S_{XX}}\right]} $ 
+\choice $ \displaystyle	104 \pm t_{0,025;1} \sqrt{MS_E \left[ \frac{1}{n} + \frac{(28-\overline{x})^2}{S_{XX}}\right]} $ 
+\choice $ \displaystyle	104 \pm t_{0,025;29} \sqrt{MS_E \left[ \frac{1}{n} + \frac{(28-\overline{x})^2}{S_{XX}}\right]} $ \vspace{0.2cm}
+\correctchoice $ \displaystyle		104 \pm t_{0,025;29} \sqrt{MS_E \left[ 1+ \frac{1}{n} + \frac{(28-\overline{x})^2}{S_{XX}}\right]} $
+\choice $ \displaystyle		104 \pm t_{0,025;1} \sqrt{MS_E \left[ 1+ \frac{1}{n} + \frac{(28-\overline{x})^2}{S_{XX}}\right]} $
+\choice $ \displaystyle		104 \pm t_{0,05;29} \sqrt{MS_E \left[ 1+ \frac{1}{n} + \frac{(28-\overline{x})^2}{S_{XX}}\right]} $
+	\end{checkboxes}
+\vspace{0.5cm}
+		\part[1] Si Sophie avait un arbre ayant une circonférence de 35, l'intervalle de valeurs calculé à la question précédente serait... 
+	\begin{checkboxes}
+			\choice plus court 
+			\choice de même longueur  
+			\correctchoice plus long   
+		\choice on ne peut pas savoir la différence de longueur 
+	\end{checkboxes}
+\vspace{0.5cm}
+
+\part[1] La valeur-p du test de significativité du lien linéaire entre $X$ et $Y$ est égale à $0,00014$. Cochez l'énoncé qui est vrai.
+
+	\begin{checkboxes}
+            \choice Il n'y a pas de lien linéaire significatif entre $X$ et $Y$.
+            \choice Il y a un lien linéaire significatif entre $X$ et $Y$.
+            \correctchoice Nous ne pouvons rien dire car nous ne connaissons pas le seuil du test.
+            \choice Nous ne pouvons rien dire car nous ne connaissons pas $t_0$.
+	\end{checkboxes}
+
+\end{parts}
+\newpage
+.
+\newpage
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+\question Soit $X_1,\hdots, X_{100}$, des variables aléatoires indépendantes et identiquement distribuées selon une loi normale d’espérance $\mu$ et de variance $\sigma^2 = 400$. 
+Nous désirons construire un intervalle de confiance de niveau $95\%$ pour $\mu$. Bien sûr, l'intervalle de confiance aura la forme d'un des intervalles vus au cours. Nous notons cet intervalle $[C_1;C_2]$.
+\begin{parts}
+    \part[4] Que vaut $\mathbb{E}[C_2]$? \textbf{\textit{Donnez les détails de votre démarche.}}
+    \vspace{4.5cm}
+    \part[4] Que vaut $\text{Var}[C_2]$? \textbf{\textit{Donnez les détails de votre démarche.}}
+    \vspace{4.5cm}
+    \part[2] Quelle est la loi de probabilité de $C_2$?
+    \vspace{2cm}
+    \part[6]Quelle est la probabilité que $C_2$ soit inférieure ou égale à $\mu$? \textbf{\textit{Donnez les détails de votre démarche. Une réponse sans démarche ne donnera aucun point.}}
+
+    \vspace{8cm}
+
+    Réponse: \boite{3}{1.5}
+\end{parts}
+
+
+\newpage
+.
+\newpage
+
+\question[10]
+Soit les échantillons
+
+\begin{align*}
+Y_{1}, \ldots, Y_{n} \overset{i.i.d.}{\sim} \mathcal{N}(\mu_Y, \sigma^2_Y), & & X_{1}, \ldots, X_{m} \overset{i.i.d.}{\sim} \mathcal{N}(\mu_X, \sigma^2_X),
+\end{align*}
+où $n=8$, $m=8$ et $\sigma^2_Y=\sigma^2_X$ sont inconnues. Pour le test dont les hypothèses sont 
+\begin{align*}
+    H_0: \mu_Y-\mu_X=0,\\
+    H_1: \mu_Y-\mu_X>0,
+\end{align*}
+ la valeur-p est de $0,01$. Sachant que $\bar{y}=6,824$, $\bar{x}=4,2$ et $s^2_Y=4,5$, quelle est la valeur de $s^2_X$? \textbf{\textit{Donnez les détails de votre démarche. Une réponse sans démarche ne donnera aucun point.}}
+
+\vspace{18cm}
+$s^2_X=$ \boite{3}{1.5}
+
+\newpage 
+.
+\newpage
+\question[10] Soit $X_1,\hdots, X_{25}$, des variables aléatoires indépendantes et identiquement distribuées selon une loi normale d'espérance~$\mu$ et de variance $\sigma^2=625$.
+Nous désirons effectuer un \textbf{test unilatéral à droite} avec $H_0:\mu=9$ au seuil $\alpha = 0,025$.
+Nous avons les résultats suivants:
+\begin{align*}
+    \bar{x}= 11,34 &  & s^2=754.
+\end{align*}
+Si nous supposons qu'en réalité la vraie moyenne $\mu=\mu_1$ et que la puissance du test est $0,13567$, que vaut $\mu_1$? 
+\textbf{\textit{Donnez les détails de votre démarche. Une réponse sans démarche ne donnera aucun point.}}
+
+\vspace{18cm}
+$\mu_1=$ \boite{3}{1.5}
+
+\newpage 
+.
+\newpage
+
+
+\question[10] On demande à 3600 Suisses s'ils préfèrent la fondue ou la raclette. On obtient que 1849 personnes préfèrent la fondue. Y a-t-il suffisamment de preuves pour dire que la majorité des Suisses préfèrent la fondue, au seuil approximatif $\alpha = 0,05$? \textbf{\textit{Écrivez toutes les étapes du test et justifiez vos réponses!}}
+
+\textit{Utilisez l'approximation suivante: $\displaystyle\sqrt{\frac{\frac{1849}{3600}\left(1-\frac{1849}{3600}\right)}{3600}}\approx0,008$}
+\newpage
+.
+\newpage
+
+\question[10] Vous travaillez dans une usine qui produit des boulons, et le responsable de la qualité prétend que la variance de la longueur des boulons est de $4$ mm$^2$. Vous avez des raisons de penser que la variance est en réalité plus élevée et décidez de mener un test d'hypothèse.
+
+
+
+Vous prenez un échantillon aléatoire de $20$ boulons et mesurez leurs longueurs. La variance des longueurs de l'échantillon est de $5,5$ mm$^2$. 
+\\
+\\
+Effectuez un test d'hypothèse de seuil $\alpha=1\%$ pour déterminer s'il existe suffisamment de preuves pour rejeter l'affirmation du responsable de la qualité. Vous pouvez supposer que les longueurs des boulons suivent une distribution normale. \textbf{\textit{Écrivez toutes les étapes du test et justifiez vos réponses!}}
+
+
+
+\end{questions}
+\newpage
+.
+\newpage
+\end{document} 

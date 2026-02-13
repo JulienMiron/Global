@@ -1,0 +1,1009 @@
+\def\Ponderation{40}
+\def\SigleNumero{STT-1900}
+\def\NomCours{Méthodes statistiques pour ingénieurs}
+\def\DateEvaluation{15 décembre 2024}
+\def\HeureEvaluation{13h30 à 16h20}
+\def\Session{Automne 2022}
+\def\NomEvaluation{Examen 2}
+
+\def\OptionsExam{11pt}
+
+% Ne rien mettre entre les accolades si l'enseignant (ou l'enseignante) est aussi le coordonnateur (ou la coordonnatrice)
+\def\Coordonnatrice{}
+\def\Coordonnateur{}
+
+% Ne rien mettre entre les accolades s'il y a plus d'une section
+\def\Enseignant{}
+\def\Enseignante{}
+
+% Ne rien mettre entre les accolades s'il s'agit d'un cours à section unique
+% Mettre le nom de chacun des enseignants et enseignantes entre les accolades
+% Une case à cocher sera générée pour chacune des sections
+\def\SectionA{Audrey-Anne Vallée}
+\def\SectionB{Julien Miron}
+\def\SectionC{}
+\def\SectionD{}
+
+% Concerne seulement les travaux pratiques : écrire entre les accolades le nombre maximal de membres pour une équipe
+\def\NombreLignes{}		
+
+% Si vous souhaitez qu'apparaisse une déclaration d'honneur au bas de la première page, écrivez quelque chose entre les accolades
+\def\EnLigne{}
+
+\def\Directives{
+	\begin{enumerate}
+\item Matériel autorisé:
+\begin{itemize}
+    \item Calculatrice scientifique autorisée par la faculté des sciences et de génie;
+    \item Le feuillet fourni avec cet examen;
+    \item Une seule feuille aide-mémoire manuscrite de format lettre (8.5''$\times$11'') recto-verso.
+    \end{itemize}
+\item Assurez-vous que cette évaluation comporte \numquestions ~questions réparties sur \numpages{}~pages, pour un total de \numpoints{}~points.\
+\item Veuillez ne pas dégrafer votre examen.
+\item Les tables de lois sont distribuées dans un deuxième feuillet. Attention à ne rien dégrafer.
+\item Veuillez ne rien écrire sur les tables de loi.
+\item \textbf{Vous devez justifier votre raisonnement. Dans le cas contraire, aucun point ne sera accordé, même pour une bonne réponse}, sauf pour les questions à choix de réponse et les vrais ou faux. \
+\item Pour les questions à choix de réponse et les vrais ou faux, vous pouvez mettre un X, un crochet ($\checkmark$) ou remplir la case.
+
+\item Le verso des feuilles peut être utilisé comme brouillon, mais ne sera pas corrigé. Attention à ne rien dégrafer.
+\end{enumerate}
+}
+
+% Veuillez indiquer le type d'évaluation entre crochets
+% Examen : option à choisir pour un examen présentiel qui sera corrigé de manière classique. Un tableau des points sera affiché sur la page couverture.
+% Gradescope : option à choisir pour un examen qui sera corrigé via Gradescope. Aucun tableau de pointage n'apparaîtra et il y a quelques différences au niveau de la mise en page
+% TPS :
+% TPF :
+% Devoir :
+\documentclass[Gradescope]{Evaluation}
+\begin{document}
+
+\mbox{}
+%\newpage
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+
+\begin{questions}
+\question\label{QCMicTests}
+Soit $X_1,\hdots,X_{20}$, des variables aléatoires indépendantes et identiquement distribuées selon une loi normale d'espérance $\mu$ et de variance $\sigma^2$. Un intervalle de confiance de niveau 95\% pour $\mu$ est $[21,54 ; 28,46]$.
+
+\medskip
+
+\renewcommand*\half{,5}
+\begin{parts}
+    \part[0\half] Au seuil 10\%, nous rejetons $H_0: \mu=23$ pour $H_1:\mu \neq 23$.
+    
+    \begin{oneparcheckboxes}
+        \choice Vrai
+        \choice Faux
+        \correctchoice Il manque d'information.
+    \end{oneparcheckboxes}
+    \medskip
+
+    \part[0\half] Au seuil 5\%, nous rejetons $H_0: \mu=23$ pour $H_1:\mu \neq 23$.
+    
+    \begin{oneparcheckboxes}
+        \choice Vrai
+        \correctchoice Faux
+        \choice Il manque d'information.
+    \end{oneparcheckboxes}
+\medskip
+
+       \part[0\half] Au seuil 1\%, nous rejetons $H_0: \mu=23$ pour $H_1:\mu \neq 23$.
+    
+    \begin{oneparcheckboxes}
+        \choice Vrai
+        \correctchoice Faux
+        \choice Il manque d'information.
+    \end{oneparcheckboxes}
+\medskip
+
+\part[0\half] Au seuil 10\%, nous rejetons $H_0: \mu=29$ pour $H_1:\mu \neq 29$.
+    
+    \begin{oneparcheckboxes}
+        \correctchoice Vrai
+        \choice Faux
+        \choice Il manque d'information.
+    \end{oneparcheckboxes}
+\medskip
+
+    \part[0\half] Au seuil 5\%, nous rejetons $H_0: \mu=29$ pour $H_1:\mu \neq 29$.
+    
+    \begin{oneparcheckboxes}
+        \correctchoice Vrai
+        \choice Faux
+        \choice Il manque d'information.
+    \end{oneparcheckboxes}
+\medskip
+
+       \part[0\half] Au seuil 1\%, nous rejetons $H_0: \mu=29$ pour $H_1:\mu \neq 29$.
+    
+    \begin{oneparcheckboxes}
+        \choice Vrai
+        \choice Faux
+        \correctchoice Il manque d'information.
+    \end{oneparcheckboxes}
+    
+\end{parts}
+
+
+\vspace{1cm}
+
+\question[3] 
+Après avoir rejeté l'hypothèse nulle du test F d'une analyse de la variance à blocs aléatoires, nous tentons de comparer les moyennes entre elles.
+La PPDS de seuil $5\%$ calculée dans cette situation est égale à 5,65. 
+Les moyennes échantillonnales des différents niveaux, placées en ordre croissant sont:
+
+\begin{align*}
+    \overline{y}_{2\bullet}&=125,25\\
+    \overline{y}_{3\bullet}&=126,59\\
+    \overline{y}_{1\bullet}&=131,64\\
+\end{align*}
+
+Quel énoncé est vrai parmi les suivants au seuil 5\%?
+
+
+\begin{checkboxes}
+    \choice Toutes les moyennes sont significativement différentes.
+    \choice Toutes les moyennes sont significativement égales.
+    \choice Les moyennes des niveaux 2 et 3 sont significativement égales, mais significativement différentes de la moyenne du niveau 1.
+    \correctchoice Les moyennes des niveaux 2 et 3 sont significativement égales, les moyennes des niveaux 1 et 3 sont significativement égales, mais les moyennes des niveaux 1 et 2 sont significativement différentes.
+    \choice Les moyennes des niveaux 1 et 3 sont significativement égales, les moyennes des niveaux 1 et 2 sont significativement égales, mais les moyennes des niveaux 2 et 3 sont significativement différentes.
+    \choice Nous ne pouvons pas nous prononcer à l'aide de la PPDS, car il ne s'agit pas d'une analyse de la variance à un facteur.
+    \end{checkboxes}
+
+    
+\newpage
+
+\question[3] 
+
+Voici quatre sorties obtenues avec \texttt{Rcmdr}.
+
+\smallskip
+{\bf Sortie A}
+\begin{verbatim}
+                  Df     Sum Sq    Mean Sq    F value      Pr(>F)    
+FacteurA           3     3503.3     1167.8     1020.8      0.0001
+FacteurB           2     2616.3     1308.2     1143.6      0.0001
+FacteurA:FacteurB  6        2.7        0.5        0.4      0.8796    
+Residuals         60       68.6        1.1                        
+\end{verbatim}
+
+{\bf Sortie B}
+\begin{verbatim}
+                  Df     Sum Sq    Mean Sq    F value      Pr(>F)   
+FacteurA           3     1353.0      451.0     345.5       0.0001
+FacteurB           2        0.1        0.1       0.1       0.9929    
+FacteurA:FacteurB  6       10.5        1.8       1.3       0.2512    
+Residuals         60       78.3        1.3                           
+\end{verbatim}
+
+{\bf Sortie C}
+\begin{verbatim}
+                  Df     Sum Sq    Mean Sq    F value      Pr(>F)    
+FacteurA           3        4.7        1.6        1.2      0.3033    
+FacteurB           2     2307.9     1153.9      919.0      0.0001
+FacteurA:FacteurB  6        1.9        0.3        0.3      0.9553    
+Residuals         60       75.3        1.3                    
+\end{verbatim}
+
+{\bf Sortie D}
+\begin{verbatim}
+                  Df     Sum Sq    Mean Sq    F value      Pr(>F)   
+FacteurA           3     1036.8      345.6      247.2      0.0001
+FacteurB           2      209.6      104.8       74.9      0.0001
+FacteurA:FacteurB  6     8155.8     1359.3      972.3      0.0001
+Residuals         60       83.9        1.4                
+\end{verbatim}
+
+\vspace{0.75cm}
+Voici une figure représentant les moyennes des combinaisons de deux facteurs: \vspace{-1cm}
+\begin{figure}[h] \centering
+    \includegraphics[scale = 0.45]{ANOVA2F.pdf}
+\end{figure}
+
+À quelle sortie cette figure correspond-elle?  
+    
+    \medskip\begin{oneparcheckboxes}
+        \CorrectChoice { Sortie A}
+        \choice { Sortie B}
+        \choice { Sortie C}
+        \choice { Sortie D}
+    \end{oneparcheckboxes}
+
+
+
+
+
+\newpage
+
+
+\question[3] Soit la table d'analyse de la variance à un facteur suivante obtenue à l'aide de \texttt{Rcmdr}:
+\begin{verbatim}
+>summary(ANOVAModel)
+            Df   Sum Sq   Mean Sq   F value    Pr(>F)    
+Fromage      2   170.45    85.225     5.704    0.0251
+Residuals    9  134.467    14.941                      
+\end{verbatim}
+
+À partir de la table d'ANOVA, quelle affirmation parmi les suivantes est vraie? Une seule réponse est bonne.
+
+\begin{checkboxes}
+\choice La proportion de la variance totale expliquée par le facteur \texttt{Fromage} est égale à $0,0251$. 
+\choice La valeur-p du test d'égalité des moyennes est égale à 5,704\%.
+\choice La variance du facteur \texttt{Fromage} vaut 170,45.
+\correctchoice La valeur critique du test d'hypothèses au seuil 5\% que l'on fait avec cette table d'ANOVA est égale à 4,26.
+\choice L'hypothèse nulle spécifie que les variances des différents niveaux du facteur \texttt{Fromage} sont toutes égales.
+\choice Il s'agit d'une ANOVA à blocs aléatoires.
+\choice Il manque la ligne d'interaction entre \texttt{Fromage} et \texttt{Residuals} pour pouvoir rejeter ou non $H_0$. 
+\end{checkboxes}
+
+\vspace{1cm}
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+
+
+\question 
+Soit $X_1,\hdots, X_{n}$, des variables aléatoires indépendantes de loi normale d'espérance $\mu$ et de variance $\sigma^2$. Voici plusieurs statistiques:
+\begin{center}
+    
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\cline{1-2}\cline{4-5}\cline{7-8}\cline{10-11}&&&&&&&&&&\\[-3mm]
+
+1 
+& $\displaystyle \frac{\overline{X}-\mu_0}{S/\sqrt{n}}$
+&
+& 6 
+& $\displaystyle \frac{\overline{X}-\mu_0}{\sigma/\sqrt{n}}$
+&
+&11
+& $\displaystyle \frac{ (n-1)S^2}{ \sigma_0^2}$
+&
+&16
+& $z_{\alpha}$
+\\[4mm]
+
+\cline{1-2}\cline{4-5}\cline{7-8}\cline{10-11}&&&&&&&&&&\\[-3mm]
+2 
+& $\displaystyle \frac{\overline{X}-\mu_0}{S^2/\sqrt{n}}$
+&  
+& 7 
+& $\displaystyle \frac{\overline{X}-\mu_0}{\sigma^2/n}$
+&
+&12
+& $\displaystyle  \frac{ (n-1)S}{\sigma_0}$
+&
+&17
+& $t_{\alpha;n-1}$
+\\[4mm]
+\cline{1-2}\cline{4-5}\cline{7-8}\cline{10-11}&&&&&&&&&&\\[-3mm]
+3 
+& $\displaystyle \frac{\overline{X}-\mu_0}{S^2/n}$
+&  
+& 8 
+& $\displaystyle \frac{\overline{X}-\mu_0}{\sigma/n}$
+&
+&13
+& $z_{\alpha/2}$
+&
+&18
+& $\chi^2_{\alpha;n-1}$
+\\[4mm]
+\cline{1-2}\cline{4-5}\cline{7-8}\cline{10-11}&&&&&&&&&&\\[-3mm]
+4 
+& $\displaystyle \frac{\overline{X}-\mu_0}{S/n}$
+&  
+& 9 
+& $\displaystyle\frac{ (n-1)S^2}{ \chi_{\sfrac{\alpha}{2};n-1}^2}$
+&
+&14
+& $t_{\alpha/2;n-1}$
+&
+&19
+& $\chi^2_{1-\alpha/2;n-1}$
+\\[4mm]
+\cline{1-2}\cline{4-5}\cline{7-8}\cline{10-11}&&&&&&&&&&\\[-3mm]
+5 
+& $\displaystyle \frac{\overline{X}-\mu_0}{\sigma^2/\sqrt{n}}$
+&  
+& 10 
+& $\displaystyle\frac{ (n-1)S^2}{ \chi_{1-\sfrac{\alpha}{2};n-1}^2}$
+&
+&15
+& $\chi^2_{\alpha/2;n-1}$
+&
+&20
+& $\chi^2_{1-\alpha;n-1}$
+\\[4mm]
+\cline{1-2}\cline{4-5}\cline{7-8}\cline{10-11}
+\end{tabular}
+
+
+\end{center}
+
+Pour chacune des situations suivantes, inscrivez le numéro de la statistique observée associée dans la case.
+
+\vspace{0.3cm}
+\begin{parts}
+    \part[1\half] On veut tester $H_0: \mu = \mu_0$ contre $H_0: \mu \neq \mu_0$, lorsque $\sigma^2$ est connue.
+
+\boite{2}{1.1}
+ \medskip 
+
+
+ \part[1\half] On veut tester $H_0: \mu = \mu_0$ contre $H_0: \mu < \mu_0$, lorsque $\sigma^2$ est connue.
+
+\boite{2}{1.1}
+ \medskip 
+
+ 
+    \part[1\half] On veut tester $H_0: \sigma^2 = \sigma_0^2$ contre $H_0: \sigma^2 > \sigma_0^2$.
+
+\boite{2}{1.1}
+ \medskip 
+
+
+     \part[1\half] On veut tester $H_0: \mu = \mu_0$ contre $H_0: \mu < \mu_0$, lorsque $\sigma^2$ est inconnue.
+
+
+\boite{2}{1.1}
+ \medskip 
+
+ \begin{solution}
+     \begin{parts}
+         \part 6
+         \part 6
+         \part 11
+         \part 1
+     \end{parts}
+ \end{solution}
+
+ \end{parts}
+
+
+\newpage
+
+\question[] 
+Un ingénieur veut vérifier s'il existe une différence de rigidité d'un certain type de cylindre, selon le pourcentage de \textit{Vachopouliotum} qui le compose.
+
+Il compare donc la rigidité de 6 pourcentages différents (10\%, 20\%, 25\%, 30\%, 35\%, et 40\%) en produisant 5 cylindres pour chaque pourcentage.
+La table d'ANOVA suivante est produite par \texttt{Rcmdr}. 
+Dans celle-ci, certaines quantités ont été remplacées par \texttt{AAA, BBB, CCC} et \texttt{ ???}. Nous considérons que les postulats du modèle sont respectés.
+\begin{verbatim}
+Analysis of Variance Table
+
+Response: Y
+               Df     Sum Sq     Mean Sq     F value      Pr(>F)  
+pourcentage   ???     278.85         ???         AAA        0.01 
+Residuals     BBB     343.20         ???                  
+Total         ???       CCC
+\end{verbatim}
+
+\begin{comment}
+\begin{verbatim}
+Analysis of Variance Table
+
+Response: Y
+              Df     Sum Sq     Mean Sq     F value      Pr(>F)  
+perc           5     278.85       55.77        3.90        0.01 
+Residuals     24     343.20       14.30                  
+Total         29     622.05
+\end{verbatim}
+\end{comment}
+
+\begin{parts}
+    \part[3]\label{mise1} Que vaut \texttt{AAA}?
+\begin{checkboxes}
+    \choice 55,77
+    \choice 278,85
+    \correctchoice 3,90
+    \choice 0,8125
+    \choice Il n'est pas possible de trouver la valeur de \texttt{AAA} avec les informations données.
+\end{checkboxes}
+\vspace{0.5cm}
+    \part[2]\label{mise1} Que vaut \texttt{BBB}?
+\begin{checkboxes}
+    \choice 5
+    \choice 6
+    \correctchoice 24
+    \choice 25
+    \choice 29
+    \choice 30
+    \choice Il n'est pas possible de trouver la valeur de \texttt{BBB} avec les informations données.
+\end{checkboxes}
+\vspace{0.5cm}
+    \part[2]\label{mise1} Que vaut \texttt{CCC}?
+\begin{checkboxes}
+    \choice 1,231
+    \choice 64,35
+    \correctchoice 622,05
+    \choice 0,8125
+    \choice Il n'est pas possible de trouver la valeur de \texttt{CCC} avec les informations données.
+\end{checkboxes}
+
+\vspace{0.5cm}
+
+\part[2]\label{mise3} Au seuil de 5\%, quelle conclusion pouvons-nous tirer de la table d'ANOVA? Une seule réponse est bonne.
+\begin{checkboxes}
+    \choice Il n'est pas possible de tirer de conclusion car nous ne connaissons pas les valeurs remplacées par \texttt{???}.
+    \choice Il faudrait répéter l'expérience plus de fois pour pouvoir conclure.
+    \choice Toutes les moyennes sont significativement différentes.
+    \correctchoice La rigidité moyenne des cylindres d'au moins un pourcentage est significativement différente de celle d'au moins un autre pourcentage.
+    \choice Toutes les moyennes sont significativement égales.
+\end{checkboxes}
+\end{parts}
+
+
+
+
+\newpage
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+
+ \question\label{1FQCM} 
+Amandine s'intéresse au poids moyen des citrons que produisent ses citronniers. Habituellement, le poids moyen des citrons est de 125 g. 
+Elle veut savoir si son nouvel engrais a un impact positif sur le poids des citrons.
+
+Les citrons qui poussent à l'aide du nouvel engrais ont une variance théorique de 196 g$^2$. Elle choisit au hasard 25 citrons ayant poussé à l'aide de son nouvel engrais.
+Dans l'échantillon, le poids moyen des citrons est de $132$ g et la variance échantillonnale est de $169$ g$^2$.
+\medskip
+\begin{parts}
+
+\part[2] Quelles hypothèses devra-t-elle confronter?
+
+\begin{checkboxes}
+    \choice $H_0:\mu=125$ et $H_1:\mu \neq 125$
+    \CorrectChoice $H_0:\mu=125$ et $H_1:\mu > 125$
+    \choice $H_0:\mu=125$ et $H_1:\mu < 125$
+    \choice $H_0:\mu=132$ et $H_1:\mu \neq 132$
+    \choice $H_0:\mu=132$ et $H_1:\mu > 132$
+    \choice $H_0:\mu=132$ et $H_1:\mu < 132$
+    \choice Nous ne pouvons pas connaître les hypothèses, car nous ne connaissons pas le seuil $\alpha$.
+    
+\end{checkboxes}
+\vspace{0.5cm}
+
+\part Supposons qu'elle désire faire un test unilatéral à droite au seuil $\alpha=1,5\%$.
+\medskip
+    \begin{subparts}
+        \subpart[2] Quelle est la valeur critique du test, arrondie à 3 décimales?
+
+\medskip
+\hspace{-1cm}\begin{oneparcheckboxes}
+    \choice 1,885
+    \CorrectChoice 2,170
+    \choice 2,692
+    \choice 2,500
+    \choice 2,064
+    \choice 1,711
+    \choice 0,0150
+    \choice 1,500
+\end{oneparcheckboxes} 
+
+\vspace{0.5cm}
+
+\subpart[3] Le seuil observé du test est 0,00621. Choisissez tous les énoncés qui sont vrais. \textit{\textbf{Une réponse cochée alors qu'elle ne devrait pas l'être entraîne une pénalité de 1 point. Le minimum possible pour cette question est 0 point.}}
+
+\medskip
+	\begin{checkboxes}
+	    \CorrectChoice Au seuil $\alpha=1,5\%$, Amandine rejette $H_0$.
+		\choice Au seuil $\alpha=1,5\%$, Amandine ne rejette pas $H_0$.
+		\choice Au seuil $\alpha=1,5\%$, la variance du poids des citrons est significativement supérieure à $196 \, g$.
+		\choice Au seuil $\alpha=1,5\%$, nous ne pouvons pas dire si le poids moyen des citrons est influencé par le nouvel engrais.
+        \correctchoice Amandine rejetterait $H_0$ pour tous les seuils supérieurs à 0,00621.
+        \choice Amandine rejetterait $H_0$ pour tous les seuils inférieurs à 0,00621.
+  
+	\end{checkboxes}
+    \end{subparts}
+\end{parts}
+
+\medskip
+
+\question[5] 
+Déterminez si les énoncés suivants sont vrais ou faux.
+
+\textbf{\textit{Une bonne réponse vaut 1 point, une mauvaise réponse vaut -1 point et une réponse vide vaut 0 point, pour un total minimum de 0 point.}}
+\smallskip
+
+\begin{parts}
+\part L'analyse de variance à un facteur a comme objectif principal de déterminer si les variances de $a$ populations sont toutes égales ou si certaines diffèrent significativement.
+
+\begin{oneparcheckboxes}
+    \choice Vrai
+    \correctchoice Faux
+\end{oneparcheckboxes}
+\medskip
+
+\part Le plan avec blocs aléatoires est utile lorsque les unités expérimentales sont hétérogènes.
+
+\begin{oneparcheckboxes}
+    \correctchoice Vrai
+    \choice Faux
+\end{oneparcheckboxes}
+\medskip
+
+\part Dans un plan à deux facteurs, on doit interpréter le test sur l'interaction seulement lorsque les tests sur les facteurs simples sont non significatifs.
+
+\begin{oneparcheckboxes}
+    \choice Vrai
+    \correctchoice Faux
+\end{oneparcheckboxes}
+\medskip
+
+\part Dans un test unilatéral sur une moyenne $\mu$, le calcul de la valeur-p dépend du seuil du test.
+
+\begin{oneparcheckboxes}
+    \choice Vrai
+    \correctchoice Faux
+\end{oneparcheckboxes}
+\medskip
+
+\part Dans un modèle de régression linéaire simple, si $\beta_1 = 0$, alors les valeurs prédites de $Y$ devraient être proches de la moyenne $\overline{y}$.
+
+\begin{oneparcheckboxes}
+    \correctchoice Vrai
+    \choice Faux
+\end{oneparcheckboxes}
+
+
+\end{parts}
+\newpage
+
+
+
+
+\question 
+
+On veut savoir si les élèves de 16 ans sont plus forts en mathématiques en juin qu’en septembre. 
+On choisit 6 étudiants au hasard qui passent un examen similaire avant et après les vacances. 
+Voici les résultats:
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{|l|cccccc|c|}
+        \hline
+        \multirow{2}{*}{Examen} & \multicolumn{6}{c|}{Étudiant} & \multirow{2}{*}{Moyenne} \\
+        \cline{2-7}
+         & 1 & 2 & 3 & 4 & 5 & 6 & \\
+        \hline
+        Examen 1 & 77 & 74 & 82 & 73 & 87 & AAA & ??? \\
+        Examen 2 & 72 & 68 & 76 & 68 & 85 & 63 & 72\\
+        \hline
+    \end{tabular}
+\end{center}
+
+Répondez aux questions suivantes en sachant qu'il s'agit d'{échantillons appariés} et en utilisant les quantités suivantes: 
+\begin{align*}
+    s_D^2=2,8 & & \overline{d}=4.
+\end{align*}
+
+\medskip 
+
+\begin{parts}
+    \part[2] Que vaut AAA ? Justifiez votre réponse.
+    \vspace{4.5cm}
+    \begin{solution}
+        \begin{align*}
+            \overline{x}_1 &= \frac{5+6+6+5+2+(AAA-63}{6}
+            = 4 \cr
+            24+AAA-63 &= 24 \cr
+            AAA=63
+        \end{align*}
+    \end{solution}
+    \part[2] En confrontant les hypothèses $H_0:\mu_1=\mu_2$ et $H_1:\mu_1>\mu_2$ au seuil $\alpha=5\%$, quelle est la loi de la statistique du test?
+    \begin{checkboxes}
+        \correctchoice $t_{5}$
+        \choice $t_{6}$
+        \choice $t_{11}$
+        \choice $t_{12}$
+        \choice $t_{0,05;5}$
+        \choice $t_{0,025;5}$
+        \choice $t_{0,05;6}$
+        \choice $t_{0,025;6}$
+        \choice $t_{0,05;11}$
+        \choice $t_{0,025;11}$
+        \choice $t_{0,05;12}$
+        \choice $t_{0,025;12}$
+    \end{checkboxes}
+    
+\medskip
+
+    \part[3] Pourquoi est-il probablement préférable d'utiliser des échantillons appariés dans ce contexte? Une seule réponse est bonne.
+
+     \begin{checkboxes}
+        \choice Car l'examen 1 est plus facile que l'examen 2.
+        \choice Car nous supposons que tous les élèves ont environ le même niveau en mathématiques.
+        \choice Car nous voulons nous protéger contre la possibilité que la difficulté des examens influence la décision du test. 
+        \correctchoice Car nous voulons nous protéger contre la possibilité que la force des élèves influence la décision du test.
+        \choice Car nous rejetons $H_0$ au seuil $\alpha=5\%$.
+        \choice Car nous ne rejetons pas $H_0$ au seuil $\alpha=5\%$.
+        \choice Car il s'agit d'observations prises dans le temps.
+
+    \end{checkboxes}
+\end{parts}
+
+\newpage 
+
+
+\question 
+Une entreprise fabrique une pièce mécanique pour un fabricant de voitures. Quatre machines peuvent être utilisées pour usiner cette pièce. Cinq opérateurs sont susceptibles de travailler sur ces machines. Toutefois l'opération de ces machines requiert une  dextérité qui peut varier d'un opérateur à l'autre et affecter les résultats (le temps d'usinage). %On devra donc tenir compte de ce facteur externe dans l'expérience. 
+%Chaque opérateur devra usiner une pièce identique avec chaque machine. 
+%Pour identifier la source de variation attribuable aux opérateurs, on a décidé de considérer chaque opérateur comme un bloc et d'affecter l'opérateur au hasard à chacune des machines.
+Chaque opérateur est considéré comme un bloc et usine une pièce identique avec chaque machine.
+L'objectif de cette expérience est de déterminer si, en moyenne, les temps d'usinage sont identiques, peu importe la machine utilisée. Une analyse de la variance par blocs aléatoires dans \texttt{Rcmdr} a produit la sortie ci-dessous, où des valeurs ont été remplacées par des lettres ou des points d'interrogation. Nous considérons que les postulats 
+ du modèle sont respectés.
+
+\begin{verbatim}
+Response: Temps_Usinage
+                Sum Sq    Df    F value     Pr(>F)
+Machines            AA     3     1.5676         ??
+Opérateurs      6.4370    BB     3.8661     0.0305 
+Residuals       4.9950    12
+\end{verbatim}
+
+\medskip
+
+\begin{parts}
+\part[3] Quelle est la valeur de AA? Justifiez votre réponse.
+
+    %\qcmrep{}
+\vspace{4.5cm}
+
+\begin{solution} 
+$$ F_0 = 1,5676 = \frac{MS_{trt}}{MS_E} = \frac{SS_{trt}/(a-1)}{SS_E/(a-1)(b-1)} = \frac{AA/3}{4,9950/12}$$
+$$ AA = 1,5676 \times 4,9950/12 \times 3 = 1,9575  $$
+\end{solution}
+
+\part[1] Quelle est la valeur de BB? Justifiez votre réponse.
+
+    %\qcmrep{}
+\vspace{1.5cm}
+
+\begin{solution} 
+BB = b-1 = 5-1 = 4
+\end{solution}
+
+\part[4] Au seuil de 5\%, que concluez-vous quant à l'effet du choix de machine sur temps d'usinage de la pièce? Concluez dans les termes de l'étude et justifiez votre réponse. 
+
+\vspace{6cm}
+\begin{solution} 
+Conclusion: La machine n'a pas d'effet significatif sur le temps d'usinage, au seuil 5\%. \\
+Justification:  $F_0 = 1.5676 < F_{\alpha, a-1, (a-1)(b-1)} = F_{0.05; 3,12} = 3,49$
+\end{solution}
+
+\part Si on avait analysé les données de cette expérience avec une analyse de variance à un facteur au lieu d'une analyse avec blocs aléatoires...
+
+\medskip
+\begin{subparts}
+\subpart[1] ... la variabilité due  au choix de machine  aurait été
+
+\medskip\begin{oneparcheckboxes}
+    \choice plus grande.
+    \choice plus petite.
+    \CorrectChoice inchangée. 
+\end{oneparcheckboxes}\medskip
+
+\subpart[1] ... la variabilité due à l'erreur aurait été
+
+\medskip\begin{oneparcheckboxes}
+    \CorrectChoice plus grande.
+    \choice plus petite.
+    \choice inchangée. 
+\end{oneparcheckboxes}\medskip
+
+\subpart[1] ... la statistique $F_0$ pour tester l'effet de la machine aurait été
+
+\medskip\begin{oneparcheckboxes}
+    \choice plus grande.
+    \CorrectChoice plus petite.
+    \choice inchangée. 
+\end{oneparcheckboxes}\medskip
+\end{subparts}
+
+\end{parts}
+
+
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+
+
+
+\newpage
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+
+\question[9] 
+Soit $X_1,\hdots, X_{16}$, des variables aléatoires indépendantes et identiquement distribuées selon une loi normale d'espérance~$\mu=36$ et de variance $\sigma^2$.
+Nous désirons faire un \textbf{test unilatéral à droite} avec $H_0:\sigma^2=33$ au seuil $\alpha = 0,025$.
+Nous avons les résultats suivants:
+\begin{align*}
+    \overline{x}= 34,56 &  & s^2=42,1.
+\end{align*}
+Si nous savons qu'en réalité $\sigma^2=\sigma^2_1$ et que la puissance du test est $0,05$, que vaut $\sigma^2_1$?  Justifiez toutes les étapes de votre démarche.
+
+
+\begin{solution}
+    La puissance est définie comme étant $1-\beta=P(U_0>\chi^2_{\alpha;n-1}|\sigma^2=\sigma^2_1)$ qui est la prob. de rejeter sachant que $H_0$ est fausse.
+
+    \begin{align*}
+    1-\beta &= P(Rejeter H_0|H_1 vraie)\\
+        1-\beta &= P(U_0>\chi^2_{\alpha;n-1}\big|\sigma^2=\sigma^2_1)\\
+        0,05&= P\left(\frac{(n-1)S^2}{\sigma_0^2}>\chi^2_{0,025;15}\big|\sigma^2=\sigma^2_1\right)\\
+        0,05&= P\left(\frac{(15)S^2}{33}>27,49\big|\sigma^2=\sigma^2_1\right)\\
+        0,05&= P\left((n-1)S^2>907,17\big|\sigma^2=\sigma^2_1\right)\\
+        0,05&= P\left((n-1)S^2>907,17\big|\sigma^2=\sigma^2_1\right)\\
+        0,05&= P\left(\frac{(n-1)S^2}{\sigma^2_1}>\frac{907,17}{\sigma^2_1}\big|\sigma^2=\sigma^2_1\right)\\
+        0,05&= P\left(U_1>\frac{907,17}{\sigma^2_1}\big|\sigma^2=\sigma^2_1\right)\\
+    \end{align*}
+Où $U_1\sim\chi^2_{15}$.
+Par la table de la chi-carrée, nous avons
+\begin{align*}
+    \frac{907,15}{\sigma^2_1}=&25\\
+    \sigma^2_1 =36,2868
+\end{align*}
+\end{solution}
+\vfill
+
+\newpage 
+
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+\question\label{test2variances}
+Nous voulons faire le test d'hypothèse suivant 
+\begin{align*}
+H_0 &:\sigma_1^2 = \sigma_2^2\\
+H_1 &:\sigma_1^2 > \sigma_2^2,
+\end{align*}
+
+où la variable 1 suit une loi normale d'espérance $\mu_1$ et de variance $\sigma_1^2$ et la variable 2 suit une loi normale d'espérance $\mu_2$ et de variance $\sigma_2^2$. Nous sélectionnons aléatoirement 25 observations de la variable 1 et 30 observations de la variable 2 de façon indépendante et utilisons la statistique 
+\begin{align*}
+    F_0=\frac{S_1^2}{S_2^2},
+\end{align*}
+où $S_1^2$ et $S_2^2$ sont les variances échantillonnales des variables 1 et 2 respectivement.
+
+\medskip
+\begin{parts}
+    \part[2] Donnez la loi échantillonnale de $F_0$, sous $H_0$.
+    \vspace{2.5cm}
+\begin{solution}
+    $F_0 \sim F_{n_1-1, n_2-1} = F_{25-1, 30,1} = F_{24, 29}$
+\end{solution}
+
+    \part[2] Nous obtenons $F_0=2,15$. Quelle est la valeur du seuil observé du test?
+\vspace{3.5cm}
+\begin{solution}
+    $\alpha^* = P(F_{24, 29} > 2,15) = 0,025$
+\end{solution}
+
+    \part[2] Lequel des énoncés suivant est vrai, au seuil $\alpha=5\%$?
+
+    \begin{checkboxes}
+        \CorrectChoice Nous rejetons $H_0$.
+        \choice Nous ne rejetons pas $H_0$.
+        \choice Il nous manque d'information.
+    \end{checkboxes}
+\end{parts}
+
+
+\newpage 
+\question 
+Un limnologue a étudié certaines propriétés physico-chimiques de l'eau du lac Mistassini en 1973. En particulier, il a étudié la quantité d'oxygène dissous $Y$ (en ppm) à diverses profondeurs $X$ (en pieds), à l'aide de la méthode de Winkler. Les résultats obtenus sont les suivants :
+$$
+\begin{array}{c|ccccc}
+X & 10 & 20 & 30 & 50 & 110   \\  \hline
+Y & 10,4 & 10,4 & 10,5 & 10,9 & 11,4
+\end{array}
+$$
+
+Il a aussi la sortie \texttt{Rcmdr} suivante, dans laquelle certaines valeurs ont été remplacées par \texttt{????}:
+\begin{verbatim}
+              Estimate   Std. Error   t value   Pr(>|t|)    
+(Intercept)  10.249367     0.064875   157.987   5.59e-07 
+X             0.010696         ????      ????       ????   
+
+Residual standard error: 0.09117  on  3  degrees of freedom
+Multiple R-squared:  ????,	 Adjusted R-squared:  ???? 
+F-statistic:  86.99  on  ????  and  ????  DF,   p-value:  ????
+\end{verbatim}
+
+
+\begin{parts}
+    \part [2] Quelle est l'équation de la droite de régression estimée?
+
+\begin{solution}
+    $\widehat{Y}_i = 10.249367 +  0.010696x_i$
+\end{solution}
+    \vspace{2cm}
+    \part [2] Donnez  une estimation
+pour la quantité moyenne d'oxygène dissous lorsque la profondeur du lac est de 10 pieds. Justifiez votre réponse.
+\begin{solution}
+    $\widehat{Y}_i = 10.249367 +  0.010696 \times 10 = 10,356$
+\end{solution}
+\vspace{2cm}
+	\part[2] La prévision ponctuelle à une profondeur de 25 pieds est de 10,5168. Choisissez l'intervalle de valeurs ayant 95\% de chances de contenir la quantité moyenne d'oxygène dissous à cette profondeur.
+	
+	\begin{checkboxes}
+			\choice $ \displaystyle	10,5168 \pm t_{0,05;3} \sqrt{MS_E \left[ \frac{1}{n} + \frac{(25-\overline{x})^2}{S_{XX}}\right]} $ 
+   \choice $ \displaystyle	10,5168 \pm t_{0,025;1} \sqrt{MS_E \left[ \frac{1}{n} + \frac{(25-\overline{x})^2}{S_{XX}}\right]} $ 
+   			\correctchoice $ \displaystyle	10,5168 \pm t_{0,025;3} \sqrt{MS_E \left[ \frac{1}{n} + \frac{(25-\overline{x})^2}{S_{XX}}\right]} $ \vspace{0.2cm}
+			\choice $ \displaystyle		10,5168 \pm t_{0,025;3} \sqrt{MS_E \left[ 1+ \frac{1}{n} + \frac{(25-\overline{x})^2}{S_{XX}}\right]} $
+   \choice $ \displaystyle		10,5168 \pm t_{0,025;1} \sqrt{MS_E \left[ 1+ \frac{1}{n} + \frac{(25-\overline{x})^2}{S_{XX}}\right]} $
+	\end{checkboxes}
+
+
+
+  \part [4] Les données présentent-elles de l'évidence, au seuil de 5\%,
+qu'il y a une relation linéaire significative entre la quantité d'oxygène dissous
+et la profondeur du lac? Justifiez votre réponse.
+
+\begin{solution}
+    $F_0 = 86,99 > F_{\alpha, 1, n-2} = F_{0,05, 1, 5-1} = F_{0,05, 1, 4} = 7,71$
+
+    Oui, il y a une relation linéaire significative au seuil 5\%.
+\end{solution}
+  
+\end{parts}
+
+
+
+\newpage
+\question\label{RegMultiple} 
+Lors d'une expérience, on cherche à construire un modèle pour expliquer et prédire une variable réponse $Y$ par des variables explicatives $X_1,\; X_2,\; X_3,\; X_4 \text{ et } X_5$. Pour cela, on a recueilli les données et on a considéré le modèle de régression linéaire multiple suivant:
+$$Y_i=\beta_0+\beta_1X_{i1}+\beta_2X_{i2}+\beta_3X_{i3}+\beta_4X_{i4}+\beta_5X_{i5}+E_i,$$
+où les $E_i$ sont  i.i.d et  de loi $N(0,\,\sigma^2).$
+Vous ajustez ce modèle aux données recueillies et vous obtenez les sorties de \texttt{Rcmdr} suivantes, avec quelques éléments remplacés par des points d'interrogation.
+
+\begin{verbatim}
+            Estimate    Std. Error     t value     Pr(>|t|)
+(Intercept)   1.5405        0.1927       7.992       0.0001
+X1            0.1532        0.0752       ?????       0.0423 
+X2            0.0666        0.0489       1.361       0.1743
+X3            0.3769        0.0832       4.533       0.0001
+X4            0.3681        0.0589       6.246       0.0001 
+X5            0.1462        0.0839       1.743       0.0821 
+
+Residual standard error: 1.019  on 402 degrees of freedom
+Multiple R-squared:  0.5339,  Adjusted R-squared:  ????
+F-statistic: 92.11  on  5 and  402  DF,  p-value:  0.00001
+\end{verbatim}
+
+\medskip\medskip
+\begin{parts}
+\part[2]  Quelle est la valeur de la statistique du test pour tester la nullité de $\beta_1$, lorsque les autres variables sont dans le modèle?
+
+\medskip\begin{oneparcheckboxes}
+    \CorrectChoice 2.037 
+    \choice -1.251 
+    \choice 3.798
+    \choice -3.029 \medskip
+\end{oneparcheckboxes}
+\medskip\medskip
+
+\part[2] Au seuil de 5\%, l'effet de la variable indépendante $X_2$ sur la variable réponse $Y$ est-il significatif, lorsque les autres  variables sont dans le modèle?
+
+\medskip\begin{oneparcheckboxes}
+    \choice Oui.
+    \CorrectChoice Non.
+    \choice Nous n'avons pas assez d'information pour le savoir. \medskip
+\end{oneparcheckboxes}
+\medskip\medskip
+
+\part Vous voulez maintenant tester, au seuil 1\%, 
+\begin{align*}
+H_0 &: \text{aucune des variables $X_1,\; X_2,\; X_3,\; X_4,\; X_5$ n'a un effet sur la variable réponse $Y$ }\cr
+H_1 &: \text{au moins une variable indépendante a un effet sur $Y$. }
+\end{align*}
+
+\begin{subparts}
+    \subpart[1] Quelle est la valeur-p  associée à ce test?
+
+    \vspace{2.5cm}
+    
+    \begin{solution} 
+        valeur-p = 0.00001.
+    \end{solution}
+
+    \subpart[1] Quelle est votre conclusion?
+
+    \medskip\begin{checkboxes}
+        \CorrectChoice On rejette l'hypothèse nulle au seuil 1\%.
+        \choice On ne rejette pas l'hypothèse nulle au seuil 1\%.
+        \choice Aucune des 5 variables explicatives n'a un effet sur $Y$ au seuil 1\%. 
+        \choice Nous ne pouvons pas conclure sur ce test d'hypothèses car nous n'avons pas assez d'information.
+    \end{checkboxes}
+
+\end{subparts}
+
+\end{parts}
+
+
+\newpage
+\question[] 
+Un analyste politique souhaite évaluer le niveau de satisfaction de certains individus vis-à-vis des résultats des élections provinciales. Plus précisément, il veut étudier l'effet du \textit{lieu de résidence} (zone urbaine vs. zone rurale) et du \textit{groupe d'âge} (18-29 ans, 30-49 ans, 50-64 ans, 65 ans et plus) sur le niveau de satisfaction des personnes interrogées, mesuré sur une échelle de 0 à 100. Il a interrogé aléatoirement $k$ individus pour chacune des 8 combinaisons. On suppose que les postulats sont respectés. Voici une partie d’une sortie \texttt{Rcmdr}, dans laquelle une valeur a été remplacée par \texttt{CCCC}.
+\begin{verbatim}
+                    Sum Sq    Df   F value    Pr(>F)  
+gr_age               395.5     3      CCCC   0.48439  
+residence            931.9     1    5.8060   0.01739 
+gr_age:residence    1399.2     3    2.9059   0.03729 
+Residuals          20544.4   128 
+\end{verbatim}
+
+\begin{parts}
+\part[2]  Donnez une estimation de la variance des termes d'erreur. Justifiez votre réponse.
+\vspace{4cm}
+\begin{solution}
+    $\widehat{\sigma}^2 = MSE = \frac{SSE}{ab(n-1)} = \frac{20544,4}{128} = 160,50$
+\end{solution}
+\part[2]  Trouvez la valeur de $k$, le nombre de personnes interrogées par combinaison de facteurs. Justifiez votre réponse.
+\vspace{4cm}
+\begin{solution}
+    $a=4$, $b=2$, 
+    
+    $ab(n-1) = 128$
+
+    $4 \times 2 (n-1) = 128$
+
+    $n-1 = 16$
+
+    $n=17$
+\end{solution}
+
+\part[3]  Que vaut \texttt{CCCC}? Justifiez votre réponse.
+\vspace{4cm}
+\begin{solution}
+    $F_0Â = \frac{MSA}{MSE} = \frac{395,5/3}{160,5} = 0,8214$
+\end{solution}
+
+\part[2] Quelle affirmation parmi les suivantes est vraie au seuil 5\%? 
+	\begin{checkboxes}
+			\choice L’interaction est significative et on peut tester les effets des facteurs individuels à partir de la table d’ANOVA.
+			\correctchoice L’interaction est significative et on ne teste pas les effets des facteurs individuels à partir de la table d’ANOVA.
+			\choice Il n’y a pas d’interaction significative, donc on ne peut rien dire sur les facteurs individuels à partir de la table d’ANOVA.
+		\choice Il n’y a pas d’interaction significative et le facteur \texttt{gr\_age} est le seul qui est significatif.
+        \choice Il n’y a pas d’interaction significative et le facteur \texttt{residence} est le seul qui est significatif.
+        \choice  Il n’y a pas d’interaction significative et les deux facteurs sont significatifs.
+	\end{checkboxes}
+
+
+
+
+
+
+\end{parts}
+
+\newpage
+
+\question\label{RegSimplePostulats} 
+Dans la forêt amazonienne, on veut prédire la taille des arbres ($Y$) en mètres à partir de leur diamètre ($X$) en centimètres. Pour ce faire, un statisticien dispose de $11$ mesures ($X_i,\,Y_i$) et à l'aide de \texttt{Rcmdr}, il a ajusté le modèle de régression suivant
+$$Y_i=\beta_0+\beta_1X_i+E_i,\qquad i=1,\,...\,,11.$$
+Le statisticien vous montre les figures suivantes:
+
+\includegraphics[scale = 0.85]{RegSimple 2.jpeg}
+\includegraphics[scale = 0.85]{RegSimple 3.jpeg}
+
+\includegraphics[scale = 0.85]{RegSimple.jpeg}
+
+ \medskip
+\begin{parts}
+\part[1] Choisissez une seule figure permettant de valider le postulat de la linéarité?
+
+    \medskip\begin{oneparcheckboxes}
+        \CorrectChoice Figure A
+        \choice Figure B
+        \CorrectChoice Figure C
+    \end{oneparcheckboxes}
+    
+    \medskip\medskip
+    
+\part[1] Choisissez une seule figure permettant de valider le postulat de l'homoscédasticité?
+
+    \medskip\begin{oneparcheckboxes}
+        \CorrectChoice Figure A
+        \choice Figure B
+        \choice Figure C
+    \end{oneparcheckboxes}\medskip\medskip
+    
+\part[1] Choisissez une seule figure permettant de valider le postulat de la normalité?
+
+    \medskip\begin{oneparcheckboxes}
+        \choice Figure A
+        \CorrectChoice Figure B
+        \choice Figure C
+    \end{oneparcheckboxes}\medskip    \medskip
+\end{parts}
+\end{questions}
+
+\end{document} 

@@ -1,0 +1,659 @@
+\def\SigleNumero{STT-1900}
+\def\NomCours{Méthodes statistiques pour l'ingénierie}
+\def\DateEvaluation{2 mars 2025}
+\def\HeureEvaluation{13h30 à 15h20}
+\def\Session{}
+\def\NomEvaluation{Examen 1}
+\def\Ponderation{45}
+% Ne rien mettre entre les accolades si l'enseignant (ou l'enseignante) est aussi le coordonnateur (ou la coordonnatrice)
+\def\Coordonnatrice{}
+\def\Coordonnateur{}
+
+% Ne rien mettre entre les accolades s'il y a plus d'une section
+\def\Enseignant{Julien Miron}
+\def\Enseignante{}
+
+% Ne rien mettre entre les accolades s'il s'agit d'un cours à section unique
+% Mettre le nom de chacun des enseignants et enseignantes entre les accolades
+% Une case à cocher sera générée pour chacune des sections
+\def\SectionA{}
+\def\SectionB{}
+\def\SectionC{}
+\def\SectionD{}
+
+
+\def\Directives{
+\begin{enumerate}
+\item Matériel autorisé:
+\begin{itemize}
+    \item Calculatrice scientifique {\bf autorisée par la faculté des sciences et de génie};
+    \item Une seule feuille aide-mémoire \textbf{manuscrite} de format lettre (8.5''$\times$11'') recto-verso;
+    \item Les tables de lois distribuées avec cet examen. S'il-vous-plaît, ne rien écrire sur celles-ci.
+    \end{itemize}
+\item Assurez-vous que cette évaluation comporte \numquestions ~questions réparties sur \numpages{}~pages, pour un total de \numpoints{}~points.\
+\item \textbf{Veuillez ne pas dégrafer votre examen.}
+\item Ajoutez vos initiales dans le bas de chaque page (sauf pour les tables de lois).
+\item Vous devez\textbf{ justifier toutes vos réponses} par une démarche claire, sauf pour les questions à choix de réponse.\
+\item Pour les questions à choix de réponse et les vrais ou faux, vous pouvez mettre un X, un crochet ($\checkmark$) ou remplir la case.\
+\item Certains vrais ou faux demandent une justification. Aucun point ne sera donné sans justification, même si vous cochez la bonne réponse.
+\item Pour les questions à choix de réponse, lorsqu'il est écrit «cochez tous les énoncés qui sont vrais/faux», il est possible qu'un seul énoncé soit vrai.
+\item Le verso des feuilles peut être utilisé comme brouillon, \textbf{mais ne sera pas corrigé}. Attention à ne rien dégrafer.
+\end{enumerate}
+}
+
+
+
+\documentclass{Evaluation}
+\usepackage{multicol,graphicx}
+\begin{document}
+
+\pageblanche
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+\begin{questions}
+\question[4] Soit les variables aléatoires $X\sim\mathcal{N}(70, 100)$ et $Y\sim\mathcal{N}(80, 64)$.
+Calculez $P(X>Y)$.
+
+\vspace{10cm}
+\question\label{module1_1}  
+On nous donne les probabilités suivantes:
+\[
+\begin{aligned}
+    & P(A) = 0,45 \\
+    & P(B) = 0,55 \\
+    & P(C) = 0,1 \\
+    & P(A\cap C) = 0 \\
+    & P(B\cap C) = 0 \\
+    & P(A | B) = 0,45 \\
+    & 
+\end{aligned}
+\]
+
+\begin{parts}
+\part[3] Cochez tous les énoncés qui sont \textbf{vrais}. \textit{Chaque énoncé qui est coché alors qu'il ne devrait pas l'être annule les points d'un élément coché qui devrait l'être.}
+\begin{checkboxes}
+\correctchoice La probabilité du complément de $A$ est égale à $0,55 $.
+\choice $P(A \cup B) = 1$.
+\choice $A$, $B$ et $C$ sont mutuellement exclusifs.
+\correctchoice $A$ et $C$ sont indépendants.
+\choice Comme $P(A)+P(B)=1$, l'intersection de $A$ et $B$ est vide, c'est-à-dire $A\cap B = \emptyset$.
+\choice Il y a certainement une erreur dans les probabilités données, car $P(A)+P(B)+P(C)>1$.
+\vspace{0.1cm}
+\end{checkboxes}
+
+\vspace{0,5cm}
+
+\part[3] \(A\) et \(B\) sont indépendants.
+
+     \begin{oneparcheckboxes}
+		\choice VRAI
+		\correctchoice FAUX
+\end{oneparcheckboxes}\\
+{\bf Justification:}
+\vspace{4cm}
+\end{parts}
+
+
+
+\pageblanche
+
+\question[3] En analyse de survie, nous définissons la fonction de survie $S(x)$ comme étant la probabilité de survivre plus de $x$ unités de temps, c'est-à-dire $S(x)=P(X>x)$, où $X$ est une variable aléatoire continue qui mesure la durée de vie.  Soit la variable aléatoire $X$, dont la fonction de survie est donnée par 
+\[ S(x) =
+\begin{cases}
+1 & \text{si } x<1\\
+   \displaystyle -x^2+2x& \text{si } 1\leq x\leq 2, \\
+    0 & \text{si } x>2.
+\end{cases}
+\]
+
+Laquelle des fonctions suivantes est la fonction de densité de $X$?
+
+\begin{checkboxes}
+\choice $f(x)=\left\{
+			\begin{array}{ll}
+   \displaystyle 1-x^2+2x& \text{si } 1\leq x\leq 2, \\
+			0 & \mbox{sinon.}
+			\end{array}
+			\right. $
+		\vspace{0.3cm}
+\correctchoice $ f(x) = \left\{
+			\begin{array}{ll}
+   \displaystyle 1+x^2-2x& \text{si } 1\leq x\leq 2, \\
+			0 & \mbox{ sinon.}
+			\end{array}
+			\right. $
+   		\vspace{0.3cm}
+\choice $ f(x) = \left\{
+			\begin{array}{ll}
+   \displaystyle -2x+2& \text{si } 1\leq x\leq 2, \\
+			0 & \mbox{ sinon.}
+			\end{array}
+			\right. $
+   		\vspace{0.3cm}
+\choice $ f(x) = \left\{
+			\begin{array}{ll}
+   \displaystyle 2x-2& \text{si } 1\leq x\leq 2, \\
+			0 & \mbox{sinon.}
+			\end{array}
+			\right. $
+   		\vspace{0.3cm}
+
+\choice $ f(x) = \left\{
+			\begin{array}{ll}
+   \displaystyle \frac{-x^3}{3}+x^2& \text{si } 1\leq x\leq 2, \\
+
+			0 &  \mbox{ sinon. }
+			\end{array}
+			\right. $
+
+      		\vspace{0.3cm}
+
+\choice Nous ne pouvons pas déterminer la fonction de densité à partir des informations données.
+
+\end{checkboxes}
+
+\vspace{0.5cm}
+\question[3]\label{normaleBivariee}
+Laquelle des fonctions suivantes est une fonction de répartition? 
+
+\begin{checkboxes}
+\choice $F(x)=\left\{
+			\begin{array}{ll}
+			x  & \mbox{si } x \ge 0, \\
+			0 & \mbox{sinon.}
+			\end{array}
+			\right. $
+		\vspace{0.3cm}
+\choice $ F(x) = \left\{
+			\begin{array}{ll}
+			0  & \mbox{si } x<0, \\
+			\displaystyle \sfrac{x}{2} & \mbox{si } 0\leq x < 2,\\
+			0 & \mbox{si } x \geq 2.
+			\end{array}
+			\right. $
+\choice $ F(x) = \left\{
+			\begin{array}{ll}
+            0 & \mbox{si } x<0\\
+			\sqrt{x}  & \mbox{si } 0\leq x\leq 1, \\
+			1 & \mbox{si } x>1
+			\end{array}
+			\right. $
+\choice $ F(x) = \left\{
+			\begin{array}{ll}
+			0  & \mbox{si } x < 0, \\
+			x + 1& \mbox{si } 0 \leq x \leq 1,\\
+			1 &  \mbox{si } x > 1.
+			\end{array}
+			\right. $
+
+   \choice $ F(x) = \left\{
+			\begin{array}{ll}
+			0  & \mbox{si } x < 0, \\
+			x & \mbox{si } 0 \leq x \leq 1,\\
+                1-x & \mbox{si } 1< x \leq 2,\\ 
+			1 &  \mbox{si } x> 2.
+			\end{array}
+			\right. $
+\end{checkboxes}
+
+\pageblanche
+
+\question\label{module1_2} 
+
+Un sac contient 40 billes rouges, 40 billes vertes et 20 billes bleues.
+Sur certaines de ces billes, une étoile a été dessinée.
+Nous savons que la probabilité de choisir une bille sans étoile parmi les billes rouges est de $0,875$, la probabilité de choisir une bille qui est verte et qui a une étoile est de $0,1$ et la probabilité de choisir une bille qui a une étoile parmi les billes bleue est de $0,5$.
+
+En utilisant les événements suivants:
+
+\begin{itemize}
+    \item R: la bille est rouge
+    \item V: la bille est verte
+    \item B: la bille est bleue
+    \item E: une étoile est dessinée sur la bille
+\end{itemize}
+
+\begin{parts}
+    \part[4]Tracez le diagramme de Venn qui représente cette situation. \textit{Vous n'avez qu'à identifier les événements et \textbf{l'espace échantillonnal}. Il n'est pas nécessaire d'inscrire les probabilités.}
+    \vspace{5cm}
+
+    \part[6] Si vous avez pigé une bille avec une étoile, quelle est la probabilité que celle-ci soit bleue?
+\end{parts}
+
+\pageblanche
+
+\question Soit deux échantillons aléatoires indépendants provenant de populations normales, tels que:
+\begin{align*}
+    X_1,\hdots,X_{16}&\sim\mathcal{N}(7, 4),\\
+    Y_1,\hdots,Y_{100}&\sim\mathcal{N}(8, 9).
+\end{align*}
+
+\begin{parts}
+\part[2] Quelle est la loi de $A=X_1+X_2-X_3$?
+    \begin{checkboxes}
+        \choice $A\sim\mathcal{N}(7; 8)$
+        \choice $A\sim\mathcal{N}(7; 12)$
+        \choice $A\sim\mathcal{N}(14; 8)$
+        \choice $A\sim\mathcal{N}(14; 12)$
+        \choice $A\sim\mathcal{N}(21; 8)$
+        \choice $A\sim\mathcal{N}(21; 12)$
+        \choice Aucune de ces réponses
+    \end{checkboxes}
+    
+
+    \part[2] Quelle est la loi de $B=\displaystyle\frac{1}{100}\sum_{i=1}^{100}Y_i$?
+        \begin{checkboxes}
+        \choice $B\sim\mathcal{N}(0,08; 9)$
+        \choice $B\sim\mathcal{N}(0,08; 0,81)$
+        \choice $B\sim\mathcal{N}(0,08; 0,09)$
+        \choice $B\sim\mathcal{N}(8; 9)$
+        \choice $B\sim\mathcal{N}(8; 0,81)$
+        \choice $B\sim\mathcal{N}(8; 0,09)$
+        \choice Aucune de ces réponses
+    \end{checkboxes}
+
+    \vspace{0.25cm}
+    \part[2] Quelle est la loi de $C=X_1$?
+        \begin{checkboxes}
+        \choice $C\sim\mathcal{N}(0,4375; 4)$
+        \choice $C\sim\mathcal{N}(0,4375; 0,25)$
+        \choice $C\sim\mathcal{N}(0,4375; 1)$
+        \choice $C\sim\mathcal{N}(7; 4)$
+        \choice $C\sim\mathcal{N}(7; 0,25)$
+        \choice $C\sim\mathcal{N}(7
+        ; 1)$
+        \choice Aucune de ces réponses
+    \end{checkboxes}
+   \part[2] Quelle est l'espérance de $D=\displaystyle\frac{\overline{Y}-8}{S_Y/10}$, où $S_Y$ est l'écart-type échantillonnal de $Y$?
+        \begin{checkboxes}
+        \choice $E(D)=8$
+        \choice $E(D)=100$
+        \choice $E(D)=99$
+        \choice $E(D)=0$
+        \choice $E(D)=15$
+        \choice $E(D)=800$
+        \choice Aucune de ces réponses
+    \end{checkboxes}
+\end{parts}
+\pageblanche
+
+\vfill
+
+\question[10]
+Déterminez si les énoncés suivants sont vrais ou faux. 
+
+\textbf{\textit{Une bonne réponse vaut 2 points, une mauvaise réponse vaut -1 point et une réponse vide vaut 0 point, pour un total minimum de 0 point.}}
+
+\begin{parts}
+    \part Si $X_1,\hdots,X_{100}$ constituent un échantillon aléatoire simple issu d'une loi normale d'espérance $\mu=16$ et de variance $\sigma^2=100$, alors la moyenne échantillonnale de ces 100 valeurs suit approximativement une loi normale centrée-réduite. 
+
+    \begin{oneparcheckboxes}
+        \choice Vrai
+        \correctchoice Faux
+    \end{oneparcheckboxes}
+
+    \begin{solution}
+        Faux
+    \end{solution}
+    \vspace{0.25cm}
+    \part Si $X_1,\hdots,X_{17}$ constituent un échantillon aléatoire simple issu d'une loi $\mathcal{N}(5; 4)$, alors la variable $4S^2$ a une espérance de 16 et une variance de 32. 
+
+    \begin{oneparcheckboxes}
+        \choice Vrai
+        \correctchoice Faux
+    \end{oneparcheckboxes}
+        \begin{solution}
+        Vrai
+    \end{solution}
+        \vspace{0.25cm}
+
+    \part Si $W$ suit une $\chi^2_4$ (khi-carré avec $4$ degrés de liberté), alors $P(W>4)=P(W<4)$. 
+
+    \begin{oneparcheckboxes}
+        \choice Vrai
+        \correctchoice Faux
+    \end{oneparcheckboxes}
+    
+    \begin{solution}
+        Faux
+    \end{solution}
+        \vspace{0.5cm}
+    \item Le poids des tomates d'un certain agriculteur suit une loi normale de moyenne $300\text{ grammes}$ et de variance $100\text{ grammes}^2$. On prend des mesures sur 25 tomates choisies aléatoirement et on obtient une moyenne échantillonnale de $309,12\text{ grammes}$ et une variance échantillonnale de $118,3\text{ grammes}^2$. Dans cette situation, les nombres $309,12$ et $118,3$ sont des paramètres et les nombres $300$ et $100$ sont des statistiques.
+    
+    \begin{oneparcheckboxes}
+        \choice Vrai
+        \correctchoice Faux
+    \end{oneparcheckboxes}
+            \begin{solution}
+        Vrai
+    \end{solution}
+        \vspace{0.5cm}
+
+
+    \part Soit deux échantillons aléatoires indépendants de taille $n=26$ et $m=26$ qui proviennent de lois normales $\mathcal{N}(\mu_X, \sigma_X^2)$ et $\mathcal{N}(\mu_Y, \sigma_Y^2)$. Les moyennes échantillonnales sont respectivement $\overline{X}$ et $\overline{Y}$, alors que les variances échantillonnales sont respectivement $S^2_X$ et $S^2_Y$. La statistique ${\displaystyle S^2_X}/ {\displaystyle S^2_Y}$ suit une $F_{25,25}$. 
+
+    \begin{oneparcheckboxes}
+        \choice Vrai
+        \correctchoice Faux
+    \end{oneparcheckboxes}
+    
+            \begin{solution}
+        Vrai
+    \end{solution}
+
+    \end{parts}
+\question[4]\label{micro}
+Soit les 21 valeurs suivantes:
+
+\begin{center}
+\begin{tabular}{  c c c c c c c c }
+111  &112  &112  &112  &113  &113  &113 \\
+113 &115  &115  &115  &115 &115 & 116 \\
+118 & 118 & 118 & 119 & 124 &124 & 125\\
+\end{tabular}
+\end{center}
+
+Le diagramme en boîte ci-dessous a été tracé à partir de ces résultats.
+
+\begin{center}
+		\begin{tikzpicture}[x=0.4cm,y=0.9cm]
+         \draw[step=0.4cm,,dotted,color=black] (107,0) grid (130,4);
+		\draw[->] (107,0) -- (130,0) node[right] {$X$} ;
+		\foreach \X in {110,115,110,115,120,125,130} {
+			\draw (\X,0.05cm) -- (\X,-0.05cm) node[below] {$\X\strut$};}
+		\draw[ultra thick][fill=red!5] (113,1) rectangle (118,3);
+  	\draw[ultra thick] (115,1) -- (115,3);
+
+		\draw[ultra thick] (111,1) -- (111,3);
+		\draw[ultra thick] (111,2) -- (113,2);
+		\draw[ultra thick] (118,2) -- (125,2);
+		%\draw[ultra thick] (4,1) -- (4,3);
+		\draw[ultra thick] (125,1) -- (125,3);
+
+			\end{tikzpicture}\\
+	\end{center}
+
+
+
+Lequel des énoncés suivants est vrai?
+
+  \begin{checkboxes}
+\choice La médiane n'est pas au bon endroit.  %  X1
+\choice La moyenne échantillonnale n'est pas au bon endroit. % X_2 | X1
+\choice Il devrait y avoir deux points: un à 105,5 et un à 125,5.
+\choice La moustache de gauche devrait être à  105,5. 
+\choice La moustache de droite devrait être à 125,5.
+\choice Il y a plus qu'une erreur.
+\choice Il n'y a aucune erreur.
+\end{checkboxes}
+
+\vspace{1cm}
+
+\pageblanche
+
+
+
+
+\question\label{conjointe}
+
+Soit $X$ et $Y$ deux variables aléatoires dont la loi conjointe est 
+$$f(x,y)=\left\{
+			\begin{array}{ll}
+   \displaystyle \frac{1}{384}x^2y^4e^{-y-(x/2)}  & \mbox{si } x> 0\ \mbox{ et } \ y>0, \\
+    \displaystyle 0  & \mbox{ sinon, }
+			\end{array}
+			\right.$$
+
+et dont les deux fonctions marginales sont données par 
+
+\begin{align*}
+    f_X(x)=\left\{\begin{array}{ll}
+   \displaystyle x^2e^{-x/2}  & \mbox{si } x> 0, \\
+    \displaystyle 0  & \mbox{ sinon, }
+			\end{array}
+			\right. & & f_Y(y)=\left\{\begin{array}{ll}
+   \displaystyle \frac{1}{384} y^4e^{-y}  & \mbox{si } y>0, \\
+    \displaystyle 0  & \mbox{ sinon.}
+			\end{array}
+			\right. 
+\end{align*}
+
+
+\begin{parts}
+\part[6] Déterminez la densité de $X$ lorsque $y = 1$.
+
+\begin{solution}
+\begin{align*}
+    \int_0^\infty 4xye^{-(x^2+y^2)} dy 
+    &= -2xe^{-(x^2+y^2)} \big|_{y=0}^\infty \cr
+    &= \frac{-2x}{e^{-(x^2+y^2)}}\big|_{y=0}^\infty  \cr
+    &= 0 + \frac{2x}{e^{x^2}} \cr
+    &= 2x e^{-x^2}
+\end{align*}
+La densité marginale est
+$$f_X(x)=\left\{
+			\begin{array}{ll}
+   \displaystyle 2xe^{-(x^2)}  & \mbox{si } x> 0, \\
+    0  & \mbox{ sinon. }
+			\end{array}
+			\right.$$
+
+
+
+    AUTRE SOLUTION: Ceux qui écrivent $f(x,y)=f(x)f(y)$ doivent justifier que le $f(x)$ et le $f(y)$ qu'ils ont trouvé est bien une densité, i.e. intègre à 1
+
+    
+\end{solution}
+
+\vspace{12cm}
+
+\part[3] Les variables aléatoires $X$ et $Y$ sont-elles indépendantes?
+
+     \begin{oneparcheckboxes}
+		\choice OUI
+		\choice NON
+\end{oneparcheckboxes}\\
+{\bf Justification:}
+
+\begin{solution}
+    \begin{align*}
+    \int_0^\infty 4xye^{-(x^2+y^2)} dx 
+    &= -2ye^{-(x^2+y^2)} \big|_{x=0}^\infty \cr
+    &= \frac{-2y}{e^{-(x^2+y^2)}}\big|_{x=0}^\infty  \cr
+    &= 0 + \frac{2y}{e^{y^2}} \cr
+    &= 2y e^{-y^2}
+\end{align*}
+On a donc que $f(x,y)=f(x)f(y)$, oui indépendance.
+\end{solution}
+
+
+
+\vfill
+
+
+
+\end{parts}
+
+\pageblanche
+
+
+\question[7] On a noté la fréquence cardiaque de neuf hommes. 
+L'intervalle de confiance à 90\% obtenu pour la fréquence cardiaque moyenne est $[94; 112]$.
+On suppose que la loi normale est adéquate pour cette variable aléatoire.
+
+\vspace{0.25cm}
+Déterminez si les énoncés suivants sont vrais ou faux. 
+
+\textbf{\textit{Une bonne réponse vaut 1 point, une mauvaise réponse vaut -0,5 point et une réponse vide vaut 0 point, pour un total minimum de 0 point.}}
+
+\vspace{0.25cm}
+\begin{parts}
+    \part La fréquence cardiaque moyenne des hommes ayant participé à l'étude est de 100 battements par minute.
+    
+    \begin{oneparcheckboxes}
+        \choice Vrai
+        \choice Faux
+    \end{oneparcheckboxes}
+\vspace{0.25cm}
+
+    \part Si on recommençait la même expérience avec neuf autres individus de la même population, il y aurait 90\% de chances que la nouvelle moyenne échantillonnale soit comprise entre 94 et 112.
+    
+    \begin{oneparcheckboxes}
+        \choice Vrai
+        \choice Faux
+    \end{oneparcheckboxes}
+\vspace{0.25cm}
+
+    \part Environ 90\% des hommes de cette population ont une fréquence cardiaque comprise entre 94 et 112.
+    
+    \begin{oneparcheckboxes}
+        \choice Vrai
+        \choice Faux
+    \end{oneparcheckboxes}
+\vspace{0.25cm}
+
+    \part Environ 90\% des hommes de cet échantillon ont une fréquence cardiaque comprise entre 94 et 112.
+    
+    \begin{oneparcheckboxes}
+        \choice Vrai
+        \choice Faux
+    \end{oneparcheckboxes}
+\vspace{0.25cm}
+
+    \part La probabilité que la moyenne échantillonnale soit comprise entre 94 et 112 est 90\%.
+    
+    \begin{oneparcheckboxes}
+        \choice Vrai
+        \choice Faux
+    \end{oneparcheckboxes}
+\vspace{0.25cm}
+
+    \part La probabilité que la moyenne de la population soit comprise entre 94 et 112 est 90\%.
+    
+    \begin{oneparcheckboxes}
+        \choice Vrai
+        \choice Faux
+    \end{oneparcheckboxes}
+    \vspace{0.25cm}
+
+    \part Si on avait utilisé un échantillon de 50 individus, l'intervalle de confiance aurait probablement été plus court.
+    
+    \begin{oneparcheckboxes}
+        \choice Vrai
+        \choice Faux
+    \end{oneparcheckboxes}
+    \vspace{0.25cm}
+
+
+    
+\end{parts}
+\pageblanche
+
+\question[8] Soit la variable aléatoire $X$ et sa fonction de répartition
+
+\[ F(x) =
+\begin{cases}
+   \displaystyle 1-e^{-(x/\beta)^\alpha}& \text{si } x \ge 0, \\
+    0 & \text{sinon},
+\end{cases}
+\]
+où $\alpha$ et $\beta$ sont des constantes.
+
+En posant $\alpha = 0,5$ et $\beta=1$, calculez $P(16 \leq X \leq 25 | X\geq 9)$.
+
+\begin{solution}
+    \begin{align*}
+        \frac{P(X \geq \sqrt{3} \cap X \geq \sqrt{2})}{P(X \geq \sqrt{2})}
+        &= \frac{P(X \geq \sqrt{3} }{P(X \geq \sqrt{2})} \cr
+        &=\frac{1-F(\sqrt{3})}{1-F(\sqrt{2})} \cr
+        &=\frac{e^{-(\sqrt{3}/0,5)^2}}{e^{-(\sqrt{2}/0,5)^2}}\cr
+        &= \frac{e^{-3/0,25}}{e^{-2/0,25}} \cr
+        &= e^{2 \times 4}e^{-3\times 4} \cr
+        &= e^{8-12} = e^{-4}
+    \end{align*}
+\end{solution}
+
+
+
+\pageblanche
+\question[10]\label{estimateursPonctuels} 
+Soit $X_1,\hdots,X_9$ des réalisations indépendantes d'une variable $X\sim\mathcal{N}(12, 24)$ et $Y_1,\hdots,Y_{18}$ des réalisations indépendantes d'une variable $Y\sim\mathcal{N}(21, 24)$. 
+Notez $S_X^2$ et $S_Y^2$, les variances des deux échantillons.
+
+Quelle est la probabilité que $S_X^2$ soit deux fois plus grande que $S_Y^2$?
+\pageblanche
+
+\question[8]
+Un producteur de Gruyère sait que le poids d'une de ses meules de fromage, $X$, est une variable aléatoire d'espérance $\mu=30$ kg et de variance $\sigma^2 = 9$ kg$^2$. 
+Il doit envoyer 144 meules à un festival. 
+Le transporteur lui chargera 1500\$, à condition que le poids total des 144 meules soit inférieur ou égal à $4431,24$ kg. 
+Dans le cas contraire, il lui chargera 2000\$.
+
+Quelle est la probabilité approximative que le transporteur lui charge 1500\$?
+    \vspace{12cm}
+
+\begin{solution}
+    \begin{align*}
+        E(X) &= 30 \cr
+        V(X) &= 9 \cr
+        n&= 144 \cr
+        \overline{X} &\approx N(30, 9/144) \cr
+        1500 \$ \; &si \; \overline{X} \leq 30,5 \cr
+        2000 \$ \; &si \; \overline{X} \geq 30,5 
+    \end{align*}
+
+    \begin{align*}
+        P\left( \overline{X} \leq 30,5 \right)
+        &= P\left( \frac{\overline{X}-30}{\sqrt{9/144}} \leq \frac{30,5-30}{\sqrt{9/144}}  \right) \cr
+        &\approx P\left( Z \leq \frac{0,5}{\sqrt{3/12}}  \right) \cr
+        &= P\left( Z \leq 2 \right) \cr
+        &= \Phi(2) \cr
+        &= 0,97725
+    \end{align*}
+\end{solution}
+
+\pageblanche
+
+
+\question On veut calibrer une certaine machine pour qu'elle soit le plus stable possible.
+On veut d’abord estimer la variation de la taille des pièces produites à l'aide d'un intervalle de confiance, en supposant que la loi normale modélise bien la variable aléatoire en question.
+Un échantillon de taille 25 a donné une variance échantillonnale de 0,03642 cm$^2$.
+La borne inférieure de l'intervalle de confiance pour la variance est $0,024$.
+
+\vspace{0.5cm}
+\begin{parts}
+    \part[6] Quel est le niveau de l'intervalle de confiance?
+
+\begin{solution}
+    \begin{align*}
+        b_{inf} &= \frac{(n-1)S^2}{\chi_{\alpha/2;n-1}} \cr
+        90 &= \frac{15 \times 150}{\chi_{\alpha/2;n-1}} \cr
+        \chi_{\alpha/2;n-1} &= \frac{150}{6}  \cr
+        \chi_{\alpha/2;15} &= 25 \cr
+        \alpha/2 &= 0,05 \cr
+        \alpha &= 0,10
+    \end{align*}
+\end{solution}
+    
+    \vspace{12 cm}
+    \part[4] Que vaut la borne supérieure de l'intervalle de confiance?
+
+
+    \begin{solution}
+    \begin{align*}
+        \frac{(n-1)S^2}{\chi_{1-\alpha/2;n-1}} 
+         &= \frac{15 \times 150}{\chi_{1-\alpha/2;15}} \cr
+        &= \frac{15 \times 150}{\chi_{0,95;15}}  \cr
+        &= \frac{15 \times 150}{7,26}\cr
+        &= 309,92
+    \end{align*}
+\end{solution}
+
+
+\end{parts}
+
+
+\pageblanche
+
+\end{questions}
+
+\end{document} 

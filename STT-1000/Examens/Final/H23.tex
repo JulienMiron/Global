@@ -1,0 +1,365 @@
+\def\Ponderation{35}
+\def\SigleNumero{STT-1000}
+\def\NomCours{Probabilités et statistique}
+\def\DateEvaluation{27 avril 2023}
+\def\HeureEvaluation{18h30 à 21h20}
+\def\Session{Automne 2022}
+\def\NomEvaluation{Examen 2}
+
+\def\OptionsExam{11pt,answers}
+
+% Ne rien mettre entre les accolades si l'enseignant (ou l'enseignante) est aussi le coordonnateur (ou la coordonnatrice)
+\def\Coordonnatrice{}
+\def\Coordonnateur{}
+
+% Ne rien mettre entre les accolades s'il y a plus d'une section
+\def\Enseignant{Julien Miron}
+\def\Enseignante{}
+
+% Ne rien mettre entre les accolades s'il s'agit d'un cours à section unique
+% Mettre le nom de chacun des enseignants et enseignantes entre les accolades
+% Une case à cocher sera générée pour chacune des sections
+\def\SectionA{}
+\def\SectionB{}
+\def\SectionC{}
+\def\SectionD{}
+
+% Concerne seulement les travaux pratiques : écrire entre les accolades le nombre maximal de membres pour une équipe
+\def\NombreLignes{}		
+
+% Si vous souhaitez qu'apparaisse une déclaration d'honneur au bas de la première page, écrivez quelque chose entre les accolades
+\def\EnLigne{}
+
+\def\Directives{
+\begin{enumerate}
+\item Matériel autorisé:
+\begin{itemize}
+\item Calculatrice scientifique {\bf autorisée par la faculté des sciences et de génie};
+\item Les feuillets de formules fournis avec l'examen. Ceux-ci incluent les tables de loi nécessaires. Veuillez \textbf{ne rien écrire} sur les feuillets de formules.
+\end{itemize}
+\item Assurez-vous que cette évaluation comporte \numquestions ~questions réparties sur \numpages{}~pages, pour un total de \numpoints{}~points.\
+\item \textbf{Veuillez ne pas dégrafer votre examen.}
+\item Ajoutez vos initiales dans le bas de chaque page de l'examen.
+\item Veuillez déposer votre carte d'identité admise avec photo sur votre bureau.\
+\item Vous devez justifier votre réponse par une démarche claire, sauf pour les questions à choix de réponse.\
+\item Le verso des feuilles peut être utilisé comme brouillon, \textbf{mais ne sera pas corrigé}. Attention à ne rien dégrafer.
+\end{enumerate}
+}
+
+% Veuillez indiquer le type d'évaluation entre crochets
+% Examen : option à choisir pour un examen présentiel qui sera corrigé de manière classique. Un tableau des points sera affiché sur la page couverture.
+% Gradescope : option à choisir pour un examen qui sera corrigé via Gradescope. Aucun tableau de pointage n'apparaîtra et il y a quelques différences au niveau de la mise en page
+% TPS :
+% TPF :
+% Devoir :
+\documentclass[Gradescope]{Evaluation}
+\begin{document}
+
+\mbox{}
+%\newpage
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+
+\begin{questions}
+\question\label{QCMicTests}
+Un intervalle de confiance de niveau 95\% pour la moyenne théorique $\mu$ est $[ 5,11 ; 9,11]$. Pour chaque énoncé qui suit, indiquez si l'énoncé est vrai, faux ou si nous n'avons pas assez d'information pour le savoir.
+
+\medskip
+
+\begin{parts}
+    \part[1] Au seuil 5\%, on rejette $H_0: \mu=5$ pour $H_1:\mu \neq 5$.
+
+\medskip
+    \begin{oneparcheckboxes}
+        \CorrectChoice Vrai 
+        \choice Faux
+        \choice Nous n'avons pas assez d'information pour le savoir.
+    \end{oneparcheckboxes}
+\medskip
+ 
+   \part[1] Au seuil 1\%, on rejette $H_0: \mu=5$ pour $H_1:\mu \neq 5$.
+
+ \medskip  \begin{oneparcheckboxes}
+        \choice Vrai 
+        \choice Faux
+        \CorrectChoice Nous n'avons pas assez d'information pour le savoir.
+\medskip    \end{oneparcheckboxes}
+    
+   \part[1] Au seuil 10\%, on rejette $H_0: \mu=5$ pour $H_1:\mu \neq 5$.
+
+\medskip   \begin{oneparcheckboxes}
+        \CorrectChoice Vrai 
+        \choice Faux
+        \choice Nous n'avons pas assez d'information pour le savoir.
+\medskip    \end{oneparcheckboxes}
+    
+   \part[1] Au seuil 5\%, on rejette $H_0: \mu=8$ pour $H_1:\mu \neq 8$.
+
+\medskip   \begin{oneparcheckboxes}
+        \choice Vrai 
+        \CorrectChoice Faux
+        \choice Nous n'avons pas assez d'information pour le savoir.
+\medskip    \end{oneparcheckboxes}
+    
+%   \part[1] Au seuil 1\%, on rejette $H_0: \mu=8$ pour $H_1:\mu \neq 8$.
+
+%\medskip   \begin{oneparcheckboxes}
+%        \choice Vrai 
+%        \CorrectChoice Faux
+%        \choice Nous n'avons pas assez d'information pour le savoir.
+%    \end{oneparcheckboxes}\medskip
+
+\end{parts}
+
+\vspace{0.5cm}
+\question [4] Nous nous intéressons aux prix des loyers des étudiants de l'Université Laval. 
+Avec un échantillon aléatoire de $n=241$ étudiants, nous obtenons l'intervalle de confiance à 95\%  pour la moyenne $\mu$ suivant: $[550;1630]$. 
+Cochez tous les énoncés qui sont vrais parmi les suivants. \textit{\textbf{Une réponse cochée alors qu'elle ne devrait pas l'être entraîne une pénalité de 1 point. Le minimum possible pour cette question est 0 point.}}
+ 
+\begin{checkboxes}
+\choice Il y a 95\% des étudiants qui ont un loyer entre 550 \$ et 1630 \$
+\choice Si on pigeait un échantillon de 100 étudiants pour construire un nouvel intervalle de confiance à 95\% sur la moyenne, celui-ci aurait une plus faible probabilité de contenir la vraie valeur de $\mu$ que celui obtenu à partir de 241 étudiants.
+\choice Si on pigeait un autre échantillon de 241 étudiants pour construire un intervalle de confiance à 95\% sur la moyenne, l'intervalle obtenu aurait nécessairement la même longueur que celui-ci.
+\correctchoice Si on pigeait plusieurs échantillons de 121 étudiants dans cette population, et qu'on construisait avec chacun d'eux l'intervalle de confiance à 95\% pour $\mu$, alors environ 95\% de ces intervalles contiendraient la vraie valeur moyenne des loyers des étudiants de l'Université Laval. 
+\end{checkboxes}
+\vspace{0.5cm}
+\question[4]
+Parmi les hypothèses suivantes, \textbf{lesquelles} sont valides dans la construction de tests comme on les présente dans le cours? \textit{\textbf{Une réponse cochée alors qu'elle ne devrait pas l'être entraîne une pénalité de 1 points. Le minimum possible pour cette question est 0 point.}}
+
+\begin{checkboxes}
+\correctchoice $H_0 : \mu = 12$ vs $H_1 : \mu > 12$
+\choice $H_0 : \mu \leq 12$ vs $H_1 : \mu > 12$
+\choice $H_0 : \bar{x} = 4$ vs $H_1 : \bar{x} \ne 4$
+\correctchoice $H_0: \mu = 1$ vs $H_1: \mu \neq 1$
+\end{checkboxes}
+\newpage
+\question[4]
+Sachant que $\displaystyle \frac{(n-1)S^2}{\sigma^2}$ suit une loi du khi-carré à $n-1$ degrés de liberté, donnez $\text{Var}(S^2)$. \textbf{\textit{Donnez les détails de votre démarche.}}
+
+\begin{solution}
+On peut calculer que 
+\begin{align*}
+Var(S^2) &= Var\left( \frac{\sigma^2}{(n-1)}\frac{(n-1)}{\sigma^2}S^2 \right)\\
+    &= \frac{\sigma^4}{(n-1)^2} Var\left(\frac{(n-1)}{\sigma^2}S^2\right)  \\
+    &= \frac{\sigma^4}{(n-1)^2}(2(n-1)) \\
+    &= \frac{2\sigma^4}{(n-1)}
+\end{align*}
+\end{solution}
+
+\vspace{10cm}
+
+\question[3]  Aurélien suppose que le temps d'attente dans un bureau de la SAAQ suit une exponentielle de moyenne 240 minutes. 
+Il veut construire un intervalle de confiance bilatéral à $95\%$ pour le vérifier.
+Il note le temps d'attente de $16$ personnes choisies au hasard et obtient $\Bar{x}=250$ et $s^2=59~536$.
+Comme il construit un intervalle de confiance, il choisit $z_{\alpha/2}=1,96$, à partir de sa table de la loi normale.
+Son intervalle de confiance de niveau approximatif $95\%$ est donc $[130,44;369,56]$.
+Étant donné que celui-ci contient la valeur $240$, il se dit que cette valeur est plausible pour $\mu$. 
+Après avoir vérifié les résultats d'Aurélien, vous constatez qu'il y a une erreur dans ce qu'il a fait. 
+Quelle est cette erreur?
+\begin{solution}
+    Comme ce ne sont pas des v.a. normales, pour utiliser le TCL, on doit avoit $n\geq30$, ce qui n'est pas le cas ici. Donc résulats non valides.
+\end{solution}
+\newpage
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+\question\label{rls}
+
+Afin d'estimer le volume de bois disponible dans la forêt entre Burtigny et Saint-Oyens, nous aimerions modéliser le volume de bois d'un arbre à l'aide de sa circonférence. Nous disposons du volume ($Y$) et de la circonférence ($X$) de 31 arbres. Afin d'étudier le modèle $Y_i = \beta_0 + \beta_1 X_i + E_i$, en supposant que les postulats de régression linéaire sont respectés, nous avons résultats suivants:
+
+\begin{align*}
+	\sum_{i=1}^{31} x_i &= 410,70;  \quad \sum_{i=1}^{31} x_i^2 = 5\; 736,55 ; \quad \sum_{i=1}^{31} x_iy_i =13\; 887,86;\quad
+	\sum_{i=1}^{31} y_i &= 935,30; \quad \sum_{i=1}^{31} y_i^2 = 36\; 324,99.
+\end{align*}
+
+\begin{parts}
+	\part[7] Donnez l'équation de la droite de régression permettant de prédire le volume de bois d'un arbre de circonférence précise. \textbf{\textit{Donnez les détails de votre démarche.}}
+	
+	
+	\begin{solution} $$ \widehat{\beta}_1 
+		= \frac{S_{XY}}{S_{XX}}
+		= \frac{\sum x_iy_i - n\overline{x}\overline{y}}{\sum x_i^2 - n\overline{x}^2} 
+		= \frac{\displaystyle 13\; 887.86 -  \frac{410.7 \times  935.3}{31}}{\displaystyle 5\; 736.55 - \frac{410.7^2 }{ 31} }
+		= \frac{1496.644}{295.4374}
+		= 5.065858 $$
+	
+	$$ \widehat{\beta}_0 =  \overline{y}-\widehat{\beta}_1 \overline{x} 
+		= \frac{935.3}{31} -  5.065858 \frac{410.7}{31} 
+		= -36.94348 $$ 
+		
+		$$ \widehat{Y}_i = -36.94348 + 5.065858  x_i$$
+		\end{solution}
+	\vspace{18cm}
+
+
+	\pagesuivante{\ref{rls}}
+
+\newpage 
+
+\suite{\ref{rls}}
+
+	\part[3] Calculez la prévision ponctuelle du volume de bois d'un arbre ayant une circonférence de 11. \textbf{\textit{Donnez les détails de votre démarche.}}
+	
+	\vspace{4cm}
+	
+	\begin{solution}$$ \widehat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_1 x_i
+		= -36.94348 + 5.065858  \times 11 = 18.78096$$
+		\end{solution}
+	
+
+
+	\part[2] Alex aimerait estimer le volume de bois de l'arbre devant sa maison. Cet arbre a une circonférence de 14. La prévision ponctuelle du volume de bois de cet arbre est environ 33,98. Choisissez l'intervalle de valeurs ayant 95\% de chances de contenir le volume de bois de cet arbre de circonférence 14.
+	
+	\begin{checkboxes}
+			\choice $ \displaystyle	33,98 \pm t_{0,05;29} \sqrt{MS_E \left[ \frac{1}{n} + \frac{(14-\overline{x})^2}{S_{XX}}\right]} $ 
+   \choice $ \displaystyle	33,98 \pm t_{0,025;1} \sqrt{MS_E \left[ \frac{1}{n} + \frac{(14-\overline{x})^2}{S_{XX}}\right]} $ 
+   			\choice $ \displaystyle	33,98 \pm t_{0,025;29} \sqrt{MS_E \left[ \frac{1}{n} + \frac{(14-\overline{x})^2}{S_{XX}}\right]} $ \vspace{0.2cm}
+			\correctchoice $ \displaystyle		33,98 \pm t_{0,025;29} \sqrt{MS_E \left[ 1+ \frac{1}{n} + \frac{(14-\overline{x})^2}{S_{XX}}\right]} $
+   \choice $ \displaystyle		33,98 \pm t_{0,025;1} \sqrt{MS_E \left[ 1+ \frac{1}{n} + \frac{(14-\overline{x})^2}{S_{XX}}\right]} $
+	\end{checkboxes}
+\vspace{0.5cm}
+		\part[1] Si Alex avait un arbre ayant une circonférence de 18, l'intervalle de valeurs calculé à la question précédente serait... 
+	\begin{checkboxes}
+			\choice plus court 
+			\choice de même longueur  
+			\correctchoice plus long   
+		\choice on ne peut pas savoir la différence de longueur 
+	\end{checkboxes}
+\vspace{0.5cm}
+
+\part[2] La valeur-p du test de significativité du lien linéaire entre $X$ et $Y$ est égale à $0,00014$. Cochez l'énoncé qui est vrai.
+
+	\begin{checkboxes}
+            \choice Il n'y a pas de lien linéaire significatif entre $X$ et $Y$.
+            \choice Il y a un lien linéaire significatif entre $X$ et $Y$.
+            \correctchoice Nous ne pouvons rien dire car nous ne connaissons pas le seuil du test.
+            \choice Nous ne pouvons rien dire car nous ne connaissons pas $t_0$.
+	\end{checkboxes}
+
+\end{parts}
+\newpage
+
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+\question Soit $X_1,\hdots, X_{100}$, des variables aléatoires indépendantes et identiquement distribuées selon une loi normale d’espérance $\mu$ et de variance $\sigma^2 = 400$. 
+Nous désirons construire un intervalle de confiance de niveau $95\%$ pour $\mu$. Bien sûr, l'intervalle de confiance aura la forme d'un des intervalles vus au cours. Nous notons cet intervalle $[C_1;C_2]$.
+\begin{parts}
+    \part[3] Que vaut $\mathbb{E}[C_1]$? \textbf{\textit{Donnez les détails de votre démarche.}}
+    \vspace{3cm}
+    \part[3] Que vaut $\text{Var}[C_1]$? \textbf{\textit{Donnez les détails de votre démarche.}}
+    \vspace{3cm}
+    \part[2] Quelle est la loi de probabilité de $C_1$?
+    \vspace{1.2cm}
+    \part[8]Quelle est la probabilité que $C_1$ soit inférieure ou égale à $\mu$? \textbf{\textit{Donnez les détails de votre démarche.}}
+    
+\end{parts}
+
+
+\newpage
+
+
+\question[10]
+Nous supposons deux populations distribuées selon des lois normales de moyennes $\mu_1$ et $\mu_2$ et de variances $\sigma^2_1$ et $\sigma^2_2$ inconnues qui sont supposées égales. Nous avons les échantillons
+
+\begin{align*}
+X_{11}, \ldots, X_{1n_1} \overset{i.i.d.}{\sim} \mathcal{N}(\mu_1, \sigma^2_1), & & X_{21}, \ldots, X_{2n_2} \overset{i.i.d.}{\sim} \mathcal{N}(\mu_2, \sigma^2_2),
+\end{align*}
+où $n_1=8$ et $n_2=8$. Nous avons construit un intervalle de confiance à $95\%$ pour $\mu_1-\mu_2$ et obtenu $[0,1; 4,39]$. Sachant que $S^2_1=4,52$, quelle est la valeur de $S^2_2$? \textit{\textbf{Donnez les détails de votre démarche.}}
+
+
+
+\newpage 
+\question[10] Soit $X_1,\hdots, X_{36}$, des variables aléatoires indépendantes et identiquement distribuées selon une loi normale d'espérance~$\mu$ et de variance $\sigma^2=1296$.
+Nous désirons effectuer un \textbf{test unilatéral à droite} avec $H_0:\mu=10$ au seuil $\alpha = 0,025$.
+Nous avons les résultats suivants:
+\begin{align*}
+    \bar{x}= 11,34 &  & s^2=754.
+\end{align*}
+Si nous savons qu'en réalité $\mu=\mu_1$ et que la puissance du test est $0,13567$, que vaut $\mu_1$? \textbf{\textit{Donnez les détails de votre démarche.}}
+
+\newpage 
+
+
+
+\question[10] Des chercheurs veulent comparer les traitements $A$ et $B$ contre une maladie.
+Ils administrent le traitement $A$ à un groupe de 45 personnes malades et le traitement $B$ à un groupe de 36 autres personnes malades, puis ils comptent le nombre de guérisons dans chacun des groupes.
+Les chercheurs pensent que le traitement $A$ est plus efficace que le traitement $B$ et veulent vérifier cette affirmation en faisant un test avec les hypothèses suivantes:
+
+\begin{align*}
+    H_0:&p_A=p_B,\\
+    H_1:&p_A>p_B,
+\end{align*}
+où $p_A$ et $p_B$ représentent la probabilité de guérison dans les groupes $A$ et $B$ respectivement.
+S'il y a eu 18 guérisons dans le groupe $B$, quel doit être le nombre minimal de guérisons dans le groupe $A$ pour que $H_0$ soit rejetée au seuil approximatif $15,866\%$? \textbf{\textit{Donnez les détails de votre démarche.}}
+
+\vspace{0.5cm}
+
+\textit{Coup de pouce:} $\displaystyle \hat{p}(1-\hat{p})=\frac{-25 \hat{p}_A^2+25 \hat{p}_A+14}{81}$.
+\newpage
+
+
+\question Supposons que les variables aléatoires $X_1,...,X_{20}$ suivent une loi exponentielle décalée de paramètre $\theta \geq0 $, dont la \textbf{fonction de densité} est donnée par 
+
+ \begin{equation*}
+  f_X(x) = \begin{cases}
+         e^{-(x-\theta)},\ \text{  si  } \theta \leq x , \\
+        0, \text{ sinon.}
+        \end{cases}
+ \end{equation*}
+
+Nous aimerions faire un test statistique pour savoir si $\theta=0$. Nous avons donc les hypothèses
+
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{cc}
+         $H_0: \theta=0$ & $H_1: \theta > 0$.
+    \end{tabular}
+\end{table}
+La statistique du test est
+\begin{align*}
+    M=\min (X_1,...,X_{20}),
+\end{align*}
+qui correspond à la valeur minimale de notre échantillon (nous pouvons aussi écrire $M=X_{(1)}$, dans la notation introduite au cours).
+Nous savons que sous $H_0$, $M$ suit une loi exponentielle de paramètre $n=20$. Sa \textbf{fonction de répartition} est donnée par 
+
+ \begin{equation*}
+  F_M(m) = \begin{cases}
+         1-e^{-20m},\ \text{  si  } 0\leq m \\
+        0, \text{ sinon.}
+        \end{cases}
+ \end{equation*}
+
+La table suivante donne quelques valeurs de cette fonction de répartition.
+\begin{table}[ht]
+    \centering
+\begin{tabular}{|cc|}
+  \hline
+ $m$ & $F_M(m)$ \\ 
+  \hline
+    0,0005 & 0,01 \\
+    0,0025 & 0,05 \\
+    0,0053 & 0,10 \\
+    0,1151 & 0,90 \\
+    0,1498 & 0,95 \\ 
+    0,2303 & 0,99 \\ 
+  \hline
+\end{tabular}
+\end{table}
+
+Nous avons l'échantillon $x_1,\hdots,x_{20}$ suivant:
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrrrrrr}
+  \hline
+0,1613 & 0,1933 & 0,2980 & 0,3331 & 0,3423 & 0,4392 & 0,4472 & 0,4580 & 0,5289 & 0,5530 \\ 
+0.5570 & 0.7737 & 0.8574 & 0.9376 & 1.2509 & 1.4475 & 1.9064 & 2.6019 & 2.8685 & 2.9829 \\ 
+   \hline
+\end{tabular}
+\end{table}
+\begin{parts}
+\part[3] Au seuil $\alpha=5\%$, quelle est la \textit{\textbf{décision}} du test. \textbf{\textit{Une décision sans justification n'obtiendra aucun point, même si la décision est bonne.}}
+\vspace{3cm}
+\part[3] \textbf{Calculez} la valeur-p du test en ne gardant que 4 chiffres après la virgule. \textbf{\textit{Donnez les détails de votre démarche.}}
+\end{parts}
+
+
+\end{questions}
+
+\end{document} 

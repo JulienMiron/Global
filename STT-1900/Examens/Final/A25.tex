@@ -1,0 +1,800 @@
+%Pour toute question sur l'utilisation de cette classe, écrivez à jerome.soucy(at)ulaval.ca
+% Nécessite la classe Evaluation.sty dans le même dossier ou dans le PATH de votre système
+% Nécessite le fichier logo_ul.pdf dans le même dossier un dans le PATH de votre système
+\def\Ponderation{55}
+\def\SigleNumero{STT-1900}
+\def\NomCours{Méthodes statistiques pour l'ingénierie}
+\def\DateEvaluation{14 décembre 2025}
+\def\HeureEvaluation{13 h 30 à 16 h 20}
+\def\Session{Automne 2025}
+\def\NomEvaluation{Examen 2}
+
+% Ne rien mettre entre les accolades si l'enseignant (ou l'enseignante) est aussi le coordonnateur (ou la coordonnatrice)
+\def\Coordonnatrice{}
+\def\Coordonnateur{}
+
+% Ne rien mettre entre les accolades s'il y a plus d'une section
+\def\Enseignant{}
+\def\Enseignante{}
+
+% Ne rien mettre entre les accolades s'il s'agit d'un cours à section unique
+% Mettre le nom de chacun des enseignants et enseignantes entre les accolades
+% Une case à cocher sera générée pour chacune des sections
+\def\SectionA{Thierry Duchesne (en ligne)}
+\def\SectionB{Julien Miron (en présence)}
+\def\SectionC{}
+\def\SectionD{}
+
+% Concerne seulement les travaux pratiques : écrire entre les accolades le nombre maximal de membres pour une équipe
+\def\NombreLignes{}		
+
+% Si vous souhaitez qu'apparaisse une déclaration d'honneur au bas de la première page, écrivez quelque chose entre les accolades
+\def\EnLigne{}
+
+\def\Directives{
+	\begin{enumerate}
+			\item Matériel autorisé:
+		\begin{itemize}
+		    \item Calculatrice scientifique {\bf autorisée par la faculté des sciences et de génie};
+		    \item Deux feuilles aide-m\'emoire \textbf{manuscrites} de format lettre (8.5''$\times$11'') recto-verso.
+      \item Le feuillet fourni avec cet examen.
+		    \end{itemize}
+		\item Assurez-vous que cette \'evaluation comporte \numquestions ~exercices répartis sur \numpages~pages, pour un total de \numpoints \ points.\
+		\item \textbf{Veuillez ne pas dégrafer votre examen.}
+		\item Les tables de lois sont distribuées avec le cahier d'examen. Attention à ne rien débrocher.
+  \item Lorsque des boîtes de réponses sont présentes, vous \textbf{\textit{devez}} y écrire vos réponses. N'écrivez que la réponse (aucun nom de variable ou unité de mesure).\
+		\item Veuillez déposer votre carte d'identité \textbf{admise} avec photo sur votre bureau.\
+		\item Veuillez ranger vos téléphones cellulaires, montres intelligentes et tout autre appareil électronique ou de communication dans votre sac et fermer votre sac.\
+
+
+		\item Le verso des feuilles peut être utilisé comme brouillon, \textbf{mais ne sera pas corrigé}. Attention à ne rien dégrafer.
+  \item Pour les questions à choix de réponse, vous pouvez mettre un X, un crochet ($\checkmark$) ou remplir la case.
+	\end{enumerate}
+}
+
+% Veuillez indiquer le type d'évaluation entre crochets
+% Examen : option à choisir pour un examen présentiel qui sera corrigé de manière classique. Un tableau des points sera affiché sur la page couverture.
+% Gradescope : option à choisir pour un examen qui sera corrigé via Gradescope. Aucun tableau de pointage n'apparaîtra et il y a quelques différences au niveau de la mise en page
+% TPS :
+% TPF :
+% Devoir :
+\documentclass[]{Evaluation}
+\begin{document}
+
+
+%\pageblanche
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+\begin{questions}
+
+\pageblanche
+\question\label{QCMicTests}
+
+\medskip
+
+Un intervalle de confiance au niveau 95\% pour l'espérance $\mu$ est $[10,11~;~~19,11]$. Pour chaque énoncé qui suit, indiquez si l'énoncé est vrai, faux ou si nous n'avons pas assez d'information pour le savoir.
+
+\medskip
+
+\begin{parts}
+    \part[2] Au seuil 5\%, on rejette $H_0: \mu=10$ pour $H_1:\mu \neq 10$.
+
+\medskip
+    \begin{oneparcheckboxes}
+        \CorrectChoice Vrai 
+        \choice Faux
+        \choice Nous n'avons pas assez d'information pour le savoir.
+    \end{oneparcheckboxes}
+\medskip
+ 
+   \part[2] Au seuil 1\%, on rejette $H_0: \mu=10$ pour $H_1:\mu \neq 10$.
+
+ \medskip  \begin{oneparcheckboxes}
+        \choice Vrai 
+        \choice Faux
+        \CorrectChoice Nous n'avons pas assez d'information pour le savoir.
+\medskip    \end{oneparcheckboxes}
+    
+   \part[2] Au seuil 10\%, on rejette $H_0: \mu=10$ pour $H_1:\mu \neq 10$.
+
+\medskip   \begin{oneparcheckboxes}
+        \CorrectChoice Vrai 
+        \choice Faux
+        \choice Nous n'avons pas assez d'information pour le savoir.
+\medskip    \end{oneparcheckboxes}
+    
+   \part[2] Au seuil 5\%, on rejette $H_0: \mu=18$ pour $H_1:\mu \neq 18$.
+
+\medskip   \begin{oneparcheckboxes}
+        \choice Vrai 
+        \CorrectChoice Faux
+        \choice Nous n'avons pas assez d'information pour le savoir.
+\medskip    \end{oneparcheckboxes}
+    
+%   \part[1] Au seuil 1\%, on rejette $H_0: \mu=8$ pour $H_1:\mu \neq 8$.
+
+%\medskip   \begin{oneparcheckboxes}
+%        \choice Vrai 
+%        \CorrectChoice Faux
+%        \choice Nous n'avons pas assez d'information pour le savoir.
+%    \end{oneparcheckboxes}\medskip
+
+\end{parts}
+\medskip
+
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+\question[3]\label{QCManovaReg}
+
+Laquelle des affirmations suivantes est \textbf{fausse}?
+
+\medskip
+
+\begin{checkboxes}
+\choice Il est avantageux de choisir un test apparié quand les unités expérimentales sont hétérogènes.
+
+\choice En régression linéaire simple, si tous les points ($x_1$, $y_1$), ...,($x_{20}$, $y_{20}$) sont parfaitement alignés selon une droite de pente négative, alors on sait que $\widehat{\beta}_1 <0$.
+
+
+\choice Dans un modèle d’analyse de la variance à un facteur, le paramètre $\sigma^2$ représente la variance
+des $Y_{ij}$ autour de leur moyenne locale respective $\mu_i$.
+
+\correctchoice Dans un test unilatéral de comparaison de moyennes, plus le seuil $\alpha$ est grand, plus la valeur-p est grande.
+
+
+\end{checkboxes}
+
+\medskip
+\question[3] Soit la table d'analyse de la variance suivante obtenue à l'aide de \texttt{Rcmdr}:
+\begin{verbatim}
+>summary(ANOVAModel)
+            Sum Sq   Df   Mean Sq   F value      Pr(>F)    
+Cantons     926.12    4    231.53    238.72    0.000001 
+Residuals   446.55   48      0.97
+\end{verbatim}
+
+À partir de la table d'analyse de la variance, quelle affirmation parmi les suivantes est \textbf{vraie}?
+
+
+
+\begin{checkboxes}
+\choice L'estimation de la moyenne du facteur \texttt{Cantons} est égale à $231,53$. 
+\choice Nous avons 49 observations dans le jeu de données.
+\choice La variance du facteur \texttt{Cantons} est environ 2 fois plus grande que la variance du facteur \texttt{Residuals}.
+\correctchoice Au seuil $\alpha=0,05$, nous pouvons affirmer que les moyennes de la variable réponse à chaque niveaux du facteur \texttt{Cantons} ne sont pas toutes égales.
+\choice Au seuil $\alpha=0,05$, nous pouvons affirmer que les variances de la variable réponse à chaque niveaux du facteur \texttt{Cantons} ne sont pas toutes égales.
+\end{checkboxes}
+
+\pageblanche
+
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+\question Soit $X_1,\hdots, X_{49}$, des variables aléatoires indépendantes d'espérance $\mu$ et de variance $\sigma^2$. Voici plusieurs intervalles:
+\begin{center}
+    
+\begin{tabular}{|c|c|c|c|c|}
+	\cline{1-2}\cline{4-5}
+	&&&&\\[-3mm]
+	% Puissance et alpha
+	1 &  $\displaystyle \overline {X}\Mypm t_{\sfrac{\alpha}{2};48}\frac{S}{\sqrt{49}}$
+	% puissance:  ici, conditionnellement à \mu=\mu_0 plutôt que \mu=\mu_1 
+	% bon alpha
+	 & \hspace{0.3cm} &
+	 6 &  $\displaystyle \overline {X}\Mypm z_{\sfrac{\alpha}{2}}\frac{\sigma^2}{\sqrt{49}}$
+	% ici, \overline{X}- moyenne échantillonnale plutôt que \overline{X}- \mu_0 
+	\\[4mm]
+	\cline{1-2}\cline{4-5}
+	&&&&\\[-3mm]
+	 2 & $\displaystyle \overline {X}\Mypm t_{\sfrac{\alpha}{2};49}\frac{S}{\sqrt{49}}$
+	% ici  divisé par \sigma^2/n plutot que la racine
+	&  &
+	 7 & $\displaystyle \overline {X}\Mypm t_{\sfrac{\alpha}{2};48}\frac{S}{\sqrt{48}}$ 
+	% ici, bonne réponse pour alpha
+	\\[4mm]
+	\cline{1-2}\cline{4-5}
+	&&&&\\[-3mm]
+	 3 & $\displaystyle \overline {X}\Mypm t_{\sfrac{\alpha}{2};49}\frac{\sigma}{\sqrt{48}}$
+	% ici, conditionnellement à \mu=\mu_0  ET mauvais z_\alpha
+	 &  &
+	  8 & $\displaystyle \overline {X}\Mypm z_{\sfrac{\alpha}{2}}\frac{S}{\sqrt{49}}$
+	 % ici,  mauvais z_\alpha
+	 \\[4mm]
+	 \cline{1-2}\cline{4-5}
+	 &&&&\\[-3mm]
+	   4 & $\displaystyle \overline {X}\Mypm t_{\sfrac{\alpha}{2};49}\frac{\sigma}{\sqrt{49}}$
+	 % ici avec z_{\alpha/2} plutot que z_\alpha ET divisé par \sigma^2/n plutot que la racine
+	 &  &
+	  9 & $\displaystyle \left[\frac{48S^2}{\chi_{\sfrac{\alpha}{2};48}^2};\frac{48S^2}{\chi_{1-\sfrac{\alpha}{2};48}^2}\right]$
+	 % ici, centrer avec \mu_1 plutot que \mu_0 
+	 \\[5mm]
+	 \cline{1-2}\cline{4-5}
+	 &&&&\\[-3mm]
+	  5 & $\displaystyle \overline {X}\Mypm z_{\sfrac{\alpha}{2}}\frac{\sigma}{\sqrt{49}}$
+	 % ici avec z_{\alpha/2} plutot que z_\alpha	 
+	 &  &
+	  10 & $\displaystyle \left[\frac{49S^2}{\chi_{\sfrac{\alpha}{2};49}^2};\frac{49S^2}{\chi_{1-\sfrac{\alpha}{2};49}^2}\right]$
+	 % ici, divisé par \sigma^2/n plutot que \sqrt{ \sigma^2/n }
+	 \\[5mm]
+	 \cline{1-2}\cline{4-5}
+
+	
+\end{tabular}
+
+\end{center}
+
+Associez chacune des situations suivantes au numéro de l'intervalle de confiance de niveau $1-\alpha$ qui correspond.
+
+\vspace{0.5cm}
+\begin{parts}
+    \part[2] Intervalle de confiance pour $\mu$ lorsque $\sigma^2$ est connue et que les $X_i$ sont de loi normale.
+
+ \medskip 
+ \begin{oneparcheckboxes}
+     \choice 1
+     \choice 2 
+     \choice 3 
+     \choice 4 
+     \CorrectChoice 5 
+     \choice 6 
+     \choice 7 
+     \choice 8 
+     \choice 9
+     \choice 10
+ 
+ \end{oneparcheckboxes}\medskip
+ 
+    \part[2] Intervalle de confiance pour $\sigma^2$ avec les $X_i$ de loi normale.
+    
+\medskip  
+\begin{oneparcheckboxes}
+     \choice 1
+     \choice 2 
+     \choice 3 
+     \choice 4 
+     \choice 5 
+     \choice 6 
+     \choice 7 
+     \choice 8 
+     \CorrectChoice 9
+     \choice 10
+
+ \end{oneparcheckboxes}\medskip
+
+     \part[2] Intervalle de confiance pour $\mu$ lorsque $\sigma^2$ est inconnue et que les $X_i$ sont d'une loi quelconque.
+    
+\medskip  
+\begin{oneparcheckboxes}
+     \choice 1
+     \choice 2 
+     \choice 3 
+     \choice 4 
+     \choice 5 
+     \choice 6 
+     \choice 7 
+     \CorrectChoice 8 
+     \choice 9
+     \choice 10
+
+ \end{oneparcheckboxes}\medskip
+ \end{parts}
+
+ \vspace{0.5cm}
+
+ \question\label{1FQCM} 
+
+Une entreprise prépare des sachets de fondue et s'intéresse à la variabilité de la quantité de fromage dans un sachet. Elle choisit au hasard 16 sachets. Dans l'échantillon, la quantité moyenne de fromage par sachet est de $398,4 \,g$ et la variance échantillonnale est de $25 \, g^2$. Sachant que $X$, la quantité de fromage dans un sachet, est une variable aléatoire qui suit une loi normale d'espérance $\mu=400$ et de variance $\sigma^2$, elle confronte les hypothèses suivantes, à l'aide du test approprié, au seuil $\alpha=10\%$ :
+\begin{align*}
+	H_0 &: \sigma^2 = 15 \cr
+	H_1 &: \sigma^2 > 15.
+\end{align*}
+
+\begin{parts}
+
+\part[4] Quelle est la valeur de la statistique du test sous $H_0$?
+
+\medskip
+\begin{oneparcheckboxes}
+    \choice 15
+    \choice 16
+    \CorrectChoice 25
+    \choice -1,28
+    \choice -1,652 
+    \choice 1,28
+    \choice 1,652
+\end{oneparcheckboxes} 
+
+\vspace{0.5cm}
+\part[3] Le seuil observé du test est 0,05. Choisissez l'énoncé qui est \textbf{vrai}.
+
+\medskip
+	\begin{checkboxes}
+	    \CorrectChoice Au seuil $\alpha=10\%$, la variance de la quantité de fromage est significativement supérieure à $15 \, g^2$.
+		\choice Au seuil $\alpha=10\%$, la variance de la quantité de fromage n'est pas significativement supérieure à $15 \, g^2$.
+		\choice Au seuil $\alpha=10\%$, la quantité moyenne de fromage est significativement supérieure à $15 \, g^2$.
+        \choice Au seuil $\alpha=10\%$, la variance de la quantité de fromage est significativement égale à $15 \, g^2$.
+		\choice Au seuil $\alpha=10\%$, on ne peut pas dire si la variance de la quantité de fromage est significativement différente de $15 \, g^2$.\medskip
+	\end{checkboxes}
+
+\end{parts}
+
+ \pageblanche
+
+\question[6]\label{AOVblocs1} 
+
+Un échantillon aléatoire $X_1,\dots,X_n$ est obtenu à partir d'une loi dont la fonction
+de densité dépend d'un paramètre inconnu $\theta$. Une prise de décision en ingénierie
+repose sur la valeur de la probabilité $P(X_i>0,5)$. Or pour ce modèle, 
+cette probabilité est égale à $e^{-0,5\theta}$.
+
+On vous propose deux estimateurs $\hat{P}_1$ et $\hat{P}_2$ qui ont les propriétés suivantes :
+\begin{align*}
+    E(\hat{P}_1)&= e^{-0,5\theta},&  V(\hat{P}_1) =& \frac{e^{-0,5\theta}\left(1-e^{-0,5\theta}\right)}{n}, \\
+    E(\hat{P}_2) &= \theta,&  V(\hat{P}_2) =&\frac{\theta^2}{n} .
+\end{align*}
+
+Quels sont les \textbf{trois} énoncés qui sont \textbf{vrais} parmi les six énoncés ci-dessous ?
+
+\begin{checkboxes}
+    \correctchoice $\hat{P}_1$ est un estimateur sans biais de $e^{-0,5\theta}$.
+    \vspace{0.5cm}
+\choice $\hat{P}_2$ est un estimateur sans biais de $e^{-0,5\theta}$.
+\vspace{0.5cm}
+\choice L'erreur quadratique moyenne de $\hat{P}_1$ en tant qu'estimateur de $e^{-0,5\theta}$ est égale à 
+$$e^{-\theta}+\frac{e^{-0,5\theta}\left(1-e^{-0,5\theta}\right)}{n}.$$
+    \correctchoice L'erreur quadratique moyenne de $\hat{P}_2$ en tant qu'estimateur de $e^{-0,5\theta}$
+est égale à 
+$$\left(\theta-e^{-0,5\theta}\right)^2+\frac{\theta^2}{n}.$$
+\correctchoice L'erreur quadratique moyenne de $\hat{P}_1$ en tant qu'estimateur de $e^{-0,5\theta}$ est égale à 
+$V(\hat{P}_1)$.
+\vspace{0.5cm}
+\choice L'erreur quadratique moyenne de $\hat{P}_2$ en tant qu'estimateur de $e^{-0,5\theta}$ est égale à 
+$V(\hat{P}_2)$.
+\end{checkboxes}
+
+
+\pageblanche
+
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+\question[4]\label{2moyregle}
+
+La densité d'une variable aléatoire $X$ est donnée par
+$$f(x)=\left\{\begin{array}{ll}
+1, & 0<x<a \\ 2, & a<x<\frac{2}{3} \\ 0, &  \text{ailleurs.}
+\end{array}\right.$$
+
+
+\begin{comment}
+    \part[6] Trouvez la valeur de $a$.
+
+\vspace{5in}
+\begin{solution}
+	\begin{itemize}
+		\item[(a)] $\int_0^a1\;dx+\int_a^{2/3}2\;dx=a+2(2/3-a)=4/3-a=1\Rightarrow a=1/3.$ Ou se fait très
+        simplement géométriquement, en calculant l'aire de deux rectangles ...
+	\end{itemize}
+\end{solution}
+
+\end{comment}
+Parmi les fonctions $F_1$ à $F_5$ suivantes, laquelle est la fonction de répartition
+   de $X$ ?
+
+ \begin{checkboxes}
+     
+
+     \choice $F_1(x)=\left\{\begin{array}{ll}
+     a, & 0\le a<x, \\ 
+     2a, & x\le a < \frac{2}{3}, \\ 
+     0, & \text{ailleurs}.
+     \end{array}\right.$
+
+     \vspace{0.3cm}
+     \choice $F_2(x)=\left\{\begin{array}{ll}
+     x, & 0\le x<a, \\ 
+     2x, & a\le x < \frac{2}{3}, \\ 
+     0, & \text{ailleurs}.
+     \end{array}\right.$
+
+     \vspace{0.3cm}
+     \choice $F_3(x)=\left\{\begin{array}{ll}
+     0, & x<0,\\
+     x, & 0\le x<a \\ 2x, & a\le x < \frac{2}{3}, \\ 
+     1, & x\ge\frac{2}{3}.
+     \end{array}\right.$
+
+\vspace{0.3cm}
+     \choice $F_4(x)=\left\{\begin{array}{ll}
+     x, & 0\le x<a, \\ 
+     a+2(x-a), & a\le x < \frac{2}{3}, \\ 
+     0, & \text{ailleurs}.
+     \end{array}\right.$
+     
+     \vspace{0.3cm}
+     \CorrectChoice $F_5(x)=\left\{\begin{array}{ll}
+     0, & x<0,\\
+     x, & 0\le x<a \\ 
+     a+2(x-a), & a\le x < \frac{2}{3}, \\ 
+     1, & x\ge\frac{2}{3}.\\
+     \end{array}\right.$
+
+\vspace{0.3cm}
+     \choice $\begin{array}{ll}
+     \text{Aucune des fonctions\ } 
+     \text{$F_1$ à $F_5$ n'est la\ } 
+     \text{fonction de répartition de $X$.}
+     \end{array}$
+  \end{checkboxes}\medskip
+
+
+ \question[4]
+
+On aimerait comparer la performance de deux types de pneus d'hiver. Un groupe de 21 conducteurs choisis au hasard parcoureront le même trajet de montagne deux fois: une fois avec les pneus {A}, et une fois avec les pneus {\it B}. En supposant que le temps de parcours de la route suit une loi normale, on veut tester au seuil $\alpha=0,01$ si le temps de parcours moyen avec les pneus {\it A} est supérieur au temps de parcours moyen avec les pneus {\it B}:
+
+
+
+\begin{align*}
+    H_0&:\mu_{A} - \mu_{B} = 0 \cr
+    H_1&:\mu_{A} - \mu_{B} > 0
+\end{align*}
+
+Voici des règles de décision de tests d'hypothèse, où $t_0$ est la statistique observée du test. Choisissez la règle de décision correspondant à la mise en situation ci-haut.
+
+\begin{checkboxes}
+    \choice On rejette $H_0$ si $t_0 < -2,423$.
+    \choice On rejette $H_0$ si $t_0 > 2,423$.
+    \choice On rejette $H_0$ si $|t_0| > 2,423$.
+    \choice On rejette $H_0$ si $t_0 < -2,704$.
+    \choice On rejette $H_0$ si $t_0 > 2,704$.
+    \choice On rejette $H_0$ si $|t_0| > 2,704$.
+    \choice On rejette $H_0$ si $t_0 < -2,528$.
+    \correctchoice On rejette $H_0$ si $t_0 > 2,528$.
+    \choice On rejette $H_0$ si $|t_0| > 2,528$.
+    \choice On rejette $H_0$ si $t_0 < -2,845$.
+    \choice On rejette $H_0$ si $t_0 > 2,845$.
+    \choice On rejette $H_0$ si $|t_0| > 2,845$.
+\end{checkboxes}
+\pageblanche
+ 
+\question[8]
+
+On aimerait déterminer si la taille des pétales des iris diffère d'une espèce à une autre. Pour chacune des trois espèces d'iris (Iris setosa, versicolor, virginica), on prend un échantillon de 41 fleurs et on mesure la taille d'un pétale. On fait une analyse de la variance à un facteur en supposant que le modèle et les postulats sont adéquats. On obtient les résultats suivants. 
+
+\begin{verbatim}
+> summary(aov(Petal.Taille ~ Espece, data = iris))
+             Df   Sum Sq   Mean Sq   F value   Pr(>F)    
+Espece        2    348.1    174.04      1016    0.0006
+Residuals   120     20.6      0.17  
+
+> numSummary(iris$Petal.Taille, groups = iris$Espece, statistics = c("mean", "sd"))
+               mean          sd      data:n
+setosa     1.451220   0.1804466       41
+versicolor 4.270732   0.4817904       41
+virginica  5.463415   0.4993777       41
+\end{verbatim}
+
+
+Calculez la valeur de la plus petite différence significative (PPDS) au seuil de 5\%, et utilisez-la 
+pour déterminer si la taille moyenne des pétales de l'espèce setosa est significativement différente de la taille
+moyenne des pétales de l'espèce versicolor.
+
+
+\begin{solution}
+\begin{align*}
+PPDS &= t_{\alpha/2; an-a}\sqrt{\frac{2MS_E}{n}} \cr 
+&= t_{0,025; 120}\sqrt{\frac{2\times 0,17}{41}}\cr 
+&= 1,980 \sqrt{\frac{2\times 0,17}{41}}\cr 
+&= 0.1803071
+\end{align*}
+\end{solution}
+
+
+\pageblanche
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+\question[12]\label{puissance}
+
+On considère que $X$, le temps que met un train pour effectuer le trajet entre Nyon et Morges, suit une loi normale d'espérance $\mu$ et de variance $\sigma^2=9$. On désire faire un test d'hypothèse au seuil $\alpha = 2,5\%$, avec les hypothèses suivantes:
+
+\begin{align*}
+	H_0&: \mu=15\cr
+	H_1&: \mu > 15.
+\end{align*}
+On mesure au hasard le temps que prennent 9 trains. Le temps moyen est de 17,8 minutes. Sachant qu'en réalité $\mu = 15,79$, quelle est la puissance du test?
+
+
+\begin{solution}
+	
+\end{solution}
+
+\pageblanche
+
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+
+\question[6]\label{ass2F} 
+
+Les figures A à F ci-dessous montrent toutes un diagramme de dispersion
+de 50 paires $(X_i,Y_i)$ indépendantes. Chaque échantillon qui a servi à produire 
+ces figures a été généré à l'aide de l'un des modèles 1 à 6 ci-dessous. 
+Dans la boîte à droite de chaque modèle, écrivez la lettre de la figure qu'il
+a générée.
+\begin{enumerate}
+\item 
+\begin{tabular}{p{12cm}c}
+$X_i\sim N(5,~ 2)$, $Y_i\sim N(5,~ 2)$ et la corrélation entre $X_i$ et $Y_i$ est de -0,99 
+& \boite{1.1}{1.1} \\
+\end{tabular}
+
+\item 
+\begin{tabular}{p{12cm}c}
+$X_i\sim N(5,~ 2)$, $Y_i\sim N(5,~ 2)$ et la corrélation entre $X_i$ et $Y_i$ est de -0,60 
+& \boite{1.1}{1.1} \\
+\end{tabular}
+
+\item 
+\begin{tabular}{p{12cm}c}
+$X_i\sim N(5,~ 2)$, $Y_i\sim N(5,~ 2)$ et la corrélation entre $X_i$ et $Y_i$ est de 0 
+& \boite{1.1}{1.1} \\
+\end{tabular}
+
+\item 
+\begin{tabular}{p{12cm}c}
+$X_i\sim N(5,~ 2)$, $Y_i\sim N(5,~ 2)$ et la corrélation entre $X_i$ et $Y_i$ est de 0,60 
+& \boite{1.1}{1.1} \\
+\end{tabular}
+
+\item 
+\begin{tabular}{p{12cm}c}
+$X_i\sim N(5,~ 2)$, $Y_i\sim N(5,~ 2)$ et la corrélation entre $X_i$ et $Y_i$ est de 0,99
+& \boite{1.1}{1.1} \\
+\end{tabular}
+
+\item
+\begin{tabular}{p{12cm}c}
+$X_i\sim N(5,~ 2)$ et $Y_i = 6 - 3X_i + X_i^2/2 + E_i$, où $E_i\sim N(0, 0{,}09)$
+& \boite{1.1}{1.1} \\
+\end{tabular}
+
+\end{enumerate}
+
+\begin{center}
+\begin{tabular}{ccc}
+    \includegraphics[width=2.2in, height=2.45in]{STT-1900/Examens/Final/Images/FigureA.png} &
+    \includegraphics[width=2.2in, height=2.45in]{STT-1900/Examens/Final/Images/FigureB.png} &
+    \includegraphics[width=2.2in, height=2.45in]{STT-1900/Examens/Final/Images/FigureC.png} \\
+    \includegraphics[width=2.2in, height=2.45in]{STT-1900/Examens/Final/Images/FigureD.png} &
+    \includegraphics[width=2.2in, height=2.45in]{STT-1900/Examens/Final/Images/FigureE.png} &
+    \includegraphics[width=2.2in, height=2.45in]{STT-1900/Examens/Final/Images/FigureF.png} \\
+\end{tabular}
+\end{center}
+
+
+\pageblanche
+
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+\question[6]\label{2F} 
+
+Vous lisez toujours les conseils de Jack et d'Averell avant d'acheter l'action
+d'une compagnie, mais les prix d'achat suggérés par ces deux experts
+varient beaucoup. Soit $J$, le prix d'achat de l'action qui vous intéresse suggéré
+par Jack et $A$, le prix d'achat pour cette même action suggéré par Averell.
+On vous dit que $J\sim N(10~;~~3)$, $A\sim N(10~;~~1)$ et que $Cov(J,~A)=-2$.
+
+Vous décidez d'acheter à la moyenne des deux
+    prix suggérés par les experts, soit au prix 
+    $$M = \frac{J+A}{2}.$$
+Calculez la variance de $M$.
+
+    
+%    \part[3] Un ami vous dit que vous devriez plutôt vous fier sur une moyenne pondérée des
+%    deux prix suggérés par Jack et Averell, soit $P = xJ + (1-x)A$, où $0\le x\le 1$. Il vous dit que ceci 
+ %   la même moyenne que $M$, mais pourrait diminuer la variance avec un choix approprié de $x$. Trouvez la
+ %   valeur de $x$ telle que $V(P)$ est minimale.
+ % SOLUTION :
+%         \begin{align*}
+ %           V(P)&=x^2V[J]+(1-x)^2V[A]+2x(1-x)Cov(J,A)\\
+  %          &=3x^2+(1-x)^2+2x(1-x)(-2)=1-6x+8x^2.
+   %     \end{align*}
+    %    En dérivant par rapport à $x$ on obtient $-6+8x$ et en posant égal
+     %   à 0, on a que $x=6/8=3/4$. (La dérivée seconde étant positive, on a bien trouvé un minimum.)
+      %  Donc $x=3/4=0,75$.
+
+
+
+\begin{solution}
+        \begin{align*}
+            E(M) &= E[(J+A)/2] = \frac{1}{2}E(J)+\frac{1}{2}E(A)= \frac{1}{2}10+\frac{1}{2}10=10\\
+            V(M) &= V[(J+A)/2]=\frac{1}{4}V(J)+\frac{1}{4}V(A)+2\frac{1}{4}\frac{1}{4}Cov(J,A)\\
+            &= \frac{3}{4}+\frac{1}{4}+2\frac{1}{4}\frac{1}{4}(-2)\\
+            &= 3/4.
+        \end{align*}
+\end{solution}
+
+\vspace{8cm}
+
+\pageblanche
+
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+\question\label{test2variances}
+
+On veut faire le test d'hypothèse suivant 
+\begin{align*}
+H_0 &:\sigma_X^2 = \sigma_Y^2\\
+H_1 &:\sigma_X^2 > \sigma_Y^2,
+\end{align*}
+
+où la variable $X$ suit une loi normale d'espérance $\mu_X$ et de variance $\sigma_X^2$ et la variable $Y$ suit une loi normale d'espérance $\mu_Y$ et de variance $\sigma_Y^2$. On sélectionne aléatoirement 10 observations de la variable $X$ et 7 observations de la variable $Y$ de façon indépendante. 
+
+La règle de décision du test d'hypothèse au seuil $\alpha$ est de rejeter $H_0$ si $F_0>F_{\alpha;AAA;BBB}$, où $AAA$ et $BBB$ sont les degrés de liberté au numérateur et au dénominateur.
+
+\vspace{0.5cm}
+
+\begin{parts}
+\part[1] Donnez la valeur de \texttt{AAA}, soit le nombre de degrés de liberté associés au numérateur de la statistique de test.
+
+\texttt{AAA}=\boite{2}{1.3}
+\part[1] Donnez la valeur de \texttt{BBB}, soit le nombre de degrés de liberté associés au dénominateur de la statistique de test.
+
+\texttt{BBB}=\boite{2}{1.3}
+\part[4] On vous indique que $F_0=5,91$ et que la variance échantillonnale de la variable $X$, $s_X^2$, vaut 11,82. Quelle est la valeur de la variance échantillonnale de la variable $Y$, soit $s_Y^2$? Justifiez votre réponse.
+
+\vspace{3.2cm}
+$s_Y^2=$\boite{2}{1.3}
+\part[2] En utilisant $F_0=5,91$, choisissez l'énoncé qui est \textbf{vrai}. 
+	\begin{checkboxes}
+		\CorrectChoice La variance de la variable $X$ est significativement supérieure à celle de la variable~$Y$ au seuil 5\%.
+		\choice La variance de la variable $X$ n'est pas significativement supérieure à celle de la variable~$Y$ au seuil 5\%.
+		\choice Au seuil 5\%, on ne peut rien conclure.
+	\end{checkboxes}
+	
+
+%\part[3] Si on avait choisi un niveau de confiance à 90\%, l'intervalle de confiance aurait été
+%	\begin{checkboxes}
+%		\choice plus long.
+%		\CorrectChoice plus court.
+%		\choice de même longueur.
+%		\choice plus long ou plus court, on manque d'information pour le déterminer. 
+%	\end{checkboxes}
+
+
+\end{parts}
+
+	
+
+\pageblanche
+
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+\question\label{anovaBlocs}
+
+Soit $Y$, la quantité d'or (en onces) extraite d'une quantité $x$ de minerai (en tonnes). On vous dit que
+$Y$ suit une loi normale de moyenne $10+10x$ onces et de variance $100~\text{onces}^2$.
+
+\begin{parts}
+    \part[6] Un camion rapporte 5 tonnes de minerai. Quelle est la probabilité qu'on y extraira
+    plus de 70 onces d'or ?
+
+    \begin{solution}
+        On cherche $P[Y>70]$.
+        
+        $Y$ suit une loi normale de variance 100 et de moyenne
+        $$\mu = 10 + 10\times 5 = 60.$$
+        On a donc que
+        \begin{align*}
+            P[Y>70] &= P[N(60,100)>70] \\
+            &= P\left[\frac{Y-60}{\sqrt{100}}>\frac{70-60}{\sqrt{100}}\right] \\
+            &= P[N(0,1)>1] \\
+            &= 1-\Phi(1) \\
+            &= 1-0,84134 \\
+            &= 0,15866.
+        \end{align*}
+    \end{solution}
+
+    \vfill
+
+    \part[3] Dix camions rapportent chacun 5 tonnes de minerai. Soit $Q_i$, la quantité d'or
+    extraite du chargement du camion $i$. On suppose que $Q_1,\dots,Q_{10}$ sont indépendantes
+    et toutes de même loi que $Y$.
+
+    \vspace{0.3cm}
+    Quelle est la loi de $Q_{Tot}=\sum_{i=1}^{10}Q_i$ ?
+    \vspace{0.3cm}
+
+ \begin{checkboxes}
+
+\choice $Q_{Tot}\sim N\left(6;\frac{100}{10}\right)$
+
+\choice $Q_{Tot}\sim N\left(60;\frac{100}{10}\right)$
+
+\choice $Q_{Tot}\sim N\left(600;\frac{100}{10}\right)$
+
+
+\choice $Q_{Tot}\sim N\left(6;1000\right)$
+
+\choice $Q_{Tot}\sim N\left(60;1000\right)$
+
+\CorrectChoice $Q_{Tot}\sim N\left(600;1000\right)$
+
+
+\choice $Q_{Tot}\sim N\left(6;10000\right)$
+
+\choice $Q_{Tot}\sim N\left(60;10000\right)$
+
+\choice $Q_{Tot}\sim N\left(600;10000\right)$
+
+
+
+\choice \text{On ne peut pas déterminer cette loi car $n$ est trop petit.}
+
+
+
+
+ \end{checkboxes}\medskip
+    
+\end{parts}
+
+\pageblanche
+
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+
+\question
+Afin d'estimer le volume de bois disponible dans la forêt entre Burtigny et Saint-Oyens, nous aimerions modéliser le volume de bois d'un arbre à l'aide de sa circonférence. Nous disposons du volume ($Y$) et de la circonférence ($X$) de 31 arbres. Afin d'étudier le modèle $Y_i = \beta_0 + \beta_1 X_i + E_i$, en supposant que les postulats de régression linéaire sont respectés, nous avons les résultats suivants:
+
+\begin{verbatim}
+lm(formula = volume ~ circonf, data = foret)
+
+Coefficients:
+                 Estimate   Std. Error  t value   Pr(>|t|)
+(Intercept)       -36.943     6.546373   -5.643   0.000001
+circonf             5.066     2.456783    2.062   0.024135
+___
+
+Residual standard error: 8.53 on 30 degrees of freedom
+Multiple R-squared: 0.81
+\end{verbatim}
+
+
+\begin{parts}
+	\part[2] Quelle est l'équation de la droite de régression permettant de prédire le volume de bois d'un arbre de circonférence précise?
+	
+\vspace{1.4cm}
+
+
+
+	\part[4] Calculez la prévision ponctuelle du volume de bois d'un arbre ayant une circonférence de 11. 
+	
+
+\vspace{2.14cm}	
+	\begin{solution}$$ \widehat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_1 x_i
+		= -36.94348 + 5.065858  \times 11 = 18.78096$$
+		\end{solution}
+		\vspace{2cm}
+
+
+	\part[2] Gérard aimerait estimer le volume de bois de l'arbre devant sa maison. Cet arbre a une circonférence de 14. La prévision ponctuelle du volume de bois de cet arbre est environ 33,98. Choisissez l'intervalle de valeurs ayant 95\% de chances de contenir le volume de bois de cet arbre de circonférence 14.
+	
+	\begin{checkboxes}
+			\choice $ \displaystyle	33,98 \pm t_{0,05;29} \sqrt{MS_E \left[ \frac{1}{n} + \frac{(14-\overline{x})^2}{S_{XX}}\right]} $ 
+   \choice $ \displaystyle	33,98 \pm t_{0,025;1} \sqrt{MS_E \left[ \frac{1}{n} + \frac{(14-\overline{x})^2}{S_{XX}}\right]} $ 
+   			\choice $ \displaystyle	33,.98 \pm t_{0,025;29} \sqrt{MS_E \left[ \frac{1}{n} + \frac{(14-\overline{x})^2}{S_{XX}}\right]} $ \vspace{0.2cm}
+			\correctchoice $ \displaystyle		33,98 \pm t_{0,025;29} \sqrt{MS_E \left[ 1+ \frac{1}{n} + \frac{(14-\overline{x})^2}{S_{XX}}\right]} $
+   \choice $ \displaystyle		33,98 \pm t_{0,025;1} \sqrt{MS_E \left[ 1+ \frac{1}{n} + \frac{(14-\overline{x})^2}{S_{XX}}\right]} $
+	\end{checkboxes}
+%\vspace{0.5cm}
+
+\part[2] Quelle affirmation parmi les suivantes est {\bf vraie} ? 
+	\begin{checkboxes}
+			\choice La circonférence d'un arbre et le volume de celui-ci ne sont pas unis par une relation linéaire significative au seuil 5\%. 
+			\choice La corrélation entre le volume de bois et la circonférence des arbres est $0,81$.
+			\choice La circonférence d'un arbre et le volume de celui-ci sont indépendants.  
+		\correctchoice La relation linéaire entre le volume de bois d'un arbre et sa circonférence est significative au seuil 5\%. 
+	\end{checkboxes}
+
+\end{parts}
+
+
+
+%%%%%%%%%%%%%%%% FIN DES QUESTIONS %%%%%%%%%%%%%%%%
+
+\pageblanche
+
+\end{questions}
+
+\end{document} 

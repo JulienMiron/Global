@@ -1,0 +1,464 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                             %
+%             Rï¿œumï¿œdes formules en probabilitï¿œ            %
+%                                                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt,french]{article}
+\textheight  24cm
+\textwidth 17.5cm
+\hoffset -2cm
+\voffset -2.5cm
+\usepackage{amsfonts}
+\usepackage{latexsym}
+\parindent 0pt
+\usepackage{amsmath}
+\usepackage{graphicx}
+%\pagestyle{empty}
+\begin{document}
+
+%\begin{center}
+%{\bf STT-10400~~~~R\'ESUM\'E DE LA MATI\`ERE DU CHAPITRE 1}
+%{\bf Introduction \`a la th\'eorie des probabilit\'es}
+%\end{center}
+
+
+
+{ STT-1000}\hfill
+
+\begin{center}
+\textbf{{AIDE-M\'EMOIRE POUR L'EXAMEN 1 \\}}
+\end{center}
+
+\section*{Th\'eorie des probabilit\'es}
+
+Soit ${\cal S}$, l'espace \'echantillonnal et $A,B,C\in{\cal{S}}$,
+des ensembles.
+\begin{itemize}
+\item {\bf Op\'erations sur les ensembles:}
+
+\begin{tabular}{l r l}
+ - le {\it compl\'ementaire} de A:& $\overline A$&$=\;\{x:\,x\in {\mathcal{S}} \;\mbox{ et } x \notin
+ A\}$\\
+ - l' {\it intersection} de A et B:& $A\cap B$&$=\;\{x:\,x\in A\;\mbox{ et } x\in
+ B\}$\\
+ - l' {\it union} de A et B:& $A\cup B$&$=\;\{x:\,x\in A\;\mbox{ ou } x\in B\;$ (ou les deux)\}
+\end{tabular}
+
+\item {\bf Propri\'et\'es des op\'erations:}
+
+\begin{tabular}{l r l}
+ - Lois de DeMorgan:  & $\overline {A \cup B}$&$=\;\overline A \cap \overline B$\\
+                      & $\overline {A \cap B}$&$=\;\overline A \cup \overline B$\\
+ - Lois associatives: & $A\cup (B\cup C)$&$=\;(A\cup B)\cup C$\\
+                      & $A\cap (B\cap C)$&$=\;(A\cap B)\cap C$\\
+ - Lois distributives:& $A\cup (B\cap C)$&$=\;(A\cup B)\cap (A\cup C)$\\
+                      & $A\cap (B\cup C)$&$=\;(A\cap B)\cup (A\cap C)$\\
+\end{tabular}
+
+\item {\bf Propri\'et\'es d'une probabilit\'e:}
+\begin{itemize}
+\item $0 \le {\mathbb P}[A] \le 1$
+
+\item ${\mathbb P}[\emptyset] = 0$ et ${\mathbb P}[{\cal S}] = 1$.
+
+\item $A$ et $B$ sont mutuellement exclusifs si et seulement si $A\cap B = \emptyset$.
+
+\item $A$ et $B$ sont ind\'ependants si et seulement si
+${\mathbb P}[A \cap B] ={\mathbb P}[A] \, {\mathbb P}[B]$.
+
+\item Si $A_1, A_2, A_3, ...$ sont mutuellement exclusifs, alors ${\mathbb
+P}[\bigcup_{i} A_i] = \sum_{i}{\mathbb P}[A_i]$.
+
+\item ${\mathbb P}[A] = 1 - {\mathbb P}[\overline{A}]$.
+%~~(on note $\bar{A}$ ou $A^c$ le compl\'ementaire de $A$).
+
+\item Si $A \subset B$, alors ${\mathbb P}[A] \le {\mathbb P}[B]$.
+
+\item ${\mathbb P}[A \cup B] = {\mathbb P}[A] + {\mathbb P}[B]
+- {\mathbb P}[A \cap B]$.
+
+\item ${\mathbb P}[A\cup B\cup C]={\mathbb P}[A] + {\mathbb P}[B]
++ {\mathbb P}[C] - {\mathbb P}[A \cap B] - {\mathbb P}[B \cap C]
+- {\mathbb P}[A \cap C]
++{\mathbb P}[A \cap B \cap C]$.
+
+\item Dans le cas \'equiprobable (c'est-\`a-dire le cas o\`u ${\cal S}$ est
+un ensemble fini et o\`u chaque \'el\'ement de ${\cal S}$ a la
+m\^eme probabilit\'e de se r\'ealiser), on a ${\mathbb P}[A] =
+\mbox{n($A$)}/\mbox{n(${\cal S}$)}$.
+%${\mathbb P}[A] = \mbox{Cardinal($A$)}/\mbox{Cardinal(${\cal S}$)}$.
+
+\end{itemize}
+
+\item {\bf Techniques de d\'enombrement:}
+
+\begin{tabular}{l l}
+- {\it Permutations} :&$\circ$ il existe $n!$ arrangements ordonn\'es de $n$ \'el\'ements distincts;\\
+                    & $\circ$ il existe $\displaystyle P_r^n = \frac{n!}{(n-r)!}$ fa\c cons de choisir
+                    $r$ objets parmi $n$ objets \\
+                    & en tenant compte de l'ordre. \\
+-  {\it Combinaisons} :&$\circ$ il existe $\displaystyle C_r^n ={n \choose r} = \frac{n!}{r!(n-r)!}$ fa\c cons de choisir
+                    $r$ objets parmi \\
+                    &  $n$ objets sans tenir compte de l'ordre.
+\end{tabular}
+
+\newpage
+\item {\bf Probabilit\'es conditionnelles:}
+
+\begin{itemize}
+\item
+$
+\begin{displaystyle}
+{\mathbb P}[A\mid B] = \frac{{\mathbb P}[A \cap B]}{{\mathbb P}[B]}
+\end{displaystyle}
+$.
+
+
+\item ${\mathbb P}[A \cap B] \;=\; {\mathbb P}[A]\,{\mathbb P}[B\mid A]
+\;=\;{\mathbb P}[B]\,{\mathbb P}[A\mid B]$ (r\`egle de multiplication)
+
+%${\mathbb P}[A \cap B \cap C] = {\mathbb P}[A]\,{\mathbb P}[B\mid A]\,{\mathbb P}[C\mid A \cap B]$.
+
+
+\item Si $B_1, B_2, ..., B_k$ forment une partition de ${\cal S}$,
+c'est-\`a-dire si $B_1, B_2, ..., B_k$ sont mutuellement exclusifs
+et tels que $\bigcup\limits_{i=1}^k B_i={\cal S}$, alors
+\begin{itemize}
+
+\item[$\circ$]
+$\displaystyle
+{\mathbb P}[A] = \sum_{i=1}^{k}{\mathbb P}[A|B_i]\,{\mathbb P}[B_i]
+$.
+~~(loi des probabilit\'es totales)
+
+\item[$\circ$]
+$\displaystyle
+{\mathbb P}[B_j\mid A] =
+\frac{{\mathbb P}[A\mid B_j]\,{\mathbb P}[B_j]}{{\mathbb P}[A]}
+=\frac{{\mathbb P}[A\mid B_j]\,{\mathbb P}[B_j]}{\sum_{i=1}^{k}{\mathbb P}[A|B_i]\,{\mathbb P}[B_i]}
+%{\displaystyle\sum_{i=1}^{k}{\mathbb P}[A\mid B_i]\,{\mathbb P}[B_i]}
+$.
+~~(th\'eor\`eme de Bayes)
+
+\end{itemize}
+\end{itemize}
+\end{itemize}
+
+%\vspace{0.1in}
+
+\section*{Variables al\'eatoires et distributions}
+
+%\begin{itemize}
+%\item {\bf Une variable discr\`ete ou continue:}
+
+
+\begin{displaymath}
+\begin{array}{|l||l||cl|}
+\hline
+\mbox{Caract\'eristique}&\mbox{Cas d'une variable discr\`ete} & &\mbox{Cas d'une variable continue}\\
+\hline
+\mbox{R\'epartition}&\displaystyle F_X(x)=
+{\mathbb P}[X \le x]=\sum_{-\infty < t \le x}p(t) & &
+F_X(x)= {\mathbb P}[X \le x]=\int_{-\infty}^{x}f(t)dt
+\\[.10cm]
+\mbox{Masse/Densit\'e}&\displaystyle p_X(x) = {\mathbb P}[X=x]
+& &
+\displaystyle f_X(x) = \frac{d}{dx}F_X(x)
+\\[.30cm]
+\mbox{Probabilit\'e}&\displaystyle{\mathbb P}[a < X \le b]=\sum_{a < x \le b}p_X(x)
+& &
+\displaystyle{\mathbb P}[a\!\! < X \le\!\! b]\!\!=\!\!\int_{a}^{b}\!\!\!f(x)dx\!\!=\!\!F_X(b)\!\!-\!\!F_X(a)
+\\[.10cm]
+\mbox{Esp\'erance de $X$}&\displaystyle \mu = {\mathbb E}[X]=\sum_{
+x} x\,p(x) & & \displaystyle \mu = {\mathbb
+E}[X]=\int_{-\infty}^{+\infty}x\,f(x)dx
+\\[.10cm]
+\mbox{Esp\'erance de $g(X)$}&\displaystyle {\mathbb E}[g(X)]=\sum_{
+x} g(x)\,p(x) & & \displaystyle {\mathbb
+E}[g(X)]=\int_{-\infty}^{+\infty}g(x)\,f(x)dx
+\\[.10cm]
+\cline{2-4}
+& \multicolumn{3}{c|}{}\\[-0.2cm]
+\mbox{Variance de $X$}& \multicolumn{3}{c|}{\sigma^2 = {\mathbb Var}[X]={\mathbb E}[(X-\mu)^2]
+={\mathbb E}[X^{2}]-\mu^2}
+\\[.10cm]
+\hline
+\end{array}
+\end{displaymath}
+
+\hspace{5cm}
+
+\vspace{0.1in}
+$\bullet$  Soit $X$ et $Y$ des variables aléatoires et $a$ et $b$ des constantes. Alors,
+{\small
+\begin{align*}
+{\mathbb E}[aX+b]&=a{\mathbb E}[X]+b \\
+{\mathbb Var}[aX+b]&=a^{2}{\mathbb Var}[X]  \\
+V(aX+bY) &= a^{2}V(X) + b^{2}V(Y) +2ab\mbox{Cov}(X, Y)
+\end{align*}
+}
+
+\vspace{0.1in}
+$\bullet$ Soient $X_1,X_2,\ldots,X_n$, des variables al\'eatoires et $a_0,a_1,\ldots,a_n$, des constantes.\\
+ Soit $Y=a_0+a_1X_1+\cdots+a_nX_n$. Alors 
+ {\small
+\begin{align*}
+E[Y]&=a_0+\sum_{i=1}^na_iE[X_i]\\
+Var[Y] &=\sum_{i=1}^na_i^2Var[X_i]+2\sum\sum\limits_{i<j}a_ia_jCov(X_i,X_j)
+\end{align*}
+}
+
+\newpage
+
+
+\section*{Lois usuelles}
+\vspace{0.2 cm}
+\begin{displaymath}
+\hspace*{-0.1cm}
+{\renewcommand{\arraystretch}{2}
+\begin{array}{|c||c|c|c|}
+\hline
+ & & \mbox{Esp\'erance} & \mbox{Variance}\\[-16pt]
+\mbox{Lois discr\`etes}& \mbox{Fonction de masse}& \mu & \sigma^2 \\
+\hline
+\hline
+\mbox{\small Bernoulli}~(p) & \displaystyle
+p(k)=p^k(1-p)^{1-k},~~~\mbox{pour}~~k=0,1 &
+\displaystyle p & \displaystyle p(1-p) \\[.10cm]
+\hline
+\mbox{\small Binomiale}~(n,p)& \displaystyle
+p(k)={n \choose k}~p^{k}(1-p)^{n-k},~~~\mbox{pour}~~k=0,1,\ldots,n&
+\displaystyle np& \displaystyle np(1-p)\\[.10cm]
+\hline
+\mbox{\small G\'eom\'etrique}~(p)&\displaystyle
+p(k)=(1-p)^{k-1}p,~~~\mbox{pour}~~k=1,2,3,\ldots& \displaystyle
+\frac{1}{p}& \displaystyle \frac{1-p}{p^{2}}\\[.10cm]
+\hline
+\mbox{\small Pascal}~(r,p)&\displaystyle
+p(k)={k-1 \choose r-1}p^r(1-p)^{k-r},~~~\mbox{pour}~~k=r,r+1,\ldots& \displaystyle
+\frac{r}{p}& \displaystyle \frac{r(1-p)}{p^{2}}\\[.10cm]
+\hline
+\mbox{\small Poisson}~(\lambda)&\displaystyle
+p(k)=\mbox{e}^{-\lambda}\frac{\lambda^k}{k!},~~~\mbox{pour}~~k=0,1,2,\ldots& \displaystyle
+\lambda & \displaystyle \lambda \\[.10cm]
+\hline
+\multicolumn{4}{c}{}  \\[-0.8 cm]
+%
+%\end{array}}
+%\end{displaymath}
+%
+%{\large{\bf 4. Lois continues usuelles}}
+%\begin{displaymath}
+%\hspace*{-0.1cm}
+%{\renewcommand{\arraystretch}{2}
+%\begin{array}{|c||c|c|c|}
+
+\hline
+& \mbox{Densit\'e de probabilit\'e}  & \mbox{Esp\'erance} & \mbox{Variance} \\[-18pt]
+\mbox{Lois continues} & \mbox{(fonction de r\'epartition pour Weibull)} & \mu  & \sigma^2 \\
+\hline \hline \mbox{\small Uniforme}~(a,b)& \displaystyle f(x) =
+\frac{1}{b - a},~~~\mbox{pour}~~a \le x \le b &
+\displaystyle \frac{a + b}{2}& \displaystyle \frac{(b - a)^2}{12}\\[.10cm]
+\hline
+\mbox{\small Exponentielle}~(\lambda)&\displaystyle
+f(x) = \lambda \mbox{e}^{-\lambda x},~~~\mbox{pour}~~x > 0 & \displaystyle
+\frac{1}{\lambda}& \displaystyle \frac{1}{\lambda^{2}}\\[.10cm]
+\hline \mbox{\small Gamma}~(r,\lambda)& \frac{\lambda}{\Gamma(r)}(\lambda x)^{(r-1)}e^{-\lambda x} ~~~\mbox{pour}~~x > 0&
+\displaystyle
+\frac{r}{\lambda}& \displaystyle \frac{r}{\lambda^{2}}\\[.10cm]
+\hline \mbox{\small Weibull}~(\delta, \beta, \gamma)&\displaystyle
+F_X(x) = 1-\exp\left[- \left (\frac{x-\gamma}{\delta} \right
+)^{\beta} \right],~~~\mbox{pour}~~x \geq \gamma & \displaystyle
+. & \displaystyle . \\[.10cm]
+\hline
+\mbox{\small
+Normale}~(\mu,\sigma^2)&\displaystyle f(x) = \frac{1}{\sigma
+\sqrt{2\pi} } \mbox{e}^{-\frac12
+\left(\frac{x-\mu}{\sigma}\right)^2},~~~\mbox{pour}~~-\infty < x <
+\infty & \displaystyle
+\mu & \displaystyle \sigma^2 \\[.10cm]
+\hline
+\end{array}}
+\end{displaymath}
+
+{\small
+\vspace{0.1 cm}
+\begin{itemize}
+%\item Si $n$ est entier, alors $\Gamma(n) = (n-1)!$
+\item Si $X_1, \ldots, X_k \overset{i.i.d.}{\sim} \mbox{\small Géométrique}(p)$, alors $X = \sum_{i=1}^k X_i \sim \mbox{Pascal}(r,p)$.
+\item Si $X_1, \ldots, X_k \overset{i.i.d.}{\sim} \mbox{\small Exponentielle}(\lambda)$, alors $X = \sum_{i=1}^k X_i \sim \mbox{\small Gamma}(r,\lambda)$.
+\item Si $X_1, \ldots, X_k \overset{indep.}{\sim} \mbox{\small Binomiale}~ (n_j, p) $, alors $X = \sum_{i=1}^k X_i \sim \mbox{\small Binomiale}(n,p)~ \mbox{\small avec}~n = \sum_{j=1}^k n_j$.
+\item Si $X_1, \ldots, X_k \overset{indep.}{\sim} \mbox{\small Pascale}~ (r_j, p) $, alors $X = \sum_{i=1}^k X_i \sim \mbox{\small Pascale}(r,p)~ \mbox{\small avec}~r = \sum_{j=1}^k r_j$.
+\item Si $X_1, \ldots, X_k \overset{indep.}{\sim} \mbox{\small Poisson}~ (\lambda_j) $, alors $X = \sum_{i=1}^k X_i \sim \mbox{\small Poisson}(\lambda)~ \mbox{\small avec}~\lambda = \sum_{j=1}^k \lambda_j $.
+\item Si $X_1, \ldots, X_k \overset{indep.}{\sim} \mbox{\small Normale}~(\mu_j, \sigma^2_j)$, alors $X = \sum_{i=1}^k X_i \sim \mbox{\small Normale}~(\mu, \sigma^2)~ \mbox{\small avec}~ \mu = \sum_{j=1}^k \mu_j~~
+\mbox{et }$ $\sigma^2~=~\sum_{j=1}^k \sigma^2_j$
+\end{itemize}
+}
+%
+%
+%\textbf{Propriétés d'additivité}
+%\begin{displaymath}
+%\hspace*{-0.1cm}
+%{\renewcommand{\arraystretch}{2}
+%\begin{array}{|c||c|}
+%\hline
+%\mbox{Conditions sur}~~ X_1, X_2,..., X_k & \mbox{Loi de}~~ Y = \sum_{j=1}^k X_j \\
+%\hline
+%\hline
+%\mbox{\small Ind\'ependantes, avec}~X_j \sim \mbox{\small Binomiale}~ (n_j, p) &
+%\mbox{\small Binomiale}~(n,p)~ \mbox{\small avec}~n = \sum_{j=1}^k n_j\\[.10cm]
+%\hline
+%\mbox{\small Ind\'ependantes, avec}~X_j \sim \mbox{\small Pascal}~(r_j,p)&
+%\mbox{\small Pascal}~(r,p)~ \mbox{\small avec}~ r = \sum_{j=1}^k r_j \\[.10cm]
+%\hline
+%\mbox{\small Ind\'ependantes, avec}~X_j \sim \mbox{\small Poisson}~(\lambda_j)&
+%\mbox{\small Poisson}~(\lambda)~ \mbox{\small avec}~ \lambda = \sum_{j=1}^k \lambda_j \\[.10cm]
+%%\hline
+%%\mbox{\small Ind\'ependantes, avec}~X_j \sim \mbox{\small Gamma}~(r_j, \lambda)&
+%%\mbox{\small Gamma}~(r, \lambda)~ \mbox{\small avec}~ r = \sum_{j=1}^k r_j \\[.10cm]
+%\hline
+%\mbox{\small Ind\'ependantes, avec}~X_j \sim \mbox{\small Normale}~(\mu_j, \sigma^2_j)&
+%\mbox{\small Normale}~(\mu, \sigma^2)~ \mbox{\small avec}~ \mu = \sum_{j=1}^k \mu_j~~
+%\mbox{et}~ \sigma^2 = \sum_{j=1}^k \sigma^2_j\\[.10cm]
+%\hline
+%\end{array}}
+%\end{displaymath}
+%
+%\vspace{0.2in}
+
+\newpage
+\section*{Lois discr\`etes bidimensionnelles}
+
+$$p(x,y) = P(\{X=x\} \cap \{Y=y\}) = P(X=x, Y=y)$$
+\begin{itemize}
+\item {\bf lois marginales}
+\begin{eqnarray*}
+p_X(x) &=& P(X=x) = \sum_y p(x,y) \\
+p_Y(y) &=& P(Y=y) = \sum_x p(x,y)
+\end{eqnarray*}
+\item {\bf lois conditionnelles}
+\begin{eqnarray*}
+p_{X | Y=y}(x) &=& P(X=x | Y=y) = \frac{p(x,y)}{p_Y(y)} \\
+p_{Y | X=x}(y)&=& P(Y=y | X=x) = \frac{p(x,y)}{p_X(x)}
+\end{eqnarray*}
+\item {\bf Esp\'erance conditionnelle}
+\begin{eqnarray*}
+E(X|Y=y) &=& \sum_x x p_{X|Y=y}(x) = \frac{\sum_x x p(x,y)}{p_Y(y)} \\
+E(Y|X=x) &=& \sum_y y p_{Y|X=x}(y) = \frac{\sum_y y p(x,y)}{p_X(x)}
+\end{eqnarray*}
+\item {\bf Esp\'erance de $g(X,Y)$}
+$$E[g(X,Y)] = \sum_{x,y} g(x,y) p(x,y)$$
+
+\item {\bf Ind\'ependance}
+
+\noindent $X$ et $Y$ sont ind\'ependantes si et seulement si $p(x,y)
+= p_X(x) p_Y(y)$ pour tout $(x,y)$.
+\item {\bf Covariance et Corr\'elation}
+
+$$\mbox{Cov}(X,Y) = E\{(X-E[X])(Y-E[Y])\} = E[XY] - E[X]E[Y]$$
+$${\rho}_{(X,Y)} =
+\frac{\mbox{Cov(X,Y)}}{\sqrt{\mbox{Var}(X)\mbox{Var}(Y)}} \quad
+\quad -1 \le {\rho}_{(X,Y)} \le 1 $$
+
+\end{itemize}
+
+\section*{Collecte de données}
+
+
+\textbf{Échantillonnage probabiliste:} Tous les individus de la population ont une probabilité non-nulle d'être sélectionnés pour le sondage, et celle-ci est connue. \\
+
+\textbf{Expérience statistique:} Lorsqu'on attribue au hasard un traitement aux individus pour étudier l'effet de celui-ci. \\
+
+\textbf{Sources d'erreur dans une collecte de données :} erreur d'échantillonnage, erreur de couverture, erreur de mesure, erreur de non-réponse.
+
+
+\section*{Statistiques descriptives}
+
+\begin{itemize}
+
+\item
+{\bf Calcul de la moyenne et de la variance \'echantillonnales}
+\begin{displaymath}
+{\renewcommand{\arraystretch}{2}
+\begin{array}{|l||c|c|}
+\hline
+\mbox{Type}& \mbox{Moyenne}& \mbox {Variance}\\[.10cm]
+
+
+\hline\hline
+\mbox{Donn\'ees brutes}& \displaystyle \bar{x}=\frac{1}{n}\sum_{i=1}^
+{n}x_{i}& \displaystyle  s^{2} = \frac{1}{n-1}\sum_{i=1}^{n}(x_{i}-
+\bar{x})^{2}\\[.20cm]
+
+\hline \mbox{Tableau de fr\'equences, donn\'ees discr\`etes} &
+\displaystyle \bar{x} = \frac{1}{n} \sum_{j=1}^{k}n_{j}x_{j}&
+\displaystyle  s^{2} = \frac{1}{n-1}
+\sum_{j=1}^{k}n_{j} (x_{j}-\bar{x})^{2}\\[.10cm]
+
+
+\hline \mbox{Donn\'ees group\'ees par intervalles} &
+\displaystyle \bar{x} \approx \frac{1}{n} \sum_{j=1}^{k}n_{j}y_{j}&
+\displaystyle  s^{2} \approx \frac{1}{n-1}
+\sum_{j=1}^{k}n_{j} (y_{j}-\bar{x})^{2}\\[.10cm]
+\hline
+
+
+\end{array}}
+\end{displaymath}
+
+\textbf{Notes:}
+\begin{itemize}
+\item Pour les tableaux de fr\'equences et les donn\'ees group\'ees, $n_j$ d\'enote
+le nombre d'observations pour la $j^e$ valeur de la variable
+ou le $j^e$ intervalle et $y_j$ d\'enote le point milieu du $j^e$ intervalle, $j = 1, \cdots, k$.
+
+\item
+On rappelle que
+$$
+\sum\limits_{i=1}^n (x_i-\bar{x})^2=\sum\limits_{i=1}^n
+x_i^2-n\bar{x}^2 \; \; \; \; \; \;  \mbox{ et } \; \; \; \; \; \;  \sum\limits_{j=1}^k n_j
+(x_j-\bar{x})^2= \sum\limits_{j=1}^n n_j\, x_j^2-n\bar{x}^2.
+$$
+\end{itemize}
+%\vspace{0.5 cm}
+
+
+\item {\bf Position des quartiles pour des donn\'ees brutes}
+\vspace{0.2 cm}
+
+
+\begin{tabular}{|c|c|c|}
+\hline
+$Q_1$ & $Q_2$ ou $\tilde{x}$ & $Q_3$\\
+\hline
+ & &  \\[-0.4 cm]
+$x_{(0.25n + 0.5)}$ & $x_{(0.5n + 0.5)}$ & $x_{(0.75n + 0.5)}$ \\
+\hline
+\end{tabular}
+ o\`u  $x_{(i)}$ est la {\it i}-\`eme des observations en ordre croissant.\\
+
+Si le rang n'est pas un entier, on prend la moyenne des observations les plus proches de ce rang.
+\vspace{0.5 cm}
+
+\item {\bf Repr\'esentations graphiques des variables continues}
+\begin{itemize}
+\item
+Le diagramme en bo\^{\i}te est une repr\'esentation graphique
+des quartiles, des barri\`eres observ\'ees et des donn\'ees extr\^emes.
+\item
+\'Ecart interquartile: EIQ = $Q_3 - Q_1$.
+\item
+Les barri\`eres th\'eoriques inf\'erieure et sup\'erieure du diagramme en bo\^{\i}te sont:\\
+b$_{inf}$ = $Q_1 - 1.5\times$EIQ et b$_{sup}$ = Q$_3$ + 1.5$\times$EIQ.
+\item
+L'histogramme est une repr\'esentation graphique des fr\'equences de donn\'ees group\'ees par intervalles; les proportions y sont
+repr\'esent\'ees par des surfaces de sorte que
+$$ \mbox{Hauteur du rectangle } \times \mbox{ Longueur de la classe } = \mbox{ Fr\'equence relative de la classe} $$
+\end{itemize}
+\end{itemize}
+
+\begin{figure}[p]
+\makebox[\linewidth]{\includegraphics[width=1.2\textwidth]{TableNormale.pdf}}
+\end{figure}
+\end{document}

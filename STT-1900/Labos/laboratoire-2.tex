@@ -1,0 +1,249 @@
+\documentclass[12pt]{article}
+
+\usepackage[francais]{babel}
+\usepackage[babel=true]{csquotes}
+\usepackage{amsmath,amsfonts,amssymb,graphicx}
+\usepackage{enumerate}
+\usepackage{calc}
+\usepackage{verbatim}
+\usepackage{fancyhdr}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue]{hyperref}
+\usepackage{hyperref}
+\usepackage{lastpage}
+\usepackage{setspace}
+
+\usepackage{color}
+\definecolor{bleu}{rgb}{.8,.8,0.91}
+
+\usepackage{geometry}
+\geometry{top=20mm, bottom=20mm, left=25mm, right=25mm}
+
+\include{psfig.sty}
+
+\renewcommand{\headrulewidth}{0.6pt}
+\renewcommand{\footrulewidth}{0.6pt}
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[LO,LE]{Université Laval \\[-.5ex]
+Faculté des sciences et de génie\\[-.5ex]
+Département de mathématiques et de statistique
+}
+\fancyhead[RO,RE]{STT-1900\\M\'ethodes statistiques\\pour l'ingénierrie}
+%\fancyfoot[LO, LE] {\includegraphics[width=1.5cm]{Figures/UL.jpg}}
+%\fancyfoot[RO, RE] {\vspace{-0.5cm} \thepage/\pageref{LastPage}}
+
+\pagestyle{fancy}
+
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{0mm}
+
+\renewcommand{\baselinestretch}{1.1}
+
+\begin{document}
+
+\vspace*{1mm}
+\centerline{\fcolorbox{black}{bleu}{\bf \large Laboratoire 2}}
+\vspace*{3.5mm}
+
+\underline{\bf Objectifs} 
+
+\begin{itemize}
+\item Se familiariser avec les menus du package R Commander permettant d'appliquer les méthodes d'analyse de la variance et de régression linéaire à des jeux de données.
+\item Identifier le modèle approprié pour analyser les données d'une expérience.
+\item Retrouver les éléments d'information importants pour ces modèles dans la sortie R
+\item Produire les graphiques permettant d'avoir une idée initiale de l'effet des facteurs.
+\item Obtenir des prévisions avec intervalle de confiance pour la moyenne de $Y$ ou avec intervalle de prévision pour une observation de $Y$ pour des valeurs données des variables explicatives.
+\item Identifier le meilleur sous-modèle possible selon le critère du $R^2_{ajuste}$.
+\item Produire les graphiques permettant de valider les postulats des modèles.
+\end{itemize}
+\vspace{3mm}
+
+\underline{\bf Préparation}
+\medskip
+\begin{itemize}
+\item Visionnez les clips 9 à 13 de la sous-section ``R Commander'' de la section ``Contenu et activités'' du site web du cours.
+\item Ouvrez R, puis chargez le package Rcmdr.
+\end{itemize}
+\vspace{3mm}
+
+
+\underline{\bf Exercices}
+
+% Question 1: Anova à un facteur
+
+\begin{enumerate}
+\item {\bf Anova à un facteur}
+
+Importez le jeu de données {\tt anova.xls} présenté en classe sur l'effet du pourcentage de coton sur la résistance des fibres de textile. Le fichier est disponible dans Contenu et activités / Module 9.
+\begin{enumerate}
+\item[(a)] {\tt R Commander} considère le pourcentage de coton comme une variable numérique. Redéfinissez cette variable comme étant un ``facteur''.
+\item[(b)] Obtenez les résistances moyennes pour chaque valeur du pourcentage de coton (donc les $\overline{y}_{i\bullet}$). Déduisez-en une estimation de l'effet du niveau 20\% de coton sur la résistance moyenne ($\tau_2$). [Aide: clip 9, vers 4\!\!:20]
+\item[(c)] Tracez les diagrammes en boîte des résistances pour chacune des valeurs du pourcentage de coton (sur un même graphique). À première vue, la résistance moyenne semble-t-elle différer d'un pourcentage de coton à l'autre? [Aide: clip 9, vers 5\!\!:05]
+\item[(d)] Effectuez l'analyse de la variance. [Aide: clip 9, vers 5\!\!:34]
+\begin{enumerate}
+\item[(i)] Donnez une estimation de la variance des termes d'erreur.
+\item[(ii)] Quelle est la valeur de la statistique $F$ pour tester l'égalité des moyennes?
+\item[(iii)] Quel est le seuil observé du test d'égalité des moyennes? Que peut-on en conclure?
+\end{enumerate}
+\item[(e)] Tracez les graphiques requis afin de voir si les postulats du modèle sont raisonnables. [Aide: clip 9, vers 9\!\!:37]
+\end{enumerate}
+
+
+\newpage
+
+{\ }
+\vspace{0.05in}
+
+% Question 2: Anva avec blocs aléatoires
+
+\item {\bf Anova avec blocs aléatoires PAS COUVERT À L'AUTOMNE 2025}
+
+Importez le jeu de données {\tt Lait.csv}, présenté en classe, sur les bactéries dans les contenants de lait. Le fichier est disponible dans Contenu et activités / Module 10.
+    
+\begin{enumerate}
+\item[(a)] Redéfinissez le jour et la solution en tant que ``facteurs'' et effectuez une analyse descriptive (moyennes et variances du nombre de bactéries pour chaque  valeur des facteurs, diagrammes en boîte). [Aide: clip 10, vers 4\!\!:55]
+\item[(b)] Effectuez une analyse de la variance à un facteur et testez si l'effet de la solution est significatif au seuil de 5\%. [Aide: clip 9, vers 5\!\!:34]
+\item[(c)] Effectuez maintenant une analyse de la variance à blocs aléatoires (où les jours constituent les blocs). Comparez la somme des carrés due à l'erreur et la somme des carrés due aux blocs avec la somme des carrés dus à l'erreur de la partie (c). Est-ce que l'effet de la solution est significatif au seuil de 5\% dans cette seconde analyse?
+\item[(d)] Faites les graphiques requis afin de voir si les postulats du modèle sont raisonnables.
+\item[(e)] Finalement, est-ce que l'idée de ``bloquer'' sur le jour était une bonne idée?
+\end{enumerate}
+
+
+
+\vspace{0.2in}
+
+
+\item {\bf Anova à deux facteurs  PAS COUVERT À L'AUTOMNE 2025}
+
+Importez le fichier {\tt batteries.xls}, présenté en classe, sur la durée de vie de piles en fonction de la température et du type de matériau. Le fichier est  disponible dans Contenu et activités / Module 11.
+\begin{enumerate}
+\item[(a)] Redéfinissez le type de batterie et la température en tant que ``facteurs''. Tracez le graphique des moyennes qui peut donner une première idée de l'effet des traitements et de la présence d'une interaction potentielle. Inteprétez ce graphique.
+\item[(b)] Effectuez une analyse de la variance à deux facteurs avec interaction afin de confirmer vos intuitions en (a). D'après cette analyse, quel est l'effet du type de batterie et de la température sur la durée de vie des batteries?
+\item[(c)] Quels sont les postulats du modèle utilisé pour effectuer l'analyse de la variance faite en (b)? Ces postulats semblent-ils raisonnables?
+\end{enumerate}
+
+
+\newpage
+
+{\ }
+\vspace{0.05in}
+
+
+
+\item {\bf Régression linéaire simple}
+
+Importez le fichier {\tt Oxygène.xls}, présenté en classe, sur l'absorption d'oxygène en fonction du temps de course.  Le fichier est  disponible dans Contenu et activités / Module 12.
+\begin{enumerate}
+\item[(a)] Faites un graphique des paires $(x_i,y_i)$, où $X_i$ est le temps requis pour courir la distance et $Y_i$ est le VO$_2$max. À première vue, selon ce graphique, pouvez-vous dire si les postulats du modèle de régression linéaire simple sont raisonnables et avoir une idée (ordre de grandeur) des valeurs que prendront $\hat{\beta}_0$ et $\hat{\beta}_1$?
+\item[(b)] Effectuez la régression linéaire simple avec $Y$ comme réponse et $X$ comme variable explicative. Quel est l'effet d'une hausse de 30 secondes du temps requis pour franchir la distance sur la valeur espérée du VO$_2$max?
+\item[(c)] Testez si l'effet du temps de course sur le VO$_2$max est significatif au seuil de 5\%.
+\item[(d)] Quelle proportion de la variabilité du VO$_2$max est expliquée par le modèle de régression (donc par le temps de course)?
+\item[(e)] Donnez un intervalle de confiance à 95\% pour la pente de la relation linéaire entre le temps requis pour franchir la distance et la moyenne du VO$_2$max.
+\item[(f)] Donnez un intervalle de confiance à 95\% pour le VO$_2$max moyen chez les individus qui prennent 14 minutes et 10 secondes pour franchir la distance.
+\item[(g)] Donnez un intervalle de confiance à 95\% pour le VO$_2$max de votre ami, qui vient de franchir la distance en 14 minutes et 10 secondes.
+\item[(h)] À l'aide de graphiques appropriés, effectuez une validation des postulats du modèle.
+\item[(i)] Trois individus ont des résidus beaucoup plus grands que les autres en valeur absolue. Enlevez ces trois individus du jeu de données. Répétez les étapes (g) et (h) et commentez.
+\end{enumerate}
+
+
+\newpage
+
+{\ }
+\vspace{0.05in}
+
+\item {\bf Régression linéaire multiple}
+
+Importez le fichier {\tt essence.csv}, présenté en classe, contenant un jeu de données sur la consommation d'essence per capita en fonction de diverses variables.
+\begin{enumerate}
+\item[(a)] Ajustez le modèle complet avec {\tt Consom\_capita} ($Y$) comme variable réponse et {\tt Taxes} ($X_{1}$),  {\tt Permis\_capita} ($X_{2}$), {\tt Revenu} ($X_{3}$) et {\tt Route} ($X_{4}$) comme variables explicatives. Quel est l'effet d'une hausse du revenu de 2000 \$ par habitant sur la consommation espérée d'essence, si rien d'autre ne change?
+\item[(b)] À l'aide du critère $R^2_{\text{ajusté}}$, choisissez le meilleur sous-modèle.
+\item[(c)] Ajustez le modèle obtenu en (b) à vos données et validez les postulats du modèle.
+\item[(d)] Remplacez {\tt Consom\_capita} par {\tt C2=1/sqrt(Consom\_capita)} dans votre modèle en (b) et refaites la validation de modèle. Commentez.
+\end{enumerate}
+
+\end{enumerate}
+
+\newpage
+
+{\ }
+\vspace{0.05in}
+
+{\scriptsize
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Réponses, avec pistes de solutions quand un calcul "théorique" est requis ...
+%
+{\bf Réponses}
+\begin{enumerate}
+\item 
+    \begin{enumerate}
+    \item[(a)] {\tt Données/Gérer les variables du jeu de données actif/Convertir une variable numérique en facteur}.
+    \item[(b)] On cherche     $\hat{\tau}_{2}=\overline{y}_{2\bullet}-\overline{y}_{\bullet\bullet}=15.4-15.04=0.36$, valeurs obtenues avec {\tt Statistiques/Résumé/Statistiques descriptives},  en faisant le résumé global et par groupe.
+    \item[(c)] Les diagrammes en boîte suggèrent des moyennes différentes.
+    \item[(d)] {\tt Statistiques/Moyennes/ANOVA à un facteur}: le carré moyen de l'erreur est 8.06 (estimation de la variance des termes d'erreur). Valeur observée de la statistique $F$ = 14.76. Seuil observé = $0.000\,009\,13$. On rejette l'hypothèse d'égalité des moyennes et on conclut que la résistance moyenne est différente sous différents pourcentages de coton.
+    \item[(e)] {\tt Modèles/Ajouter les statistiques des observations aux données}. On ajoute les résidus et les valeurs ajustées au jeu de données. Nuage de points des résidus en fonction des valeurs ajustées: pas de problème d'homogénéité des variances. Histogramme des résidus: difficile à interpréter, ne ressemble pas tout-à-fait à une cloche normale. Graphique quantile-quantile normal des résidus: proche de la ligne droite, aucune observation ne sort des limites en pointillé, ce qui suggère que le postulat de normalité est raisonnable.
+    \end{enumerate}
+
+\item 
+    \begin{enumerate}
+    \item[(a)] L'analyse descriptive suggère que la solution 3 est meilleure, mais les écarts-types sont assez élevés (entre 9.486833 et 12.996794). 
+    \item[(b)] L'anova à un facteur donne une statistique $F$ de 2.732 avec seuil observé associé de 0.118, et donc la solution ne semble pas avoir un effet significatif sur le nombre moyen de bactéries dans les contenants de lait... mais le modèle n'est pas adéquat!
+    \item[(c)] {\tt Statistiques/Moyennes/ANOVA à plusieurs facteurs}. Il faut soumettre la commande, puis dans la fenêtre de script, changer * pour + entre Jour et Solution. Sélectionner totue la commande et soumettre. On avait $SS_E=1158.7$ dans l'anova à un facteur et maintenant dans l'anova à blocs aléatoires, $SS_E$ passe à 51.83 (la différence va dans $SS_{Blocs}=703.50$). Le seuil observé associé à la solution passe à 0.0003232 et donc l'effet de la solution sur le nombre de bactéries est très significatif.
+    \item[(d)] Les graphiques ne suggèrent pas de problème d'homogénéité des variances ni de normalité des erreurs.
+    \item[(e)] Oui, il vaut la peine de bloquer quand un facteur dont l'effet ne nous intéresse pas est une source de variabilité importante, ce qui est le cas avec le jour dans cet exemple.
+    \end{enumerate}
+
+
+\item 
+    \begin{enumerate}
+    \item[(a)] {\tt Graphes/Graphe des moyennes}. Puisque les lignes brisées ne sont pas parallèles, le graphique suggère que l'effet de la température sur la durée de vie dépend du type de batterie, ce qui nous porte à penser qu'il y a probablement une interaction entre les deux facteurs. Mais un test d'hypothèses est plus objectif et tient compte de la variabilité entre les observations. 
+    \item[(b)] {\tt Statistiques/Moyennes/ANOVA à plusieurs facteurs}. L'interaction est significative (seuil observé de 0.01897), ce qui confirme nos doutes en (a). On conclut qu'au seuil de 5\%, la durée de vie dépend de la température et du type de batterie. Il faudrait donc fixer la température pour étudier l'effet du matériau (3 anovas à un facteur), et fixer le matériau pour étudier l'effet de la température (3 anovas à un facteur).
+    \item[(c)] Les postulats sont l'indépendance des observations (dans un échantillon et entre les échantillons), l'homogénéité des variances des erreurs entre les traitements, et la normalité des termes d'erreur. Les graphiques ne révèlent aucun problème sérieux avec ces hypothèses.
+    \end{enumerate}
+
+
+\item 
+    \begin{enumerate}
+    \item[(a)]  {\tt Graphes/Nuage de points}. On semble avoir  un nuage de points de forme à peu près linéaire. La ligne droite qui va traverser ce nuage doit avoir une ordonnée à l'origine d'environ 100 et une pente négative, probablement autour de -0,05. Difficile de se prononcer sur la normalité. La variance est à peu près constante autour de la droite.
+    \item[(b)]  {\tt Statistiques/Ajustement de modèles/Régression linéaire simple}. 
+     Les estimations des paramètres sont assez proches de nos attentes: $\hat\beta_0=90.721717$. Quant à la pente, on l'obtient à la ligne {\tt Temps       -0.051028}, ce qui signifie $\hat{\beta}_1=-0.051028$. Comme l'espérance de $Y$ augmente de $\beta_1$ si $X$ augmente d'une seconde, l'effet estimé d'une hausse de 30 secondes sur le VO$_2$max moyen sera de $30\times(-0.051028)=-1.53$, donc une baisse de 1,53 unité.
+    \item[(c)] La réponse à cette question est à deux endroits dans la sortie par défaut: \\
+        1) Résultats du test $t$ pour $H_0:\beta_1=0$ vs $H_1:\beta_1\neq0$ à la ligne {\tt Temps}. Statistique $t_0 = -6,481$. Seuil observé $=2\times P(t_22>|-6,481|)=1,61\times 10^{-6}$.\\
+         2) Résultat du test $F$ pour les mêmes hypothèses à la dernière ligne. Statistique $F = 42,01$. Seuil observé $=P(F_{1,22}>42,01)=0.000001608$ (évidemment le même qu'au test $t$.\\
+         On rejette clairement $H_0$ au seuil de 5\%. L'effet est significatif.
+    \item[(d)] On cherche le coefficient de détermination $R^2$, donné ici par {\tt Multiple R-squared:  0.6563}.
+    \item[(e)] {\tt Modèles/Intervalles de confiance}. I.C. à 95\% pour $\beta_1$:  {\tt -0.06735667  -0.03470032}.
+        \newpage
+        \vspace*{5mm}
+        
+    \item[(f)] 1) Créer un nouveau jeu de données ({\tt Données/Nouveau jeu de données}, nommez-le disons pred1, cliquer sur {\tt V1} et changer pour {\tt Temps}, ensuite entrer 850 dans la cellule sous {\tt Temps} et cliquer OK).\\
+        2) Taper dans la fenêtre Script R la commande {\tt predict(RegModel.1,newdata=pred1,interval="confidence")}\\
+        3) Sélectionner la commande et cliquer sur le bouton ``Soumettre''. Ici on a choisi {\tt interval="confidence"} puisque l'on veut un intervalle de confiance pour $E[Y]$.  Résultat: {\tt 45.81682 48.87817}.
+    \item[(g)] Exactement comme en (f), sauf que l'on change {\tt interval="confidence"} pour {\tt interval="prediction"} dans la commande à soumettre, puisqu'on veut un intervalle de prédiction pour une observation individuelle. Résultat: {\tt 39.92857 54.76642}.
+    \item[(h)] {\tt Modèles/Ajouter les statistiques des observations aux données}:  ajouter les valeurs ajustées et les résidus.\\
+        1) Linéarité: Le nuage de points des $(x_i,y_i)$ est assez linéaire. Idem pour le nuage de points des $(\hat y_i,\, e_i)$.\\
+        2) Constance de la variance autour de la droite:  le nuage de points de $e_i$ (résidus) en fonction des $\hat{y}_i$ (valeurs ajustées) ne montre pas de tendance en entonnoir (donc homoscédasticité OK). \\
+        3) Normalité des erreurs:  histogramme ou diagramme en boîte des résidus non symétriques. Le diagramme quantile-quantile normal montre trois observations qui sortent des limites pointillées.  La normalité est mise en doute.
+    \item[(i)] En faisant le diagramme quantile-quantile, on peut demander l'identification des points extrêmes dans l'onglet Options. On peut aussi examiner les résidus un à un avec le bouton ``Éditer''. Les 3 gros résidus sont associés aux observations 4, 23 et 24, tous des VO$_2$max plus élevés qu'attendu.    Avec le bouton Éditer,  effacer les données associées à ces trois lignes, puis fermer la fenêtre. Réajuster le modèle. \\
+        \begin{itemize}
+        \item Les estimations des paramètres sont légèrement modifiées: la pente est plus abrupte et l'ordonnée à l'origine augmente (à peine).
+        \item Le $R^2$ augmente considérablement, à 0,8553.
+        \item La prévision en (g) pour $x=850$ devient   {\tt 41.88708 50.64421}, ce qui le diminue légèrement et le rend plus court.
+        \item L'allure de l'histogramme n'a pas changé, mais le graphique quantile-quantile ne montre plus de points sortant des pointillés.
+        \end{itemize}
+    \end{enumerate}
+     
+\item 
+    \begin{enumerate}
+    \item[(a)] {\tt Statistiques/Ajustement de modèle/Régression linéaire}  et    on spécifie le modèle désiré. Le coefficient devant ``Revenu'' est -66.589. Donc si revenu augmente de 2000 \$ par année,    alors $E(Y)$ diminue de $2\times 66.589=133.178$ unités (car Revenu est en milliers de \$).
+    \item[(b)] {\tt Modèles/Sélection d'un sous-modèle}, option $R^2$ ajusté. Le graphique   indique que le meilleur sous-modèle (la ligne supérieure) est celui avec toutes les variables SAUF routes.
+    \item[(c)] Normalité: histogramme en cloche (un peu carrée) symétrique avec une donnée trop grande. Diagramme Q-Q assez linéaire sauf un point hors-limites (obs. 40).\\
+        Homogénéité de la variance: Graphe des résidus en fonction des valeurs prédites avec patron en entonnoir croissant. 
+    \item[(d)] {\tt Données/Gérer les variables du jeu de données actif/Calculer une nouvelle variable}. Normalité superbe: aucune observation hors limite du diagramme Q-Q. Histogramme en belle cloche.\\
+        Résidus en fonction des valeurs prédites: nuage aléatoire, le problème d'hétérogénéité de la variance est réglé.
+    \end{enumerate}
+\end{enumerate}
+
+}
+
+\end{document}
+
