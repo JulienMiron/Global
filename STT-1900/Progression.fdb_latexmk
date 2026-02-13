@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1770992829.61247 "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/STT-1000/Progression.tex" "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/STT-1000/Progression.pdf" "Progression" 1770992829.88288 0
-  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/STT-1000/Progression.aux" 1770992829.86523 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
-  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/STT-1000/Progression.tex" 1770992829.369 687 aa1784b8160eb5d7a7cc42db20fb3e6a ""
+["pdflatex"] 1770993065.34101 "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/STT-1900/Progression.tex" "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/STT-1900/Progression.pdf" "Progression" 1770993065.57716 0
+  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/STT-1900/Progression.aux" 1770993065.55793 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/STT-1900/Progression.tex" 1770993065.24136 869 9d47e9530f70169184c027dfa934dab7 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -9,6 +9,7 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm" 1246382020 928 2dc8d444221b7a635bb58038579b861a ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm" 1246382020 908 2921f8a10601f252058503cc6570e581 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm" 1246382020 940 228d6584342e91276bf566bcf9716b83 ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmex10.tfm" 1136768653 992 662f679a0b3d2d53c1b94050fdaa3f50 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1136768653 1524 4414a8315f39513458b80dfc63bff03a ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm" 1136768653 1512 f21f83efb36853c0b70002322c1ab3ad ""
@@ -23,8 +24,10 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/latex-fonts/lasy10.tfm" 1136768653 520 82a3d37183f34b6eb363a161dfc002c2 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/latex-fonts/lasy6.tfm" 1136768653 520 4889cce2180234b97cad636b6039c722 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/latex-fonts/lasy8.tfm" 1136768653 520 7bb3abb160b19e0ed6ac404bb59052b7 ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1248133631 32080 340ef9bf63678554ee606688e7b5339d ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1248133631 32362 179c33bbf43f19adbb3825bb4e36e57a ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amsfonts.sty" 1359763108 5949 3f3fd50a8cc94c3d4cbf4fc66cd3df1c ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd" 1359763108 961 6518c6525a34feb5e8250ffa91731cff ""
@@ -52,7 +55,7 @@
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
   (generated)
-  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/STT-1000/Progression.aux"
-  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/STT-1000/Progression.log"
-  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/STT-1000/Progression.pdf"
+  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/STT-1900/Progression.aux"
+  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/STT-1900/Progression.log"
+  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/STT-1900/Progression.pdf"
   (rewritten before read)
