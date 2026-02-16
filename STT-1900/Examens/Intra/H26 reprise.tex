@@ -50,7 +50,7 @@
 \documentclass{Evaluation}
 \usepackage{multicol,graphicx}
 
-\printanswers
+\noprintanswers
 
 \begin{document}
 
@@ -124,6 +124,7 @@ Dans quelle classe de l'histogramme se situe le quantile d'ordre 0,60?
 
 \begin{parts}
     \part[1] Si $A$ et $B$ sont deux événements mutuellement exclusifs, alors $P(A \cup B) = P(A) + P(B)$.
+    
     \begin{oneparcheckboxes}
         \correctchoice Vrai
         \choice Faux
@@ -155,7 +156,7 @@ Dans quelle classe de l'histogramme se situe le quantile d'ordre 0,60?
         Faux. Si $A$ et $B$ sont indépendants, on a $P(A \cap B) = P(A) \cdot P(B)$, qui n'est pas nécessairement $0$ (sauf si $P(A)=0$ ou $P(B)=0$).
     \end{solution}
 
-        \part[1] Si $P(A \cup B) = 1$, alors $A$ et $B$ sont complémentaires.
+        \part[1] Si $P(A \cup B) = 1$, alors $A$ est le complément de $B$.
 
         \begin{oneparcheckboxes}
         \choice Vrai
@@ -603,15 +604,15 @@ Ajoutez \textbf{sur le diagramme} l'élément manquant et dites ce que vous avez
 
     \pageblanche
 
-    \question[8] Soit $X_1,\hdots,X_{81}$, des variables aléatoires provenant d'une loi normale d'espérance $\mu=0$ et de variance $\sigma^2=25$. Quelle est la probabilité que $\displaystyle\left|\frac{\overline{X}}{S}\right|$ soit plus grand que $0{,}22$, où $S$ est l'écart-type échantillonnal?
+    \question[8] Soit $X_1,\hdots,X_{121}$, des variables aléatoires provenant d'une loi normale d'espérance $\mu=0$ et de variance $\sigma^2=25$. Quelle est la probabilité que $\displaystyle\left|\frac{\overline{X}}{S}\right|$ soit plus grand que $0{,}26$, où $S$ est l'écart-type échantillonnal?
 
     \begin{solution}
         \begin{align*}
-            P\left(\left|\frac{\overline{X}}{S}\right|>0{,}22\right)&=P\left(\left|\frac{\overline{X}}{S/\sqrt{81}}\right|>0{,}22\times 9\right)\\
-            &= P\left(\left|t_{80}\right|>1{,}98\right)\\
-            &= 2\times P\left(t_{80}>1{,}98\right)\\
-            &=2\times 0{,}025\\
-            &=0{,}05
+            P\left(\left|\frac{\overline{X}}{S}\right|>0{,}26\right)&=P\left(\left|\frac{\overline{X}}{S/\sqrt{121}}\right|>0{,}26\times 11\right)\\
+            &= P\left(\left|t_{120}\right|>2,860\right)\\
+            &= 2\times P\left(t_{120}>2,860\right)\\
+            &=2\times 0{,}0025\\
+            &=0{,}005
         \end{align*}
     \end{solution}
 
@@ -619,6 +620,7 @@ Ajoutez \textbf{sur le diagramme} l'élément manquant et dites ce que vous avez
 
     \question Soit $X_1,\hdots, X_{100}$, des variables aléatoires indépendantes et identiquement distribuées selon une loi normale d'espérance $\mu$ et de variance $\sigma^2 = 400$. 
 Nous désirons construire un intervalle de confiance approprié de niveau $90\%$ pour $\mu$. Nous notons cet intervalle $[C_1;C_2]$.
+
 \begin{parts}
     \part[3] Que vaut $\mathbb{E}[C_2]$?
 
@@ -654,8 +656,6 @@ Nous désirons construire un intervalle de confiance approprié de niveau $90\%$
             &= 0{,}05
         \end{align*}
     \end{solution}
-
-    \vspace{8cm}
 
 
 \end{parts}
