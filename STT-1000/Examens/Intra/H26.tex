@@ -191,48 +191,48 @@ En utilisant les événements suivants:
     \part[3] Tracez le diagramme de Venn qui représente cette situation. \textit{Vous n'avez qu'à identifier les événements et \textbf{l'espace échantillonnal}. Il n'est pas nécessaire d'inscrire les probabilités.}
 \begin{solution}
 
-    \begin{tikzpicture}[scale=1, font=\small]
+    \begin{tikzpicture}[font=\small]
 
-% --- Paramètres (faciles à ajuster) ---
-\def\W{9}   % largeur de Omega
-\def\H{5}   % hauteur de Omega
-\def\xA{3}  % séparation 1 (entre R et V)
-\def\xB{6}  % séparation 2 (entre V et B)
+% --- Dimensions ---
+\def\W{8}    % largeur
+\def\H{4.5}  % hauteur
+\def\xR{2.7} % frontière R|V
+\def\xV{5.3} % frontière V|B
 
-% --- Dessin (on "clip" pour que tout reste dans Omega) ---
-\begin{scope}
-  \clip (0,0) rectangle (\W,\H);
+% --- Fond des trois bandes (partition) ---
+\fill[red!12]   (0,0) rectangle (\xR,\H);
+\fill[green!12] (\xR,0) rectangle (\xV,\H);
+\fill[blue!12]  (\xV,0) rectangle (\W,\H);
 
-  % Partition R, V, B : 3 bandes disjointes qui couvrent Omega
-  \fill[red!18]   (0,0) rectangle (\xA,\H);
-  \fill[green!18] (\xA,0) rectangle (\xB,\H);
-  \fill[blue!18]  (\xB,0) rectangle (\W,\H);
+% --- Ellipse E (remplie par-dessus) ---
+\fill[yellow!25, opacity=0.55]
+    (0.5*\W, 0.55*\H) ellipse [x radius=3.2, y radius=1.2];
 
-  % Evénement E par-dessus (semi-transparent) qui intersecte R, V, B
-  \fill[gray!40, opacity=0.35] (\W*0.52,\H*0.55) ellipse [x radius=\W*0.43, y radius=\H*0.28];
-  \draw[thick, gray!70!black]  (\W*0.52,\H*0.55) ellipse [x radius=\W*0.43, y radius=\H*0.28];
+% --- Frontières de la partition (par-dessus E) ---
+\draw[thick, dashed, gray!60] (\xR,0) -- (\xR,\H);
+\draw[thick, dashed, gray!60] (\xV,0) -- (\xV,\H);
 
-  % Lignes de séparation de la partition
-  \draw[thick] (\xA,0) -- (\xA,\H);
-  \draw[thick] (\xB,0) -- (\xB,\H);
+% --- Contour de E ---
+\draw[thick] (0.5*\W, 0.55*\H) ellipse [x radius=3.2, y radius=1.2];
 
-  % (Optionnel) petites étiquettes dans les intersections
-  \node at (\W*0.17,\H*0.60) {\scriptsize $E\cap R$};
-  \node at (\W*0.50,\H*0.35) {\scriptsize $E\cap V$};
-  \node at (\W*0.83,\H*0.60) {\scriptsize $E\cap B$};
-\end{scope}
+% --- Cadre Omega ---
+\draw[very thick, rounded corners=5pt] (0,0) rectangle (\W,\H);
 
-% Contour de Omega (par-dessus tout)
-\draw[very thick, rounded corners=6pt] (0,0) rectangle (\W,\H);
-\node[anchor=south west] at (0,0) {$\Omega$};
+% --- Étiquettes des régions ---
+\node[font=\normalsize] at (0.5*\xR, 0.55*\H)         {$R\cap E$};
+\node[font=\normalsize] at (0.5*\xR+0.5*\xV, 0.55*\H) {$V\cap E$};
+\node[font=\normalsize] at (0.5*\xV+0.5*\W, 0.55*\H)  {$B\cap E$};
 
-% Étiquettes des événements de la partition
-\node at (\xA/2, \H*0.15) {$R$};
-\node at ((\xA+\xB)/2, \H*0.15) {$V$};
-\node at ((\xB+\W)/2, \H*0.15) {$B$};
+% --- Étiquettes principales (hors ellipse) ---
+\node[font=\large, red!70!black]   at (0.5*\xR, 0.14*\H)         {$R$};
+\node[font=\large, green!50!black] at (0.5*\xR+0.5*\xV, 0.14*\H) {$V$};
+\node[font=\large, blue!70!black]  at (0.5*\xV+0.5*\W, 0.14*\H)  {$B$};
 
-% Étiquette de E
-\node[gray!70!black] at (\W*0.82,\H*0.87) {$E$};
+% --- Étiquette E ---
+\node[font=\large] at (0.5*\W, 0.93*\H) {$E$};
+
+% --- Étiquette Omega ---
+\node[anchor=north west, font=\large] at (0.08,\H-0.08) {$\Omega$};
 
 \end{tikzpicture}
 \end{solution}
