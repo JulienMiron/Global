@@ -165,7 +165,7 @@ Donc
 
 %%%%%%%%%%%%%%%%%%% PROB COND. %%%%%%%%%%%%%%
 
-\question PREMIÈRE IDÉE 
+\question[]
 
 Un sac contient 100 dés à 6 faces, dont 60 sont rouges et 40 sont bleus. Les 60 dés rouges sont numérotés de <<1>> à <<6>> et sont réguliers (c'est-à-dire que les faces sont équiprobables). Les 40 dés bleus ont 6 fois la face avec le numéro <<1>>. L'expérience aléatoire consiste à choisir un dé dans le sac, à le lancer et à noter la face du dessus.
 
@@ -211,40 +211,55 @@ Pour répondre aux questions, utilisez $\mathcal{U}$ pour désigner l'espace éc
 
 \begin{oneparcheckboxes}
     \choice Vrai
-    \choice Faux
+    \correctchoice Faux
 \end{oneparcheckboxes}
+\begin{solution}
+$P(R\cap B)=0$ car un dé ne peut être à la fois rouge et bleu, mais $P(R)P(B)=0{,}6\times 0{,}4=0{,}24\neq 0$.
+\end{solution}
 \vspace{0.3cm}
 
     \subpart[1] Les événements $R$ et $B$ sont mutuellement exclusifs.
 
 \begin{oneparcheckboxes}
-    \choice Vrai
+    \correctchoice Vrai
     \choice Faux
 \end{oneparcheckboxes}
+\begin{solution}
+Un dé ne peut être à la fois rouge et bleu, donc $P(R\cap B)=0$.
+\end{solution}
 \vspace{0.3cm}
 
     \subpart[1] Les événements $B$ et $N$ sont indépendants.
 
 \begin{oneparcheckboxes}
     \choice Vrai
-    \choice Faux
+    \correctchoice Faux
 \end{oneparcheckboxes}
+\begin{solution}
+$P(B\cap N)=P(N|B)\,P(B)=1\times 0{,}4=0{,}4$, mais $P(B)\,P(N)=0{,}4\times 0{,}5=0{,}2\neq 0{,}4$.
+\end{solution}
 \vspace{0.3cm}
 
     \subpart[1] Les événements $B$ et $S$ sont mutuellement exclusifs.
 
 \begin{oneparcheckboxes}
-    \choice Vrai
+    \correctchoice Vrai
     \choice Faux
 \end{oneparcheckboxes}
+\begin{solution}
+Un dé bleu n'a que des faces <<1>>, donc $P(S|B)=0$ et $P(B\cap S)=0$.
+\end{solution}
 \vspace{0.3cm}
 
     \subpart[1] Les événements $R$ et $S$ sont indépendants.
 
 \begin{oneparcheckboxes}
     \choice Vrai
-    \choice Faux
+    \correctchoice Faux
 \end{oneparcheckboxes}
+\begin{solution}
+$P(R\cap S)=P(S|R)\,P(R)=\frac{1}{6}\times 0{,}6=0{,}1$, mais $P(R)\,P(S)=0{,}6\times 0{,}1=0{,}06\neq 0{,}1$.
+\end{solution}
 \end{subparts}
 \end{parts}
 
@@ -252,14 +267,17 @@ Pour répondre aux questions, utilisez $\mathcal{U}$ pour désigner l'espace éc
 
 \question[2]
 
-On peut modéliser le nombre de jours avant la panne d'un serveur informatique par une loi géométrique de paramètre $p=0.4$. Après 10 jours sans panne, que peut-on dire?
+On peut modéliser le nombre de jours avant la panne d'un serveur informatique par une loi géométrique de paramètre $p=0{,}4$. Après 10 jours sans panne, que peut-on dire?
 
-\begin{itemize}
-\item[] $\square$ La panne est maintenant plus probable qu’au début.
-\item[] $\square$ La panne est moins probable qu’au début.
-\item[] $\square$ La probabilité de panne demain est la même qu’au premier jour.
-\item[] $\square$ Il est certain qu’une panne surviendra bientôt.
-\end{itemize}
+\begin{checkboxes}
+\choice La panne est maintenant plus probable qu'au début.
+\choice La panne est moins probable qu'au début.
+\correctchoice La probabilité de panne demain est la même qu'au premier jour.
+\choice Il est certain qu'une panne surviendra bientôt.
+\end{checkboxes}
+\begin{solution}
+La loi géométrique possède la propriété d'absence de mémoire~: $\mathbb{P}(X > s+t \mid X > s) = \mathbb{P}(X > t)$. Le fait d'avoir survécu 10 jours sans panne ne change pas la probabilité de panne le lendemain.
+\end{solution}
 
 \newpage 
 
@@ -419,6 +437,228 @@ Avec $\lambda = \frac{1}{5}$, on obtient
 
 \end{parts}
 
+
+\newpage
+%%%%%%%%%%%%%%%% Module 2 - Variable aléatoire continue %%%%%%%%%%%%%%%%
+
+\question[] Soit $X$ une variable aléatoire continue dont la fonction de répartition est donnée par
+\[ F_X(x) = \begin{cases}
+\displaystyle 0 & \mbox{si } x < 0, \\[6pt]
+\displaystyle cx^3 & \mbox{si } 0 \le x < 2, \\[6pt]
+\displaystyle 1 & \mbox{si } x \ge 2.
+\end{cases} \]
+
+\begin{parts}
+    \part[4] Trouvez la valeur de la constante $c$.
+
+    \begin{solution}
+    On utilise la condition $F_X(2)=1$:
+    \[
+    c(2)^3 = 1 \implies 8c = 1 \implies c = \frac{1}{8}.
+    \]
+    \end{solution}
+    \vspace{4cm}
+
+    \part[4] Trouvez la fonction de densité $f_X(x)$.
+
+    \begin{solution}
+    On dérive la fonction de répartition:
+    \[
+    f_X(x) = F_X'(x) = \begin{cases}
+    \displaystyle \frac{3x^2}{8} & \mbox{si } 0 \le x < 2, \\[6pt]
+    0 & \mbox{sinon.}
+    \end{cases}
+    \]
+    \end{solution}
+    \vspace{5cm}
+
+    \part[4] Calculez $\mathbb{P}\!\left(X > 1 \;\middle|\; X < \dfrac{3}{2}\right)$.
+
+    \begin{solution}
+    \begin{align*}
+    \mathbb{P}\!\left(X > 1 \mid X < \tfrac{3}{2}\right)
+    &= \frac{\mathbb{P}\!\left(1 < X < \frac{3}{2}\right)}{\mathbb{P}\!\left(X < \frac{3}{2}\right)}
+    = \frac{F_X\!\left(\frac{3}{2}\right) - F_X(1)}{F_X\!\left(\frac{3}{2}\right)}.
+    \end{align*}
+
+    On calcule:
+    \[
+    F_X\!\left(\tfrac{3}{2}\right) = \frac{(3/2)^3}{8} = \frac{27}{64}, \qquad
+    F_X(1) = \frac{1}{8} = \frac{8}{64}.
+    \]
+    Donc
+    \[
+    \mathbb{P}\!\left(X > 1 \mid X < \tfrac{3}{2}\right)
+    = \frac{\frac{27}{64} - \frac{8}{64}}{\frac{27}{64}}
+    = \frac{19}{27}.
+    \]
+    \end{solution}
+    \vspace{5cm}
+
+    \part[4] Calculez $\mathbb{E}(X)$.
+
+    \begin{solution}
+    \begin{align*}
+    \mathbb{E}(X)
+    &= \int_0^2 x \cdot \frac{3x^2}{8}\,dx
+    = \frac{3}{8}\int_0^2 x^3\,dx
+    = \frac{3}{8}\left[\frac{x^4}{4}\right]_0^2
+    = \frac{3}{8} \cdot \frac{16}{4}
+    = \frac{3}{2}.
+    \end{align*}
+    \end{solution}
+\end{parts}
+
+
+
+\newpage
+%%%%%%%%%%%%%%%% Module 4 - Loi normale et TCL %%%%%%%%%%%%%%%%
+
+\question[] Un fabricant de céréales sait que la masse $X$ (en grammes) d'une boîte de céréales suit une loi normale de moyenne $\mu = 500$ g et de variance $\sigma^2 = 225$ g$^2$.
+
+\begin{parts}
+    \part[4] Quelle est la probabilité qu'une boîte choisie au hasard ait une masse entre $480$ g et $520$ g?
+
+    \begin{solution}
+    On a $X \sim \mathcal{N}(500, 225)$, donc $\sigma = 15$.
+    \begin{align*}
+    \mathbb{P}(480 < X < 520)
+    &= \mathbb{P}\!\left(\frac{480-500}{15} < Z < \frac{520-500}{15}\right) \\
+    &= \mathbb{P}(-1{,}33 < Z < 1{,}33) \\
+    &= 2\,\Phi(1{,}33) - 1.
+    \end{align*}
+    \end{solution}
+    \vspace{6cm}
+
+    \part[6] On prélève un échantillon de $36$ boîtes. Quelle est la probabilité que la masse moyenne de ces $36$ boîtes dépasse $504$ g?
+
+    \begin{solution}
+    Par la loi de la moyenne échantillonnale,
+    \[
+    \overline{X} \sim \mathcal{N}\!\left(500,\;\frac{225}{36}\right) = \mathcal{N}(500;\; 6{,}25),
+    \]
+    donc $\sigma_{\overline{X}} = 2{,}5$.
+    \begin{align*}
+    \mathbb{P}(\overline{X} > 504)
+    &= \mathbb{P}\!\left(Z > \frac{504 - 500}{2{,}5}\right)
+    = \mathbb{P}(Z > 1{,}6)
+    = 1 - \Phi(1{,}6).
+    \end{align*}
+    \end{solution}
+    \vspace{8cm}
+
+    \part[8] Le coût de production d'une boîte (en dollars) est une variable aléatoire dont on ne connaît pas la loi, mais dont l'espérance est $2$\$ et la variance est $0{,}64$\$$^2$. Approximez la probabilité que le coût total de production de $100$ boîtes dépasse $212$\$.
+
+    \begin{solution}
+    Soit $C_i$ le coût de la $i$-ème boîte. On a $\mathbb{E}(C_i)=2$ et $\text{Var}(C_i)=0{,}64$.
+
+    Soit $T = C_1 + C_2 + \cdots + C_{100}$ le coût total.
+    \[
+    \mathbb{E}(T) = 100 \times 2 = 200, \qquad
+    \text{Var}(T) = 100 \times 0{,}64 = 64.
+    \]
+
+    Par le théorème central limite ($n=100$ est assez grand),
+    \[
+    T \;\dot\sim\; \mathcal{N}(200,\;64), \quad \sigma_T = 8.
+    \]
+    Donc
+    \begin{align*}
+    \mathbb{P}(T > 212)
+    &\approx \mathbb{P}\!\left(Z > \frac{212 - 200}{8}\right)
+    = \mathbb{P}(Z > 1{,}5)
+    = 1 - \Phi(1{,}5).
+    \end{align*}
+    \end{solution}
+\end{parts}
+
+
+
+\newpage
+%%%%%%%%%%%%%%%% Module 5 - Loi conjointe %%%%%%%%%%%%%%%%
+
+\question[] Soit $(X, Y)$ un couple de variables aléatoires discrètes dont la fonction de masse conjointe est donnée par le tableau suivant, où $a$ et $b$ sont des inconnues.
+
+\begin{center}
+\begin{tabular}{cc|cc}
+$p(x,y)$ & & \multicolumn{2}{c}{$y$} \\
+ & & $0$ & $1$  \\
+\hline
+ & $1$ & $\sfrac{1}{12}$ & $a$  \\
+$x$ & $2$ & $b$ & $\sfrac{1}{6}$  \\
+ & $3$ & $\sfrac{1}{4}$ & $\sfrac{1}{12}$  \\
+\end{tabular}
+\end{center}
+
+On sait que $\mathbb{E}(X)=2$.
+
+\begin{parts}
+    \part[4] Que valent $a$ et $b$?
+
+    \begin{solution}
+    La somme des probabilités vaut $1$:
+    \[
+    \frac{1}{12} + a + b + \frac{1}{6} + \frac{1}{4} + \frac{1}{12} = 1
+    \implies a + b = 1 - \frac{7}{12} = \frac{5}{12}.
+    \]
+
+    On utilise $\mathbb{E}(X)=2$. Les lois marginales de $X$ sont:
+    \[
+    \mathbb{P}(X=1)=\frac{1}{12}+a,\quad
+    \mathbb{P}(X=2)=b+\frac{1}{6},\quad
+    \mathbb{P}(X=3)=\frac{1}{4}+\frac{1}{12}=\frac{1}{3}.
+    \]
+    Donc
+    \[
+    \mathbb{E}(X) = 1\!\left(\frac{1}{12}+a\right) + 2\!\left(b+\frac{1}{6}\right) + 3\!\left(\frac{1}{3}\right) = \frac{17}{12} + a + 2b = 2.
+    \]
+    On obtient $a + 2b = \frac{7}{12}$. En soustrayant $a+b=\frac{5}{12}$, on trouve $b = \frac{2}{12} = \frac{1}{6}$, puis $a = \frac{5}{12} - \frac{1}{6} = \frac{1}{4}$.
+
+    \[
+    \boxed{a = \frac{1}{4}, \quad b = \frac{1}{6}.}
+    \]
+    \end{solution}
+    \vspace{6cm}
+
+    \part[6] Les variables $X$ et $Y$ sont-elles indépendantes? Justifiez votre réponse.
+
+    \begin{solution}
+    On vérifie si $\mathbb{P}(X=x, Y=y) = \mathbb{P}(X=x)\,\mathbb{P}(Y=y)$ pour tout $(x,y)$.
+
+    Marginales:
+    \[
+    \mathbb{P}(X=1)=\frac{1}{12}+\frac{1}{4}=\frac{1}{3},\qquad
+    \mathbb{P}(Y=0)=\frac{1}{12}+\frac{1}{6}+\frac{1}{4}=\frac{1}{2}.
+    \]
+
+    \[
+    \mathbb{P}(X=1)\,\mathbb{P}(Y=0)=\frac{1}{3}\times\frac{1}{2}=\frac{1}{6},
+    \]
+    mais
+    \[
+    \mathbb{P}(X=1, Y=0)=\frac{1}{12}\neq \frac{1}{6}.
+    \]
+
+    Donc $X$ et $Y$ ne sont \textbf{pas indépendantes}.
+    \end{solution}
+    \vspace{6cm}
+
+    \part[6] Calculez $\mathbb{E}[Y \mid X=2]$.
+
+    \begin{solution}
+    On a $\mathbb{P}(X=2) = b + \frac{1}{6} = \frac{1}{6}+\frac{1}{6} = \frac{1}{3}$.
+
+    La loi conditionnelle de $Y$ sachant $X=2$ est:
+    \[
+    \mathbb{P}(Y=0 \mid X=2) = \frac{p(2,0)}{p_X(2)} = \frac{\sfrac{1}{6}}{\sfrac{1}{3}} = \frac{1}{2}, \qquad
+    \mathbb{P}(Y=1 \mid X=2) = \frac{p(2,1)}{p_X(2)} = \frac{\sfrac{1}{6}}{\sfrac{1}{3}} = \frac{1}{2}.
+    \]
+    Donc
+    \[
+    \mathbb{E}[Y \mid X=2] = 0\times\frac{1}{2} + 1\times\frac{1}{2} = \frac{1}{2}.
+    \]
+    \end{solution}
+\end{parts}
 
 
 
