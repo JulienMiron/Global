@@ -1,0 +1,427 @@
+\def\Ponderation{40}
+\def\SigleNumero{STT-1000}
+\def\NomCours{Probabilités et statstique}
+\def\DateEvaluation{26 février 2026}
+\def\HeureEvaluation{}
+\def\Session{}
+\def\NomEvaluation{Examen 1}
+
+% Ne rien mettre entre les accolades si l'enseignant (ou l'enseignante) est aussi le coordonnateur (ou la coordonnatrice)
+\def\Coordonnatrice{}
+\def\Coordonnateur{}
+
+% Ne rien mettre entre les accolades s'il y a plus d'une section
+\def\Enseignant{}
+\def\Enseignante{}
+
+% Ne rien mettre entre les accolades s'il s'agit d'un cours à section unique
+% Mettre le nom de chacun des enseignants et enseignantes entre les accolades
+% Une case à cocher sera générée pour chacune des sections
+\def\SectionA{Anne-Sophie Charest}
+\def\SectionB{Julien Miron}
+\def\SectionC{}
+\def\SectionD{}
+
+\newcommand{\affichepoints}{}     % ← AVEC points
+% \renewcommand{\affichepoints}{on} % ← SANS points (non vide)
+
+
+\def\Directives{
+\begin{enumerate}
+\item Matériel autorisé:
+\begin{itemize}
+\item Calculatrice scientifique {\bf autorisée par la faculté des sciences et de génie};
+\item Le feuillet de formules fourni avec l'examen. Celui-ci inclut la table de la loi normale. Veuillez ne rien écrire sur le feuillet de formules.
+\end{itemize}
+\item Assurez-vous que cette évaluation comporte \numquestions ~exercices répartis sur \numpages{}~pages, pour un total de \numpoints{}~points.\
+\item \textbf{Veuillez ne pas dégrafer votre examen.}
+\item Ajoutez vos initiales dans le bas de chaque page.
+\item Vous devez\textbf{ justifier toutes vos réponses} par une démarche claire, sauf pour les questions à choix de réponse.\
+\item Lorsque des boîtes de réponses sont présentes, vous \textbf{\textit{devez}} y écrire vos réponses. N'écrivez que la réponse (aucun nom de variable ou unité de mesure).\
+\item Pour les questions à choix de réponse et les vrais ou faux, vous pouvez mettre un X, un crochet ($\checkmark$) ou remplir la case.\
+\item Certains vrais ou faux demande une justification. Aucun point ne sera donné sans justification, même si vous cochez la bonne réponse.
+\item Pour les questions à choix de réponse, lorsqu'il est écrit «cochez tous les énoncés qui sont vrais/faux», il est possible qu'un seul énoncé soit vrai.
+\item Le verso des feuilles peut être utilisé comme brouillon, \textbf{mais ne sera pas corrigé}. Attention à ne rien dégrafer.
+\end{enumerate}
+}
+
+
+
+\documentclass{Evaluation}
+\usepackage{multicol,graphicx}
+
+\printanswers
+
+\begin{document}
+\begin{questions}
+
+%%%%%%%%%%%%%% MODULE 1 - PARTIE 1 %%%%%%%%%%%%%%%%%%
+\question[4] 
+
+On sait que \(P(A)=0{,}3\), \(P(B)=0{,}2\) et \(P(A^c \cap B)=0{,}1\).
+Calculez \(P(A \cap B)\).
+
+\begin{solution}
+On décompose l’événement \(B\) :
+\[
+B = (A \cap B) \cup (A^c \cap B),
+\]
+où les deux événements sont disjoints. Par additivité des probabilités,
+\[
+P(B) = P(A \cap B) + P(A^c \cap B).
+\]
+
+On isole alors \(P(A \cap B)\) :
+\[
+P(A \cap B) = P(B) - P(A^c \cap B) = 0{,}2 - 0{,}1 = 0{,}1.
+\]
+
+\[
+\boxed{P(A \cap B) = 0{,}1}
+\]    
+\end{solution}
+
+
+\question[10]
+
+Douze personnes participent à une soirée micro-ouvert, dont Julie. Un programme de la soirée consiste à choisir \(5\) personnes parmi les \(12\) et à fixer un ordre de passage pour ces \(5\) personnes. Une contrainte est imposée :
+\emph{la première personne à passer doit être l’une des trois personnes désignées comme animateurs}.
+Julie n’est \emph{pas} animatrice.
+
+Si on choisit un programme au hasard parmi tous les programmes respectant cette contrainte, quelle est la probabilité que Julie soit choisie et qu’elle passe en troisième position?
+
+\begin{solution}
+
+\textbf{Nombre total de programmes possibles}
+
+On choisit d’abord l’animateur qui passe en premier : \(3\) choix.
+
+Puis on choisit et ordonne \(4\) autres personnes parmi les \(11\) restantes :
+\[
+{}_{11}P_{4}.
+\]
+
+Le nombre total de programmes est donc
+\[
+3\times {}_{11}P_{4}
+=3\times \frac{11!}{7!}.
+\]
+
+\medskip
+\textbf{Cas favorables}
+
+On impose que Julie soit choisie et qu’elle passe en troisième position.
+
+\emph{Étape 1 :} choisir l’animateur en première position : \(3\) choix.
+
+\emph{Étape 2 :} choisir les \(3\) autres personnes parmi les \(10\) restantes (en excluant Julie et l’animateur choisi) :
+\[
+\binom{10}{3}.
+\]
+
+\emph{Étape 3 :} ordonner ces \(3\) personnes et Julie dans les positions
+\(2,3,4,5\), en imposant que Julie soit en position \(3\).
+
+Il reste alors \(3!\) ordres possibles.
+
+Le nombre de programmes favorables est donc
+\[
+3\times \binom{10}{3}\times 3!
+\]
+
+\medskip
+\textbf{Probabilité}
+
+\[
+\mathbb{P}(\text{Julie choisie et en 3e})
+=
+\frac{3\,\binom{10}{3}\,3!}{3\,{}_{11}P_{4}}
+=
+\frac{\binom{10}{3}\,3!}{{}_{11}P_{4}}.
+\]
+
+On simplifie :
+\[
+\binom{10}{3}\,3!
+=
+\frac{10!}{7!},
+\qquad
+{}_{11}P_{4}=\frac{11!}{7!}.
+\]
+
+Donc
+\[
+\mathbb{P}(\text{Julie choisie et en 3e})
+=
+\frac{10!}{11!}
+=
+\frac{1}{11}.
+\]
+
+\[
+\boxed{\mathbb{P}=\frac{1}{11}.}
+\]
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%% PROB COND. %%%%%%%%%%%%%%
+
+\question PREMIÈRE IDÉE 
+
+Un sac contient 100 dés à 6 faces, dont 60 sont rouges et 40 sont bleus. Les 60 dés rouges sont numérotés de <<1>> à <<6>> et sont réguliers (c'est-à-dire que les faces sont équiprobables). Les 40 dés bleus ont 6 fois la face avec le numéro <<1>>. L'expérience aléatoire consiste à choisir un dé dans le sac, à le lancer et à noter la face du dessus.
+
+Pour répondre aux questions, utilisez $\mathcal{U}$ pour désigner l'espace échantillonnal et les événements suivants:
+
+\begin{itemize}
+    \item R: le dé choisi est rouge,
+    \item B: le dé choisi est bleu,
+    \item N: la face sur le dessus du dé lancé est <<1>>,
+    \item S: la face sur le dessus du dé lancé est <<6>>.
+\end{itemize}
+
+\begin{parts}
+    \part[5] La face sur le dessus du dé lancé est <<1>>. Quelle est la probabilité que le dé lancé soit rouge?
+
+
+\begin{solution}
+    On sait que $P(R)=0,6$, $P(B)=0,4$, $P(N|R)=1/6$, $P(N|B)=1$. On peut déduire que 
+
+    \begin{align*}
+        P(N)&=P(N\cap R)+P(N\cap B)\\
+        &= P(N|R)P(R)+P(N|B)P(B)\\
+        &=\frac{1}{6}\times 0,6 + 0,4 \times 1\\
+        &=0,5
+    \end{align*}
+
+    On cherche $P(R|N)$.
+
+    \begin{align*}
+        P(R|N)&=\frac{P(N\cap R)}{P(N)}\\
+        &=\frac{P(N|R)P(R)}{P(N)}\\
+        &= \frac{\sfrac{1}{6}\times 0,6}{0,5}\\
+        &=0,2
+    \end{align*}
+\end{solution}
+
+\vfill
+
+\part Dites si les énoncés suivants sont vrais ou faux.
+
+\begin{subparts}
+    \subpart[1] Les événements $R$ et $B$ sont indépendants.
+
+\begin{oneparcheckboxes}
+    \choice Vrai
+    \choice Faux
+\end{oneparcheckboxes}
+\vspace{0.3cm}
+
+    \subpart[1] Les événements $R$ et $B$ sont mutuellement exclusifs.
+
+\begin{oneparcheckboxes}
+    \choice Vrai
+    \choice Faux
+\end{oneparcheckboxes}
+\vspace{0.3cm}
+
+    \subpart[1] Les événements $B$ et $N$ sont indépendants.
+
+\begin{oneparcheckboxes}
+    \choice Vrai
+    \choice Faux
+\end{oneparcheckboxes}
+\vspace{0.3cm}
+
+    \subpart[1] Les événements $B$ et $S$ sont mutuellement exclusifs.
+
+\begin{oneparcheckboxes}
+    \choice Vrai
+    \choice Faux
+\end{oneparcheckboxes}
+\vspace{0.3cm}
+
+    \subpart[1] Les événements $R$ et $S$ sont indépendants.
+
+\begin{oneparcheckboxes}
+    \choice Vrai
+    \choice Faux
+\end{oneparcheckboxes}
+\end{subparts}
+\end{parts}
+
+\newpage
+
+\question[2]
+
+On peut modéliser le nombre de jours avant la panne d'un serveur informatique par une loi géométrique de paramètre $p=0.4$. Après 10 jours sans panne, que peut-on dire?
+
+\begin{itemize}
+\item[] $\square$ La panne est maintenant plus probable qu’au début.
+\item[] $\square$ La panne est moins probable qu’au début.
+\item[] $\square$ La probabilité de panne demain est la même qu’au premier jour.
+\item[] $\square$ Il est certain qu’une panne surviendra bientôt.
+\end{itemize}
+
+\newpage 
+
+%%%%%%%% Module 3 - lois discrètes %%%%%%%%%%%%%
+
+\question[]
+
+Dans un projet de cartographie, un drone tente d’envoyer des relevés de
+position vers un serveur. À chaque tentative, le relevé est soit reçu
+avec succès, soit perdu. On suppose que les tentatives sont indépendantes
+et que la probabilité qu’un relevé soit reçu avec succès est constante et
+égale à $p=0{,}6$.
+
+Charles surveille la réception des relevés.
+
+\begin{parts}
+
+\part[4]
+Au cours des $10$ prochaines tentatives, quelle est la probabilité que
+\emph{exactement $7$} relevés soient reçus avec succès?
+
+\begin{solution}
+Soit $X$ le nombre de relevés reçus avec succès parmi $10$ tentatives.
+Alors
+\[
+X \sim \text{Binomiale}(10,0{,}6).
+\]
+On a donc
+\[
+\mathbb P(X=7)
+= \binom{10}{7}(0{,}6)^7(0{,}4)^3.
+\]
+\end{solution}
+
+\part[4]
+Quelle est la probabilité que le \emph{premier} relevé reçu avec succès
+survienne à la $5^{\text{e}}$ tentative?
+
+\begin{solution}
+Soit $T$ le numéro de la tentative correspondant au premier succès.
+Alors
+\[
+T \sim \text{Géométrique}(0{,}6).
+\]
+On obtient
+\[
+\mathbb P(T=5)=(1-0{,}6)^4(0{,}6)=(0{,}4)^4(0{,}6).
+\]
+\end{solution}
+
+\part[4]
+Chaque tentative d’envoi coûte $0{,}40\$$, qu’elle soit réussie ou non.
+De plus, le lancement du drone entraîne un coût fixe de $10\$$.
+On souhaite obtenir $50$ relevés reçus avec succès.
+
+On note $Z$ le coût total (en dollars) nécessaire pour atteindre cet
+objectif. Calculez $\mathbb E[Z]$.
+
+\begin{solution}
+Soit $Y$ le nombre de tentatives nécessaires pour obtenir $50$ relevés
+reçus avec succès. Comme chaque tentative est indépendante et que la
+probabilité de succès est $p=0{,}6$, on a
+\[
+Y \sim \text{Pascal}(50,0{,}6).
+\]
+
+Pour une loi de Pascal de paramètres $(r,p)$, l’espérance est
+\[
+\mathbb E[Y] = \frac{r}{p}.
+\]
+Ainsi,
+\[
+\mathbb E[Y] = \frac{50}{0{,}6} \approx 83{,}33.
+\]
+
+Le coût total s’écrit
+\[
+Z = 10 + 0{,}40\,Y.
+\]
+Par linéarité de l’espérance,
+\[
+\mathbb E[Z]
+= 10 + 0{,}40\,\mathbb E[Y]
+= 10 + 0{,}40 \times \frac{50}{0{,}6}.
+\]
+Numériquement,
+\[
+\mathbb E[Z] \approx 10 + 33{,}33 = 43{,}33\ \text{\$}.
+\]
+\end{solution}
+
+
+\end{parts}
+
+\newpage
+
+%%%%%%% Module 4 partie a - lois continuesprocessus de poisson %%%%%%%%
+
+\question[]
+
+On s'intéresse au temps avant d'obtenir une contravention. On suppose que le temps $T_1$ (en jours) avant la première contravention
+suit une loi exponentielle dont l’espérance est de $5$ jours. Les temps entre les contraventions sont indépendants et de même loi.
+
+Chaque contravention coûte $65\$$ et un permis mensuel coûte $180\$$.
+
+\begin{parts}
+
+\part[8]
+Considérons un mois de $30$ jours. Quelle est la probabilité que le coût total des contraventions dépasse le coût du permis mensuel?
+
+\begin{solution}
+Pour une loi exponentielle de paramètre $\lambda$, on a
+\[
+\mathbb E[T_1] = \frac{1}{\lambda}.
+\]
+Comme $\mathbb E[T_1]=5$, on obtient
+\[
+\lambda = \frac{1}{5} \text{ par jour}.
+\]
+
+Dans ce modèle, le nombre de contraventions sur un intervalle de longueur
+$t$ suit une loi de Poisson de paramètre $\lambda t$.
+Ainsi,
+\[
+N(30) \sim \text{Poisson}\!\left(\frac{1}{5}\times 30\right)
+= \text{Poisson}(6).
+\]
+
+Le coût total dépasse $180\$$ dès qu’il y a au moins $3$ contraventions,
+car $2\times 65 = 130 < 180$ et $3\times 65 = 195 > 180$.
+Donc
+\[
+\mathbb P(N(30)\ge 3)
+= 1 - \sum_{k=0}^{2} e^{-6}\frac{6^k}{k!}
+= 1 - e^{-6}\left(1 + 6 + \frac{6^2}{2}\right).
+\]
+Numériquement, cette probabilité vaut environ $0{,}94$.
+\end{solution}
+
+\part[4]
+Soit $T_3$ le temps (en jours) avant la troisième contravention. Calculez $\mathbb E[T_3]$.
+
+\begin{solution}
+Le temps $T_3$ est la somme de trois temps exponentiels indépendants
+de paramètre $\lambda$, donc suit une loi gamma de forme $3$ et de taux
+$\lambda$.
+
+On a
+\[
+\mathbb E[T_3] = \frac{3}{\lambda}.
+\]
+Avec $\lambda = \frac{1}{5}$, on obtient
+\[
+\mathbb E[T_3] = 15 \text{ jours}.
+\]
+\end{solution}
+
+\end{parts}
+
+
+
+
+\end{questions}
+
+\end{document}
