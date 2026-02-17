@@ -1,6 +1,0 @@
-PWD /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1000/Examens/Intra
-INPUT /usr/local/texlive/2025/texmf.cnf
-INPUT /usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf
-INPUT /usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1000/Examens/Intra/H26.tex
-OUTPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1000/Examens/Intra/H26.log
