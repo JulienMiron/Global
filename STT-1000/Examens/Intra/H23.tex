@@ -50,6 +50,9 @@
 % Devoir :
 \documentclass{Evaluation}
 \usepackage{multicol,graphicx}
+
+\printanswers
+
 \begin{document}
 
 \newpage
@@ -63,6 +66,16 @@
 \end{itemize}
 Calculer $\mathbb{P}(A \cap B)$.
 
+\begin{solution}
+On sait que $\mathbb{P}(\overline{A \cup B}) = 0{,}4$, donc $\mathbb{P}(A \cup B) = 1 - 0{,}4 = 0{,}6$.
+
+Or, l'union se décompose en trois parties disjointes :
+$$\mathbb{P}(A \cup B) = \mathbb{P}(A \cap \overline{B}) + \mathbb{P}(\overline{A} \cap B) + \mathbb{P}(A \cap B)$$
+Donc
+$$0{,}6 = 0{,}2 + 0{,}1 + \mathbb{P}(A \cap B)$$
+$$\mathbb{P}(A \cap B) = 0{,}3$$
+\end{solution}
+
 \vspace{7cm}
 \question[5] Soient $A$, $B$ et $C$ trois événements de $\mathcal{U}$ tels que 
 \begin{itemize}
@@ -74,9 +87,35 @@ Calculer $\mathbb{P}(A \cap B)$.
 \item les événements $A$ et $C$ sont mutuellements exclusifs.
 \end{itemize}
 Calculer $\mathbb{P}(A \cup B \cup C)$.
+
+\begin{solution}
+Par la formule d'inclusion-exclusion :
+$$\mathbb{P}(A \cup B \cup C) = \mathbb{P}(A) + \mathbb{P}(B) + \mathbb{P}(C) - \mathbb{P}(A \cap B) - \mathbb{P}(A \cap C) - \mathbb{P}(B \cap C) + \mathbb{P}(A \cap B \cap C)$$
+
+\begin{itemize}
+\item $A$ et $B$ indépendants : $\mathbb{P}(A \cap B) = \mathbb{P}(A)\mathbb{P}(B) = 0{,}4 \times 0{,}5 = 0{,}2$
+\item $A$ et $C$ mutuellement exclusifs : $\mathbb{P}(A \cap C) = 0$
+\item $B$ et $C$ indépendants : $\mathbb{P}(B \cap C) = \mathbb{P}(B)\mathbb{P}(C) = 0{,}5 \times 0{,}2 = 0{,}1$
+\item $A \cap B \cap C \subseteq A \cap C = \varnothing$, donc $\mathbb{P}(A \cap B \cap C) = 0$
+\end{itemize}
+
+Ainsi,
+$$\mathbb{P}(A \cup B \cup C) = 0{,}4 + 0{,}5 + 0{,}2 - 0{,}2 - 0 - 0{,}1 + 0 = 0{,}8$$
+\end{solution}
 \newpage
 
 \question[5] Une association est composée de 30 personnes. De combien de façons est-ce qu'on peut former un bureau exécutif composé d'un président, un vice-président, un trésorier et 4 membres?
+
+\begin{solution}
+On choisit d'abord les 3 postes nommés (ordre important) parmi 30 personnes :
+$$P^{30}_3 = 30 \times 29 \times 28 = 24\,360$$
+
+Puis on choisit 4 membres parmi les 27 restants (sans ordre) :
+$$\binom{27}{4} = \frac{27!}{4!\,23!} = 17\,550$$
+
+Le nombre total de façons est donc :
+$$24\,360 \times 17\,550 = 427\,518\,000$$
+\end{solution}
 
 \vspace{8cm}
 \question[5] Une usine fabrique 3 types de télévisions qu'on nomme $A$, $B$ et $C$. On nous dit que $50\%$ des télévisions fabriqués sont de type $A$ et $20\%$ de type $B$. On nous dit aussi que $5\%$ de télévisions de type $A$, $10\%$ des télévisions de type $B$ et $15\%$ des télévisions de type $C$ sont défectueuses. Quelle est la probabilité qu'une télévision défectueuse soit~de~type~$B$?
@@ -111,6 +150,17 @@ On cherche $P(B|D)$.
  où $a$ et $b$ sont des inconnus.
 On nous dit que $\mathbb{E}(X)=2$. Calculer $a$ et $b$.
 
+\begin{solution}
+La somme des probabilités vaut 1 :
+$$a + \frac{1}{6} + b + \frac{1}{3} = 1 \implies a + b = 1 - \frac{1}{6} - \frac{1}{3} = \frac{1}{2}$$
+
+De plus, $\mathbb{E}(X) = 2$ :
+$$0 \cdot a + 1 \cdot \frac{1}{6} + 2b + 3 \cdot \frac{1}{3} = 2$$
+$$\frac{1}{6} + 2b + 1 = 2 \implies 2b = \frac{5}{6} \implies b = \frac{5}{12}$$
+
+Donc $a = \frac{1}{2} - \frac{5}{12} = \frac{1}{12}$.
+\end{solution}
+
 \newpage
 \question Soit $X$ une variable aléatoire continue dont la fonction de répartition est donnée par
 \[ F_X(x) = \begin{cases}
@@ -122,10 +172,38 @@ On nous dit que $\mathbb{E}(X)=2$. Calculer $a$ et $b$.
 
 \begin{parts}
     \part[4] Calculer $\mathbb{P}(X>1/2\ |\ 1/4<X<3/4)$.
+    \begin{solution}
+    \begin{align*}
+    \mathbb{P}(X > \tfrac{1}{2} \mid \tfrac{1}{4} < X < \tfrac{3}{4}) &= \frac{\mathbb{P}(\tfrac{1}{2} < X < \tfrac{3}{4})}{\mathbb{P}(\tfrac{1}{4} < X < \tfrac{3}{4})}
+    \end{align*}
+    
+    Numérateur : $F_X(\tfrac{3}{4}) - F_X(\tfrac{1}{2}) = \frac{3(\frac{3}{4})-1}{2} - (\tfrac{1}{2})^2 = \frac{5}{8} - \frac{1}{4} = \frac{3}{8}$
+    
+    Dénominateur : $F_X(\tfrac{3}{4}) - F_X(\tfrac{1}{4}) = \frac{5}{8} - (\tfrac{1}{4})^2 = \frac{5}{8} - \frac{1}{16} = \frac{9}{16}$
+    
+    Donc $\mathbb{P}(X > \tfrac{1}{2} \mid \tfrac{1}{4} < X < \tfrac{3}{4}) = \dfrac{3/8}{9/16} = \dfrac{3}{8} \times \dfrac{16}{9} = \dfrac{2}{3}$
+    \end{solution}
     \vspace{5cm}
     \part[4] Donner la fonction de densité $f_X$ de $X$.
+    \begin{solution}
+    On dérive $F_X(x)$ :
+    $$f_X(x) = \begin{cases}
+    2x & \text{si } 0 \leq x < 1/2 \\
+    \dfrac{3}{2} & \text{si } 1/2 \leq x < 1 \\
+    0 & \text{sinon}
+    \end{cases}$$
+    \end{solution}
     \vspace{4cm}
     \part[4] En déduire $\mathbb{E}(X)$.
+    \begin{solution}
+    \begin{align*}
+    \mathbb{E}(X) &= \int_0^{1/2} x \cdot 2x \, dx + \int_{1/2}^{1} x \cdot \frac{3}{2} \, dx\\
+    &= \left[\frac{2x^3}{3}\right]_0^{1/2} + \left[\frac{3x^2}{4}\right]_{1/2}^{1}\\
+    &= \frac{2}{3} \cdot \frac{1}{8} + \frac{3}{4} - \frac{3}{4} \cdot \frac{1}{4}\\
+    &= \frac{1}{12} + \frac{3}{4} - \frac{3}{16}\\
+    &= \frac{4}{48} + \frac{36}{48} - \frac{9}{48} = \frac{31}{48}
+    \end{align*}
+    \end{solution}
 \end{parts}
 \newpage
  
@@ -133,10 +211,34 @@ On nous dit que $\mathbb{E}(X)=2$. Calculer $a$ et $b$.
 
 \begin{parts}
     \part[4] Quelle est la probabilité de conclure 2 ventes avec les 5 prochains clients?
+    \begin{solution}
+    Soit $X$ le nombre de ventes parmi 5 clients. $X \sim \text{Bin}(5, 1/5)$.
+    \begin{align*}
+    \mathbb{P}(X=2) &= \binom{5}{2} \left(\frac{1}{5}\right)^2 \left(\frac{4}{5}\right)^3
+    = 10 \cdot \frac{1}{25} \cdot \frac{64}{125}
+    = \frac{640}{3125} = \frac{128}{625}
+    \end{align*}
+    \end{solution}
     \vspace{5cm}
     \part[4] Quelle est la probabilité que le premier client avec qui Jean conclut une vente soit le deuxième ou le troisième client qui s'est présenté à la boutique?
+    \begin{solution}
+    Soit $Y$ le numéro du client avec qui Jean conclut sa première vente. $Y \sim \text{Géom}(1/5)$.
+    \begin{align*}
+    \mathbb{P}(Y=2) + \mathbb{P}(Y=3) &= \left(\frac{4}{5}\right)^1\frac{1}{5} + \left(\frac{4}{5}\right)^2\frac{1}{5}\\
+    &= \frac{4}{25} + \frac{16}{125}\\
+    &= \frac{20}{125} + \frac{16}{125} = \frac{36}{125}
+    \end{align*}
+    \end{solution}
     \vspace{5cm}
     \part[4] Quelle est la probabilité de devoir servir 8 clients pour effectuer deux ventes?
+    \begin{solution}
+    Soit $W$ le nombre de clients nécessaires pour obtenir 2 ventes. $W \sim \text{BinNég}(2, 1/5)$.
+    \begin{align*}
+    \mathbb{P}(W=8) &= \binom{8-1}{2-1} \left(\frac{1}{5}\right)^2 \left(\frac{4}{5}\right)^{6}\\
+    &= 7 \cdot \frac{1}{25} \cdot \frac{4096}{15625}\\
+    &= \frac{28672}{390625}
+    \end{align*}
+    \end{solution}
 \end{parts}
 \newpage
 
@@ -181,6 +283,14 @@ On pose $Y=X_1+X_2+2 X_3$.
 
 \begin{parts}
     \part[3] Donner la loi de $Y$.
+    \begin{solution}
+    Puisque $X_1, X_2, X_3$ sont indépendantes et normales, $Y = X_1 + X_2 + 2X_3$ est aussi normale.
+    \begin{align*}
+    \mathbb{E}(Y) &= \mathbb{E}(X_1) + \mathbb{E}(X_2) + 2\mathbb{E}(X_3) = 1 + 0 + 2(1) = 3\\
+    \text{Var}(Y) &= \text{Var}(X_1) + \text{Var}(X_2) + 4\,\text{Var}(X_3) = 2 + 3 + 4(1) = 9
+    \end{align*}
+    Donc $Y \sim \mathcal{N}(3, 9)$.
+    \end{solution}
     \vspace{5cm}
     \part[4] Calculer $\mathbb{P}(0 \le Y \le 6)$.
     \begin{solution}
@@ -228,12 +338,44 @@ $x$ & 1 & $\sfrac{5}{216}$ & $b$ & $0$& $\sfrac{1}{216}$\\
 
 \begin{parts}
     \part[4] Que valent $a$, $b$ et $c$?
+    \begin{solution}
+    Il y a $6^3 = 216$ issues équiprobables.
+    
+    \textbf{Trouver $b$:} $\mathbb{P}(X=1) = \frac{6}{216}$ (6 façons d'avoir les 3 dés identiques). La marge $X=1$ donne : $\frac{5}{216} + b + 0 + \frac{1}{216} = \frac{6}{216}$, donc $b = 0$.
+    
+    \textbf{Trouver $c$:} $\mathbb{P}(Y=3) = \left(\frac{1}{6}\right)^3 = \frac{1}{216}$. La marge $Y=3$ donne : $c + \frac{1}{216} = \frac{1}{216}$, donc $c = 0$.
+    
+    \textbf{Trouver $a$:} $\mathbb{P}(Y=0) = \left(\frac{5}{6}\right)^3 = \frac{125}{216}$. La marge $Y=0$ donne : $a + \frac{5}{216} = \frac{125}{216}$, donc $a = \frac{120}{216} = \frac{5}{9}$.
+    \end{solution}
     
 \vspace{4cm}
     
     \part[4] Est-ce que $X$ et $Y$ sont indépendentes ? Justifier votre réponse.
+    \begin{solution}
+    Vérifions si $\mathbb{P}(X=0, Y=0) = \mathbb{P}(X=0)\,\mathbb{P}(Y=0)$.
+    \begin{itemize}
+    \item $\mathbb{P}(X=0, Y=0) = a = \frac{120}{216}$
+    \item $\mathbb{P}(X=0) = 1 - \frac{6}{216} = \frac{210}{216}$
+    \item $\mathbb{P}(Y=0) = \frac{125}{216}$
+    \item $\mathbb{P}(X=0)\,\mathbb{P}(Y=0) = \frac{210}{216} \cdot \frac{125}{216} = \frac{26250}{46656} = \frac{4375}{7776}$
+    \end{itemize}
+    Or $\frac{120}{216} = \frac{4320}{7776} \neq \frac{4375}{7776}$.
+    
+    Donc $X$ et $Y$ ne sont \textbf{pas indépendantes}.
+    \end{solution}
 \vspace{5cm}
     \part[4] Calculer $\mathbb{E}[Y|X=1]$. \textit{Si vous n'avez pas trouvé $a$, $b$ et $c$, vous pouvez exprimer votre réponse en fonction d'une ou plusieurs de ces inconnues.}
+    \begin{solution}
+    On calcule les probabilités conditionnelles sachant $X=1$ (avec $\mathbb{P}(X=1) = \frac{6}{216}$) :
+    \begin{align*}
+    \mathbb{P}(Y=0 \mid X=1) &= \frac{5/216}{6/216} = \frac{5}{6}\\
+    \mathbb{P}(Y=1 \mid X=1) &= \frac{0}{6/216} = 0\\
+    \mathbb{P}(Y=2 \mid X=1) &= \frac{0}{6/216} = 0\\
+    \mathbb{P}(Y=3 \mid X=1) &= \frac{1/216}{6/216} = \frac{1}{6}
+    \end{align*}
+    Donc
+    $$\mathbb{E}[Y \mid X=1] = 0 \cdot \frac{5}{6} + 1 \cdot 0 + 2 \cdot 0 + 3 \cdot \frac{1}{6} = \frac{3}{6} = \frac{1}{2}$$
+    \end{solution}
 \end{parts}
 
 \newpage
@@ -255,6 +397,13 @@ Le diagramme en boîte ci-dessous a été tracé à partir de ces résultats. Il
 
 \begin{parts}
 \part[6] Ajoutez \textbf{sur le diagramme} l'élément manquant et dites ce que vous avez fait (ceci \textit{doit} inclure des calculs) sous le diagramme.
+\begin{solution}
+L'élément manquant est la ligne de la \textbf{médiane} à l'intérieur de la boîte.
+
+Avec $n=21$ observations, la médiane est la $\frac{21+1}{2} = 11$\textsuperscript{e} observation, soit $\tilde{x} = 114$.
+
+On trace donc un trait vertical à $x = 114$ à l'intérieur de la boîte.
+\end{solution}
 \begin{center}
 		\begin{tikzpicture}[x=0.4cm,y=0.9cm]
          \draw[step=0.4cm,,dotted,color=black] (107,0) grid (130,4);
@@ -296,9 +445,12 @@ Le diagramme en boîte ci-dessous a été tracé à partir de ces résultats. Il
 
 
     \begin{oneparcheckboxes}
-        \correctchoice Vrai
-        \choice Faux
+        \choice Vrai
+        \correctchoice Faux
     \end{oneparcheckboxes}
+\begin{solution}
+La médiane est la 11\textsuperscript{e} observation ($n=21$), soit $\tilde{x}=114$ dans les deux cas. Remplacer la 21\textsuperscript{e} observation ne change pas la 11\textsuperscript{e}. Les médianes sont égales.
+\end{solution}
 
 \subpart[3] La moyenne échantillonnale du nouveau jeu de données est supérieure à celle du jeu de données original.
 
@@ -307,6 +459,9 @@ Le diagramme en boîte ci-dessous a été tracé à partir de ces résultats. Il
         \correctchoice Vrai
         \choice Faux
     \end{oneparcheckboxes}
+\begin{solution}
+On remplace 128 par $\text{XXX} > 150$. La somme augmente, donc $\bar{x}$ augmente aussi.
+\end{solution}
 
 \subpart[3] La variance échantillonnale du nouveau jeu de données est supérieure à celle du jeu de données orignal.
 
@@ -315,6 +470,9 @@ Le diagramme en boîte ci-dessous a été tracé à partir de ces résultats. Il
         \correctchoice Vrai
         \choice Faux
     \end{oneparcheckboxes}
+\begin{solution}
+La nouvelle observation est plus éloignée de la moyenne que l'ancienne (128), ce qui augmente la somme des écarts au carré et donc la variance.
+\end{solution}
 
 \end{subparts}
 \end{parts}
