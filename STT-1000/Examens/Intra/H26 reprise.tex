@@ -169,100 +169,119 @@ Donc
 
 \question[]
 
-Un sac contient 100 dés à 6 faces, dont 60 sont rouges et 40 sont bleus. Les 60 dés rouges sont numérotés de <<1>> à <<6>> et sont réguliers (c'est-à-dire que les faces sont équiprobables). Les 40 dés bleus ont 6 fois la face avec le numéro <<1>>. L'expérience aléatoire consiste à choisir un dé dans le sac, à le lancer et à noter la face du dessus.
+Un magasin de jouets vend 3 types de figurines: des dragons, des licornes et des phénix. Parmi les figurines vendues, $50\%$ sont des dragons, $30\%$ sont des licornes et $20\%$ sont des phénix. Certaines figurines sont défectueuses. On sait que $10\%$ des dragons sont défectueux, la probabilité de choisir une figurine qui est une licorne et qui est défectueuse est de $0{,}06$, et $25\%$ des phénix sont défectueux.
 
-Pour répondre aux questions, utilisez $\mathcal{U}$ pour désigner l'espace échantillonnal et les événements suivants:
-
+En utilisant les événements suivants:
 \begin{itemize}
-    \item R: le dé choisi est rouge,
-    \item B: le dé choisi est bleu,
-    \item N: la face sur le dessus du dé lancé est <<1>>,
-    \item S: la face sur le dessus du dé lancé est <<6>>.
+    \item D: la figurine est un dragon
+    \item L: la figurine est une licorne
+    \item P: la figurine est un phénix
+    \item F: la figurine est défectueuse
 \end{itemize}
 
 \begin{parts}
-    \part[5] La face sur le dessus du dé lancé est <<1>>. Quelle est la probabilité que le dé lancé soit rouge?
-
+    \part[2] Tracez le diagramme de Venn qui représente cette situation. \textit{Vous n'avez qu'à identifier les événements et \textbf{l'espace échantillonnal}. Il n'est pas nécessaire d'inscrire les probabilités.}
 
 \begin{solution}
-    On sait que $P(R)=0,6$, $P(B)=0,4$, $P(N|R)=1/6$, $P(N|B)=1$. On peut déduire que 
+    \begin{tikzpicture}[font=\small]
+% --- Dimensions ---
+\def\W{8}    % largeur
+\def\H{4.5}  % hauteur
+\def\xD{2.7} % frontière D|L
+\def\xL{5.3} % frontière L|P
 
-    \begin{align*}
-        P(N)&=P(N\cap R)+P(N\cap B)\\
-        &= P(N|R)P(R)+P(N|B)P(B)\\
-        &=\frac{1}{6}\times 0,6 + 0,4 \times 1\\
-        &=0,5
-    \end{align*}
+% --- Fond des trois bandes (partition) ---
+\fill[red!12]    (0,0) rectangle (\xD,\H);
+\fill[green!12]  (\xD,0) rectangle (\xL,\H);
+\fill[blue!12]   (\xL,0) rectangle (\W,\H);
 
-    On cherche $P(R|N)$.
+% --- Ellipse F (remplie par-dessus) ---
+\fill[yellow!25, opacity=0.55]
+    (0.5*\W, 0.55*\H) ellipse [x radius=3.2, y radius=1.2];
 
-    \begin{align*}
-        P(R|N)&=\frac{P(N\cap R)}{P(N)}\\
-        &=\frac{P(N|R)P(R)}{P(N)}\\
-        &= \frac{\sfrac{1}{6}\times 0,6}{0,5}\\
-        &=0,2
-    \end{align*}
+% --- Frontières de la partition ---
+\draw[thick, dashed, gray!60] (\xD,0) -- (\xD,\H);
+\draw[thick, dashed, gray!60] (\xL,0) -- (\xL,\H);
+
+% --- Contour de F ---
+\draw[thick] (0.5*\W, 0.55*\H) ellipse [x radius=3.2, y radius=1.2];
+
+% --- Cadre Omega ---
+\draw[very thick, rounded corners=5pt] (0,0) rectangle (\W,\H);
+
+% --- Étiquettes des régions ---
+\node[font=\normalsize] at (0.5*\xD, 0.55*\H)         {$D\cap F$};
+\node[font=\normalsize] at (0.5*\xD+0.5*\xL, 0.55*\H) {$L\cap F$};
+\node[font=\normalsize] at (0.5*\xL+0.5*\W, 0.55*\H)  {$P\cap F$};
+
+% --- Étiquettes principales ---
+\node[font=\large, red!70!black]   at (0.5*\xD, 0.14*\H)         {$D$};
+\node[font=\large, green!50!black] at (0.5*\xD+0.5*\xL, 0.14*\H) {$L$};
+\node[font=\large, blue!70!black]  at (0.5*\xL+0.5*\W, 0.14*\H)  {$P$};
+
+% --- Étiquette F ---
+\node[font=\large] at (0.5*\W, 0.93*\H) {$F$};
+
+% --- Étiquette Omega ---
+\node[anchor=north west, font=\large] at (0.08,\H-0.08) {$\Omega$};
+\end{tikzpicture}
 \end{solution}
+    \vspace{3.5cm}
 
+    \part[5] Si vous avez acheté une figurine défectueuse, quelle est la probabilité que ce soit un phénix?
+
+    \begin{solution}
+        On connaît: $P(D)=0{,}5$, $P(L)=0{,}3$, $P(P)=0{,}2$, $P(F|D)=0{,}1$, $P(L\cap F)=0{,}06$ (donc $P(F|L)=\frac{0{,}06}{0{,}3}=0{,}2$), $P(F|P)=0{,}25$.
+
+        On cherche $P(P|F)$.
+
+        \begin{align*}
+            P(F)&=P(F|D)\,P(D)+P(F|L)\,P(L)+P(F|P)\,P(P)\\
+            &=0{,}1\times 0{,}5+0{,}2\times 0{,}3+0{,}25\times 0{,}2\\
+            &=0{,}05+0{,}06+0{,}05=0{,}16
+        \end{align*}
+
+        Donc
+        \begin{align*}
+            P(P|F)&=\frac{P(F|P)\,P(P)}{P(F)}
+            =\frac{0{,}25\times 0{,}2}{0{,}16}
+            =\frac{0{,}05}{0{,}16}
+            =\frac{5}{16}
+        \end{align*}
+    \end{solution}
 \vfill
+\part  \begin{subparts}
+        \subpart[1] Les événements D et L sont indépendants.
+        
+        \begin{oneparcheckboxes}
+            \choice Vrai
+            \correctchoice Faux
+        \end{oneparcheckboxes}
+        \begin{solution}
+        $P(D\cap L)=0$ car une figurine ne peut être à la fois un dragon et une licorne, mais $P(D)\,P(L)=0{,}5\times 0{,}3=0{,}15\neq 0$.
+        \end{solution}
 
-\part Dites si les énoncés suivants sont vrais ou faux.
+        \subpart[1] Les événements D et F sont indépendants.
+        
+        \begin{oneparcheckboxes}
+            \choice Vrai
+            \correctchoice Faux
+        \end{oneparcheckboxes}
+        \begin{solution}
+        $P(D\cap F)=P(F|D)\,P(D)=0{,}1\times 0{,}5=0{,}05$, mais $P(D)\,P(F)=0{,}5\times 0{,}16=0{,}08\neq 0{,}05$.
+        \end{solution}
 
-\begin{subparts}
-    \subpart[1] Les événements $R$ et $B$ sont indépendants.
-
-\begin{oneparcheckboxes}
-    \choice Vrai
-    \correctchoice Faux
-\end{oneparcheckboxes}
-\begin{solution}
-$P(R\cap B)=0$ car un dé ne peut être à la fois rouge et bleu, mais $P(R)P(B)=0{,}6\times 0{,}4=0{,}24\neq 0$.
-\end{solution}
-\vspace{0.3cm}
-
-    \subpart[1] Les événements $R$ et $B$ sont mutuellement exclusifs.
-
-\begin{oneparcheckboxes}
-    \correctchoice Vrai
-    \choice Faux
-\end{oneparcheckboxes}
-\begin{solution}
-Un dé ne peut être à la fois rouge et bleu, donc $P(R\cap B)=0$.
-\end{solution}
-\vspace{0.3cm}
-
-    \subpart[1] Les événements $B$ et $N$ sont indépendants.
-
-\begin{oneparcheckboxes}
-    \choice Vrai
-    \correctchoice Faux
-\end{oneparcheckboxes}
-\begin{solution}
-$P(B\cap N)=P(N|B)\,P(B)=1\times 0{,}4=0{,}4$, mais $P(B)\,P(N)=0{,}4\times 0{,}5=0{,}2\neq 0{,}4$.
-\end{solution}
-\vspace{0.3cm}
-
-    \subpart[1] Les événements $B$ et $S$ sont mutuellement exclusifs.
-
-\begin{oneparcheckboxes}
-    \correctchoice Vrai
-    \choice Faux
-\end{oneparcheckboxes}
-\begin{solution}
-Un dé bleu n'a que des faces <<1>>, donc $P(S|B)=0$ et $P(B\cap S)=0$.
-\end{solution}
-\vspace{0.3cm}
-
-    \subpart[1] Les événements $R$ et $S$ sont indépendants.
-
-\begin{oneparcheckboxes}
-    \choice Vrai
-    \correctchoice Faux
-\end{oneparcheckboxes}
-\begin{solution}
-$P(R\cap S)=P(S|R)\,P(R)=\frac{1}{6}\times 0{,}6=0{,}1$, mais $P(R)\,P(S)=0{,}6\times 0{,}1=0{,}06\neq 0{,}1$.
-\end{solution}
-\end{subparts}
+        \subpart[1] Les événements D, L et P forment une partition de l'espace échantillonnal.
+        
+        \begin{oneparcheckboxes}
+            \correctchoice Vrai
+            \choice Faux
+        \end{oneparcheckboxes}
+        \begin{solution}
+        Ils sont mutuellement exclusifs (une figurine est d'un seul type) et $P(D)+P(L)+P(P)=0{,}5+0{,}3+0{,}2=1$, donc ils couvrent $\Omega$.
+        \end{solution}
+    \end{subparts}
+    \vspace{0.5cm}
 \end{parts}
 
 \newpage
@@ -527,7 +546,9 @@ Avec $\lambda = \frac{1}{5}$, on obtient
     \mathbb{P}(480 < X < 520)
     &= \mathbb{P}\!\left(\frac{480-500}{15} < Z < \frac{520-500}{15}\right) \\
     &= \mathbb{P}(-1{,}33 < Z < 1{,}33) \\
-    &= 2\,\Phi(1{,}33) - 1.
+    &= 2\,\Phi(1{,}33) - 1 \\
+    &= 2 \times 0{,}90824 - 1 \\
+    &= 0{,}8165.
     \end{align*}
     \end{solution}
     \vspace{6cm}
@@ -544,7 +565,9 @@ Avec $\lambda = \frac{1}{5}$, on obtient
     \mathbb{P}(\overline{X} > 504)
     &= \mathbb{P}\!\left(Z > \frac{504 - 500}{2{,}5}\right)
     = \mathbb{P}(Z > 1{,}6)
-    = 1 - \Phi(1{,}6).
+    = 1 - \Phi(1{,}6)
+    = 1 - 0{,}9452
+    = 0{,}0548.
     \end{align*}
     \end{solution}
     \vspace{8cm}
@@ -569,7 +592,9 @@ Avec $\lambda = \frac{1}{5}$, on obtient
     \mathbb{P}(T > 212)
     &\approx \mathbb{P}\!\left(Z > \frac{212 - 200}{8}\right)
     = \mathbb{P}(Z > 1{,}5)
-    = 1 - \Phi(1{,}5).
+    = 1 - \Phi(1{,}5)
+    = 1 - 0{,}9332
+    = 0{,}0668.
     \end{align*}
     \end{solution}
 \end{parts}
