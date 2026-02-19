@@ -10,22 +10,61 @@
 \noprintanswers
 
 % ============================================================
+% MÉCANISME D'AFFICHAGE CONDITIONNEL DES TITRES DE MODULES
+% Le titre d'un module n'apparaît que si au moins une session
+% active contient des questions dans ce module.
+% ============================================================
+\makeatletter
+\newcommand{\currentmodulekey}{}
+\newcommand{\currentmoduletitle}{}
+\newcommand{\currentgroupkey}{}
+\newcommand{\currentgrouptitle}{}
+% \modulegroupheader{clé}{titre} — en-tête de groupe (affiché une seule fois)
+\newcommand{\modulegroupheader}[2]{%
+  \renewcommand{\currentgroupkey}{#1}%
+  \renewcommand{\currentgrouptitle}{#2}%
+  \expandafter\global\expandafter\let\csname modulegroup@#1@shown\endcsname\relax
+}
+% \moduleheader{clé}{titre} — enregistre le titre sans l'afficher
+\newcommand{\moduleheader}[2]{%
+  \renewcommand{\currentmodulekey}{#1}%
+  \renewcommand{\currentmoduletitle}{#2}%
+  \expandafter\global\expandafter\let\csname module@#1@shown\endcsname\relax
+}
+% \showmoduleifneeded — appelé au début de chaque session active
+\newcommand{\showmoduleifneeded}{%
+  % Afficher l'en-tête de groupe si nécessaire
+  \ifx\currentgroupkey\empty\else
+    \expandafter\ifx\csname modulegroup@\currentgroupkey @shown\endcsname\relax
+      \section*{\currentgrouptitle}%
+      \expandafter\gdef\csname modulegroup@\currentgroupkey @shown\endcsname{1}%
+    \fi
+  \fi
+  % Afficher l'en-tête de module si nécessaire
+  \expandafter\ifx\csname module@\currentmodulekey @shown\endcsname\relax
+    \section*{\currentmoduletitle}%
+    \expandafter\gdef\csname module@\currentmodulekey @shown\endcsname{1}%
+  \fi
+}
+\makeatother
+
+% ============================================================
 % CONFIGURATION DES SESSIONS À AFFICHER
 % Par défaut, toutes les sessions sont affichées (environnements no-op).
 % Pour CACHER une session, décommentez la ligne \excludecomment correspondante.
 % ============================================================
-\newenvironment{H23}{}{}
-\newenvironment{A23}{}{}
-\newenvironment{H24}{}{}
-\newenvironment{A24}{}{}
-\newenvironment{A25}{}{}
-\newenvironment{H26}{}{}
+\newenvironment{H23}{\showmoduleifneeded}{}
+\newenvironment{A23}{\showmoduleifneeded}{}
+\newenvironment{H24}{\showmoduleifneeded}{}
+\newenvironment{A24}{\showmoduleifneeded}{}
+\newenvironment{A25}{\showmoduleifneeded}{}
+\newenvironment{H26}{\showmoduleifneeded}{}
 
 % Décommentez les lignes ci-dessous pour cacher des sessions :
-\excludecomment{H23}
-\excludecomment{A23}
+%\excludecomment{H23}
+%\excludecomment{A23}
 \excludecomment{H24}
-%\excludecomment{A24}
+\excludecomment{A24}
 \excludecomment{A25}
 \excludecomment{H26}
 
@@ -42,7 +81,7 @@
 
 \begin{questions}
 
-\section*{Module 1 - Introduction aux probabilités}
+\moduleheader{mod1}{Module 1 - Introduction aux probabilités}
 \begin{H23}
 \question (H23) On définit les événements $A$, $B$ et $C$ et les probabilités $P(A)$, $P(B)$ et $P(C)$. Que vaut $P(A)$ dans les cas suivants?
 \begin{parts}
@@ -514,7 +553,7 @@ Pour répondre aux questions, utilisez $\mathcal{S}$ pour désigner l'espace éc
 \end{parts}
 \end{H26}
 
-\section*{Module 2 - Variables aléatoires à une dimension}
+\moduleheader{mod2}{Module 2 - Variables aléatoires à une dimension}
 \begin{H23}
 \question  (H23) La variable aléatoire $X$ a la fonction de répartition continue suivante:
 \begin{center}
@@ -1045,7 +1084,7 @@ x^2, & 0\leq x \leq 1,\\
 \end{H26}
 
 
-\section*{Module 3 - Loi normale et théorème central limite}
+\moduleheader{mod3}{Module 3 - Loi normale et théorème central limite}
 \begin{A23}
 \question (A23)
 L'examen A et l'examen B servent pour la classification à un même emploi. 
@@ -1192,7 +1231,7 @@ $$P\left(\sum_{i=1}^{100}C_i > 200~000\right).$$
 \end{solution}
 \end{A25}
 
-\section*{Module 4 - Covariance et corrélation}
+\moduleheader{mod4}{Module 4 - Covariance et corrélation}
 
 \begin{A25}
 \question\label{ass2F} (A25)
@@ -1302,7 +1341,7 @@ Soit $X$, $Y$ et $W$ trois variables aléatoires avec
 \end{H26}
 
 
-\section*{Module 5 - Statistiques descriptives}
+\moduleheader{mod5}{Module 5 - Statistiques descriptives}
 \begin{A23}
 \question[] (A23)
 Dans un laboratoire de microtechnique, Audrey et Vincent ont étudié le temps de réaction (en millisecondes) d'un certain type de détecteur de mouvements. Les 21 valeurs suivantes sont des temps de réaction collectés au cours d'une journée:
@@ -1587,7 +1626,7 @@ Il faut ajouter une ligne verticale à $x=115$ à l'intérieur de la boîte pour
 \end{H26}
 
 
-\section*{Module 6 - Échantillons aléatoires, lois échantillonnales et estimation ponctuelle}
+\moduleheader{mod6}{Module 6 - Échantillons aléatoires, lois échantillonnales et estimation ponctuelle}
 
 \begin{H23}
 \question 
@@ -1674,8 +1713,8 @@ Cochez tous les énoncés qui sont \textbf{faux}?
 \end{checkboxes}
 \end{H24}
 
-    \begin{A24}
-    \question (A24) Soit deux échantillons aléatoires indépendants provenant de populations normales, tels que:
+\begin{A24}
+\question (A24) Soit deux échantillons aléatoires indépendants provenant de populations normales, tels que:
 \begin{align*}
     X_1,\hdots,X_{16}&\sim\mathcal{N}(7, 4),\\
     Y_1,\hdots,Y_{100}&\sim\mathcal{N}(8, 9).
@@ -1728,7 +1767,7 @@ Cochez tous les énoncés qui sont \textbf{faux}?
         \choice Aucune de ces réponses
     \end{checkboxes}
 \end{parts}
-    \end{A24}
+\end{A24}
 
 \begin{A24}
 \question (A24)
@@ -1784,13 +1823,13 @@ Déterminez si les énoncés suivants sont vrais ou faux.
     \end{parts}
 \end{A24}
 
-    \begin{A24}
-    \question (A24)  
+\begin{A24}
+\question (A24)  
 Soit $X_1,\hdots,X_9$ des réalisations indépendantes d'une variable $X\sim\mathcal{N}(12, 24)$ et $Y_1,\hdots,Y_{18}$ des réalisations indépendantes d'une variable $Y\sim\mathcal{N}(21, 24)$. 
 Notez $S_X^2$ et $S_Y^2$, les variances des deux échantillons.
 
 Quelle est la probabilité que $S_X^2$ soit deux fois plus grande que $S_Y^2$?
-    \end{A24}
+\end{A24}
 
 \begin{A25}
 \question (A25)
@@ -1865,8 +1904,8 @@ Le biais est $E(\overline{X}^2)-\theta^2 = \dfrac{21\theta^2}{20}-\theta^2 = \df
     \end{parts}
 \end{A25}
 
-    \begin{A25}
-    \question (A25) Soit $X_1,\hdots,X_{25}$, des réalisations indépendantes d'une variable aléatoire normale d'espérance $\mu=176,45$ et d'écart-type $\sigma=\sqrt{48}$.
+\begin{A25}
+\question (A25) Soit $X_1,\hdots,X_{25}$, des réalisations indépendantes d'une variable aléatoire normale d'espérance $\mu=176,45$ et d'écart-type $\sigma=\sqrt{48}$.
 
     \begin{parts}
         \part Quelle est la probabilité que la variance échantillonnale soit supérieure à 46,68?
@@ -1890,7 +1929,7 @@ De la table de Student: $t_{24;\,0{,}0005}=3{,}745$, donc $P(t_{24}>3{,}745)=0{,
 \end{solution}
  
     \end{parts}
-    \end{A25}
+\end{A25}
 
 \begin{H26}
 \question (H26) 
@@ -1927,7 +1966,7 @@ $$0{,}14+0{,}04\mu^2 < 0{,}2 \implies 0{,}04\mu^2<0{,}06 \implies \mu^2<1{,}5 \i
         \end{parts}
 \end{H26}
 
-\section*{Module 7 - Intervalles de confiance}
+\moduleheader{mod7}{Module 7 - Intervalles de confiance}
 
 \begin{A25}
     
@@ -2448,7 +2487,7 @@ Associez chacune des situations suivantes au numéro de l'intervalle de confianc
 
 
 
-\section*{Module 8 - Tests d'hypothèses}
+\moduleheader{mod8}{Module 8 - Tests d'hypothèses}
 
 \begin{A23}
 \question
@@ -3246,7 +3285,7 @@ Le seuil observé est $0{,}05 < \alpha = 0{,}10$, donc on rejette $H_0$. Au seui
 \end{parts}
 \end{A25}
 
-\section*{Module 9 - ANOVA à un facteur} 
+\moduleheader{mod9}{Module 9 - ANOVA à un facteur}
 \begin{A23}
 \question (A23) Soit la table d'ANOVA suivante obtenue à l'aide de \texttt{Rcmdr}:
 \begin{verbatim}
@@ -3468,7 +3507,7 @@ La valeur-$p = 0{,}000001 < 0{,}05 = \alpha$, donc on rejette $H_0$: les moyenne
 \end{A25}
 
 
-\section*{Module 10 - Régression linéaire simple}
+\moduleheader{mod10}{Module 10 - Régression linéaire simple}
 \begin{A23}
 \question (A23)
 Dans la forêt amazonienne, on veut prédire la taille des arbres ($Y$) en mètres à partir de leur diamètre ($X$) en centimètres. Pour ce faire, un statisticien dispose de $31$ mesures ($X_i,\,Y_i$) et à l'aide de \texttt{Rcmdr}, il a ajusté le modèle de régression suivant
@@ -3749,7 +3788,7 @@ La valeur-$p$ pour tester $H_0\!: \beta_1=0$ est $0{,}024 < 0{,}05$, donc la rel
 \end{A25}
 
 
-\section*{Module 11 - Régression linéaire multiple}
+\moduleheader{mod11}{Module 11 - Régression linéaire multiple}
 
 \begin{H24}
 \question (H24)
@@ -3926,7 +3965,7 @@ $p = 0{,}00001 < 0{,}01 = \alpha$, donc on rejette $H_0$. Au moins une des varia
 \end{parts}
 \end{A24}
 
-\section*{Plusieurs modules}
+\moduleheader{multi}{Plusieurs modules}
 \begin{H23}
 \question  (H23) Soit les trois expériences aléatoires suivantes:
 \begin{itemize}
@@ -4170,8 +4209,8 @@ La valeur-p ne dépend PAS de $\alpha$; elle est fixée par les données. Les au
 \end{solution}
 \end{A25}
 
-\section*{Les modules suivants ne sont plus à l'étude depuis A25}
-\section*{Lois conjointes}
+\modulegroupheader{hors}{Les modules suivants ne sont plus à l'étude depuis A25}
+\moduleheader{lois}{Lois conjointes}
 
 \begin{A23}
 \question  (A23) Soit $X$ et $Y$ deux variables aléatoires dont la loi conjointe est 
@@ -4319,7 +4358,7 @@ Puisque $f(x,y) = f_X(x) \cdot f_Y(y)$, les variables $X$ et $Y$ sont indépenda
 \end{parts}
 \end{A24}
 
-\section*{ANOVA deux facteurs}
+\moduleheader{anova2}{ANOVA deux facteurs}
 
 \begin{H24}
 \question (H24) Sophie a planifié une expérience afin d'étudier l'effet du canton (Vaud, Genève et Jura) et du type de logement (maison et appartement) sur le prix de vente du logement. Elle a évalué aléatoirement $\boldsymbol{k}$ logements pour chacune des 6 combinaisons. Voici une partie d'une sortie \texttt{R}.
@@ -4346,7 +4385,7 @@ $$df_E = N - ab = 6k - 6 = 12 \implies k = 3.$$
 \end{parts}
 \end{H24}
 
-\section*{ANOVA blocs}
+\moduleheader{anovablocs}{ANOVA blocs}
 
 \begin{H24}
 \question (H24)  Benjamin veut vérifier si le type de fourrage que mange une vache laitière a un impact sur sa production de lait.
