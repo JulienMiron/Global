@@ -22,12 +22,12 @@
 \newenvironment{H26}{}{}
 
 % Décommentez les lignes ci-dessous pour cacher des sessions :
-%\excludecomment{H23}
-%\excludecomment{A23}
-%\excludecomment{H24}
+\excludecomment{H23}
+\excludecomment{A23}
+\excludecomment{H24}
 %\excludecomment{A24}
-%\excludecomment{A25}
-%\excludecomment{H26}
+\excludecomment{A25}
+\excludecomment{H26}
 
 % Supprimer la page couverture et ajuster les marges
 \renewcommand{\couverture}{\newgeometry{margin=1.7cm,left=0.7cm,bottom=1.5cm,footskip=0mm}}
@@ -1588,6 +1588,7 @@ Il faut ajouter une ligne verticale à $x=115$ à l'intérieur de la boîte pour
 
 
 \section*{Module 6 - Échantillons aléatoires, lois échantillonnales et estimation ponctuelle}
+
 \begin{H23}
 \question 
 (H23, A23)
@@ -1792,7 +1793,7 @@ Quelle est la probabilité que $S_X^2$ soit deux fois plus grande que $S_Y^2$?
     \end{A24}
 
 \begin{A25}
-\question\label{AOVblocs1} (A25)
+\question (A25)
 
 Un échantillon aléatoire $X_1,\dots,X_n$ est obtenu à partir d'une loi dont la fonction
 de densité dépend d'un paramètre inconnu $\theta$. Une prise de décision en ingénierie
@@ -1925,7 +1926,48 @@ $$0{,}14+0{,}04\mu^2 < 0{,}2 \implies 0{,}04\mu^2<0{,}06 \implies \mu^2<1{,}5 \i
 
         \end{parts}
 \end{H26}
+
 \section*{Module 7 - Intervalles de confiance}
+
+\begin{A25}
+    
+\question (A25) On souhaite obtenir un intervalle de confiance pour $\mu$, l'espérance d'une variable aléatoire $X$ normale de variance $0,81$, à l'aide de l'échantillon suivant:
+
+$$1,1,1,2,2,2,3,3,3,$$
+pour lequel $\displaystyle\sum_{i=1}^n x_i=18$ et $\displaystyle\sum_{i=1}^9x_i^2=42$.
+
+\begin{parts}
+    \part[5] Donnez l'intervalle de confiance de niveau $95\%$.
+
+    \begin{solution}
+        Il s'agit d'un intervalle de confiance pour $\mu$, cas loi normale variance connue, donc l'IC est de la forme
+        $$\overline{X}\pm z_{\alpha/2}\frac{\sigma}{\sqrt{n}}$$
+        Ici, $\overline{x}=2$, $\alpha/2=0,025$, donc $z_{\alpha/2}=1,96$, $\sigma=\sqrt{0,81}$ et $\sqrt{n}=3$.
+
+        L'intervalle de confiance est donc
+        \begin{align*}
+            [2-1,96\frac{0,9}{3}&;2=1,96\frac{0,9}{3}]\\
+            [1,412&;2,588]
+        \end{align*}
+    \end{solution}
+  
+
+    \part[5] Quel devrait-être le niveau de l'intervalle de confiance pour qu'il soi t de longueur 0,708?
+
+    \begin{solution}
+        Si l'intervalle de confiance est de longueur 0,708, cela implique que la marge d'erreur est de longueur $0,708/2=0,354$.
+
+        Donc 
+        \begin{align*}
+            z_{\alpha/2}\frac{\sigma}{\sqrt{n}}&=0,354\\
+            z_{\alpha/2}\frac{0,9}{3}&=0,354\\
+            z_{\alpha/2}&=1,18
+        \end{align*}
+        
+    \end{solution}
+\end{parts}
+
+\end{A25}
 \begin{H24}
 \question (H24) Nous nous intéressons aux prix des loyers des étudiants de l'Université Laval. 
 Avec un échantillon aléatoire de $n=241$ étudiants, nous obtenons l'intervalle de confiance à 95\%  pour $\mu$ suivant: $[550;1630]$. 
