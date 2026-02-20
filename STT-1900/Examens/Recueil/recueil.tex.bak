@@ -53,20 +53,26 @@
 % Par défaut, toutes les sessions sont affichées (environnements no-op).
 % Pour CACHER une session, décommentez la ligne \excludecomment correspondante.
 % ============================================================
+\newenvironment{A22}{\showmoduleifneeded}{}
 \newenvironment{H23}{\showmoduleifneeded}{}
 \newenvironment{A23}{\showmoduleifneeded}{}
 \newenvironment{H24}{\showmoduleifneeded}{}
 \newenvironment{A24}{\showmoduleifneeded}{}
+\newenvironment{H25}{\showmoduleifneeded}{}
 \newenvironment{A25}{\showmoduleifneeded}{}
 \newenvironment{H26}{\showmoduleifneeded}{}
+\newenvironment{H26r}{\showmoduleifneeded}{}
 
 % Décommentez les lignes ci-dessous pour cacher des sessions :
+%\excludecomment{A22}
 %\excludecomment{H23}
 %\excludecomment{A23}
 %\excludecomment{H24}
 %\excludecomment{A24}
+%\excludecomment{H25}
 %\excludecomment{A25}
 \excludecomment{H26}
+\excludecomment{H26r}
 
 % Supprimer la page couverture et ajuster les marges
 \renewcommand{\couverture}{\newgeometry{margin=1.7cm,left=0.7cm,bottom=1.5cm,footskip=0mm}}
