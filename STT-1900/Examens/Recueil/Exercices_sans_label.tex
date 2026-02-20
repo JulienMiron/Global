@@ -63,9 +63,9 @@
 % Décommentez les lignes ci-dessous pour cacher des sessions :
 %\excludecomment{H23}
 %\excludecomment{A23}
-\excludecomment{H24}
-\excludecomment{A24}
-\excludecomment{A25}
+%\excludecomment{H24}
+%\excludecomment{A24}
+%\excludecomment{A25}
 \excludecomment{H26}
 
 % Supprimer la page couverture et ajuster les marges
@@ -1991,7 +1991,7 @@ pour lequel $\displaystyle\sum_{i=1}^n x_i=18$ et $\displaystyle\sum_{i=1}^9x_i^
     \end{solution}
   
 
-    \part[5] Quel devrait-être le niveau de l'intervalle de confiance pour qu'il soi t de longueur 0,708?
+    \part[5] Quel devrait-être le niveau de l'intervalle de confiance pour qu'il soit de longueur 0,708?
 
     \begin{solution}
         Si l'intervalle de confiance est de longueur 0,708, cela implique que la marge d'erreur est de longueur $0,708/2=0,354$.
@@ -2331,39 +2331,7 @@ La borne inférieure de l'intervalle de confiance pour la variance est $0,024$.
 \end{parts}
 \end{A24}
 
-\begin{A25}
-\question (A25) On souhaite obtenir un intervalle de confiance pour $\mu$, l'espérance d'une variable aléatoire $X$ normale de variance $0,81$, à l'aide de l'échantillon suivant:
 
-$$1,1,1,2,2,2,3,3,3,$$
-pour lequel $\displaystyle\sum_{i=1}^n x_i=18$ et $\displaystyle\sum_{i=1}^9x_i^2=42$.
-
-\begin{parts}
-    \part Donnez l'intervalle de confiance de niveau $95\%$.
-
-    \begin{solution}
-    On a $n = 9$, $\sigma^2 = 0{,}81$ (donc $\sigma = 0{,}9$), et $\bar{x} = \frac{18}{9} = 2$.
-    
-    L'IC de niveau 95\% pour $\mu$ avec variance connue est:
-    \[
-    \bar{x} \pm z_{\alpha/2} \frac{\sigma}{\sqrt{n}} = 2 \pm 1{,}96 \times \frac{0{,}9}{\sqrt{9}} = 2 \pm 1{,}96 \times 0{,}3 = 2 \pm 0{,}588.
-    \]
-    L'intervalle de confiance est $[1{,}412\; ;\; 2{,}588]$.
-    \end{solution}
-
-    \part Quel devrait-être le niveau de l'intervalle de confiance pour qu'il soi t de longueur 0,708?
-
-    \begin{solution}
-    La longueur de l'IC est $2 z_{\alpha/2} \frac{\sigma}{\sqrt{n}} = 2 z_{\alpha/2} \times 0{,}3$.
-    
-    On veut $2 z_{\alpha/2} \times 0{,}3 = 0{,}708$, d'où $z_{\alpha/2} = \frac{0{,}708}{0{,}6} = 1{,}18$.
-    
-    En consultant la table de la loi normale: $P(Z \leq 1{,}18) \approx 0{,}881$, donc $\alpha/2 = 1 - 0{,}881 = 0{,}119$ et $\alpha = 0{,}238$.
-    
-    Le niveau de confiance est $1 - \alpha \approx 76{,}2\%$.
-    \end{solution}
-  
-\end{parts}
-\end{A25}
 
 \begin{A25}
 \question (A25) Soit $X_1,\hdots, X_{49}$, des variables aléatoires indépendantes d'espérance $\mu$ et de variance $\sigma^2$. Voici plusieurs intervalles:
