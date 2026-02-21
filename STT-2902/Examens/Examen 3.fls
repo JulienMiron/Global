@@ -1,6 +1,0 @@
-PWD /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-2902/Examens
-INPUT /usr/local/texlive/2025/texmf.cnf
-INPUT /usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf
-INPUT /usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-2902/Examens/Examen 3.tex
-OUTPUT Examen 3.log
