@@ -1,0 +1,149 @@
+\documentclass[11pt,french]{article}
+
+
+\usepackage{amsmath,amsfonts,graphicx}
+\renewcommand{\baselinestretch}{1.1}
+
+\usepackage{enumerate,multirow}
+\usepackage{verbatim}
+%\usepackage{eclbip}
+%\usepackage{pst-node}
+%\include{psfig.sty}
+\usepackage{url}
+\usepackage{fancyhdr}
+%\usepackage{slashbox}
+\usepackage[colorlinks=true]{hyperref}
+
+%\usepackage{soul}
+
+\usepackage{ulem}
+
+\parindent=0cm
+\textwidth 6.25in
+\textheight 21.9 cm
+\topmargin -1.4 cm
+\oddsidemargin 0in
+\evensidemargin 0in
+
+%%%% debut macro anti-orphelins %%%%
+%\widowpenalty=10000
+%\clubpenalty=10000
+%\raggedbottom
+%%%% fin macro %%%%
+
+\headsep 1.5cm
+\footskip 1.5cm
+\fancyhead{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0.6pt}
+%\renewcommand{\footrulewidth}{0.6pt}
+\fancyhead[LO,LE]{{\footnotesize Universit\'e Laval \\
+Facult\'e des sciences et de g\'enie\\
+D\'epartement de math\'ematiques et de statistique
+}}
+\fancyhead[RO,RE]{{\footnotesize Automne 2025\\STT-2902 Modélisation statistique\\Julien Miron}}
+%\fancyfoot[LO, LE] {\includegraphics[width=1.5cm]{UL.jpg}}
+%\fancyfoot[RO, RE] {\vspace{-0.5cm} \thepage}
+
+
+\pagestyle{fancy}
+\pagenumbering{gobble}
+
+
+\begin{document}
+
+\vspace*{0.05 in}
+\begin{center}
+\textbf{Projet - Étude statistique} \\
+\end{center}
+%\vspace{0.1 in}
+
+
+%\underline{\hspace{6.25in}}
+
+\vspace{2mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+L'objectif est ici de \textbf{mettre en pratique toutes les étapes du processus statistique}. Votre tâche consiste à :
+\begin{enumerate}
+\item Formuler des questions auxquelles la statistique peut apporter des réponses;
+\item Planifier une stratégie de collecte de données pour répondre à ces questions;
+\item Recueillir les données et les préparer pour l’analyse (nettoyage);
+\item Analyser les données à l’aide de statistiques descriptives et de méthodes d’inférence adaptées;
+\item Tirer des conclusions en lien avec les questions initiales.
+\end{enumerate}
+
+Vous devrez d’abord soumettre une proposition de projet, puis présenter vos analyses et conclusions dans un rapport écrit. Les détails se trouvent aux pages suivantes. \\
+
+
+\textbf{Contraintes}
+
+\begin{enumerate}
+\item \textbf{Équipes :} Les équipes seront composées de \uline{3 étudiants}, sauf une seule qui pourra compter 4 étudiants.
+\item \textbf{Nombre de questions :} Chaque équipe devra répondre à \uline{autant de questions qu’elle compte de membres}.
+\item \textbf{Type de questions permises :} À l’étape 4 ci-dessous, vous devrez utiliser des \uline{méthodes d’inférence vues dans le cours}, ce qui restreint les types de questions possibles. Voici quelques exemples acceptables :
+\begin{itemize}
+\item[$\bullet$] Estimation d’une moyenne, d’une proportion ou d’une variance dans une population;
+\item[$\bullet$] Comparaison de moyennes, de proportions ou de variances entre deux populations;
+\item[$\bullet$] Recherche d’une relation entre deux variables continues;
+\item[$\bullet$] Recherche d’une relation entre deux variables catégoriques.
+\end{itemize}
+Choisissez un sujet qui vous intéresse vraiment, et des questions dont les réponses vous intriguent.
+\item \textbf{Contrainte spécifique :} \uline{Au moins une question doit porter sur la relation entre deux variables continues}, afin que toutes les équipes pratiquent la régression linéaire.
+\item \textbf{Collecte de données :} Vous pouvez recueillir vous-mêmes les données (expérience ou sondage) ou utiliser un ensemble de données observationnelles fiables et pertinentes. Il est possible de faire un échantillonnage si le jeu de données est trop volumineux (par exemple, s’il provient de plusieurs pages web). \uline{Il n’est pas permis de simplement utiliser un jeu de données déjà compilé disponible en ligne ou ailleurs, ni de faire un recensement.}
+\end{enumerate}
+
+
+\newpage
+
+%\vspace*{-0.5in}
+\textbf{Étapes du projet}
+
+\begin{enumerate} \itemsep 3mm
+\item \textbf{Proposition de projet - 9 novembre 2025} 
+
+Ce document devra contenir les sections suivantes :
+\begin{enumerate}
+\item[-] \textbf{Objectifs de l’étude}\\
+Présentez les questions que vous souhaitez explorer, expliquez pourquoi elles sont pertinentes, et formulez des hypothèses sur les résultats attendus.
+\item[-] \textbf{Stratégie de collecte de données}\\
+Décrivez votre plan de collecte de données. Spécifiez clairement la population cible. Discutez des biais possibles et de la manière dont vous comptez les limiter. Justifiez toutes vos décisions. Si vous utilisez des données administratives, indiquez précisément leur source et la méthode de collecte.
+\end{enumerate}
+
+\item \textbf{Présentation \underline{formative} des résultats - 1er décembre 2025} 
+
+Préparez quelques diapositives présentant les données recueillies ainsi que vos premières analyses descriptives. Vous recevrez des commentaires de ma part et de vos collègues.
+
+\item \textbf{Rapport d’analyse - 15 décembre 2025} 
+
+Ce document doit :
+\begin{enumerate}
+\item[-] \textbf{Reprendre les deux sections de la proposition de projet, ajustées au besoin.}\\
+En particulier, mettez à jour la section sur la collecte des données en décrivant précisément comment elle s’est déroulée et en justifiant vos choix. Il doit être possible de reproduire votre collecte à partir des informations fournies. Ajoutez des photos au besoin.
+\item[-] \textbf{Analyser les données en lien avec les questions posées.}\\
+Commencez par des statistiques descriptives (incluant au moins un graphique). Décrivez la distribution des variables d’intérêt et relevez les valeurs extrêmes ou observations inhabituelles. 
+
+Ensuite, approfondissez vos réponses grâce à des méthodes d’inférence statistique. Précisez les outils statistiques utilisés pour chaque question. Interprétez vos résultats en tenant compte du contexte. Pour chaque analyse, validez les hypothèses du modèle utilisé (normalité ? variances égales ? taille d’échantillon suffisante ? etc.). Si les hypothèses ne sont pas respectées, envisagez une transformation des variables ou une autre méthode d’analyse.
+\item[-] \textbf{Ajouter une section de discussion en conclusion.}\\
+Évaluez la solidité de vos conclusions. Vos analyses répondent-elles clairement aux questions posées ? Si ce n’est pas le cas, où sont les limites ? Que changeriez-vous dans votre collecte si vous pouviez recommencer ?
+\end{enumerate}
+
+
+\newpage
+
+\vspace{0.1in}
+\vspace{0.1in}
+\textbf{Notes: }
+\begin{enumerate}[$\bullet$]
+\item Vous devez fournir un fichier Excel ou GeoGebra contenant vos données analysées.
+\item Tous les graphiques et tableaux du rapport doivent être numérotés et commentés dans le texte. Ne faites pas référence directement au fichier de données.
+\item Soyez concis : incluez tout ce qui est utile, mais évitez les tableaux ou graphiques superflus qui n’ajoutent rien à votre analyse.
+\item Les grilles d’évaluation utilisées pour ce projet sont disponibles sur le site du cours.
+\end{enumerate}
+
+
+
+\end{enumerate}
+
+
+\end{document}

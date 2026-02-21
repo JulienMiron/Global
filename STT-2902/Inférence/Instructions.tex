@@ -1,0 +1,98 @@
+\documentclass[11pt,french]{article}
+
+\usepackage{amsmath,amsfonts,graphicx}
+\renewcommand{\baselinestretch}{1.1}
+
+\usepackage{enumerate,multirow}
+\usepackage{verbatim}
+%\usepackage{eclbip}
+%\usepackage{pst-node}
+%\include{psfig.sty}
+\usepackage{url}
+\usepackage{fancyhdr}
+%\usepackage{slashbox}
+\usepackage[colorlinks=true]{hyperref}
+
+%\usepackage{soul}
+
+\usepackage{ulem}
+
+\parindent=0cm
+\textwidth 6.25in
+\textheight 21.9 cm
+\topmargin -1.4 cm
+\oddsidemargin 0in
+\evensidemargin 0in
+
+%%%% debut macro anti-orphelins %%%%
+%\widowpenalty=10000
+%\clubpenalty=10000
+%\raggedbottom
+%%%% fin macro %%%%
+
+\headsep 1.5cm
+\footskip 1.5cm
+\fancyhead{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0.6pt}
+%\renewcommand{\footrulewidth}{0.6pt}
+\fancyhead[LO,LE]{{\footnotesize Université Laval \\
+Faculté des sciences et de génie\\
+Département de mathématiques et de statistique
+}}
+\fancyhead[RO,RE]{{\footnotesize Automne 2025\\STT-2902 Modélisation statistique\\Julien Miron}}
+%\fancyfoot[LO, LE] {\includegraphics[width=1.5cm]{UL.jpg}}
+%\fancyfoot[RO, RE] {\vspace{-0.5cm} \thepage}
+
+
+\pagestyle{fancy}
+\pagenumbering{gobble}
+
+
+\begin{document}
+\begin{center}
+   \textbf{ Analyse de données -- Inférence}
+\end{center}
+
+
+\subsection*{Jeu de données}
+
+Nous utiliserons le jeu de données \texttt{penguins} provenant du package \texttt{palmerpenguins} en R. Il contient des informations sur trois espèces de manchots vivant dans les îles Palmer, en Antarctique. Chaque ligne représente un manchot mesuré dans le cadre d'une étude écologique.
+
+Variables utilisées :
+\begin{itemize}
+  \item \texttt{species} : Espèce du manchot (\textit{Adelie}, \textit{Chinstrap}, \textit{Gentoo})
+  \item \texttt{flipper\_length\_mm} : Longueur des nageoires (en mm)
+  \item \texttt{body\_mass\_g} : Masse corporelle (en grammes)
+  \item \texttt{sex} : Sexe du manchot (\textit{male}, \textit{female})
+  \item \texttt{island} : Île d’origine du manchot (\textit{Biscoe}, \textit{Dream}, \textit{Torgersen})
+\end{itemize}
+
+\subsection*{Questions de recherche}
+
+\begin{enumerate}
+  \item Est-ce que les manchots \textit{Gentoo} sont en moyenne plus lourds que les manchots \textit{Adelie} ?
+  \item Est-ce que la proportion de manchots mâles est différente entre les îles \textit{Dream} et \textit{Biscoe}? Vous devez supposer que que les conditions sont bien remplies. Vous en reparlerez au point 3.
+  \item Est-ce que la longueur des nageoires des manchots suit une distribution normale ?
+\end{enumerate}
+
+\subsection*{Votre travail}
+
+Pour les questions 1 et 2 :
+
+\begin{enumerate}
+  \item \textbf{Statistiques descriptives} : Présentez des résumés numériques et graphiques. Essayez de faire une inférence informelle à partir du jeu de données.
+
+  \item \textbf{Analyse inférentielle} : Utilisez un test d’hypothèse approprié (test t, test de proportion, test de normalité, etc.) avec un seuil de signification $\alpha = 0{,}01$. Fournissez aussi un intervalle de confiance à 90\% pour le paramètre étudié.
+
+  \item \textbf{Postulats} : Vous avez pris certaines choses pour acquis au point 2. Quelles sont-elles? Si ces choses n'étaient pas vraies, discutez des limites de l’analyse.
+
+  \item \textbf{Valeurs manquantes} : Si vous devez exclure certaines lignes en raison de valeurs manquantes, mentionnez-le clairement et discutez des impacts potentiels.
+\end{enumerate}
+
+Pour la question 3, utilisez des statistiques descriptives.
+
+Vous pouvez effectuer les analyses dans R, Excel ou GeoGebra.
+Incluez dans votre rapport des captures d’écran ou extraits de sorties de logiciel pour appuyer votre interprétation des résultats.
+
+\end{document}

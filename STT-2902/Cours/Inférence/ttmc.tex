@@ -1,0 +1,368 @@
+%\documentclass[handout]{beamer}
+\documentclass{BeamerTemplate}
+
+
+\newcounter{sauvegardeenumi}
+\newcommand{\asuivre}{\setcounter{sauvegardeenumi}{\theenumi}}
+\newcommand{\suite}{\setcounter{enumi}{\thesauvegardeenumi}}
+
+
+%\usepackage[latin1]{inputenc}  %modifies preambule
+
+\title{Inférence}
+
+\date{}
+
+
+\begin{document}
+
+\begin{frame}
+
+\titlepage
+
+\end{frame}
+
+\begin{frame}{Tu te mets combien?}
+ \begin{table}[h!]
+    \centering
+    \renewcommand{\arraystretch}{1.4}
+    \begin{tabular}{c|c|c|c|c}
+        \textbf{$\mathbb{E}$ et $V$} & 
+        \textbf{Lois + TCL} & 
+        \textbf{Estimation} & 
+        \textbf{IC} & 
+        \textbf{Tests d'hypothèses} \\ \hline
+        \href{Niveau 1}{\ref{ev1}} & \href{Niveau 1}{\ref{ech1}} & \href{Niveau 1}{\ref{est1}} & \href{Niveau 1}{\ref{ic1}} & \href{Niveau 1}{\ref{tests1}} \\
+        \href{Niveau 2}{\ref{ev2}} & \href{Niveau 2}{\ref{ech2}} & \href{Niveau 2}{\ref{est2}} & \href{Niveau 2}{\ref{ic2}} & \href{Niveau 2}{\ref{tests2}} \\
+        \href{Niveau 3}{\ref{ev3}} & \href{Niveau 3}{\ref{ech3}} & \href{Niveau 3}{\ref{est3}} & \href{Niveau 3}{\ref{ic3}} & \href{Niveau 3}{\ref{tests3}} \\
+        \href{Niveau 4}{\ref{ev4}} & \href{Niveau 4}{\ref{ech4}} & \href{Niveau 4}{\ref{est4}} & \href{Niveau 4}{\ref{ic4}} & \href{Niveau 4}{\ref{tests4}} \\
+        \href{Niveau 5}{\ref{ev5}} & \href{Niveau 5}{\ref{ech5}} & \href{Niveau 5}{\ref{est5}} & \href{Niveau 5}{\ref{ic5}} & \href{Niveau 5}{\ref{tests5}} \\
+    \end{tabular}
+    \label{tab:niveaux}
+\end{table}
+\end{frame}
+
+\begin{frame}{Espérance et variance 1}\label{ev1}
+\begin{center}
+        Soit la variable aléatoire $X$, dont les deux résultats possibles sont $X=1$ avec probabilité $0,4$ et $X=2$ avec probabilité $0,6$. 
+
+    \medskip
+    Quelle est l'espérance de $X$?
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}{Espérance et variance 2}\label{ev2}
+\begin{center}
+        Vrai ou faux? Si faux, corrigez.
+\medskip
+
+L'espérance d'une variable aléatoire est invariante par translation, mais sa variance n'est pas invariante par translation.
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}{Espérance et variance 3}\label{ev3}
+\begin{center}
+      Soit $X$ et $Y$, deux variables aléatoires indépendantes, d'espérances respectives $\mu_x$ et $\mu_Y$, et de variances respectives $\sigma^2_X$ et $\sigma^2_Y$.
+      \medskip
+
+      Donnez les expressions de l'espérance et de la variance de $4X-2Y$.
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Espérance et variance 4}\label{ev4}
+\begin{center}
+      Parmi les expressions suivantes, laquelle est une expression de la variance pour une variable aléatoire $X$ continue?
+
+      \begin{enumerate}
+          \item $V(X)=\int_{-\infty}^{\infty}(x-\mu)^2dx$
+          \item $V(X)=E[(X-\mu)^2]$
+          \item $V(X)=\sum_{\mathbb{R}_X}(x-\mu)^2p(x)$
+          \item $V(X)=E(X)-E(X)^2$
+      \end{enumerate}
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Espérance et variance 5}\label{ev5}
+\begin{center}
+      Soit $X$, une variable aléatoire uniforme dans l'intervalle $[12, 15]$, dont la fonction de répartion est donnée par $F(x)=\frac{x-12}{3}$ si $x \in [12,15]$ et $F(x)=0$, sinon. 
+
+      \medskip
+
+      Vous avez 4 minutes pour calculer l'espérance et la variance de $X$.
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Lois échantillonnales + TCL 1}\label{ech1}
+\begin{center}
+
+Vrai ou faux?
+\medskip
+
+      La loi de Student de degrés de liberté $\nu$ a une d'espérance égale à $\nu$. Si faux, corrigez.
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Lois échantillonnales + TCL 2}\label{ech2}
+\begin{center}
+Soit $X_1,\hdots, X_{n}$, des réalisation d'une variable aléatoire de loi quelconque d'espérance $\mu$ et de variance $\sigma^2$.
+
+\medskip
+Énoncez le théorème limite centrale pour la somme des $X_i$ ainsi que la condition d'application.
+
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Lois échantillonnales + TCL 3}\label{ech3}
+\begin{center}
+
+Vrai ou faux? Si faux, corrigez.
+\medskip
+
+Soit $X_1,\hdots, X_{35}$, des réalisation d'une variable aléatoire de loi quelconque d'espérance $\mu$ et de variance $\sigma^2$. Alors la variable aléatoire $\displaystyle \frac{\overline{X}-\mu}{S/\sqrt{35}}$ suit approximativement une loi de Student à 34 degrés de liberté.
+
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Lois échantillonnales + TCL 4}\label{ech4}
+\begin{center}
+
+Soit l'échantillon aléatoire $X_1,\hdots,X_{25}$ qui sont des réalisations d'une variable aléatoire $X$ qui suit une loi normale d'espérance $16$ et de variance $6400$.
+
+\medskip
+
+Quelle est la loi de la variable aléatoire $\displaystyle \frac{\overline{X}}{16}-1$?
+
+
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}{Lois échantillonnales + TCL 5}\label{ech5}
+\begin{center}
+
+Soit l'échantillon aléatoire $X_1,\hdots,X_{25}$ qui sont des réalisations d'une variable aléatoire $X$ qui suit une loi normale d'espérance $16$ et de variance $6400$.
+
+\medskip
+
+Quelle est la loi de la variable aléatoire $\left(\displaystyle \frac{\overline{X}}{16}-1\right)^2$?
+
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Estimation de paramètres 1}\label{est1}
+\begin{center}
+
+Quel est l'estimateur <<classique>> de l'espérance $\mu$?
+
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}{Estimation de paramètres 2}\label{est2}
+\begin{center}
+
+Pourquoi utilisons-nous $\displaystyle S^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\overline{X})^2$ plutôt que $\displaystyle S^2=\frac{1}{n}\sum_{i=1}^n(X_i-\overline{X})^2$ pour estimer $\sigma^2$?
+
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Estimation de paramètres 3}\label{est3}
+\begin{center}
+Soit $\overline{X}_1, \hdots , \overline{X}_m$, des réalisations de la moyenne empirique $\overline{X}$.
+
+\medskip
+Corrigez cette affirmation:
+
+<<Comme $\overline{X}$ est estimateur sans biais pour $\mu$, nous savons que $\displaystyle \frac{1}{m}\sum_{i=1}^m \overline{X}_m=\mu$.>>
+
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Estimation de paramètres 4}\label{est4}
+\begin{center}
+
+L'erreur quadratique moyenne d'un estimateur sans biais est égale à....
+
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Estimation de paramètres 5}\label{est5}
+\begin{center}
+
+On estime le paramètre $\theta$ à l'aide de deux estimateurs :
+\[
+\begin{aligned}
+\text{Estimateur 1:}\quad 
+& \operatorname{Biais}_1(\theta)=\theta, 
+& \operatorname{Var}_1(\theta)=12,\\[2mm]
+\text{Estimateur 2:}\quad 
+& \operatorname{Biais}_2(\theta)=\sqrt{\theta}, 
+& \operatorname{Var}_2(\theta)=12.
+\end{aligned}
+\]
+
+Pour \textbf{quelles valeurs de $\theta$} l’estimateur 1 est-il \textbf{préférable} selon le critère de l’erreur quadratique moyenne (EQM) ?
+
+\end{center}
+\end{frame}
+
+
+
+\begin{frame}{Intervalle de confiance 1}\label{ic1}
+\begin{center}
+
+Quel énoncé parmi les suivant est vrai?
+
+\medskip
+\begin{enumerate}
+    \item L'intervalle de confiance pour la variance est symétrique autour de $S^2$.
+    \item L'intervalle de confiance pour l'espérance $\mu$ est symétrique autour de $\overline{X}$.
+    \item Plus un intervalle de confiance est large, plus il est précis.
+    \item La quantité $1-\alpha$ se nomme le seuil de l'intervalle de confiance.
+\end{enumerate}
+
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Intervalle de confiance 2}\label{ic2}
+\begin{center}
+
+Comment se nomme la quantité $z_{\alpha/2}\frac{\sigma}{n}$ dans la construction d'un intervalle de confiance de niveau $1-\alpha$ pour l'espérance d'une loi normale avec variance connue?
+
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Intervalle de confiance 3}\label{ic3}
+\begin{center}
+
+Nous savons que $E(\widehat{p})=p$ et $\displaystyle V(\widehat{p})=\frac{p(1-p)}{n}$. Quel est le problème dans la construction de l'intervalle de niveau approximatif $1-\alpha$ pour $p$ suivant?
+
+\begin{align*}
+    \widehat{p}\pm z_{\alpha/2}\sqrt{\frac{p(1-p)}{n}}
+\end{align*}
+
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Intervalle de confiance 4}\label{ic4}
+\begin{center}
+
+Soit l'intervalle de confiance $[L;U]$ de niveau $1-\alpha$ pour $\mu$, dans le cas de la loi normale, avec variance inconnue et construit avec un échantillon de taille $n$.
+\medskip
+
+Dites si chacun des énoncés suivants est vrai ou faux. Expliquez quand ils sont faux.
+
+\begin{enumerate}
+    \item La probabilité que $\overline{X}$ se trouve dans l'intervalle de confiance est $1-\alpha$.
+    \item $L$ et $U$ sont des variables aléatoires car ils sont impossibles à calculer.
+    \item Toutes choses étant égales par ailleurs, un intervalle de confiance construit avec la variance connue (et $\sigma^2=s^2$) est plus court.
+    \item Si $[L;U]=[12,34;17,10]$, il nous manque d'information pour calculer la marge d'erreur.
+    \item Un intervalle de confiance construit avec $m>>n$ aura un niveau de confiance plus élevé.
+\end{enumerate}
+
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Intervalle de confiance 5}\label{ic5}
+\begin{center}
+
+Énoncez clairement TOUS les cas (et les conditions d'application) auxquels ces intervalles s'appliquent:
+
+\begin{enumerate}
+    \item $\displaystyle \overline{X}\pm t_{n-1;\alpha/2}\frac{S}{\sqrt{n}}$
+    \item $\displaystyle \widehat{p}\pm z_{\alpha/2}\sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}}$
+    \item $\displaystyle \overline{X}\pm z_{\alpha/2}\frac{\sigma}{\sqrt{n}}$
+    \item $\displaystyle \left[\frac{(n-1)S^2}{\chi^2_{n-1;\alpha/2}};\frac{(n-1)S^2}{\chi^2_{n-1;1-\alpha/2}}\right]$
+    \item $\displaystyle \overline{X}\pm z_{\alpha/2}\frac{S}{\sqrt{n}}$
+    
+\end{enumerate}
+
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Tests d'hypothèse 1}\label{tests1}
+\begin{center}
+
+Quels sont les trois types d'hypothèses alternatives?
+
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Tests d'hypothèse 2}\label{tests2}
+\begin{center}
+
+Décrivez dans vos mots l'erreur de type I.
+
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Tests d'hypothèse 3}\label{tests3}
+\begin{center}
+
+Décrivez dans vos mots la puissance d'un test.
+
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}{Tests d'hypothèse 4}\label{tests4}
+\begin{center}
+
+Quelle est la condition nécessaire par rapport à l'échantillon dans le test sur la variance qui permet d'utiliser la statistique $\displaystyle \frac{(n-1)S^2}{\sigma^2}$ qui suit une $\chi_{n-1}^2$, sous $H_0$?
+
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}{Tests d'hypothèse 5}\label{tests5}
+\begin{center}
+
+Vous faites un test sur 20 observations  pour confronter les hypothèses $H_0: \mu=5$ et $H_1: \mu<5$. Vous obtenez un seuil observé (valeur P) de 0,09.
+
+\medskip
+Vrai ou faux? Vous avez 30 secondes par question.
+\medskip
+
+\begin{enumerate} \itemsep 3mm
+\item La moyenne échantillonnale est inférieure à 5.
+\item Vous rejetez $H_0$ au seuil de 5\%.
+\item Vous rejetez $H_0$ au seuil de 10\%.
+\item Vous rejetez $H_0: \mu=4$ contre $H_1: \mu<4$ au seuil de 5\%.
+\item Vous refaites l'expérience avec 40 observations. Vous obtenez la même moyenne échantillonnale. Votre seuil observé est alors plus élevé que 0,09 pour le test $H_0: \mu=5$ contre $H_1: \mu<5$.
+\end{enumerate}
+
+
+\end{center}
+
+\end{frame}
+
+
+
+\end{document}
+
+

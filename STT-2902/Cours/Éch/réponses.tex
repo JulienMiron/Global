@@ -1,0 +1,37 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,margin=1.8cm]{geometry}
+\usepackage{tikz}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{calligra}
+\pagestyle{empty}
+
+% One JellyBlubber Colony block (title + 3 number lines)
+\newcommand{\JellyBlubberBlock}{%
+\begin{tikzpicture}[x=0.19cm,y=0.25cm]
+  % Title
+  \node[font=\calligra\bfseries\Large] at (21,16) {The JellyBlubber Colony};
+  % Three number lines
+  \foreach \yy in {10,0,-10, -20, -30, -40}{
+    % dashed baseline
+    \draw[dash pattern=on 4pt off 3pt, line width=0.6pt] (0,\yy) -- (42,\yy);
+    % left and right end bars
+    \draw[line width=0.8pt] (0,\yy-2) -- (0,\yy+2);
+    \draw[line width=0.8pt] (42,\yy-2) -- (42,\yy+2);
+    % major ticks and labels every 5
+    \foreach \x in {0,5,10,15,20,25,30,35,40}{
+      \draw[line width=0.8pt] (\x,\yy-2) -- (\x,\yy+2);
+      \node[font=\small] at (\x,\yy-3.5) {\x};
+    }
+  }
+\end{tikzpicture}%
+}
+
+\begin{document}
+\begin{center}
+\JellyBlubberBlock 
+
+\end{center}
+\end{document}

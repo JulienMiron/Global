@@ -1,0 +1,302 @@
+\def\SigleNumero{STT-2902}
+\def\NomCours{Modélisation statistique}
+\def\DateEvaluation{10 novembre 2025}
+\def\HeureEvaluation{8 h 30 à 10 h 20}
+\def\Session{}
+\def\NomEvaluation{Examen 2}
+\def\Ponderation{}
+% Ne rien mettre entre les accolades si l'enseignant (ou l'enseignante) est aussi le coordonnateur (ou la coordonnatrice)
+\def\Coordonnatrice{}
+\def\Coordonnateur{}
+
+% Ne rien mettre entre les accolades s'il y a plus d'une section
+\def\Enseignant{Julien Miron}
+\def\Enseignante{}
+
+% Ne rien mettre entre les accolades s'il s'agit d'un cours à section unique
+% Mettre le nom de chacun des enseignants et enseignantes entre les accolades
+% Une case à cocher sera générée pour chacune des sections
+\def\SectionA{}
+\def\SectionB{}
+\def\SectionC{}
+\def\SectionD{}
+
+
+\def\Directives{
+\begin{enumerate}
+\item Matériel autorisé:
+\begin{itemize}
+    \item Calculatrice scientifique {\bf autorisée par la faculté des sciences et de génie};
+    \item Votre cahier de notes de cours;
+    \end{itemize}
+\item Assurez-vous que cette évaluation comporte \numquestions ~questions réparties sur \numpages{}~pages, pour un total de \numpoints{}~points et un maximum de 8~points bonus.\
+\item \textbf{Veuillez ne pas dégrafer votre examen.}
+\item Ajoutez vos initiales dans le bas de chaque page.
+\item Vous devez\textbf{ justifier toutes vos réponses} par une démarche claire, sauf pour les questions à choix de réponse.\
+\item Pour les questions à choix de réponse et les vrais ou faux, vous pouvez mettre un X, un crochet ($\checkmark$) ou remplir la case.\
+\item Le verso des feuilles peut être utilisé comme brouillon, \textbf{mais ne sera pas corrigé}. Attention à ne rien dégrafer.
+\end{enumerate}
+}
+
+
+
+\documentclass{Examens/Evaluation}
+\usepackage{multicol,graphicx}
+\begin{document}
+
+\pageblanche
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+\begin{questions}
+\question[3] Soit la variable aléatoire $X$, dont les deux résultats possibles sont $X=1$ avec probabilité $0,6$ et $X=2$ avec probabilité $0,4$. Quelle est l'espérance de $X$ \textbf{?}
+
+\begin{oneparcheckboxes}
+    \choice 0,4
+    \choice 0,6
+    \choice 1
+    \correctchoice 1,4
+    \choice 1,6
+\end{oneparcheckboxes}
+
+\vspace{0.5cm}
+\question[3] Cochez l'énoncé qui est vrai.
+
+\begin{checkboxes}
+    \choice L'espérance d'une variable aléatoire est invariante par translation, mais sa variance n'est pas invariante par translation.
+    \choice L'espérance et la variance sont invariantes par translation.
+    \correctchoice L'espérance d'une variable aléatoire n'est pas invariante par translation, mais sa variance est invariante par translation.
+    \choice L'espérance et la variance ne sont pas invariantes par translation.
+\end{checkboxes}
+
+\vspace{0.5cm}
+
+\question[3] Soit $X$ et $Y$, deux variables aléatoires indépendantes de variances respectives $\sigma^2_X$ et $\sigma^2_Y$. Quelle est la variance de $4X-2Y+2$ \textbf{?}
+
+\begin{checkboxes}
+    \choice $4\sigma^2_X-2\sigma^2_Y$
+    \choice $4\sigma^2_X-2\sigma^2_Y+2$
+    \choice $16\sigma^2_X-4\sigma^2_Y$
+    \choice $16\sigma^2_X-4\sigma^2_Y+2$
+    \choice $16\sigma^2_X-4\sigma^2_Y+4$
+    \choice $4\sigma^2_X+2\sigma^2_Y$
+    \choice $4\sigma^2_X+2\sigma^2_Y+2$
+    \correctchoice $16\sigma^2_X+4\sigma^2_Y$
+    \choice $16\sigma^2_X+4\sigma^2_Y+2$
+    \choice $16\sigma^2_X+4\sigma^2_Y+4$
+\end{checkboxes}
+
+\vspace{0.5cm}
+
+\question[3] Parmi les expressions suivantes, laquelle est une expression de la variance pour une variable aléatoire $X$ discète\textbf{?}
+
+      \begin{checkboxes}
+          \choice $V(X)=\int_{-\infty}^{\infty}(x-\mu)^2dx$
+          \correctchoice $V(X)=E[(X-\mu)^2]$
+          \choice $V(X)=\sum_{\mathbb{R}_X}(x-\mu)^2$
+          \choice $V(X)=E(X)-E(X)^2$
+      \end{checkboxes}
+          
+\vspace{0.5cm}
+
+\question[3] La loi de Student de degrés de liberté $n-1$ a une d'espérance égale à $0$.
+
+\begin{oneparcheckboxes}
+    \correctchoice Vrai 
+    \choice Faux
+\end{oneparcheckboxes}
+
+\vspace{0.5cm}
+
+\question[3] Quel énoncé parmi les suivant est vrai\textbf{?}
+
+\begin{checkboxes}
+    \correctchoice L'intervalle de confiance pour la variance n'est pas symétrique autour de $S^2$.
+    \choice L'intervalle de confiance pour l'espérance $\mu$ est symétrique autour de $\mu$.
+    \choice Plus un intervalle de confiance est large, plus il est précis.
+    \choice La quantité $1-\alpha$ se nomme le seuil de l'intervalle de confiance.
+\end{checkboxes}
+
+\pageblanche
+\question[3] Cochez l'énoncé qui est vrai.
+
+\begin{checkboxes}
+    \choice La probabilité que $\overline{X}$ se trouve dans l'intervalle de confiance est $1-\alpha$.
+    \choice $L$ et $U$ sont des variables aléatoires car ils sont impossibles à calculer.
+    \correctchoice Toutes choses étant égales par ailleurs, un intervalle de confiance construit avec la variance connue (et $\sigma^2=s^2$) est plus court.
+    \choice Si $[L;U]=[12,34;17,10]$ est un intervalle de confiance pour $\mu$, il nous manque d'information pour connaître $\overline{x}$.
+    \choice Toutes choses étant égales par ailleurs, un intervalle de confiance construit avec $m>>n$ aura un niveau de confiance plus élevé.
+\end{checkboxes}
+
+\vspace{0.5cm}
+
+\question[3] Cochez l'énoncé qui décrit l'erreur de type II.
+
+\begin{checkboxes}
+    \choice Il s'agit de la probabilité de ne pas rejeter $H_0$ alors que $H_0$ est fausse.
+    \choice Il s'agit de la probabilité de  rejeter $H_0$ alors que $H_0$ est vraie.
+    \choice Il s'agit de la décision de  rejeter $H_0$ alors que $H_0$ est vraie.
+    \correctchoice Il s'agit de la décision de ne pas rejeter $H_0$ alors que $H_0$ est fausse.
+\end{checkboxes}
+
+\vspace{0.5cm} 
+
+\question[3] Vous faites un test sur 20 observations  pour confronter les hypothèses $H_0: \mu=5$ et $H_1: \mu<5$. Vous obtenez un seuil observé (valeur P) de 0,09. Cochez l'énoncé qui est faux.
+
+\begin{checkboxes}
+\choice La moyenne échantillonnale est inférieure à 5.
+\correctchoice Vous rejetez $H_0$ au seuil de 5\%.
+\choice Vous rejetez $H_0$ au seuil de 10\%.
+\choice Vous ne rejetez pas $H_0: \mu=4$ contre $H_1: \mu<4$ au seuil de 5\%.
+\choice Vous refaites l'expérience avec 40 observations. Vous obtenez la même moyenne échantillonnale. Votre seuil observé est alors plus petit que 0,09 pour le test $H_0: \mu=5$ contre $H_1: \mu<5$.
+\end{checkboxes}
+
+\vspace{0.5cm}
+
+\question[3] Cochez l'énoncé qui est vrai.
+
+\begin{checkboxes}
+    \choice Si $\hat{\theta}$ est un estimateur sans biais pour $\theta$, nous savons que la valeur de $\hat{\theta}$ calculé à partir d'un échantillon sera toujours très proche de $\theta$.
+    \choice Toutes choses étant égales par ailleurs, pour passer d'un intervalle de confiance de niveau $95\%$ à un intervalle de confiance de niveau $99\%$, il suffit d'augmenter la taille d'échantillon.
+    \choice L'erreur quadratique moyenne d'un estimateur sans biais est égale à sa variance au carré.
+    \correctchoice Dans un test d'hypothèses au seuil $\alpha$, quand $H_0$ est vraie, la probabilité de ne pas faire d'erreur est égale à $1-\alpha$.
+\end{checkboxes}
+
+\pageblanche
+
+\question[10]
+Sachant que $X_1,\hdots,X_n\sim\mathcal{N}(\mu,\sigma^2)$ et $\displaystyle\frac{(n-1)S^2}{\sigma^2}\sim \chi^2_{n-1}$, où $S^2=(n-1)^{-1}\sum_{i=1}^n (X_i-\overline{X})^2$, montrez que la forme de l'intervalle de confiance de niveau $1-\alpha$ pour $\sigma^2$ est $$\displaystyle\left[\frac{(n-1)S^2}{\chi^2_{\alpha/2;n-1}};\frac{(n-1)S^2}{\chi^2_{1-\alpha/2;n-1}}\right].$$
+
+    \pageblanche
+
+\question Soit l'échantillon qui provient d'une variable aléatoire normale d'espérance $\mu$ et de variance $\sigma^2=0,81$:
+
+$$2,2,2,3,3,3,4,4,4,$$
+pour lequel $\displaystyle\sum_{i=1}^n x_i=27$ et $\displaystyle\sum_{i=1}^9x_i^2=87$.
+
+
+\begin{parts}
+    \part On souhaite faire un test d'hypothèses unilatéral à droite de seuil $2,5\%$ avec $H_0:\mu=2,7$.
+
+    \begin{subparts}
+        \subpart[2] Quelle est l'hypothèse alternative?
+        
+        \vspace{3cm} 
+
+        \subpart[3] Quelle est la valeur critique du test?
+    \end{subparts}
+\vspace{4cm}
+    \part[5] Construisez un intervalle de confiance de niveau $95\%$ pour $\mu$.
+\end{parts}
+\pageblanche
+
+\Large Les quatre exercices suivants sont des exercices BONUS. Vous aurez les points d'un maximum de DEUX exercices. Pour chaque exercice, vous pouvez avoir 4 points ou 0 points. 
+
+\normalsize
+
+\vspace{2cm}
+\bonusquestion[4] Soit $X_1,\hdots,X_m$ qui sont des variables aléatoires indépendantes et identiquement distribuées de loi Inventée de paramètre $\kappa$, qu'on note $X_i\sim Inv(\kappa)$. 
+Avec cette loi, une variable aléatoire prend la valeur $2$ avec probabilité $\kappa$ et la valeur $0$ avec la probabilité $1-\kappa$.
+Nous savons que $E(X_i)=2\kappa$ et $V(X_i)=4\kappa(1-\kappa)$.
+Pour estimer $\kappa$, nous utilisons $$\displaystyle \hat{\kappa}=\frac{\overline{X}}{2}.$$
+
+Quelle est la variance de $\hat{\kappa}$?
+
+
+\pageblanche
+\bonusquestion[4] Quelle est la longueur maximale de la marge d'erreur d'un intervalle de confiance à $95\%$ pour $p$, lorsque $n=100$? \textit{Indice: commencez par trouver pour quelle valeur de $\hat{p}$ la marge d'erreur est maximale.}
+
+\pageblanche
+\bonusquestion[4] 
+
+Soit $X\sim Bin(n;\theta)$. Considérons le test dont les hypothèses sont $H_0:\theta =0,5$ et $H_1:\theta>0,5$. 
+La règle de décision est de rejeter $H_0$ si $n$ succès sont observés (c'est-à-dire aucun échec).
+Trouvez la valeur de $n$ à partir de laquelle $\alpha\leq 0,05$.
+
+\pageblanche
+\bonusquestion[4] Soit deux échantillons aléatoires indépendants $X_1,\hdots,X_n$ et $Y_1,\hdots,Y_m$. 
+    Nous savons que ces échantillons proviennent respectivement de $X\sim\mathcal{N}(\mu_X,\sigma^2_X)$ et $Y\sim\mathcal{N}(\mu_Y, \sigma^2_Y)$. 
+    Nous notons $S_X^2$ et $S_Y^2$ les variances échantillonnales usuelles.
+    Il est possible de montrer que 
+    \begin{align*}
+        \frac{S_X^2/\sigma^2_X}{S_Y^2/\sigma^2_Y}\sim F_{n-1;m-1},
+    \end{align*}
+    où $F_{n-1;m-1}$ est la loi de Fisher avec $n-1$ degrés de liberté au numérateur et $m-1$ degrés de liberté au dénominateur.
+    En utilisant la notation standard, $F_{\alpha/2;n-1;m-1}$ est le quantile tel que $P(F_{n-1;m-1}>F_{\alpha/2;n-1;m-1})=\alpha/2$.
+    
+    Donnez un intervalle de confiance de niveau $1-\alpha$ pour le ratio des variances $\displaystyle\frac{\sigma^2_Y}{\sigma^2_X}$.
+    
+
+
+\pageblanche
+
+
+\begin{comment}
+    
+
+\bonusquestion[4] Supposons que les variables aléatoires $X_1,...,X_{20}$ suivent une loi exponentielle décalée de paramètre $\theta \geq0 $, dont la \textbf{fonction de densité} est donnée par 
+
+ \begin{equation*}
+  f_X(x) = \begin{cases}
+         e^{-(x-\theta)},\ \text{  si  } \theta \leq x , \\
+        0, \text{ sinon.}
+        \end{cases}
+ \end{equation*}
+
+Nous aimerions faire un test statistique pour savoir si $\theta=0$. Nous avons donc les hypothèses
+
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{cc}
+         $H_0: \theta=0$ & $H_1: \theta > 0$.
+    \end{tabular}
+\end{table}
+Pour ce test, nous utiliserons la statistique
+\begin{align*}
+    M=\min (X_1,...,X_{20}),
+\end{align*}
+qui correspond à la valeur minimale de notre échantillon (nous pouvons aussi écrire $M=X_{(1)}$, dans la notation introduite au cours).
+Nous savons que sous $H_0$, $M$ suit une loi exponentielle de paramètre $n=20$. Sa \textbf{fonction de répartition} est donnée par 
+
+ \begin{equation*}
+  F_M(m) = \begin{cases}
+         1-e^{-20m},\ \text{  si  } 0\leq m \\
+        0, \text{ sinon.}
+        \end{cases}
+ \end{equation*}
+
+La table suivante donne quelques valeurs de cette fonction de répartition.
+\begin{table}[ht]
+    \centering
+\begin{tabular}{|cc|}
+  \hline
+ $m$ & $F_M(m)$ \\ 
+  \hline
+    0,0005 & 0,01 \\
+    0,0025 & 0,05 \\
+    0,0053 & 0,10 \\
+    0,1151 & 0,90 \\
+    0,1498 & 0,95 \\ 
+    0,2303 & 0,99 \\ 
+  \hline
+\end{tabular}
+\end{table}
+
+Nous avons l'échantillon $x_1,\hdots,x_{20}$ suivant:
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrrrrrr}
+  \hline
+0,1613 & 0,1933 & 0,2980 & 0,3331 & 0,3423 & 0,4392 & 0,4472 & 0,4580 & 0,5289 & 0,5530 \\ 
+0.5570 & 0.7737 & 0.8574 & 0.9376 & 1.2509 & 1.4475 & 1.9064 & 2.6019 & 2.8685 & 2.9829 \\ 
+   \hline
+\end{tabular}
+\end{table}
+\begin{parts}
+\bonuspart Au seuil $\alpha=5\%$, quelle est la \textit{\textbf{décision}} du test. \textbf{\textit{Une décision sans justification n'obtiendra aucun point, même si la décision est bonne.}}
+\vspace{3cm}
+\bonuspart \textbf{Calculez} la valeur-p du test en ne gardant que 4 chiffres après la virgule. \textit{\textbf{Expliquez votre réponse!}}
+\end{parts}
+\end{comment}
+\end{questions}
+
+\end{document} 
