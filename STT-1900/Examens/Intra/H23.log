@@ -1,13 +1,13 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  22 FEB 2026 19:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  22 FEB 2026 19:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-2902/Examens/Recueil/recueil.tex
-(/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-2902/Examens/Recueil/recueil.tex
+**/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1900/Examens/Intra/H23.tex
+(/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1900/Examens/Intra/H23.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
-(/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-2902/Examens/Evaluation.cls
+(/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/Evaluation.cls
 Document Class: Evaluation 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/exam/exam.cls
 Document Class: exam 2023/07/09 Version 2.704 by Philip Hirschhorn
@@ -504,15 +504,62 @@ Library (tcolorbox): 'tcbfitting.code.tex' version '6.4.1'
 \tcb@lowerfitdim=\dimen283
 \tcb@upperfitdim=\dimen284
 \tcb@cur@hbadness=\count362
+)) (/usr/local/texlive/2025/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2025/02/14 v25.4 The multilingual framework for pdfLaTeX, LuaLaTeX and XeLaTeX
+\babel@savecnt=\count363
+\U@D=\dimen285
+\l@unhyphenated=\language90
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@readstream=\read4
+\bbl@dirlevel=\count364
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/babel-french/french.ldf
+Language: french 2024-07-25 v3.6c French support from the babel system
+Package babel Info: Hyphen rules for 'acadian' set to \l@french
+(babel)             (\language30). Reported on input line 91.
+Package babel Info: Hyphen rules for 'canadien' set to \l@french
+(babel)             (\language30). Reported on input line 92.
+\FB@stdchar=\count365
+Package babel Info: Making : an active character on input line 421.
+Package babel Info: Making ; an active character on input line 422.
+Package babel Info: Making ! an active character on input line 423.
+Package babel Info: Making ? an active character on input line 424.
+\FBguill@level=\count366
+\FBold@everypar=\toks44
+\FB@Mht=\dimen286
+\mc@charclass=\count367
+\mc@charfam=\count368
+\mc@charslot=\count369
+\std@mcc=\count370
+\dec@mcc=\count371
+\FB@parskip=\dimen287
+\listindentFB=\dimen288
+\descindentFB=\dimen289
+\labelindentFB=\dimen290
+\labelwidthFB=\dimen291
+\leftmarginFB=\dimen292
+\parindentFFN=\dimen293
+\FBfnindent=\dimen294
+)) (/usr/local/texlive/2025/texmf-dist/tex/generic/babel/locale/fr/babel-french.tex
+Package babel Info: Importing font and identification data for french
+(babel)             from babel-fr.ini. Reported on input line 11.
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/carlisle/scalefnt.sty) (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 )) (/usr/local/texlive/2025/texmf-dist/tex/latex/xfrac/xfrac.sty
 Package: xfrac 2024-06-04 Split-level fractions
 \l__xfrac_slash_box=\box81
 \l__xfrac_tmp_box=\box82
-\l__xfrac_denominator_bot_sep_dim=\dimen285
-\l__xfrac_numerator_bot_sep_dim=\dimen286
-\l__xfrac_numerator_top_sep_dim=\dimen287
-\l__xfrac_slash_left_sep_dim=\dimen288
-\l__xfrac_slash_right_sep_dim=\dimen289
+\l__xfrac_denominator_bot_sep_dim=\dimen295
+\l__xfrac_numerator_bot_sep_dim=\dimen296
+\l__xfrac_numerator_top_sep_dim=\dimen297
+\l__xfrac_slash_left_sep_dim=\dimen298
+\l__xfrac_slash_right_sep_dim=\dimen299
 \l__xfrac_slash_left_muskip=\muskip18
 \l__xfrac_slash_right_muskip=\muskip19
 
@@ -528,73 +575,33 @@ LaTeX template Info: Declaring instance 'cmss' of type xfrac on line 392.
 
 LaTeX template Info: Declaring instance 'cmtt' of type xfrac on line 392.
 
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/diagbox/diagbox.sty
-Package: diagbox 2020/02/09 v2.3 Making table heads with diagonal lines
- (/usr/local/texlive/2025/texmf-dist/tex/latex/pict2e/pict2e.sty
-Package: pict2e 2020/09/30 v0.4b Improved picture commands (HjG,RN,JT)
- (/usr/local/texlive/2025/texmf-dist/tex/latex/pict2e/pict2e.cfg
-File: pict2e.cfg 2016/02/05 v0.1u pict2e configuration for teTeX/TeXLive
-)
-Package pict2e Info: Driver file: pdftex.def on input line 112.
-Package pict2e Info: Driver file for pict2e: p2e-pdftex.def on input line 114.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/pict2e/p2e-pdftex.def
-File: p2e-pdftex.def 2016/02/05 v0.1u Driver-dependant file (RN,HjG,JT)
-)
-\pIIe@GRAPH=\toks44
-\@arclen=\dimen290
-\@arcrad=\dimen291
-\pIIe@tempdima=\dimen292
-\pIIe@tempdimb=\dimen293
-\pIIe@tempdimc=\dimen294
-\pIIe@tempdimd=\dimen295
-\pIIe@tempdime=\dimen296
-\pIIe@tempdimf=\dimen297
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/array.sty
-Package: array 2024/10/17 v2.6g Tabular extension package (FMi)
-\col@sep=\dimen298
-\ar@mcellbox=\box83
-\extrarowheight=\dimen299
-\NC@list=\toks45
-\extratabsurround=\skip84
-\backup@length=\skip85
-\ar@cellbox=\box84
-)
-\diagbox@boxa=\box85
-\diagbox@boxb=\box86
-\diagbox@boxm=\box87
-\diagbox@wd=\dimen300
-\diagbox@ht=\dimen301
-\diagbox@insepl=\dimen302
-\diagbox@insepr=\dimen303
-\diagbox@outsepl=\dimen304
-\diagbox@outsepr=\dimen305
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/was/icomma.sty
+Package: icomma 2002/03/10 v2.0 (WaS)
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/comment/comment.sty
 \CommentStream=\write4
  Excluding comment 'comment') (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/afterpage.sty
 Package: afterpage 2023/07/04 v1.08 After-Page Package (DPC)
-\AP@output=\toks46
-\AP@partial=\box88
-\AP@footins=\box89
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amssymb.sty
-Package: amssymb 2013/01/14 v3.01 AMS font symbols
- (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amsfonts.sty
-Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\symAMSa=\mathgroup4
-\symAMSb=\mathgroup5
-LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
-LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
-(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (/usr/local/texlive/2025/texmf-dist/tex/latex/ifsym/ifsym.sty
+\AP@output=\toks45
+\AP@partial=\box83
+\AP@footins=\box84
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/ifsym/ifsym.sty
 Package: ifsym 2000/04/18 I.Kloeckl
-\c@ifsymcnt=\count363
+\c@ifsymcnt=\count372
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
-\multirow@colwidth=\skip86
-\multirow@cntb=\count364
-\multirow@dima=\skip87
-\bigstrutjot=\dimen306
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/was/icomma.sty
-Package: icomma 2002/03/10 v2.0 (WaS)
+\multirow@colwidth=\skip84
+\multirow@cntb=\count373
+\multirow@dima=\skip85
+\bigstrutjot=\dimen300
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/array.sty
+Package: array 2024/10/17 v2.6g Tabular extension package (FMi)
+\col@sep=\dimen301
+\ar@mcellbox=\box85
+\extrarowheight=\dimen302
+\NC@list=\toks46
+\extratabsurround=\skip86
+\backup@length=\skip87
+\ar@cellbox=\box86
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/extsizes/extsizes.sty
 Package: extsizes 1996/10/08 v1.0 Non Standard LaTeX Package
 
@@ -891,93 +898,47 @@ Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 LaTeX Font Info:    Trying to load font information for T1+fav on input line 116.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/arev/t1fav.fd
 File: t1fav.fd 2006/05/30 Fontinst v1.929 font definitions for T1/fav.
-)) (/usr/local/texlive/2025/texmf-dist/tex/latex/tablefootnote/tablefootnote.sty
-Package: tablefootnote 2014/01/26 v1.1c Table foot notes (HMM)
- (/usr/local/texlive/2025/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
-Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/xifthen/xifthen.sty
-Package: xifthen 2015/11/05 v1.4.0 Extended ifthen features
- (/usr/local/texlive/2025/texmf-dist/tex/latex/ifmtarg/ifmtarg.sty
-Package: ifmtarg 2018/04/16 v1.2b check for an empty argument
-))) (/usr/local/texlive/2025/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2025/02/14 v25.4 The multilingual framework for pdfLaTeX, LuaLaTeX and XeLaTeX
-\babel@savecnt=\count365
-\U@D=\dimen307
-\l@unhyphenated=\language90
- (/usr/local/texlive/2025/texmf-dist/tex/generic/babel/txtbabel.def)
-\bbl@readstream=\read4
-\bbl@dirlevel=\count366
- (/usr/local/texlive/2025/texmf-dist/tex/generic/babel-french/french.ldf
-Language: french 2024-07-25 v3.6c French support from the babel system
-Package babel Info: Hyphen rules for 'acadian' set to \l@french
-(babel)             (\language30). Reported on input line 91.
-Package babel Info: Hyphen rules for 'canadien' set to \l@french
-(babel)             (\language30). Reported on input line 92.
-\FB@stdchar=\count367
-Package babel Info: Making : an active character on input line 421.
-Package babel Info: Making ; an active character on input line 422.
-Package babel Info: Making ! an active character on input line 423.
-Package babel Info: Making ? an active character on input line 424.
-\FBguill@level=\count368
-\FBold@everypar=\toks47
-\FB@Mht=\dimen308
-\mc@charclass=\count369
-\mc@charfam=\count370
-\mc@charslot=\count371
-\std@mcc=\count372
-\dec@mcc=\count373
-\FB@parskip=\dimen309
-\listindentFB=\dimen310
-\descindentFB=\dimen311
-\labelindentFB=\dimen312
-\labelwidthFB=\dimen313
-\leftmarginFB=\dimen314
-\parindentFFN=\dimen315
-\FBfnindent=\dimen316
-)) (/usr/local/texlive/2025/texmf-dist/tex/generic/babel/locale/fr/babel-french.tex
-Package babel Info: Importing font and identification data for french
-(babel)             from babel-fr.ini. Reported on input line 11.
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/carlisle/scalefnt.sty) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
-File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowinset=\dimen317
-\pgfarrowlength=\dimen318
-\pgfarrowwidth=\dimen319
-\pgfarrowlinewidth=\dimen320
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
-File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
-File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.markings.code.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
-\pgfdecoratedcompleteddistance=\dimen321
-\pgfdecoratedremainingdistance=\dimen322
-\pgfdecoratedinputsegmentcompleteddistance=\dimen323
-\pgfdecoratedinputsegmentremainingdistance=\dimen324
-\pgf@decorate@distancetomove=\dimen325
-\pgf@decorate@repeatstate=\count374
-\pgfdecorationsegmentamplitude=\dimen326
-\pgfdecorationsegmentlength=\dimen327
+)) (/usr/local/texlive/2025/texmf-dist/tex/latex/pdfpages/pdfpages.sty
+Package: pdfpages 2025/01/30 v0.6e Insert pages of external PDF documents (AM)
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/eso-pic/eso-pic.sty
+Package: eso-pic 2023/05/03 v3.0c eso-pic (RN)
+\ESO@tempdima=\dimen303
+\ESO@tempdimb=\dimen304
 )
-\tikz@lib@dec@box=\box90
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.markings.code.tex)) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count375
-\lst@gtempboxa=\box91
-\lst@token=\toks48
-\lst@length=\count376
-\lst@currlwidth=\dimen328
-\lst@column=\count377
-\lst@pos=\count378
-\lst@lostspace=\dimen329
-\lst@width=\dimen330
-\lst@newlines=\count379
-\lst@lineno=\count380
-\lst@maxwidth=\dimen331
+\AM@pagewidth=\dimen305
+\AM@pageheight=\dimen306
+\AM@fboxrule=\dimen307
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/pdfpages/pppdftex.def
+File: pppdftex.def 2025/01/30 v0.6e Pdfpages driver for pdfTeX (AM)
+)
+\pdfpages@includegraphics@status=\count374
+\AM@pagebox=\box87
+\AM@global@opts=\toks47
+\AM@pagecnt=\count375
+\AM@toc@title=\toks48
+\AM@lof@heading=\toks49
+\c@AM@survey=\count376
+\AM@templatesizebox=\box88
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count377
+\lst@gtempboxa=\box89
+\lst@token=\toks50
+\lst@length=\count378
+\lst@currlwidth=\dimen308
+\lst@column=\count379
+\lst@pos=\count380
+\lst@lostspace=\dimen309
+\lst@width=\dimen310
+\lst@newlines=\count381
+\lst@lineno=\count382
+\lst@maxwidth=\dimen311
  (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstpatch.sty
 File: lstpatch.sty 2024/09/23 1.10c (Carsten Heinz)
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
-\c@lstnumber=\count381
-\lst@skipnumbers=\count382
-\lst@framebox=\box92
+\c@lstnumber=\count383
+\lst@skipnumbers=\count384
+\lst@framebox=\box90
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2024/09/23 1.10c listings configuration
 ))
@@ -988,30 +949,52 @@ File: lstlang1.sty 2024/09/23 1.10c listings language file
 File: lstlang2.sty 2024/09/23 1.10c listings language file
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang3.sty
 File: lstlang3.sty 2024/09/23 1.10c listings language file
-)) (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/multicol.sty
+) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowinset=\dimen312
+\pgfarrowlength=\dimen313
+\pgfarrowwidth=\dimen314
+\pgfarrowlinewidth=\dimen315
+) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.markings.code.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
+\pgfdecoratedcompleteddistance=\dimen316
+\pgfdecoratedremainingdistance=\dimen317
+\pgfdecoratedinputsegmentcompleteddistance=\dimen318
+\pgfdecoratedinputsegmentremainingdistance=\dimen319
+\pgf@decorate@distancetomove=\dimen320
+\pgf@decorate@repeatstate=\count385
+\pgfdecorationsegmentamplitude=\dimen321
+\pgfdecorationsegmentlength=\dimen322
+)
+\tikz@lib@dec@box=\box91
+) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.markings.code.tex))) (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2024/09/14 v1.9i multicolumn formatting (FMi)
-\c@tracingmulticols=\count383
-\mult@box=\box93
-\multicol@leftmargin=\dimen332
-\c@unbalance=\count384
-\c@collectmore=\count385
-\doublecol@number=\count386
-\multicoltolerance=\count387
-\multicolpretolerance=\count388
-\full@width=\dimen333
-\page@free=\dimen334
-\premulticols=\dimen335
-\postmulticols=\dimen336
+\c@tracingmulticols=\count386
+\mult@box=\box92
+\multicol@leftmargin=\dimen323
+\c@unbalance=\count387
+\c@collectmore=\count388
+\doublecol@number=\count389
+\multicoltolerance=\count390
+\multicolpretolerance=\count391
+\full@width=\dimen324
+\page@free=\dimen325
+\premulticols=\dimen326
+\postmulticols=\dimen327
 \multicolsep=\skip88
 \multicolbaselineskip=\skip89
-\partial@page=\box94
-\last@line=\box95
-\mc@boxedresult=\box96
-\maxbalancingoverflow=\dimen337
-\mult@rightbox=\box97
-\mult@grightbox=\box98
-\mult@firstbox=\box99
-\mult@gfirstbox=\box100
+\partial@page=\box93
+\last@line=\box94
+\mc@boxedresult=\box95
+\maxbalancingoverflow=\dimen328
+\mult@rightbox=\box96
+\mult@grightbox=\box97
+\mult@firstbox=\box98
+\mult@gfirstbox=\box99
+\@tempa=\box100
 \@tempa=\box101
 \@tempa=\box102
 \@tempa=\box103
@@ -1047,51 +1030,42 @@ Package: multicol 2024/09/14 v1.9i multicolumn formatting (FMi)
 \@tempa=\box133
 \@tempa=\box134
 \@tempa=\box135
-\@tempa=\box136
-\c@minrows=\count389
-\c@columnbadness=\count390
-\c@finalcolumnbadness=\count391
-\last@try=\dimen338
-\multicolovershoot=\dimen339
-\multicolundershoot=\dimen340
-\mult@nat@firstbox=\box137
-\colbreak@box=\box138
-\mc@col@check@num=\count392
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
-Package: fancyvrb 2024/01/20 4.5c verbatim text (tvz,hv)
-\FV@CodeLineNo=\count393
-\FV@InFile=\read5
-\FV@TabBox=\box139
-\c@FancyVerbLine=\count394
-\FV@StepNumber=\count395
-\FV@OutFile=\write5
+\c@minrows=\count392
+\c@columnbadness=\count393
+\c@finalcolumnbadness=\count394
+\last@try=\dimen329
+\multicolovershoot=\dimen330
+\multicolundershoot=\dimen331
+\mult@nat@firstbox=\box136
+\colbreak@box=\box137
+\mc@col@check@num=\count395
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count396
-\l__pdf_internal_box=\box140
-) (./recueil.aux)
-\openout1 = `recueil.aux'.
+\l__pdf_internal_box=\box138
+) (./H23.aux)
+\openout1 = `H23.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for MDA/cmr/m/n on input line 56.
-LaTeX Font Info:    Trying to load font information for MDA+cmr on input line 56.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for MDA/cmr/m/n on input line 49.
+LaTeX Font Info:    Trying to load font information for MDA+cmr on input line 49.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/mathdesign/mdacmr.fd
 File: mdacmr.fd 
 )
-LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    ... okay on input line 49.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1130,31 +1104,141 @@ LaTeX Font Info:    ... okay on input line 56.
 (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count397
-\scratchdimen=\dimen341
-\scratchbox=\box141
+\scratchdimen=\dimen332
+\scratchbox=\box139
 \nofMPsegments=\count398
 \nofMParguments=\count399
-\everyMPshowfont=\toks49
+\everyMPshowfont=\toks51
 \MPscratchCnt=\count400
-\MPscratchDim=\dimen342
+\MPscratchDim=\dimen333
 \MPnumerator=\count401
 \makeMPintoPDFobject=\count402
-\everyMPtoPDFconversion=\toks50
+\everyMPtoPDFconversion=\toks52
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Info: Redefining \degres on input line 56.
+LaTeX Info: Redefining \degres on input line 49.
 Package french.ldf Info: Setting StandardItemizeEnv=true for
 (french.ldf)             compatibility with enumitem package,
-(french.ldf)             reported on input line 56.
+(french.ldf)             reported on input line 49.
 Package french.ldf Info: Setting StandardEnumerateEnv=true for
 (french.ldf)             compatibility with enumitem package,
-(french.ldf)             reported on input line 56.
-LaTeX Info: Redefining \up on input line 56.
+(french.ldf)             reported on input line 49.
+LaTeX Info: Redefining \up on input line 49.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/pdflscape/pdflscape.sty
+Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/pdflscape/pdflscape-nometadata.sty
+Package: pdflscape-nometadata 2022-10-28 v0.13 Display of landscape pages in PDF (HO)
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+))
 \c@lstlisting=\count403
+*geometry* verbose mode - [ newgeometry ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(56.9055pt, 500.484pt, 56.9055pt)
+* v-part:(T,H,B)=(56.9055pt, 681.15898pt, 56.9055pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=500.484pt
+* \textheight=681.15898pt
+* \oddsidemargin=-15.36449pt
+* \evensidemargin=-15.36449pt
+* \topmargin=-52.36449pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=9.0pt
+* \footskip=30.0pt
+* \marginparwidth=74.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=8.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+<logo_ul.pdf, id=4, 313.17pt x 129.48375pt>
+File: logo_ul.pdf Graphic file (type pdf)
+<use logo_ul.pdf>
+Package pdftex.def Info: logo_ul.pdf  used on input line 49.
+(pdftex.def)             Requested size: 142.26378pt x 58.82233pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 49--49
+
+ []
+
+
+Overfull \hbox (65.35516pt too wide) in paragraph at lines 49--49
+[][]    [] 
+ []
+
+LaTeX Font Info:    Trying to load font information for OT1+zavm on input line 49.
+(/usr/local/texlive/2025/texmf-dist/tex/latex/arev/ot1zavm.fd
+File: ot1zavm.fd 2006/05/30 Fontinst v1.929 font definitions for OT1/zavm.
+)
+LaTeX Font Info:    Trying to load font information for OML+zavm on input line 49.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/arev/omlzavm.fd
+File: omlzavm.fd 2006/05/30 Fontinst v1.929 font definitions for OML/zavm.
+)
+LaTeX Font Info:    Trying to load font information for OMS+zavm on input line 49.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/arev/omszavm.fd
+File: omszavm.fd 2006/05/30 Fontinst v1.929 font definitions for OMS/zavm.
+)
+LaTeX Font Info:    Trying to load font information for OMX+mdbch on input line 49.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/mathdesign/mdbch/omxmdbch.fd
+File: omxmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for OMX/mdbch.
+)
+LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
+(Font)              scaled to size 8.64006pt on input line 49.
+LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
+(Font)              scaled to size 6.72005pt on input line 49.
+LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
+(Font)              scaled to size 4.80003pt on input line 49.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 49.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 49.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for MDA+mdbch on input line 49.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/mathdesign/mdbch/mdamdbch.fd
+File: mdamdbch.fd 2013/08/29 Fontinst v1.933 font definitions for MDA/mdbch.
+)
+LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
+(Font)              scaled to size 8.64006pt on input line 49.
+LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
+(Font)              scaled to size 6.72005pt on input line 49.
+LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
+(Font)              scaled to size 4.80003pt on input line 49.
+LaTeX Font Info:    Trying to load font information for U+zavm on input line 49.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/arev/uzavm.fd
+File: uzavm.fd 2006/05/30 Fontinst v1.929 font definitions for U/zavm.
+)
+Overfull \hbox (10.91206pt too wide) in paragraph at lines 49--49
+[]\T1/fav/m/n/9 Assurez-vous que cette �va-lua-tion com-porte 12 ques-tions r�-par-ties sur 25 pages, pour un to-tal de 100 points. 
+ []
+
+
+
+[1
+
+
+{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc} </Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/logo_ul.pdf>]
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
 * paper: <default>
@@ -1190,168 +1274,35 @@ LaTeX Info: Redefining \up on input line 56.
 
 
 LaTeX Font Warning: Font shape `T1/fav/m/sc' undefined
-(Font)              using `T1/fav/m/n' instead on input line 72.
+(Font)              using `T1/fav/m/n' instead on input line 55.
 
 
 LaTeX Font Warning: Font shape `T1/fav/b/sc' undefined
-(Font)              using `T1/fav/b/n' instead on input line 72.
+(Font)              using `T1/fav/b/n' instead on input line 55.
 
-LaTeX Font Info:    Trying to load font information for OT1+zavm on input line 76.
-(/usr/local/texlive/2025/texmf-dist/tex/latex/arev/ot1zavm.fd
-File: ot1zavm.fd 2006/05/30 Fontinst v1.929 font definitions for OT1/zavm.
-)
-LaTeX Font Info:    Trying to load font information for OML+zavm on input line 76.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/arev/omlzavm.fd
-File: omlzavm.fd 2006/05/30 Fontinst v1.929 font definitions for OML/zavm.
-)
-LaTeX Font Info:    Trying to load font information for OMS+zavm on input line 76.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/arev/omszavm.fd
-File: omszavm.fd 2006/05/30 Fontinst v1.929 font definitions for OMS/zavm.
-)
-LaTeX Font Info:    Trying to load font information for OMX+mdbch on input line 76.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/mathdesign/mdbch/omxmdbch.fd
-File: omxmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for OMX/mdbch.
-)
-LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 8.64006pt on input line 76.
-LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 76.
-LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 76.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 76.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 76.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Trying to load font information for MDA+mdbch on input line 76.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/mathdesign/mdbch/mdamdbch.fd
-File: mdamdbch.fd 2013/08/29 Fontinst v1.933 font definitions for MDA/mdbch.
-)
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 8.64006pt on input line 76.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 6.72005pt on input line 76.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 4.80003pt on input line 76.
-LaTeX Font Info:    Trying to load font information for U+zavm on input line 76.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/arev/uzavm.fd
-File: uzavm.fd 2006/05/30 Fontinst v1.929 font definitions for U/zavm.
-)
-LaTeX Font Info:    Trying to load font information for T1+fvm on input line 105.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/bera/t1fvm.fd
-File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
-)
-Overfull \hbox (9.81483pt too wide) in paragraph at lines 223--224
-[]$\OML/zavm/m/it/9 S[] \OT1/zavm/m/n/9 = [] [] = [] [] = [] = [] \OMS/zavm/m/n/9 ^^Y \OT1/zavm/m/n/9 1 684 210\OML/zavm/m/it/9 ;\OT1/zavm/m/n/9 5$\T1/fav/m/sc/9 . 
- []
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 9.35994pt on input line 97.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 7.27995pt on input line 97.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 5.19997pt on input line 97.
 
 
+[2
 
-[1
+{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevoml.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevot1.enc}]
 
-
-{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevoml.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevot1.enc}]
-
-[2]
-LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 472.
-LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 7.29605pt on input line 472.
-LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 5.76004pt on input line 472.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 9.60007pt on input line 472.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 7.29605pt on input line 472.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 5.76004pt on input line 472.
-LaTeX Font Info:    Calculating math sizes for size <6.69899> on input line 476.
-LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 6.43106pt on input line 476.
-LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 4.88757pt on input line 476.
-LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 3.85867pt on input line 476.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 6.43106pt on input line 476.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 4.88757pt on input line 476.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 3.85867pt on input line 476.
-LaTeX Font Info:    Calculating math sizes for size <6.02908> on input line 489.
-LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 5.78795pt on input line 489.
-LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 4.3988pt on input line 489.
-LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 3.4728pt on input line 489.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 5.78795pt on input line 489.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 4.3988pt on input line 489.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 3.4728pt on input line 489.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 9.35994pt on input line 524.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 7.27995pt on input line 524.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 5.19997pt on input line 524.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 6.2702pt on input line 601.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 4.7653pt on input line 601.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 3.76215pt on input line 601.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 10.39993pt on input line 657.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 7.90395pt on input line 657.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 6.23996pt on input line 657.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 6.9669pt on input line 661.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 5.29478pt on input line 661.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 4.18016pt on input line 661.
-
-
-[3{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevoms.enc}]
+[3]
 
 [4]
 
 [5]
 
 [6]
-LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 1314.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 7.68005pt on input line 1314.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 8.31995pt on input line 1314.
-
-
-LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <4.58206> not available
-(Font)              size <5> substituted on input line 1345.
-
-
-LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <3.61748> not available
-(Font)              size <5> substituted on input line 1345.
-
-
 
 [7]
 
 [8]
-Overfull \hbox (2.42152pt too wide) in paragraph at lines 1752--1753
-[]$\OML/zavm/m/it/9 ^^_[] \OT1/zavm/m/n/9 = [] + [] + [] + [] + [] + [] + [] +
- []
-
-
 
 [9]
 
@@ -1359,37 +1310,162 @@ Overfull \hbox (2.42152pt too wide) in paragraph at lines 1752--1753
 
 [11]
 
-[12]
-This exam contains 66 questions with 185 parts, 3 subparts, and 0 subsubparts.
-This exam has a total of 534 points.
+[12{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevoms.enc}]
+/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1900/Examens/Intra/H23.tex:457: Undefined control sequence.
+<argument> (1+\lambday 
+                       ^\alpha )^2
+l.457 \end{align*}
+                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1900/Examens/Intra/H23.tex:457: Undefined control sequence.
+<argument> (1+\lambday 
+                       ^\alpha )^2
+l.457 \end{align*}
+                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1900/Examens/Intra/H23.tex:457: Undefined control sequence.
+<argument> (1+\lambday 
+                       ^\alpha )^2
+l.457 \end{align*}
+                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1900/Examens/Intra/H23.tex:457: Undefined control sequence.
+<argument> (1+\lambday 
+                       ^\alpha )^2
+l.457 \end{align*}
+                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1900/Examens/Intra/H23.tex:457: Undefined control sequence.
+<argument> (1+\lambday 
+                       ^\alpha )^2
+l.457 \end{align*}
+                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1900/Examens/Intra/H23.tex:457: Undefined control sequence.
+<argument> (1+\lambday 
+                       ^\alpha )^2
+l.457 \end{align*}
+                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+
+[13]
+
+[14]
+
+[15]
+
+[16]
+
+[17]
+
+[18]
+<Tables_lois.pdf, id=77, page=1, 614.295pt x 794.97pt>
+File: Tables_lois.pdf Graphic file (type pdf)
+<use Tables_lois.pdf, page 1>
+Package pdftex.def Info: Tables_lois.pdf , page1 used on input line 640.
+(pdftex.def)             Requested size: 534.43233pt x 691.61833pt.
+
+
+[19]
+<Tables_lois.pdf, id=82, page=2, 614.295pt x 794.97pt>
+File: Tables_lois.pdf Graphic file (type pdf)
+<use Tables_lois.pdf, page 2>
+Package pdftex.def Info: Tables_lois.pdf , page2 used on input line 644.
+(pdftex.def)             Requested size: 534.43233pt x 691.61833pt.
+
+
+[20 </Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/Tables_lois.pdf>]
+<Tables_lois.pdf, id=250, page=3, 614.295pt x 794.97pt>
+File: Tables_lois.pdf Graphic file (type pdf)
+<use Tables_lois.pdf, page 3>
+Package pdftex.def Info: Tables_lois.pdf , page3 used on input line 648.
+(pdftex.def)             Requested size: 534.43233pt x 691.61833pt.
+
+
+[21 </Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/Tables_lois.pdf>]
+<Tables_lois.pdf, id=330, page=4, 614.295pt x 794.97pt>
+File: Tables_lois.pdf Graphic file (type pdf)
+<use Tables_lois.pdf, page 4>
+Package pdftex.def Info: Tables_lois.pdf , page4 used on input line 652.
+(pdftex.def)             Requested size: 534.43233pt x 691.61833pt.
+
+
+[22 </Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/Tables_lois.pdf>]
+<Tables_lois.pdf, id=422, page=5, 614.295pt x 794.97pt>
+File: Tables_lois.pdf Graphic file (type pdf)
+<use Tables_lois.pdf, page 5>
+Package pdftex.def Info: Tables_lois.pdf , page5 used on input line 656.
+(pdftex.def)             Requested size: 534.43233pt x 691.61833pt.
+
+
+[23 </Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/Tables_lois.pdf>]
+<Tables_lois.pdf, id=546, page=6, 614.295pt x 794.97pt>
+File: Tables_lois.pdf Graphic file (type pdf)
+<use Tables_lois.pdf, page 6>
+Package pdftex.def Info: Tables_lois.pdf , page6 used on input line 660.
+(pdftex.def)             Requested size: 534.43233pt x 691.61833pt.
+
+
+[24 </Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/Tables_lois.pdf>]
+
+[25 </Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/Tables_lois.pdf>]
+This exam contains 12 questions with 24 parts, 3 subparts, and 0 subsubparts.
+This exam has a total of 100 points.
 This exam has a total of 0 bonus points.
-(./recueil.aux)
+(./H23.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 
 
-LaTeX Font Warning: Size substitutions with differences
-(Font)              up to 2.99031pt have occurred.
-
-
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 28398 strings out of 473190
- 581989 string characters out of 5715801
- 1174603 words of memory out of 5000000
- 51111 multiletter control sequences out of 15000+600000
- 721344 words of font info for 363 fonts, out of 8000000 for 9000
+ 27221 strings out of 473190
+ 563584 string characters out of 5715801
+ 1143864 words of memory out of 5000000
+ 49964 multiletter control sequences out of 15000+600000
+ 621142 words of font info for 107 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 131i,19n,135p,696b,1062s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Bold.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-BoldOblique.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Oblique.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Roman.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/fourier/fourier-bb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7t.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7y.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7v.pfb>
-Output written on recueil.pdf (12 pages, 133583 bytes).
+ 131i,11n,135p,633b,893s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Bold.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-BoldOblique.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Oblique.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Roman.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/fourier/fourier-bb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7t.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7y.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7v.pfb>
+Output written on H23.pdf (25 pages, 829449 bytes).
 PDF statistics:
- 109 PDF objects out of 1000 (max. 8388607)
- 71 compressed objects within 1 object stream
+ 824 PDF objects out of 1000 (max. 8388607)
+ 571 compressed objects within 6 object streams
  0 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 48 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -316,65 +316,64 @@ On pose $Y=X_1+X_2+2 X_3$.
 \newpage
 
 
-\question On lance trois dés standard à 6 faces et on définit les variables aléatoires $X$ et $Y$ comme suit:
+\question[12] On lance deux dés standard à 6 faces et on définit les variables aléatoires $X$ et $Y$ comme suit:
 \begin{itemize}
-\item $X$ vaut 1 si les trois dés affichent le même chiffre et 0 sinon.
+\item $X$ vaut 1 si les deux dés affichent le même chiffre et 0 sinon.
 \item $Y$ est le nombre de fois où le chiffre 6 apparait.
 \end{itemize}
 
-Voici le tableau qui représente la fonction de masse conjointe de $(X, Y)$ où $a$, $b$ et $c$ sont des probabilités.
-
-\begin{center}
-\large{
-\begin{tabular}{cc|cccc}
-$p(x,y)$ & & & $y$& &\\
- & & 0 & 1 & 2 &3 \\ 
- \hline
- & 0 & $a$ & $\sfrac{75}{216}$  & $\sfrac{15}{216}$ & $c$\\
-$x$ & 1 & $\sfrac{5}{216}$ & $b$ & $0$& $\sfrac{1}{216}$\\
-\end{tabular}
-}
- \end{center}
-
 \begin{parts}
-    \part[4] Que valent $a$, $b$ et $c$?
+    \part[4] Dresser la fonction de masse conjointe de $(X,Y)$.
     \begin{solution}
-    Il y a $6^3 = 216$ issues équiprobables.
-    
-    \textbf{Trouver $b$:} $\mathbb{P}(X=1) = \frac{6}{216}$ (6 façons d'avoir les 3 dés identiques). La marge $X=1$ donne : $\frac{5}{216} + b + 0 + \frac{1}{216} = \frac{6}{216}$, donc $b = 0$.
-    
-    \textbf{Trouver $c$:} $\mathbb{P}(Y=3) = \left(\frac{1}{6}\right)^3 = \frac{1}{216}$. La marge $Y=3$ donne : $c + \frac{1}{216} = \frac{1}{216}$, donc $c = 0$.
-    
-    \textbf{Trouver $a$:} $\mathbb{P}(Y=0) = \left(\frac{5}{6}\right)^3 = \frac{125}{216}$. La marge $Y=0$ donne : $a + \frac{5}{216} = \frac{125}{216}$, donc $a = \frac{120}{216} = \frac{5}{9}$.
+    Il y a $6^2 = 36$ issues équiprobables.
+
+    \begin{itemize}
+    \item $P(X=1, Y=0)$: les deux dés identiques, aucun 6 $\Rightarrow$ 5 issues (1-1, 2-2, 3-3, 4-4, 5-5) $= \sfrac{5}{36}$.
+    \item $P(X=1, Y=1)$: impossible (si les deux dés sont identiques, on ne peut pas avoir exactement un 6) $= 0$.
+    \item $P(X=1, Y=2)$: les deux dés identiques, deux 6 $\Rightarrow$ 1 issue (6-6) $= \sfrac{1}{36}$.
+    \item $P(Y=0) = \left(\sfrac{5}{6}\right)^2 = \sfrac{25}{36}$, donc $P(X=0, Y=0) = \sfrac{25}{36} - \sfrac{5}{36} = \sfrac{20}{36}$.
+    \item $P(Y=1) = 2 \cdot \sfrac{1}{6} \cdot \sfrac{5}{6} = \sfrac{10}{36}$, donc $P(X=0, Y=1) = \sfrac{10}{36} - 0 = \sfrac{10}{36}$.
+    \item $P(Y=2) = \left(\sfrac{1}{6}\right)^2 = \sfrac{1}{36}$, donc $P(X=0, Y=2) = \sfrac{1}{36} - \sfrac{1}{36} = 0$.
+    \end{itemize}
+
+    \begin{center}
+    \begin{tabular}{cc|ccc|c}
+    $p(x,y)$ & & & $y$ & & \\
+     & & 0 & 1 & 2 & $p_X(x)$ \\
+     \hline
+     & 0 & $\sfrac{20}{36}$ & $\sfrac{10}{36}$ & $0$ & $\sfrac{30}{36}$ \vspace{2pt}\\
+    $x$ & 1 & $\sfrac{5}{36}$ & $0$ & $\sfrac{1}{36}$ & $\sfrac{6}{36}$ \vspace{2pt}\\
+    \hline
+     & $p_Y(y)$ & $\sfrac{25}{36}$ & $\sfrac{10}{36}$ & $\sfrac{1}{36}$ & $1$ \\
+    \end{tabular}
+    \end{center}
     \end{solution}
     
-\vspace{4cm}
+\vspace{5cm}
     
-    \part[4] Est-ce que $X$ et $Y$ sont indépendentes ? Justifier votre réponse.
+    \part[4] Est-ce que $X$ et $Y$ sont indépendantes? Justifier votre réponse.
     \begin{solution}
-    Vérifions si $\mathbb{P}(X=0, Y=0) = \mathbb{P}(X=0)\,\mathbb{P}(Y=0)$.
+    Vérifions si $P(X=0, Y=0) = P(X=0)\,P(Y=0)$.
     \begin{itemize}
-    \item $\mathbb{P}(X=0, Y=0) = a = \frac{120}{216}$
-    \item $\mathbb{P}(X=0) = 1 - \frac{6}{216} = \frac{210}{216}$
-    \item $\mathbb{P}(Y=0) = \frac{125}{216}$
-    \item $\mathbb{P}(X=0)\,\mathbb{P}(Y=0) = \frac{210}{216} \cdot \frac{125}{216} = \frac{26250}{46656} = \frac{4375}{7776}$
+    \item $P(X=0, Y=0) = \frac{20}{36}$
+    \item $P(X=0) = \frac{30}{36}$, \quad $P(Y=0) = \frac{25}{36}$
+    \item $P(X=0)\,P(Y=0) = \frac{30}{36} \cdot \frac{25}{36} = \frac{750}{1296} = \frac{125}{216}$
     \end{itemize}
-    Or $\frac{120}{216} = \frac{4320}{7776} \neq \frac{4375}{7776}$.
+    Or $\frac{20}{36} = \frac{720}{1296} \neq \frac{750}{1296}$.
     
     Donc $X$ et $Y$ ne sont \textbf{pas indépendantes}.
     \end{solution}
 \vspace{5cm}
-    \part[4] Calculer $\mathbb{E}[Y|X=1]$. \textit{Si vous n'avez pas trouvé $a$, $b$ et $c$, vous pouvez exprimer votre réponse en fonction d'une ou plusieurs de ces inconnues.}
+    \part[4] Calculer $\mathbb{E}[Y|X=1]$.
     \begin{solution}
-    On calcule les probabilités conditionnelles sachant $X=1$ (avec $\mathbb{P}(X=1) = \frac{6}{216}$) :
+    On calcule les probabilités conditionnelles sachant $X=1$ (avec $P(X=1) = \frac{6}{36}$):
     \begin{align*}
-    \mathbb{P}(Y=0 \mid X=1) &= \frac{5/216}{6/216} = \frac{5}{6}\\
-    \mathbb{P}(Y=1 \mid X=1) &= \frac{0}{6/216} = 0\\
-    \mathbb{P}(Y=2 \mid X=1) &= \frac{0}{6/216} = 0\\
-    \mathbb{P}(Y=3 \mid X=1) &= \frac{1/216}{6/216} = \frac{1}{6}
+    P(Y=0 \mid X=1) &= \frac{5/36}{6/36} = \frac{5}{6}\\
+    P(Y=1 \mid X=1) &= \frac{0}{6/36} = 0\\
+    P(Y=2 \mid X=1) &= \frac{1/36}{6/36} = \frac{1}{6}
     \end{align*}
     Donc
-    $$\mathbb{E}[Y \mid X=1] = 0 \cdot \frac{5}{6} + 1 \cdot 0 + 2 \cdot 0 + 3 \cdot \frac{1}{6} = \frac{3}{6} = \frac{1}{2}$$
+    $$\mathbb{E}[Y \mid X=1] = 0 \cdot \frac{5}{6} + 1 \cdot 0 + 2 \cdot \frac{1}{6} = \frac{2}{6} = \frac{1}{3}$$
     \end{solution}
 \end{parts}
 

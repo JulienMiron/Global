@@ -595,13 +595,13 @@ Pour que le montage fonctionne, au moins un élément du bloc A doit fonctionner
 
  Quelle est la probabilité que le montage ne fonctionne pas? 
 	
-\begin{itemize}[label = { }]
-		\item A) 0,40
-		\item B) 0,03
-		\item C) 0,97
-		\item D) 0,37
-		\item E) 0,63
-	\end{itemize}
+\begin{checkboxes}
+		\choice 0,40
+		\choice 0,03
+		\choice 0,97
+		\choice 0,37
+		\choice 0,63
+	\end{checkboxes}
 
 
 
@@ -1927,15 +1927,13 @@ Soit un système électronique constitué d'un composant de type 1 et d'un compo
 
 Sachant que la durée de vie du composant de type 1 vaut 101 mois, identifiez la loi de la durée de vie du composant de type 2 avec sa moyenne et sa variance.
 
- \begin{itemize}[label = { }]
-		\item A) $N(92, \; 9)$  %  X1
-		\item B) $N(96,\;9)$ % X_2 | X1
-		\item C) $N(84,\; 25)$ % X_2 
-		\item D) $N(100, \; 9)$ % X_1 | X2
-		\item E) $N(144, \; 9)$ % X_2 | X1 avec sigma^2 plutot que sigma
-	\end{itemize}
-
-\qcmrep{}
+\begin{checkboxes}
+		\choice $N(92, \; 9)$  %  X1
+		\CorrectChoice $N(96,\;9)$ % X_2 | X1
+		\choice $N(84,\; 25)$ % X_2 
+		\choice $N(100, \; 9)$ % X_1 | X2
+		\choice $N(144, \; 9)$ % X_2 | X1 avec sigma^2 plutot que sigma
+	\end{checkboxes}
 
 \begin{solution}
 On cherche la loi de
@@ -3302,7 +3300,7 @@ Déterminez si les énoncés suivants sont vrais ou faux.
     
  
         
-    \item Le poids des tomates d'un certain agriculteur suit une loi normale de moyenne $300\text{ grammes}$ et de variance $100\text{ grammes}^2$. On prend des mesures sur 25 tomates choisies aléatoirement et on obtient une moyenne échantillonnale de $309,12\text{ grammes}$ et une variance échantillonnale de $118,3\text{ grammes}^2$. Dans cette situation, les nombres $309,12$ et $118,3$ sont des paramètres et les nombres $300$ et $100$ sont des statistiques.
+    \part Le poids des tomates d'un certain agriculteur suit une loi normale de moyenne $300\text{ grammes}$ et de variance $100\text{ grammes}^2$. On prend des mesures sur 25 tomates choisies aléatoirement et on obtient une moyenne échantillonnale de $309,12\text{ grammes}$ et une variance échantillonnale de $118,3\text{ grammes}^2$. Dans cette situation, les nombres $309,12$ et $118,3$ sont des paramètres et les nombres $300$ et $100$ sont des statistiques.
     
     \begin{oneparcheckboxes}
         \choice Vrai
@@ -3477,14 +3475,12 @@ Soit les variables aléatoires indépendantes $X_1,...,X_{10}$. Ces $10$ variabl
 
 laquelle des affirmations suivantes est VRAIE? 
 
-\begin{itemize}[label = {}]
-\item A) $\frac{W-\mu}{\sigma}\sim\mathcal{N}(0,1)$
-\item B) $3Y+10\sim \mathcal{N}(30\mu + 10; 90\sigma^2)$ 
-\item C) La moyenne échantillonnale $W$ est toujours égale à $\mu$
-\item D) Comme $n<30$, $Y$ et $W$ ne suivent pas des lois normales
-\end{itemize}
-
-\qcmrep{}
+\begin{checkboxes}
+\choice $\frac{W-\mu}{\sigma}\sim\mathcal{N}(0,1)$
+\CorrectChoice $3Y+10\sim \mathcal{N}(30\mu + 10; 90\sigma^2)$ 
+\choice La moyenne échantillonnale $W$ est toujours égale à $\mu$
+\choice Comme $n<30$, $Y$ et $W$ ne suivent pas des lois normales
+\end{checkboxes}
 
 \begin{solution}
     B)
@@ -3499,28 +3495,43 @@ laquelle des affirmations suivantes est VRAIE?
 
 \textbf{\textit{Pour chacun des énoncés suivants, inscrivez «Vrai» ou «Faux» dans les cases appropriées.}}
 
-\begin{itemize}[label = { }]
-    \item A) Si $X_1,...,X_{17}$ constituent un échantillon aléatoire simple issu d'une distribution $\mathcal{N}(5; 4)$, alors la variable $4S^2$ a une espérance de 5 et une variance de 4.
+\begin{parts}
+    \part Si $X_1,...,X_{17}$ constituent un échantillon aléatoire simple issu d'une distribution $\mathcal{N}(5; 4)$, alors la variable $4S^2$ a une espérance de 5 et une variance de 4.
     
-    \vfrep{}
+    \begin{oneparcheckboxes}
+        \choice Vrai
+        \correctchoice Faux
+    \end{oneparcheckboxes}
     
-    \item B) Si $W$ suit une $\chi^2$ avec $5$ degrés de liberté, alors $P(W>5)=0,5$. 
+    \part Si $W$ suit une $\chi^2$ avec $5$ degrés de liberté, alors $P(W>5)=0,5$. 
     
-    \vfrep{}
+    \begin{oneparcheckboxes}
+        \choice Vrai
+        \correctchoice Faux
+    \end{oneparcheckboxes}
     
-    \item C) Le poids des tomates d'un certain agriculteur suit une loi normale de moyenne $300\text{ grammes}$ et de variance $100\text{ grammes}^2$. On prend des mesures sur 25 tomates choisies aléatoirement et on obtient une moyenne échantillonnale de $309,12\text{ grammes}$ et une variance échantillonnale de $118,3\text{ grammes}^2$. Dans cette situation, les nombres $309,12$ et $118,3$ sont des paramètres et les nombres $300$ et $100$ sont des statistiques. 
+    \part Le poids des tomates d'un certain agriculteur suit une loi normale de moyenne $300\text{ grammes}$ et de variance $100\text{ grammes}^2$. On prend des mesures sur 25 tomates choisies aléatoirement et on obtient une moyenne échantillonnale de $309,12\text{ grammes}$ et une variance échantillonnale de $118,3\text{ grammes}^2$. Dans cette situation, les nombres $309,12$ et $118,3$ sont des paramètres et les nombres $300$ et $100$ sont des statistiques. 
     
-    \vfrep{}
+    \begin{oneparcheckboxes}
+        \choice Vrai
+        \correctchoice Faux
+    \end{oneparcheckboxes}
     
-    \item D) Si $T\sim t_{14}$, alors $P(T>14)=P(T<-14)$.
+    \part Si $T\sim t_{14}$, alors $P(T>14)=P(T<-14)$.
     
-    \vfrep{}
+    \begin{oneparcheckboxes}
+        \correctchoice Vrai
+        \choice Faux
+    \end{oneparcheckboxes}
     
-    \item E) Soit deux échantillons aléatoires indépendants de taille $n_1=26$ et $n_2=26$ qui proviennent de la même loi $\mathcal{N}(\mu, \sigma^2)$. Les moyennes échantillonnales sont respectivement $\overline{X}_1$ et $\overline{X}_2$, alors que les variances échantillonnales sont respectivement $S^2_1$ et $S^2_2$. La statistique $S^2_1/S^2_2$ suit une $F_{25,25}$. 
+    \part Soit deux échantillons aléatoires indépendants de taille $n_1=26$ et $n_2=26$ qui proviennent de la même loi $\mathcal{N}(\mu, \sigma^2)$. Les moyennes échantillonnales sont respectivement $\overline{X}_1$ et $\overline{X}_2$, alors que les variances échantillonnales sont respectivement $S^2_1$ et $S^2_2$. La statistique $S^2_1/S^2_2$ suit une $F_{25,25}$. 
     
-    \vfrep{}
+    \begin{oneparcheckboxes}
+        \correctchoice Vrai
+        \choice Faux
+    \end{oneparcheckboxes}
     
-\end{itemize}
+\end{parts}
 
 \begin{solution}
 A) Faux (espérance de 16 et variance de 32)
@@ -3610,7 +3621,7 @@ Déterminez si les énoncés suivants sont vrais ou faux.
         Faux
     \end{solution}
         \vspace{0.5cm}
-    \item Le poids des tomates d'un certain agriculteur suit une loi normale de moyenne $300\text{ grammes}$ et de variance $100\text{ grammes}^2$. On prend des mesures sur 25 tomates choisies aléatoirement et on obtient une moyenne échantillonnale de $309,12\text{ grammes}$ et une variance échantillonnale de $118,3\text{ grammes}^2$. Dans cette situation, les nombres $309,12$ et $118,3$ sont des paramètres et les nombres $300$ et $100$ sont des statistiques.
+    \part Le poids des tomates d'un certain agriculteur suit une loi normale de moyenne $300\text{ grammes}$ et de variance $100\text{ grammes}^2$. On prend des mesures sur 25 tomates choisies aléatoirement et on obtient une moyenne échantillonnale de $309,12\text{ grammes}$ et une variance échantillonnale de $118,3\text{ grammes}^2$. Dans cette situation, les nombres $309,12$ et $118,3$ sont des paramètres et les nombres $300$ et $100$ sont des statistiques.
     
     \begin{oneparcheckboxes}
         \correctchoice Vrai
@@ -3688,7 +3699,7 @@ Déterminez si les énoncés suivants sont vrais ou faux.
         Faux
     \end{solution}
         \vspace{0.5cm}
-    \item Le poids des tomates d'un certain agriculteur suit une loi normale de moyenne $300\text{ grammes}$ et de variance $100\text{ grammes}^2$. On prend des mesures sur 25 tomates choisies aléatoirement et on obtient une moyenne échantillonnale de $309,12\text{ grammes}$ et une variance échantillonnale de $118,3\text{ grammes}^2$. Dans cette situation, les nombres $309,12$ et $118,3$ sont des paramètres et les nombres $300$ et $100$ sont des statistiques.
+    \part Le poids des tomates d'un certain agriculteur suit une loi normale de moyenne $300\text{ grammes}$ et de variance $100\text{ grammes}^2$. On prend des mesures sur 25 tomates choisies aléatoirement et on obtient une moyenne échantillonnale de $309,12\text{ grammes}$ et une variance échantillonnale de $118,3\text{ grammes}^2$. Dans cette situation, les nombres $309,12$ et $118,3$ sont des paramètres et les nombres $300$ et $100$ sont des statistiques.
     
     \begin{oneparcheckboxes}
         \correctchoice Vrai
@@ -3849,7 +3860,7 @@ Déterminez si les énoncés suivants sont vrais ou faux.
         Faux
     \end{solution}
         \vspace{0.5cm}
-    \item Le poids des tomates d'un certain agriculteur suit une loi normale de moyenne $300\text{ grammes}$ et de variance $100\text{ grammes}^2$. On prend des mesures sur 25 tomates choisies aléatoirement et on obtient une moyenne échantillonnale de $309,12\text{ grammes}$ et une variance échantillonnale de $118,3\text{ grammes}^2$. Dans cette situation, les nombres $309,12$ et $118,3$ sont des paramètres et les nombres $300$ et $100$ sont des statistiques.
+    \part Le poids des tomates d'un certain agriculteur suit une loi normale de moyenne $300\text{ grammes}$ et de variance $100\text{ grammes}^2$. On prend des mesures sur 25 tomates choisies aléatoirement et on obtient une moyenne échantillonnale de $309,12\text{ grammes}$ et une variance échantillonnale de $118,3\text{ grammes}^2$. Dans cette situation, les nombres $309,12$ et $118,3$ sont des paramètres et les nombres $300$ et $100$ sont des statistiques.
     
     \begin{oneparcheckboxes}
         \choice Vrai
@@ -4463,17 +4474,15 @@ Soit l'intervalle de confiance au niveau de confiance $(1-\alpha)$ pour $\mu$ co
 où $\overline{Y}$ est la moyenne échantillonnale, $t_{\alpha/2;(n-1)}\sqrt{S^2/n}$ est la marge d'erreur et $S^2$ est la variance échantillonnale.
 Quel énoncé parmi les suivants est VRAI?
 
-\begin{itemize}[label = { }]
-    \item A) La probabilité que $\overline{Y}$ soit dans l'intervalle de confiance est $(1-\alpha)$
-%    \item L'intervalle de confiance est centré en $\overline{Y}$
-    \item B) Nous savons que la proportion des $Y$ se retrouvant dans l'invervalle de confiance est $(1-\alpha)$
-    \item C) Nous savons que la probabilité que $\mu$ soit dans l'intervalle de confiance est $(1-\alpha)$
-    \item D) Si $n$ augmente, la longueur de l'intervalle de confiance augmente
-    \item E) Si $\alpha$ augmente, la longueur de l'intervalle de confiance augmente
-    \item F) Nous savons que l'intervalle de confiance est centré en $\mu$
-\end{itemize}
-
-\qcmrep{}
+\begin{checkboxes}
+    \choice La probabilité que $\overline{Y}$ soit dans l'intervalle de confiance est $(1-\alpha)$
+%    \choice L'intervalle de confiance est centré en $\overline{Y}$
+    \choice Nous savons que la proportion des $Y$ se retrouvant dans l'invervalle de confiance est $(1-\alpha)$
+    \CorrectChoice Nous savons que la probabilité que $\mu$ soit dans l'intervalle de confiance est $(1-\alpha)$
+    \choice Si $n$ augmente, la longueur de l'intervalle de confiance augmente
+    \choice Si $\alpha$ augmente, la longueur de l'intervalle de confiance augmente
+    \choice Nous savons que l'intervalle de confiance est centré en $\mu$
+\end{checkboxes}
 
 \begin{solution}
 C)
