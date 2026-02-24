@@ -52,7 +52,7 @@
 \documentclass{Evaluation}
 \usepackage{multicol,graphicx}
 
-\printanswers
+\noprintanswers
 
 \begin{document}
 \begin{questions}
@@ -62,6 +62,8 @@
 
 On sait que \(P(A)=0{,}3\), \(P(B)=0{,}2\) et \(P(A^c \cap B)=0{,}1\).
 Calculez \(P(A \cap B)\).
+
+\vspace{5cm}
 
 \begin{solution}
 On décompose l’événement \(B\) :
@@ -165,8 +167,25 @@ Donc
 \]
 \end{solution}
 
+\vspace{12.5cm}
+
+\question[2]
+
+On peut modéliser le nombre de jours avant la panne d'un serveur informatique par une loi géométrique de paramètre $p=0{,}4$. Après 10 jours sans panne, que peut-on dire?
+
+\begin{checkboxes}
+\choice La panne est maintenant plus probable qu'au début.
+\choice La panne est moins probable qu'au début.
+\correctchoice La probabilité de panne demain est la même qu'au premier jour.
+\choice Il est certain qu'une panne surviendra bientôt.
+\end{checkboxes}
+\begin{solution}
+La loi géométrique possède la propriété d'absence de mémoire~: $\mathbb{P}(X > s+t \mid X > s) = \mathbb{P}(X > t)$. Le fait d'avoir survécu 10 jours sans panne ne change pas la probabilité de panne le lendemain.
+\end{solution}
+
 %%%%%%%%%%%%%%%%%%% PROB COND. %%%%%%%%%%%%%%
 
+\newpage
 \question[]
 
 Un magasin de jouets vend 3 types de figurines: des dragons, des licornes et des phénix. Parmi les figurines vendues, $50\%$ sont des dragons, $30\%$ sont des licornes et $20\%$ sont des phénix. Certaines figurines sont défectueuses. On sait que $10\%$ des dragons sont défectueux, la probabilité de choisir une figurine qui est une licorne et qui est défectueuse est de $0{,}06$, et $25\%$ des phénix sont défectueux.
@@ -286,21 +305,7 @@ En utilisant les événements suivants:
 
 \newpage
 
-\question[2]
 
-On peut modéliser le nombre de jours avant la panne d'un serveur informatique par une loi géométrique de paramètre $p=0{,}4$. Après 10 jours sans panne, que peut-on dire?
-
-\begin{checkboxes}
-\choice La panne est maintenant plus probable qu'au début.
-\choice La panne est moins probable qu'au début.
-\correctchoice La probabilité de panne demain est la même qu'au premier jour.
-\choice Il est certain qu'une panne surviendra bientôt.
-\end{checkboxes}
-\begin{solution}
-La loi géométrique possède la propriété d'absence de mémoire~: $\mathbb{P}(X > s+t \mid X > s) = \mathbb{P}(X > t)$. Le fait d'avoir survécu 10 jours sans panne ne change pas la probabilité de panne le lendemain.
-\end{solution}
-
-\newpage 
 
 %%%%%%%% Module 3 - lois discrètes %%%%%%%%%%%%%
 
@@ -333,6 +338,8 @@ On a donc
 \]
 \end{solution}
 
+\vspace{6cm
+}
 \part[4]
 Quelle est la probabilité que le \emph{premier} relevé reçu avec succès
 survienne à la $5^{\text{e}}$ tentative?
@@ -349,12 +356,12 @@ On obtient
 \]
 \end{solution}
 
+\vspace{6cm}
+
 \part[4]
 Chaque tentative d’envoi coûte $0{,}40\$$, qu’elle soit réussie ou non.
 De plus, le lancement du drone entraîne un coût fixe de $10\$$.
-On souhaite obtenir $50$ relevés reçus avec succès.
-
-On note $Z$ le coût total (en dollars) nécessaire pour atteindre cet
+On souhaite obtenir $50$ relevés reçus avec succès. On note $Z$ le coût total (en dollars) nécessaire pour atteindre cet
 objectif. Calculez $\mathbb E[Z]$.
 
 \begin{solution}
@@ -438,6 +445,8 @@ Donc
 Numériquement, cette probabilité vaut environ $0{,}94$.
 \end{solution}
 
+\vspace{13cm}
+
 \part[4]
 Soit $T_3$ le temps (en jours) avant la troisième contravention. Calculez $\mathbb E[T_3]$.
 
@@ -465,34 +474,11 @@ Avec $\lambda = \frac{1}{5}$, on obtient
 \question[] Soit $X$ une variable aléatoire continue dont la fonction de répartition est donnée par
 \[ F_X(x) = \begin{cases}
 \displaystyle 0 & \mbox{si } x < 0, \\[6pt]
-\displaystyle cx^3 & \mbox{si } 0 \le x < 2, \\[6pt]
+\displaystyle \frac{x^3}{8} & \mbox{si } 0 \le x < 2, \\[6pt]
 \displaystyle 1 & \mbox{si } x \ge 2.
 \end{cases} \]
 
 \begin{parts}
-    \part[4] Trouvez la valeur de la constante $c$.
-
-    \begin{solution}
-    On utilise la condition $F_X(2)=1$:
-    \[
-    c(2)^3 = 1 \implies 8c = 1 \implies c = \frac{1}{8}.
-    \]
-    \end{solution}
-    \vspace{4cm}
-
-    \part[4] Trouvez la fonction de densité $f_X(x)$.
-
-    \begin{solution}
-    On dérive la fonction de répartition:
-    \[
-    f_X(x) = F_X'(x) = \begin{cases}
-    \displaystyle \frac{3x^2}{8} & \mbox{si } 0 \le x < 2, \\[6pt]
-    0 & \mbox{sinon.}
-    \end{cases}
-    \]
-    \end{solution}
-    \vspace{5cm}
-
     \part[4] Calculez $\mathbb{P}\!\left(X > 1 \;\middle|\; X < \dfrac{3}{2}\right)$.
 
     \begin{solution}
@@ -514,7 +500,22 @@ Avec $\lambda = \frac{1}{5}$, on obtient
     = \frac{19}{27}.
     \]
     \end{solution}
-    \vspace{5cm}
+    \vspace{7cm}
+
+    \part[4] Trouvez la fonction de densité $f_X(x)$.
+
+    \begin{solution}
+    On dérive la fonction de répartition:
+    \[
+    f_X(x) = F_X'(x) = \begin{cases}
+    \displaystyle \frac{3x^2}{8} & \mbox{si } 0 \le x < 2, \\[6pt]
+    0 & \mbox{sinon.}
+    \end{cases}
+    \]
+    \end{solution}
+    \vspace{3cm}
+
+    
 
     \part[4] Calculez $\mathbb{E}(X)$.
 
@@ -620,7 +621,7 @@ $x$ & $2$ & $b$ & $\sfrac{1}{6}$  \\
 On sait que $\mathbb{E}(X)=2$.
 
 \begin{parts}
-    \part[4] Que valent $a$ et $b$?
+    \part[6] Que valent $a$ et $b$?
 
     \begin{solution}
     La somme des probabilités vaut $1$:
@@ -647,7 +648,7 @@ On sait que $\mathbb{E}(X)=2$.
     \end{solution}
     \vspace{6cm}
 
-    \part[6] Les variables $X$ et $Y$ sont-elles indépendantes? Justifiez votre réponse.
+    \part[4] Les variables $X$ et $Y$ sont-elles indépendantes? Justifiez votre réponse.
 
     \begin{solution}
     On vérifie si $\mathbb{P}(X=x, Y=y) = \mathbb{P}(X=x)\,\mathbb{P}(Y=y)$ pour tout $(x,y)$.
