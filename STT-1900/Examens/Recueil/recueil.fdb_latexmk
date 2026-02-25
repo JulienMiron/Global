@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1771807811.19649 "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1900/Examens/Recueil/recueil.tex" "recueil.pdf" "recueil" 1771807812.23011 2
+["pdflatex"] 1772061986.52282 "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1900/Examens/Recueil/recueil.tex" "recueil.pdf" "recueil" 1772061987.60766 2
   "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/Evaluation.cls" 1771010540.25668 13065 6a7ece7755c213d0cdd2761d85d045c5 ""
   "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1900/Examens/Recueil/recueil.tex" 1771807810.3958 386756 ab7bbfd46dabbcb59e849cd2678293a9 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevoml.enc" 1153172756 2921 ae68ca7d9a4902b5e8c8b47846fadadb ""
@@ -218,7 +218,7 @@
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
   "FigureA.png" 1771699627.77944 116 8b785abbdc7f674e81c3a954aa6a5eb6 ""
-  "recueil.aux" 1771807812.19113 16081 a5fdf23906e04a1be1671c4b281fd105 "pdflatex"
+  "recueil.aux" 1772061987.55642 16081 a5fdf23906e04a1be1671c4b281fd105 "pdflatex"
   (generated)
   "recueil.aux"
   "recueil.log"
