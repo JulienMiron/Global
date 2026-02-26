@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1772062787.87645 "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1900/Examens/Recueil/recueil.tex" "recueil.pdf" "recueil" 1772062790.81858 0
-  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/Evaluation.cls" 1771010540.25668 13065 6a7ece7755c213d0cdd2761d85d045c5 ""
-  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1900/Examens/Recueil/recueil.tex" 1772062785.74334 386878 bbad27ed2bdb165fc5fc87b26797b548 ""
+["pdflatex"] 1772121372.65997 "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1900/Examens/Recueil/recueil.tex" "recueil.pdf" "recueil" 1772121374.97441 0
+  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/Evaluation.cls" 1772121372.34511 13066 590077c434a2dc0bb2d7cdd3671251e9 ""
+  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1900/Examens/Recueil/recueil.tex" 1772121345.44378 386878 bbad27ed2bdb165fc5fc87b26797b548 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevoml.enc" 1153172756 2921 ae68ca7d9a4902b5e8c8b47846fadadb ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevoms.enc" 1153172756 3537 5668d9ed3132b78b010223039ece2e6f ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevot1.enc" 1153172756 3020 a1ac7e8d91c840af41a220ec7126413f ""
@@ -252,7 +252,7 @@
   "RegSimple 2.jpeg" 1772062342.4437 25125 cb93ce7d321f47b1b559288e8ecf7d37 ""
   "RegSimple 3.jpeg" 1772062342.44542 37038 6a30de0aaf9faa69a89f8edbe1712703 ""
   "RegSimple.jpeg" 1772062342.4411 26490 48860cec10ba6dfddc24bdbdadf9e840 ""
-  "recueil.aux" 1772062790.71795 108337 8ccde778e425b69399c8894abe079c8d "pdflatex"
+  "recueil.aux" 1772121374.89099 108337 8ccde778e425b69399c8894abe079c8d "pdflatex"
   (generated)
   "recueil.aux"
   "recueil.log"
