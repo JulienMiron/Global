@@ -13,7 +13,7 @@
 
 % Mode Gradescope : laisser vide {} pour impression recto-verso,
 % mettre un contenu (ex: {.}) pour recto seulement (importation PDF dans Gradescope)
-\def\Gradescope{}
+\def\Gradescope{.}
 
 % ============================================================================
 % CHARGEMENT DES PACKAGES
