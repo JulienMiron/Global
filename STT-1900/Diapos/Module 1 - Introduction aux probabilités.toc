@@ -1,0 +1,12 @@
+\babel@toc {french}{}\relax 
+\beamer@sectionintoc {1}{Importance de la statistique}{2}{0}{1}
+\beamer@sectionintoc {2}{Expérience aléatoire et espace échantillonnal}{10}{0}{2}
+\beamer@subsectionintoc {2}{1}{Événements}{13}{0}{2}
+\beamer@sectionintoc {3}{Probabilités}{21}{0}{3}
+\beamer@subsectionintoc {3}{1}{Définitions et notation}{22}{0}{3}
+\beamer@subsectionintoc {3}{2}{Propriétés}{23}{0}{3}
+\beamer@sectionintoc {4}{Les probabilités conditionnelles}{36}{0}{4}
+\beamer@subsectionintoc {4}{1}{Définition et interprétation}{38}{0}{4}
+\beamer@subsectionintoc {4}{2}{Indépendance}{43}{0}{4}
+\beamer@subsectionintoc {4}{3}{Loi des probabilités totales}{49}{0}{4}
+\beamer@subsectionintoc {4}{4}{Théorème de Bayes}{59}{0}{4}

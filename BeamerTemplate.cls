@@ -1,117 +1,239 @@
-% Classe personnalisée BeamerJS
-% Auteur : Jérôme Soucy (jsoucy@mat.ulaval.ca)
-% Modification: Julien Miron (julien.miron@mat.ulaval.ca
-% Créée le 22 décembre 2022 — Dernière version : 18 juin 2025
+% ============================================================================
+% Classe BeamerTemplate.cls
+% ============================================================================
+%
+% Classe LaTeX personnalisée pour les présentations Beamer (16:9).
+% Fournit des couleurs, boîtes tcolorbox et un gabarit de page de titre
+% adaptés aux cours du Département de mathématiques et de statistique
+% de l'Université Laval.
+%
+% Auteur initial  : Jérôme Soucy (jsoucy@mat.ulaval.ca)
+% Modification    : Julien Miron (julien.miron@mat.ulaval.ca)
+% Créée le        : 22 décembre 2022
+% Dernière version: 26 février 2026
+%
+% ============================================================================
+%
+% UTILISATION RAPIDE
+% ------------------
+%   \documentclass{BeamerTemplate}
+%   \title{Mon titre}
+%   \subtitle{Sous-titre}
+%   \begin{document}
+%     \maketitle
+%     \begin{frame}{...}
+%       ...
+%     \end{frame}
+%   \end{document}
+%
+% FICHIERS REQUIS
+% ---------------
+%   - ligne2.png   : image décorative pour la page de titre
+%   - logo_ul.pdf  : logo de l'Université Laval
+%
+% ============================================================================
 
-% Spécifie que LaTeX2e est requis
 \NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{BeamerTemplate}[2026/02/26 v2.0 Gabarit Beamer ULaval]
 
-% Fournit la classe avec nom et version
-\ProvidesClass{BeamerTemplate}
+% ============================================================================
+% CHARGEMENT DE LA CLASSE DE BASE
+% ============================================================================
 
-
-
-
-% Charge la classe Beamer avec options par défaut
+% Beamer : présentations avec diapositives, animations, overlays.
+% Options :
+%   aspectratio=169 — format 16:9 (standard pour projecteurs modernes)
+%   xcolor=table    — couleurs étendues pour les tableaux (\rowcolor, etc.)
+%   12pt            — taille de police par défaut
+%   handout         — (décommenter) mode impression sans animations
 \LoadClass[
-  aspectratio=169,    % Format écran 16:9
-  %handout,           % (désactivé ici) Mode sans animation pour impression
-  xcolor=table,       % Couleurs étendues, utiles pour les tableaux
-  12pt                % Taille de police par défaut
+  aspectratio=169,
+  %handout,
+  xcolor=table,
+  12pt
 ]{beamer}
 
-% Charge des packages conditionnellement selon le moteur utilisé
+% ============================================================================
+% DÉTECTION DU MOTEUR ET POLICES
+% ============================================================================
+
 \RequirePackage{iftex}
-\usepackage{pgf}
+
 \ifXeTeX
-  % Configuration pour XeLaTeX : support natif d’Unicode
+  % --- XeLaTeX : support natif d'Unicode ---
   \RequirePackage{polyglossia}
   \setdefaultlanguage[frenchpart=false]{french}
 
   \RequirePackage[math-style=TeX, bold-style=upright]{unicode-math}
 
-  % Polices personnalisées
+  % Polices personnalisées (doivent être installées sur le système)
   \setmainfont{Linux Libertine O}
-  \setsansfont{Linux Biolinum O}[Ligatures=TeX,Scale=MatchLowercase]
+  \setsansfont{Linux Biolinum O}[Ligatures=TeX, Scale=MatchLowercase]
   \setmathfont{Latin Modern Math}
-  \setmathfont[range=\setminus]{XITS Math}  % Pour un beau symbole d’ensemble
+  \setmathfont[range=\setminus]{XITS Math}  % Beau symbole d'ensemble
 \else
-  % Configuration pour pdfLaTeX
+  % --- pdfLaTeX : UTF-8 via inputenc ---
   \RequirePackage[french]{babel}
   \RequirePackage[T1]{fontenc}
   \RequirePackage[utf8]{inputenc}
 
-  % Mathématiques et polices classiques
+  % Polices classiques
   \RequirePackage{amsmath}
   \RequirePackage{amsfonts}
-  \usepackage{libertine}                        % Texte avec Libertine
-  \usepackage[frenchmath]{libertinust1math}     % Math avec Libertinus
+  \RequirePackage{libertine}                    % Texte : Linux Libertine
+  \RequirePackage[frenchmath]{libertinust1math}  % Maths : Libertinus
 \fi
 
-% Hyperliens cliquables et configurables
+% ============================================================================
+% DÉFINITION DES COULEURS
+% ============================================================================
+%
+% Les couleurs sont définies ICI, AVANT leur première utilisation.
+% Modifier ces valeurs pour adapter le thème à un autre cours.
+%
+% ============================================================================
+
+% --- Couleurs générales ---
+\definecolor{burntorange}{RGB}{242, 96, 53}      % Orange vif (alerte)
+\definecolor{Fond}{RGB}{252, 252, 252}            % Arrière-plan des diapos
+\definecolor{TitreDiapo}{RGB}{0, 10, 0}           % Titre des diapos
+
+% --- Couleurs thématiques principales ---
+\definecolor{Dominante}{RGB}{125, 195, 229}       % Bleu clair (couleur principale)
+\definecolor{Accent}{RGB}{239, 131, 84}           % Orange accentué (secondaire)
+
+% --- Couleurs des boîtes \Boite ---
+\definecolor{TexteBoite}{RGB}{25, 50, 102}
+\definecolor{TitreBoite}{RGB}{25, 50, 102}
+
+% --- Couleurs des théorèmes ---
+\definecolor{TexteThm}{RGB}{0, 0, 0}
+\definecolor{TitreThm}{RGB}{0, 0, 0}
+
+% --- Couleur des puces de listes ---
+\definecolor{itemizecolor}{RGB}{0, 0, 0}
+
+% --- Couleurs institutionnelles (Université Laval) ---
+\definecolor{rougelaval}{RGB}{237, 28, 36}
+\definecolor{jaunelaval}{RGB}{251, 199, 7}
+
+% --- Alias de couleurs pour les boîtes tcolorbox ---
+
+% Définitions
+\colorlet{DefnColorBar}{Dominante}        % Barre latérale
+\colorlet{DefnColorBG}{Dominante!10}      % Fond
+
+% Théorèmes
+\colorlet{ThmColorBar}{Accent}
+\colorlet{ThmColorBG}{Accent!20}
+
+% Propositions
+\colorlet{PropColorBar}{Accent}
+\colorlet{PropColorBG}{Accent!20}
+
+% ============================================================================
+% HYPERLIENS
+% ============================================================================
+
 \RequirePackage{hyperref}
 \hypersetup{
   pdfencoding=auto,
   breaklinks=true,
   colorlinks=true,
-  linkcolor=.,
+  linkcolor=.,           % Liens internes : couleur du texte courant
   filecolor=blue,
   urlcolor=blue,
   anchorcolor=.,
   citecolor=blue
 }
 
-% Apparence des URLs
+% Apparence des URLs (police plus petite)
 \RequirePackage{url}
 \renewcommand{\UrlFont}{\scriptsize}
 
+% Guillemets français intelligents
 \RequirePackage{csquotes}
 
+% ============================================================================
+% PACKAGES SUPPLÉMENTAIRES
+% ============================================================================
 
-% ============================
-% === Packages supplémentaires ===
-% ============================
+% --- Boîtes et dessins ---
+\RequirePackage[many]{tcolorbox}   % Boîtes colorées (théorèmes, définitions)
+\RequirePackage{pgfplots}          % Graphiques de fonctions (charge tikz + pgf)
+\pgfplotsset{compat=1.17}         % Compatibilité pgfplots
+\RequirePackage{mathrsfs}          % Police calligraphique : \mathscr{L}
 
-\RequirePackage[many]{tcolorbox}   % Pour les boîtes personnalisées (théorèmes, définitions, etc.)
-\RequirePackage{fontawesome5}      % Icônes FontAwesome (ex : \faIcon{...})
-\RequirePackage{siunitx}           % Formatage des unités (ex : \SI{5}{\kilogram})
-\RequirePackage{centernot}         % Permet de centrer les symboles de négation (ex : \centernot\in)
+% Bibliothèques TikZ (une seule déclaration regroupée)
+\usetikzlibrary{
+  patterns,                % Hachures, motifs de remplissage
+  shapes,                  % Formes : ellipse, diamond, etc.
+  arrows.meta,             % Pointes de flèches personnalisées
+  positioning,             % Positionnement relatif entre noeuds
+  calc,                    % Coordonnées calculées
+  intersections,           % Points d'intersection de chemins
+  decorations.pathreplacing, % Accolades, annotations le long d'un chemin
+  backgrounds,             % Couche d'arrière-plan
+  fit,                     % Ajuster un noeud autour d'autres noeuds
+  plotmarks,               % Marqueurs pour les tracés
+  pgfplots.fillbetween     % Remplir entre deux courbes
+}
 
-\RequirePackage{pgfplots} % pour certains graphiques tikz
-\usetikzlibrary{patterns} % pour certains graphiques tikz
-\pgfplotsset{compat=1.17}
-\RequirePackage{mathrsfs}
-\usetikzlibrary{patterns,shapes,arrows.meta,positioning,calc,intersections,decorations.pathreplacing,backgrounds,fit,plotmarks,pgfplots.fillbetween}
-% ================================
-% === Mise en valeur de définitions ===
-% ================================
+% --- Icônes et symboles ---
+\RequirePackage{fontawesome5}      % Icônes : \faIcon{github}, \faEnvelope
 
-%\newcommand{\defn}[1]{%
- % \textbf{\textcolor{Dominante}{#1}}%
-%}
-% Utilisation : \defn{mot important} le met en gras et en couleur « Dominante »
+% --- Unités SI ---
+\RequirePackage{siunitx}           % \SI{5}{\kilogram}, \num{1234}
 
-% ================================
-% === Configuration visuelle de Beamer ===
-% ================================
+% --- Logique et symboles ---
+\RequirePackage{centernot}         % Négation centrée : \centernot\in
 
-\usefonttheme{professionalfonts}       % Utilise les vraies polices installées (pas les polices par défaut de Beamer)
+% --- Sous-fichiers et texte verbatim ---
+\RequirePackage{subfiles}          % Compilation de sous-fichiers indépendants
+\RequirePackage{verbatim}          % Environnement verbatim amélioré
+\RequirePackage{fancyvrb}          % Verbatim avec options (numérotation, etc.)
 
-\setbeamersize{sidebar width left=0pt} % Désactive la barre latérale (utile pour les thèmes sans navigation latérale)
+% --- Tableaux ---
+\RequirePackage{tabularx}          % Tableaux à largeur fixe avec colonne X
+\RequirePackage{booktabs}          % Filets horizontaux élégants (\toprule, etc.)
+\RequirePackage{array}             % Colonnes personnalisées
+\RequirePackage{multirow}          % Cellules fusionnées verticalement
 
-\setbeamertemplate{navigation symbols}{} % Supprime les icônes de navigation (en bas à droite)
+% ============================================================================
+% CONFIGURATION VISUELLE DE BEAMER
+% ============================================================================
 
-\setbeamertemplate{footline}[frame number] % Affiche seulement le numéro de diapositive en bas
+% Utilise les vraies polices installées (pas les polices sans-serif de Beamer)
+\usefonttheme{professionalfonts}
 
+% Désactive la barre latérale gauche
+\setbeamersize{sidebar width left=0pt}
+
+% Supprime les icônes de navigation en bas à droite
+\setbeamertemplate{navigation symbols}{}
+
+% Affiche seulement le numéro de diapositive en bas
+\setbeamertemplate{footline}[frame number]
+
+% Affiche automatiquement une diapositive de section au début de chaque \section
 \AtBeginSection{\frame{\sectionpage}}
 
-% ================================
-% === Styles de texte ===
-% ================================
+% ============================================================================
+% POLICES BEAMER
+% ============================================================================
 
-\setbeamerfont{frametitle}{size=\large, series=\bfseries} % Titre des diapositives : plus gros et en gras
-\setbeamerfont{title}{size=\Large, series=\bfseries}      % Titre de la présentation : encore plus gros et en gras
+% Titre des diapos : gros + gras
+\setbeamerfont{frametitle}{size=\large, series=\bfseries}
 
+% Titre de la présentation : encore plus gros + gras
+\setbeamerfont{title}{size=\Large, series=\bfseries}
+
+% ============================================================================
+% COMMANDES PERSONNALISÉES
+% ============================================================================
+
+% \notrightarrow — Symbole « ne tend pas vers » (flèche barrée)
+%   Usage : $X_n \notrightarrow X$
 \newcommand{\notrightarrow}{%
   \mathrel{\tikz[scale = 0.3]{
     \draw[->,thick] (0,0) -- (1,0);
@@ -119,115 +241,23 @@
   }}%
 }
 
-% ================================
-% === Texte en alerte (accentué) ===
-% ================================
-
-% Définit la couleur du texte "alerted" dans Beamer (utilisé avec \alert)
-\setbeamercolor{alerted text}{fg=burntorange}
-
-% Commande personnalisée pour surligner un mot ou une expression en orange brûlé
+% \alerter{texte} — Texte en orange brûlé (mise en valeur)
 \newcommand{\alerter}[1]{%
   \textcolor{burntorange}{#1}%
 }
 
-%%%%%%%%%%%%%%%%%%%%%%
+% ============================================================================
+% APPLICATION DES COULEURS DANS BEAMER
+% ============================================================================
 
+% Texte d'alerte (utilisé par \alert{...})
+\setbeamercolor{alerted text}{fg=burntorange}
 
-\usepackage{subfiles}
-\usepackage{verbatim}
-\usepackage{fancyvrb}
-
-\usepackage{tabularx}
-\usepackage{booktabs}
-\usepackage{array}
-\usepackage{multirow}
-
-% ================================
-% === Commande personnalisée pour section avec diapositive ===
-% ================================
-
-% Crée une nouvelle section avec une diapo contenant uniquement le titre
-\newcommand{\mysection}[1]{%
-  \section{#1} % Crée une vraie section (pour navigation, TOC, etc.)
-  \begin{frame}
-    \begin{sct}{#1} % Affiche le titre dans une boîte personnalisée (à définir ailleurs)
-    \end{sct}
-  \end{frame}
-}
-
-
-% ================================
-% === Page d’ouverture de section personnalisée ===
-% ================================
-
-% Définition de la couleur utilisée pour la boîte de section
-\setbeamercolor{colsection}{fg=Dominante!20, bg=Dominante}
-
-% Modèle de page de section (affichée automatiquement à chaque \section)
-\setbeamertemplate{section page}{
-  \begin{centering}
-    \begin{beamercolorbox}[sep=12pt, center]{colsection}
-      \usebeamerfont{section title}\insertsection\par % Affiche le titre de la section
-    \end{beamercolorbox}
-  \end{centering}
-}
-
-
-
-% ================================
-% === Définition des couleurs personnalisées ===
-% ================================
-
-% Couleurs générales
-\definecolor{burntorange}{RGB}{242, 96, 53}      % Orange vif — utilisé pour le texte d’alerte
-\definecolor{Fond}{RGB}{252, 252, 252}           % Couleur d’arrière-plan des diapositives
-\definecolor{TitreDiapo}{RGB}{0, 10, 0}          % Couleur du titre des diapositives
-
-% Couleurs thématiques principales
-\definecolor{Dominante}{RGB}{125, 195, 229}      % Couleur principale (bleu clair)
-\definecolor{Accent}{RGB}{239, 131, 84}          % Couleur secondaire (orange accentué)
-
-% Couleurs des boîtes personnalisées
-\definecolor{TexteBoite}{RGB}{25, 50, 102}         % Texte des boîtes \Boite
-\definecolor{TitreBoite}{RGB}{25, 50, 102}         % Titre des boîtes \Boite
-
-% Couleurs des théorèmes
-\definecolor{TexteThm}{RGB}{0, 0, 0}             % Texte des théorèmes
-\definecolor{TitreThm}{RGB}{0, 0, 0}             % Titre des théorèmes
-
-% Couleur des items de listes
-\definecolor{itemizecolor}{RGB}{0, 0, 0}
-
-% Couleurs institutionnelles (Université Laval)
-\definecolor{rougelaval}{RGB}{237, 28, 36}        % Rouge ULaval
-\definecolor{jaunelaval}{RGB}{251, 199, 7}        % Jaune ULaval
-
-% ================================
-% === Alias de couleurs pour les boîtes tcolorbox ===
-% ================================
-
-% Définitions
-\colorlet{DefnColorBar}{Dominante}        % Barre latérale des définitions
-\colorlet{DefnColorBG}{Dominante!10}      % Fond des définitions
-
-% Théorèmes
-\colorlet{ThmColorBar}{Accent}            % Barre latérale des théorèmes
-\colorlet{ThmColorBG}{Accent!20}          % Fond des théorèmes
-
-% Propositions
-\colorlet{PropColorBar}{Accent}           % Barre latérale des propositions
-\colorlet{PropColorBG}{Accent!20}         % Fond des propositions
-
-% ================================
-% === Application des couleurs dans Beamer ===
-% ================================
-
-% Couleur d’arrière-plan générale
+% Arrière-plan
 \setbeamercolor{background canvas}{bg=Fond}
 \setbeamercolor{normal text}{bg=Fond, fg=black}
 
-% Titres de diapositives
+% Titres de diapos
 \setbeamercolor{frametitle}{fg=TitreDiapo, bg=Fond}
 
 % Blocs standards
@@ -235,7 +265,7 @@
 \setbeamercolor{block title}{bg=black!60, fg=white}
 \setbeamercolor{block title example}{fg=example text.fg!75!normal text.fg, bg=Fond}
 
-% Éléments de structure (ex. titres de sections, numérotation)
+% Structure (titres de sections, numérotation)
 \setbeamercolor{structure}{bg=black, fg=white}
 
 % Listes à puces et numérotées
@@ -244,39 +274,57 @@
 \setbeamercolor{itemize subitem}{fg=itemizecolor}
 \setbeamercolor{itemize subsubitem}{fg=itemizecolor}
 
+% ============================================================================
+% STYLES DES LISTES
+% ============================================================================
 
-% ================================
-% === Styles pour les listes ===
-% ================================
+\setbeamertemplate{itemize item}[circle]          % Puce principale : cercle
+\setbeamertemplate{itemize subitem}[square]       % Sous-puce : carré
+\setbeamertemplate{itemize subsubitem}[triangle]  % Sous-sous-puce : triangle
 
-% Style des puces de listes
-\setbeamertemplate{itemize item}[circle]       % Puce principale : cercle
-\setbeamertemplate{itemize subitem}[square]    % Sous-puce : carré
-\setbeamertemplate{itemize subsubitem}[triangle] % Sous-sous-puce : triangle
+% ============================================================================
+% PAGE DE SECTION PERSONNALISÉE
+% ============================================================================
 
-% ================================
-% === Boîtes personnalisées (tcolorbox) ===
-% ================================
+% Couleur de la boîte de section (texte clair sur fond Dominante)
+\setbeamercolor{colsection}{fg=Dominante!20, bg=Dominante}
 
-% Définition : boîte pour les définitions
+% Modèle affiché automatiquement à chaque \section (via \AtBeginSection)
+\setbeamertemplate{section page}{%
+  \begin{centering}
+    \begin{beamercolorbox}[sep=12pt, center]{colsection}
+      \usebeamerfont{section title}\insertsection\par
+    \end{beamercolorbox}
+  \end{centering}
+}
+
+% ============================================================================
+% BOÎTES PERSONNALISÉES (tcolorbox)
+% ============================================================================
+
+% --- Définition ---
+% Boîte avec barre bleue à gauche, fond bleu pâle.
+% Usage : \begin{defn} Texte de la définition. \end{defn}
 \newtcolorbox[auto counter]{defn}[1][]{
   boxrule=0pt,
   boxsep=0pt,
-  colback=DefnColorBG,             % Fond
+  colback=DefnColorBG,
   enhanced jigsaw,
   detach title,
   fonttitle=\bfseries,
-  coltitle=black,                  % Titre en noir
+  coltitle=black,
   title=Définition.~,
   before upper={\tcbtitle},
-  borderline west={2pt}{0pt}{DefnColorBar}, % Barre colorée à gauche
+  borderline west={2pt}{0pt}{DefnColorBar},
   sharp corners,
   before skip=10pt,
   after skip=10pt,
   breakable,
 }
 
-% Théorème : boîte pour les théorèmes
+% --- Théorème ---
+% Boîte avec barre orange à gauche, fond orange pâle.
+% Usage : \begin{thm} Énoncé du théorème. \end{thm}
 \newtcolorbox[auto counter]{thm}[1][]{
   boxrule=0pt,
   boxsep=0pt,
@@ -286,7 +334,7 @@
   fonttitle=\bfseries,
   coltitle=TitreThm,
   coltext=TexteThm,
-  title=Théorème.~,              % #2 = nom ou numéro
+  title=Théorème.~,
   before upper={\tcbtitle},
   borderline west={2pt}{0pt}{ThmColorBar},
   sharp corners,
@@ -295,7 +343,9 @@
   breakable,
 }
 
-% Proposition : boîte pour les propositions
+% --- Proposition ---
+% Même style que les théorèmes.
+% Usage : \begin{prp} Énoncé de la proposition. \end{prp}
 \newtcolorbox[auto counter]{prp}[1][]{
   boxrule=0pt,
   boxsep=0pt,
@@ -304,7 +354,7 @@
   detach title,
   fonttitle=\bfseries,
   coltitle=black,
-  title=Proposition.~,           % #2 = nom ou numéro
+  title=Proposition.~,
   before upper={\tcbtitle},
   borderline west={2pt}{0pt}{PropColorBar},
   sharp corners,
@@ -313,7 +363,9 @@
   breakable,
 }
 
-% Boîte « Boite » : encadré informatif ou pédagogique
+% --- Boîte informative ---
+% Boîte avec titre personnalisé (fond Dominante).
+% Usage : \begin{Boite}{Mon titre} Contenu. \end{Boite}
 \newtcolorbox[auto counter]{Boite}[2][]{
   boxrule=0pt,
   boxsep=0pt,
@@ -335,14 +387,16 @@
   breakable,
 }
 
-% ================================
-% === Gabarit personnalisé pour la page de titre ===
-% ================================
+% ============================================================================
+% GABARIT DE PAGE DE TITRE
+% ============================================================================
 
-\defbeamertemplate*{title page}{titlepage}{
+% Page de titre personnalisée avec ligne décorative et logo ULaval.
+% Fichiers requis : ligne2.png, logo_ul.pdf
+\defbeamertemplate*{title page}{titlepage}{%
   \thispagestyle{empty}
 
-  % Ligne décorative en arrière-plan centrée horizontalement
+  % Ligne décorative en arrière-plan (centrée verticalement)
   \begin{tikzpicture}[remember picture, overlay]
     \node[anchor=center, inner sep=0pt] at ([yshift=0cm]current page.center)
       {\includegraphics[width=\paperwidth]{ligne2.png}};
@@ -350,52 +404,47 @@
 
   \vspace*{0.5cm}
 
-
-\begin{center}
-        % Titre et sous-titre
+  \begin{center}
+    % Titre et sous-titre
     {\Large \color{black} \inserttitle\par}
     \vspace{0.2cm}
-    { \color{black!67} \insertsubtitle\par}
+    {\color{black!67} \insertsubtitle\par}
 
+    \vspace{2cm}
 
+    % Institut (défini ci-dessous)
+    \insertinstitute
 
-\vspace{2cm}  % Remplit tout l’espace au-dessus
-    
+    \vspace{1cm}
 
-      \insertinstitute
-
-      \vspace{1cm}
-      
-      \includegraphics[width=4cm]{logo_UL.pdf}
-
-
-
+    % Logo ULaval
+    \includegraphics[width=4cm]{logo_ul.pdf}
   \end{center}
-
 }
 
-
-% ================================
-% === Configuration de la bibliographie avec biblatex ===
-% ================================
+% ============================================================================
+% BIBLIOGRAPHIE (biblatex + biber)
+% ============================================================================
 
 \RequirePackage[
-  backend=biber,         % Utilise Biber comme moteur
-  style=numeric-comp,    % Style numérique compact (1,2,3 devient 1–3)
-  sorting=none           % Pas de tri : l’ordre d’apparition est conservé
+  backend=biber,         % Moteur de tri et de traitement
+  style=numeric-comp,    % Style numérique compact : [1-3] au lieu de [1,2,3]
+  sorting=none           % Ordre d'apparition (pas de tri alphabétique)
 ]{biblatex}
 
-\addbibresource{reference.bib}  % Fichier de références
+% Note : chaque fichier .tex doit charger son propre .bib via
+%   \addbibresource{monfichier.bib}
+% dans le préambule (après \documentclass).
 
-% Couleurs pour les entrées de bibliographie
+% Couleurs des entrées de bibliographie (toutes en noir)
 \setbeamercolor{bibliography entry author}{fg=black}
 \setbeamercolor{bibliography entry location}{fg=black}
 \setbeamercolor{bibliography entry note}{fg=black}
 \setbeamercolor{bibliography item}{fg=black}
 
-% ================================
-% === Métadonnées de la présentation ===
-% ================================
+% ============================================================================
+% MÉTADONNÉES PAR DÉFAUT
+% ============================================================================
 
-
+% Institut affiché sur la page de titre (peut être redéfini dans le .tex)
 \institute{Département de mathématiques et de statistique}
