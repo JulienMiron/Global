@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  25 FEB 2026 18:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  25 FEB 2026 18:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1054,26 +1054,26 @@ File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 ) (./recueil.aux)
 \openout1 = `recueil.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for MDA/cmr/m/n on input line 81.
-LaTeX Font Info:    Trying to load font information for MDA+cmr on input line 81.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for MDA/cmr/m/n on input line 84.
+LaTeX Font Info:    Trying to load font information for MDA+cmr on input line 84.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/mathdesign/mdacmr.fd
 File: mdacmr.fd 
 )
-LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    ... okay on input line 84.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1128,14 +1128,14 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Info: Redefining \degres on input line 81.
+LaTeX Info: Redefining \degres on input line 84.
 Package french.ldf Info: Setting StandardItemizeEnv=true for
 (french.ldf)             compatibility with enumitem package,
-(french.ldf)             reported on input line 81.
+(french.ldf)             reported on input line 84.
 Package french.ldf Info: Setting StandardEnumerateEnv=true for
 (french.ldf)             compatibility with enumitem package,
-(french.ldf)             reported on input line 81.
-LaTeX Info: Redefining \up on input line 81.
+(french.ldf)             reported on input line 84.
+LaTeX Info: Redefining \up on input line 84.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/pdflscape/pdflscape.sty
 Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
  (/usr/local/texlive/2025/texmf-dist/tex/latex/pdflscape/pdflscape-nometadata.sty
@@ -1181,77 +1181,77 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 
 
 LaTeX Font Warning: Font shape `T1/fav/m/sc' undefined
-(Font)              using `T1/fav/m/n' instead on input line 93.
+(Font)              using `T1/fav/m/n' instead on input line 96.
 
 
 LaTeX Font Warning: Font shape `T1/fav/b/sc' undefined
-(Font)              using `T1/fav/b/n' instead on input line 93.
+(Font)              using `T1/fav/b/n' instead on input line 96.
 
-LaTeX Font Info:    Trying to load font information for OT1+zavm on input line 93.
+LaTeX Font Info:    Trying to load font information for OT1+zavm on input line 96.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/arev/ot1zavm.fd
 File: ot1zavm.fd 2006/05/30 Fontinst v1.929 font definitions for OT1/zavm.
 )
-LaTeX Font Info:    Trying to load font information for OML+zavm on input line 93.
+LaTeX Font Info:    Trying to load font information for OML+zavm on input line 96.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/arev/omlzavm.fd
 File: omlzavm.fd 2006/05/30 Fontinst v1.929 font definitions for OML/zavm.
 )
-LaTeX Font Info:    Trying to load font information for OMS+zavm on input line 93.
+LaTeX Font Info:    Trying to load font information for OMS+zavm on input line 96.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/arev/omszavm.fd
 File: omszavm.fd 2006/05/30 Fontinst v1.929 font definitions for OMS/zavm.
 )
-LaTeX Font Info:    Trying to load font information for OMX+mdbch on input line 93.
+LaTeX Font Info:    Trying to load font information for OMX+mdbch on input line 96.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/mathdesign/mdbch/omxmdbch.fd
 File: omxmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for OMX/mdbch.
 )
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 8.64006pt on input line 93.
+(Font)              scaled to size 8.64006pt on input line 96.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 93.
+(Font)              scaled to size 6.72005pt on input line 96.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 93.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 93.
+(Font)              scaled to size 4.80003pt on input line 96.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 96.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 93.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 96.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for MDA+mdbch on input line 93.
+LaTeX Font Info:    Trying to load font information for MDA+mdbch on input line 96.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/mathdesign/mdbch/mdamdbch.fd
 File: mdamdbch.fd 2013/08/29 Fontinst v1.933 font definitions for MDA/mdbch.
 )
 LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 8.64006pt on input line 93.
+(Font)              scaled to size 8.64006pt on input line 96.
 LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 6.72005pt on input line 93.
+(Font)              scaled to size 6.72005pt on input line 96.
 LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 4.80003pt on input line 93.
-LaTeX Font Info:    Trying to load font information for U+zavm on input line 93.
+(Font)              scaled to size 4.80003pt on input line 96.
+LaTeX Font Info:    Trying to load font information for U+zavm on input line 96.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/arev/uzavm.fd
 File: uzavm.fd 2006/05/30 Fontinst v1.929 font definitions for U/zavm.
 )
-LaTeX Font Info:    Calculating math sizes for size <6.02908> on input line 248.
+LaTeX Font Info:    Calculating math sizes for size <6.02908> on input line 251.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 5.78795pt on input line 248.
+(Font)              scaled to size 5.78795pt on input line 251.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 4.3988pt on input line 248.
+(Font)              scaled to size 4.3988pt on input line 251.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 3.4728pt on input line 248.
+(Font)              scaled to size 3.4728pt on input line 251.
 LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 5.78795pt on input line 248.
+(Font)              scaled to size 5.78795pt on input line 251.
 LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 4.3988pt on input line 248.
+(Font)              scaled to size 4.3988pt on input line 251.
 LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 3.4728pt on input line 248.
+(Font)              scaled to size 3.4728pt on input line 251.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <4.58206> not available
-(Font)              size <5> substituted on input line 248.
+(Font)              size <5> substituted on input line 251.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <3.61748> not available
-(Font)              size <5> substituted on input line 248.
+(Font)              size <5> substituted on input line 251.
 
 
 
@@ -1263,25 +1263,6 @@ LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <3.61748> not available
 [2{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevoms.enc}] Excluding 'H26' comment.
 
 [3]
-/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1900/Examens/Recueil/recueil.tex:636: Extra }, or forgotten \endgroup.
-l.636 }
-       
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1900/Examens/Recueil/recueil.tex:637: Extra }, or forgotten \endgroup.
-l.637 }
-       
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-
 
 [4] Excluding 'H26' comment. Excluding 'H26r' comment. Excluding 'H26r' comment.
 
@@ -1304,28 +1285,9 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
  Excluding 'comment' comment.
 
 [7] Excluding 'H26' comment.
-/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1900/Examens/Recueil/recueil.tex:1482: Extra }, or forgotten \endgroup.
-l.1482 }
-        
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1900/Examens/Recueil/recueil.tex:1483: Extra }, or forgotten \endgroup.
-l.1483 }
-        
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-
 
 [8] Excluding 'H26r' comment.
-Underfull \hbox (badness 10000) in paragraph at lines 1814--1816
+Underfull \hbox (badness 10000) in paragraph at lines 1809--1811
 
  []
 
@@ -1334,28 +1296,328 @@ Underfull \hbox (badness 10000) in paragraph at lines 1814--1816
 [9]
 
 [10]
-/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1900/Examens/Recueil/recueil.tex:1990: Extra }, or forgotten \endgroup.
-l.1990 }
-        
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1900/Examens/Recueil/recueil.tex:1991: Extra }, or forgotten \endgroup.
-l.1991 }
-        
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-
 
 [11]
 
 [12] Excluding 'H26' comment. Excluding 'H26r' comment.
-!pdfTeX error: pdflatex (file ./FigureA.png): libpng: internal error
- ==> Fatal error occurred, no output PDF file produced!
+<FigureA.png, id=55, 240.9pt x 379.4175pt>
+File: FigureA.png Graphic file (type png)
+<use FigureA.png>
+Package pdftex.def Info: FigureA.png  used on input line 2282.
+(pdftex.def)             Requested size: 158.99815pt x 177.06415pt.
+<FigureB.png, id=56, 240.9pt x 379.4175pt>
+File: FigureB.png Graphic file (type png)
+<use FigureB.png>
+Package pdftex.def Info: FigureB.png  used on input line 2283.
+(pdftex.def)             Requested size: 158.99815pt x 177.06415pt.
+<FigureC.png, id=57, 240.9pt x 379.4175pt>
+File: FigureC.png Graphic file (type png)
+<use FigureC.png>
+Package pdftex.def Info: FigureC.png  used on input line 2284.
+(pdftex.def)             Requested size: 158.99815pt x 177.06415pt.
+<FigureD.png, id=58, 240.9pt x 379.4175pt>
+File: FigureD.png Graphic file (type png)
+<use FigureD.png>
+Package pdftex.def Info: FigureD.png  used on input line 2285.
+(pdftex.def)             Requested size: 158.99815pt x 177.06415pt.
+<FigureE.png, id=59, 240.9pt x 379.4175pt>
+File: FigureE.png Graphic file (type png)
+<use FigureE.png>
+Package pdftex.def Info: FigureE.png  used on input line 2286.
+(pdftex.def)             Requested size: 158.99815pt x 177.06415pt.
+<FigureF.png, id=60, 240.9pt x 379.4175pt>
+File: FigureF.png Graphic file (type png)
+<use FigureF.png>
+Package pdftex.def Info: FigureF.png  used on input line 2287.
+(pdftex.def)             Requested size: 158.99815pt x 177.06415pt.
+
+
+[13 <./FigureA.png> <./FigureB.png> <./FigureC.png> <./FigureD.png> <./FigureE.png> <./FigureF.png>] Excluding 'H26' comment. Excluding 'H26r' comment.
+
+[14]
+
+[15] Excluding 'H26' comment.
+
+[16]
+
+[17] Excluding 'H26' comment. Excluding 'H26r' comment. Excluding 'H26r' comment.
+
+[18]
+
+[19]
+
+[20] Excluding 'H26' comment.
+
+[21]
+
+[22]
+
+[23]
+
+[24] Excluding 'H26' comment. Excluding 'H26r' comment. Excluding 'H26r' comment.
+
+[25]
+Overfull \hbox (6.65216pt too wide) in paragraph at lines 4116--4117
+[]\T1/fav/m/sc/9 Choix 9. Pour es-ti-mer $\OML/zavm/m/it/9 ^^[[]$ \T1/fav/m/sc/9 avec des $\OML/zavm/m/it/9 X[]$ \T1/fav/m/sc/9 nor-males, on uti-lise la quan-tit� pi-vot $[] \OMS/zavm/m/n/9 ^^X \OML/zavm/m/it/9 ^^_[]$\T1/fav/m/sc/9 , ce qui donne l'IC $[]$. 
+ []
+
+
+
+[26]
+
+[27]
+Overfull \hbox (6.65216pt too wide) in paragraph at lines 4419--4420
+[]\T1/fav/m/sc/9 Choix 9. Pour es-ti-mer $\OML/zavm/m/it/9 ^^[[]$ \T1/fav/m/sc/9 avec des $\OML/zavm/m/it/9 X[]$ \T1/fav/m/sc/9 nor-males, on uti-lise la quan-tit� pi-vot $[] \OMS/zavm/m/n/9 ^^X \OML/zavm/m/it/9 ^^_[]$\T1/fav/m/sc/9 , ce qui donne l'IC $[]$. 
+ []
+
+
+
+[28] Excluding 'H26' comment. Excluding 'H26' comment. Excluding 'H26r' comment. Excluding 'H26r' comment.
+
+[29]
+
+[30]
+LaTeX Font Info:    Trying to load font information for T1+fvm on input line 5197.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/bera/t1fvm.fd
+File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
+)
+
+[31]
+
+[32]
+
+[33]
+
+[34]
+
+[35]
+
+[36]
+
+[37]
+
+[38]
+
+[39]
+Underfull \hbox (badness 10000) in paragraph at lines 6363--6371
+
+ []
+
+
+
+[40]
+Underfull \hbox (badness 10000) in paragraph at lines 6510--6518
+
+ []
+
+
+
+[41]
+
+[42]
+
+[43] Excluding 'comment' comment.
+
+[44]
+Underfull \hbox (badness 10000) in paragraph at lines 6994--6995
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7002--7003
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7002--7003
+
+ []
+
+
+
+[45]
+
+[46]
+Underfull \hbox (badness 10000) in paragraph at lines 7129--7130
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7136--7137
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7136--7137
+
+ []
+
+
+
+[47]
+Underfull \hbox (badness 10000) in paragraph at lines 7183--7187
+
+ []
+
+
+
+[48]
+
+[49]
+<RegSimple.jpeg, id=187, 217.31187pt x 254.9525pt>
+File: RegSimple.jpeg Graphic file (type jpg)
+<use RegSimple.jpeg>
+Package pdftex.def Info: RegSimple.jpeg  used on input line 7458.
+(pdftex.def)             Requested size: 162.98349pt x 191.21388pt.
+
+
+[50]
+
+[51 <./RegSimple.jpeg>]
+
+[52]
+<RegSimple 2.jpeg, id=198, 215.80624pt x 254.9525pt>
+File: RegSimple 2.jpeg Graphic file (type jpg)
+<use RegSimple 2.jpeg>
+Package pdftex.def Info: RegSimple 2.jpeg  used on input line 7661.
+(pdftex.def)             Requested size: 183.43616pt x 216.71063pt.
+<RegSimple 3.jpeg, id=199, 219.82124pt x 254.9525pt>
+File: RegSimple 3.jpeg Graphic file (type jpg)
+<use RegSimple 3.jpeg>
+Package pdftex.def Info: RegSimple 3.jpeg  used on input line 7662.
+(pdftex.def)             Requested size: 186.84892pt x 216.71063pt.
+
+
+[53]
+File: RegSimple.jpeg Graphic file (type jpg)
+<use RegSimple.jpeg>
+Package pdftex.def Info: RegSimple.jpeg  used on input line 7664.
+(pdftex.def)             Requested size: 184.71594pt x 216.71063pt.
+
+
+[54 <./RegSimple 2.jpeg> <./RegSimple 3.jpeg>]
+
+[55]
+
+[56]
+
+[57]
+
+[58]
+
+[59]
+
+[60]
+
+[61]
+
+[62]
+
+[63]
+
+LaTeX Font Warning: Font shape `OMS/zavm/b/n' undefined
+(Font)              using `OMS/zavm/m/n' instead on input line 8874.
+
+LaTeX Font Info:    Font shape `OMX/mdbch/b/n' will be
+(Font)              scaled to size 8.64006pt on input line 8874.
+LaTeX Font Info:    Font shape `OMX/mdbch/b/n' will be
+(Font)              scaled to size 6.72005pt on input line 8874.
+LaTeX Font Info:    Font shape `OMX/mdbch/b/n' will be
+(Font)              scaled to size 4.80003pt on input line 8874.
+
+
+[64]
+<2F.pdf, id=239, 505.89pt x 505.89pt>
+File: 2F.pdf Graphic file (type pdf)
+<use 2F.pdf>
+Package pdftex.def Info: 2F.pdf  used on input line 8905.
+(pdftex.def)             Requested size: 556.4807pt x 556.4807pt.
+
+Overfull \hbox (29.77309pt too wide) in paragraph at lines 8905--8906
+ [] 
+ []
+
+
+
+[65 <./2F.pdf>]
+
+[66]
+<ANOVA2facteurs.pdf, id=251, 505.89pt x 505.89pt>
+File: ANOVA2facteurs.pdf Graphic file (type pdf)
+<use ANOVA2facteurs.pdf>
+Package pdftex.def Info: ANOVA2facteurs.pdf  used on input line 9087.
+(pdftex.def)             Requested size: 404.71254pt x 404.71254pt.
+
+
+[67]
+
+[68 <./ANOVA2facteurs.pdf>]
+File: 2F.pdf Graphic file (type pdf)
+<use 2F.pdf>
+Package pdftex.def Info: 2F.pdf  used on input line 9169.
+(pdftex.def)             Requested size: 581.76897pt x 581.76897pt.
+
+Overfull \hbox (55.06136pt too wide) in paragraph at lines 9169--9170
+ [] 
+ []
+
+
+
+[69]
+
+[70]
+
+[71]
+
+[72]
+<ANOVA2F.pdf, id=276, 505.89pt x 505.89pt>
+File: ANOVA2F.pdf Graphic file (type pdf)
+<use ANOVA2F.pdf>
+Package pdftex.def Info: ANOVA2F.pdf  used on input line 9362.
+(pdftex.def)             Requested size: 227.64839pt x 227.64839pt.
+
+
+[73 <./ANOVA2F.pdf>]
+
+[74]
+
+[75]
+
+[76]
+
+[77]
+
+[78]
+This exam contains 173 questions with 343 parts, 35 subparts, and 0 subsubparts.
+This exam has a total of 409 points.
+This exam has a total of 0 bonus points.
+(./recueil.aux)
+ ***********
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+ ***********
+
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 2.99031pt have occurred.
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 31029 strings out of 473190
+ 631198 string characters out of 5715801
+ 1167746 words of memory out of 5000000
+ 53746 multiletter control sequences out of 15000+600000
+ 658249 words of font info for 221 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 131i,21n,135p,801b,2416s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Bold.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-BoldOblique.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Oblique.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Roman.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/fourier/fourier-bb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7t.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7y.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chbma.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7v.pfb>
+Output written on recueil.pdf (78 pages, 469482 bytes).
+PDF statistics:
+ 364 PDF objects out of 1000 (max. 8388607)
+ 234 compressed objects within 3 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 73 words of extra memory for PDF output out of 10000 (max. 10000000)
+
