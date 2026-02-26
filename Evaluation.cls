@@ -11,9 +11,9 @@
 % Utiliser \LoadClass[answers]{exam} pour afficher les réponses
 \LoadClass[]{exam}
 
-% Mode Gradescope : laisser vide {} pour impression recto-verso,
-% mettre un contenu (ex: {.}) pour recto seulement (importation PDF dans Gradescope)
-\def\Gradescope{.}
+% Mode Gradescope : défini dans chaque fichier d'examen (.tex).
+% Par défaut, le mode Gradescope est désactivé (recto-verso).
+% Pour activer : ajouter \def\Gradescope{.} dans le préambule de l'examen.
 
 % ============================================================================
 % CHARGEMENT DES PACKAGES
@@ -117,7 +117,7 @@
 }
 
 % Carré avec libellé à droite (pour sélection de section sur la page couverture)
-\newcommand{\carresection[1]}{
+\newcommand{\carresection}[1]{
   \begin{tikzpicture}
     \draw (0,0) -- (0.5,0) -- (0.5,0.5) -- (0,0.5) -- cycle;
     \draw (0.5,0.25) node[align=left, right]{#1};

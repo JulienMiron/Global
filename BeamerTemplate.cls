@@ -49,7 +49,6 @@
 \fi
 
 % Hyperliens cliquables et configurables
-\usepackage{hyperref}
 \RequirePackage{hyperref}
 \hypersetup{
   pdfencoding=auto,
@@ -143,8 +142,6 @@
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage{multirow}
-\usepackage{fontawesome5}
-\usepackage{booktabs}
 
 % ================================
 % === Commande personnalisée pour section avec diapositive ===
