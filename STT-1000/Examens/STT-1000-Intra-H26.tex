@@ -48,12 +48,12 @@
 \end{itemize}
 }
 
-
+\providecommand{\Gradescope}{}
 
 \documentclass{Evaluation}
 \usepackage{multicol,graphicx}
 
-\noprintanswers
+\printanswers
 \begin{document}
 \begin{questions}
 
@@ -163,12 +163,6 @@ donc
 \]
 \end{solution}
 
-
- \pageblanche
-
-
-
- \pageblanche
 %%%%%%%%%%%%%%%% QUESTION MODULE 1 - PROBABILITÉS%%%%%%%%%%%%%%%%
 
 \pageblanche
@@ -361,9 +355,8 @@ En utilisant les événements suivants:
     \end{solution}
 
 \vfill
+
 \pagesuivante{\ref{densite}}
-\pageblanche
-\suite{\ref{densite}}
 
 Voici une autre densité. Utilisez-la pour répondre à la partie (c).
 
@@ -573,8 +566,7 @@ Dans le cas contraire, il lui chargera 2000\$.
 \end{solution}
 \vfill
 \pagesuivante{\ref{gruyere}}
-\pageblanche
-\suite{\ref{gruyere}}
+
 \part[6] Le producteur sait que la quantité de lait nécessaire pour produire 0,5 kilogramme de Gruyère est d'espérance $6$ litres et de variance $4$ litres$^2$. Quelle est la probabilité qu'il lui faille moins de 415,36 litres pour produire une meule de 32 kilogrammes?
 \begin{solution}
     Il faut 64 fois 0,5 kg pour produire 32 kg. Ici $X_1,\hdots,X_{64}$ représentent la quantité de lait pour 500 grammes et $E(X_i)=6$, $V(X_i)=9$, pour $i=1,\hdots,64$. Comme la loi des $X_i$ n'est pas spécifiée, on utilise le TCL, avec $T=X_1+\hdots+X_{64}\approx \mathcal{N}(64\times 6; 64 \times 4)$.
