@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  28 FEB 2026 13:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  28 FEB 2026 13:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1287,7 +1287,7 @@ LaTeX Font Warning: Font shape `T1/fav/b/sc' undefined
 
 [9]
 This exam contains 10 questions with 17 parts, 0 subparts, and 0 subsubparts.
-This exam has a total of 83 points.
+This exam has a total of 80 points.
 This exam has a total of 0 bonus points.
 (./STT-1920-Exam2-H26.aux)
  ***********
@@ -1308,7 +1308,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  113i,10n,119p,631b,665s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Bold.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Oblique.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Roman.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7t.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7y.pfb>
-Output written on STT-1920-Exam2-H26.pdf (9 pages, 96189 bytes).
+Output written on STT-1920-Exam2-H26.pdf (9 pages, 96191 bytes).
 PDF statistics:
  76 PDF objects out of 1000 (max. 8388607)
  50 compressed objects within 1 object stream
