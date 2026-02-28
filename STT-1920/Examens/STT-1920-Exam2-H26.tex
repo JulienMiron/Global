@@ -1,0 +1,347 @@
+\def\Ponderation{33,33}
+\def\SigleNumero{STT-1920}
+\def\NomCours{Méthodes statistiques}
+\def\DateEvaluation{25 mars 2026}
+\def\HeureEvaluation{13 h 30 à 15 h 20}
+\def\Session{}
+\def\NomEvaluation{Examen 2}
+
+% Ne rien mettre entre les accolades si l'enseignant (ou l'enseignante) est aussi le coordonnateur (ou la coordonnatrice)
+\def\Coordonnatrice{}
+\def\Coordonnateur{}
+
+% Ne rien mettre entre les accolades s'il y a plus d'une section
+\def\Enseignant{Julien Miron}
+\def\Enseignante{}
+
+% Ne rien mettre entre les accolades s'il s'agit d'un cours à section unique
+% Mettre le nom de chacun des enseignants et enseignantes entre les accolades
+% Une case à cocher sera générée pour chacune des sections
+\def\SectionA{}
+\def\SectionB{}
+\def\SectionC{}
+\def\SectionD{}
+
+
+\def\Directives{
+\begin{enumerate}
+\item Matériel autorisé:
+\begin{itemize}
+\item Calculatrice scientifique {\bf autorisée par la faculté des sciences et de génie};
+\item Votre aide-mémoire d'une feuille recto-verso, écrit à la main.
+\end{itemize}
+\item Assurez-vous que cette évaluation comporte \numquestions ~exercices répartis sur \numpages{}~pages, pour un total de \numpoints{}~points.\
+\item \textbf{Veuillez ne pas dégrafer votre examen.}
+\item Vous devez\textbf{ justifier toutes vos réponses} par une démarche claire, sauf pour les questions à choix de réponse.\
+\item Pour les questions à choix de réponse et les vrais ou faux, vous pouvez mettre un X, un crochet ($\checkmark$) ou remplir la case.\
+\item Vous devez laisser tout ce qui ne servira pas durant l'examen à l'avant de la salle AVANT de rejoindre votre place.\
+\item Vous n'avez droit à AUCUN appareil électronique en votre possession durant l'examen.
+\item Une fois assis à votre place, vous devez demandez l'autorisation pour vous lever, même si l'examen n'est pas encore commencé.
+\item Dans les 5 dernières minutes de l'examen, il sera interdit de se lever avant que TOUTES les copies n'aient été ramassées.
+\end{enumerate}
+\begin{itemize}
+\item[$\rightarrow$] Le non-respect des consignes 7-8-9 entraînera une pénalité de 10\%.
+\end{itemize}
+}
+
+\newcommand{\affichepoints}{}     % ← AVEC points
+% \renewcommand{\affichepoints}{on} % ← SANS points (non vide)
+
+\documentclass{Evaluation}
+\usepackage{multicol,graphicx}
+
+\noprintanswers
+
+
+
+\begin{document}
+
+\pageblanche
+
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+\begin{questions}
+
+\question[3]\label{interp}
+La durée de vie (en heures) d'un certain type d'ampoule est modélisée par une loi normale de moyenne $\mu$ inconnue et de variance $\sigma^2$ connue. À partir d'un échantillon de taille $n=16$, on calcule un intervalle de confiance à 95\% pour $\mu$ et on obtient $[980;\, 1020]$. Quel énoncé est une interprétation \textbf{correcte} de cet intervalle?
+
+\begin{checkboxes}
+    \choice 95\% des ampoules de ce type ont une durée de vie entre 980 et 1020 heures.
+    \choice La probabilité que $\mu$ soit entre 980 et 1020 heures est de 0,95.
+    \correctchoice On a confiance à 95\% que l'intervalle $[980;\, 1020]$ contient la vraie valeur de $\mu$.
+    \choice Si on fabrique 100 ampoules, 95 d'entre elles dureront entre 980 et 1020 heures.
+\end{checkboxes}
+
+\begin{solution}
+Un IC à 95\% signifie que, si on répétait l'expérience un grand nombre de fois, 95\% des intervalles calculés contiendraient $\mu$. On a donc confiance à 95\% que cet intervalle particulier contient $\mu$. Les autres choix confondent l'intervalle pour $\mu$ avec la distribution individuelle des observations ou attribuent une probabilité au paramètre fixe $\mu$.
+\end{solution}
+
+
+\question[3] Laquelle des affirmations suivantes concernant la marge d'erreur d'un intervalle de confiance pour la moyenne $\mu$ est \textbf{vraie}?
+
+\begin{checkboxes}
+    \choice Si on augmente la taille de l'échantillon, la marge d'erreur augmente.
+    \choice Si on diminue le niveau de confiance, la marge d'erreur augmente.
+    \correctchoice Si la variabilité des observations augmente, la marge d'erreur augmente.
+    \choice La marge d'erreur ne dépend pas de la taille de l'échantillon.
+\end{checkboxes}
+
+\begin{solution}
+La marge d'erreur est de la forme $\text{quantile}\times \dfrac{s}{\sqrt{n}}$. Si la variabilité ($s$ ou $\sigma$) augmente, la marge d'erreur augmente. Augmenter $n$ diminue la marge d'erreur. Diminuer le niveau de confiance diminue le quantile, donc la marge d'erreur.
+\end{solution}
+
+
+\question[3] Quelle affirmation est \textbf{vraie} parmi les suivantes?
+
+\begin{checkboxes}
+    \choice L'intervalle de confiance pour $\mu$ basé sur la loi de Student est toujours plus étroit que celui basé sur la loi normale centrée réduite.
+    \choice On utilise la loi $\chi^2$ pour construire un intervalle de confiance pour la moyenne $\mu$.
+    \choice L'intervalle de confiance pour $\sigma^2$ basé sur la loi $\chi^2$ est toujours symétrique autour de $s^2$.
+    \correctchoice Lorsque le nombre de degrés de liberté est grand, la loi de Student se rapproche de la loi normale centrée réduite.
+\end{checkboxes}
+
+\begin{solution}
+La loi $t_\nu$ converge vers $\mathcal{N}(0,1)$ quand $\nu\to\infty$. L'IC basé sur Student est plus large (pas plus étroit) car $t_{\alpha/2;\,n-1}>z_{\alpha/2}$. La loi $\chi^2$ sert pour $\sigma^2$, et l'IC pour $\sigma^2$ n'est pas symétrique car la loi $\chi^2$ est asymétrique.
+\end{solution}
+
+
+\pageblanche
+\question\label{varconnue} Soit $X$, le poids (en grammes) de comprimés pharmaceutiques produits par une machine, où $X\sim\mathcal{N}(\mu, \, 4)$. Un échantillon de 25 comprimés donne une moyenne de $\overline{x}=500{,}6$ g.
+
+\begin{parts}
+\part[8] Construisez un intervalle de confiance de niveau 95\% pour $\mu$.
+
+\begin{solution}
+On a $\sigma^2=4$, donc $\sigma=2$, $n=25$, $\overline{x}=500{,}6$ et $z_{0{,}025}=1{,}96$.
+
+L'IC est:
+$$\overline{x}\pm z_{\alpha/2}\frac{\sigma}{\sqrt{n}}=500{,}6\pm 1{,}96\times\frac{2}{\sqrt{25}}=500{,}6\pm 0{,}784=[499{,}816;\, 501{,}384]$$
+\end{solution}
+
+\vspace{11cm}
+
+\part[4] Quelle est la taille minimale de l'échantillon à collecter pour que la marge d'erreur ne dépasse pas 0,5 g, en conservant un niveau de confiance de 95\% ?
+
+\begin{solution}
+La marge d'erreur est $M=z_{\alpha/2}\dfrac{\sigma}{\sqrt{n}}\le 0{,}5$.
+
+$$n\ge \left(\frac{z_{\alpha/2}\,\sigma}{M}\right)^2=\left(\frac{1{,}96\times 2}{0{,}5}\right)^2=(7{,}84)^2=61{,}47$$
+
+On arrondit vers le haut: $n\ge 62$.
+\end{solution}
+
+\end{parts}
+
+
+\pageblanche
+\question\label{varinconnue} Un biologiste mesure la concentration de chlorophylle (en mg/L) dans un lac. Il prélève un échantillon de $n=10$ mesures et obtient:
+
+$$\overline{x}=12{,}3 \quad\text{et}\quad s=1{,}8$$
+
+On suppose que les concentrations suivent une loi normale.
+
+\begin{parts}
+\part[8] Construisez un intervalle de confiance de niveau 99\% pour la concentration moyenne $\mu$ de chlorophylle dans ce lac.
+
+\begin{solution}
+La variance est inconnue, on utilise la loi de Student. On a $n=10$, donc $\nu=n-1=9$ degrés de liberté. On cherche $t_{0{,}005;\,9}$ dans la table de Student.
+
+$t_{0{,}005;\,9}=3{,}250$ (à vérifier dans la table).
+
+L'IC est:
+$$\overline{x}\pm t_{\alpha/2;\,n-1}\frac{s}{\sqrt{n}}=12{,}3\pm 3{,}250\times\frac{1{,}8}{\sqrt{10}}=12{,}3\pm 3{,}250\times 0{,}5692=12{,}3\pm 1{,}850$$
+$$=[10{,}450;\, 14{,}150]$$
+\end{solution}
+
+\vspace{11cm}
+
+\part[3] Si on avait plutôt utilisé un niveau de confiance de 90\% (au lieu de 99\%), l'intervalle obtenu serait-il plus large ou plus étroit? Justifiez brièvement.
+
+\begin{solution}
+L'intervalle serait plus \textbf{étroit}. Un niveau de confiance plus faible signifie un quantile $t_{\alpha/2;\,n-1}$ plus petit, ce qui réduit la marge d'erreur et donc la largeur de l'intervalle.
+\end{solution}
+
+\end{parts}
+
+
+\pageblanche
+\question\label{variance} Un ingénieur veut vérifier la stabilité d'une machine-outil. Il mesure le diamètre de 20 pièces produites et obtient une variance échantillonnale de $s^2=0{,}012$ cm$^2$. On suppose que les diamètres suivent une loi normale.
+
+\begin{parts}
+\part[8] Construisez un intervalle de confiance de niveau 95\% pour la variance $\sigma^2$.
+
+\begin{solution}
+On a $n=20$, donc $\nu=n-1=19$ degrés de liberté, et $s^2=0{,}012$.
+
+On cherche $\chi^2_{0{,}025;\,19}$ et $\chi^2_{0{,}975;\,19}$ dans la table du $\chi^2$.
+
+$\chi^2_{0{,}025;\,19}=32{,}852$ et $\chi^2_{0{,}975;\,19}=8{,}907$.
+
+L'IC pour $\sigma^2$ est:
+
+$$\left[\frac{(n-1)s^2}{\chi^2_{\alpha/2;\,n-1}};\, \frac{(n-1)s^2}{\chi^2_{1-\alpha/2;\,n-1}}\right]=\left[\frac{19\times 0{,}012}{32{,}852};\, \frac{19\times 0{,}012}{8{,}907}\right]=\left[\frac{0{,}228}{32{,}852};\, \frac{0{,}228}{8{,}907}\right]$$
+$$=[0{,}00694;\, 0{,}02560]$$
+\end{solution}
+
+\vspace{13cm}
+
+\part[3] Déduisez un intervalle de confiance de niveau 95\% pour l'écart-type $\sigma$.
+
+\begin{solution}
+On prend la racine carrée des bornes de l'IC pour $\sigma^2$:
+$$\text{IC}(\sigma)=\left[\sqrt{0{,}00694};\, \sqrt{0{,}02560}\right]=[0{,}0833;\, 0{,}1600]\;\text{cm}$$
+\end{solution}
+
+\end{parts}
+
+
+\pageblanche
+\question\label{proportion} Un sondage effectué auprès de $n=400$ résidents d'une ville révèle que 260 d'entre eux sont en faveur d'un nouveau projet de transport en commun.
+
+\begin{parts}
+\part[2] Quelle est l'estimation ponctuelle $\hat{p}$ de la proportion $p$ de résidents favorables au projet?
+
+\begin{solution}
+$\hat{p}=\dfrac{260}{400}=0{,}65$.
+\end{solution}
+
+\vspace{3cm}
+
+\part[8] Construisez un intervalle de confiance de niveau 95\% pour $p$.
+
+\begin{solution}
+On a $\hat{p}=0{,}65$, $n=400$ et $z_{0{,}025}=1{,}96$.
+
+On vérifie que $n$ est assez grand: $n\hat{p}=260\ge 5$ et $n(1-\hat{p})=140\ge 5$. $\checkmark$
+
+L'IC est:
+$$\hat{p}\pm z_{\alpha/2}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}=0{,}65\pm 1{,}96\sqrt{\frac{0{,}65\times 0{,}35}{400}}=0{,}65\pm 1{,}96\times 0{,}02385$$
+$$=0{,}65\pm 0{,}04675=[0{,}603;\, 0{,}697]$$
+\end{solution}
+
+\vspace{13cm}
+
+\part[3] À partir de cet intervalle, peut-on affirmer, avec 95\% de confiance, que plus de 60\% des résidents sont favorables au projet? Justifiez.
+
+\begin{solution}
+Oui. La borne inférieure de l'IC est $0{,}603>0{,}60$. Puisque l'intervalle entier est au-dessus de 0,60, on peut affirmer avec 95\% de confiance que plus de 60\% des résidents sont favorables.
+\end{solution}
+
+\end{parts}
+
+
+\pageblanche
+\question Déterminez si les énoncés suivants sont vrais ou faux.
+
+\begin{parts}
+\part[2] Lorsqu'on double la taille de l'échantillon, la marge d'erreur d'un intervalle de confiance pour $\mu$ (avec $\sigma$ connu) est divisée par 2.
+
+\begin{oneparcheckboxes}
+    \choice Vrai 
+    \correctchoice Faux
+\end{oneparcheckboxes} \vspace{0.5cm}
+
+\begin{solution}
+Faux. La marge d'erreur est proportionnelle à $1/\sqrt{n}$. Si $n$ double, la marge est divisée par $\sqrt{2}\approx 1{,}414$, et non par 2.
+\end{solution}
+
+\part[2] Un intervalle de confiance à 99\% est toujours plus large qu'un intervalle de confiance à 95\%, si les mêmes données sont utilisées.
+
+\begin{oneparcheckboxes}
+    \correctchoice Vrai 
+    \choice Faux
+\end{oneparcheckboxes} \vspace{0.5cm}
+
+\begin{solution}
+Vrai. Un niveau de confiance plus élevé nécessite un quantile plus grand, ce qui augmente la marge d'erreur et donc la largeur de l'intervalle.
+\end{solution}
+
+\part[2] L'intervalle de confiance pour $\sigma^2$ basé sur la loi du $\chi^2$ est symétrique autour de $s^2$.
+
+\begin{oneparcheckboxes}
+    \choice Vrai 
+    \correctchoice Faux
+\end{oneparcheckboxes} \vspace{0.5cm}
+
+\begin{solution}
+Faux. La loi $\chi^2$ est asymétrique, donc l'IC pour $\sigma^2$ n'est pas symétrique autour de $s^2$.
+\end{solution}
+
+\part[2] Pour construire un intervalle de confiance pour la proportion $p$, on a besoin que la taille d'échantillon soit suffisamment grande.
+
+\begin{oneparcheckboxes}
+    \correctchoice Vrai 
+    \choice Faux
+\end{oneparcheckboxes} \vspace{0.5cm}
+
+\begin{solution}
+Vrai. L'IC pour $p$ repose sur l'approximation normale de la loi binomiale, qui nécessite $n\hat{p}\ge 5$ et $n(1-\hat{p})\ge 5$.
+\end{solution}
+
+\part[2] Si $X_1,\ldots,X_n$ proviennent d'une loi inconnue et que $n$ est grand, on peut construire un intervalle de confiance \textbf{approximatif} pour $\mu$ en utilisant le théorème central limite.
+
+\begin{oneparcheckboxes}
+    \correctchoice Vrai 
+    \choice Faux
+\end{oneparcheckboxes} \vspace{0.5cm}
+
+\begin{solution}
+Vrai. Le TCL garantit que $\overline{X}\approx\mathcal{N}(\mu,\sigma^2/n)$ pour $n$ grand, ce qui permet de construire un IC approximatif.
+\end{solution}
+
+\part[2] La longueur d'un intervalle de confiance symétrique pour $\mu$ est égale à deux fois la marge d'erreur.
+
+\begin{oneparcheckboxes}
+    \correctchoice Vrai 
+    \choice Faux
+\end{oneparcheckboxes} \vspace{0.5cm}
+
+\begin{solution}
+Vrai. Un IC symétrique est de la forme $\overline{x}\pm M$, donc sa longueur est $(\overline{x}+M)-(\overline{x}-M)=2M$.
+\end{solution}
+
+\end{parts}
+
+
+\pageblanche
+\question\label{TCL} Le temps d'attente (en minutes) au guichet d'une banque suit une loi de moyenne $\mu=7$ et d'écart-type $\sigma=3$ (la forme de la distribution est inconnue). On observe un échantillon de $n=36$ clients.
+
+\begin{parts}
+\part[3] Justifiez pourquoi on peut construire un intervalle de confiance pour $\mu$ malgré le fait que la loi de la population n'est pas normale.
+
+\begin{solution}
+Puisque $n=36\ge 30$, on peut invoquer le théorème central limite (TCL): $\overline{X}\approx\mathcal{N}(\mu,\sigma^2/n)$. Cela permet de construire un IC approximatif.
+\end{solution}
+
+\vspace{5cm}
+
+\part[7] L'échantillon donne $\overline{x}=7{,}8$ et $s=3{,}2$. Construisez un intervalle de confiance de niveau 90\% pour $\mu$.
+
+\begin{solution}
+Par le TCL, on utilise l'IC approximatif avec $z_{\alpha/2}=z_{0{,}05}=1{,}645$.
+
+$$\overline{x}\pm z_{\alpha/2}\frac{s}{\sqrt{n}}=7{,}8\pm 1{,}645\times\frac{3{,}2}{\sqrt{36}}=7{,}8\pm 1{,}645\times 0{,}5333=7{,}8\pm 0{,}877$$
+$$=[6{,}923;\, 8{,}677]$$
+\end{solution}
+
+\end{parts}
+
+
+\pageblanche
+
+\question[5] Un échantillon de taille $n=12$ provenant d'une population normale donne $\overline{x}=45$ et $s=6$. On calcule un intervalle de confiance pour $\mu$ à un certain niveau de confiance et on obtient $[45-3{,}81;\, 45+3{,}81]=[41{,}19;\, 48{,}81]$. Quel est le niveau de confiance de cet intervalle? Montrez votre démarche.
+
+\begin{solution}
+La variance est inconnue et $n=12$, donc on utilise Student avec $\nu=11$ degrés de liberté.
+
+La marge d'erreur est $M=3{,}81=t_{\alpha/2;\,11}\times\dfrac{6}{\sqrt{12}}=t_{\alpha/2;\,11}\times 1{,}7321$.
+
+Donc $t_{\alpha/2;\,11}=\dfrac{3{,}81}{1{,}7321}\approx 2{,}201$.
+
+En consultant la table de Student à 11 degrés de liberté, $t_{0{,}025;\,11}=2{,}201$.
+
+Donc $\alpha/2=0{,}025$, soit $\alpha=0{,}05$, et le niveau de confiance est $1-\alpha=0{,}95$ (95\%).
+\end{solution}
+
+
+\end{questions}
+\end{document}
