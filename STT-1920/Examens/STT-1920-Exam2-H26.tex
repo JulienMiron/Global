@@ -182,15 +182,6 @@ $$\left[\frac{(n-1)s^2}{\chi^2_{\alpha/2;\,n-1}};\, \frac{(n-1)s^2}{\chi^2_{1-\a
 $$=[0{,}00694;\, 0{,}02560]$$
 \end{solution}
 
-\vspace{13cm}
-
-\part[3] Déduisez un intervalle de confiance de niveau 95\% pour l'écart-type $\sigma$.
-
-\begin{solution}
-On prend la racine carrée des bornes de l'IC pour $\sigma^2$:
-$$\text{IC}(\sigma)=\left[\sqrt{0{,}00694};\, \sqrt{0{,}02560}\right]=[0{,}0833;\, 0{,}1600]\;\text{cm}$$
-\end{solution}
-
 \end{parts}
 
 
@@ -216,14 +207,6 @@ On vérifie que $n$ est assez grand: $n\hat{p}=260\ge 5$ et $n(1-\hat{p})=140\ge
 L'IC est:
 $$\hat{p}\pm z_{\alpha/2}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}=0{,}65\pm 1{,}96\sqrt{\frac{0{,}65\times 0{,}35}{400}}=0{,}65\pm 1{,}96\times 0{,}02385$$
 $$=0{,}65\pm 0{,}04675=[0{,}603;\, 0{,}697]$$
-\end{solution}
-
-\vspace{13cm}
-
-\part[3] À partir de cet intervalle, peut-on affirmer, avec 95\% de confiance, que plus de 60\% des résidents sont favorables au projet? Justifiez.
-
-\begin{solution}
-Oui. La borne inférieure de l'IC est $0{,}603>0{,}60$. Puisque l'intervalle entier est au-dessus de 0,60, on peut affirmer avec 95\% de confiance que plus de 60\% des résidents sont favorables.
 \end{solution}
 
 \end{parts}
@@ -342,6 +325,48 @@ En consultant la table de Student à 11 degrés de liberté, $t_{0{,}025;\,11}=2
 Donc $\alpha/2=0{,}025$, soit $\alpha=0{,}05$, et le niveau de confiance est $1-\alpha=0{,}95$ (95\%).
 \end{solution}
 
+
+\pageblanche
+
+\question Soit $X_1,\hdots, X_{100}$, des variables aléatoires indépendantes et identiquement distribuées selon une loi normale d'espérance $\mu$ et de variance $\sigma^2 = 400$. 
+Nous désirons construire un intervalle de confiance approprié de niveau $95\%$ pour $\mu$. Nous notons cet intervalle $[C_1;C_2]$.
+\begin{parts}
+    \part[3] Que vaut $\mathbb{E}[C_2]$?
+
+    \begin{solution}
+        Puisque $\sigma^2 = 400$ est connu et que les $X_i$ suivent une loi normale, l'intervalle de confiance à 95\% est:
+        $$\left[\bar{X}-z_{0{,}025}\frac{\sigma}{\sqrt{n}}\;;\;\bar{X}+z_{0{,}025}\frac{\sigma}{\sqrt{n}}\right]=\left[\bar{X}-1{,}96\times\frac{20}{10}\;;\;\bar{X}+1{,}96\times\frac{20}{10}\right]$$
+        Donc $C_1=\bar{X}-3{,}92$ et $C_2=\bar{X}+3{,}92$.
+        \begin{align*}
+            E(C_2)&=E(\bar{X}+3{,}92)\\
+            &= E(\bar{X})+3{,}92\\
+            &= \mu + 3{,}92
+        \end{align*}
+    \end{solution}
+    \vspace{7cm}
+    \part[3] Que vaut $\text{Var}[C_2]$?
+
+    \begin{solution}
+        \begin{align*}
+            \text{Var}(C_2)&=\text{Var}(\bar{X}+3{,}92)\\
+            &= \text{Var}(\bar{X})\\
+            &= \frac{\sigma^2}{n}=\frac{400}{100}=4
+        \end{align*}
+    \end{solution}
+    \vspace{7cm}
+
+    \part[4] Quelle est la probabilité que $C_2$ soit inférieure ou égale à $\mu$?
+
+    \begin{solution}
+        \begin{align*}
+            P(C_2\leq \mu)&=P(\bar{X}+3{,}92\leq \mu)\\
+            &= P\left(\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}\leq \frac{-3{,}92}{20/10}\right)\\
+            &= P(Z\leq -1{,}96)\\
+            &= 0{,}025
+        \end{align*}
+    \end{solution}
+
+\end{parts}
 
 \end{questions}
 \end{document}
