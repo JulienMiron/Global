@@ -50,7 +50,7 @@
 \documentclass{Evaluation}
 \usepackage{multicol,graphicx}
 
-\printanswers
+\noprintanswers
 
 
 
@@ -62,7 +62,7 @@
 \begin{questions}
 
 \question[3]\label{interp}
-La durée de vie (en heures) d'un certain type d'ampoule est modélisée par une loi normale de moyenne $\mu$ inconnue et de variance $\sigma^2$ connue. À partir d'un échantillon de taille $n=16$, on calcule un intervalle de confiance à 95\% pour $\mu$ et on obtient $[980;\, 1020]$. Quel énoncé est une interprétation \textbf{correcte} de cet intervalle?
+La durée de vie (en heures) d'un certain type d'ampoule est modélisée par une loi normale de moyenne $\mu$ inconnue et de variance $\sigma^2$ connue. À partir d'un échantillon de taille $n=16$, on calcule un intervalle de confiance à 95\% pour $\mu$ et on obtient $[980;\, 1020]$. Quel énoncé est une interprétation correcte de cet intervalle?
 
 \begin{checkboxes}
     \choice 95\% des ampoules de ce type ont une durée de vie entre 980 et 1020 heures.
@@ -75,8 +75,8 @@ La durée de vie (en heures) d'un certain type d'ampoule est modélisée par une
 Un IC à 95\% signifie que, si on répétait l'expérience un grand nombre de fois, 95\% des intervalles calculés contiendraient $\mu$. On a donc confiance à 95\% que cet intervalle particulier contient $\mu$. Les autres choix confondent l'intervalle pour $\mu$ avec la distribution individuelle des observations ou attribuent une probabilité au paramètre fixe $\mu$.
 \end{solution}
 
-
-\question[3] Laquelle des affirmations suivantes concernant la marge d'erreur d'un intervalle de confiance pour la moyenne $\mu$ est \textbf{vraie}?
+\vspace{0.5cm}
+\question[3] Laquelle des affirmations suivantes concernant la marge d'erreur d'un intervalle de confiance pour la moyenne $\mu$ est vraie?
 
 \begin{checkboxes}
     \choice Si on augmente la taille de l'échantillon, la marge d'erreur augmente.
@@ -89,8 +89,8 @@ Un IC à 95\% signifie que, si on répétait l'expérience un grand nombre de fo
 La marge d'erreur est de la forme $\text{quantile}\times \dfrac{s}{\sqrt{n}}$. Si la variabilité ($s$ ou $\sigma$) augmente, la marge d'erreur augmente. Augmenter $n$ diminue la marge d'erreur. Diminuer le niveau de confiance diminue le quantile, donc la marge d'erreur.
 \end{solution}
 
-
-\question[3] Quelle affirmation est \textbf{vraie} parmi les suivantes?
+\vspace{0.5cm}
+\question[3] Quelle affirmation est vraie parmi les suivantes?
 
 \begin{checkboxes}
     \choice L'intervalle de confiance pour $\mu$ basé sur la loi de Student est toujours plus étroit que celui basé sur la loi normale centrée réduite.
@@ -103,7 +103,80 @@ La marge d'erreur est de la forme $\text{quantile}\times \dfrac{s}{\sqrt{n}}$. S
 La loi $t_\nu$ converge vers $\mathcal{N}(0,1)$ quand $\nu\to\infty$. L'IC basé sur Student est plus large (pas plus étroit) car $t_{\alpha/2;\,n-1}>z_{\alpha/2}$. La loi $\chi^2$ sert pour $\sigma^2$, et l'IC pour $\sigma^2$ n'est pas symétrique car la loi $\chi^2$ est asymétrique.
 \end{solution}
 
+\pageblanche
+\question Déterminez si les énoncés suivants sont vrais ou faux.
 
+\begin{parts}
+\part[2] La moyenne échantillonnale $\overline{X}$ est un estimateur sans biais de $\mu$.
+
+\begin{oneparcheckboxes}
+    \correctchoice Vrai 
+    \choice Faux
+\end{oneparcheckboxes} \vspace{0.5cm}
+
+\begin{solution}
+Vrai. On a $E(\overline{X})=\mu$, donc $\text{Biais}(\overline{X},\mu)=E(\overline{X})-\mu=0$.
+\end{solution}
+
+\part[2] L'estimateur $\widehat{\sigma}^2=\dfrac{1}{n}\displaystyle\sum_{i=1}^{n}(X_i-\overline{X})^2$ est un estimateur sans biais de $\sigma^2$.
+
+\begin{oneparcheckboxes}
+    \choice Vrai 
+    \correctchoice Faux
+\end{oneparcheckboxes} \vspace{0.5cm}
+
+\begin{solution}
+Faux. On a $E(\widehat{\sigma}^2)=\dfrac{n-1}{n}\sigma^2\neq\sigma^2$. C'est plutôt $S^2=\dfrac{1}{n-1}\displaystyle\sum_{i=1}^{n}(X_i-\overline{X})^2$ qui est sans biais pour $\sigma^2$.
+\end{solution}
+
+\part[2] Comme $S^2$ est sans biais pour $\sigma^2$, nous savons que $S^2=\sigma^2$.
+
+\begin{oneparcheckboxes}
+    \choice Vrai 
+    \correctchoice Faux
+\end{oneparcheckboxes} \vspace{0.5cm}
+
+\begin{solution}
+Faux. L'EQM$=V(\hat{\theta})+[\text{Biais}(\hat{\theta},\theta)]^2$. Un estimateur biaisé peut avoir une variance suffisamment faible pour que son EQM soit inférieure à celle d'un estimateur sans biais ayant une grande variance.
+\end{solution}
+
+\part[2] Si $X_1,\hdots,X_n$ sont des variables aléatoires indépendantes Bernoulli$(p)$, $\displaystyle \frac{1}{n}\sum_{i=1}^n X_i$ est un estimateur sans biais de $p$.
+
+\begin{oneparcheckboxes}
+    \correctchoice Vrai 
+    \choice Faux
+\end{oneparcheckboxes} \vspace{0.5cm}
+
+\begin{solution}
+Vrai. Si $\hat{\theta}$ est sans biais, alors $\text{EQM}(\hat{\theta},\theta)=V(\hat{\theta})+[\text{Biais}(\hat{\theta},\theta)]^2=V(\hat{\theta})+0=V(\hat{\theta})$.
+\end{solution}
+
+\part[2] L'espérance et la variance de $\overline{X}$ diminue lorsque $n$ augmente.
+
+\begin{oneparcheckboxes}
+    \choice Vrai 
+    \correctchoice Faux
+\end{oneparcheckboxes} \vspace{0.5cm}
+
+\begin{solution}
+Faux. $\text{Biais}(\hat{\theta},\theta)=E(\hat{\theta})-\theta<0$ signifie que $E(\hat{\theta})<\theta$, donc $\hat{\theta}$ \textbf{sous-estime} $\theta$ en moyenne.
+\end{solution}
+
+\part[2] Deux estimateurs sans biais d'un même paramètre $\theta$ ont nécessairement la même variance.
+
+\begin{oneparcheckboxes}
+    \choice Vrai 
+    \correctchoice Faux
+\end{oneparcheckboxes} \vspace{0.5cm}
+
+\begin{solution}
+Faux. Par exemple, $\overline{X}$ et $X_1$ sont tous deux des estimateurs sans biais de $\mu$, mais $V(\overline{X})=\sigma^2/n < V(X_1)=\sigma^2$.
+\end{solution}
+
+\end{parts}
+
+
+\pageblanche
 \pageblanche
 \question\label{varconnue} Soit $X$, le poids (en milligrammes) de comprimés pharmaceutiques produits par une machine, où $X\sim\mathcal{N}(\mu, \, 4)$. Un échantillon de 25 comprimés donne une moyenne de $\overline{x}=500{,}6$ mg.
 
@@ -213,79 +286,7 @@ $$=0{,}64\pm 0{,}04704=[0{,}593;\, 0{,}687]$$
 
 
 \pageblanche
-\question Déterminez si les énoncés suivants sont vrais ou faux.
 
-\begin{parts}
-\part[2] La moyenne échantillonnale $\overline{X}$ est un estimateur sans biais de $\mu$.
-
-\begin{oneparcheckboxes}
-    \correctchoice Vrai 
-    \choice Faux
-\end{oneparcheckboxes} \vspace{0.5cm}
-
-\begin{solution}
-Vrai. On a $E(\overline{X})=\mu$, donc $\text{Biais}(\overline{X},\mu)=E(\overline{X})-\mu=0$.
-\end{solution}
-
-\part[2] L'estimateur $\widehat{\sigma}^2=\dfrac{1}{n}\displaystyle\sum_{i=1}^{n}(X_i-\overline{X})^2$ est un estimateur sans biais de $\sigma^2$.
-
-\begin{oneparcheckboxes}
-    \choice Vrai 
-    \correctchoice Faux
-\end{oneparcheckboxes} \vspace{0.5cm}
-
-\begin{solution}
-Faux. On a $E(\widehat{\sigma}^2)=\dfrac{n-1}{n}\sigma^2\neq\sigma^2$. C'est plutôt $S^2=\dfrac{1}{n-1}\displaystyle\sum_{i=1}^{n}(X_i-\overline{X})^2$ qui est sans biais pour $\sigma^2$.
-\end{solution}
-
-\part[2] Comme $S^2$ est sans biais pour $\sigma^2$, nous savons que $S^2=\sigma^2$.
-
-\begin{oneparcheckboxes}
-    \choice Vrai 
-    \correctchoice Faux
-\end{oneparcheckboxes} \vspace{0.5cm}
-
-\begin{solution}
-Faux. L'EQM$=V(\hat{\theta})+[\text{Biais}(\hat{\theta},\theta)]^2$. Un estimateur biaisé peut avoir une variance suffisamment faible pour que son EQM soit inférieure à celle d'un estimateur sans biais ayant une grande variance.
-\end{solution}
-
-\part[2] Si $X_1,\hdots,X_n$ sont des variables aléatoires indépendantes Bernoulli$(p)$, $\displaystyle \frac{1}{n}\sum_{i=1}^n X_i$ est un estimateur sans biais de $p$.
-
-\begin{oneparcheckboxes}
-    \correctchoice Vrai 
-    \choice Faux
-\end{oneparcheckboxes} \vspace{0.5cm}
-
-\begin{solution}
-Vrai. Si $\hat{\theta}$ est sans biais, alors $\text{EQM}(\hat{\theta},\theta)=V(\hat{\theta})+[\text{Biais}(\hat{\theta},\theta)]^2=V(\hat{\theta})+0=V(\hat{\theta})$.
-\end{solution}
-
-\part[2] L'espérance et la variance de $\overline{X}$ diminue lorsque $n$ augmente.
-
-\begin{oneparcheckboxes}
-    \choice Vrai 
-    \correctchoice Faux
-\end{oneparcheckboxes} \vspace{0.5cm}
-
-\begin{solution}
-Faux. $\text{Biais}(\hat{\theta},\theta)=E(\hat{\theta})-\theta<0$ signifie que $E(\hat{\theta})<\theta$, donc $\hat{\theta}$ \textbf{sous-estime} $\theta$ en moyenne.
-\end{solution}
-
-\part[2] Deux estimateurs sans biais d'un même paramètre $\theta$ ont nécessairement la même variance.
-
-\begin{oneparcheckboxes}
-    \choice Vrai 
-    \correctchoice Faux
-\end{oneparcheckboxes} \vspace{0.5cm}
-
-\begin{solution}
-Faux. Par exemple, $\overline{X}$ et $X_1$ sont tous deux des estimateurs sans biais de $\mu$, mais $V(\overline{X})=\sigma^2/n < V(X_1)=\sigma^2$.
-\end{solution}
-
-\end{parts}
-
-
-\pageblanche
 \question\label{TCL} Le temps d'attente (en minutes) au guichet d'une banque suit une loi de moyenne $\mu=7$ et d'écart-type $\sigma=3$ (la forme de la distribution est inconnue). On observe un échantillon de $n=36$ clients.
 
 \begin{parts}
@@ -331,7 +332,7 @@ Donc $\alpha/2=0{,}025$, soit $\alpha=0{,}05$, et le niveau de confiance est $1-
 \question Soit $X_1,\hdots, X_{100}$, des variables aléatoires indépendantes et identiquement distribuées selon une loi normale d'espérance $\mu$ et de variance $\sigma^2 = 400$. 
 Nous désirons construire un intervalle de confiance approprié de niveau $95\%$ pour $\mu$. Nous notons cet intervalle $[L_1;L_2]$.
 \begin{parts}
-    \part[3] Que vaut $\mathbb{E}[C_2]$?
+    \part[3] Que vaut $E[L_2]$?
 
     \begin{solution}
         Puisque $\sigma^2 = 400$ est connu et que les $X_i$ suivent une loi normale, l'intervalle de confiance à 95\% est:
@@ -344,7 +345,7 @@ Nous désirons construire un intervalle de confiance approprié de niveau $95\%$
         \end{align*}
     \end{solution}
     \vspace{7cm}
-    \part[3] Que vaut $\text{Var}[C_2]$?
+    \part[3] Que vaut $\text{Var}[L_2]$?
 
     \begin{solution}
         \begin{align*}
@@ -355,7 +356,7 @@ Nous désirons construire un intervalle de confiance approprié de niveau $95\%$
     \end{solution}
     \vspace{7cm}
 
-    \part[4] Quelle est la probabilité que $C_2$ soit inférieure ou égale à $\mu$?
+    \part[4] Quelle est la probabilité que $L_2$ soit inférieure ou égale à $\mu$?
 
     \begin{solution}
         \begin{align*}
