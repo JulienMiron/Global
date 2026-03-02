@@ -1,7 +1,7 @@
 \def\Ponderation{33,33}
 \def\SigleNumero{STT-1920}
 \def\NomCours{Méthodes statistiques}
-\def\DateEvaluation{25 mars 2026}
+\def\DateEvaluation{11 mars 2026}
 \def\HeureEvaluation{13 h 30 à 15 h 20}
 \def\Session{}
 \def\NomEvaluation{Examen 2}
@@ -50,7 +50,7 @@
 \documentclass{Evaluation}
 \usepackage{multicol,graphicx}
 
-\noprintanswers
+\printanswers
 
 
 
@@ -66,9 +66,9 @@ La durée de vie (en heures) d'un certain type d'ampoule est modélisée par une
 
 \begin{checkboxes}
     \choice 95\% des ampoules de ce type ont une durée de vie entre 980 et 1020 heures.
-    \choice La probabilité que $\mu$ soit entre 980 et 1020 heures est de 0,95.
+    \choice Si on prenait un nouvel échantillon, la probabilité que la moyenne échantillonnale soit entre 980 et 1020 est de 95\%.
     \correctchoice On a confiance à 95\% que l'intervalle $[980;\, 1020]$ contient la vraie valeur de $\mu$.
-    \choice Si on fabrique 100 ampoules, 95 d'entre elles dureront entre 980 et 1020 heures.
+    \choice Si on fabrique 100 ampoules, environ 95 d'entre elles dureront entre 980 et 1020 heures.
 \end{checkboxes}
 
 \begin{solution}
@@ -105,7 +105,7 @@ La loi $t_\nu$ converge vers $\mathcal{N}(0,1)$ quand $\nu\to\infty$. L'IC basé
 
 
 \pageblanche
-\question\label{varconnue} Soit $X$, le poids (en grammes) de comprimés pharmaceutiques produits par une machine, où $X\sim\mathcal{N}(\mu, \, 4)$. Un échantillon de 25 comprimés donne une moyenne de $\overline{x}=500{,}6$ g.
+\question\label{varconnue} Soit $X$, le poids (en milligrammes) de comprimés pharmaceutiques produits par une machine, où $X\sim\mathcal{N}(\mu, \, 4)$. Un échantillon de 25 comprimés donne une moyenne de $\overline{x}=500{,}6$ mg.
 
 \begin{parts}
 \part[7] Construisez un intervalle de confiance de niveau 95\% pour $\mu$.
@@ -119,7 +119,7 @@ $$\overline{x}\pm z_{\alpha/2}\frac{\sigma}{\sqrt{n}}=500{,}6\pm 1{,}96\times\fr
 
 \vspace{11cm}
 
-\part[4] Quelle est la taille minimale de l'échantillon à collecter pour que la marge d'erreur ne dépasse pas 0,5 g, en conservant un niveau de confiance de 95\% ?
+\part[4] Quelle est la taille minimale de l'échantillon à collecter pour que la marge d'erreur ne dépasse pas 0,5 mg, en conservant un niveau de confiance de 95\% ?
 
 \begin{solution}
 La marge d'erreur est $M=z_{\alpha/2}\dfrac{\sigma}{\sqrt{n}}\le 0{,}5$.
