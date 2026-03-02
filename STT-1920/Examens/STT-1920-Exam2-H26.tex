@@ -216,7 +216,18 @@ $$=0{,}65\pm 0{,}04675=[0{,}603;\, 0{,}697]$$
 \question Déterminez si les énoncés suivants sont vrais ou faux.
 
 \begin{parts}
-\part[2] Lorsqu'on double la taille de l'échantillon, la marge d'erreur d'un intervalle de confiance pour $\mu$ (avec $\sigma$ connu) est divisée par 2.
+\part[2] La moyenne échantillonnale $\overline{X}$ est un estimateur sans biais de $\mu$.
+
+\begin{oneparcheckboxes}
+    \correctchoice Vrai 
+    \choice Faux
+\end{oneparcheckboxes} \vspace{0.5cm}
+
+\begin{solution}
+Vrai. On a $E(\overline{X})=\mu$, donc $\text{Biais}(\overline{X},\mu)=E(\overline{X})-\mu=0$.
+\end{solution}
+
+\part[2] L'estimateur $\widehat{\sigma}^2=\dfrac{1}{n}\displaystyle\sum_{i=1}^{n}(X_i-\overline{X})^2$ est un estimateur sans biais de $\sigma^2$.
 
 \begin{oneparcheckboxes}
     \choice Vrai 
@@ -224,21 +235,10 @@ $$=0{,}65\pm 0{,}04675=[0{,}603;\, 0{,}697]$$
 \end{oneparcheckboxes} \vspace{0.5cm}
 
 \begin{solution}
-Faux. La marge d'erreur est proportionnelle à $1/\sqrt{n}$. Si $n$ double, la marge est divisée par $\sqrt{2}\approx 1{,}414$, et non par 2.
+Faux. On a $E(\widehat{\sigma}^2)=\dfrac{n-1}{n}\sigma^2\neq\sigma^2$. C'est plutôt $S^2=\dfrac{1}{n-1}\displaystyle\sum_{i=1}^{n}(X_i-\overline{X})^2$ qui est sans biais pour $\sigma^2$.
 \end{solution}
 
-\part[2] Un intervalle de confiance à 99\% est toujours plus large qu'un intervalle de confiance à 95\%, si les mêmes données sont utilisées.
-
-\begin{oneparcheckboxes}
-    \correctchoice Vrai 
-    \choice Faux
-\end{oneparcheckboxes} \vspace{0.5cm}
-
-\begin{solution}
-Vrai. Un niveau de confiance plus élevé nécessite un quantile plus grand, ce qui augmente la marge d'erreur et donc la largeur de l'intervalle.
-\end{solution}
-
-\part[2] L'intervalle de confiance pour $\sigma^2$ basé sur la loi du $\chi^2$ est symétrique autour de $s^2$.
+\part[2] Un estimateur sans biais a toujours une erreur quadratique moyenne (EQM) plus faible qu'un estimateur biaisé.
 
 \begin{oneparcheckboxes}
     \choice Vrai 
@@ -246,10 +246,10 @@ Vrai. Un niveau de confiance plus élevé nécessite un quantile plus grand, ce 
 \end{oneparcheckboxes} \vspace{0.5cm}
 
 \begin{solution}
-Faux. La loi $\chi^2$ est asymétrique, donc l'IC pour $\sigma^2$ n'est pas symétrique autour de $s^2$.
+Faux. L'EQM$=V(\hat{\theta})+[\text{Biais}(\hat{\theta},\theta)]^2$. Un estimateur biaisé peut avoir une variance suffisamment faible pour que son EQM soit inférieure à celle d'un estimateur sans biais ayant une grande variance.
 \end{solution}
 
-\part[2] Pour construire un intervalle de confiance pour la proportion $p$, on a besoin que la taille d'échantillon soit suffisamment grande.
+\part[2] L'erreur quadratique moyenne d'un estimateur sans biais est égale à sa variance.
 
 \begin{oneparcheckboxes}
     \correctchoice Vrai 
@@ -257,29 +257,29 @@ Faux. La loi $\chi^2$ est asymétrique, donc l'IC pour $\sigma^2$ n'est pas sym�
 \end{oneparcheckboxes} \vspace{0.5cm}
 
 \begin{solution}
-Vrai. L'IC pour $p$ repose sur l'approximation normale de la loi binomiale, qui nécessite $n\hat{p}\ge 5$ et $n(1-\hat{p})\ge 5$.
+Vrai. Si $\hat{\theta}$ est sans biais, alors $\text{EQM}(\hat{\theta},\theta)=V(\hat{\theta})+[\text{Biais}(\hat{\theta},\theta)]^2=V(\hat{\theta})+0=V(\hat{\theta})$.
 \end{solution}
 
-\part[2] Si $X_1,\ldots,X_n$ proviennent d'une loi inconnue et que $n$ est grand, on peut construire un intervalle de confiance \textbf{approximatif} pour $\mu$ en utilisant le théorème central limite.
+\part[2] Si le biais d'un estimateur $\hat{\theta}$ est négatif, alors $\hat{\theta}$ surestime $\theta$ en moyenne.
 
 \begin{oneparcheckboxes}
-    \correctchoice Vrai 
-    \choice Faux
+    \choice Vrai 
+    \correctchoice Faux
 \end{oneparcheckboxes} \vspace{0.5cm}
 
 \begin{solution}
-Vrai. Le TCL garantit que $\overline{X}\approx\mathcal{N}(\mu,\sigma^2/n)$ pour $n$ grand, ce qui permet de construire un IC approximatif.
+Faux. $\text{Biais}(\hat{\theta},\theta)=E(\hat{\theta})-\theta<0$ signifie que $E(\hat{\theta})<\theta$, donc $\hat{\theta}$ \textbf{sous-estime} $\theta$ en moyenne.
 \end{solution}
 
-\part[2] La longueur d'un intervalle de confiance symétrique pour $\mu$ est égale à deux fois la marge d'erreur.
+\part[2] Deux estimateurs sans biais d'un même paramètre $\theta$ ont nécessairement la même variance.
 
 \begin{oneparcheckboxes}
-    \correctchoice Vrai 
-    \choice Faux
+    \choice Vrai 
+    \correctchoice Faux
 \end{oneparcheckboxes} \vspace{0.5cm}
 
 \begin{solution}
-Vrai. Un IC symétrique est de la forme $\overline{x}\pm M$, donc sa longueur est $(\overline{x}+M)-(\overline{x}-M)=2M$.
+Faux. Par exemple, $\overline{X}$ et $X_1$ sont tous deux des estimateurs sans biais de $\mu$, mais $V(\overline{X})=\sigma^2/n < V(X_1)=\sigma^2$.
 \end{solution}
 
 \end{parts}
