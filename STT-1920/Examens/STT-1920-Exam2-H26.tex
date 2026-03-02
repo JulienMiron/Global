@@ -238,7 +238,7 @@ Vrai. On a $E(\overline{X})=\mu$, donc $\text{Biais}(\overline{X},\mu)=E(\overli
 Faux. On a $E(\widehat{\sigma}^2)=\dfrac{n-1}{n}\sigma^2\neq\sigma^2$. C'est plutôt $S^2=\dfrac{1}{n-1}\displaystyle\sum_{i=1}^{n}(X_i-\overline{X})^2$ qui est sans biais pour $\sigma^2$.
 \end{solution}
 
-\part[2] Un estimateur sans biais a toujours une erreur quadratique moyenne (EQM) plus faible qu'un estimateur biaisé.
+\part[2] Comme $S^2$ est sans biais pour $\sigma^2$, nous savons que $S^2=\sigma^2$.
 
 \begin{oneparcheckboxes}
     \choice Vrai 
@@ -249,7 +249,7 @@ Faux. On a $E(\widehat{\sigma}^2)=\dfrac{n-1}{n}\sigma^2\neq\sigma^2$. C'est plu
 Faux. L'EQM$=V(\hat{\theta})+[\text{Biais}(\hat{\theta},\theta)]^2$. Un estimateur biaisé peut avoir une variance suffisamment faible pour que son EQM soit inférieure à celle d'un estimateur sans biais ayant une grande variance.
 \end{solution}
 
-\part[2] L'erreur quadratique moyenne d'un estimateur sans biais est égale à sa variance.
+\part[2] Si $X_1,\hdots,X_n$ sont des variables aléatoires indépendantes Bernoulli$(p)$, $\displaystyle \frac{1}{n}\sum_{i=1}^n X_i$ est un estimateur sans biais de $p$.
 
 \begin{oneparcheckboxes}
     \correctchoice Vrai 
@@ -260,7 +260,7 @@ Faux. L'EQM$=V(\hat{\theta})+[\text{Biais}(\hat{\theta},\theta)]^2$. Un estimate
 Vrai. Si $\hat{\theta}$ est sans biais, alors $\text{EQM}(\hat{\theta},\theta)=V(\hat{\theta})+[\text{Biais}(\hat{\theta},\theta)]^2=V(\hat{\theta})+0=V(\hat{\theta})$.
 \end{solution}
 
-\part[2] Si le biais d'un estimateur $\hat{\theta}$ est négatif, alors $\hat{\theta}$ surestime $\theta$ en moyenne.
+\part[2] L'espérance et la variance de $\overline{X}$ diminue lorsque $n$ augmente.
 
 \begin{oneparcheckboxes}
     \choice Vrai 
@@ -329,7 +329,7 @@ Donc $\alpha/2=0{,}025$, soit $\alpha=0{,}05$, et le niveau de confiance est $1-
 \pageblanche
 
 \question Soit $X_1,\hdots, X_{100}$, des variables aléatoires indépendantes et identiquement distribuées selon une loi normale d'espérance $\mu$ et de variance $\sigma^2 = 400$. 
-Nous désirons construire un intervalle de confiance approprié de niveau $95\%$ pour $\mu$. Nous notons cet intervalle $[C_1;C_2]$.
+Nous désirons construire un intervalle de confiance approprié de niveau $95\%$ pour $\mu$. Nous notons cet intervalle $[L_1;L_2]$.
 \begin{parts}
     \part[3] Que vaut $\mathbb{E}[C_2]$?
 
