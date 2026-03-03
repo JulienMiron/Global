@@ -128,6 +128,7 @@
 \RequirePackage{tikz}              % Dessins vectoriels
 
 % --- Police et encodage (pdfLaTeX) ---
+\RequirePackage[9pt]{extsizes}     % Taille de police 9pt
 \RequirePackage[T1]{fontenc}       % Encodage T1 : accents, ligatures
 \RequirePackage{arev}              % Police sans-serif Arev (texte + maths)
 
