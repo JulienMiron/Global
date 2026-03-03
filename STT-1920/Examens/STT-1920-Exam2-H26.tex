@@ -287,24 +287,26 @@ $$=0{,}64\pm 0{,}04704=[0{,}593;\, 0{,}687]$$
 
 \pageblanche
 
-\question\label{TCL} Le temps d'attente (en minutes) au guichet d'une banque suit une loi de moyenne $\mu=7$ et d'écart-type $\sigma=3$ (la forme de la distribution est inconnue). On observe un échantillon de $n=36$ clients.
+\question[10] Un chercheur mesure la résistance à la traction (en MPa) de barres d'acier. Il dispose d'un échantillon de $n=25$ barres provenant d'une population normale et obtient $\overline{x}=420$ et $s=10$.
 
 \begin{parts}
-\part[3] Justifiez pourquoi on peut construire un intervalle de confiance pour $\mu$ malgré le fait que la loi de la population n'est pas normale.
+\part[7] Construisez un intervalle de confiance de niveau 95\% pour la résistance moyenne $\mu$.
 
 \begin{solution}
-Puisque $n=36\ge 30$, on peut invoquer le théorème central limite (TCL): $\overline{X}\approx\mathcal{N}(\mu,\sigma^2/n)$. Cela permet de construire un IC approximatif.
+La variance est inconnue, on utilise la loi de Student avec $\nu=n-1=24$ degrés de liberté.
+
+$t_{0{,}025;\,24}=2{,}064$.
+
+$$\overline{x}\pm t_{\alpha/2;\,n-1}\frac{s}{\sqrt{n}}=420\pm 2{,}064\times\frac{10}{\sqrt{25}}=420\pm 2{,}064\times 2=420\pm 4{,}128$$
+$$=[415{,}872;\, 424{,}128]$$
 \end{solution}
 
-\vspace{5cm}
+\vspace{11cm}
 
-\part[7] L'échantillon donne $\overline{x}=7{,}8$ et $s=3{,}2$. Construisez un intervalle de confiance de niveau 90\% pour $\mu$.
+\part[3] Le fournisseur affirme que la résistance moyenne est de 425 MPa. À partir de votre intervalle, cette affirmation est-elle compatible avec les données au niveau de confiance 95\%? Justifiez.
 
 \begin{solution}
-Par le TCL, on utilise l'IC approximatif avec $z_{\alpha/2}=z_{0{,}05}=1{,}645$.
-
-$$\overline{x}\pm z_{\alpha/2}\frac{s}{\sqrt{n}}=7{,}8\pm 1{,}645\times\frac{3{,}2}{\sqrt{36}}=7{,}8\pm 1{,}645\times 0{,}5333=7{,}8\pm 0{,}877$$
-$$=[6{,}923;\, 8{,}677]$$
+La valeur $\mu=425$ n'est \textbf{pas} contenue dans l'intervalle $[415{,}872;\, 424{,}128]$. Les données ne sont donc pas compatibles avec l'affirmation du fournisseur au niveau de confiance 95\%.
 \end{solution}
 
 \end{parts}

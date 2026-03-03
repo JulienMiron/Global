@@ -1,0 +1,375 @@
+\def\Ponderation{33,33}
+\def\SigleNumero{STT-1920}
+\def\NomCours{Méthodes statistiques}
+\def\DateEvaluation{}
+\def\HeureEvaluation{}
+\def\Session{}
+\def\NomEvaluation{Examen 2 (reprise)}
+
+% Ne rien mettre entre les accolades si l'enseignant (ou l'enseignante) est aussi le coordonnateur (ou la coordonnatrice)
+\def\Coordonnatrice{}
+\def\Coordonnateur{}
+
+% Ne rien mettre entre les accolades s'il y a plus d'une section
+\def\Enseignant{Julien Miron}
+\def\Enseignante{}
+
+% Ne rien mettre entre les accolades s'il s'agit d'un cours à section unique
+% Mettre le nom de chacun des enseignants et enseignantes entre les accolades
+% Une case à cocher sera générée pour chacune des sections
+\def\SectionA{}
+\def\SectionB{}
+\def\SectionC{}
+\def\SectionD{}
+
+
+\def\Directives{
+\begin{enumerate}
+\item Matériel autorisé:
+\begin{itemize}
+\item Calculatrice scientifique {\bf autorisée par la faculté des sciences et de génie};
+\item Votre aide-mémoire d'une feuille recto-verso, écrit à la main.
+\end{itemize}
+\item Assurez-vous que cette évaluation comporte \numquestions ~exercices répartis sur \numpages{}~pages, pour un total de \numpoints{}~points.\
+\item \textbf{Veuillez ne pas dégrafer votre examen.}
+\item Vous devez\textbf{ justifier toutes vos réponses} par une démarche claire, sauf pour les questions à choix de réponse.\
+\item Pour les questions à choix de réponse et les vrais ou faux, vous pouvez mettre un X, un crochet ($\checkmark$) ou remplir la case.\
+\item Vous devez laisser tout ce qui ne servira pas durant l'examen à l'avant de la salle AVANT de rejoindre votre place.\
+\item Vous n'avez droit à AUCUN appareil électronique en votre possession durant l'examen.
+\item Une fois assis à votre place, vous devez demandez l'autorisation pour vous lever, même si l'examen n'est pas encore commencé.
+\item Dans les 5 dernières minutes de l'examen, il sera interdit de se lever avant que TOUTES les copies n'aient été ramassées.
+\end{enumerate}
+\begin{itemize}
+\item[$\rightarrow$] Le non-respect des consignes 7-8-9 entraînera une pénalité de 10\%.
+\end{itemize}
+}
+
+\newcommand{\affichepoints}{}     % ← AVEC points
+% \renewcommand{\affichepoints}{on} % ← SANS points (non vide)
+
+\documentclass{Evaluation}
+\usepackage{multicol,graphicx}
+
+\printanswers
+
+
+
+\begin{document}
+
+\pageblanche
+
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+\begin{questions}
+
+\question[3]\label{interp}
+Le poids (en grammes) de sachets de thé produits par une machine suit une loi normale de moyenne $\mu$ inconnue et de variance $\sigma^2$ connue. À partir d'un échantillon de taille $n=25$, on calcule un intervalle de confiance à 90\% pour $\mu$ et on obtient $[4{,}85;\, 5{,}15]$. Quel énoncé est une interprétation correcte de cet intervalle?
+
+\begin{checkboxes}
+    \choice La probabilité que $\mu$ soit entre 4,85 et 5,15 est de 90\%.
+    \correctchoice On a confiance à 90\% que l'intervalle $[4{,}85;\, 5{,}15]$ contient la vraie valeur de $\mu$.
+    \choice 90\% des sachets produits pèsent entre 4,85 et 5,15 grammes.
+    \choice Si on prélève un nouveau sachet, il y a 90\% de chance que son poids soit dans cet intervalle.
+\end{checkboxes}
+
+\begin{solution}
+Un IC à 90\% signifie que, si on répétait l'expérience un grand nombre de fois, 90\% des intervalles calculés contiendraient $\mu$. On a donc confiance à 90\% que cet intervalle particulier contient $\mu$. Les autres choix confondent l'intervalle pour $\mu$ avec la distribution individuelle des observations ou attribuent une probabilité au paramètre fixe $\mu$.
+\end{solution}
+
+\vspace{0.5cm}
+\question[3] Laquelle des affirmations suivantes concernant un intervalle de confiance pour la moyenne $\mu$ est vraie?
+
+\begin{checkboxes}
+    \choice Si on augmente le niveau de confiance, l'intervalle de confiance rétrécit.
+    \choice L'intervalle de confiance contient toujours la vraie valeur de $\mu$.
+    \correctchoice En augmentant la taille de l'échantillon, la marge d'erreur diminue.
+    \choice La marge d'erreur d'un IC ne dépend que du niveau de confiance.
+\end{checkboxes}
+
+\begin{solution}
+La marge d'erreur est de la forme $\text{quantile}\times \dfrac{s}{\sqrt{n}}$. Augmenter $n$ diminue $1/\sqrt{n}$, donc la marge d'erreur. Augmenter le niveau de confiance augmente le quantile, donc l'intervalle s'élargit. L'IC ne contient pas toujours $\mu$; c'est une question de confiance. La marge dépend aussi de $n$ et de la variabilité.
+\end{solution}
+
+\vspace{0.5cm}
+\question[3] Quelle affirmation est vraie parmi les suivantes?
+
+\begin{checkboxes}
+    \choice Pour construire un IC pour $\sigma^2$, on utilise la loi de Student.
+    \choice Un IC à 90\% est toujours plus large qu'un IC à 95\% si les mêmes données sont utilisées.
+    \correctchoice L'IC pour $\mu$ basé sur la loi normale centrée réduite nécessite que $\sigma$ soit connu.
+    \choice La variance échantillonnale $S^2$ suit toujours une loi normale.
+\end{checkboxes}
+
+\begin{solution}
+L'IC pour $\mu$ basé sur $Z=\dfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}$ nécessite que $\sigma$ soit connu. L'IC pour $\sigma^2$ utilise la loi $\chi^2$, pas Student. Un IC à 90\% est plus étroit qu'un IC à 95\%. La loi de $S^2$ est liée au $\chi^2$, pas à la loi normale.
+\end{solution}
+
+\pageblanche
+\question Déterminez si les énoncés suivants sont vrais ou faux.
+
+\begin{parts}
+\part[2] La variance échantillonnale $S^2=\dfrac{1}{n-1}\displaystyle\sum_{i=1}^{n}(X_i-\overline{X})^2$ est un estimateur sans biais de $\sigma^2$.
+
+\begin{oneparcheckboxes}
+    \correctchoice Vrai 
+    \choice Faux
+\end{oneparcheckboxes} \vspace{0.5cm}
+
+\begin{solution}
+Vrai. On a $E(S^2)=\sigma^2$, donc $\text{Biais}(S^2,\sigma^2)=0$.
+\end{solution}
+
+\part[2] Si un estimateur $\hat{\theta}$ est sans biais, alors son erreur quadratique moyenne est égale à sa variance.
+
+\begin{oneparcheckboxes}
+    \correctchoice Vrai 
+    \choice Faux
+\end{oneparcheckboxes} \vspace{0.5cm}
+
+\begin{solution}
+Vrai. $\text{EQM}(\hat{\theta},\theta)=V(\hat{\theta})+[\text{Biais}(\hat{\theta},\theta)]^2=V(\hat{\theta})+0=V(\hat{\theta})$.
+\end{solution}
+
+\part[2] L'estimateur $\hat{\mu}=X_1$ est sans biais pour $\mu$, mais sa variance est plus grande que celle de $\overline{X}$ (lorsque $n>1$).
+
+\begin{oneparcheckboxes}
+    \correctchoice Vrai 
+    \choice Faux
+\end{oneparcheckboxes} \vspace{0.5cm}
+
+\begin{solution}
+Vrai. $E(X_1)=\mu$, donc $X_1$ est sans biais. Cependant, $V(X_1)=\sigma^2 > \sigma^2/n = V(\overline{X})$ pour $n>1$.
+\end{solution}
+
+\part[2] Si le biais d'un estimateur $\hat{\theta}$ est positif, alors $\hat{\theta}$ sous-estime $\theta$ en moyenne.
+
+\begin{oneparcheckboxes}
+    \choice Vrai 
+    \correctchoice Faux
+\end{oneparcheckboxes} \vspace{0.5cm}
+
+\begin{solution}
+Faux. $\text{Biais}(\hat{\theta},\theta)=E(\hat{\theta})-\theta>0$ implique $E(\hat{\theta})>\theta$, donc $\hat{\theta}$ \textbf{surestime} $\theta$ en moyenne.
+\end{solution}
+
+\part[2] La variance de $\overline{X}$ augmente lorsque la taille de l'échantillon $n$ augmente.
+
+\begin{oneparcheckboxes}
+    \choice Vrai 
+    \correctchoice Faux
+\end{oneparcheckboxes} \vspace{0.5cm}
+
+\begin{solution}
+Faux. $V(\overline{X})=\sigma^2/n$. Lorsque $n$ augmente, $V(\overline{X})$ diminue.
+\end{solution}
+
+\part[2] L'estimateur $\widehat{\sigma}^2=\dfrac{1}{n}\displaystyle\sum_{i=1}^{n}(X_i-\overline{X})^2$ surestime $\sigma^2$ en moyenne.
+
+\begin{oneparcheckboxes}
+    \choice Vrai 
+    \correctchoice Faux
+\end{oneparcheckboxes} \vspace{0.5cm}
+
+\begin{solution}
+Faux. $E(\widehat{\sigma}^2)=\dfrac{n-1}{n}\sigma^2<\sigma^2$, donc $\widehat{\sigma}^2$ \textbf{sous-estime} $\sigma^2$ en moyenne.
+\end{solution}
+
+\end{parts}
+
+
+\pageblanche
+\pageblanche
+\question\label{varconnue} Soit $X$, la température (en $^\circ$C) d'un processus chimique, où $X\sim\mathcal{N}(\mu, \, 9)$. Un échantillon de 36 mesures donne une moyenne de $\overline{x}=85{,}4$.
+
+\begin{parts}
+\part[7] Construisez un intervalle de confiance de niveau 99\% pour $\mu$.
+
+\begin{solution}
+On a $\sigma^2=9$, donc $\sigma=3$, $n=36$, $\overline{x}=85{,}4$ et $z_{0{,}005}=2{,}576$.
+
+L'IC est:
+$$\overline{x}\pm z_{\alpha/2}\frac{\sigma}{\sqrt{n}}=85{,}4\pm 2{,}576\times\frac{3}{\sqrt{36}}=85{,}4\pm 2{,}576\times 0{,}5=85{,}4\pm 1{,}288=[84{,}112;\, 86{,}688]$$
+\end{solution}
+
+\vspace{11cm}
+
+\part[4] Quelle est la taille minimale de l'échantillon à collecter pour que la marge d'erreur ne dépasse pas $0{,}8\;^\circ$C, en conservant un niveau de confiance de 99\% ?
+
+\begin{solution}
+La marge d'erreur est $M=z_{\alpha/2}\dfrac{\sigma}{\sqrt{n}}\le 0{,}8$.
+
+$$n\ge \left(\frac{z_{\alpha/2}\,\sigma}{M}\right)^2=\left(\frac{2{,}576\times 3}{0{,}8}\right)^2=\left(\frac{7{,}728}{0{,}8}\right)^2=(9{,}66)^2=93{,}32$$
+
+On arrondit vers le haut: $n\ge 94$.
+\end{solution}
+
+\end{parts}
+
+
+\pageblanche
+\question\label{varinconnue} Un nutritionniste mesure la teneur en vitamine C (en mg) de portions de jus d'orange. Il prélève un échantillon de $n=16$ portions et obtient:
+
+$$\overline{x}=50{,}2 \quad\text{et}\quad s=2{,}4$$
+
+On suppose que les teneurs suivent une loi normale.
+
+\begin{parts}
+\part[7] Construisez un intervalle de confiance de niveau 95\% pour la teneur moyenne $\mu$ en vitamine C.
+
+\begin{solution}
+La variance est inconnue, on utilise la loi de Student. On a $n=16$, donc $\nu=n-1=15$ degrés de liberté. On cherche $t_{0{,}025;\,15}$ dans la table de Student.
+
+$t_{0{,}025;\,15}=2{,}131$.
+
+L'IC est:
+$$\overline{x}\pm t_{\alpha/2;\,n-1}\frac{s}{\sqrt{n}}=50{,}2\pm 2{,}131\times\frac{2{,}4}{\sqrt{16}}=50{,}2\pm 2{,}131\times 0{,}6=50{,}2\pm 1{,}279$$
+$$=[48{,}921;\, 51{,}479]$$
+\end{solution}
+
+\vspace{11cm}
+
+\part[3] Si on avait plutôt utilisé un niveau de confiance de 99\% (au lieu de 95\%), l'intervalle obtenu serait-il plus large ou plus étroit? Justifiez brièvement.
+
+\begin{solution}
+L'intervalle serait plus \textbf{large}. Un niveau de confiance plus élevé signifie un quantile $t_{\alpha/2;\,n-1}$ plus grand, ce qui augmente la marge d'erreur et donc la largeur de l'intervalle.
+\end{solution}
+
+\end{parts}
+
+
+\pageblanche
+\question\label{variance} Un technicien vérifie la précision d'une balance de laboratoire. Il pèse 16 fois un même objet étalon et obtient une variance échantillonnale de $s^2=0{,}015$ g$^2$. On suppose que les mesures suivent une loi normale.
+
+\begin{parts}
+\part[8] Construisez un intervalle de confiance de niveau 90\% pour la variance $\sigma^2$.
+
+\begin{solution}
+On a $n=16$, donc $\nu=n-1=15$ degrés de liberté, et $s^2=0{,}015$.
+
+On cherche $\chi^2_{0{,}05;\,15}$ et $\chi^2_{0{,}95;\,15}$ dans la table du $\chi^2$.
+
+$\chi^2_{0{,}05;\,15}=24{,}996$ et $\chi^2_{0{,}95;\,15}=7{,}261$.
+
+L'IC pour $\sigma^2$ est:
+
+$$\left[\frac{(n-1)s^2}{\chi^2_{\alpha/2;\,n-1}};\, \frac{(n-1)s^2}{\chi^2_{1-\alpha/2;\,n-1}}\right]=\left[\frac{15\times 0{,}015}{24{,}996};\, \frac{15\times 0{,}015}{7{,}261}\right]=\left[\frac{0{,}225}{24{,}996};\, \frac{0{,}225}{7{,}261}\right]$$
+$$=[0{,}00900;\, 0{,}03099]$$
+\end{solution}
+
+\end{parts}
+
+
+\pageblanche
+\question\label{proportion} Un sondage effectué auprès de $n=625$ électeurs révèle que 375 d'entre eux appuient un candidat.
+
+\begin{parts}
+\part[2] Quelle est l'estimation ponctuelle $\hat{p}$ de la proportion $p$ d'électeurs appuyant ce candidat?
+
+\begin{solution}
+$\hat{p}=\dfrac{375}{625}=0{,}60$.
+\end{solution}
+
+\vspace{3cm}
+
+\part[7] Construisez un intervalle de confiance de niveau 99\% pour $p$.
+
+\begin{solution}
+On a $\hat{p}=0{,}60$, $n=625$ et $z_{0{,}005}=2{,}576$.
+
+On vérifie que $n$ est assez grand: $n\hat{p}=375\ge 5$ et $n(1-\hat{p})=250\ge 5$. $\checkmark$
+
+L'IC est:
+$$\hat{p}\pm z_{\alpha/2}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}=0{,}60\pm 2{,}576\sqrt{\frac{0{,}60\times 0{,}40}{625}}=0{,}60\pm 2{,}576\times 0{,}01960$$
+$$=0{,}60\pm 0{,}0505=[0{,}550;\, 0{,}651]$$
+\end{solution}
+
+\end{parts}
+
+
+\pageblanche
+
+\question[10] On mesure la résistance à la rupture (en kN) de câbles d'acier. Un échantillon de $n=36$ câbles provenant d'une population normale donne $\overline{x}=520$ et $s=30$.
+
+\begin{parts}
+\part[7] Construisez un intervalle de confiance de niveau 90\% pour la résistance moyenne $\mu$.
+
+\begin{solution}
+La variance est inconnue, on utilise la loi de Student avec $\nu=n-1=35$ degrés de liberté.
+
+$t_{0{,}05;\,35}=1{,}690$.
+
+$$\overline{x}\pm t_{\alpha/2;\,n-1}\frac{s}{\sqrt{n}}=520\pm 1{,}690\times\frac{30}{\sqrt{36}}=520\pm 1{,}690\times 5=520\pm 8{,}450$$
+$$=[511{,}550;\, 528{,}450]$$
+\end{solution}
+
+\vspace{11cm}
+
+\part[3] Le fabricant affirme que la résistance moyenne est de 530 kN. À partir de votre intervalle, cette affirmation est-elle compatible avec les données au niveau de confiance 90\%? Justifiez.
+
+\begin{solution}
+La valeur $\mu=530$ n'est \textbf{pas} contenue dans l'intervalle $[511{,}550;\, 528{,}450]$. Les données ne sont donc pas compatibles avec l'affirmation du fabricant au niveau de confiance 90\%.
+\end{solution}
+
+\end{parts}
+
+
+\pageblanche
+
+\question[5] Un échantillon de taille $n=25$ provenant d'une population normale donne $\overline{x}=60$ et $s=5$. On calcule un intervalle de confiance pour $\mu$ à un certain niveau de confiance et on obtient $[60-1{,}711;\, 60+1{,}711]=[58{,}289;\, 61{,}711]$. Quel est le niveau de confiance de cet intervalle? Montrez votre démarche.
+
+\begin{solution}
+La variance est inconnue et $n=25$, donc on utilise Student avec $\nu=24$ degrés de liberté.
+
+La marge d'erreur est $M=1{,}711=t_{\alpha/2;\,24}\times\dfrac{5}{\sqrt{25}}=t_{\alpha/2;\,24}\times 1$.
+
+Donc $t_{\alpha/2;\,24}=\dfrac{1{,}711}{1}=1{,}711$.
+
+En consultant la table de Student à 24 degrés de liberté, $t_{0{,}05;\,24}=1{,}711$.
+
+Donc $\alpha/2=0{,}05$, soit $\alpha=0{,}10$, et le niveau de confiance est $1-\alpha=0{,}90$ (90\%).
+\end{solution}
+
+
+\pageblanche
+
+\question Soit $X_1,\hdots, X_{64}$, des variables aléatoires indépendantes et identiquement distribuées selon une loi normale d'espérance $\mu$ et de variance $\sigma^2 = 144$. 
+Nous désirons construire un intervalle de confiance approprié de niveau $99\%$ pour $\mu$. Nous notons cet intervalle $[L_1;L_2]$.
+\begin{parts}
+    \part[3] Que vaut $E[L_2]$?
+
+    \begin{solution}
+        Puisque $\sigma^2 = 144$ est connu et que les $X_i$ suivent une loi normale, l'intervalle de confiance à 99\% est:
+        $$\left[\bar{X}-z_{0{,}005}\frac{\sigma}{\sqrt{n}}\;;\;\bar{X}+z_{0{,}005}\frac{\sigma}{\sqrt{n}}\right]=\left[\bar{X}-2{,}576\times\frac{12}{8}\;;\;\bar{X}+2{,}576\times\frac{12}{8}\right]$$
+        Donc $L_1=\bar{X}-3{,}864$ et $L_2=\bar{X}+3{,}864$.
+        \begin{align*}
+            E(L_2)&=E(\bar{X}+3{,}864)\\
+            &= E(\bar{X})+3{,}864\\
+            &= \mu + 3{,}864
+        \end{align*}
+    \end{solution}
+    \vspace{7cm}
+    \part[3] Que vaut $\text{Var}[L_2]$?
+
+    \begin{solution}
+        \begin{align*}
+            \text{Var}(L_2)&=\text{Var}(\bar{X}+3{,}864)\\
+            &= \text{Var}(\bar{X})\\
+            &= \frac{\sigma^2}{n}=\frac{144}{64}=2{,}25
+        \end{align*}
+    \end{solution}
+    \vspace{7cm}
+
+    \part[4] Quelle est la probabilité que $L_2$ soit inférieure ou égale à $\mu$?
+
+    \begin{solution}
+        \begin{align*}
+            P(L_2\leq \mu)&=P(\bar{X}+3{,}864\leq \mu)\\
+            &= P\left(\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}\leq \frac{-3{,}864}{12/8}\right)\\
+            &= P(Z\leq -2{,}576)\\
+            &= 0{,}005
+        \end{align*}
+    \end{solution}
+
+\end{parts}
+
+\end{questions}
+\end{document}

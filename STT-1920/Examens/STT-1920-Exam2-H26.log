@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  2 MAR 2026 12:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  2 MAR 2026 12:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1289,7 +1289,7 @@ LaTeX Font Warning: Font shape `T1/fav/b/sc' undefined
 
 [10]
 This exam contains 11 questions with 18 parts, 0 subparts, and 0 subsubparts.
-This exam has a total of 84 points.
+This exam has a total of 94 points.
 This exam has a total of 0 bonus points.
 (./STT-1920-Exam2-H26.aux)
  ***********
@@ -1302,15 +1302,15 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 27025 strings out of 473190
- 558251 string characters out of 5715801
+ 27024 strings out of 473190
+ 558246 string characters out of 5715801
  1137336 words of memory out of 5000000
- 49785 multiletter control sequences out of 15000+600000
+ 49784 multiletter control sequences out of 15000+600000
  608644 words of font info for 95 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  113i,12n,119p,631b,666s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Bold.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Oblique.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Roman.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7t.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7y.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7v.pfb>
-Output written on STT-1920-Exam2-H26.pdf (10 pages, 100935 bytes).
+Output written on STT-1920-Exam2-H26.pdf (10 pages, 100910 bytes).
 PDF statistics:
  84 PDF objects out of 1000 (max. 8388607)
  55 compressed objects within 1 object stream
