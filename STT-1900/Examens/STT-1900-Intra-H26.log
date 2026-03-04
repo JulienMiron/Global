@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  3 MAR 2026 15:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  4 MAR 2026 09:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1188,7 +1188,7 @@ Overfull \hbox (65.35516pt too wide) in paragraph at lines 56--56
 
 
 Overfull \hbox (3.90103pt too wide) in paragraph at lines 56--56
-[]\T1/fav/m/n/9 Assurez-vous que cette éva-lua-tion com-porte 12 exer-cices ré-par-tis sur 22 pages, pour un to-tal de 100 points. 
+[]\T1/fav/m/n/9 Assurez-vous que cette éva-lua-tion com-porte 12 exer-cices ré-par-tis sur 15 pages, pour un to-tal de 100 points. 
  []
 
 LaTeX Font Info:    Trying to load font information for OT1+zavm on input line 56.
@@ -1274,10 +1274,6 @@ File: uzavm.fd 2006/05/30 Fontinst v1.929 font definitions for U/zavm.
 
 
 
-[2
-
-]
-
 LaTeX Font Warning: Font shape `T1/fav/m/sc' undefined
 (Font)              using `T1/fav/m/n' instead on input line 61.
 
@@ -1292,13 +1288,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 64--65
 
 
 
-[3{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevot1.enc}]
+[2
+
+{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevot1.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevoml.enc}]
+
+[3]
 
 [4]
-
-[5{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevoml.enc}]
-
-[6]
 LaTeX Font Info:    Calculating math sizes for size <6.02908> on input line 336.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
 (Font)              scaled to size 5.78795pt on input line 336.
@@ -1323,9 +1319,9 @@ LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <3.61748> not available
 
 
 
-[7]
+[5]
 
-[8]
+[6]
 
 LaTeX Font Warning: Command \Large invalid in math mode on input line 385.
 
@@ -1374,29 +1370,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 408--410
 
 
 
+[7]
+
+[8]
+
 [9]
 
 [10]
 
-[11]
+[11{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevoms.enc}]
 
 [12]
 
 [13]
-
-[14]
-
-[15]
-
-[16]
-
-[17]
-
-[18]
-
-[19]
-
-[20]
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
 (Font)              scaled to size 9.35994pt on input line 612.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
@@ -1405,9 +1391,9 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 (Font)              scaled to size 5.19997pt on input line 612.
 
 
-[21]
+[14]
 
-[22]
+[15]
 This exam contains 12 questions with 23 parts, 0 subparts, and 0 subsubparts.
 This exam has a total of 100 points.
 This exam has a total of 0 bonus points.
@@ -1426,18 +1412,18 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 27364 strings out of 473190
- 566223 string characters out of 5715801
- 1149806 words of memory out of 5000000
- 50102 multiletter control sequences out of 15000+600000
- 685854 words of font info for 252 fonts, out of 8000000 for 9000
+ 27373 strings out of 473190
+ 566337 string characters out of 5715801
+ 1150805 words of memory out of 5000000
+ 50104 multiletter control sequences out of 15000+600000
+ 687550 words of font info for 258 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  113i,20n,119p,631b,960s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Bold.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-BoldOblique.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Oblique.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Roman.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/fourier/fourier-bb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7t.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7y.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7v.pfb>
-Output written on STT-1900-Intra-H26.pdf (22 pages, 126509 bytes).
+Output written on STT-1900-Intra-H26.pdf (15 pages, 141204 bytes).
 PDF statistics:
- 135 PDF objects out of 1000 (max. 8388607)
- 89 compressed objects within 1 object stream
+ 117 PDF objects out of 1000 (max. 8388607)
+ 77 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 

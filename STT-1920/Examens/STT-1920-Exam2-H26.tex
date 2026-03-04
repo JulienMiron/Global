@@ -61,7 +61,7 @@
 %%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
 \begin{questions}
 
-\question[3]\label{interp}
+\question[4]\label{interp}
 La durée de vie (en heures) d'un certain type d'ampoule est modélisée par une loi normale de moyenne $\mu$ inconnue et de variance $\sigma^2$ connue. À partir d'un échantillon de taille $n=16$, on calcule un intervalle de confiance à 95\% pour $\mu$ et on obtient $[980;\, 1020]$. Quel énoncé est une interprétation correcte de cet intervalle?
 
 \begin{checkboxes}
@@ -76,7 +76,7 @@ Un IC à 95\% signifie que, si on répétait l'expérience un grand nombre de fo
 \end{solution}
 
 \vspace{0.5cm}
-\question[3] Laquelle des affirmations suivantes concernant la marge d'erreur d'un intervalle de confiance pour la moyenne $\mu$ est vraie?
+\question[4] Laquelle des affirmations suivantes concernant la marge d'erreur d'un intervalle de confiance pour la moyenne $\mu$ est vraie?
 
 \begin{checkboxes}
     \choice Si on augmente la taille de l'échantillon, la marge d'erreur augmente.
@@ -90,7 +90,7 @@ La marge d'erreur est de la forme $\text{quantile}\times \dfrac{s}{\sqrt{n}}$. S
 \end{solution}
 
 \vspace{0.5cm}
-\question[3] Quelle affirmation est vraie parmi les suivantes?
+\question[4] Quelle affirmation est vraie parmi les suivantes?
 
 \begin{checkboxes}
     \choice L'intervalle de confiance pour $\mu$ basé sur la loi de Student est toujours plus étroit que celui basé sur la loi normale centrée réduite.
@@ -181,7 +181,7 @@ Faux. Par exemple, $\overline{X}$ et $X_1$ sont tous deux des estimateurs sans b
 \question\label{varconnue} Soit $X$, le poids (en milligrammes) de comprimés pharmaceutiques produits par une machine, où $X\sim\mathcal{N}(\mu, \, 4)$. Un échantillon de 25 comprimés donne une moyenne de $\overline{x}=500{,}6$ mg.
 
 \begin{parts}
-\part[7] Construisez un intervalle de confiance de niveau 95\% pour $\mu$.
+\part[9] Construisez un intervalle de confiance de niveau 95\% pour $\mu$.
 
 \begin{solution}
 On a $\sigma^2=4$, donc $\sigma=2$, $n=25$, $\overline{x}=500{,}6$ et $z_{0{,}025}=1{,}96$.
@@ -192,7 +192,7 @@ $$\overline{x}\pm z_{\alpha/2}\frac{\sigma}{\sqrt{n}}=500{,}6\pm 1{,}96\times\fr
 
 \vspace{11cm}
 
-\part[4] Quelle est la taille minimale de l'échantillon à collecter pour que la marge d'erreur ne dépasse pas 0,5 mg, en conservant un niveau de confiance de 95\% ?
+\part[5] Quelle est la taille minimale de l'échantillon à collecter pour que la marge d'erreur ne dépasse pas 0,5 mg, en conservant un niveau de confiance de 95\% ?
 
 \begin{solution}
 La marge d'erreur est $M=z_{\alpha/2}\dfrac{\sigma}{\sqrt{n}}\le 0{,}5$.
@@ -213,7 +213,7 @@ $$\overline{x}=12{,}3 \quad\text{et}\quad s=1{,}8$$
 On suppose que les concentrations suivent une loi normale.
 
 \begin{parts}
-\part[7] Construisez un intervalle de confiance de niveau 99\% pour la concentration moyenne $\mu$ de chlorophylle dans ce lac.
+\part[9] Construisez un intervalle de confiance de niveau 99\% pour la concentration moyenne $\mu$ de chlorophylle dans ce lac.
 
 \begin{solution}
 La variance est inconnue, on utilise la loi de Student. On a $n=9$, donc $\nu=n-1=8$ degrés de liberté. On cherche $t_{0{,}005;\,8}$ dans la table de Student.
@@ -227,7 +227,7 @@ $$=[10{,}287;\, 14{,}313]$$
 
 \vspace{11cm}
 
-\part[3] Si on avait plutôt utilisé un niveau de confiance de 90\% (au lieu de 99\%), l'intervalle obtenu serait-il plus large ou plus étroit? Justifiez brièvement.
+\part[4] Si on avait plutôt utilisé un niveau de confiance de 90\% (au lieu de 99\%), l'intervalle obtenu serait-il plus large ou plus étroit? Justifiez brièvement.
 
 \begin{solution}
 L'intervalle serait plus \textbf{étroit}. Un niveau de confiance plus faible signifie un quantile $t_{\alpha/2;\,n-1}$ plus petit, ce qui réduit la marge d'erreur et donc la largeur de l'intervalle.
@@ -240,7 +240,7 @@ L'intervalle serait plus \textbf{étroit}. Un niveau de confiance plus faible si
 \question\label{variance} Un ingénieur veut vérifier la stabilité d'une machine-outil. Il mesure le diamètre de 25 pièces produites et obtient une variance échantillonnale de $s^2=0{,}012$ cm$^2$. On suppose que les diamètres suivent une loi normale.
 
 \begin{parts}
-\part[8] Construisez un intervalle de confiance de niveau 95\% pour la variance $\sigma^2$.
+\part[10] Construisez un intervalle de confiance de niveau 95\% pour la variance $\sigma^2$.
 
 \begin{solution}
 On a $n=25$, donc $\nu=n-1=24$ degrés de liberté, et $s^2=0{,}012$.
@@ -262,7 +262,7 @@ $$=[0{,}00732;\, 0{,}02323]$$
 \question\label{proportion} Un sondage effectué auprès de $n=400$ résidents d'une ville révèle que 256 d'entre eux sont en faveur d'un nouveau projet de transport en commun.
 
 \begin{parts}
-\part[2] Quelle est l'estimation ponctuelle $\hat{p}$ de la proportion $p$ de résidents favorables au projet?
+\part[3] Quelle est l'estimation ponctuelle $\hat{p}$ de la proportion $p$ de résidents favorables au projet?
 
 \begin{solution}
 $\hat{p}=\dfrac{256}{400}=0{,}64$.
@@ -270,7 +270,7 @@ $\hat{p}=\dfrac{256}{400}=0{,}64$.
 
 \vspace{3cm}
 
-\part[7] Construisez un intervalle de confiance de niveau 95\% pour $p$.
+\part[9] Construisez un intervalle de confiance de niveau 95\% pour $p$.
 
 \begin{solution}
 On a $\hat{p}=0{,}64$, $n=400$ et $z_{0{,}025}=1{,}96$.
@@ -288,7 +288,7 @@ $$=0{,}64\pm 0{,}04704=[0{,}593;\, 0{,}687]$$
 
 \pageblanche
 
-\question[5] Un échantillon de taille $n=16$ provenant d'une population normale donne $\overline{x}=45$ et $s=4$. On calcule un intervalle de confiance pour $\mu$ à un certain niveau de confiance et on obtient $[42{,}869;\, 47{,}131]$. Quel est le niveau de confiance de cet intervalle? Montrez votre démarche.
+\question[7] Un échantillon de taille $n=16$ provenant d'une population normale donne $\overline{x}=45$ et $s=4$. On calcule un intervalle de confiance pour $\mu$ à un certain niveau de confiance et on obtient $[42{,}869;\, 47{,}131]$. Quel est le niveau de confiance de cet intervalle? Montrez votre démarche.
 
 \begin{solution}
 La variance est inconnue et $n=16$, donc on utilise Student avec $\nu=15$ degrés de liberté.
