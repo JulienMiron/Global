@@ -285,36 +285,10 @@ $$=0{,}64\pm 0{,}04704=[0{,}593;\, 0{,}687]$$
 \end{parts}
 
 
-\pageblanche
-
-\question[10] Un chercheur mesure la résistance à la traction (en MPa) de barres d'acier. Il dispose d'un échantillon de $n=25$ barres provenant d'une population normale et obtient $\overline{x}=420$ et $s=10$.
-
-\begin{parts}
-\part[7] Construisez un intervalle de confiance de niveau 95\% pour la résistance moyenne $\mu$.
-
-\begin{solution}
-La variance est inconnue, on utilise la loi de Student avec $\nu=n-1=24$ degrés de liberté.
-
-$t_{0{,}025;\,24}=2{,}064$.
-
-$$\overline{x}\pm t_{\alpha/2;\,n-1}\frac{s}{\sqrt{n}}=420\pm 2{,}064\times\frac{10}{\sqrt{25}}=420\pm 2{,}064\times 2=420\pm 4{,}128$$
-$$=[415{,}872;\, 424{,}128]$$
-\end{solution}
-
-\vspace{11cm}
-
-\part[3] Le fournisseur affirme que la résistance moyenne est de 425 MPa. À partir de votre intervalle, cette affirmation est-elle compatible avec les données au niveau de confiance 95\%? Justifiez.
-
-\begin{solution}
-La valeur $\mu=425$ n'est \textbf{pas} contenue dans l'intervalle $[415{,}872;\, 424{,}128]$. Les données ne sont donc pas compatibles avec l'affirmation du fournisseur au niveau de confiance 95\%.
-\end{solution}
-
-\end{parts}
-
 
 \pageblanche
 
-\question[5] Un échantillon de taille $n=16$ provenant d'une population normale donne $\overline{x}=45$ et $s=4$. On calcule un intervalle de confiance pour $\mu$ à un certain niveau de confiance et on obtient $[45-2{,}131;\, 45+2{,}131]=[42{,}869;\, 47{,}131]$. Quel est le niveau de confiance de cet intervalle? Montrez votre démarche.
+\question[5] Un échantillon de taille $n=16$ provenant d'une population normale donne $\overline{x}=45$ et $s=4$. On calcule un intervalle de confiance pour $\mu$ à un certain niveau de confiance et on obtient $[42{,}869;\, 47{,}131]$. Quel est le niveau de confiance de cet intervalle? Montrez votre démarche.
 
 \begin{solution}
 La variance est inconnue et $n=16$, donc on utilise Student avec $\nu=15$ degrés de liberté.
@@ -329,47 +303,6 @@ Donc $\alpha/2=0{,}025$, soit $\alpha=0{,}05$, et le niveau de confiance est $1-
 \end{solution}
 
 
-\pageblanche
-
-\question Soit $X_1,\hdots, X_{100}$, des variables aléatoires indépendantes et identiquement distribuées selon une loi normale d'espérance $\mu$ et de variance $\sigma^2 = 400$. 
-Nous désirons construire un intervalle de confiance approprié de niveau $95\%$ pour $\mu$. Nous notons cet intervalle $[L_1;L_2]$.
-\begin{parts}
-    \part[3] Que vaut $E[L_2]$?
-
-    \begin{solution}
-        Puisque $\sigma^2 = 400$ est connu et que les $X_i$ suivent une loi normale, l'intervalle de confiance à 95\% est:
-        $$\left[\bar{X}-z_{0{,}025}\frac{\sigma}{\sqrt{n}}\;;\;\bar{X}+z_{0{,}025}\frac{\sigma}{\sqrt{n}}\right]=\left[\bar{X}-1{,}96\times\frac{20}{10}\;;\;\bar{X}+1{,}96\times\frac{20}{10}\right]$$
-        Donc $C_1=\bar{X}-3{,}92$ et $C_2=\bar{X}+3{,}92$.
-        \begin{align*}
-            E(C_2)&=E(\bar{X}+3{,}92)\\
-            &= E(\bar{X})+3{,}92\\
-            &= \mu + 3{,}92
-        \end{align*}
-    \end{solution}
-    \vspace{7cm}
-    \part[3] Que vaut $\text{Var}[L_2]$?
-
-    \begin{solution}
-        \begin{align*}
-            \text{Var}(C_2)&=\text{Var}(\bar{X}+3{,}92)\\
-            &= \text{Var}(\bar{X})\\
-            &= \frac{\sigma^2}{n}=\frac{400}{100}=4
-        \end{align*}
-    \end{solution}
-    \vspace{7cm}
-
-    \part[4] Quelle est la probabilité que $L_2$ soit inférieure ou égale à $\mu$?
-
-    \begin{solution}
-        \begin{align*}
-            P(C_2\leq \mu)&=P(\bar{X}+3{,}92\leq \mu)\\
-            &= P\left(\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}\leq \frac{-3{,}92}{20/10}\right)\\
-            &= P(Z\leq -1{,}96)\\
-            &= 0{,}025
-        \end{align*}
-    \end{solution}
-
-\end{parts}
 
 \end{questions}
 \end{document}
