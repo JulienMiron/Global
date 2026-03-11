@@ -1,0 +1,302 @@
+\def\Ponderation{33,33}
+\def\SigleNumero{STT-1920}
+\def\NomCours{Méthodes statistiques}
+\def\DateEvaluation{}
+\def\HeureEvaluation{}
+\def\Session{}
+\def\NomEvaluation{Examen 2 (reprise)}
+
+% Ne rien mettre entre les accolades si l'enseignant (ou l'enseignante) est aussi le coordonnateur (ou la coordonnatrice)
+\def\Coordonnatrice{}
+\def\Coordonnateur{}
+
+% Ne rien mettre entre les accolades s'il y a plus d'une section
+\def\Enseignant{Julien Miron}
+\def\Enseignante{}
+
+% Ne rien mettre entre les accolades s'il s'agit d'un cours à section unique
+% Mettre le nom de chacun des enseignants et enseignantes entre les accolades
+% Une case à cocher sera générée pour chacune des sections
+\def\SectionA{}
+\def\SectionB{}
+\def\SectionC{}
+\def\SectionD{}
+
+
+\def\Directives{
+\begin{enumerate}
+\item Matériel autorisé:
+\begin{itemize}
+\item Calculatrice scientifique {\bf autorisée par la faculté des sciences et de génie};
+\item Votre aide-mémoire d'une feuille recto-verso, écrit à la main.
+\end{itemize}
+\item Assurez-vous que cette évaluation comporte \numquestions ~exercices répartis sur \numpages{}~pages, pour un total de \numpoints{}~points.\
+\item \textbf{Veuillez ne pas dégrafer votre examen.}
+\item Vous devez\textbf{ justifier toutes vos réponses} par une démarche claire, sauf pour les questions à choix de réponse.\
+\item Pour les questions à choix de réponse et les vrais ou faux, vous pouvez mettre un X, un crochet ($\checkmark$) ou remplir la case.\
+\item Vous devez laisser tout ce qui ne servira pas durant l'examen à l'avant de la salle AVANT de rejoindre votre place.\
+\item Vous n'avez droit à AUCUN appareil électronique en votre possession durant l'examen.
+\item Une fois assis à votre place, vous devez demandez l'autorisation pour vous lever, même si l'examen n'est pas encore commencé.
+\item Dans les 5 dernières minutes de l'examen, il sera interdit de se lever avant que TOUTES les copies n'aient été ramassées.
+\end{enumerate}
+\begin{itemize}
+\item[$\rightarrow$] Le non-respect des consignes 7-8-9 entraînera une pénalité de 10\%.
+\end{itemize}
+}
+
+\newcommand{\affichepoints}{}     % ← AVEC points
+% \renewcommand{\affichepoints}{on} % ← SANS points (non vide)
+
+\documentclass{Evaluation}
+\usepackage{multicol,graphicx}
+
+\noprintanswers
+
+
+
+\begin{document}
+
+\pageblanche
+
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+\begin{questions}
+
+\question[4]\label{interp}
+La masse (en grammes) de sachets de café produits par une machine est modélisée par une loi normale de moyenne $\mu$ inconnue et de variance $\sigma^2$ connue. À partir d'un échantillon de taille $n=20$, on calcule un intervalle de confiance à 98\% pour $\mu$ et on obtient $[247{,}5;\, 252{,}5]$. Quel énoncé est une interprétation correcte de cet intervalle?
+
+\begin{checkboxes}
+    \choice 98\% des sachets produits par cette machine pèsent entre 247,5 et 252,5 grammes.
+    \choice La probabilité que $\mu$ soit entre 247,5 et 252,5 est de 98\%.
+    \choice Si on prélève un nouveau sachet au hasard, il y a 98\% de chance que sa masse soit dans cet intervalle.
+    \correctchoice On a confiance à 98\% que l'intervalle $[247{,}5;\, 252{,}5]$ contient la vraie valeur de $\mu$.
+\end{checkboxes}
+
+\begin{solution}
+Un IC à 98\% signifie que, si on répétait l'expérience un grand nombre de fois, 98\% des intervalles calculés contiendraient $\mu$. On a donc confiance à 98\% que cet intervalle particulier contient $\mu$. Les autres choix confondent l'intervalle pour $\mu$ avec la distribution individuelle des observations ou attribuent une probabilité au paramètre fixe $\mu$.
+\end{solution}
+
+\vspace{0.5cm}
+\question[4] Laquelle des affirmations suivantes concernant la marge d'erreur d'un intervalle de confiance pour la moyenne $\mu$ est vraie?
+
+\begin{checkboxes}
+    \choice Doubler la taille de l'échantillon réduit la marge d'erreur de moitié.
+    \choice La marge d'erreur ne dépend pas du niveau de confiance.
+    \choice Utiliser la loi de Student donne toujours une marge d'erreur plus petite que la loi normale centrée réduite.
+    \correctchoice Quadrupler la taille de l'échantillon réduit la marge d'erreur de moitié.
+\end{checkboxes}
+
+\begin{solution}
+La marge d'erreur est de la forme $\text{quantile}\times \dfrac{\sigma}{\sqrt{n}}$. Si on quadruple $n$, on obtient $\dfrac{\sigma}{\sqrt{4n}}=\dfrac{\sigma}{2\sqrt{n}}$, donc la marge est divisée par 2. Doubler $n$ ne divise la marge que par $\sqrt{2}\approx 1{,}414$, pas par 2. La marge dépend du niveau de confiance (via le quantile). La loi de Student donne un quantile plus grand (marge plus grande) que la loi normale centrée réduite.
+\end{solution}
+
+\vspace{0.5cm}
+\question[4] Quelle affirmation est vraie parmi les suivantes?
+
+\begin{checkboxes}
+    \choice L'intervalle de confiance pour $\mu$ basé sur la loi de Student est plus étroit que celui basé sur la loi normale centrée réduite.
+    \choice La loi de Student a des queues plus minces que la loi normale centrée réduite.
+    \correctchoice L'intervalle de confiance pour $\sigma^2$ basé sur la loi $\chi^2$ n'est pas symétrique autour de $s^2$.
+    \choice On utilise la loi de Student pour construire un intervalle de confiance pour $\sigma^2$.
+\end{checkboxes}
+
+\begin{solution}
+La loi $\chi^2$ est asymétrique, ce qui rend l'IC pour $\sigma^2$ non symétrique autour de $s^2$. L'IC basé sur Student est plus large (pas plus étroit) car $t_{\alpha/2;\,n-1}>z_{\alpha/2}$. La loi de Student a des queues plus épaisses (pas plus minces) que la loi normale. L'IC pour $\sigma^2$ utilise la loi $\chi^2$, pas Student.
+\end{solution}
+
+\pageblanche
+\question Déterminez si les énoncés suivants sont vrais ou faux.
+
+\begin{parts}
+\part[2] L'erreur quadratique moyenne d'un estimateur sans biais $\hat{\theta}$ est égale à $V(\hat{\theta})$.
+
+\begin{oneparcheckboxes}
+    \correctchoice Vrai 
+    \choice Faux
+\end{oneparcheckboxes} \vspace{0.5cm}
+
+\begin{solution}
+Vrai. $\text{EQM}(\hat{\theta},\theta)=V(\hat{\theta})+[\text{Biais}(\hat{\theta},\theta)]^2=V(\hat{\theta})+0=V(\hat{\theta})$.
+\end{solution}
+
+\part[2] Si le biais d'un estimateur $\hat{\theta}$ est négatif, alors $\hat{\theta}$ surestime $\theta$ en moyenne.
+
+\begin{oneparcheckboxes}
+    \choice Vrai 
+    \correctchoice Faux
+\end{oneparcheckboxes} \vspace{0.5cm}
+
+\begin{solution}
+Faux. $\text{Biais}(\hat{\theta},\theta)=E(\hat{\theta})-\theta<0$ implique $E(\hat{\theta})<\theta$, donc $\hat{\theta}$ \textbf{sous-estime} $\theta$ en moyenne.
+\end{solution}
+
+\part[2] La moyenne échantillonnale $\overline{X}$ a toujours une variance plus petite que celle de n'importe quelle observation individuelle $X_i$ (lorsque $n>1$).
+
+\begin{oneparcheckboxes}
+    \correctchoice Vrai 
+    \choice Faux
+\end{oneparcheckboxes} \vspace{0.5cm}
+
+\begin{solution}
+Vrai. $V(\overline{X})=\sigma^2/n<\sigma^2=V(X_i)$ pour $n>1$.
+\end{solution}
+
+\part[2] Un estimateur biaisé a toujours une erreur quadratique moyenne supérieure à celle de tout estimateur sans biais du même paramètre.
+
+\begin{oneparcheckboxes}
+    \choice Vrai 
+    \correctchoice Faux
+\end{oneparcheckboxes} \vspace{0.5cm}
+
+\begin{solution}
+Faux. Un estimateur biaisé peut avoir une variance suffisamment faible pour compenser son biais, de sorte que son EQM soit inférieure à celle d'un estimateur sans biais ayant une grande variance.
+\end{solution}
+
+\part[2] $E(\overline{X})=\sigma^2/n$.
+
+\begin{oneparcheckboxes}
+    \choice Vrai 
+    \correctchoice Faux
+\end{oneparcheckboxes} \vspace{0.5cm}
+
+\begin{solution}
+Faux. $E(\overline{X})=\mu$. C'est $V(\overline{X})$ qui vaut $\sigma^2/n$.
+\end{solution}
+
+\part[2] Si $X_1,\hdots,X_n$ sont des variables aléatoires indépendantes Bernoulli$(p)$, alors $\displaystyle\frac{1}{n}\sum_{i=1}^n X_i$ est un estimateur sans biais de $p$.
+
+\begin{oneparcheckboxes}
+    \correctchoice Vrai 
+    \choice Faux
+\end{oneparcheckboxes} \vspace{0.5cm}
+
+\begin{solution}
+Vrai. $E\!\left(\dfrac{1}{n}\displaystyle\sum_{i=1}^n X_i\right)=\dfrac{1}{n}\displaystyle\sum_{i=1}^n E(X_i)=\dfrac{1}{n}\times np=p$.
+\end{solution}
+
+\end{parts}
+
+
+\pageblanche
+\pageblanche
+\question\label{varconnue} Soit $X$, la masse (en kg) de sacs de riz produits par une machine, où $X\sim\mathcal{N}(\mu, \, 25)$. Un échantillon de 16 sacs donne une moyenne de $\overline{x}=50{,}3$ kg.
+
+\begin{parts}
+\part[9] Construisez un intervalle de confiance de niveau 90\% pour $\mu$.
+
+\begin{solution}
+On a $\sigma^2=25$, donc $\sigma=5$, $n=16$, $\overline{x}=50{,}3$ et $z_{0{,}05}=1{,}645$.
+
+L'IC est:
+$$\overline{x}\pm z_{\alpha/2}\frac{\sigma}{\sqrt{n}}=50{,}3\pm 1{,}645\times\frac{5}{\sqrt{16}}=50{,}3\pm 1{,}645\times 1{,}25=50{,}3\pm 2{,}056=[48{,}244;\, 52{,}356]$$
+\end{solution}
+
+\vspace{11cm}
+
+\part[5] Quelle est la taille minimale de l'échantillon à collecter pour que la marge d'erreur ne dépasse pas 2 kg, en conservant un niveau de confiance de 90\% ?
+
+\begin{solution}
+La marge d'erreur est $M=z_{\alpha/2}\dfrac{\sigma}{\sqrt{n}}\le 2$.
+
+$$n\ge \left(\frac{z_{\alpha/2}\,\sigma}{M}\right)^2=\left(\frac{1{,}645\times 5}{2}\right)^2=\left(\frac{8{,}225}{2}\right)^2=(4{,}1125)^2=16{,}91$$
+
+On arrondit vers le haut: $n\ge 17$.
+\end{solution}
+
+\end{parts}
+
+
+\pageblanche
+\question\label{varinconnue} Un chercheur mesure le taux de glucose sanguin (en mmol/L) de patients diabétiques. Il prélève un échantillon de $n=9$ mesures et obtient:
+
+$$\overline{x}=5{,}8 \quad\text{et}\quad s=0{,}9$$
+
+On suppose que les taux de glucose suivent une loi normale.
+
+\begin{parts}
+\part[9] Construisez un intervalle de confiance de niveau 95\% pour le taux moyen $\mu$ de glucose sanguin.
+
+\begin{solution}
+La variance est inconnue, on utilise la loi de Student. On a $n=9$, donc $\nu=n-1=8$ degrés de liberté. On cherche $t_{0{,}025;\,8}$ dans la table de Student.
+
+$t_{0{,}025;\,8}=2{,}306$.
+
+L'IC est:
+$$\overline{x}\pm t_{\alpha/2;\,n-1}\frac{s}{\sqrt{n}}=5{,}8\pm 2{,}306\times\frac{0{,}9}{\sqrt{9}}=5{,}8\pm 2{,}306\times 0{,}3=5{,}8\pm 0{,}692$$
+$$=[5{,}108;\, 6{,}492]$$
+\end{solution}
+
+\vspace{11cm}
+
+\part[4] Si on avait plutôt utilisé un niveau de confiance de 99\% (au lieu de 95\%), l'intervalle obtenu serait-il plus large ou plus étroit? Justifiez brièvement.
+
+\begin{solution}
+L'intervalle serait plus \textbf{large}. Un niveau de confiance plus élevé signifie un quantile $t_{\alpha/2;\,n-1}$ plus grand, ce qui augmente la marge d'erreur et donc la largeur de l'intervalle.
+\end{solution}
+
+\end{parts}
+
+
+\pageblanche
+\question[10]\label{variance} Un contrôleur de qualité vérifie la précision d'une chaîne de production. Il mesure le diamètre (en mm) de 21 rondelles métalliques et obtient une variance échantillonnale de $s^2=0{,}032$ mm$^2$. On suppose que les diamètres suivent une loi normale. Construisez un intervalle de confiance de niveau 95\% pour la variance $\sigma^2$.
+
+\begin{solution}
+On a $n=21$, donc $\nu=n-1=20$ degrés de liberté, et $s^2=0{,}032$.
+
+On cherche $\chi^2_{0{,}025;\,20}$ et $\chi^2_{0{,}975;\,20}$ dans la table du $\chi^2$.
+
+$\chi^2_{0{,}025;\,20}=34{,}170$ et $\chi^2_{0{,}975;\,20}=9{,}591$.
+
+L'IC pour $\sigma^2$ est:
+
+$$\left[\frac{(n-1)s^2}{\chi^2_{\alpha/2;\,n-1}};\, \frac{(n-1)s^2}{\chi^2_{1-\alpha/2;\,n-1}}\right]=\left[\frac{20\times 0{,}032}{34{,}170};\, \frac{20\times 0{,}032}{9{,}591}\right]=\left[\frac{0{,}64}{34{,}170};\, \frac{0{,}64}{9{,}591}\right]$$
+$$=[0{,}01873;\, 0{,}06674]$$
+\end{solution}
+
+
+
+\pageblanche
+\question\label{proportion} Un gestionnaire effectue un sondage auprès de $n=500$ clients d'une entreprise et constate que 325 d'entre eux se disent satisfaits du service après-vente.
+
+\begin{parts}
+\part[3] Quelle est l'estimation ponctuelle $\hat{p}$ de la proportion $p$ de clients satisfaits?
+
+\begin{solution}
+$\hat{p}=\dfrac{325}{500}=0{,}65$.
+\end{solution}
+
+\vspace{3cm}
+
+\part[9] Construisez un intervalle de confiance de niveau 90\% pour $p$.
+
+\begin{solution}
+On a $\hat{p}=0{,}65$, $n=500$ et $z_{0{,}05}=1{,}645$.
+
+On vérifie que $n$ est assez grand: $n\hat{p}=325\ge 5$ et $n(1-\hat{p})=175\ge 5$. $\checkmark$
+
+L'IC est:
+$$\hat{p}\pm z_{\alpha/2}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}=0{,}65\pm 1{,}645\sqrt{\frac{0{,}65\times 0{,}35}{500}}=0{,}65\pm 1{,}645\times 0{,}02133$$
+$$=0{,}65\pm 0{,}03509=[0{,}615;\, 0{,}685]$$
+\end{solution}
+
+\end{parts}
+
+
+
+\pageblanche
+
+\question[7] Un échantillon de taille $n=25$ provenant d'une population normale donne $\overline{x}=80$ et $s=10$. On calcule un intervalle de confiance pour $\mu$ à un certain niveau de confiance et on obtient $[74{,}406;\, 85{,}594]$. Quel est le niveau de confiance de cet intervalle? 
+
+\begin{solution}
+La variance est inconnue et $n=25$, donc on utilise Student avec $\nu=24$ degrés de liberté.
+
+La marge d'erreur est $M=5{,}594=t_{\alpha/2;\,24}\times\dfrac{10}{\sqrt{25}}=t_{\alpha/2;\,24}\times 2$.
+
+Donc $t_{\alpha/2;\,24}=\dfrac{5{,}594}{2}= 2{,}797$.
+
+En consultant la table de Student à 24 degrés de liberté, $t_{0{,}005;\,24}=2{,}797$.
+
+Donc $\alpha/2=0{,}005$, soit $\alpha=0{,}01$, et le niveau de confiance est $1-\alpha=0{,}99$ (99\%).
+\end{solution}
+
+\end{questions}
+\end{document}
