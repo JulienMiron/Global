@@ -47,10 +47,13 @@
 \newcommand{\affichepoints}{}     % ← AVEC points
 % \renewcommand{\affichepoints}{on} % ← SANS points (non vide)
 
+\providecommand{\Gradescope}{}
+
+
 \documentclass{Evaluation}
 \usepackage{multicol,graphicx}
 
-\noprintanswers
+\printanswers
 
 
 
@@ -177,7 +180,6 @@ Faux. Par exemple, $\overline{X}$ et $X_1$ sont tous deux des estimateurs sans b
 
 
 \pageblanche
-\pageblanche
 \question\label{varconnue} Soit $X$, le poids (en milligrammes) de comprimés pharmaceutiques produits par une machine, où $X\sim\mathcal{N}(\mu, \, 4)$. Un échantillon de 25 comprimés donne une moyenne de $\overline{x}=500{,}6$ mg.
 
 \begin{parts}
@@ -299,7 +301,7 @@ En consultant la table de Student à 15 degrés de liberté, $t_{0{,}025;\,15}=2
 Donc $\alpha/2=0{,}025$, soit $\alpha=0{,}05$, et le niveau de confiance est $1-\alpha=0{,}95$ (95\%).
 \end{solution}
 
-
+\pageblanche
 
 \end{questions}
 \end{document}
