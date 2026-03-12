@@ -107,62 +107,7 @@ La loi $\chi^2$ est asymétrique, ce qui rend l'IC pour $\sigma^2$ non symétriq
 \question Déterminez si les énoncés suivants sont vrais ou faux.
 
 \begin{parts}
-\part[2] L'erreur quadratique moyenne d'un estimateur sans biais $\hat{\theta}$ est égale à $V(\hat{\theta})$.
-
-\begin{oneparcheckboxes}
-    \correctchoice Vrai 
-    \choice Faux
-\end{oneparcheckboxes} \vspace{0.5cm}
-
-\begin{solution}
-Vrai. $\text{EQM}(\hat{\theta},\theta)=V(\hat{\theta})+[\text{Biais}(\hat{\theta},\theta)]^2=V(\hat{\theta})+0=V(\hat{\theta})$.
-\end{solution}
-
-\part[2] Si le biais d'un estimateur $\hat{\theta}$ est négatif, alors $\hat{\theta}$ surestime $\theta$ en moyenne.
-
-\begin{oneparcheckboxes}
-    \choice Vrai 
-    \correctchoice Faux
-\end{oneparcheckboxes} \vspace{0.5cm}
-
-\begin{solution}
-Faux. $\text{Biais}(\hat{\theta},\theta)=E(\hat{\theta})-\theta<0$ implique $E(\hat{\theta})<\theta$, donc $\hat{\theta}$ \textbf{sous-estime} $\theta$ en moyenne.
-\end{solution}
-
-\part[2] La moyenne échantillonnale $\overline{X}$ a toujours une variance plus petite que celle de n'importe quelle observation individuelle $X_i$ (lorsque $n>1$).
-
-\begin{oneparcheckboxes}
-    \correctchoice Vrai 
-    \choice Faux
-\end{oneparcheckboxes} \vspace{0.5cm}
-
-\begin{solution}
-Vrai. $V(\overline{X})=\sigma^2/n<\sigma^2=V(X_i)$ pour $n>1$.
-\end{solution}
-
-\part[2] Un estimateur biaisé a toujours une erreur quadratique moyenne supérieure à celle de tout estimateur sans biais du même paramètre.
-
-\begin{oneparcheckboxes}
-    \choice Vrai 
-    \correctchoice Faux
-\end{oneparcheckboxes} \vspace{0.5cm}
-
-\begin{solution}
-Faux. Un estimateur biaisé peut avoir une variance suffisamment faible pour compenser son biais, de sorte que son EQM soit inférieure à celle d'un estimateur sans biais ayant une grande variance.
-\end{solution}
-
-\part[2] $E(\overline{X})=\sigma^2/n$.
-
-\begin{oneparcheckboxes}
-    \choice Vrai 
-    \correctchoice Faux
-\end{oneparcheckboxes} \vspace{0.5cm}
-
-\begin{solution}
-Faux. $E(\overline{X})=\mu$. C'est $V(\overline{X})$ qui vaut $\sigma^2/n$.
-\end{solution}
-
-\part[2] Si $X_1,\hdots,X_n$ sont des variables aléatoires indépendantes Bernoulli$(p)$, alors $\displaystyle\frac{1}{n}\sum_{i=1}^n X_i$ est un estimateur sans biais de $p$.
+\part[2] La proportion échantillonnale $\hat{p}=\dfrac{1}{n}\displaystyle\sum_{i=1}^n X_i$, où les $X_i$ sont i.i.d.\ Bernoulli$(p)$, est un estimateur sans biais du paramètre $p$.
 
 \begin{oneparcheckboxes}
     \correctchoice Vrai 
@@ -171,6 +116,61 @@ Faux. $E(\overline{X})=\mu$. C'est $V(\overline{X})$ qui vaut $\sigma^2/n$.
 
 \begin{solution}
 Vrai. $E\!\left(\dfrac{1}{n}\displaystyle\sum_{i=1}^n X_i\right)=\dfrac{1}{n}\displaystyle\sum_{i=1}^n E(X_i)=\dfrac{1}{n}\times np=p$.
+\end{solution}
+
+\part[2] Si $\hat{\theta}_1$ et $\hat{\theta}_2$ sont tous deux des estimateurs sans biais de $\theta$, alors $V(\hat{\theta}_1)=V(\hat{\theta}_2)$.
+
+\begin{oneparcheckboxes}
+    \choice Vrai 
+    \correctchoice Faux
+\end{oneparcheckboxes} \vspace{0.5cm}
+
+\begin{solution}
+Faux. Par exemple, $\overline{X}$ et $X_1$ sont tous deux des estimateurs sans biais de $\mu$, mais $V(\overline{X})=\sigma^2/n < V(X_1)=\sigma^2$.
+\end{solution}
+
+\part[2] En divisant $\displaystyle\sum_{i=1}^{n}(X_i-\overline{X})^2$ par $n$, on obtient un estimateur sans biais de la variance $\sigma^2$.
+
+\begin{oneparcheckboxes}
+    \choice Vrai 
+    \correctchoice Faux
+\end{oneparcheckboxes} \vspace{0.5cm}
+
+\begin{solution}
+Faux. On a $E\!\left(\dfrac{1}{n}\displaystyle\sum_{i=1}^{n}(X_i-\overline{X})^2\right)=\dfrac{n-1}{n}\sigma^2\neq\sigma^2$. C'est plutôt $S^2=\dfrac{1}{n-1}\displaystyle\sum_{i=1}^{n}(X_i-\overline{X})^2$ qui est sans biais pour $\sigma^2$.
+\end{solution}
+
+\part[2] Lorsque la taille de l'échantillon $n$ augmente, l'espérance et la variance de $\overline{X}$ diminuent toutes les deux.
+
+\begin{oneparcheckboxes}
+    \choice Vrai 
+    \correctchoice Faux
+\end{oneparcheckboxes} \vspace{0.5cm}
+
+\begin{solution}
+Faux. $V(\overline{X})=\sigma^2/n$ diminue lorsque $n$ augmente, mais $E(\overline{X})=\mu$ ne dépend pas de $n$.
+\end{solution}
+
+\part[2] Le biais de la moyenne échantillonnale $\overline{X}$ par rapport au paramètre $\mu$ est nul.
+
+\begin{oneparcheckboxes}
+    \correctchoice Vrai 
+    \choice Faux
+\end{oneparcheckboxes} \vspace{0.5cm}
+
+\begin{solution}
+Vrai. On a $E(\overline{X})=\mu$, donc $\text{Biais}(\overline{X},\mu)=E(\overline{X})-\mu=0$.
+\end{solution}
+
+\part[2] Le fait que $S^2$ soit sans biais pour $\sigma^2$ signifie que $S^2$ est toujours égal à $\sigma^2$.
+
+\begin{oneparcheckboxes}
+    \choice Vrai 
+    \correctchoice Faux
+\end{oneparcheckboxes} \vspace{0.5cm}
+
+\begin{solution}
+Faux. Sans biais signifie $E(S^2)=\sigma^2$, c'est-à-dire que $S^2$ est égal à $\sigma^2$ \textbf{en moyenne}. La valeur de $S^2$ varie d'un échantillon à l'autre et n'est pas nécessairement égale à $\sigma^2$ pour un échantillon donné.
 \end{solution}
 
 \end{parts}
