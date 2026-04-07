@@ -8,7 +8,7 @@
 \usepackage{multicol,graphicx}
 \usepackage{fancyvrb}
 \usepackage{comment}
-\noprintanswers
+\printanswers
 
 % Commande utilisée dans certains examens pour l'espace réponse vrai/faux
 \newcommand{\vfrep}[1]{}
@@ -75,8 +75,8 @@
 %\excludecomment{A24}
 %\excludecomment{H25}
 %\excludecomment{A25}
-\excludecomment{H26}
-\excludecomment{H26r}
+%\excludecomment{H26}
+%\excludecomment{H26r}
 
 % Supprimer la page couverture et ajuster les marges
 \renewcommand{\couverture}{\newgeometry{margin=1.7cm,left=0.7cm,bottom=1.5cm,footskip=0mm}}
@@ -727,7 +727,7 @@ On nous donne les probabilités suivantes:
 		\correctchoice FAUX
 \end{oneparcheckboxes}\\
 {\bf Justification:}
-\vspace{4cm}
+
 \end{parts}
 \end{H25}
 
@@ -1737,7 +1737,7 @@ En posant $\alpha = 0,5$ et $\beta=1$, calculez $P(16 \leq X \leq 25 | X\geq 9)$
             a&=8
         \end{align*}
     \end{solution}
-\vspace{5cm}
+
     \part[6] Quelle est la probabilité que $X$ prenne une valeur entre $\displaystyle \frac{a}{8}$ et $\displaystyle \frac{a}{2}$? \textit{Si vous n'avez pas trouvé la valeur de $a$, vous pouvez donner votre réponse en fonction de $a$.}
 
     \begin{solution}
@@ -2066,7 +2066,7 @@ En supposant que le diamètre vaut $d$ cm, quelle est l'expression de l'espéran
 Un producteur de Vacherin Fribourgeois sait que le poids d'une de ses meules de fromage, $X$, est une variable aléatoire d'espérance $\mu=7$ kg et de variance $\sigma^2 = 1$ kg$^2$. Il doit envoyer 100 meules à un festival. Le transporteur lui chargera 1500\$, à condition que le poids total des 100 meules soit inférieur ou égal à $720$ kg. Dans le cas contraire, il lui chargera 2000\$.
 
 Quelle est la probabilité approximative que le transporteur lui charge 2000\$?
-    \vspace{12cm}
+ 
 \end{H24}
 
 \begin{H25}
@@ -2074,7 +2074,7 @@ Quelle est la probabilité approximative que le transporteur lui charge 2000\$?
 (H25) Soit les variables aléatoires $X\sim\mathcal{N}(70, 100)$ et $Y\sim\mathcal{N}(80, 64)$.
 Calculez $P(X>Y)$.
 
-\vspace{10cm}
+
 \end{H25}
 
 \begin{H25}
@@ -2086,7 +2086,6 @@ Le transporteur lui chargera 1500\$, à condition que le poids total des 144 meu
 Dans le cas contraire, il lui chargera 2000\$.
 
 Quelle est la probabilité approximative que le transporteur lui charge 1500\$?
-    \vspace{12cm}
 
 \begin{solution}
     \begin{align*}
@@ -2139,7 +2138,7 @@ Nous établissons le pointage d'un candidat par la probabilité d'obtenir une no
 
     Donc Lucie a la meilleure note.
 \end{solution}
-\vspace{12cm}
+
 \part[5] Quelle note aurait dû avoir Lucie afin d'obtenir le même pointage que Camille?
 
 \begin{solution}
@@ -2199,7 +2198,7 @@ Nous établissons le pointage d'un candidat par la probabilité d'obtenir une no
 
     Donc Marc a le meilleur pointage.
 \end{solution}
-\vspace{12cm}
+
 \part[5] Quelle note aurait dû avoir Marc afin d'obtenir le même pointage que Sophie?
 
 \begin{solution}
@@ -2360,7 +2359,7 @@ Soit $X$, $Y$ et $W$ trois variables aléatoires avec
             &=5
         \end{align*}
     \end{solution}
-\vspace{8 cm}
+
     \part[7] Calculez $V(2+3X-2Y+W)$.
 
         \begin{solution}
@@ -2803,7 +2802,7 @@ Le diagramme en boîte ci-dessous a été tracé à partir de ces résultats. Il
  \begin{solution}
      Il manque la médiane à (114 + 114) /2 = 114
  \end{solution}
-\vspace{13cm}
+
 
 \part[6] Nous apprenons que la plus grande observation (128) est erronée. Nous ne connaissons pas sa valeur, mais nous savons que celle-ci est plus grande que 150. Nous notons cette valeur XXX et nous savons que XXX~$>$~150. Le nouveau jeu de données est donc:
 
@@ -3728,7 +3727,7 @@ Soit $X_1$ et $X_2$ deux réalisations d'une variable $X\sim\mathcal{N}(0, 4)$. 
              &= 0,05
         \end{align*}
     \end{solution}
-\vspace{10cm}
+
     \part[6] Calculez la probabilité que la variance échantillonnale soit inférieure à 15,36.
 
     
@@ -3915,7 +3914,7 @@ Quelle est la probabilité que $S_X^2$ soit deux fois plus grande que $S_Y^2$?
 
     Donc $V(\hat{\mu}_2) = 0{,}19\sigma^2 < V(\hat{\mu}_1) = 0{,}2\sigma^2$.
 \end{solution}
-        \vspace{8cm}
+
         \part[7] On sait que $biais(\hat{\mu}_2,\mu)=-0{,}1\mu$. En supposant que $\sigma^2=1$, pour quelles valeurs de $\mu$ a-t-on que l'estimateur $\hat{\mu}_2$ est meilleur que $\hat{\mu}_1$ au niveau du MSE?
 
         \begin{solution}
@@ -4597,7 +4596,7 @@ La borne inférieure de l'intervalle de confiance pour la variance est $0,024$.
     \end{align*}
 \end{solution}
     
-    \vspace{12 cm}
+
     \part[4] Que vaut la borne supérieure de l'intervalle de confiance?
 
     \begin{solution}
@@ -4697,7 +4696,7 @@ Nous désirons construire un intervalle de confiance approprié de niveau $95\%$
             &= \mu + 3{,}92
         \end{align*}
     \end{solution}
-    \vspace{7cm}
+
     \part[3] Que vaut $\text{Var}[C_2]$?
 
     \begin{solution}
@@ -4707,7 +4706,7 @@ Nous désirons construire un intervalle de confiance approprié de niveau $95\%$
             &= \frac{\sigma^2}{n}=\frac{400}{100}=4
         \end{align*}
     \end{solution}
-    \vspace{7cm}
+
 
     \part[4]Quelle est la probabilité que $C_2$ soit inférieure ou égale à $\mu$? 
 
@@ -4806,8 +4805,7 @@ Nous désirons construire un intervalle de confiance approprié de niveau $90\%$
             &= \mu + 3{,}29
         \end{align*}
     \end{solution}
-    \vspace{7cm}
-    \part[3] Que vaut $\text{Var}[C_2]$?
+   \part[3] Que vaut $\text{Var}[C_2]$?
 
     \begin{solution}
         \begin{align*}
@@ -4816,7 +4814,7 @@ Nous désirons construire un intervalle de confiance approprié de niveau $90\%$
             &= \frac{\sigma^2}{n}=\frac{400}{100}=4
         \end{align*}
     \end{solution}
-    \vspace{7cm}
+
 
     \part[4] Quelle est la probabilité que $C_2$ soit inférieure ou égale à $\mu$? 
 
@@ -6121,7 +6119,6 @@ Dans une manufacture, on considère que $X$, la variable aléatoire représentan
 \end{align*}
 On sélectionne au hasard un échantillon de 9 claviers. Le temps total pour fabriquer les 9 claviers est de 49,5 minutes. Dans ce qui suit, les quantiles $z_\alpha$ ont été arrondis à 3 décimales.
 
-\medskip\medskip
 
 \begin{tabular}{|l|c|c|l|c|}
 	\cline{1-2}\cline{4-5}
@@ -6387,7 +6384,7 @@ Quelle est cette erreur?
 \begin{solution}
     Comme ce ne sont pas des v.a. normales, pour utiliser le TCL, on doit avoit $n\geq30$, ce qui n'est pas le cas ici. Donc résulats non valides.
 \end{solution}
-\vspace{4cm}
+
 \end{H23}
 
 \begin{H23}
@@ -6478,15 +6475,12 @@ ratio of variances
 \begin{parts}
 \part[2] Donnez la valeur de \texttt{AAAA}, soit le nombre de degrés de liberté associés au numérateur de la statistique de test. 
 
-\vspace{1.8cm}
 
 \part[2] Donnez la valeur de \texttt{BBBB}, soit le nombre de degrés de liberté associés au dénominateur de la statistique de test.
 
-\vspace{1.8cm}
 
 \part[3] On vous indique que la variance échantillonnale de la variable 1, $s_1^2$, vaut 6,69. Quelle est la valeur de la variance échantillonnale de la variable 2, soit $s_2^2$? \textit{\textbf{Donnez les détails de votre démarche.}}
 
-\vspace{3.2cm}
 
 \part[2] En utilisant l'information disponible dans la sortie \texttt{Rcmdr}, choisissez l'énoncé qui est vrai. 
 	\begin{checkboxes}
@@ -6583,7 +6577,7 @@ Nous avons l'échantillon $x_1,\hdots,x_{20}$ suivant:
 \end{table}
 \begin{parts}
 \part[3] Au seuil $\alpha=5\%$, quelle est la \textit{\textbf{décision}} du test. \textbf{\textit{Une décision sans justification n'obtiendra aucun point, même si la décision est bonne.}}
-\vspace{3cm}
+
 \part[3] \textbf{Calculez} la valeur-p du test en ne gardant que 4 chiffres après la virgule. \textit{\textbf{Expliquez votre réponse!}}
 \end{parts}
 
@@ -6996,12 +6990,11 @@ Residuals   A2        A3         8.38
 {
 %\textbf{Solution:}
 \vspace{\baselineskip}
-    \begin{itemize}\itemsep1cm
+    \begin{itemize}
     \item $\square$ Oui car .........................................................................................................................................
     \item $\square$ Non car ........................................................................................................................................
     \item $\square$ On ne peut pas répondre car ......................................................................................................\\ \ \\    
 \end{itemize} }
-\medskip\medskip
 
 \begin{solution}
 Oui car p-value = 0.000337 $<$ $\alpha=5\%$  ou $F_0 > F_{0.05; 3,16}$
@@ -7093,7 +7086,7 @@ Residuals   BB        CC         8.38
 \begin{parts}
 \part[2] Soient $\mu_1,\; \mu_2,\; \mu_3 \text{ et } \mu_4$ les moyennes théoriques du temps d'assemblage de chaque employé et $\mu$ la moyenne globale, énoncez   l'hypothèse nulle ($H_0$) et l'hypothèse alternative ($H_1$) du test.
   
-\vspace{1.5cm}
+
 \begin{solution}
     \begin{enumerate}\itemsep0.6cm
     \item[(i)] $H_0$: $\mu_1=\mu_2=\mu_3=\mu_4 =\mu$ ou bien $\tau_1= \tau_2=\tau_3 =\tau_4 = 0$
@@ -7115,7 +7108,7 @@ Residuals   BB        CC         8.38
 
 \part[5] Calculez les valeurs \texttt{AA}, \texttt{BB}, \texttt{CC} et \texttt{DD}  de la table ANOVA. Justifiez vos réponses.
 
-\vspace{6cm}
+
 \texttt{AA}=\texttt{BB}=\texttt{CC}=\texttt{DD}=\vspace{0.3cm}
 \begin{solution} 
 \begin{enumerate}\itemsep0.4cm
@@ -7130,12 +7123,12 @@ Residuals   BB        CC         8.38
 
 %\textbf{Solution:}
 
-    \begin{itemize}\itemsep1cm
+    \begin{itemize}
     \item $\square$ Oui car .........................................................................................................................................
     \item $\square$ Non car ........................................................................................................................................
     \item $\square$ On ne peut pas répondre car ......................................................................................................\\ \ \\    
 \end{itemize} 
-\medskip\medskip
+
 
 \begin{solution} 
 Oui car p-value = 0.000337 $<$ $\alpha=5\%$  ou $F_0 > F_{0.05; 3,16}$
@@ -7503,7 +7496,7 @@ Une augmentation d'1 centimètre implique une augmentation de $\beta_1$ de la ta
     \choice Oui. 
     \choice Non.
 \end{oneparcheckboxes}\\
-\textbf{Justification:}\\ \vspace{3cm}
+\textbf{Justification:}\\ 
 }
 
 \begin{solution}
@@ -7600,7 +7593,7 @@ F-statistic: 419.4 on 1 and 29 DF,  p-value:  0.00014
 		
 		$$ \widehat{Y}_i = -36.94348 + 5.065858  x_i$$
 		\end{solution}
-\vspace{13cm}
+
     \part[2] Donnez le pourcentage de la variabilité totale du volume qui est expliquée par la circonférence. 
 	
 
@@ -7610,7 +7603,7 @@ F-statistic: 419.4 on 1 and 29 DF,  p-value:  0.00014
 	
 	93,53\%
 	\end{solution}
-		\vspace{2cm}
+
 
 	\part[3] Calculez la prévision ponctuelle du volume de bois d'un arbre ayant une circonférence de 11. \textbf{\textit{Donnez les détails de votre démarche.}}
 	
@@ -7619,7 +7612,7 @@ F-statistic: 419.4 on 1 and 29 DF,  p-value:  0.00014
 	\begin{solution}$$ \widehat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_1 x_i
 		= -36.94348 + 5.065858  \times 11 = 18.78096$$
 		\end{solution}
-		\vspace{4cm}
+	
 
 	\part[2] Gérard aimerait estimer le volume de bois de l'arbre devant sa maison. Cet arbre a une circonférence de 14. La prévision ponctuelle du volume de bois de cet arbre est environ 33.98. Choisissez l'intervalle de valeurs ayant 95\% de chances de contenir le volume de bois de cet arbre de circonférence 14.
 	
@@ -8025,6 +8018,10 @@ H_1 &: \text{au moins une variable indépendante a un effet sur $Y$. }
 
 %%%%%%%%%%%%%%%% FIN DES QUESTIONS %%%%%%%%%%%%%%%%
 \end{A22}
+
+\begin{comment}
+    
+
 \moduleheader{multi}{Plusieurs modules}
 \begin{H23}
 \question  (H23) Soit les trois expériences aléatoires suivantes:
@@ -9789,6 +9786,7 @@ Justification:  $F_0 = 1.5676 < F_{\alpha, a-1, (a-1)(b-1)} = F_{0.05; 3,12} = 3
 
 %%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
 \end{A24}
+\end{comment}
 \end{questions}
 
 \end{document} 

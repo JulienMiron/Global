@@ -1,0 +1,453 @@
+%Pour toute question sur l'utilisation de cette classe, écrivez à jerome.soucy(at)ulaval.ca
+% Nécessite la classe Evaluation.sty dans le même dossier ou dans le PATH de votre système
+% Nécessite le fichier logo_ul.pdf dans le même dossier un dans le PATH de votre système
+\def\Ponderation{55}
+\def\SigleNumero{STT-1900}
+\def\NomCours{Méthodes statistiques pour l'ingénierie}
+\def\DateEvaluation{30 avril 2026}
+\def\HeureEvaluation{18 h 30 à 21 h 20}
+\def\Session{Hiver 2026}
+\def\NomEvaluation{Examen 2}
+
+% Ne rien mettre entre les accolades si l'enseignant (ou l'enseignante) est aussi le coordonnateur (ou la coordonnatrice)
+\def\Coordonnatrice{}
+\def\Coordonnateur{}
+
+% Ne rien mettre entre les accolades s'il y a plus d'une section
+\def\Enseignant{Julien Miron}
+\def\Enseignante{}
+
+% Ne rien mettre entre les accolades s'il s'agit d'un cours à section unique
+% Mettre le nom de chacun des enseignants et enseignantes entre les accolades
+% Une case à cocher sera générée pour chacune des sections
+\def\SectionA{}
+\def\SectionB{}
+\def\SectionC{}
+\def\SectionD{}
+
+\newcommand{\affichepoints}{}     % ← AVEC points
+% \renewcommand{\affichepoints}{on} % ← SANS points (non vide)
+
+\def\Directives{
+\begin{enumerate}
+\item Matériel autorisé:
+\begin{itemize}
+\item Calculatrice scientifique {\bf autorisée par la faculté des sciences et de génie};
+\item Votre aide-mémoire d'une feuille recto-verso, écrit à la main.
+\end{itemize}
+\item Assurez-vous que cette évaluation comporte \numquestions ~exercices répartis sur \numpages{}~pages, pour un total de \numpoints{}~points.\
+\item \textbf{Veuillez ne pas dégrafer votre examen.}
+\item Vous devez\textbf{ justifier toutes vos réponses} par une démarche claire, sauf pour les questions à choix de réponse.\
+\item Pour les questions à choix de réponse et les vrais ou faux, vous pouvez mettre un X, un crochet ($\checkmark$) ou remplir la case.\
+\item Vous devez laisser tout ce qui ne servira pas durant l'examen à l'avant de la salle AVANT de rejoindre votre place.\
+\item Vous n'avez droit à AUCUN appareil électronique en votre possession durant l'examen.
+\item Une fois assis à votre place, vous devez demandez l'autorisation pour vous lever, même si l'examen n'est pas encore commencé.
+\item Dans les 5 dernières minutes de l'examen, il sera interdit de se lever avant que TOUTES les copies n'aient été ramassées.
+\end{enumerate}
+\begin{itemize}
+\item[$\rightarrow$] Le non-respect des consignes 7-8-9 entraînera une pénalité de 10\%.
+\end{itemize}
+}
+
+\providecommand{\Gradescope}{}
+
+
+\documentclass{Evaluation}
+\usepackage{multicol,graphicx}
+
+\noprintanswers
+\begin{document}
+
+
+%\pageblanche
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+\begin{questions}
+
+\pageblanche
+\question\label{QCMicTests}
+Soit $X_1,\hdots,X_{16}$ des réalisations indépendantes d'une loi normale d'espérance $\mu$ et de variance $\sigma^2=16$. L'intervalle de confiance de niveau $95\%$ pour $\mu$ est $[0,04;3,96]$.
+
+\begin{parts}
+    \part[2] Quelle est la longueur de la marge d'erreur? \textit{Écrivez votre réponse dans la boîte. N'écrivez rien d'autre que le nombre de votre réponse.}
+
+    \boite{2.5}{1}
+
+    \part[2] Quelle serait la valeur de la borne supérieure de l'intervalle si le niveau était plutôt de $99,15\%$? \textit{Écrivez votre réponse dans la boîte. N'écrivez rien d'autre que le nombre de votre réponse.}
+
+    \boite{2.5}{1}
+
+        \part[2] Quelle est la valeur de $\overline{x}$? \textit{Écrivez votre réponse dans la boîte. N'écrivez rien d'autre que le nombre de votre réponse.}
+
+    \boite{2.5}{1}
+\end{parts}
+\medskip
+
+Un intervalle de confiance au niveau 95\% pour la variance $\sigma^2$ est $[10,11~;~19,11]$. Pour chaque énoncé qui suit, indiquez si l'énoncé est vrai ou faux.
+
+\medskip
+
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+\question[3]\label{QCManovaReg}
+Montrez que l'ensemble vide $\emptyset$ est à la fois mutuellement exclusif et indépendant de tout événement $A$ pour lequel $0<P(A)<1$.
+
+\vspace{4cm}
+
+
+\question[3] Soit la table d'analyse de la variance suivante obtenue à l'aide de \texttt{Rcmdr}:
+\begin{verbatim}
+>summary(ANOVAModel)
+            Sum Sq   Df   Mean Sq   F value      Pr(>F)    
+Cantons     926.12    4    231.53    238.72    0.000001 
+Residuals   446.55   48      0.97
+\end{verbatim}
+
+À partir de la table d'analyse de la variance, quelle affirmation parmi les suivantes est \textbf{vraie}?
+
+
+
+\begin{checkboxes}
+\choice L'estimation de la moyenne du facteur \texttt{Cantons} est égale à $231,53$. 
+\choice Nous avons 49 observations dans le jeu de données.
+\choice La variance du facteur \texttt{Cantons} est environ 2 fois plus grande que la variance du facteur \texttt{Residuals}.
+\correctchoice Au seuil $\alpha=0,05$, nous pouvons affirmer que les moyennes de la variable réponse à chaque niveaux du facteur \texttt{Cantons} ne sont pas toutes égales.
+\choice Au seuil $\alpha=0,05$, nous pouvons affirmer que les variances de la variable réponse à chaque niveaux du facteur \texttt{Cantons} ne sont pas toutes égales.
+\end{checkboxes}
+
+\pageblanche
+
+%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+\question[3] Soit $X_1,\hdots,X_n$ qui proviennent d'une loi normale d'espérance $\mu_X$ et de variance $\sigma^2_X$ et $Y_1,\hdots,Y_n$ qui proviennent d'une loi normale d'espérance $\mu_Y$ et de variance $\sigma^2_Y$. On procède à un test d'égalité des variances avec $H_0:\sigma^2_X=\sigma^2_Y$ et $H_1:\sigma^2_X>\sigma^2_Y$, au seuil $\alpha$, en utilisant la statistique $\displaystyle F_0=\frac{S_Y^2}{S_X^2}$.
+
+\begin{checkboxes}
+    \choice Il s'agit d'un test bilatéral.
+    \choice Il s'agit d'un test unilatéral à droite.
+    \choice Il s'agit d'un test unilatéral à gauche.
+    \choice Il nous manque d'information.
+\end{checkboxes}
+
+\vspace{0.5cm}
+\question[3] 
+On définit la fonction de survie $S_X$ d'une variable aléatoire par $S_X(x)=P(X>x)$ et le taux de défaillance $h_X$ par $h_X(x)=\displaystyle\frac{f_X(x)}{S_X(x)}$, où $f_X$ est la fonction de densité de $X$.
+Soit la variable aléatoire $X$ dont la fonction de répartition est
+
+\begin{align*}
+    F_X(x) = \left\{
+			\begin{array}{ll}
+			0  & \mbox{ si } x\leq 0, \\
+			1-e^{-3x} & \mbox{ si } x> 0.
+			\end{array}
+			\right. 
+\end{align*}
+Que vaut $h_X$?
+
+\begin{checkboxes}
+    \choice $h_X(x)=3e^{-3x}$ pour $x> 0$ et $0$ sinon.
+    \choice $h_X(x)=e^{-3x}$ pour $x> 0$ et $0$ sinon.
+    \choice $h_X(x)=3$ pour $x> 0$ et $0$ sinon.
+    \correctchoice $h_X(x)=1$ pour $x>0$ et $0$ sinon.
+\end{checkboxes}
+
+\vspace{0.5cm}
+\question[3] Soit $W\sim\mathcal{N}(1275; 49)$. Laquelle des probabilités suivantes est la plus grande?
+
+\begin{checkboxes}
+    \choice $P(W>1282)$
+    \choice $P(W<1268)$
+    \correctchoice $\displaystyle P\left(\frac{W-1275}{7}>0,5\right)$
+    \choice $\displaystyle P\left(\frac{W-1275}{7}>1\right)$
+\end{checkboxes}
+
+\vspace{0.5cm}
+
+\question[3] Parmi les quatre façons de générer $X$ et $Y$, laquelle donnera $\rho_{X,Y}=1$?
+
+\begin{checkboxes}
+    \choice $X\sim\mathcal{N}(0,1)$ et $Y\sim\mathcal{N}(0,1)$
+    \correctchoice $X\sim\mathcal{N}(0,1)$ et $Y=X$
+    \choice $X\sim\mathcal{N}(0,1)$ et $Y=X^2$
+    \choice $X\sim\mathcal{N}(0,1)$ et $Y=X+\epsilon$ où $\epsilon\sim\mathcal{N}(0,1)$
+\end{checkboxes}
+
+\pageblanche
+
+\question Dites si les énoncés suivants sont vrais ou faux.
+
+\begin{parts}
+    \part[1] Soit $x_1,\hdots,x_n$. Si la médiane échantillonnale est $25$, nous sommes certains que la valeur de l'observation du milieu est $25$.
+
+    \begin{oneparcheckboxes}
+        \choice Vrai
+        \correctchoice Faux
+    \end{oneparcheckboxes}
+    
+    \vspace{0.5cm}
+        \part[1] Soit $x_1,\hdots,x_n$. Si la moyenne échantillonnale est $25$, environ $50\%$ des observations sont plus grandes que $25$ et environ $50\%$ sont plus petites que $25$.
+
+    \begin{oneparcheckboxes}
+        \choice Vrai
+        \correctchoice Faux
+    \end{oneparcheckboxes}
+    
+    \vspace{0.5cm}
+        \part[1] Soit $x_1,\hdots,x_n$. Si $Q_1=12$, nous savons que le minimum de l'échantillon est 12.
+
+    \begin{oneparcheckboxes}
+        \choice Vrai
+        \correctchoice Faux
+    \end{oneparcheckboxes}
+    
+    \vspace{0.5cm}
+
+        \part[1] Soit $x_1,\hdots,x_n$. Si la médiane échantillonnale est $25$, nous sommes certains que la valeur de l'observation du milieu est $25$.
+
+    \begin{oneparcheckboxes}
+        \choice Vrai
+        \correctchoice Faux
+    \end{oneparcheckboxes}
+    
+    \vspace{0.5cm}
+
+            \part[1] Soit $x_1,\hdots,x_n$. Nous devons changer au moins $50\%$ des observations pour que la moyenne échantillonnale change.
+
+    \begin{oneparcheckboxes}
+        \choice Vrai
+        \correctchoice Faux
+    \end{oneparcheckboxes}
+    
+    \vspace{0.5cm}
+
+            \part[1] Soit $x_1,\hdots,x_n$ et la médiane échantillonnale $\Tilde{x}$. Si on remplace $x_{(n)}$ par $10x_{(n)}$ (c'est-à-dire une valeur 10 fois plus grande), la nouvelle médiane est $10\Tilde{x}$.
+
+    \begin{oneparcheckboxes}
+        \choice Vrai
+        \correctchoice Faux
+    \end{oneparcheckboxes}
+    
+    \vspace{0.5cm}
+\end{parts}
+
+\question[5] Soit $X_1,\hdots,X_n$ qui indépendants et identiquement distribués selon une loi quelconque $F_X$. 
+On veut estimer la médiane $\Tilde{\mu}$ de $F_X$ à l'aide de $\overline{X}$.
+Calculez le biais de $\overline{X}$ pour $\Tilde{\mu}$.
+\pageblanche
+ \question Soit $X_1,\hdots, X_{14}$, des variables aléatoires indépendantes et identiquement distribuées selon une loi normale d’espérance $\mu$ et de variance $\sigma^2$. 
+Nous désirons construire l'intervalle de confiance approprié de niveau $95\%$ pour $\sigma^2$. Nous notons cet intervalle $[C_1;C_2]$.
+\begin{parts}
+    \part[3] Que vaut $\mathbb{E}[C_2]$?
+
+    \begin{solution}
+        Puisque $\sigma^2 = 400$ est connu et que les $X_i$ suivent une loi normale, l'intervalle de confiance à 95\% est:
+        $$\left[\bar{X}-z_{0{,}025}\frac{\sigma}{\sqrt{n}}\;;\;\bar{X}+z_{0{,}025}\frac{\sigma}{\sqrt{n}}\right]=\left[\bar{X}-1{,}96\times\frac{20}{10}\;;\;\bar{X}+1{,}96\times\frac{20}{10}\right]$$
+        Donc $C_1=\bar{X}-3{,}92$ et $C_2=\bar{X}+3{,}92$.
+        \begin{align*}
+            E(C_2)&=E(\bar{X}+3{,}92)\\
+            &= E(\bar{X})+3{,}92\\
+            &= \mu + 3{,}92
+        \end{align*}
+    \end{solution}
+    \vspace{7cm}
+    \part[3] Que vaut $\text{Var}[C_2]$?
+
+    \begin{solution}
+        \begin{align*}
+            \text{Var}(C_2)&=\text{Var}(\bar{X}+3{,}92)\\
+            &= \text{Var}(\bar{X})\\
+            &= \frac{\sigma^2}{n}=\frac{400}{100}=4
+        \end{align*}
+    \end{solution}
+    \vspace{7cm}
+
+    \part[4]Quelle est la probabilité que $C_2$ soit supérieure ou égale à $\sigma^2$? 
+
+    \begin{solution}
+        \begin{align*}
+            P(C_2\leq \mu)&=P(\bar{X}+3{,}92\leq \mu)\\
+            &= P\left(\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}\leq \frac{-3{,}92}{20/10}\right)\\
+            &= P(Z\leq -1{,}96)\\
+            &= 0{,}025
+        \end{align*}
+    \end{solution}
+
+
+
+
+\end{parts}
+
+\pageblanche
+
+\question[8] Soit $X_1,\hdots, X_{n}$ qui proviennent d'une loi normale d'espérance $\mu$ et de variance $\sigma^2=25$. 
+On fait le test d'hypothèses pour lequel $H_0:\mu=5$ et $H_1:\mu>5$ au seuil $\alpha=2,5\%$.
+Pour quelles valeurs de $n$ rejette-t-on $H_0$ si $\overline{x}=5,1$?
+
+\pageblanche
+\question
+Une entreprise fabrique des palettes de chocolat et s'intéresse à la quantité moyenne de sucre dans une palette. Elle choisit au hasard 16 palettes. Dans l'échantillon, la quantité moyenne de sucre par palette est de $5,05 \,g$ et la variance échantillonnale est de $0,011 \, g^2$. Sachant que $X$, la quantité de sucre dans une palette, est une variable aléatoire qui suit une loi normale d'espérance $\mu$ et de variance $\sigma^2=0,01$, elle fait le test suivant, au seuil $\alpha=2,5\%$,
+\begin{align*}
+	H_0 &: \mu = 5 \cr
+	H_1 &: \mu > 5.
+\end{align*}
+
+\begin{parts}
+\part[2] Quelle est la valeur critique du test en grammes, c'est-à-dire, à partir de quelle valeur de $\overline{X}$ rejette-t-on~$H_0$?
+
+\begin{oneparcheckboxes}
+    \choice 1,960
+    \choice 2,131
+    \choice 2,000
+    \CorrectChoice 5,049
+    \choice 5,053 
+\end{oneparcheckboxes} 
+
+\part[2] Quelle est la valeur de la statistique du test sous $H_0$, arrondie à 3 décimales?
+
+\begin{oneparcheckboxes}
+    \choice 1,960
+    \choice 2,131
+    \CorrectChoice 2,000
+    \choice 5,049
+    \choice 5,053 
+\end{oneparcheckboxes} 
+
+\begin{solution}
+Puisque $\sigma^2 = 4$ est connue et $X \sim \text{Normale}$, on utilise le test $Z$. La statistique de test est:
+\[
+z_0 = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}} = \frac{5{,}4 - 5}{2/4} = \frac{0{,}4}{0{,}5} = 0{,}800.
+\]
+\end{solution}
+
+\part[2] Quel est le seuil observé du test?
+
+	\begin{checkboxes}
+	    \choice $\alpha^*=0,025$.
+		\CorrectChoice $\alpha^*=0,02275$.
+		\choice $\alpha^* \in\ ]0,025;0,05[$ .
+		\choice $\alpha^* \in\ ]0,05;0,1[$.
+	\end{checkboxes}
+
+\begin{solution}
+Le seuil observé est $0{,}212 > 0{,}05 = \alpha$. On ne rejette pas $H_0$. Au seuil $\alpha = 5\%$, la quantité moyenne de sucre dans une palette n'est pas significativement supérieure à $5\,g$.
+\end{solution}
+
+\part[3] Si en réalité $\mu=5,1$ et que la règle de décision est de rejeter $H_0$ si $\displaystyle\frac{\overline{X}-5}{0,025}>1,96$, quelle est l'expression de la puissance du test? 
+
+\begin{checkboxes}
+    \choice $P\left(\displaystyle \frac{\overline{X}-5,1}{0,025}>1,96\right)$
+    \choice $P\left(\displaystyle \frac{\overline{X}-5,1}{0,025}>-2,04\right)$
+    \choice $P\left(\displaystyle \frac{\overline{X}-5}{0,025}>1,96\right)$
+    \choice $P\left(\displaystyle \frac{\overline{X}-5}{0,025}>-2,04\right)$
+\end{checkboxes}
+
+\end{parts}
+%%%%%%%%%%%%%%%% FIN DES QUESTIONS %%%%%%%%%%%%%%%%
+
+\pageblanche
+\question 
+Un ingénieur veut vérifier s'il existe une différence de rigidité d'un certain type de disque, selon le pourcentage de \textit{Pouliovachium} qui le compose.
+
+Il compare donc la rigidité de 8 pourcentages différents (10\%, 20\%, 25\%, 30\%, 35\%, 40\%, 45\% et 50\%) en produisant 4 cylindres pour chaque pourcentage.
+La table d'ANOVA suivante est produite par le logiciel utilisé par l'ingénieur. 
+Dans celle-ci, certaines quantités ont été remplacées par \texttt{AAA, BBB, CCC} et \texttt{ ???}. Nous considérons que les postulats du modèle sont respectés.
+\begin{verbatim}
+ANOVA
+
+                     SS      ddl      MS      F0           
+pouliovachium    1154.3      ???     ???     AAA
+Residuals         141.4      BBB     ???         
+Total               CCC      ???       
+\end{verbatim}
+
+\begin{comment}
+\begin{verbatim}
+Analysis of Variance Table
+
+Response: Y
+              Df   Sum Sq   Mean Sq   F value        Pr(>F)    
+pouliovachium  7   1154.3    164.90     27.99    4.6e-10 ***
+Residuals     24    141.4      5.89                    
+Total         31   1295.7
+\end{verbatim}
+\end{comment}
+
+\begin{parts}
+    \part[2] Que vaut \texttt{AAA}?
+\begin{checkboxes}
+    \choice 164,9
+    \choice 8,163
+    \correctchoice 27,989
+    \choice 1154,3
+    \choice Il n'est pas possible de trouver la valeur de \texttt{AAA} avec les informations données.
+\end{checkboxes}
+
+\begin{solution}
+$\texttt{AAA} = F = \dfrac{MS_{\text{trt}}}{MS_E} = \dfrac{278{,}85/5}{343{,}20/24} = \dfrac{55{,}77}{14{,}30} = 3{,}90$, car $\text{Dl}_{\text{trt}} = a-1 = 6-1 = 5$ et $\text{Dl}_E = N-a = 30-6 = 24$.
+\end{solution}
+
+\vspace{0.5cm}
+    \part[2] Que vaut \texttt{BBB}?
+\begin{checkboxes}
+    \choice 3
+    \choice 4
+    \correctchoice 7
+    \choice 8
+    \choice 31
+    \choice 32
+    \choice Il n'est pas possible de trouver la valeur de \texttt{BBB} avec les informations données.
+\end{checkboxes}
+
+\begin{solution}
+$\texttt{BBB} = \text{Dl}_E = N - a = 30 - 6 = 24$.
+\end{solution}
+
+\vspace{0.5cm}
+    \part[2] Que vaut \texttt{CCC}?
+\begin{checkboxes}
+    \choice 8,163
+    \correctchoice 1295,7
+    \choice 1012,9
+    \choice 0,122
+    \choice Il n'est pas possible de trouver la valeur de \texttt{CCC} avec les informations données.
+\end{checkboxes}
+
+\begin{solution}
+$\texttt{CCC} = SS_{\text{total}} = SS_{\text{trt}} + SS_E = 278{,}85 + 343{,}20 = 622{,}05$.
+\end{solution}
+
+\vspace{0.5cm}
+\part[3] Au seuil de 5\%, quelle conclusion pouvons-nous tirer de la table d'ANOVA? Une seule réponse est bonne.
+\begin{checkboxes}
+    \choice Il n'est pas possible de tirer de conclusion car nous ne connaissons pas les valeurs remplacées par \texttt{???}.
+    \choice Il faudrait répéter l'expérience plus de fois pour pouvoir conclure.
+    \choice Toutes les moyennes sont significativement différentes.
+    \correctchoice La rigidité moyenne des disques d'au moins un pourcentage est significativement différente de celle d'au moins un autre pourcentage.
+    \choice Toutes les moyennes sont significativement égales.
+\end{checkboxes}
+
+\begin{solution}
+La valeur-$p = 0{,}01 < 0{,}05 = \alpha$, donc on rejette $H_0$. La rigidité moyenne des cylindres d'au moins un pourcentage est significativement différente de celle d'au moins un autre pourcentage.
+\end{solution}
+
+\end{parts}
+\pageblanche
+
+\question[10] Soit le tableau suivant dans lequel certaines informations ont été remplacées par $AAA$ et $BBB$:
+\begin{align*}\renewcommand{\arraystretch}{1.4}
+   \begin{array}{|c|ccccc|}
+   \hline
+   i & 1 & 2 & 3& 4& 5\\ \hline
+x_i & -3 & -2 & 0 & 1,5 & 3,5   \\  
+y_i & -1.1 & AAA & 1,1 & 2 & 2,5 \\ 
+x_iy_i & 3,3 & BBB & 0 & 3 & 8,75 \\ 
+x_i^2 & 9 & 4 & 0 & 2,25 & 12,25\\ \hline
+\end{array} 
+\end{align*}
+
+Sachant que $\hat{\beta}_0 = 1$, que vaut $\hat{\beta}_1$? 
+
+
+\vfill
+
+$\hat{\beta}_1$=\boite{2.5}{1.5}
+\vspace{1cm}
+\end{questions}
+
+\end{document} 
