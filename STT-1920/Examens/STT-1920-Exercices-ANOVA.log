@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  8 APR 2026 10:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  8 APR 2026 11:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -6,6 +6,18 @@ entering extended mode
 (./STT-1920-Exercices-ANOVA.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
+
+! LaTeX Error: Command \affichepoints undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 \renewcommand{\affichepoints}
+                                  {on} % ← SANS points (non vide)
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
 (../../Evaluation.cls
 Document Class: Evaluation 2026/02/26 v2.0 Classe pour examens universitaires
 (/usr/local/texlive/2025/texmf-dist/tex/latex/exam/exam.cls
@@ -1471,72 +1483,72 @@ al/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc} <../../logo_ul.pdf>]
 
 
 LaTeX Font Warning: Font shape `T1/fav/m/sc' undefined
-(Font)              using `T1/fav/m/n' instead on input line 45.
+(Font)              using `T1/fav/m/n' instead on input line 47.
 
 
 LaTeX Font Warning: Font shape `T1/fav/b/sc' undefined
-(Font)              using `T1/fav/b/n' instead on input line 45.
+(Font)              using `T1/fav/b/n' instead on input line 47.
 
 LaTeX Font Info:    Trying to load font information for OT1+zavm on input line 
-46.
+48.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/arev/ot1zavm.fd
 File: ot1zavm.fd 2006/05/30 Fontinst v1.929 font definitions for OT1/zavm.
 )
 LaTeX Font Info:    Trying to load font information for OML+zavm on input line 
-46.
+48.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/arev/omlzavm.fd
 File: omlzavm.fd 2006/05/30 Fontinst v1.929 font definitions for OML/zavm.
 )
 LaTeX Font Info:    Trying to load font information for OMS+zavm on input line 
-46.
+48.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/arev/omszavm.fd
 File: omszavm.fd 2006/05/30 Fontinst v1.929 font definitions for OMS/zavm.
 )
 LaTeX Font Info:    Trying to load font information for OMX+mdbch on input line
- 46.
+ 48.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/mathdesign/mdbch/omxmdbch.fd
 File: omxmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for OMX/mdbch.
 )
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 8.64006pt on input line 46.
+(Font)              scaled to size 8.64006pt on input line 48.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 46.
+(Font)              scaled to size 6.72005pt on input line 48.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 46.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 46.
+(Font)              scaled to size 4.80003pt on input line 48.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 48.
 
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 46.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 48.
 
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for MDA+mdbch on input line
- 46.
+ 48.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/mathdesign/mdbch/mdamdbch.fd
 File: mdamdbch.fd 2013/08/29 Fontinst v1.933 font definitions for MDA/mdbch.
 )
 LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 8.64006pt on input line 46.
+(Font)              scaled to size 8.64006pt on input line 48.
 LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 6.72005pt on input line 46.
+(Font)              scaled to size 6.72005pt on input line 48.
 LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 4.80003pt on input line 46.
-LaTeX Font Info:    Trying to load font information for U+zavm on input line 46
+(Font)              scaled to size 4.80003pt on input line 48.
+LaTeX Font Info:    Trying to load font information for U+zavm on input line 48
 .
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/arev/uzavm.fd
 File: uzavm.fd 2006/05/30 Fontinst v1.929 font definitions for U/zavm.
 )
-LaTeX Font Info:    Trying to load font information for T1+fvm on input line 48
+LaTeX Font Info:    Trying to load font information for T1+fvm on input line 50
 .
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/bera/t1fvm.fd
@@ -1561,12 +1573,75 @@ l/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevot1.enc}]
 [8]
 
 [9]
-This exam contains 5 questions with 17 parts, 0 subparts, and 0 subsubparts.
-This exam has a total of 39 points.
+
+[10]
+
+[11]
+
+[12]
+
+[13]
+
+[14]
+
+[15]
+
+[16]
+
+! LaTeX Error: \begin{TheSolution} on input line 802 ended by \end{parts}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.805 \end{parts}
+                 
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.805 \end{parts}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+! LaTeX Error: \begin{solution} on input line 801 ended by \end{questions}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.807 \end{questions}
+                     
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+
+[17]
+This exam contains 10 questions with 33 parts, 0 subparts, and 0 subsubparts.
+This exam has a total of 0 points.
 This exam has a total of 0 bonus points.
 
-Class exam Warning: Point totals have changed. Rerun to get point totals right.
+! LaTeX Error: \begin{solution} on input line 801 ended by \end{document}.
 
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.808 \end{document}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
 
 (./STT-1920-Exercices-ANOVA.aux)
  ***********
@@ -1577,31 +1652,34 @@ L3 programming layer <2025-01-18>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+ )
+(\end occurred inside a group at level 3)
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+### semi simple group (level 3) entered at line 801 (\begingroup)
+### semi simple group (level 2) entered at line 755 (\begingroup)
+### semi simple group (level 1) entered at line 39 (\begingroup)
+### bottom level 
 Here is how much of TeX's memory you used:
- 27147 strings out of 473190
- 561743 string characters out of 5715801
- 1146633 words of memory out of 5000000
- 49889 multiletter control sequences out of 15000+600000
- 612259 words of font info for 100 fonts, out of 8000000 for 9000
+ 27250 strings out of 473190
+ 563329 string characters out of 5715801
+ 1146635 words of memory out of 5000000
+ 49990 multiletter control sequences out of 15000+600000
+ 614136 words of font info for 102 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 113i,10n,119p,554b,731s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Bold.pfb
-></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-BoldObliq
-ue.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Obl
-ique.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-R
-oman.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb
-></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb
-7t.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/
-md-chb7y.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/
-mdbch/md-chr7v.pfb>
-Output written on STT-1920-Exercices-ANOVA.pdf (9 pages, 111379 bytes).
+ 113i,10n,119p,554b,736s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/Are
+vSans-Bold.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/Arev
+Sans-BoldOblique.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/are
+v/ArevSans-Oblique.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/a
+rev/ArevSans-Roman.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/b
+era/fvmr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesig
+n/mdbch/md-chb7t.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mat
+hdesign/mdbch/md-chb7y.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/publ
+ic/mathdesign/mdbch/md-chr7v.pfb>
+Output written on STT-1920-Exercices-ANOVA.pdf (17 pages, 129830 bytes).
 PDF statistics:
- 86 PDF objects out of 1000 (max. 8388607)
- 56 compressed objects within 1 object stream
+ 114 PDF objects out of 1000 (max. 8388607)
+ 75 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 

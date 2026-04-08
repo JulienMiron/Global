@@ -25,8 +25,8 @@
 
 \def\Directives{}
 
-\newcommand{\affichepoints}{}     % ← AVEC points
-% \renewcommand{\affichepoints}{on} % ← SANS points (non vide)
+% \newcommand{\affichepoints}{}     % ← AVEC points
+\renewcommand{\affichepoints}{on} % ← SANS points (non vide)
 
 \providecommand{\Gradescope}{}
 
@@ -39,18 +39,20 @@
 \begin{questions}
 
 % ─────────────────────────────────────────────────────────────────────────────
-%  Exercice 1 — Lecture d'une table d'ANOVA (QCM, une seule bonne réponse)
+%  Exercice 1 — Lecture d'une table Rcmdr (QCM, une seule bonne réponse)
+%  Contexte : activité enzymatique plasmatique selon 4 groupes de patients
 % ─────────────────────────────────────────────────────────────────────────────
 
-\question[3]
-Un technicien compare l'autonomie (en heures) de casques audio de $k=4$ marques différentes.
-Il teste $n=5$ casques par marque.
+\question
+Une chercheuse en biochimie compare l'activité de la lactate déshydrogénase (LDH, en U/L)
+chez des patients répartis en $k=4$ groupes selon leur pathologie hépatique.
+Elle mesure l'activité LDH chez $n=5$ patients par groupe ($N=20$ au total).
 La table d'analyse de la variance suivante est produite par \texttt{Rcmdr} :
 
 \begin{verbatim}
 > summary(ANOVAModel)
             Df   Sum Sq   Mean Sq   F value    Pr(>F)
-Marque       3   110.40    36.80    7.360    0.0024
+Groupe       3   110.40    36.80    7.360    0.0024
 Residuals   16    80.00     5.00
 \end{verbatim}
 
@@ -58,10 +60,10 @@ Residuals   16    80.00     5.00
 Une seule réponse est bonne.
 
 \begin{checkboxes}
-    \choice La durée de vie moyenne des casques pour le facteur \texttt{Marque} est égale à $36{,}80$ heures.
-    \choice Il y a $5$ niveaux différents pour le facteur \texttt{Marque}.
+    \choice L'activité LDH moyenne estimée pour le facteur \texttt{Groupe} vaut $36{,}80$ U/L.
+    \choice Il y a $5$ niveaux différents pour le facteur \texttt{Groupe}.
     \choice Il y a $17$ observations en tout dans le jeu de données.
-    \correctchoice Au seuil $\alpha=0{,}05$, nous pouvons affirmer que l'autonomie moyenne n'est pas la même pour toutes les marques.
+    \correctchoice Au seuil $\alpha=0{,}05$, nous pouvons affirmer que l'activité LDH moyenne n'est pas la même dans tous les groupes.
     \choice Au seuil $\alpha=0{,}01$, nous ne rejetons pas $H_0$.
     \choice La somme des carrés totale vaut $5{,}00$.
 \end{checkboxes}
@@ -70,39 +72,39 @@ Une seule réponse est bonne.
 \textbf{Analyse des choix.}
 \begin{itemize}
     \item \textbf{Faux.} $36{,}80$ est le carré moyen (\texttt{Mean Sq}), pas la moyenne des observations.
-    \item \textbf{Faux.} Il y a $\text{Dl}_{\text{trt}}+1=3+1=4$ niveaux (4 marques).
-    \item \textbf{Faux.} $N=k\times n=4\times 5=20$ observations; les degrés de liberté totaux sont $N-1=19$.
-    \item \textbf{Vrai.} La valeur-$p=0{,}0024<0{,}05=\alpha$, donc on rejette $H_0$ au seuil 5\%. On peut
-    affirmer que les autonomies moyennes ne sont pas toutes égales.
+    \item \textbf{Faux.} Il y a $\text{Dl}_{\text{trt}}+1=3+1=4$ groupes, pas 5.
+    \item \textbf{Faux.} $N=k\times n=4\times 5=20$ observations; $\text{Dl}_\text{total}=N-1=19$.
+    \item \textbf{Vrai.} La valeur-$p=0{,}0024<0{,}05=\alpha$, donc on rejette $H_0$ au seuil 5\%.
     \item \textbf{Faux.} $p=0{,}0024<0{,}01$, donc on rejette aussi $H_0$ au seuil 1\%.
-    \item \textbf{Faux.} $SS_\text{total}=SS_\text{trt}+SS_E=110{,}40+80{,}00=190{,}40$.
+    \item \textbf{Faux.} $SS_\text{total}=110{,}40+80{,}00=190{,}40$.
 \end{itemize}
 \end{solution}
 
 \pageblanche
 
 % ─────────────────────────────────────────────────────────────────────────────
-%  Exercice 2 — Table partielle : trouver AAA, BBB, CCC (QCM multi-parties)
+%  Exercice 2 — Table partielle AAA / BBB / CCC (QCM multi-parties)
+%  Contexte : activité enzymatique selon 5 substrats
 % ─────────────────────────────────────────────────────────────────────────────
 
 \question
-Un ingénieur compare la résistance à la traction (en MPa) de $k=5$ types d'alliages métalliques.
-Il fabrique $n=6$ éprouvettes par type ($N=30$ au total).
-La table d'ANOVA partielle suivante a été produite; certaines quantités ont été remplacées par
-\texttt{AAA}, \texttt{BBB} et \texttt{CCC}.
+Un biochimiste étudie l'effet de $k=5$ substrats différents sur l'activité d'une enzyme
+(en nmol/min/mg de protéine). Il réalise $n=6$ mesures par substrat ($N=30$ au total).
+La table d'ANOVA partielle suivante a été produite; certaines quantités ont été remplacées
+par \texttt{AAA}, \texttt{BBB} et \texttt{CCC}.
 Nous considérons que les postulats du modèle sont respectés.
 
 \begin{verbatim}
 ANOVA
                SS       Ddl     MS        F0       Pr(>F)
-Alliage     185.40      ???    AAA       5.297     0.0037
-Residuals    BBB         25   8.75
-Total        CCC        ???
+Substrat    185.40      ???    AAA       5.297     0.0037
+Residuals    BBB         25    8.75
+Total        CCC        ???  
 \end{verbatim}
 
 \begin{parts}
 
-    \part[2] Que vaut \texttt{AAA}?
+    \part Que vaut \texttt{AAA}?
     \begin{checkboxes}
         \choice $185{,}40$
         \choice $37{,}08$
@@ -121,11 +123,11 @@ Total        CCC        ???
 
     \vspace{0.5cm}
 
-    \part[2] Que vaut \texttt{BBB}?
+    \part Que vaut \texttt{BBB}?
     \begin{checkboxes}
         \choice $25$
         \choice $8{,}75$
-        \choice $185{,}40$
+        \choice $46{,}35$
         \correctchoice $218{,}75$
         \choice $404{,}15$
         \choice Il n'est pas possible de trouver la valeur de \texttt{BBB} avec les informations données.
@@ -139,35 +141,37 @@ Total        CCC        ???
 
     \vspace{0.5cm}
 
-    \part[2] Combien y a-t-il d'observations en tout dans le jeu de données?
+    \part Que vaut \texttt{CCC}?
     \begin{checkboxes}
-        \choice $25$
-        \choice $29$
-        \correctchoice $30$
-        \choice $31$
-        \choice Il n'est pas possible de répondre avec les informations données.
+        \choice $46{,}35$
+        \choice $218{,}75$
+        \correctchoice $404{,}15$
+        \choice $185{,}40$
+        \choice Il n'est pas possible de trouver la valeur de \texttt{CCC} avec les informations données.
     \end{checkboxes}
 
     \begin{solution}
-    $\text{Dl}_E=N-k=25$, donc $N=25+k=25+5=30$.
-    On vérifie : $k\times n = 5\times 6=30$. $\checkmark$
+    \[
+        \texttt{CCC}=SS_\text{total}=SS_\text{trt}+SS_E=185{,}40+218{,}75=404{,}15.
+    \]
     \end{solution}
 
     \vspace{0.5cm}
 
-    \part[2] Au seuil de 5\%, quelle conclusion pouvons-nous tirer de la table d'ANOVA?
+    \part Au seuil de 5\%, quelle conclusion pouvons-nous tirer de la table d'ANOVA?
     Une seule réponse est bonne.
     \begin{checkboxes}
         \choice Il n'est pas possible de tirer une conclusion car certaines valeurs sont remplacées par \texttt{???}.
-        \choice Toutes les résistances moyennes sont significativement égales.
-        \choice Toutes les résistances moyennes sont significativement différentes.
-        \correctchoice La résistance moyenne d'au moins un type d'alliage est significativement différente de celle d'au moins un autre type.
-        \choice Il faudrait davantage d'éprouvettes pour pouvoir conclure.
+        \choice Toutes les activités enzymatiques moyennes sont significativement égales.
+        \choice Toutes les activités enzymatiques moyennes sont significativement différentes.
+        \correctchoice L'activité enzymatique moyenne pour au moins un substrat est significativement différente de celle d'au moins un autre substrat.
+        \choice Il faudrait davantage de mesures pour pouvoir conclure.
     \end{checkboxes}
 
     \begin{solution}
     La valeur-$p=0{,}0037 < 0{,}05=\alpha$, donc on \textbf{rejette $H_0$}.
-    On conclut que la résistance moyenne d'au moins un type d'alliage est significativement différente de celle d'au moins un autre type. (L'ANOVA ne précise pas lesquels.)
+    On conclut que l'activité enzymatique moyenne diffère significativement pour au moins un substrat.
+    (L'ANOVA ne précise pas lesquels.)
     \end{solution}
 
 \end{parts}
@@ -176,11 +180,14 @@ Total        CCC        ???
 
 % ─────────────────────────────────────────────────────────────────────────────
 %  Exercice 3 — Calculs à partir des statistiques de groupe
+%  Contexte : glycémie à jeun selon 3 régimes alimentaires
 % ─────────────────────────────────────────────────────────────────────────────
 
 \question
-Un biologiste étudie l'effet de l'intensité lumineuse sur la durée de germination (en jours) de semences.
-Il soumet $n=8$ semences à chacune des $k=3$ conditions d'éclairage ($N=24$ au total) et obtient les résultats résumés ci-dessous.
+Un chercheur en nutrition clinique étudie l'effet de trois régimes alimentaires sur la
+glycémie à jeun (en mmol/L) de patients diabétiques de type 2.
+Il assigne $n=8$ patients à chacun des $k=3$ régimes ($N=24$ au total).
+Les résultats sont résumés ci-dessous.
 On suppose que les postulats de l'ANOVA à un facteur sont satisfaits.
 
 \medskip
@@ -188,11 +195,11 @@ On suppose que les postulats de l'ANOVA à un facteur sont satisfaits.
 \renewcommand{\arraystretch}{1.4}
 \begin{tabular}{|l|c|c|}
 \hline
-\textbf{Condition} & \textbf{Moyenne} $\bar{y}_i$ & \textbf{Variance} $s_i^2$ \\
+\textbf{Régime} & \textbf{Moyenne} $\bar{y}_i$ (mmol/L) & \textbf{Variance} $s_i^2$ \\
 \hline
-Faible & $12{,}0$ & $4{,}0$ \\
-Modérée & $15{,}0$ & $5{,}0$ \\
-Forte & $18{,}0$ & $3{,}0$ \\
+Faible en glucides & $12{,}0$ & $4{,}0$ \\
+Méditerranéen      & $15{,}0$ & $5{,}0$ \\
+Hyperprotéiné      & $18{,}0$ & $3{,}0$ \\
 \hline
 \end{tabular}
 \end{center}
@@ -200,7 +207,7 @@ Forte & $18{,}0$ & $3{,}0$ \\
 
 \begin{parts}
 
-    \part[2] Calculez $SS_\text{trt}$, la somme des carrés des traitements.
+    \part Calculez $SS_\text{trt}$, la somme des carrés des traitements.
     \textbf{\textit{Montrez votre démarche.}}
 
     \begin{solution}
@@ -208,13 +215,13 @@ Forte & $18{,}0$ & $3{,}0$ \\
     \[
         SS_\text{trt}=n\sum_{i=1}^{k}\bigl(\bar{y}_i-\bar{y}_{..}\bigr)^2
         =8\bigl[(12{,}0-15)^2+(15{,}0-15)^2+(18{,}0-15)^2\bigr]
-        =8\bigl[9+0+9\bigr]=144.
+        =8\times 18=144.
     \]
     \end{solution}
 
     \vspace{6cm}
 
-    \part[2] Calculez $MS_E$, le carré moyen des résidus.
+    \part Calculez $MS_E$, le carré moyen des résidus.
     \textbf{\textit{Montrez votre démarche.}}
 
     \begin{solution}
@@ -222,13 +229,13 @@ Forte & $18{,}0$ & $3{,}0$ \\
         SS_E=\sum_{i=1}^{k}(n-1)\,s_i^2=(8-1)(4{,}0+5{,}0+3{,}0)=7\times 12=84.
     \]
     \[
-        MS_E=\frac{SS_E}{N-k}=\frac{84}{24-3}=\frac{84}{21}=4{,}0.
+        MS_E=\frac{SS_E}{N-k}=\frac{84}{21}=4{,}0.
     \]
     \end{solution}
 
     \vspace{6cm}
 
-    \part[3] Calculez la statistique de test $F_0$.
+    \part Calculez la statistique de test $F_0$.
     \textbf{\textit{Montrez votre démarche.}}
 
     \begin{solution}
@@ -242,12 +249,12 @@ Forte & $18{,}0$ & $3{,}0$ \\
 
     \vspace{6cm}
 
-    \part[3] En utilisant la valeur critique $F_{0{,}05\,;\,2\,;\,21}=3{,}467$, quelle est la conclusion
+    \part En utilisant la valeur critique $F_{0{,}05\,;\,2\,;\,21}=3{,}467$, quelle est la conclusion
     du test au seuil $\alpha=0{,}05$? Rédigez votre conclusion en lien avec le contexte.
 
     \begin{solution}
     Comme $F_0=18{,}0 > 3{,}467 = F_{0{,}05\,;\,2\,;\,21}$, on \textbf{rejette $H_0$} au seuil 5\%.
-    Il y a suffisamment de preuves pour affirmer que la durée de germination moyenne n'est pas la même pour toutes les conditions d'éclairage.
+    Il y a suffisamment de preuves pour affirmer que la glycémie à jeun moyenne n'est pas la même pour tous les régimes alimentaires.
     \end{solution}
 
     \vspace{4cm}
@@ -257,19 +264,21 @@ Forte & $18{,}0$ & $3{,}0$ \\
 \pageblanche
 
 % ─────────────────────────────────────────────────────────────────────────────
-%  Exercice 4 — Vrai ou Faux sur les concepts de l'ANOVA
+%  Exercice 4 — Vrai ou Faux
+%  Contexte : inhibition bactérienne par 4 antibiotiques
 % ─────────────────────────────────────────────────────────────────────────────
 
 \question
-Un pharmacien compare la réduction de la douleur (en points sur une échelle de 10) de $k=4$
-médicaments analgésiques. Chaque médicament est administré à $n=10$ patients ($N=40$ au total).
+Un microbiologiste compare la zone d'inhibition (en mm) de $k=4$ antibiotiques sur une
+souche de \textit{Staphylococcus aureus}. Chaque antibiotique est testé sur $n=10$
+cultivations indépendantes ($N=40$ au total).
 La table ci-dessous est obtenue :
 
 \begin{verbatim}
 > summary(ANOVAModel)
-               Df    Sum Sq    Mean Sq    F value    Pr(>F)
-Medicament      3    241.50     80.50      2.483    0.0763
-Residuals      36   1167.48     32.43
+              Df    Sum Sq    Mean Sq    F value    Pr(>F)
+Antibiotique   3    241.50     80.50      2.483    0.0763
+Residuals     36   1167.48     32.43
 \end{verbatim}
 
 Pour chaque énoncé qui suit, indiquez si l'énoncé est \textbf{vrai} ou \textbf{faux}.
@@ -278,8 +287,8 @@ Pour chaque énoncé qui suit, indiquez si l'énoncé est \textbf{vrai} ou \text
 
 \begin{parts}
 
-    \part[2] L'hypothèse nulle du test est $H_0: \mu_1=\mu_2=\mu_3=\mu_4$, où $\mu_i$ désigne la réduction
-    moyenne de la douleur pour le médicament $i$.
+    \part L'hypothèse nulle du test est $H_0: \mu_1=\mu_2=\mu_3=\mu_4$, où $\mu_i$ désigne la zone
+    d'inhibition moyenne de l'antibiotique $i$.
 
     \medskip
     \begin{oneparcheckboxes}
@@ -292,7 +301,7 @@ Pour chaque énoncé qui suit, indiquez si l'énoncé est \textbf{vrai} ou \text
     \textbf{Vrai.} L'ANOVA à un facteur teste l'égalité de toutes les moyennes de groupe.
     \end{solution}
 
-    \part[2] Au seuil $\alpha=0{,}05$, on rejette $H_0$.
+    \part Au seuil $\alpha=0{,}05$, on rejette $H_0$.
 
     \medskip
     \begin{oneparcheckboxes}
@@ -305,7 +314,7 @@ Pour chaque énoncé qui suit, indiquez si l'énoncé est \textbf{vrai} ou \text
     \textbf{Faux.} La valeur-$p = 0{,}0763 > 0{,}05 = \alpha$, donc on \textbf{ne rejette pas} $H_0$ au seuil 5\%.
     \end{solution}
 
-    \part[2] Au seuil $\alpha=0{,}10$, on rejette $H_0$.
+    \part Au seuil $\alpha=0{,}10$, on rejette $H_0$.
 
     \medskip
     \begin{oneparcheckboxes}
@@ -318,7 +327,7 @@ Pour chaque énoncé qui suit, indiquez si l'énoncé est \textbf{vrai} ou \text
     \textbf{Vrai.} La valeur-$p = 0{,}0763 < 0{,}10 = \alpha$.
     \end{solution}
 
-    \part[2] Le nombre de degrés de liberté totaux est $39$.
+    \part Le nombre de degrés de liberté totaux est $39$.
 
     \medskip
     \begin{oneparcheckboxes}
@@ -337,14 +346,15 @@ Pour chaque énoncé qui suit, indiquez si l'énoncé est \textbf{vrai} ou \text
 \pageblanche
 
 % ─────────────────────────────────────────────────────────────────────────────
-%  Exercice 5 — Calculs à partir de SST et SS_E
+%  Exercice 5 — Calculs à partir de SS_total et SS_E
+%  Contexte : teneur en protéines de 6 souches bactériennes
 % ─────────────────────────────────────────────────────────────────────────────
 
 \question
-Un ingénieur alimentaire compare la teneur en sucres (en g/100 mL) de boissons gazeuses
-produites par $k=6$ fabricants différents.
-Il sélectionne $n=5$ bouteilles par fabricant ($N=30$ au total).
-Il obtient les sommes des carrés suivantes :
+Un microbiologiste veut savoir si la teneur en protéines extracellulaires (en $\mu$g/mL) diffère
+selon la souche bactérienne. Ses données portent sur $k=6$ souches de \textit{Escherichia coli},
+avec $n=5$ réplicats par souche ($N=30$ au total).
+Il obtient :
 \[
     SS_\text{total}=890{,}40, \qquad SS_E=540{,}00.
 \]
@@ -352,12 +362,12 @@ On suppose que les postulats du modèle sont satisfaits.
 
 \begin{parts}
 
-    \part[2] Écrivez les hypothèses du test ANOVA correspondant à cette situation.
+    \part Écrivez les hypothèses du test ANOVA correspondant à cette situation.
 
     \begin{solution}
-    Soit $\mu_i$ la teneur moyenne en sucres des boissons du fabricant $i$, pour $i=1,\ldots,6$.
+    Soit $\mu_i$ la teneur moyenne en protéines de la souche $i$, pour $i=1,\ldots,6$.
     \[
-        H_0: \mu_1=\mu_2=\mu_3=\mu_4=\mu_5=\mu_6
+        H_0: \mu_1=\cdots=\mu_6
         \quad\text{contre}\quad
         H_1: \text{au moins deux moyennes sont différentes}.
     \]
@@ -365,7 +375,7 @@ On suppose que les postulats du modèle sont satisfaits.
 
     \vspace{3cm}
 
-    \part[2] Calculez $SS_\text{trt}$, la somme des carrés des traitements.
+    \part Calculez $SS_\text{trt}$, la somme des carrés des traitements.
     \textbf{\textit{Montrez votre démarche.}}
 
     \begin{solution}
@@ -376,21 +386,21 @@ On suppose que les postulats du modèle sont satisfaits.
 
     \vspace{3cm}
 
-    \part[2] Calculez $MS_\text{trt}$ et $MS_E$.
+    \part Calculez $MS_\text{trt}$ et $MS_E$.
     \textbf{\textit{Montrez votre démarche.}}
 
     \begin{solution}
     \[
-        MS_\text{trt}=\frac{SS_\text{trt}}{k-1}=\frac{350{,}40}{6-1}=\frac{350{,}40}{5}=70{,}08.
+        MS_\text{trt}=\frac{350{,}40}{k-1}=\frac{350{,}40}{5}=70{,}08.
     \]
     \[
-        MS_E=\frac{SS_E}{N-k}=\frac{540{,}00}{30-6}=\frac{540{,}00}{24}=22{,}50.
+        MS_E=\frac{540{,}00}{N-k}=\frac{540{,}00}{24}=22{,}50.
     \]
     \end{solution}
 
     \vspace{3cm}
 
-    \part[2] Calculez la statistique de test $F_0$.
+    \part Calculez la statistique de test $F_0$.
     \textbf{\textit{Montrez votre démarche.}}
 
     \begin{solution}
@@ -401,16 +411,397 @@ On suppose que les postulats du modèle sont satisfaits.
 
     \vspace{3cm}
 
-    \part[2] En utilisant la valeur critique $F_{0{,}05\,;\,5\,;\,24}=2{,}621$, quelle est la conclusion
-    du test au seuil $\alpha=0{,}05$? Rédigez votre conclusion en lien avec le contexte.
+    \part En utilisant la valeur critique $F_{0{,}05\,;\,5\,;\,24}=2{,}621$, concluez le test
+    au seuil $\alpha=0{,}05$ en lien avec le contexte.
 
     \begin{solution}
     Comme $F_0=3{,}114 > 2{,}621=F_{0{,}05\,;\,5\,;\,24}$, on \textbf{rejette $H_0$} au seuil 5\%.
-    Il y a suffisamment de preuves pour affirmer que la teneur moyenne en sucres n'est pas la même pour tous les fabricants.
+    Il y a suffisamment de preuves pour affirmer que la teneur moyenne en protéines n'est pas
+    la même pour toutes les souches.
     \end{solution}
 
     \vspace{4cm}
 
+\end{parts}
+
+\pageblanche
+
+% ─────────────────────────────────────────────────────────────────────────────
+%  Exercice 6 — Lecture d'une table Rcmdr (QCM, une seule bonne réponse)
+%  Contexte : expression d'un biomarqueur tumoral selon 3 types cellulaires
+% ─────────────────────────────────────────────────────────────────────────────
+
+\question
+Une oncologiste compare le niveau d'expression d'un biomarqueur tumoral (en unités arbitraires)
+dans $k=3$ types de cellules cancéreuses (MCF-7, MDA-MB-231 et T47D).
+Elle effectue $n=7$ mesures par type cellulaire ($N=21$ au total).
+La table d'analyse de la variance suivante est produite par \texttt{Rcmdr} :
+
+\begin{verbatim}
+> summary(ANOVAModel)
+              Df    Sum Sq    Mean Sq    F value    Pr(>F)
+TypeCellule    2    324.00    162.00     16.200    0.0001
+Residuals     18    180.00     10.00
+\end{verbatim}
+
+À partir de la table d'ANOVA, quelle affirmation parmi les suivantes est \textbf{vraie}?
+Une seule réponse est bonne.
+
+\begin{checkboxes}
+    \choice Il y a $18$ observations en tout dans le jeu de données.
+    \choice La valeur $162{,}00$ est la moyenne du biomarqueur pour le facteur \texttt{TypeCellule}.
+    \choice La variance résiduelle est environ $16$ fois plus grande que la variance entre groupes.
+    \correctchoice La somme des carrés totale vaut $504{,}00$.
+    \choice Au seuil $\alpha=0{,}05$, nous ne rejetons pas $H_0$.
+    \choice Il y a $2$ types cellulaires différents dans l'étude.
+\end{checkboxes}
+
+\begin{solution}
+\textbf{Analyse des choix.}
+\begin{itemize}
+    \item \textbf{Faux.} $N=k\times n=3\times 7=21$ observations.
+    \item \textbf{Faux.} $162{,}00$ est le carré moyen des traitements, pas la moyenne.
+    \item \textbf{Faux.} C'est l'inverse : la variance entre groupes ($162{,}00$) est $16{,}2$ fois
+    plus grande que la variance résiduelle ($10{,}00$).
+    \item \textbf{Vrai.} $SS_\text{total}=SS_\text{trt}+SS_E=324{,}00+180{,}00=504{,}00$. $\checkmark$
+    \item \textbf{Faux.} $p=0{,}0001 < 0{,}05$, donc on rejette $H_0$.
+    \item \textbf{Faux.} $\text{Dl}_\text{trt}=k-1=2$ implique $k=3$ types cellulaires.
+\end{itemize}
+\end{solution}
+
+\pageblanche
+
+% ─────────────────────────────────────────────────────────────────────────────
+%  Exercice 7 — Table partielle AAA / BBB
+%  Contexte : pH sanguin selon 4 protocoles de dialyse
+% ─────────────────────────────────────────────────────────────────────────────
+
+\question
+Un néphrologue évalue l'effet de $k=4$ protocoles de dialyse sur le pH sanguin de patients
+en insuffisance rénale chronique.
+Il administre chaque protocole à $n=8$ patients ($N=32$ au total).
+La table d'ANOVA partielle suivante a été produite; certaines quantités ont été remplacées
+par \texttt{AAA} et \texttt{BBB}.
+Nous considérons que les postulats du modèle sont respectés.
+
+\begin{verbatim}
+ANOVA
+              SS       Ddl      MS       F0       Pr(>F)
+Protocole    6.72      ???     AAA     5.600     0.0039
+Residuals    BBB        28     0.40
+Total        ???       ???
+\end{verbatim}
+
+\begin{parts}
+
+    \part Que vaut \texttt{AAA}?
+    \begin{checkboxes}
+        \choice $0{,}40$
+        \choice $1{,}68$
+        \correctchoice $2{,}24$
+        \choice $6{,}72$
+        \choice $5{,}60$
+        \choice Il n'est pas possible de trouver la valeur de \texttt{AAA} avec les informations données.
+    \end{checkboxes}
+
+    \begin{solution}
+    $\text{Dl}_\text{trt}=k-1=4-1=3$.
+    \[
+        \texttt{AAA}=MS_\text{trt}=\frac{SS_\text{trt}}{\text{Dl}_\text{trt}}=\frac{6{,}72}{3}=2{,}24.
+    \]
+    Vérification : $F_0=\dfrac{MS_\text{trt}}{MS_E}=\dfrac{2{,}24}{0{,}40}=5{,}60$. $\checkmark$
+    \end{solution}
+
+    \vspace{0.5cm}
+
+    \part Que vaut \texttt{BBB}?
+    \begin{checkboxes}
+        \choice $0{,}40$
+        \choice $6{,}72$
+        \correctchoice $11{,}20$
+        \choice $28{,}00$
+        \choice $17{,}92$
+        \choice Il n'est pas possible de trouver la valeur de \texttt{BBB} avec les informations données.
+    \end{checkboxes}
+
+    \begin{solution}
+    \[
+        \texttt{BBB}=SS_E=MS_E\times \text{Dl}_E=0{,}40\times 28=11{,}20.
+    \]
+    \end{solution}
+
+    \vspace{0.5cm}
+
+    \part Combien y a-t-il de patients au total dans l'étude?
+    \begin{checkboxes}
+        \choice $28$
+        \choice $29$
+        \choice $31$
+        \correctchoice $32$
+        \choice Il n'est pas possible de répondre avec les informations données.
+    \end{checkboxes}
+
+    \begin{solution}
+    $\text{Dl}_E=N-k=28$, donc $N=28+k=28+4=32$.
+    On vérifie : $k\times n=4\times 8=32$. $\checkmark$
+    \end{solution}
+
+    \vspace{0.5cm}
+
+    \part Au seuil de 1\%, quelle conclusion pouvons-nous tirer de la table d'ANOVA?
+    Une seule réponse est bonne.
+    \begin{checkboxes}
+        \choice Le pH sanguin moyen est le même pour tous les protocoles de dialyse.
+        \correctchoice Le pH sanguin moyen diffère significativement pour au moins un protocole.
+        \choice Les postulats du modèle ne sont pas respectés.
+        \choice Il n'est pas possible de conclure car certaines valeurs sont manquantes.
+        \choice Il faudrait davantage de patients pour conclure.
+    \end{checkboxes}
+
+    \begin{solution}
+    La valeur-$p=0{,}0039 < 0{,}01=\alpha$, donc on \textbf{rejette $H_0$} même au seuil 1\%.
+    Le pH sanguin moyen diffère significativement entre au moins deux protocoles de dialyse.
+    \end{solution}
+
+\end{parts}
+
+\pageblanche
+
+% ─────────────────────────────────────────────────────────────────────────────
+%  Exercice 8 — Calculs à partir des statistiques de groupe
+%  Contexte : taux de fibrinogène selon 3 traitements anticoagulants
+% ─────────────────────────────────────────────────────────────────────────────
+
+\question
+Un hématologue compare le taux plasmatique de fibrinogène (en g/L) de patients traités avec
+$k=3$ anticoagulants différents.
+Il assigne $n=6$ patients à chaque traitement ($N=18$ au total).
+Les résultats sont résumés ci-dessous.
+On suppose que les postulats de l'ANOVA à un facteur sont satisfaits.
+
+\medskip
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{Anticoagulant} & \textbf{Moyenne} $\bar{y}_i$ (g/L) & \textbf{Variance} $s_i^2$ \\
+\hline
+Héparine   & $2{,}4$ & $0{,}36$ \\
+Warfarine  & $3{,}0$ & $0{,}25$ \\
+Rivaroxaban & $3{,}6$ & $0{,}35$ \\
+\hline
+\end{tabular}
+\end{center}
+\medskip
+
+\begin{parts}
+
+    \part Calculez $SS_\text{trt}$, la somme des carrés des traitements.
+    \textbf{\textit{Montrez votre démarche.}}
+
+    \begin{solution}
+    La moyenne globale est $\bar{y}_{..}=\dfrac{2{,}4+3{,}0+3{,}6}{3}=3{,}0$.
+    \[
+        SS_\text{trt}=n\sum_{i=1}^{k}\bigl(\bar{y}_i-\bar{y}_{..}\bigr)^2
+        =6\bigl[(2{,}4-3)^2+(3{,}0-3)^2+(3{,}6-3)^2\bigr]
+        =6\times[0{,}36+0+0{,}36]=6\times 0{,}72=4{,}32.
+    \]
+    \end{solution}
+
+    \vspace{6cm}
+
+    \part Calculez $MS_E$, le carré moyen des résidus.
+    \textbf{\textit{Montrez votre démarche.}}
+
+    \begin{solution}
+    \[
+        SS_E=\sum_{i=1}^{k}(n-1)\,s_i^2=(6-1)(0{,}36+0{,}25+0{,}35)=5\times 0{,}96=4{,}80.
+    \]
+    \[
+        MS_E=\frac{SS_E}{N-k}=\frac{4{,}80}{18-3}=\frac{4{,}80}{15}=0{,}32.
+    \]
+    \end{solution}
+
+    \vspace{6cm}
+
+    \part Calculez la statistique de test $F_0$.
+    \textbf{\textit{Montrez votre démarche.}}
+
+    \begin{solution}
+    \[
+        MS_\text{trt}=\frac{SS_\text{trt}}{k-1}=\frac{4{,}32}{2}=2{,}16.
+    \]
+    \[
+        F_0=\frac{MS_\text{trt}}{MS_E}=\frac{2{,}16}{0{,}32}=6{,}75.
+    \]
+    \end{solution}
+
+    \vspace{6cm}
+
+    \part En utilisant la valeur critique $F_{0{,}05\,;\,2\,;\,15}=3{,}682$, concluez le test
+    au seuil $\alpha=0{,}05$ en lien avec le contexte.
+
+    \begin{solution}
+    Comme $F_0=6{,}75 > 3{,}682=F_{0{,}05\,;\,2\,;\,15}$, on \textbf{rejette $H_0$} au seuil 5\%.
+    Il y a suffisamment de preuves pour affirmer que le taux moyen de fibrinogène n'est pas
+    le même pour les trois anticoagulants.
+    \end{solution}
+
+    \vspace{4cm}
+
+\end{parts}
+
+\pageblanche
+
+% ─────────────────────────────────────────────────────────────────────────────
+%  Exercice 9 — Vrai ou Faux
+%  Contexte : concentration de cholestérol LDL selon 3 traitements médicamenteux
+% ─────────────────────────────────────────────────────────────────────────────
+
+\question
+Un cardiologue compare la réduction du cholestérol LDL (en mg/dL) obtenue par $k=3$
+statines différentes (atorvastatine, rosuvastatine, simvastatine).
+Il assigne $n=12$ patients à chaque statine ($N=36$ au total).
+La table ci-dessous est obtenue :
+
+\begin{verbatim}
+> summary(ANOVAModel)
+           Df    Sum Sq    Mean Sq    F value    Pr(>F)
+Statine     2    540.00    270.00     10.800    0.0003
+Residuals  33    825.00     25.00
+\end{verbatim}
+
+Pour chaque énoncé qui suit, indiquez si l'énoncé est \textbf{vrai} ou \textbf{faux}.
+
+\medskip
+
+\begin{parts}
+
+    \part Il y a $36$ patients au total dans l'étude.
+
+    \medskip
+    \begin{oneparcheckboxes}
+        \correctchoice Vrai
+        \choice Faux
+    \end{oneparcheckboxes}
+    \medskip
+
+    \begin{solution}
+    \textbf{Vrai.} $\text{Dl}_\text{total}=N-1=35$, donc $N=36$.
+    On vérifie : $\text{Dl}_\text{trt}+\text{Dl}_E+1=(2+33)+1=36$. $\checkmark$
+    \end{solution}
+
+    \part Au seuil $\alpha=0{,}01$, on rejette $H_0$.
+
+    \medskip
+    \begin{oneparcheckboxes}
+        \correctchoice Vrai
+        \choice Faux
+    \end{oneparcheckboxes}
+    \medskip
+
+    \begin{solution}
+    \textbf{Vrai.} La valeur-$p=0{,}0003 < 0{,}01=\alpha$.
+    \end{solution}
+
+    \part Le carré moyen des résidus $MS_E=25{,}00$ est un estimateur sans biais de la variance
+    commune $\sigma^2$, que $H_0$ soit vraie ou non.
+
+    \medskip
+    \begin{oneparcheckboxes}
+        \correctchoice Vrai
+        \choice Faux
+    \end{oneparcheckboxes}
+    \medskip
+
+    \begin{solution}
+    \textbf{Vrai.} $MS_E$ est toujours un estimateur sans biais de $\sigma^2$, quelle que soit
+    la validité de $H_0$.
+    \end{solution}
+
+    \part Le carré moyen des traitements $MS_\text{trt}=270{,}00$ est un estimateur sans biais
+    de la variance commune $\sigma^2$, que $H_0$ soit vraie ou non.
+
+    \medskip
+    \begin{oneparcheckboxes}
+        \choice Vrai
+        \correctchoice Faux
+    \end{oneparcheckboxes}
+    \medskip
+
+    \begin{solution}
+    \textbf{Faux.} $MS_\text{trt}$ estime $\sigma^2 + n\,\dfrac{\sum(\mu_i-\mu)^2}{k-1}$.
+    Il n'est sans biais pour $\sigma^2$ que lorsque $H_0$ est vraie (toutes les moyennes égales).
+    \end{solution}
+
+\end{parts}
+
+\pageblanche
+
+% ─────────────────────────────────────────────────────────────────────────────
+%  Exercice 10 — Calculs à partir de SS_total et SS_E + hypothèses
+%  Contexte : taux d'hémoglobine selon 5 types de suppléments en fer
+% ─────────────────────────────────────────────────────────────────────────────
+
+\question
+Une nutritionniste clinique étudie l'effet de $k=5$ types de suppléments en fer sur
+le taux d'hémoglobine (en g/dL) de patientes anémiantes.
+Elle assigne $n=6$ patientes à chaque supplément ($N=30$ au total) et obtient :
+\[
+    SS_\text{total}=180{,}00, \qquad SS_E=120{,}00.
+\]
+On suppose que les postulats du modèle sont satisfaits.
+
+\begin{parts}
+
+    \part Écrivez les hypothèses du test ANOVA correspondant à cette situation.
+
+    \begin{solution}
+    Soit $\mu_i$ le taux moyen d'hémoglobine sous le supplément $i$, pour $i=1,\ldots,5$.
+    \[
+        H_0: \mu_1=\mu_2=\mu_3=\mu_4=\mu_5
+        \quad\text{contre}\quad
+        H_1: \text{au moins deux moyennes sont différentes}.
+    \]
+    \end{solution}
+
+    \vspace{3cm}
+
+    \part Calculez $SS_\text{trt}$, $MS_\text{trt}$ et $MS_E$.
+    \textbf{\textit{Montrez votre démarche.}}
+
+    \begin{solution}
+    \[
+        SS_\text{trt}=SS_\text{total}-SS_E=180{,}00-120{,}00=60{,}00.
+    \]
+    \[
+        MS_\text{trt}=\frac{60{,}00}{k-1}=\frac{60{,}00}{4}=15{,}00.
+    \]
+    \[
+        MS_E=\frac{120{,}00}{N-k}=\frac{120{,}00}{25}=4{,}80.
+    \]
+    \end{solution}
+
+    \vspace{5cm}
+
+    \part Calculez la statistique de test $F_0$.
+    \textbf{\textit{Montrez votre démarche.}}
+
+    \begin{solution}
+    \[
+        F_0=\frac{MS_\text{trt}}{MS_E}=\frac{15{,}00}{4{,}80}=3{,}125.
+    \]
+    \end{solution}
+
+    \vspace{4cm}
+
+    \part En utilisant la valeur critique $F_{0{,}05\,;\,4\,;\,25}=2{,}759$, concluez le test
+    au seuil $\alpha=0{,}05$ en lien avec le contexte.
+
+    \begin{solution}
+    Comme $F_0=3{,}125 > 2{,}759=F_{0{,}05\,;\,4\,;\,25}$, on \textbf{rejette $H_0$} au seuil 5\%.
+    Il y a suffisamment de preuves pour affirmer que le taux moyen d'hémoglobine n'est pas
+    le même pour tous les types de suppléments en fer.
 \end{parts}
 
 \end{questions}
