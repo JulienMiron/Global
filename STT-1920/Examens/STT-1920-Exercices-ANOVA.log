@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  8 APR 2026 11:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  8 APR 2026 11:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1561,23 +1561,7 @@ l/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevot1.enc}]
 [8]
 
 [9]
-
-[10]
-
-[11]
-
-[12]
-
-[13]
-
-[14]
-
-[15]
-
-[16]
-
-[17]
-This exam contains 10 questions with 33 parts, 0 subparts, and 0 subsubparts.
+This exam contains 5 questions with 17 parts, 0 subparts, and 0 subsubparts.
 This exam has a total of 0 points.
 This exam has a total of 0 bonus points.
 (./STT-1920-Exercices-ANOVA.aux)
@@ -1591,13 +1575,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 27250 strings out of 473190
- 563329 string characters out of 5715801
- 1147809 words of memory out of 5000000
- 49990 multiletter control sequences out of 15000+600000
+ 27243 strings out of 473190
+ 563266 string characters out of 5715801
+ 1145809 words of memory out of 5000000
+ 49983 multiletter control sequences out of 15000+600000
  614136 words of font info for 102 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 113i,10n,119p,554b,734s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 113i,10n,119p,554b,714s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Bold.pfb
 ></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-BoldObliq
 ue.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Obl
@@ -1607,10 +1591,10 @@ oman.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb
 7t.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/
 md-chb7y.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/
 mdbch/md-chr7v.pfb>
-Output written on STT-1920-Exercices-ANOVA.pdf (17 pages, 135044 bytes).
+Output written on STT-1920-Exercices-ANOVA.pdf (9 pages, 117180 bytes).
 PDF statistics:
- 114 PDF objects out of 1000 (max. 8388607)
- 75 compressed objects within 1 object stream
+ 89 PDF objects out of 1000 (max. 8388607)
+ 58 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 
