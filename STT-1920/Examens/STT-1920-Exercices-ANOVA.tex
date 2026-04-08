@@ -47,15 +47,15 @@
 
 \question
 Une chercheuse en biochimie compare l'activité de la lactate déshydrogénase (LDH, en U/L)
-chez des patients répartis en $k=4$ groupes selon leur pathologie hépatique.
-Elle mesure l'activité LDH chez $n=5$ patients par groupe ($N=20$ au total).
+chez des patients répartis en $I$ groupes selon leur pathologie hépatique.
+Elle mesure l'activité LDH chez $n$ patients par groupe.
 La table d'analyse de la variance suivante est produite par \texttt{Rcmdr} :
 
 \begin{verbatim}
 > summary(ANOVAModel)
             Df   Sum Sq   Mean Sq   F value    Pr(>F)
 Groupe       3   110.40    36.80    7.360    0.0024
-Residuals   16    80.00     5.00
+Erreur      16    80.00     5.00
 \end{verbatim}
 
 À partir de la table d'ANOVA, quelle affirmation parmi les suivantes est \textbf{vraie}?
@@ -98,10 +98,10 @@ Nous considérons que les postulats du modèle sont respectés.
 
 \begin{verbatim}
 ANOVA
-               SS       Ddl     MS        F0       Pr(>F)
-Substrat    185.40      ???    AAA       5.297     0.0037
-Residuals    BBB         25    8.75
-Total        CCC        ???  
+               SS       Ddl      MS          F0     Pr(>F)
+Substrat    185.40      ???     AAA       5.297     0.0037
+Erreur         BBB       25    8.75
+Total          CCC      ???  
 \end{verbatim}
 
 \begin{parts}
