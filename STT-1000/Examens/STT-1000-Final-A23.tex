@@ -147,12 +147,12 @@ Cochez tous les énoncés qui sont vrais parmi les suivants. \textit{\textbf{Une
 Parmi les statistiques descriptives suivantes, lesquelles sont des mesures de dispersion? \textit{\textbf{Une réponse cochée alors qu'elle ne devrait pas l'être entraîne une pénalité de 1 points. Le minimum possible pour cette question est 0 point.}}
 
 \begin{checkboxes}
-\correctchoice La moyenne échantillonnale
+\choice La moyenne échantillonnale
 \choice La médiane échantillonnale
 \choice Le mode échantillonnal
 \correctchoice La variance échantillonnale
-\choice L'écart interquartile
-\choice L'étendue
+\correctchoice L'écart interquartile
+\correctchoice L'étendue
 \end{checkboxes}
 
 \pageblanche
@@ -324,7 +324,7 @@ où $n=8$, $m=8$ et $\sigma^2_Y=\sigma^2_X$ sont inconnues. Pour le test dont le
 \end{align*}
  la valeur-p est de $0,01$. Sachant que $\bar{y}=6,824$, $\bar{x}=4,2$ et $s^2_Y=4,5$, quelle est la valeur de $s^2_X$? \textbf{\textit{Donnez les détails de votre démarche. Une réponse sans démarche ne donnera aucun point.}}
 \begin{solution}
-Test unilatéral droit avec $n+m-2=14$ degrés de liberté. La valeur-p est 0{,}01, donc $t_0 = t_{0{,}01\,;\,14} \approx 2{,}624$.
+Test unilatéral droit avec $n+m-2=14$ degrés de liberté. La valeur-p est 0{,}01, donc $t_0 = t_{0{,}01\,;\,14} = 2{,}624$.
 
 La statistique vaut
 \[
@@ -358,7 +358,7 @@ La région de rejet est $\overline{X} > 9 + z_{0{,}025}\times 5 = 9 + 1{,}96\tim
 
 La puissance est
 \[
-\text{Puiss}(\mu_1) = P\!\left(\overline{X}>18{,}8\mid \mu=\mu_1\right)
+1-\beta = P\!\left(\overline{X}>18{,}8\mid \mu=\mu_1\right)
 = P\!\left(Z > \frac{18{,}8-\mu_1}{5}\right) = 0{,}13567.
 \]
 
@@ -406,7 +406,7 @@ Effectuez un test d'hypothèse de seuil $\alpha=1\%$ pour déterminer s'il exist
 \[
 H_0: \sigma^2 = 4 \quad \text{contre} \quad H_1: \sigma^2 > 4.
 \]
-\textbf{Postulat:} les longueurs suivent une loi normale.
+
 
 \textbf{Étape 2 - Statistique de test.}
 \[
