@@ -33,7 +33,12 @@
 \providecommand{\Gradescope}{}
 
 \documentclass{Evaluation}
-\usepackage{multicol,graphicx,booktabs}
+\usepackage{multicol,graphicx,booktabs,etoolbox}
+% Supprimer le titre «Directives de l'évaluation» pour n'afficher qu'une note simple
+\patchcmd{\couverture}%
+  {\noindent\textbf{Directives de l'évaluation} \Directives}%
+  {\Directives}%
+  {}{}
 
 \printanswers
 

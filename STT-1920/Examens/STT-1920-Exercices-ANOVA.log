@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  8 APR 2026 11:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  8 APR 2026 11:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1267,7 +1267,7 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@lastruleclass=\count399
 \@thisrulewidth=\dimen344
 )
-LaTeX Font Info:    Trying to load font information for T1+fav on input line 40
+LaTeX Font Info:    Trying to load font information for T1+fav on input line 45
 .
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/arev/t1fav.fd
@@ -1281,28 +1281,28 @@ File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 (./STT-1920-Exercices-ANOVA.aux)
 \openout1 = `STT-1920-Exercices-ANOVA.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for MDA/cmr/m/n on input line 40.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for MDA/cmr/m/n on input line 45.
 LaTeX Font Info:    Trying to load font information for MDA+cmr on input line 4
-0.
+5.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/mathdesign/mdacmr.fd
 File: mdacmr.fd 
 )
-LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    ... okay on input line 45.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1360,14 +1360,14 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Info: Redefining \degres on input line 40.
+LaTeX Info: Redefining \degres on input line 45.
 Package french.ldf Info: Setting StandardItemizeEnv=true for
 (french.ldf)             compatibility with enumitem package,
-(french.ldf)             reported on input line 40.
+(french.ldf)             reported on input line 45.
 Package french.ldf Info: Setting StandardEnumerateEnv=true for
 (french.ldf)             compatibility with enumitem package,
-(french.ldf)             reported on input line 40.
-LaTeX Info: Redefining \up on input line 40.
+(french.ldf)             reported on input line 45.
+LaTeX Info: Redefining \up on input line 45.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/pdflscape/pdflscape.sty
 Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
@@ -1417,15 +1417,15 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 <logo_ul.pdf, id=4, 313.17pt x 129.48375pt>
 File: logo_ul.pdf Graphic file (type pdf)
 <use logo_ul.pdf>
-Package pdftex.def Info: logo_ul.pdf  used on input line 40.
+Package pdftex.def Info: logo_ul.pdf  used on input line 45.
 (pdftex.def)             Requested size: 142.26378pt x 58.82233pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 40--40
+Underfull \hbox (badness 10000) in paragraph at lines 45--45
 
  []
 
 
-Overfull \hbox (65.35516pt too wide) in paragraph at lines 40--40
+Overfull \hbox (65.35516pt too wide) in paragraph at lines 45--45
 [][]    [] 
  []
 
@@ -1471,72 +1471,72 @@ al/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc} <../../logo_ul.pdf>]
 
 
 LaTeX Font Warning: Font shape `T1/fav/m/sc' undefined
-(Font)              using `T1/fav/m/n' instead on input line 49.
+(Font)              using `T1/fav/m/n' instead on input line 54.
 
 
 LaTeX Font Warning: Font shape `T1/fav/b/sc' undefined
-(Font)              using `T1/fav/b/n' instead on input line 49.
+(Font)              using `T1/fav/b/n' instead on input line 54.
 
 LaTeX Font Info:    Trying to load font information for OT1+zavm on input line 
-50.
+55.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/arev/ot1zavm.fd
 File: ot1zavm.fd 2006/05/30 Fontinst v1.929 font definitions for OT1/zavm.
 )
 LaTeX Font Info:    Trying to load font information for OML+zavm on input line 
-50.
+55.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/arev/omlzavm.fd
 File: omlzavm.fd 2006/05/30 Fontinst v1.929 font definitions for OML/zavm.
 )
 LaTeX Font Info:    Trying to load font information for OMS+zavm on input line 
-50.
+55.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/arev/omszavm.fd
 File: omszavm.fd 2006/05/30 Fontinst v1.929 font definitions for OMS/zavm.
 )
 LaTeX Font Info:    Trying to load font information for OMX+mdbch on input line
- 50.
+ 55.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/mathdesign/mdbch/omxmdbch.fd
 File: omxmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for OMX/mdbch.
 )
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 8.64006pt on input line 50.
+(Font)              scaled to size 8.64006pt on input line 55.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 50.
+(Font)              scaled to size 6.72005pt on input line 55.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 50.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 50.
+(Font)              scaled to size 4.80003pt on input line 55.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 55.
 
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 50.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 55.
 
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for MDA+mdbch on input line
- 50.
+ 55.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/mathdesign/mdbch/mdamdbch.fd
 File: mdamdbch.fd 2013/08/29 Fontinst v1.933 font definitions for MDA/mdbch.
 )
 LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 8.64006pt on input line 50.
+(Font)              scaled to size 8.64006pt on input line 55.
 LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 6.72005pt on input line 50.
+(Font)              scaled to size 6.72005pt on input line 55.
 LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 4.80003pt on input line 50.
-LaTeX Font Info:    Trying to load font information for U+zavm on input line 50
+(Font)              scaled to size 4.80003pt on input line 55.
+LaTeX Font Info:    Trying to load font information for U+zavm on input line 55
 .
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/arev/uzavm.fd
 File: uzavm.fd 2006/05/30 Fontinst v1.929 font definitions for U/zavm.
 )
-LaTeX Font Info:    Trying to load font information for T1+fvm on input line 52
+LaTeX Font Info:    Trying to load font information for T1+fvm on input line 57
 .
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/bera/t1fvm.fd
@@ -1575,13 +1575,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 27243 strings out of 473190
- 563266 string characters out of 5715801
+ 27134 strings out of 473190
+ 561479 string characters out of 5715801
  1145809 words of memory out of 5000000
- 49983 multiletter control sequences out of 15000+600000
+ 49874 multiletter control sequences out of 15000+600000
  614136 words of font info for 102 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 113i,10n,119p,554b,714s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 113i,10n,119p,1941b,714s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Bold.pfb
 ></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-BoldObliq
 ue.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Obl
@@ -1591,7 +1591,7 @@ oman.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb
 7t.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/
 md-chb7y.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/
 mdbch/md-chr7v.pfb>
-Output written on STT-1920-Exercices-ANOVA.pdf (9 pages, 117180 bytes).
+Output written on STT-1920-Exercices-ANOVA.pdf (9 pages, 117160 bytes).
 PDF statistics:
  89 PDF objects out of 1000 (max. 8388607)
  58 compressed objects within 1 object stream
