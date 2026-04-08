@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  8 APR 2026 11:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  8 APR 2026 11:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1278,7 +1278,7 @@ File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count400
 \l__pdf_internal_box=\box138
 )
-No file STT-1920-Exercices-ANOVA.aux.
+(./STT-1920-Exercices-ANOVA.aux)
 \openout1 = `STT-1920-Exercices-ANOVA.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
@@ -1298,6 +1298,7 @@ LaTeX Font Info:    ... okay on input line 40.
 LaTeX Font Info:    Checking defaults for MDA/cmr/m/n on input line 40.
 LaTeX Font Info:    Trying to load font information for MDA+cmr on input line 4
 0.
+
 (/usr/local/texlive/2025/texmf-dist/tex/latex/mathdesign/mdacmr.fd
 File: mdacmr.fd 
 )
@@ -1579,10 +1580,6 @@ l/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevot1.enc}]
 This exam contains 10 questions with 33 parts, 0 subparts, and 0 subsubparts.
 This exam has a total of 0 points.
 This exam has a total of 0 bonus points.
-
-Class exam Warning: Point totals have changed. Rerun to get point totals right.
-
-
 (./STT-1920-Exercices-ANOVA.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
@@ -1592,16 +1589,13 @@ L3 programming layer <2025-01-18>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 27235 strings out of 473190
- 563130 string characters out of 5715801
- 1146809 words of memory out of 5000000
- 49976 multiletter control sequences out of 15000+600000
- 616495 words of font info for 104 fonts, out of 8000000 for 9000
+ 27250 strings out of 473190
+ 563329 string characters out of 5715801
+ 1147809 words of memory out of 5000000
+ 49990 multiletter control sequences out of 15000+600000
+ 614136 words of font info for 102 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  113i,10n,119p,554b,734s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Bold.pfb
@@ -1613,7 +1607,7 @@ oman.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb
 7t.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/
 md-chb7y.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/
 mdbch/md-chr7v.pfb>
-Output written on STT-1920-Exercices-ANOVA.pdf (17 pages, 135406 bytes).
+Output written on STT-1920-Exercices-ANOVA.pdf (17 pages, 135044 bytes).
 PDF statistics:
  114 PDF objects out of 1000 (max. 8388607)
  75 compressed objects within 1 object stream
