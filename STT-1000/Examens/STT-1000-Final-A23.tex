@@ -6,7 +6,7 @@
 \def\Session{Automne 2022}
 \def\NomEvaluation{Examen 2}
 
-\def\OptionsExam{11pt,answers}
+\def\OptionsExam{11pt}
 
 % Ne rien mettre entre les accolades si l'enseignant (ou l'enseignante) est aussi le coordonnateur (ou la coordonnatrice)
 \def\Coordonnatrice{}
@@ -29,6 +29,9 @@
 
 % Si vous souhaitez qu'apparaisse une déclaration d'honneur au bas de la première page, écrivez quelque chose entre les accolades
 \def\EnLigne{}
+
+\newcommand{\affichepoints}{}     % ← AVEC points
+% \renewcommand{\affichepoints}{on} % ← SANS points (non vide)
 
 \def\Directives{
 \begin{enumerate}
@@ -54,16 +57,16 @@
 % TPS :
 % TPF :
 % Devoir :
-\def\Gradescope{.} % Mode Gradescope activé (recto seulement). Mettre {} pour recto-verso.
-\documentclass{Evaluation}
-\begin{document}
+\providecommand{\Gradescope}{}
 
-\mbox{}
-%\newpage
-%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
-.
-\newpage
+\documentclass{Evaluation}
+\usepackage{multicol,graphicx}
+
+\printanswers
+\begin{document}
 \begin{questions}
+
+\pageblanche
 \question\label{QCMicTests}
 Un intervalle de confiance de niveau 95\% pour l'espérance $\mu$ est $[ 5,11 ; 9,11]$. Pour chaque énoncé qui suit, indiquez si l'énoncé est vrai, faux ou si nous n'avons pas assez d'information pour le savoir.
 
@@ -151,16 +154,22 @@ Parmi les statistiques descriptives suivantes, lesquelles sont des mesures de di
 \choice L'écart interquartile
 \choice L'étendue
 \end{checkboxes}
-\newpage
-.
-\newpage
+
+\pageblanche
 \question[4]
 Soit $Z_1,Z_2$ et $Z_{3}$, des variables aléatoires normales centrées-réduites indépendantes et $\displaystyle W=Z_1^2+2Z_2^2+3Z_3^2$. 
 
 Que vaut Var$(W)$? \textbf{\textit{Donnez les détails de votre démarche. Une réponse sans démarche ne donnera aucun point.}}
 
 \begin{solution}
+On a $Z_i^2 \sim \chi^2(1)$ pour $i=1,2,3$, donc $E[Z_i^2]=1$ et $\text{Var}(Z_i^2)=2$.
 
+Comme les $Z_i$ sont indépendantes :
+\begin{align*}
+\text{Var}(W) &= \text{Var}(Z_1^2) + 4\,\text{Var}(Z_2^2) + 9\,\text{Var}(Z_3^2) \\
+&= 2 + 4\times 2 + 9\times 2 \\
+&= 2 + 8 + 18 = 28.
+\end{align*}
 \end{solution}
 
 \vspace{9cm}
@@ -173,18 +182,25 @@ Elle note alors le temps d'attente de $100$ personnes choisies au hasard et obti
 À partir de ces résultats, elle construit un intervalle de confiance en utilisant le quantile $z_{0,025}$, à partir de sa table de la loi normale, et obtient l'intervalle $[130,44;369,56]$. 
 \begin{parts}
     \part[2] Écrivez les hypothèses du test qu'Annabelle devrait faire à partir de cet intervalle de confiance, en lien avec son interrogation.
-    
+    \begin{solution}
+    La loi exponentielle de moyenne 240 a pour espérance $\mu = 240$. Le test associé à l'intervalle à 95\% est
+    \[
+        H_0: \mu = 240 \quad \text{contre} \quad H_1: \mu \neq 240.
+    \]
+    \end{solution}
     \vspace{2cm}
     \part[2] Quelle serait la décision du test en (a)?
-
+    \begin{solution}
+    L'IC à 95\% est $[130{,}44\,;\, 369{,}56]$. Puisque $240 \in [130{,}44\,;\, 369{,}56]$, on \textbf{ne rejette pas} $H_0$ au seuil 5\%.
+    \end{solution}
     \vspace{2cm}
     \part[2] Le seuil du test sera-t-il exact? Pourquoi?
+    \begin{solution}
+    Non. Les temps d'attente suivent une loi exponentielle (non normale). L'IC a été construit avec le quantile $z_{0{,}025}$ grâce au TCL; le seuil est donc \textbf{approximatif}.
+    \end{solution}
 \end{parts}
 
-\newpage
-.
-\newpage
-%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+\pageblanche
 \question\label{rls}
 
 Afin d'estimer le volume de bois disponible dans la forêt qui mène à La Barillette, nous aimerions modéliser le volume de bois d'un arbre à l'aide de sa circonférence. Nous disposons du volume ($Y$) et de la circonférence ($X$) de 31 arbres. Afin d'étudier le modèle $Y_i = \beta_0 + \beta_1 X_i + E_i$, en supposant que les postulats de régression linéaire sont respectés, nous avons résultats suivants:
@@ -218,8 +234,6 @@ $\widehat{\beta}_0=$\boite{3}{1.5} $\widehat{\beta}_1=$\boite{3}{1.5}
 \vspace{0.5cm}
 	\pagesuivante{\ref{rls}}
 
-\newpage 
-.
 \newpage
 \suite{\ref{rls}}
 
@@ -254,31 +268,49 @@ $\widehat{\beta}_0=$\boite{3}{1.5} $\widehat{\beta}_1=$\boite{3}{1.5}
 	\end{checkboxes}
 
 \end{parts}
-\newpage
-.
-\newpage
-%%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
+
+\pageblanche
 \question Soit $X_1,\hdots, X_{100}$, des variables aléatoires indépendantes et identiquement distribuées selon une loi normale d’espérance $\mu$ et de variance $\sigma^2 = 400$. 
 Nous désirons construire un intervalle de confiance de niveau $95\%$ pour $\mu$. Bien sûr, l'intervalle de confiance aura la forme d'un des intervalles vus au cours. Nous notons cet intervalle $[C_1;C_2]$.
 \begin{parts}
     \part[4] Que vaut $\mathbb{E}[C_2]$? \textbf{\textit{Donnez les détails de votre démarche.}}
+    \begin{solution}
+    On a $C_2 = \overline{X} + 1{,}96\,\dfrac{\sigma}{\sqrt{n}} = \overline{X} + 1{,}96\,\dfrac{20}{10} = \overline{X} + 3{,}92$.
+    \[
+        \mathbb{E}[C_2] = \mathbb{E}[\overline{X}] + 3{,}92 = \mu + 3{,}92.
+    \]
+    \end{solution}
     \vspace{4.5cm}
     \part[4] Que vaut $\text{Var}[C_2]$? \textbf{\textit{Donnez les détails de votre démarche.}}
+    \begin{solution}
+    \[
+        \text{Var}(C_2) = \text{Var}(\overline{X}) = \frac{\sigma^2}{n} = \frac{400}{100} = 4.
+    \]
+    \end{solution}
     \vspace{4.5cm}
     \part[2] Quelle est la loi de probabilité de $C_2$?
+    \begin{solution}
+    Puisque les $X_i$ sont normales, $\overline{X}$ est normale, et $C_2 = \overline{X}+3{,}92$ l'est aussi:
+    \[
+        C_2 \sim \mathcal{N}(\mu + 3{,}92\;; 4).
+    \]
+    \end{solution}
     \vspace{2cm}
     \part[6]Quelle est la probabilité que $C_2$ soit inférieure ou égale à $\mu$? \textbf{\textit{Donnez les détails de votre démarche. Une réponse sans démarche ne donnera aucun point.}}
-
+    \begin{solution}
+    \begin{align*}
+        P(C_2 \leq \mu) &= P\!\left(\overline{X} + 3{,}92 \leq \mu\right) \\
+        &= P\!\left(\frac{\overline{X}-\mu}{2} \leq \frac{-3{,}92}{2}\right) \\
+        &= P(Z \leq -1{,}96) \\
+        &= 0{,}025.
+    \end{align*}
+    \end{solution}
     \vspace{8cm}
 
     Réponse: \boite{3}{1.5}
 \end{parts}
 
-
-\newpage
-.
-\newpage
-
+\pageblanche
 \question[10]
 Soit les échantillons
 
@@ -291,13 +323,27 @@ où $n=8$, $m=8$ et $\sigma^2_Y=\sigma^2_X$ sont inconnues. Pour le test dont le
     H_1: \mu_Y-\mu_X>0,
 \end{align*}
  la valeur-p est de $0,01$. Sachant que $\bar{y}=6,824$, $\bar{x}=4,2$ et $s^2_Y=4,5$, quelle est la valeur de $s^2_X$? \textbf{\textit{Donnez les détails de votre démarche. Une réponse sans démarche ne donnera aucun point.}}
+\begin{solution}
+Test unilatéral droit avec $n+m-2=14$ degrés de liberté. La valeur-p est 0{,}01, donc $t_0 = t_{0{,}01\,;\,14} \approx 2{,}624$.
 
+La statistique vaut
+\[
+t_0 = \frac{\bar{y}-\bar{x}}{s_p\sqrt{\frac{1}{n}+\frac{1}{m}}} = \frac{6{,}824-4{,}2}{s_p\,\sqrt{\frac{2}{8}}} = \frac{2{,}624}{s_p / 2}.
+\]
+Donc $s_p = \dfrac{2{,}624 \times 2}{2{,}624} = 2$, soit $s_p^2 = 4$.
+
+Par la formule de la variance poolée :
+\begin{align*}
+s_p^2 &= \frac{(n-1)s_Y^2 + (m-1)s_X^2}{n+m-2} \\
+4 &= \frac{7\times 4{,}5 + 7\,s_X^2}{14} \\
+56 &= 31{,}5 + 7\,s_X^2 \\
+s_X^2 &= \frac{24{,}5}{7} = 3{,}5.
+\end{align*}
+\end{solution}
 \vspace{18cm}
 $s^2_X=$ \boite{3}{1.5}
 
-\newpage 
-.
-\newpage
+\pageblanche
 \question[10] Soit $X_1,\hdots, X_{25}$, des variables aléatoires indépendantes et identiquement distribuées selon une loi normale d'espérance~$\mu$ et de variance $\sigma^2=625$.
 Nous désirons effectuer un \textbf{test unilatéral à droite} avec $H_0:\mu=9$ au seuil $\alpha = 0,025$.
 Nous avons les résultats suivants:
@@ -306,22 +352,46 @@ Nous avons les résultats suivants:
 \end{align*}
 Si nous supposons qu'en réalité la vraie moyenne $\mu=\mu_1$ et que la puissance du test est $0,13567$, que vaut $\mu_1$? 
 \textbf{\textit{Donnez les détails de votre démarche. Une réponse sans démarche ne donnera aucun point.}}
+\begin{solution}
+Avec $\sigma=25$ et $n=25$, on a $\sigma/\sqrt{n}=5$.
+La région de rejet est $\overline{X} > 9 + z_{0{,}025}\times 5 = 9 + 1{,}96\times 5 = 18{,}8$.
 
+La puissance est
+\[
+\text{Puiss}(\mu_1) = P\!\left(\overline{X}>18{,}8\mid \mu=\mu_1\right)
+= P\!\left(Z > \frac{18{,}8-\mu_1}{5}\right) = 0{,}13567.
+\]
+
+Donc $P\!\left(Z \leq \dfrac{18{,}8-\mu_1}{5}\right) = 0{,}86433$, ce qui donne
+$\dfrac{18{,}8-\mu_1}{5} = 1{,}10$.
+
+\[
+\mu_1 = 18{,}8 - 5\times 1{,}10 = 18{,}8 - 5{,}5 = 13{,}3.
+\]
+\end{solution}
 \vspace{18cm}
 $\mu_1=$ \boite{3}{1.5}
 
-\newpage 
-.
-\newpage
-
-
+\pageblanche
 \question[10] On demande à 3600 Suisses s'ils préfèrent la fondue ou la raclette. On obtient que 1849 personnes préfèrent la fondue. Y a-t-il suffisamment de preuves pour dire que la majorité des Suisses préfèrent la fondue, au seuil approximatif $\alpha = 0,05$? \textbf{\textit{Écrivez toutes les étapes du test et justifiez vos réponses!}}
 
 \textit{Utilisez l'approximation suivante: $\displaystyle\sqrt{\frac{\frac{1849}{3600}\left(1-\frac{1849}{3600}\right)}{3600}}\approx0,008$}
-\newpage
-.
-\newpage
+\begin{solution}
+\textbf{Étape 1 - Hypothèses.} Soit $p$ la proportion de Suisses préférant la fondue.
+\[
+H_0: p=0{,}5 \quad \text{contre} \quad H_1: p > 0{,}5.
+\]
+\textbf{Étape 2 - Statistique de test.}
+\[
+z_0 = \frac{\hat{p}-p_0}{\sqrt{\hat{p}(1-\hat{p})/n}}
+= \frac{\frac{1849}{3600}-0{,}5}{0{,}008}
+= \frac{\frac{49}{3600}}{0{,}008} \approx 1{,}70.
+\]
+\textbf{Étape 3 - Région de rejet.} Au seuil approximatif $\alpha=0{,}05$ (test unilatéral droit), on rejette $H_0$ si $z_0 > z_{0{,}05} = 1{,}645$.
 
+\textbf{Décision.} Comme $1{,}70 > 1{,}645$, on \textbf{rejette $H_0$}. Il y a suffisamment de preuves, au seuil 5\%, pour affirmer que la majorité des Suisses préfèrent la fondue.
+\end{solution}
+\pageblanche
 \question[10] Vous travaillez dans une usine qui produit des boulons, et le responsable de la qualité prétend que la variance de la longueur des boulons est de $4$ mm$^2$. Vous avez des raisons de penser que la variance est en réalité plus élevée et décidez de mener un test d'hypothèse.
 
 
@@ -331,10 +401,23 @@ Vous prenez un échantillon aléatoire de $20$ boulons et mesurez leurs longueur
 \\
 Effectuez un test d'hypothèse de seuil $\alpha=1\%$ pour déterminer s'il existe suffisamment de preuves pour rejeter l'affirmation du responsable de la qualité. Vous pouvez supposer que les longueurs des boulons suivent une distribution normale. \textbf{\textit{Écrivez toutes les étapes du test et justifiez vos réponses!}}
 
+\begin{solution}
+\textbf{Étape 1 - Hypothèses.} Soit $\sigma^2$ la variance des longueurs des boulons.
+\[
+H_0: \sigma^2 = 4 \quad \text{contre} \quad H_1: \sigma^2 > 4.
+\]
+\textbf{Postulat:} les longueurs suivent une loi normale.
+
+\textbf{Étape 2 - Statistique de test.}
+\[
+\chi^2_0 = \frac{(n-1)s^2}{\sigma_0^2} = \frac{19 \times 5{,}5}{4} = \frac{104{,}5}{4} = 26{,}125.
+\]
+\textbf{Étape 3 - Région de rejet.} Au seuil $\alpha=1\%$, on rejette $H_0$ si $\chi^2_0 > \chi^2_{0{,}01\,;\,19}$. D'après la table, $\chi^2_{0{,}01\,;\,19} \approx 36{,}191$.
+
+\textbf{Décision.} Comme $26{,}125 < 36{,}191$, on \textbf{ne rejette pas $H_0$}. Il n'y a pas suffisamment de preuves pour réfuter l'affirmation du responsable de la qualité.
+\end{solution}
+
 
 
 \end{questions}
-\newpage
-.
-\newpage
 \end{document} 
