@@ -72,25 +72,6 @@ Montrez que l'ensemble vide $\emptyset$ est à la fois mutuellement exclusif et 
 \vspace{4cm}
 
 
-\question[3] Soit la table d'analyse de la variance suivante obtenue à l'aide de \texttt{Rcmdr}:
-\begin{verbatim}
->summary(ANOVAModel)
-            Sum Sq   Df   Mean Sq   F value      Pr(>F)    
-Cantons     926.12    4    231.53    238.72    0.000001 
-Residuals   446.55   48      0.97
-\end{verbatim}
-
-À partir de la table d'analyse de la variance, quelle affirmation parmi les suivantes est \textbf{vraie}?
-
-
-
-\begin{checkboxes}
-\choice L'estimation de la moyenne du facteur \texttt{Cantons} est égale à $231,53$. 
-\choice Nous avons 49 observations dans le jeu de données.
-\choice La variance du facteur \texttt{Cantons} est environ 2 fois plus grande que la variance du facteur \texttt{Residuals}.
-\correctchoice Au seuil $\alpha=0,05$, nous pouvons affirmer que les moyennes de la variable réponse à chaque niveaux du facteur \texttt{Cantons} ne sont pas toutes égales.
-\choice Au seuil $\alpha=0,05$, nous pouvons affirmer que les variances de la variable réponse à chaque niveaux du facteur \texttt{Cantons} ne sont pas toutes égales.
-\end{checkboxes}
 
 
 
@@ -104,7 +85,7 @@ Residuals   446.55   48      0.97
     \choice Il nous manque d'information.
 \end{checkboxes}
 
-\vspace{0.5cm}
+\vspace{0.3cm}
 \question[3] 
 On définit la fonction de survie $S_X$ d'une variable aléatoire par $S_X(x)=P(X>x)$ et le taux de défaillance $h_X$ par $h_X(x)=\displaystyle\frac{f_X(x)}{S_X(x)}$, où $f_X$ est la fonction de densité de $X$.
 Soit la variable aléatoire $X$ dont la fonction de répartition est
@@ -126,7 +107,7 @@ Que vaut $h_X$?
     \correctchoice $h_X(x)=1$ pour $x>0$ et $0$ sinon.
 \end{checkboxes}
 
-\pageblanche
+\vspace{0.3cm}
 \question[3] Soit $W\sim\mathcal{N}(1275; 49)$. Laquelle des probabilités suivantes est la plus grande?
 
 \begin{checkboxes}
@@ -136,8 +117,7 @@ Que vaut $h_X$?
     \choice $\displaystyle P\left(\frac{W-1275}{7}>1\right)$
 \end{checkboxes}
 
-\vspace{0.5cm}
-
+\vspace{0.3cm}
 \question[3] Parmi les quatre façons de générer $X$ et $Y$, laquelle donnera $\rho_{X,Y}=1$?
 
 \begin{checkboxes}
@@ -147,7 +127,7 @@ Que vaut $h_X$?
     \choice $X\sim\mathcal{N}(0,1)$ et $Y=X+\epsilon$ où $\epsilon\sim\mathcal{N}(0,1)$
 \end{checkboxes}
 
-
+\pageblanche
 
 \question Dites si les énoncés suivants sont vrais ou faux.
 
@@ -206,7 +186,7 @@ Que vaut $h_X$?
 \end{parts}
 
 \pageblanche
-\question[5] Soit $X_1,\hdots,X_n$ qui indépendants et identiquement distribués selon une loi quelconque $F_X$. 
+\question[6] Soit $X_1,\hdots,X_n$ qui indépendants et identiquement distribués selon une loi quelconque $F_X$. 
 On veut estimer la médiane $\Tilde{\mu}$ de $F_X$ à l'aide de $\overline{X}$.
 Calculez le biais de $\overline{X}$ pour $\Tilde{\mu}$.
 \pageblanche
