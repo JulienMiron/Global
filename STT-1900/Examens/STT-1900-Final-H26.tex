@@ -138,8 +138,7 @@ Que vaut $h_X$?
         \choice Vrai
         \correctchoice Faux
     \end{oneparcheckboxes}
-    
-    \vspace{0.5cm}
+
         \part[1] Soit $x_1,\hdots,x_n$. Si la moyenne échantillonnale est $25$, environ $50\%$ des observations sont plus grandes que $25$ et environ $50\%$ sont plus petites que $25$.
 
     \begin{oneparcheckboxes}
@@ -147,15 +146,14 @@ Que vaut $h_X$?
         \correctchoice Faux
     \end{oneparcheckboxes}
     
-    \vspace{0.5cm}
+
         \part[1] Soit $x_1,\hdots,x_n$. Si $Q_1=12$, nous savons que le minimum de l'échantillon est 12.
 
     \begin{oneparcheckboxes}
         \choice Vrai
         \correctchoice Faux
     \end{oneparcheckboxes}
-    
-    \vspace{0.5cm}
+ 
 
         \part[1] Soit $x_1,\hdots,x_n$. Si la médiane échantillonnale est $25$, nous sommes certains que la valeur de l'observation du milieu est $25$.
 
@@ -164,7 +162,7 @@ Que vaut $h_X$?
         \correctchoice Faux
     \end{oneparcheckboxes}
     
-    \vspace{0.5cm}
+
 
             \part[1] Soit $x_1,\hdots,x_n$. Nous devons changer au moins $50\%$ des observations pour que la moyenne échantillonnale change.
 
@@ -172,8 +170,7 @@ Que vaut $h_X$?
         \choice Vrai
         \correctchoice Faux
     \end{oneparcheckboxes}
-    
-    \vspace{0.5cm}
+  
 
             \part[1] Soit $x_1,\hdots,x_n$ et la médiane échantillonnale $\Tilde{x}$. Si on remplace $x_{(n)}$ par $10x_{(n)}$ (c'est-à-dire une valeur 10 fois plus grande), la nouvelle médiane est $10\Tilde{x}$.
 
@@ -182,13 +179,70 @@ Que vaut $h_X$?
         \correctchoice Faux
     \end{oneparcheckboxes}
     
-    \vspace{0.5cm}
+
 \end{parts}
 
-\pageblanche
-\question[6] Soit $X_1,\hdots,X_n$ qui indépendants et identiquement distribués selon une loi quelconque $F_X$. 
-On veut estimer la médiane $\Tilde{\mu}$ de $F_X$ à l'aide de $\overline{X}$.
-Calculez le biais de $\overline{X}$ pour $\Tilde{\mu}$.
+\question
+Une entreprise fabrique des palettes de chocolat et s'intéresse à la quantité moyenne de sucre dans une palette. Elle choisit au hasard 16 palettes. Dans l'échantillon, la quantité moyenne de sucre par palette est de $5,05 \,g$ et la variance échantillonnale est de $0,011 \, g^2$. Sachant que $X$, la quantité de sucre dans une palette, est une variable aléatoire qui suit une loi normale d'espérance $\mu$ et de variance $\sigma^2=0,01$, elle fait le test suivant, au seuil $\alpha=2,5\%$,
+\begin{align*}
+	H_0 &: \mu = 5 \cr
+	H_1 &: \mu > 5.
+\end{align*}
+
+\begin{parts}
+\part[2] Quelle est la valeur critique du test en grammes, c'est-à-dire, à partir de quelle valeur de $\overline{X}$ rejette-t-on~$H_0$?
+
+\begin{oneparcheckboxes}
+    \choice 1,960
+    \choice 2,131
+    \choice 2,000
+    \CorrectChoice 5,049
+    \choice 5,053 
+\end{oneparcheckboxes} 
+
+\part[2] Quelle est la valeur de la statistique du test sous $H_0$, arrondie à 3 décimales?
+
+\begin{oneparcheckboxes}
+    \choice 1,960
+    \choice 2,131
+    \CorrectChoice 2,000
+    \choice 5,049
+    \choice 5,053 
+\end{oneparcheckboxes} 
+
+\begin{solution}
+Puisque $\sigma^2 = 4$ est connue et $X \sim \text{Normale}$, on utilise le test $Z$. La statistique de test est:
+\[
+z_0 = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}} = \frac{5{,}4 - 5}{2/4} = \frac{0{,}4}{0{,}5} = 0{,}800.
+\]
+\end{solution}
+
+\part[2] Quel est le seuil observé du test?
+
+	\begin{checkboxes}
+	    \choice $\alpha^*=0,025$.
+		\CorrectChoice $\alpha^*=0,02275$.
+		\choice $\alpha^* \in\ ]0,025;0,05[$ .
+		\choice $\alpha^* \in\ ]0,05;0,1[$.
+	\end{checkboxes}
+
+\begin{solution}
+Le seuil observé est $0{,}212 > 0{,}05 = \alpha$. On ne rejette pas $H_0$. Au seuil $\alpha = 5\%$, la quantité moyenne de sucre dans une palette n'est pas significativement supérieure à $5\,g$.
+\end{solution}
+
+\part[3] Si en réalité $\mu=5,1$ et que la règle de décision est de rejeter $H_0$ si $\displaystyle\frac{\overline{X}-5}{0,025}>1,96$, quelle est l'expression de la puissance du test? 
+
+\begin{checkboxes}
+    \choice $P\left(\displaystyle \frac{\overline{X}-5,1}{0,025}>1,96\right)$
+    \choice $P\left(\displaystyle \frac{\overline{X}-5,1}{0,025}>-2,04\right)$
+    \choice $P\left(\displaystyle \frac{\overline{X}-5}{0,025}>1,96\right)$
+    \choice $P\left(\displaystyle \frac{\overline{X}-5}{0,025}>-2,04\right)$
+\end{checkboxes}
+
+\end{parts}
+%%%%%%%%%%%%%%%% FIN DES QUESTIONS %%%%%%%%%%%%%%%%
+
+
 \pageblanche
  \question Soit $X_1,\hdots, X_{14}$, des variables aléatoires indépendantes et identiquement distribuées selon une loi normale d’espérance $\mu$ et de variance $\sigma^2$. 
 Nous désirons construire l'intervalle de confiance approprié de niveau $95\%$ pour $\sigma^2$. Nous notons cet intervalle $[C_1;C_2]$.
@@ -253,67 +307,7 @@ On obtient $\overline{x}=20,994$, $\overline{y}=12$, $s_X^2=20$ et $s_Y^2=12$. Q
 
 
 \pageblanche
-\question
-Une entreprise fabrique des palettes de chocolat et s'intéresse à la quantité moyenne de sucre dans une palette. Elle choisit au hasard 16 palettes. Dans l'échantillon, la quantité moyenne de sucre par palette est de $5,05 \,g$ et la variance échantillonnale est de $0,011 \, g^2$. Sachant que $X$, la quantité de sucre dans une palette, est une variable aléatoire qui suit une loi normale d'espérance $\mu$ et de variance $\sigma^2=0,01$, elle fait le test suivant, au seuil $\alpha=2,5\%$,
-\begin{align*}
-	H_0 &: \mu = 5 \cr
-	H_1 &: \mu > 5.
-\end{align*}
 
-\begin{parts}
-\part[2] Quelle est la valeur critique du test en grammes, c'est-à-dire, à partir de quelle valeur de $\overline{X}$ rejette-t-on~$H_0$?
-
-\begin{oneparcheckboxes}
-    \choice 1,960
-    \choice 2,131
-    \choice 2,000
-    \CorrectChoice 5,049
-    \choice 5,053 
-\end{oneparcheckboxes} 
-
-\part[2] Quelle est la valeur de la statistique du test sous $H_0$, arrondie à 3 décimales?
-
-\begin{oneparcheckboxes}
-    \choice 1,960
-    \choice 2,131
-    \CorrectChoice 2,000
-    \choice 5,049
-    \choice 5,053 
-\end{oneparcheckboxes} 
-
-\begin{solution}
-Puisque $\sigma^2 = 4$ est connue et $X \sim \text{Normale}$, on utilise le test $Z$. La statistique de test est:
-\[
-z_0 = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}} = \frac{5{,}4 - 5}{2/4} = \frac{0{,}4}{0{,}5} = 0{,}800.
-\]
-\end{solution}
-
-\part[2] Quel est le seuil observé du test?
-
-	\begin{checkboxes}
-	    \choice $\alpha^*=0,025$.
-		\CorrectChoice $\alpha^*=0,02275$.
-		\choice $\alpha^* \in\ ]0,025;0,05[$ .
-		\choice $\alpha^* \in\ ]0,05;0,1[$.
-	\end{checkboxes}
-
-\begin{solution}
-Le seuil observé est $0{,}212 > 0{,}05 = \alpha$. On ne rejette pas $H_0$. Au seuil $\alpha = 5\%$, la quantité moyenne de sucre dans une palette n'est pas significativement supérieure à $5\,g$.
-\end{solution}
-
-\part[3] Si en réalité $\mu=5,1$ et que la règle de décision est de rejeter $H_0$ si $\displaystyle\frac{\overline{X}-5}{0,025}>1,96$, quelle est l'expression de la puissance du test? 
-
-\begin{checkboxes}
-    \choice $P\left(\displaystyle \frac{\overline{X}-5,1}{0,025}>1,96\right)$
-    \choice $P\left(\displaystyle \frac{\overline{X}-5,1}{0,025}>-2,04\right)$
-    \choice $P\left(\displaystyle \frac{\overline{X}-5}{0,025}>1,96\right)$
-    \choice $P\left(\displaystyle \frac{\overline{X}-5}{0,025}>-2,04\right)$
-\end{checkboxes}
-
-\end{parts}
-%%%%%%%%%%%%%%%% FIN DES QUESTIONS %%%%%%%%%%%%%%%%
-
-\pageblanche
 \question 
 Un ingénieur veut vérifier s'il existe une différence de rigidité d'un certain type de disque, selon le pourcentage de \textit{Pouliovachium} qui le compose.
 
@@ -527,6 +521,9 @@ L'effet de la durée de cure n'est donc pas significatif au seuil 5\%, lorsque $
 
 \end{parts}
 
+\question[6] Soit $X_1,\hdots,X_n$ qui indépendants et identiquement distribués selon une loi quelconque $F_X$. 
+On veut estimer la médiane $\Tilde{\mu}$ de $F_X$ à l'aide de $\overline{X}$.
+Calculez le biais de $\overline{X}$ pour $\Tilde{\mu}$.
 
 \end{questions}
 \pageblanche
