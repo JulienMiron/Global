@@ -430,8 +430,108 @@ $\hat{\beta}_1$=\boite{2.5}{1.5}
 \vspace{1cm}
 
 \pageblanche
-\question 
+\question\label{RegMultiple}
+Un ingénieur civil cherche à modéliser la résistance à la compression (en MPa) d'une formulation de béton à partir de trois variables : la proportion de ciment ($X_1$, en \%), le rapport eau/ciment ($X_2$) et la durée de cure ($X_3$, en jours).
+Il ajuste le modèle de régression linéaire multiple suivant :
+$$Y_i=\beta_0+\beta_1X_{i1}+\beta_2X_{i2}+\beta_3X_{i3}+E_i,$$
+où les $E_i$ sont indépendants et identiquement distribués de loi $\mathcal{N}(0,\,\sigma^2)$.
+Les données portent sur $47$ mélanges de béton. Les sorties suivantes ont été obtenues, deux éléments étant remplacés par \texttt{AAA} et \texttt{BBB}.
 
+\begin{verbatim}
+> summary(RegModel.1)
+Call:
+lm(formula = Resistance ~ Ciment + EauCiment + DureeCure, data = Beton)
+
+Coefficients:
+             Estimate  Std. Error   t value   Pr(>|t|)
+(Intercept)   2.34150     0.38520     6.079   0.000001
+Ciment        0.42900     0.14300       AAA     0.0041
+EauCiment    -3.15200     0.71040    -4.436   0.000001
+DureeCure     0.08830     0.11260     0.784     0.4373
+
+Residual standard error: 2.187  on 43 degrees of freedom
+Multiple R-squared:  0.7650,  Adjusted R-squared:  BBB
+F-statistic: 46.77  on 3 and 43 DF,  p-value:  0.000001
+\end{verbatim}
+
+\begin{parts}
+
+\part[1] Quelle est la valeur de \texttt{AAA}?
+
+\medskip\begin{oneparcheckboxes}
+    \choice $-3{,}000$
+    \CorrectChoice $3{,}000$
+    \choice $2{,}037$
+    \choice $6{,}079$
+\end{oneparcheckboxes}\medskip
+
+\begin{solution}
+$\texttt{AAA} = t = \dfrac{0{,}4290}{0{,}1430} = 3{,}000$.
+\end{solution}
+
+\vspace{0.5cm}
+
+\part[3] Calculez la valeur de \texttt{BBB}, le $R^2$ ajusté. \textbf{\textit{Donnez les détails de votre démarche.}}
+
+\begin{solution}
+\[
+R^2_{\text{ajusté}} = 1-(1-R^2)\times\frac{n-1}{n-k-1}
+= 1-(1-0{,}7650)\times\frac{46}{43}
+= 1-0{,}235\times 1{,}06977
+= 1-0{,}25140
+= 0{,}7486.
+\]
+\end{solution}
+
+\vspace{5cm}
+
+\part[2] Au seuil de 5\%, l'effet de la durée de cure ($X_3$) sur la résistance à la compression est-il significatif, en présence des deux autres variables dans le modèle? Une seule réponse est bonne.
+
+\medskip\begin{checkboxes}
+    \choice Oui.
+    \CorrectChoice Non.
+    \choice Nous n'avons pas assez d'information pour le savoir.
+\end{checkboxes}\medskip
+
+\begin{solution}
+La valeur-$p$ de $X_3$ (\texttt{DureeCure}) est $0{,}4373 > 0{,}05 = \alpha$.
+On ne rejette pas $H_0 : \beta_3 = 0$.
+L'effet de la durée de cure n'est donc pas significatif au seuil 5\%, lorsque $X_1$ et $X_2$ sont déjà dans le modèle.
+\end{solution}
+
+\vspace{0.5cm}
+
+\part Nous voulons maintenant tester, au seuil 5\%,
+\begin{align*}
+    H_0 &: \text{aucune des variables indépendantes n'a d'effet sur la résistance à la compression,}\\
+    H_1 &: \text{au moins une variable indépendante a un effet sur la résistance à la compression.}
+\end{align*}
+
+\begin{subparts}
+    \subpart[1] Quelle est la valeur-$p$ associée à ce test?
+
+    \begin{checkboxes}
+        \choice $0{,}0041$
+        \choice $0{,}4373$
+        \CorrectChoice $0{,}000001$
+        \choice $0{,}05$
+        \choice Nous n'avons pas assez d'information pour le savoir.
+    \end{checkboxes}
+
+    \vspace{0.5cm}
+
+    \subpart[1] Quelle est la conclusion?
+
+    \medskip\begin{checkboxes}
+        \CorrectChoice Nous rejetons $H_0$ au seuil 5\% : au moins une variable a un effet significatif sur la résistance à la compression.
+        \choice Nous ne rejetons pas $H_0$ au seuil 5\%.
+        \choice Aucune des trois variables n'a d'effet significatif sur la résistance à la compression.
+        \choice Nous ne pouvons pas conclure car des valeurs sont inconnues.
+    \end{checkboxes}
+
+\end{subparts}
+
+\end{parts}
 
 
 \end{questions}
