@@ -1,0 +1,6 @@
+PWD /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/STT-1920/Examens
+INPUT /usr/local/texlive/2025/texmf.cnf
+INPUT /usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf
+INPUT /usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT STT-1920-Exercices-ANOVA.tex
+OUTPUT STT-1920-Exercices-ANOVA.log
