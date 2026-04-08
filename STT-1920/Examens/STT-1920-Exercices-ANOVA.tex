@@ -63,7 +63,7 @@ Une seule réponse est bonne.
 
 \begin{checkboxes}
     \choice L'activité LDH moyenne estimée pour le facteur \texttt{Groupe} vaut $36{,}80$ U/L.
-    \choice Il y a $5$ niveaux différents pour le facteur \texttt{Groupe}.
+    \choice Il y a $3$ niveaux différents pour le facteur \texttt{Groupe}.
     \choice Il y a $17$ observations en tout dans le jeu de données.
     \correctchoice Au seuil $\alpha=0{,}05$, nous pouvons affirmer que l'activité LDH moyenne n'est pas la même dans tous les groupes.
     \choice Au seuil $\alpha=0{,}01$, nous ne rejetons pas $H_0$.
@@ -90,7 +90,7 @@ Une seule réponse est bonne.
 % ─────────────────────────────────────────────────────────────────────────────
 
 \question
-Un biochimiste étudie l'effet de $k=5$ substrats différents sur l'activité d'une enzyme
+Un biochimiste étudie l'effet de $I=5$ substrats différents sur l'activité d'une enzyme
 (en nmol/min/mg de protéine). Il réalise $n=6$ mesures par substrat ($N=30$ au total).
 La table d'ANOVA partielle suivante a été produite; certaines quantités ont été remplacées
 par \texttt{AAA}, \texttt{BBB} et \texttt{CCC}.
@@ -98,7 +98,7 @@ Nous considérons que les postulats du modèle sont respectés.
 
 \begin{verbatim}
 ANOVA
-                  SS  Ddl      MS      F0  Pr(>F0)
+                SS  Ddl      MS      F0  Pr(>F0)
 Substrat    185.40  ???     AAA   5.297   0.0037
 Erreur         BBB   25    8.75
 Total          CCC  ???
@@ -188,7 +188,7 @@ Total          CCC  ???
 \question
 Un chercheur en nutrition clinique étudie l'effet de trois régimes alimentaires sur la
 glycémie à jeun (en mmol/L) de patients diabétiques de type 2.
-Il assigne $n=8$ patients à chacun des $k=3$ régimes ($N=24$ au total).
+Il assigne $n=8$ patients à chacun des $I=3$ régimes ($N=24$ au total).
 Les résultats sont résumés ci-dessous.
 On suppose que les postulats de l'ANOVA à un facteur sont satisfaits.
 
@@ -271,15 +271,15 @@ Hyperprotéiné      & $18{,}0$ & $3{,}0$ \\
 % ─────────────────────────────────────────────────────────────────────────────
 
 \question
-Un microbiologiste compare la zone d'inhibition (en mm) de $k=4$ antibiotiques sur une
+Un microbiologiste compare la zone d'inhibition (en mm) de $I=4$ antibiotiques sur une
 souche de \textit{Staphylococcus aureus}. Chaque antibiotique est testé sur $n=10$
 cultivations indépendantes ($N=40$ au total).
 La table ci-dessous est obtenue :
 
 \begin{verbatim}
 > summary(ANOVAModel)
-                        SS  Ddl      MS      F0  Pr(>F0)
-Antibiotique    241.50    3   80.50   2.483   0.0763
+                     SS  Ddl      MS      F0  Pr(>F0)
+Antibiotique     241.50    3   80.50   2.483   0.0763
 Erreur          1167.48   36   32.43
 \end{verbatim}
 
@@ -354,7 +354,7 @@ Pour chaque énoncé qui suit, indiquez si l'énoncé est \textbf{vrai} ou \text
 
 \question
 Un microbiologiste veut savoir si la teneur en protéines extracellulaires (en $\mu$g/mL) diffère
-selon la souche bactérienne. Ses données portent sur $k=6$ souches de \textit{Escherichia coli},
+selon la souche bactérienne. Ses données portent sur $I=6$ souches de \textit{Escherichia coli},
 avec $n=5$ réplicats par souche ($N=30$ au total).
 Il obtient :
 \[
@@ -435,13 +435,13 @@ On suppose que les postulats du modèle sont satisfaits.
 
 \question
 Une oncologiste compare le niveau d'expression d'un biomarqueur tumoral (en unités arbitraires)
-dans $k=3$ types de cellules cancéreuses (MCF-7, MDA-MB-231 et T47D).
+dans $I=3$ types de cellules cancéreuses (MCF-7, MDA-MB-231 et T47D).
 Elle effectue $n=7$ mesures par type cellulaire ($N=21$ au total).
 La table d'analyse de la variance suivante est produite par \texttt{Rcmdr} :
 
 \begin{verbatim}
 > summary(ANOVAModel)
-                       SS  Ddl      MS      F0  Pr(>F0)
+                   SS  Ddl      MS      F0  Pr(>F0)
 TypeCellule    324.00    2  162.00  16.200   0.0001
 Erreur         180.00   18   10.00
 \end{verbatim}
@@ -479,7 +479,7 @@ Une seule réponse est bonne.
 % ─────────────────────────────────────────────────────────────────────────────
 
 \question
-Un néphrologue évalue l'effet de $k=4$ protocoles de dialyse sur le pH sanguin de patients
+Un néphrologue évalue l'effet de $I=4$ protocoles de dialyse sur le pH sanguin de patients
 en insuffisance rénale chronique.
 Il administre chaque protocole à $n=8$ patients ($N=32$ au total).
 La table d'ANOVA partielle suivante a été produite; certaines quantités ont été remplacées
@@ -488,8 +488,8 @@ Nous considérons que les postulats du modèle sont respectés.
 
 \begin{verbatim}
 ANOVA
-                   SS  Ddl      MS      F0  Pr(>F0)
-Protocole      6.72  ???     AAA   5.600   0.0039
+                  SS  Ddl      MS      F0  Pr(>F0)
+Protocole       6.72  ???     AAA   5.600   0.0039
 Erreur           BBB   28    0.40
 Total            ???  ???
 \end{verbatim}
@@ -668,7 +668,7 @@ La table ci-dessous est obtenue :
 
 \begin{verbatim}
 > summary(ANOVAModel)
-                 SS  Ddl      MS      F0  Pr(>F0)
+               SS  Ddl      MS      F0  Pr(>F0)
 Statine    540.00    2  270.00  10.800   0.0003
 Erreur     825.00   33   25.00
 \end{verbatim}
