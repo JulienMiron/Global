@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1775743853.4474 "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/STT-1900/Examens/STT-1900-Final-H26.tex" "STT-1900-Final-H26.pdf" "STT-1900-Final-H26" 1775743854.54875 0
+["pdflatex"] 1775753528.11525 "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/STT-1900/Examens/STT-1900-Final-H26.tex" "STT-1900-Final-H26.pdf" "STT-1900-Final-H26" 1775753529.08919 0
   "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/Evaluation.cls" 1775570778.04575 18851 d8b8a845b64ea1372f301b8d9587b073 ""
   "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/logo_ul.pdf" 1770990973.09248 24889 6ad5d339e8b9c5d473a3c0752b7f7a43 ""
-  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/STT-1900/Examens/STT-1900-Final-H26.tex" 1775743853.20997 19305 cbf867ce427614d749615f7c00582101 ""
+  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/STT-1900/Examens/STT-1900-Final-H26.tex" 1775753525.79105 19804 3b7551a055782109f56bb8b71b4c119f ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevoml.enc" 1153172756 2921 ae68ca7d9a4902b5e8c8b47846fadadb ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevoms.enc" 1153172756 3537 5668d9ed3132b78b010223039ece2e6f ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevot1.enc" 1153172756 3020 a1ac7e8d91c840af41a220ec7126413f ""
@@ -230,7 +230,7 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1770908146 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "STT-1900-Final-H26.aux" 1775743854.45949 7896 f624d812944e339f1113d3d3c0803624 "pdflatex"
+  "STT-1900-Final-H26.aux" 1775753529.01375 8154 570cb7e554b0e82fc755ae01e3e1a8d3 "pdflatex"
   (generated)
   "STT-1900-Final-H26.aux"
   "STT-1900-Final-H26.log"
