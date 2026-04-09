@@ -399,6 +399,8 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/vf/public/arev/zavmr7y.vf
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/mathdesign/mdbch/md-chb7y.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/arev/favr8t.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/arev/favr8t.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/arev/favr8t.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/vf/public/arev/favr8t.vf
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/arev/favr8r.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevoms.enc
@@ -420,8 +422,6 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/vf/public/mathdesign/mdbch/mdbchr
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/mathdesign/mdbch/md-chr7v.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/vf/public/arev/zavmr7y.vf
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/mathdesign/mdbch/md-chb7y.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/arev/favr8t.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/arev/favr8t.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/fourier/fourier-bb.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/fourier/fourier-bb.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/fourier/fourier-bb.tfm

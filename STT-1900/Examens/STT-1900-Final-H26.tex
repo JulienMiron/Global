@@ -69,6 +69,11 @@
 \question[3]
 Montrez que l'ensemble vide $\emptyset$ est à la fois mutuellement exclusif et indépendant de tout événement $A$ pour lequel $0<P(A)<1$.
 
+\begin{solution}
+\textbf{Mutuellement exclusifs :} $A\cap\emptyset=\emptyset$ pour tout événement $A$, donc $P(A\cap\emptyset)=P(\emptyset)=0$. Ainsi $A$ et $\emptyset$ sont mutuellement exclusifs. \\[4pt]
+\textbf{Indépendants :} $P(A\cap\emptyset)=P(\emptyset)=0$ et $P(A)\cdot P(\emptyset)=P(A)\cdot 0=0$. Donc $P(A\cap\emptyset)=P(A)\cdot P(\emptyset)$, ce qui signifie que $A$ et $\emptyset$ sont indépendants.
+\end{solution}
+
 \vspace{4cm}
 
 
@@ -81,9 +86,13 @@ Montrez que l'ensemble vide $\emptyset$ est à la fois mutuellement exclusif et 
 \begin{checkboxes}
     \choice Il s'agit d'un test bilatéral.
     \choice Il s'agit d'un test unilatéral à droite.
-    \choice Il s'agit d'un test unilatéral à gauche.
+    \correctchoice Il s'agit d'un test unilatéral à gauche.
     \choice Il nous manque d'information.
 \end{checkboxes}
+
+\begin{solution}
+Sous $H_1:\sigma^2_X>\sigma^2_Y$, $\sigma^2_X$ tend à être grande, donc $S_X^2$ tend à être grande, et ainsi $F_0=S_Y^2/S_X^2$ tend à être petite. On rejette $H_0$ pour de petites valeurs de $F_0$ : il s'agit d'un test unilatéral à gauche.
+\end{solution}
 
 \vspace{0.3cm}
 \question[3] 
@@ -103,9 +112,13 @@ Que vaut $h_X$?
 \begin{checkboxes}
     \choice $h_X(x)=3e^{-3x}$ pour $x> 0$ et $0$ sinon.
     \choice $h_X(x)=e^{-3x}$ pour $x> 0$ et $0$ sinon.
-    \choice $h_X(x)=3$ pour $x> 0$ et $0$ sinon.
-    \correctchoice $h_X(x)=1$ pour $x>0$ et $0$ sinon.
+    \correctchoice $h_X(x)=3$ pour $x> 0$ et $0$ sinon.
+    \choice $h_X(x)=1$ pour $x>0$ et $0$ sinon.
 \end{checkboxes}
+
+\begin{solution}
+$f_X(x)=3e^{-3x}$ et $S_X(x)=P(X>x)=e^{-3x}$ pour $x>0$. Donc $h_X(x)=\dfrac{f_X(x)}{S_X(x)}=\dfrac{3e^{-3x}}{e^{-3x}}=3$ pour $x>0$.
+\end{solution}
 
 \vspace{0.3cm}
 \question[3] Soit $W\sim\mathcal{N}(1275; 49)$. Laquelle des probabilités suivantes est la plus grande?
@@ -117,6 +130,17 @@ Que vaut $h_X$?
     \choice $\displaystyle P\left(\frac{W-1275}{7}>1\right)$
 \end{checkboxes}
 
+\begin{solution}
+Posons $Z=(W-1275)/7\sim\mathcal{N}(0;1)$. Alors :
+\begin{itemize}
+  \item $P(W>1282)=P(Z>1)$,
+  \item $P(W<1268)=P(Z<-1)=P(Z>1)$ (symétrie de la loi normale),
+  \item $P\!\left(\frac{W-1275}{7}>0{,}5\right)=P(Z>0{,}5)$,
+  \item $P\!\left(\frac{W-1275}{7}>1\right)=P(Z>1)$.
+\end{itemize}
+Puisque $P(Z>0{,}5)>P(Z>1)$, la troisième probabilité est la plus grande.
+\end{solution}
+
 \vspace{0.3cm}
 \question[3] Parmi les quatre façons de générer $X$ et $Y$, laquelle donnera $\rho_{X,Y}=1$?
 
@@ -126,6 +150,10 @@ Que vaut $h_X$?
     \choice $X\sim\mathcal{N}(0,1)$ et $Y=X^2$
     \choice $X\sim\mathcal{N}(0,1)$ et $Y=X+\epsilon$ où $\epsilon\sim\mathcal{N}(0,1)$
 \end{checkboxes}
+
+\begin{solution}
+Si $Y=X$, alors $\text{Cov}(X,Y)=\text{Var}(X)$ et $\text{Var}(Y)=\text{Var}(X)$, donc $\rho_{X,Y}=\dfrac{\text{Cov}(X,Y)}{\sqrt{\text{Var}(X)}\sqrt{\text{Var}(Y)}}=\dfrac{\text{Var}(X)}{\text{Var}(X)}=1$.
+\end{solution}
 
 \pageblanche
 
@@ -139,6 +167,10 @@ Que vaut $h_X$?
         \correctchoice Faux
     \end{oneparcheckboxes}
 
+    \begin{solution}
+    Faux. Si $n$ est pair, la médiane est la moyenne des deux observations centrales; aucune d'elles n'est forcément égale à $25$. Cette propriété n'est garantie que si $n$ est impair.
+    \end{solution}
+
         \part[1] Soit $x_1,\hdots,x_n$. Si la moyenne échantillonnale est $25$, environ $50\%$ des observations sont plus grandes que $25$ et environ $50\%$ sont plus petites que $25$.
 
     \begin{oneparcheckboxes}
@@ -146,6 +178,9 @@ Que vaut $h_X$?
         \correctchoice Faux
     \end{oneparcheckboxes}
     
+    \begin{solution}
+    Faux. C'est une propriété de la \textbf{médiane}, pas de la moyenne. La moyenne est sensible aux valeurs extrêmes et ne partage pas nécessairement l'échantillon en deux moitiés égales.
+    \end{solution}
 
         \part[1] Soit $x_1,\hdots,x_n$. Si $Q_1=12$, nous savons que le minimum de l'échantillon est 12.
 
@@ -154,6 +189,9 @@ Que vaut $h_X$?
         \correctchoice Faux
     \end{oneparcheckboxes}
  
+    \begin{solution}
+    Faux. $Q_1$ est le premier quartile (25\textsuperscript{e} percentile); le minimum de l'échantillon peut être strictement inférieur à $Q_1$.
+    \end{solution}
 
         \part[1] Soit $x_1,\hdots,x_n$. Si la médiane échantillonnale est $25$, nous sommes certains que la valeur de l'observation du milieu est $25$.
 
@@ -162,6 +200,9 @@ Que vaut $h_X$?
         \correctchoice Faux
     \end{oneparcheckboxes}
 
+    \begin{solution}
+    Faux. Même justification que la partie (a) : si $n$ est pair, la médiane est la moyenne des deux observations centrales.
+    \end{solution}
     
 
 \end{parts}
@@ -184,6 +225,11 @@ Une entreprise fabrique des palettes de chocolat et s'intéresse à la quantité
     \choice 5,053 
 \end{oneparcheckboxes} 
 
+\begin{solution}
+Puisque $\sigma^2=0{,}01$ est connue, on utilise le test $Z$ unilatéral à droite. La valeur critique en grammes est :
+$$\mu_0 + z_{\alpha}\,\frac{\sigma}{\sqrt{n}} = 5 + 1{,}960\times\frac{0{,}1}{\sqrt{16}} = 5 + 1{,}960\times 0{,}025 = 5{,}049.$$
+\end{solution}
+
 \part[2] Quelle est la valeur de la statistique du test sous $H_0$, arrondie à 3 décimales?
 
 \begin{oneparcheckboxes}
@@ -195,9 +241,9 @@ Une entreprise fabrique des palettes de chocolat et s'intéresse à la quantité
 \end{oneparcheckboxes} 
 
 \begin{solution}
-Puisque $\sigma^2 = 4$ est connue et $X \sim \text{Normale}$, on utilise le test $Z$. La statistique de test est:
+Puisque $\sigma^2 = 0{,}01$ est connue et $X \sim \text{Normale}$, on utilise le test $Z$. La statistique de test est :
 \[
-z_0 = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}} = \frac{5{,}4 - 5}{2/4} = \frac{0{,}4}{0{,}5} = 0{,}800.
+z_0 = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}} = \frac{5{,}05 - 5}{0{,}1/\sqrt{16}} = \frac{0{,}05}{0{,}025} = 2{,}000.
 \]
 \end{solution}
 
@@ -211,17 +257,26 @@ z_0 = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}} = \frac{5{,}4 - 5}{2/4} = \frac{0{
 	\end{checkboxes}
 
 \begin{solution}
-Le seuil observé est $0{,}212 > 0{,}05 = \alpha$. On ne rejette pas $H_0$. Au seuil $\alpha = 5\%$, la quantité moyenne de sucre dans une palette n'est pas significativement supérieure à $5\,g$.
+$\alpha^* = P(Z > z_0) = P(Z > 2{,}000) = 1 - \Phi(2) \approx 0{,}02275$. Puisque $\alpha^* = 0{,}02275 < \alpha = 0{,}025$, on rejette $H_0$ au seuil $2{,}5\%$.
 \end{solution}
 
 \part[4] Si en réalité $\mu=5,1$ et que la règle de décision est de rejeter $H_0$ si $\displaystyle\frac{\overline{X}-5}{0,025}>1,96$, quelle est l'expression de la puissance du test? 
 
 \begin{checkboxes}
     \choice $P\left(\displaystyle \frac{\overline{X}-5,1}{0,025}>1,96\right)$
-    \choice $P\left(\displaystyle \frac{\overline{X}-5,1}{0,025}>-2,04\right)$
+    \correctchoice $P\left(\displaystyle \frac{\overline{X}-5,1}{0,025}>-2,04\right)$
     \choice $P\left(\displaystyle \frac{\overline{X}-5}{0,025}>1,96\right)$
     \choice $P\left(\displaystyle \frac{\overline{X}-5}{0,025}>-2,04\right)$
 \end{checkboxes}
+
+\begin{solution}
+La puissance est $P(\text{rejeter }H_0\mid\mu=5{,}1)$. La règle de décision est de rejeter $H_0$ quand $\overline{X}>5+1{,}96\times 0{,}025=5{,}049$.
+\begin{align*}
+\text{Puissance}&=P(\overline{X}>5{,}049\mid\mu=5{,}1)
+=P\!\left(\frac{\overline{X}-5{,}1}{0{,}025}>\frac{5{,}049-5{,}1}{0{,}025}\right)
+=P\!\left(\frac{\overline{X}-5{,}1}{0{,}025}>-2{,}04\right).
+\end{align*}
+\end{solution}
 
 \end{parts}
 %%%%%%%%%%%%%%%% FIN DES QUESTIONS %%%%%%%%%%%%%%%%
@@ -234,23 +289,20 @@ Nous désirons construire l'intervalle de confiance approprié de niveau $95\%$ 
     \part[3] Que vaut $\mathbb{E}[C_2]$?
 
     \begin{solution}
-        Puisque $\sigma^2 = 400$ est connu et que les $X_i$ suivent une loi normale, l'intervalle de confiance à 95\% est:
-        $$\left[\bar{X}-z_{0{,}025}\frac{\sigma}{\sqrt{n}}\;;\;\bar{X}+z_{0{,}025}\frac{\sigma}{\sqrt{n}}\right]=\left[\bar{X}-1{,}96\times\frac{20}{10}\;;\;\bar{X}+1{,}96\times\frac{20}{10}\right]$$
-        Donc $C_1=\bar{X}-3{,}92$ et $C_2=\bar{X}+3{,}92$.
-        \begin{align*}
-            E(C_2)&=E(\bar{X}+3{,}92)\\
-            &= E(\bar{X})+3{,}92\\
-            &= \mu + 3{,}92
-        \end{align*}
+        L'IC à $95\%$ pour $\sigma^2$ (avec $\mu$ inconnu, $n=14$) est basé sur $\dfrac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1}$~:
+        $$[C_1;C_2]=\left[\frac{13S^2}{\chi^2_{0{,}975,\,13}}\;;\;\frac{13S^2}{\chi^2_{0{,}025,\,13}}\right]\quad\text{o\`u }\chi^2_{0{,}025,\,13}\approx 5{,}009.$$
+        Ainsi $C_2=\dfrac{13S^2}{\chi^2_{0{,}025,\,13}}$ et, puisque $\mathbb{E}[S^2]=\sigma^2$~:
+        $$\mathbb{E}[C_2]=\frac{13\,\mathbb{E}[S^2]}{\chi^2_{0{,}025,\,13}}=\frac{13\sigma^2}{\chi^2_{0{,}025,\,13}}.$$
     \end{solution}
     \vspace{7cm}
     \part[4] Que vaut $\text{Var}[C_2]$?
 
     \begin{solution}
         \begin{align*}
-            \text{Var}(C_2)&=\text{Var}(\bar{X}+3{,}92)\\
-            &= \text{Var}(\bar{X})\\
-            &= \frac{\sigma^2}{n}=\frac{400}{100}=4
+            \text{Var}(C_2)&=\text{Var}\!\left(\frac{13S^2}{\chi^2_{0{,}025,\,13}}\right)
+            =\left(\frac{13}{\chi^2_{0{,}025,\,13}}\right)^{\!2}\text{Var}(S^2)
+            =\left(\frac{13}{\chi^2_{0{,}025,\,13}}\right)^{\!2}\frac{2\sigma^4}{n-1}
+            =\frac{2\times 13\,\sigma^4}{\left(\chi^2_{0{,}025,\,13}\right)^{2}}.
         \end{align*}
     \end{solution}
     \vspace{7cm}
@@ -259,10 +311,9 @@ Nous désirons construire l'intervalle de confiance approprié de niveau $95\%$ 
 
     \begin{solution}
         \begin{align*}
-            P(C_2\leq \mu)&=P(\bar{X}+3{,}92\leq \mu)\\
-            &= P\left(\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}\leq \frac{-3{,}92}{20/10}\right)\\
-            &= P(Z\leq -1{,}96)\\
-            &= 0{,}025
+            P(C_2\geq\sigma^2)&=P\!\left(\frac{13S^2}{\chi^2_{0{,}025,\,13}}\geq\sigma^2\right)
+            =P\!\left(\frac{13S^2}{\sigma^2}\geq\chi^2_{0{,}025,\,13}\right)
+            =P\!\left(\chi^2_{13}\geq\chi^2_{0{,}025,\,13}\right)=1-0{,}025=0{,}975.
         \end{align*}
     \end{solution}
 
@@ -277,10 +328,40 @@ Nous désirons construire l'intervalle de confiance approprié de niveau $95\%$ 
 \question[9] Soit $X_1,\hdots, X_{n}$ qui proviennent d'une loi normale d'espérance $\mu$ et de variance $\sigma^2=25$. 
 On fait le test d'hypothèses pour lequel $H_0:\mu=5$ et $H_1:\mu>5$ au seuil $\alpha=2,5\%$.
 Pour quelles valeurs de $n$ rejette-t-on $H_0$ si $\overline{x}=5,1$?
+
+\begin{solution}
+Puisque $\sigma^2=25$ est connue, on utilise le test $Z$ unilatéral à droite. La statistique de test est :
+$$z_0=\frac{\overline{x}-\mu_0}{\sigma/\sqrt{n}}=\frac{5{,}1-5}{5/\sqrt{n}}=\frac{0{,}1\sqrt{n}}{5}=\frac{\sqrt{n}}{50}.$$
+On rejette $H_0$ si $z_0>z_{0{,}025}=1{,}96$ :
+$$\frac{\sqrt{n}}{50}>1{,}96\;\Leftrightarrow\;\sqrt{n}>98\;\Leftrightarrow\;n>9604.$$
+On rejette donc $H_0$ pour tout $n\geq 9605$.
+\end{solution}
+
 \pageblanche
 
 
+\question[9] Soit $X_1,\hdots,X_{4}$ et $Y_1,\hdots,Y_{3}$ deux échantillons aléatoires provenant respectivement de lois normales d'espérances $\mu_X$ et $\mu_Y$ et de variance $\sigma^2_X$ et $\sigma^2_Y$, supposées inégales.
+On veut procéder au test de seuil $5\%$ avec les hypothèses
 
+\begin{align*}
+    H_0:\mu_X-\mu_Y=0, & & H_1:\mu_X-\mu_Y>0.
+\end{align*}
+
+On obtient $\overline{x}=20{,}994$, $\overline{y}=12$, $s_X^2=20$ et $s_Y^2=12$. Quel est le seuil observé du test?
+
+\begin{solution}
+On utilise le test de Welch (variances inégales). L'écart-type de la différence est :
+$$se=\sqrt{\frac{s_X^2}{n_X}+\frac{s_Y^2}{n_Y}}=\sqrt{\frac{20}{4}+\frac{12}{3}}=\sqrt{5+4}=\sqrt{9}=3.$$
+La statistique de test est :
+$$t_0=\frac{\overline{x}-\overline{y}}{se}=\frac{20{,}994-12}{3}=\frac{8{,}994}{3}\approx 2{,}998.$$
+Les degrés de liberté de Welch-Satterthwaite :
+$$\hat{\nu}=\frac{\left(\frac{s_X^2}{n_X}+\frac{s_Y^2}{n_Y}\right)^{\!2}}{\frac{(s_X^2/n_X)^2}{n_X-1}+\frac{(s_Y^2/n_Y)^2}{n_Y-1}}
+=\frac{(5+4)^2}{\frac{25}{3}+\frac{16}{2}}=\frac{81}{8{,}333+8}=\frac{81}{16{,}333}\approx 4{,}96\rightarrow 4.$$
+Le seuil observé est $\alpha^*=P(T_4>2{,}998)$. D'après la table de la loi $t$, $t_{0{,}025,\,4}=2{,}776$ et $t_{0{,}01,\,4}=3{,}747$. Puisque $2{,}776<2{,}998<3{,}747$, on a $\alpha^*\in\,]0{,}01\,;\,0{,}025[$. On rejette $H_0$ au seuil $5\%$.
+\end{solution}
+
+
+\pageblanche
 
 \question[9] Soit $X_1,\hdots,X_{4}$ et $Y_1,\hdots,Y_{3}$ deux échantillons aléatoires provenant respectivement de lois normales d'espérances $\mu_X$ et $\mu_Y$ et de variance $\sigma^2_X$ et $\sigma^2_Y$, supposées égales.
 On veut procéder au test de seuil $5\%$ avec les hypothèses
@@ -290,6 +371,16 @@ On veut procéder au test de seuil $5\%$ avec les hypothèses
 \end{align*}
 
 On obtient $\overline{x}=22{,}5$, $\overline{y}=12$, $s_X^2=25$ et $s_Y^2=15$. Quel est le seuil observé du test?
+
+\begin{solution}
+On utilise le test $t$ à deux échantillons avec variances égales. La variance pondérée est :
+$$s_p^2=\frac{(n_X-1)s_X^2+(n_Y-1)s_Y^2}{n_X+n_Y-2}=\frac{3\times 25+2\times 15}{4+3-2}=\frac{75+30}{5}=\frac{105}{5}=21.$$
+L'écart-type de la différence est :
+$$se=s_p\sqrt{\frac{1}{n_X}+\frac{1}{n_Y}}=\sqrt{21}\times\sqrt{\frac{1}{4}+\frac{1}{3}}=\sqrt{21\times\frac{7}{12}}=\sqrt{\frac{147}{12}}=\sqrt{12{,}25}=3{,}5.$$
+La statistique de test est :
+$$t_0=\frac{\overline{x}-\overline{y}}{se}=\frac{22{,}5-12}{3{,}5}=\frac{10{,}5}{3{,}5}=3.$$
+Les degrés de liberté sont $\nu=n_X+n_Y-2=5$. Le seuil observé est $\alpha^*=P(T_5>3)$. D'après la table de la loi $t$, $t_{0{,}025,\,5}=2{,}571$ et $t_{0{,}01,\,5}=3{,}365$. Puisque $2{,}571<3<3{,}365$, on a $\alpha^*\in\,]0{,}01\,;\,0{,}025[$. On rejette $H_0$ au seuil $5\%$.
+\end{solution}
 
 
 \pageblanche
@@ -332,7 +423,7 @@ Total         31   1295.7
 \end{checkboxes}
 
 \begin{solution}
-$\texttt{AAA} = F = \dfrac{MS_{\text{trt}}}{MS_E} = \dfrac{278{,}85/5}{343{,}20/24} = \dfrac{55{,}77}{14{,}30} = 3{,}90$, car $\text{Dl}_{\text{trt}} = a-1 = 6-1 = 5$ et $\text{Dl}_E = N-a = 30-6 = 24$.
+$\texttt{AAA} = F_0 = \dfrac{MS_{\text{trt}}}{MS_E} = \dfrac{SS_{\text{trt}}/(a-1)}{SS_E/(N-a)} = \dfrac{1154{,}3/7}{141{,}4/24} = \dfrac{164{,}9}{5{,}892} \approx 27{,}989$, avec $a-1=7$ traitements et $N-a=32-8=24$ résidus.
 \end{solution}
 
 \vspace{0.5cm}
@@ -360,7 +451,7 @@ $\hat{\sigma}^2 = MS_E = \dfrac{SS_E}{\text{Dl}_E} = \dfrac{141{,}4}{24} = 5{,}8
 \end{checkboxes}
 
 \begin{solution}
-$\texttt{CCC} = SS_{\text{total}} = SS_{\text{trt}} + SS_E = 278{,}85 + 343{,}20 = 622{,}05$.
+$\texttt{CCC} = SS_{\text{total}} = SS_{\text{trt}} + SS_E = 1154{,}3 + 141{,}4 = 1295{,}7$.
 \end{solution}
 
 \vspace{0.5cm}
@@ -374,7 +465,7 @@ $\texttt{CCC} = SS_{\text{total}} = SS_{\text{trt}} + SS_E = 278{,}85 + 343{,}20
 \end{checkboxes}
 
 \begin{solution}
-La valeur-$p = 0{,}01 < 0{,}05 = \alpha$, donc on rejette $H_0$. La rigidité moyenne des cylindres d'au moins un pourcentage est significativement différente de celle d'au moins un autre pourcentage.
+La valeur-$p = 4{,}6\times10^{-10} < 0{,}05 = \alpha$, donc on rejette $H_0$. La rigidité moyenne des disques d'au moins un pourcentage est significativement différente de celle d'au moins un autre pourcentage.
 \end{solution}
 
 \end{parts}
@@ -394,6 +485,15 @@ x_i^2 & 9 & 4 & 0 & 2,25 & 12,25\\ \hline
 
 On suppose que le modèle de régression linéaire simple peut être utilisé et on veut estimer les paramètres de régression.
 Sachant que $\hat{\beta}_0 = 1$, que vaut $\hat{\beta}_1$? 
+
+\begin{solution}
+Puisque $\sum x_i=-3-2+0+1{,}5+3{,}5=0$, on a $\bar{x}=0$ et donc $\hat{\beta}_0=\bar{y}-\hat{\beta}_1\bar{x}=\bar{y}=1$.
+Ainsi $\sum y_i=5\bar{y}=5$, ce qui donne $-1{,}1+\text{AAA}+1{,}1+2+2{,}5=5$, soit $\text{AAA}=0{,}5$.
+Par suite $\text{BBB}=x_2 y_2=(-2)(0{,}5)=-1$.
+\begin{align*}
+\hat{\beta}_1&=\frac{\sum x_i y_i}{\sum x_i^2}=\frac{3{,}3+(-1)+0+3+8{,}75}{9+4+0+2{,}25+12{,}25}=\frac{14{,}05}{27{,}5}\approx 0{,}511.
+\end{align*}
+\end{solution}
 
 
 \vfill
@@ -490,6 +590,10 @@ L'effet de la durée de cure n'est donc pas significatif au seuil 5\%, lorsque $
         \choice Nous n'avons pas assez d'information pour le savoir.
     \end{checkboxes}
 
+    \begin{solution}
+    La valeur-$p$ du test $F$ global (équation ANOVA du modèle) se lit directement dans la sortie : $p = 0{,}000001$.
+    \end{solution}
+
     \vspace{0.5cm}
 
     \subpart[1] Quelle est la conclusion?
@@ -501,6 +605,10 @@ L'effet de la durée de cure n'est donc pas significatif au seuil 5\%, lorsque $
         \choice Nous ne pouvons pas conclure car des valeurs sont inconnues.
     \end{checkboxes}
 
+    \begin{solution}
+    Puisque la valeur-$p = 0{,}000001 < 0{,}05 = \alpha$, on rejette $H_0$~: au moins une des variables $X_1, X_2, X_3$ a un effet significatif sur la résistance à la compression.
+    \end{solution}
+
 \end{subparts}
 
 \end{parts}
@@ -508,6 +616,12 @@ L'effet de la durée de cure n'est donc pas significatif au seuil 5\%, lorsque $
 \question[8] Soit $X_1,\hdots,X_n$ qui indépendants et identiquement distribués selon une loi quelconque $F_X$. 
 On veut estimer la médiane $\Tilde{\mu}$ de $F_X$ à l'aide de $\overline{X}$.
 Calculez le biais de $\overline{X}$ pour $\Tilde{\mu}$.
+
+\begin{solution}
+Le biais de $\overline{X}$ en tant qu'estimateur de la médiane $\tilde{\mu}$ est :
+$$\text{Biais}(\overline{X};\,\tilde{\mu})=\mathbb{E}[\overline{X}]-\tilde{\mu}=\mathbb{E}[X]-\tilde{\mu}=\mu-\tilde{\mu},$$
+o\`u $\mu=\mathbb{E}[X]$ est la moyenne de $F_X$. Puisque $F_X$ est une loi quelconque, $\mu\neq\tilde{\mu}$ en général et le biais est $\mu-\tilde{\mu}$ (non nul en général). Il est nul si et seulement si $F_X$ est symétrique par rapport à sa moyenne.
+\end{solution}
 
 \end{questions}
 \pageblanche
