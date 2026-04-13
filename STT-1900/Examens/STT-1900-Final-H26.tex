@@ -523,15 +523,24 @@ L'intervalle de confiance à 95\% est $\left[0{,}293\;;\;1{,}707\right]$.
 
 \part[4] Sachant que $\sum_{i=1}^5(y_i-\bar{y})^2=7,92$ et en supposant le même modèle qu'en (b), quel pourcentage de la variabilité des $Y$ est expliqué par la régression?
 \begin{checkboxes}
-    \choice Environ $50\%$
-    \choice Environ $70\%$
-    \choice Environ $80\%$
+    \choice Environ $9{,}4\%$
+    \choice Environ $62{,}6\%$
+    \choice Environ $87{,}5\%$
     \correctchoice Environ $90{,}6\%$
-    \choice Environ $96\%$
+    \choice Environ $96{,}9\%$
 \end{checkboxes}
 
 \begin{solution}
 $R^2=1-\dfrac{\text{SSE}}{\text{SST}}=1-\dfrac{0{,}741}{7{,}92}\approx 0{,}906$, soit environ $90{,}6\%$.
+
+\medskip
+\textbf{Pièges :}
+\begin{itemize}
+\item $9{,}4\%$ : erreur $\text{SSE}/\text{SST}=0{,}741/7{,}92$ (oubli du $1-$).
+\item $62{,}6\%$ : erreur $1-\text{SSE}\cdot(n-1)/\text{SST}=1-0{,}741\cdot 4/7{,}92$ (divise SST par ses d.l.\ mais pas SSE).
+\item $87{,}5\%$ : erreur $R^2_{\text{aj}}=1-\frac{\text{SSE}/(n-2)}{\text{SST}/(n-1)}=1-\frac{0{,}247}{1{,}98}$ (formule du $R^2$ ajusté).
+\item $96{,}9\%$ : erreur $1-\frac{\text{SSE}/(n-2)}{\text{SST}}=1-\frac{0{,}247}{7{,}92}$ (divise SSE par ses d.l.\ mais pas SST).
+\end{itemize}
 \end{solution}
 
 \end{parts}
