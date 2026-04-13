@@ -33,7 +33,7 @@
 \item Matériel autorisé:
 \begin{itemize}
 \item Calculatrice scientifique {\bf autorisée par la faculté des sciences et de génie};
-\item Votre aide-mémoire d'une feuille recto-verso, écrit à la main.
+\item Votre aide-mémoire de \textbf{deux} feuilles recto-verso, écrit à la main.
 \end{itemize}
 \item Assurez-vous que cette évaluation comporte \numquestions ~exercices répartis sur \numpages{}~pages, pour un total de \numpoints{}~points.\
 \item \textbf{Veuillez ne pas dégrafer votre examen.}
@@ -96,7 +96,7 @@ Sous $H_1:\sigma^2_X>\sigma^2_Y$, $\sigma^2_X$ tend à être grande, donc $S_X^2
 
 \vspace{0.3cm}
 \question[3] 
-On définit la fonction de survie $S_X$ d'une variable aléatoire par $S_X(x)=P(X>x)$ et le taux de défaillance $h_X$ par $h_X(x)=\displaystyle\frac{f_X(x)}{S_X(x)}$, où $f_X$ est la fonction de densité de $X$.
+On définit la fonction de survie $S_X$ d'une variable aléatoire $X$ par $S_X(x)=P(X>x)$ et le taux de défaillance $h_X$ par $h_X(x)=\displaystyle\frac{f_X(x)}{S_X(x)}$, où $f_X$ est la fonction de densité de $X$.
 Soit la variable aléatoire $X$ dont la fonction de répartition est
 
 \begin{align*}
@@ -193,7 +193,7 @@ Si $Y=X$, alors $\text{Cov}(X,Y)=\text{Var}(X)$ et $\text{Var}(Y)=\text{Var}(X)$
     Faux. $Q_1$ est le premier quartile (25\textsuperscript{e} percentile); le minimum de l'échantillon peut être strictement inférieur à $Q_1$.
     \end{solution}
 
-        \part[1] Soit $x_1,\hdots,x_n$. Si la médiane échantillonnale est $25$, nous sommes certains que la valeur de l'observation du milieu est $25$.
+        \part[1] Soit $x_1,\hdots,x_n$. Nous savons que $Q_3>0$.
 
     \begin{oneparcheckboxes}
         \choice Vrai
@@ -290,19 +290,19 @@ Nous désirons construire l'intervalle de confiance approprié de niveau $95\%$ 
 
     \begin{solution}
         L'IC à $95\%$ pour $\sigma^2$ (avec $\mu$ inconnu, $n=14$) est basé sur $\dfrac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1}$~:
-        $$[C_1;C_2]=\left[\frac{13S^2}{\chi^2_{0{,}975,\,13}}\;;\;\frac{13S^2}{\chi^2_{0{,}025,\,13}}\right]\quad\text{o\`u }\chi^2_{0{,}025,\,13}\approx 5{,}009.$$
-        Ainsi $C_2=\dfrac{13S^2}{\chi^2_{0{,}025,\,13}}$ et, puisque $\mathbb{E}[S^2]=\sigma^2$~:
-        $$\mathbb{E}[C_2]=\frac{13\,\mathbb{E}[S^2]}{\chi^2_{0{,}025,\,13}}=\frac{13\sigma^2}{\chi^2_{0{,}025,\,13}}.$$
+        $$[C_1;C_2]=\left[\frac{13S^2}{\chi^2_{0{,}025,\,13}}\;;\;\frac{13S^2}{\chi^2_{0{,}975,\,13}}\right]\quad\text{o\`u }\chi^2_{0{,}975,\,13}\approx 5{,}009.$$
+        Ainsi $C_2=\dfrac{13S^2}{\chi^2_{0{,}975,\,13}}$ et, puisque $\mathbb{E}[S^2]=\sigma^2$~:
+        $$\mathbb{E}[C_2]=\frac{13\,\mathbb{E}[S^2]}{\chi^2_{0{,}975,\,13}}=\frac{13\sigma^2}{\chi^2_{0{,}975,\,13}}.$$
     \end{solution}
     \vspace{7cm}
     \part[4] Que vaut $\text{Var}[C_2]$?
 
     \begin{solution}
         \begin{align*}
-            \text{Var}(C_2)&=\text{Var}\!\left(\frac{13S^2}{\chi^2_{0{,}025,\,13}}\right)
-            =\left(\frac{13}{\chi^2_{0{,}025,\,13}}\right)^{\!2}\text{Var}(S^2)
-            =\left(\frac{13}{\chi^2_{0{,}025,\,13}}\right)^{\!2}\frac{2\sigma^4}{n-1}
-            =\frac{2\times 13\,\sigma^4}{\left(\chi^2_{0{,}025,\,13}\right)^{2}}.
+            \text{Var}(C_2)&=\text{Var}\!\left(\frac{13S^2}{\chi^2_{0{,}975,\,13}}\right)
+            =\left(\frac{13}{\chi^2_{0{,}975,\,13}}\right)^{\!2}\text{Var}(S^2)
+            =\left(\frac{13}{\chi^2_{0{,}975,\,13}}\right)^{\!2}\frac{2\sigma^4}{n-1}
+            =\frac{2\times 13\,\sigma^4}{\left(\chi^2_{0{,}975,\,13}\right)^{2}}.
         \end{align*}
     \end{solution}
     \vspace{7cm}
@@ -311,9 +311,9 @@ Nous désirons construire l'intervalle de confiance approprié de niveau $95\%$ 
 
     \begin{solution}
         \begin{align*}
-            P(C_2\geq\sigma^2)&=P\!\left(\frac{13S^2}{\chi^2_{0{,}025,\,13}}\geq\sigma^2\right)
-            =P\!\left(\frac{13S^2}{\sigma^2}\geq\chi^2_{0{,}025,\,13}\right)
-            =P\!\left(\chi^2_{13}\geq\chi^2_{0{,}025,\,13}\right)=1-0{,}025=0{,}975.
+            P(C_2\geq\sigma^2)&=P\!\left(\frac{13S^2}{\chi^2_{0{,}975,\,13}}\geq\sigma^2\right)
+            =P\!\left(\frac{13S^2}{\sigma^2}\geq\chi^2_{0{,}975,\,13}\right)
+            =P\!\left(\chi^2_{13}\geq\chi^2_{0{,}975,\,13}\right)=1-0{,}025=0{,}975.
         \end{align*}
     \end{solution}
 
@@ -323,19 +323,6 @@ Nous désirons construire l'intervalle de confiance approprié de niveau $95\%$ 
 \end{parts}
 
 
-\pageblanche
-
-\question[9] Soit $X_1,\hdots, X_{n}$ qui proviennent d'une loi normale d'espérance $\mu$ et de variance $\sigma^2=25$. 
-On fait le test d'hypothèses pour lequel $H_0:\mu=5$ et $H_1:\mu>5$ au seuil $\alpha=2,5\%$.
-Pour quelles valeurs de $n$ rejette-t-on $H_0$ si $\overline{x}=5,1$?
-
-\begin{solution}
-Puisque $\sigma^2=25$ est connue, on utilise le test $Z$ unilatéral à droite. La statistique de test est :
-$$z_0=\frac{\overline{x}-\mu_0}{\sigma/\sqrt{n}}=\frac{5{,}1-5}{5/\sqrt{n}}=\frac{0{,}1\sqrt{n}}{5}=\frac{\sqrt{n}}{50}.$$
-On rejette $H_0$ si $z_0>z_{0{,}025}=1{,}96$ :
-$$\frac{\sqrt{n}}{50}>1{,}96\;\Leftrightarrow\;\sqrt{n}>98\;\Leftrightarrow\;n>9604.$$
-On rejette donc $H_0$ pour tout $n\geq 9605$.
-\end{solution}
 
 \begin{comment}
     
@@ -373,7 +360,7 @@ On veut procéder au test de seuil $5\%$ avec les hypothèses
     H_0:\mu_X-\mu_Y=0, & & H_1:\mu_X-\mu_Y>0.
 \end{align*}
 
-On obtient $\overline{x}=22{,}5$, $\overline{y}=12$, $s_X^2=25$ et $s_Y^2=15$. Quel est le seuil observé du test?
+On obtient $\overline{x}=26,112$, $\overline{y}=12$, $s_X^2=25$ et $s_Y^2=15$. Quel est le seuil observé du test?
 
 \begin{solution}
 On utilise le test $t$ à deux échantillons avec variances égales. La variance pondérée est :
@@ -393,14 +380,14 @@ Un ingénieur veut vérifier s'il existe une différence de rigidité d'un certa
 
 Il compare donc la rigidité de 8 pourcentages différents (10\%, 20\%, 25\%, 30\%, 35\%, 40\%, 45\% et 50\%) en produisant 4 cylindres pour chaque pourcentage.
 La table d'ANOVA suivante est produite par le logiciel utilisé par l'ingénieur. 
-Dans celle-ci, certaines quantités ont été remplacées par \texttt{AAA, BBB, CCC} et \texttt{ ???}. Nous considérons que les postulats du modèle sont respectés.
+Dans celle-ci, certaines quantités ont été remplacées par \texttt{AAA, BBB} et \texttt{ ???}. Nous considérons que les postulats du modèle sont respectés.
 \begin{verbatim}
 ANOVA
 
                      SS      ddl      MS      F0           
 pouliovachium    1154.3      ???     ???     AAA
 Residuals         141.4      ???     ???         
-Total               CCC      ???       
+Total               BBB      ???       
 \end{verbatim}
 
 \begin{comment}
@@ -436,7 +423,7 @@ $\texttt{AAA} = F_0 = \dfrac{MS_{\text{trt}}}{MS_E} = \dfrac{SS_{\text{trt}}/(a-
     \choice $24$
     \correctchoice $5{,}89$
     \choice $164{,}9$
-    \choice Il n'est pas possible de trouver $\hat{\sigma}^2$ avec les informations données.
+    \choice Il n'est pas possible de donner une estimation de $\sigma^2$ avec les informations données.
 \end{checkboxes}
 
 \begin{solution}
@@ -444,7 +431,7 @@ $\hat{\sigma}^2 = MS_E = \dfrac{SS_E}{\text{Dl}_E} = \dfrac{141{,}4}{24} = 5{,}8
 \end{solution}
 
 \vspace{0.5cm}
-    \part[3] Que vaut \texttt{CCC}?
+    \part[3] Que vaut \texttt{BBB}?
 \begin{checkboxes}
     \choice 8,163
     \correctchoice 1295,7
@@ -474,20 +461,22 @@ La valeur-$p = 4{,}6\times10^{-10} < 0{,}05 = \alpha$, donc on rejette $H_0$. La
 \end{parts}
 \pageblanche
 
-\question[11] Soit le tableau suivant dans lequel certaines informations ont été remplacées par $AAA$ et $BBB$:
+\question\label{rls} Soit le tableau suivant dans lequel certaines informations ont été remplacées par $AAA$ et $BBB$:
 \begin{align*}\renewcommand{\arraystretch}{1.4}
-   \begin{array}{|c|ccccc|}
+   \begin{array}{|c|ccccc|c|}
    \hline
-   i & 1 & 2 & 3& 4& 5\\ \hline
-x_i & -3 & -2 & 0 & 1,5 & 3,5   \\  
-y_i & -1.1 & AAA & 1,1 & 2 & 2,5 \\ 
-x_iy_i & 3,3 & BBB & 0 & 3 & 8,75 \\ 
-x_i^2 & 9 & 4 & 0 & 2,25 & 12,25\\ \hline
+   i & 1 & 2 & 3& 4& 5& Somme\\ \hline
+x_i & -3 & -2 & 0 & 1,5 & 3,5  &0 \\  
+y_i & -1.1 & AAA & 1,1 & 2 & 2,5 & ???\\ 
+x_iy_i & 3,3 & BBB & 0 & 3 & 8,75 & ??? \\ 
+x_i^2 & 9 & 4 & 0 & 2,25 & 12,25 & 27,5\\ \hline
 \end{array} 
 \end{align*}
 
 On suppose que le modèle de régression linéaire simple peut être utilisé et on veut estimer les paramètres de régression.
-Sachant que $\hat{\beta}_0 = 1$, que vaut $\hat{\beta}_1$? 
+
+\begin{parts}
+\part[8] Sachant que $\hat{\beta}_0 = 1$, que vaut $\hat{\beta}_1$? 
 
 \begin{solution}
 Puisque $\sum x_i=-3-2+0+1{,}5+3{,}5=0$, on a $\bar{x}=0$ et donc $\hat{\beta}_0=\bar{y}-\hat{\beta}_1\bar{x}=\bar{y}=1$.
@@ -504,29 +493,51 @@ Par suite $\text{BBB}=x_2 y_2=(-2)(0{,}5)=-1$.
 $\hat{\beta}_1$=\boite{2.5}{1.5}
 \vspace{1cm}
 
+\pagesuivante{\ref{rls}}
+\part[8] En supposant que le modèle de régression estimé est $\widehat{y}=1+0,511x$ et en utilisant les informations données, donnez un intervalle de confiance à 95\% pour la valeur moyenne de $Y$ en $x=0$.
+\begin{align*}\renewcommand{\arraystretch}{1.4}
+   \begin{array}{|c|ccccc|c|}
+   \hline
+   i & 1 & 2 & 3& 4& 5& Somme\\ \hline
+x_i & -3 & -2 & 0 & 1,5 & 3,5  &0 \\  
+\widehat{y}_i & -0,533 & -0,022 & 1 & 1,767 & 2,789 & ???\\ 
+y_i-\widehat{y}_i & -0,567 & 0,522 & 0,1 & 0,233 & -0,289 & ??? \\ 
+x_i^2 & 9 & 4 & 0 & 2,25 & 12,25 & 27,5\\ \hline
+\end{array} 
+\end{align*}
+\vspace{15cm}
+
+\part[4] Sachant que $\sum_{i=1}^5(y_i-\bar{y})^2=7,92$ et en supposant le même modèle qu'en (b) quel pourcentage de la variabilité des $Y$ est expliqué par la régression?
+\begin{checkboxes}
+    \choice 
+\end{checkboxes}
+
+\end{parts}
+
 \pageblanche
+
 \question\label{rlm}
-Un ingénieur civil cherche à modéliser la résistance à la compression (en MPa) d'une formulation de béton à partir de trois variables : la proportion de ciment ($X_1$, en \%), le rapport eau/ciment ($X_2$) et la durée de cure ($X_3$, en jours).
+Un ingénieur civil cherche à modéliser la résistance à la compression ($Y$, en MPa) d'une formulation de béton à partir de trois variables : la proportion de ciment ($X_1$, en \%), le rapport eau/ciment ($X_2$) et la durée de cure ($X_3$, en jours).
 Il ajuste le modèle de régression linéaire multiple suivant :
 $$Y_i=\beta_0+\beta_1X_{i1}+\beta_2X_{i2}+\beta_3X_{i3}+E_i,$$
 où les $E_i$ sont indépendants et identiquement distribués de loi $\mathcal{N}(0,\,\sigma^2)$.
 Les données portent sur $47$ mélanges de béton. Les sorties suivantes ont été obtenues, deux éléments étant remplacés par \texttt{AAA} et \texttt{BBB}.
 
 \begin{verbatim}
-> summary(RegModel.1)
+> sommaire(RegModel.1)
 Call:
-lm(formula = Resistance ~ Ciment + EauCiment + DureeCure, data = Beton)
+lm(formule = Resistance ~ Ciment + EauCiment + DureeCure, data = Beton)
 
-Coefficients:
-             Estimate  Std. Error   t value   Pr(>|t|)
-(Intercept)   2.34150     0.38520     6.079   0.000001
-Ciment        0.42900     0.14300       AAA     0.0041
-EauCiment    -3.15200     0.71040    -4.436   0.000001
-DureeCure     0.08830     0.11260     0.784     0.4373
+Paramètres:
+           Estimation   Erreur-type        t0   valeur-p
+(Ordonnée)    2.34150       0.38520     6.079   0.000001
+Ciment        0.42900       0.14300       AAA     0.0041
+EauCiment    -3.15200       0.71040    -4.436   0.000001
+DureeCure     0.08830       0.11260     0.784     0.4373
 
-Residual standard error: 2.187  on 43 degrees of freedom
-Multiple R-squared:  0.7650,  Adjusted R-squared:  BBB
-F-statistic: 46.77  on 3 and 43 DF,  p-value:  0.000001
+MSE: 4.7829  sur 43 degrés de liberté
+R-carré:  0.7650, R-carré ajusté:  BBB
+F0: 46.77  sur 3 et 43 degrés de liberté,  valeur-p:  0.000001
 \end{verbatim}
 
 \begin{parts}
@@ -546,7 +557,7 @@ $\texttt{AAA} = t = \dfrac{0{,}4290}{0{,}1430} = 3{,}000$.
 
 \vspace{0.5cm}
 
-\part[4] Calculez la valeur de \texttt{BBB}, le $R^2$ ajusté. \textbf{\textit{Donnez les détails de votre démarche.}}
+\part[4] Calculez la valeur de \texttt{BBB}, le $R^2$ ajusté.
 
 \begin{solution}
 \[
