@@ -201,7 +201,7 @@ Si $Y=X$, alors $\text{Cov}(X,Y)=\text{Var}(X)$ et $\text{Var}(Y)=\text{Var}(X)$
     \end{oneparcheckboxes}
 
     \begin{solution}
-    Faux. Même justification que la partie (a) : si $n$ est pair, la médiane est la moyenne des deux observations centrales.
+    Faux. $Q_3$ dépend des données. Si toutes les observations sont négatives, $Q_3<0$.
     \end{solution}
     
 
@@ -360,7 +360,7 @@ On veut procéder au test de seuil $5\%$ avec les hypothèses
     H_0:\mu_X-\mu_Y=0, & & H_1:\mu_X-\mu_Y>0.
 \end{align*}
 
-On obtient $\overline{x}=26,112$, $\overline{y}=12$, $s_X^2=25$ et $s_Y^2=15$. Quel est le seuil observé du test?
+On obtient $\overline{x}=22,5$, $\overline{y}=12$, $s_X^2=25$ et $s_Y^2=15$. Quel est le seuil observé du test?
 
 \begin{solution}
 On utilise le test $t$ à deux échantillons avec variances égales. La variance pondérée est :
@@ -437,11 +437,11 @@ $\hat{\sigma}^2 = MS_E = \dfrac{SS_E}{\text{Dl}_E} = \dfrac{141{,}4}{24} = 5{,}8
     \correctchoice 1295,7
     \choice 1012,9
     \choice 0,122
-    \choice Il n'est pas possible de trouver la valeur de \texttt{CCC} avec les informations données.
+    \choice Il n'est pas possible de trouver la valeur de \texttt{BBB} avec les informations données.
 \end{checkboxes}
 
 \begin{solution}
-$\texttt{CCC} = SS_{\text{total}} = SS_{\text{trt}} + SS_E = 1154{,}3 + 141{,}4 = 1295{,}7$.
+$\texttt{BBB} = SS_{\text{total}} = SS_{\text{trt}} + SS_E = 1154{,}3 + 141{,}4 = 1295{,}7$.
 \end{solution}
 
 \vspace{0.5cm}
@@ -467,7 +467,7 @@ La valeur-$p = 4{,}6\times10^{-10} < 0{,}05 = \alpha$, donc on rejette $H_0$. La
    \hline
    i & 1 & 2 & 3& 4& 5& Somme\\ \hline
 x_i & -3 & -2 & 0 & 1,5 & 3,5  &0 \\  
-y_i & -1.1 & AAA & 1,1 & 2 & 2,5 & ???\\ 
+y_i & -1{,}1 & AAA & 1,1 & 2 & 2,5 & ???\\ 
 x_iy_i & 3,3 & BBB & 0 & 3 & 8,75 & ??? \\ 
 x_i^2 & 9 & 4 & 0 & 2,25 & 12,25 & 27,5\\ \hline
 \end{array} 
