@@ -55,7 +55,7 @@
 \documentclass{Evaluation}
 \usepackage{multicol,graphicx}
 
-\noprintanswers
+\printanswers
 \begin{document}
 
 
@@ -511,7 +511,7 @@ On a $\hat{y}(0)=1+0{,}511\cdot 0=1$.
 
 \textbf{Estimation de $\sigma^2$:}
 $$\text{SSE}=\sum_{i=1}^5(y_i-\hat{y}_i)^2=0{,}321+0{,}272+0{,}01+0{,}054+0{,}084=0{,}741,$$
-d'où $s^2=\dfrac{\text{SSE}}{n-2}=\dfrac{0{,}741}{3}=0{,}247$ et $s=\sqrt{0{,}247}\approx 0{,}497$.
+d'où $\hat{\sigma}^2=\dfrac{\text{SSE}}{n-2}=\dfrac{0{,}741}{3}=0{,}247$ et $s=\sqrt{0{,}247}\approx 0{,}497$.
 
 \textbf{Intervalle de confiance:}
 $$\hat{y}(x_0)\pm t_{\alpha/2,\,n-2}\cdot s\sqrt{\frac{1}{n}+\frac{(x_0-\bar{x})^2}{S_{xx}}}$$
