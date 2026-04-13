@@ -505,12 +505,34 @@ y_i-\widehat{y}_i & -0,567 & 0,522 & 0,1 & 0,233 & -0,289  \\
 (y_i-\widehat{y}_i)^2 & 0,321& 0,272 & 0,01 & 0,054 & 0,084 \\ \hline
 \end{array} 
 \end{align*}
+
+\begin{solution}
+On a $\hat{y}(0)=1+0{,}511\cdot 0=1$.
+
+\textbf{Estimation de $\sigma^2$:}
+$$\text{SSE}=\sum_{i=1}^5(y_i-\hat{y}_i)^2=0{,}321+0{,}272+0{,}01+0{,}054+0{,}084=0{,}741,$$
+d'où $s^2=\dfrac{\text{SSE}}{n-2}=\dfrac{0{,}741}{3}=0{,}247$ et $s=\sqrt{0{,}247}\approx 0{,}497$.
+
+\textbf{Intervalle de confiance:}
+$$\hat{y}(x_0)\pm t_{\alpha/2,\,n-2}\cdot s\sqrt{\frac{1}{n}+\frac{(x_0-\bar{x})^2}{S_{xx}}}$$
+Avec $x_0=0$, $\bar{x}=0$, $S_{xx}=27{,}5$, $n=5$ et $t_{0{,}025,\,3}=3{,}182$:
+$$1\pm 3{,}182\times 0{,}497\times\sqrt{\frac{1}{5}+0}=1\pm 3{,}182\times 0{,}222=1\pm 0{,}707.$$
+L'intervalle de confiance à 95\% est $\left[0{,}293\;;\;1{,}707\right]$.
+\end{solution}
 \vspace{15cm}
 
-\part[4] Sachant que $\sum_{i=1}^5(y_i-\bar{y})^2=7,92$ et en supposant le même modèle qu'en (b) quel pourcentage de la variabilité des $Y$ est expliqué par la régression?
+\part[4] Sachant que $\sum_{i=1}^5(y_i-\bar{y})^2=7,92$ et en supposant le même modèle qu'en (b), quel pourcentage de la variabilité des $Y$ est expliqué par la régression?
 \begin{checkboxes}
-    \choice 
+    \choice Environ $50\%$
+    \choice Environ $70\%$
+    \choice Environ $80\%$
+    \correctchoice Environ $90{,}6\%$
+    \choice Environ $96\%$
 \end{checkboxes}
+
+\begin{solution}
+$R^2=1-\dfrac{\text{SSE}}{\text{SST}}=1-\dfrac{0{,}741}{7{,}92}\approx 0{,}906$, soit environ $90{,}6\%$.
+\end{solution}
 
 \end{parts}
 

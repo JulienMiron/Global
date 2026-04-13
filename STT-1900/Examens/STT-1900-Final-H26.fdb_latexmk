@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1775837778.1016 "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/STT-1900/Examens/STT-1900-Final-H26.tex" "STT-1900-Final-H26.pdf" "STT-1900-Final-H26" 1775837778.99606 0
-  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/Evaluation.cls" 1775570778.04575 18851 d8b8a845b64ea1372f301b8d9587b073 ""
-  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/logo_ul.pdf" 1770990973.09248 24889 6ad5d339e8b9c5d473a3c0752b7f7a43 ""
-  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/STT-1900/Examens/STT-1900-Final-H26.tex" 1775837775.8401 26700 4c8aa7706702882ae5a2663d1ec8a35e ""
+["pdflatex"] 1776100624.99106 "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1900/Examens/STT-1900-Final-H26.tex" "STT-1900-Final-H26.pdf" "STT-1900-Final-H26" 1776100625.89265 0
+  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/Evaluation.cls" 1772568870.41713 18851 d8b8a845b64ea1372f301b8d9587b073 ""
+  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/logo_ul.pdf" 1771010540.30133 24889 6ad5d339e8b9c5d473a3c0752b7f7a43 ""
+  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1900/Examens/STT-1900-Final-H26.tex" 1776100623.77414 27703 3461028cf20474c65d363b9d80b1b9d4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevoml.enc" 1153172756 2921 ae68ca7d9a4902b5e8c8b47846fadadb ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevoms.enc" 1153172756 3537 5668d9ed3132b78b010223039ece2e6f ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevot1.enc" 1153172756 3020 a1ac7e8d91c840af41a220ec7126413f ""
@@ -227,10 +227,10 @@
   "/usr/local/texlive/2025/texmf-dist/tex/latex/xcolor/xcolor.sty" 1727642399 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/xfrac/xfrac.sty" 1717530934 14945 a207ee7fd6b8cf6d82afb367c583ddd3 ""
   "/usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf" 1739380943 42148 61becc7c670cd061bb319c643c27fdd4 ""
-  "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1770908146 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
+  "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1770864152 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "STT-1900-Final-H26.aux" 1775837778.92815 7896 f624d812944e339f1113d3d3c0803624 "pdflatex"
+  "STT-1900-Final-H26.aux" 1776100625.82656 8217 4b024b604c135a2eafa2bbdf7e9278a0 "pdflatex"
   (generated)
   "STT-1900-Final-H26.aux"
   "STT-1900-Final-H26.log"
