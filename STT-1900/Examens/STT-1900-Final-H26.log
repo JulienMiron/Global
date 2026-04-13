@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  13 APR 2026 13:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  13 APR 2026 13:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1188,7 +1188,7 @@ Overfull \hbox (65.35516pt too wide) in paragraph at lines 59--59
 
 
 Overfull \hbox (3.90103pt too wide) in paragraph at lines 59--59
-[]\T1/fav/m/n/9 Assurez-vous que cette éva-lua-tion com-porte 13 exer-cices ré-par-tis sur 10 pages, pour un to-tal de 100 points. 
+[]\T1/fav/m/n/9 Assurez-vous que cette éva-lua-tion com-porte 13 exer-cices ré-par-tis sur 15 pages, pour un to-tal de 100 points. 
  []
 
 LaTeX Font Info:    Trying to load font information for OT1+zavm on input line 59.
@@ -1288,31 +1288,41 @@ LaTeX Font Warning: Font shape `T1/fav/b/sc' undefined
 {/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevoms.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevoml.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevot1.enc}]
 
 [3]
+
+[4]
+
+[5]
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
 (Font)              scaled to size 9.35994pt on input line 289.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
 (Font)              scaled to size 7.27995pt on input line 289.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
 (Font)              scaled to size 5.19997pt on input line 289.
- Excluding 'comment' comment.
 
-[4]
 
-[5]
+[6] Excluding 'comment' comment.
+
+[7]
+
+[8]
 LaTeX Font Info:    Trying to load font information for T1+fvm on input line 383.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/bera/t1fvm.fd
 File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
 ) Excluding 'comment' comment.
 
-[6]
-
-[7]
-
-[8]
-
 [9]
 
 [10]
+
+[11]
+
+[12]
+
+[13]
+
+[14]
+
+[15]
 This exam contains 13 questions with 22 parts, 2 subparts, and 0 subsubparts.
 This exam has a total of 100 points.
 This exam has a total of 0 bonus points.
@@ -1327,18 +1337,18 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 27212 strings out of 473190
- 563382 string characters out of 5715801
- 1148825 words of memory out of 5000000
- 49951 multiletter control sequences out of 15000+600000
- 619840 words of font info for 109 fonts, out of 8000000 for 9000
+ 27229 strings out of 473190
+ 563670 string characters out of 5715801
+ 1149825 words of memory out of 5000000
+ 49967 multiletter control sequences out of 15000+600000
+ 620208 words of font info for 110 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  113i,14n,119p,662b,824s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Bold.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-BoldOblique.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Oblique.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Roman.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/fourier/fourier-bb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7t.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7y.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7v.pfb>
-Output written on STT-1900-Final-H26.pdf (10 pages, 136303 bytes).
+Output written on STT-1900-Final-H26.pdf (15 pages, 164492 bytes).
 PDF statistics:
- 106 PDF objects out of 1000 (max. 8388607)
- 69 compressed objects within 1 object stream
+ 122 PDF objects out of 1000 (max. 8388607)
+ 80 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 
