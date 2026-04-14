@@ -55,7 +55,7 @@
 \documentclass{Evaluation}
 \usepackage{multicol,graphicx}
 
-\printanswers
+\noprintanswers
 \begin{document}
 
 
@@ -207,8 +207,9 @@ Si $Y=X$, alors $\text{Cov}(X,Y)=\text{Var}(X)$ et $\text{Var}(Y)=\text{Var}(X)$
 
 \end{parts}
 
+\vspace{0.5cm}
 \question
-Une entreprise fabrique des palettes de chocolat et s'intéresse à la quantité moyenne de sucre dans une palette. Elle choisit au hasard 16 palettes. Dans l'échantillon, la quantité moyenne de sucre par palette est de $5,05 \,g$ et la variance échantillonnale est de $0,011 \, g^2$. Sachant que $X$, la quantité de sucre dans une palette, est une variable aléatoire qui suit une loi normale d'espérance $\mu$ et de variance $\sigma^2=0,01$, elle fait le test suivant, au seuil $\alpha=2,5\%$,
+Une entreprise fabrique des palettes de chocolat et s'intéresse à la quantité moyenne de sucre dans une palette. Elle choisit au hasard 16 palettes. Dans l'échantillon, la quantité moyenne de sucre par palette est de $5,05 \,g$ et la variance échantillonnale est de $0,011 \, g^2$. Sachant que $X$, la quantité de sucre dans une palette, est une variable aléatoire qui suit une loi normale d'espérance $\mu$ et de variance $\sigma^2=0,01$, elle effectue un test, au seuil $\alpha=2,5\%$, avec les hypothèses suivantes:
 \begin{align*}
 	H_0 &: \mu = 5 \cr
 	H_1 &: \mu > 5.
@@ -230,6 +231,7 @@ Puisque $\sigma^2=0{,}01$ est connue, on utilise le test $Z$ unilatéral à droi
 $$\mu_0 + z_{\alpha}\,\frac{\sigma}{\sqrt{n}} = 5 + 1{,}960\times\frac{0{,}1}{\sqrt{16}} = 5 + 1{,}960\times 0{,}025 = 5{,}049.$$
 \end{solution}
 
+\vspace{1cm}
 \part[2] Quelle est la valeur de la statistique du test sous $H_0$, arrondie à 3 décimales?
 
 \begin{oneparcheckboxes}
@@ -247,6 +249,7 @@ z_0 = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}} = \frac{5{,}05 - 5}{0{,}1/\sqrt{16
 \]
 \end{solution}
 
+\vspace{1cm}
 \part[2] Quel est le seuil observé du test?
 
 	\begin{checkboxes}
@@ -260,6 +263,7 @@ z_0 = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}} = \frac{5{,}05 - 5}{0{,}1/\sqrt{16
 $\alpha^* = P(Z > z_0) = P(Z > 2{,}000) = 1 - \Phi(2) \approx 0{,}02275$. Puisque $\alpha^* = 0{,}02275 < \alpha = 0{,}025$, on rejette $H_0$ au seuil $2{,}5\%$.
 \end{solution}
 
+\vspace{1cm}
 \part[4] Si en réalité $\mu=5,1$ et que la règle de décision est de rejeter $H_0$ si $\displaystyle\frac{\overline{X}-5}{0,025}>1,96$, quelle est l'expression de la puissance du test? 
 
 \begin{checkboxes}
@@ -445,7 +449,7 @@ $\texttt{BBB} = SS_{\text{total}} = SS_{\text{trt}} + SS_E = 1154{,}3 + 141{,}4 
 \end{solution}
 
 \vspace{0.5cm}
-\part[3] Au seuil de 5\%, quelle conclusion pouvons-nous tirer de la table d'ANOVA? Une seule réponse est bonne.
+\part[3] Au seuil de 5\%, quelle conclusion pouvons-nous tirer de la table d'ANOVA?
 \begin{checkboxes}
     \choice Il n'est pas possible de tirer de conclusion car nous ne connaissons pas les valeurs remplacées par \texttt{???}.
     \choice Il faudrait répéter l'expérience plus de fois pour pouvoir conclure.
@@ -494,7 +498,7 @@ $\hat{\beta}_1$=\boite{2.5}{1.5}
 \vspace{1cm}
 
 \pagesuivante{\ref{rls}}
-\part[8] En supposant que le modèle de régression estimé est $\widehat{y}=1+0,511x$ et en utilisant les informations données, donnez un intervalle de confiance à 95\% pour la valeur moyenne de $Y$ en $x=0$.
+\part[8] En supposant que le modèle de régression estimé est $\widehat{y}=1+0,511x$ et en utilisant les informations supplémentaires données, donnez un intervalle de confiance à 95\% pour la valeur moyenne de $Y$ en $x=0$.
 \begin{align*}\renewcommand{\arraystretch}{1.4}
    \begin{array}{|c|ccccc|}
    \hline
