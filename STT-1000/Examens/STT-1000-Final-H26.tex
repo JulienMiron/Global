@@ -65,19 +65,19 @@ $$\nu = \frac{(s_1^2/n_1 + s^2_2/n_2)^2}{ \frac{(s_1^2/n_1)^2}{n_1 +1} + \frac{(
 \question[4]
 Soit deux événements $A$ et $B$ formant une partition de l'espace, avec $P(A)=0,7$. \\On a aussi que $P(D\mid A)=0,02$, $P(D\mid B)=0,05$.
 
-Quelle expression permet de calculer $P(B\mid D)$ ?
+Quelle expression permet de calculer $P(B\mid D)$ ?\\
 
 \begin{checkboxes}
-\choice $\dfrac{0,3\times 0,05}{0,02 + 0,05}$
-\choice $\dfrac{0,05}{0,7\times 0,02 + 0,3\times 0,05}$
-\choice $\dfrac{0,7\times 0,02}{0,7\times 0,02 + 0,3\times 0,05}$
-\correctchoice $\dfrac{0,3\times 0,05}{0,7\times 0,02 + 0,3\times 0,05}$
+\choice $\dfrac{0,3\times 0,05}{0,02 + 0,05}$\\[4pt]
+\choice $\dfrac{0,05}{0,7\times 0,02 + 0,3\times 0,05}$\\[4pt]
+\choice $\dfrac{0,7\times 0,02}{0,7\times 0,02 + 0,3\times 0,05}$\\[4pt]
+\correctchoice $\dfrac{0,3\times 0,05}{0,7\times 0,02 + 0,3\times 0,05}$\\[4pt]
 \choice $\dfrac{0,3\times 0,05}{0,7\times 0,02 + 0,7\times 0,05}$
 \end{checkboxes}
 
-
+\vspace{0.2in}
 \question[3]
-Une file de clients arrive selon un processus de Poisson de taux $2$ par heure. On s’intéresse au temps d’attente jusqu’au prochain client. Quelle est l’expression correcte pour calculer la probabilité que ce temps soit inférieur à $1$ heure?
+Une file de clients arrive selon un processus de Poisson de taux $2$ par heure. On s’intéresse au temps d’attente jusqu’au prochain client. Quelle est l’expression correcte pour calculer la probabilité que ce temps soit inférieur à $1$ heure?\\
 
 
 \begin{checkboxes}
@@ -106,7 +106,7 @@ Problèmes avec les autres réponses :
 \end{solution}
 
 
-
+\vspace{0.3in}
 
 \question[4]
 Soit la loi conjointe de $X$ et $Y$ :
@@ -129,7 +129,216 @@ P(Y=1 \mid X=1)=\frac{P(X=1,Y=1)}{P(X=1)}=\frac{0{,}4}{0{,}1+0{,}4}=0{,}8
 $$
 \end{solution}
 
+\newpage
+
+\question[4]
+Soient $X \sim \mathcal{N}(10, 4)$ et $Y \sim \mathcal{N}(5, 1)$, deux variables aléatoires indépendantes. \\
+On définit $Z = 2X - Y$. Quelle est la distribution de $Z$? Soyez précis et laissez des traces de votre démarche.
+
+
+\begin{solution}
+On utilise les propriétés des combinaisons linéaires de variables normales indépendantes.
+
+$$
+\mathbb{E}(Z) = 2\mathbb{E}(X) - \mathbb{E}(Y) = 2(10) - 5 = 15
+$$
+
+$$
+\mathrm{Var}(Z) = 4\mathrm{Var}(X) + \mathrm{Var}(Y) = 4(4) + 1 = 17
+$$
+
+Donc
+$$
+Z \sim \mathcal{N}(15, 17).
+$$
+
+\end{solution}
+
+\vspace{3in}
+
 %%%%%%%%%%%%%%%% STATISTIQUES DESCRIPTIVES %%%%%%%%%%%%%%%%
+
+\question Dites si les énoncés suivants sont vrais ou faux.
+
+\begin{parts}
+    \part[1] Soit $x_1,\hdots,x_n$. Si la médiane échantillonnale est $25$, nous sommes certains que la valeur de l'observation du milieu est $25$.
+
+    \begin{oneparcheckboxes}
+        \choice Vrai
+        \correctchoice Faux
+    \end{oneparcheckboxes}
+
+    \begin{solution}
+    Faux. Si $n$ est pair, la médiane est la moyenne des deux observations centrales; aucune d'elles n'est forcément égale à $25$. Cette propriété n'est garantie que si $n$ est impair.
+    \end{solution}
+
+        \part[1] Soit $x_1,\hdots,x_n$. Si la moyenne échantillonnale est $25$, environ $50\%$ des observations sont plus grandes que $25$ et environ $50\%$ sont plus petites que $25$.
+
+    \begin{oneparcheckboxes}
+        \choice Vrai
+        \correctchoice Faux
+    \end{oneparcheckboxes}
+    
+    \begin{solution}
+    Faux. C'est une propriété de la \textbf{médiane}, pas de la moyenne. La moyenne est sensible aux valeurs extrêmes et ne partage pas nécessairement l'échantillon en deux moitiés égales.
+    \end{solution}
+
+        \part[1] Soit $x_1,\hdots,x_n$. Si $Q_1=12$, nous savons que le minimum de l'échantillon est 12.
+
+    \begin{oneparcheckboxes}
+        \choice Vrai
+        \correctchoice Faux
+    \end{oneparcheckboxes}
+ 
+    \begin{solution}
+    Faux. $Q_1$ est le premier quartile (25\textsuperscript{e} percentile); le minimum de l'échantillon peut être strictement inférieur à $Q_1$.
+    \end{solution}
+
+        \part[1] Soit $x_1,\hdots,x_n$. Nous savons que $Q_3>0$.
+
+    \begin{oneparcheckboxes}
+        \choice Vrai
+        \correctchoice Faux
+    \end{oneparcheckboxes}
+
+    \begin{solution}
+    Faux. $Q_3$ dépend des données. Si toutes les observations sont négatives, $Q_3<0$.
+    \end{solution}
+    
+
+\end{parts}
+
+\vspace{0.5cm}
+\question[3]
+\noindent
+\begin{minipage}[t]{0.5\linewidth}\vspace{0pt}
+Soit l'histogramme ci-contre.
+
+Dans quelle classe de l'histogramme se situe le quantile d'ordre 0,30?
+
+\begin{checkboxes}
+  \choice Dans la classe [10,15[
+  \correctchoice Dans la classe [15,20[
+  \choice Dans la classe [20,25[
+  \choice Dans la classe [25,30[
+  \choice Dans la classe [30,35[
+\end{checkboxes}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.42\linewidth}\vspace{0pt}
+\centering
+\begin{tikzpicture}[x=0.25cm,y=0.25cm]
+
+% -------------------------------------------------
+% Axes
+% -------------------------------------------------
+\draw[->, thick] (9,0) -- (36,0);   % axe x
+\draw[->, thick] (10,0) -- (10,19); % axe y
+
+% -------------------------------------------------
+% Graduations x
+% -------------------------------------------------
+\foreach \x in {10,15,20,25,30,35}
+  \draw (\x,0) -- (\x,-0.4) node[below] {\x};
+
+% -------------------------------------------------
+% Graduations y
+% -------------------------------------------------
+\foreach \y in {0,2,4,6,8,10,12,14,16,18}
+  \draw (10,\y) -- (9.6,\y) node[left] {\y};
+
+% -------------------------------------------------
+% Labels
+% -------------------------------------------------
+\node at (23,-2.5) {Mati\`ere s\`eche (kg/jr)};
+\node[rotate=90] at (6.8,9.5) {Nombre de vaches};
+
+% -------------------------------------------------
+% Histogramme
+% -------------------------------------------------
+\draw (10,0) rectangle (15,8);
+\draw (15,0) rectangle (20,18);
+\draw (20,0) rectangle (25,10);
+\draw (25,0) rectangle (30,3);
+\draw (30,0) rectangle (35,1);
+
+\end{tikzpicture}
+\end{minipage}
+
+\begin{solution}
+    Le nombre total de vaches est $8+18+10+3+1=40$. Le quantile d'ordre $0{,}30$ correspond à la position $0{,}30 \times 40 = 12$. L'effectif cumulé après la classe $[10,15[$ est $8$. L'effectif cumulé après la classe $[15,20[$ est $8+18=26$. Puisque $8 < 12 \leq 26$, le quantile d'ordre $0{,}30$ se situe dans la classe $[15,20[$.
+\end{solution}
+
+\newpage
+
+\question[3]
+Dans un laboratoire de microtechnique, Benjamin et Guillaume ont étudié le temps de réaction (en millisecondes) d'un certain type de détecteur de mouvements. Les 21 valeurs suivantes sont des temps de réaction collectés au cours d'une journée:
+
+\begin{center}
+\begin{tabular}{  c c c c c c c c }
+111  &111  &111  &112  &113  &113  &113 \\
+113 &115  &115  &115  &115 &115 & 116 \\
+116 & 118 & 118 & 119 & 125 &125 & 128\\
+\end{tabular}
+\end{center}
+
+Le diagramme en boîte ci-dessous a été tracé à partir de ces résultats. Il manque toutefois quelque chose à ce diagramme (il ne s'agit pas d'un titre ou de noms d'axes).
+
+
+Ajoutez \textbf{sur le diagramme} l'élément manquant et dites ce que vous avez fait sous le diagramme. 
+\begin{center}
+		\begin{tikzpicture}[x=0.4cm,y=0.9cm]
+         \draw[step=0.4cm,,dotted,color=black] (107,0) grid (130,4);
+		\draw[->] (107,0) -- (130,0) node[right] {$X$} ;
+		\foreach \X in {110,115,110,115,120,125,130} {
+			\draw (\X,0.05cm) -- (\X,-0.05cm) node[below] {$\X\strut$};}
+		\draw[ultra thick][fill=red!5] (113,1) rectangle (118,3);
+
+
+		\draw[ultra thick] (111,1) -- (111,3);
+		\draw[ultra thick] (111,2) -- (113,2);
+		\draw[ultra thick] (118,2) -- (125,2);
+		%\draw[ultra thick] (4,1) -- (4,3);
+		\draw[ultra thick] (125,1) -- (125,3);
+        \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (128,2) {};
+			\end{tikzpicture}\\
+	\end{center}
+
+\begin{solution}
+    Il manque la ligne de la médiane dans le diagramme en boîte. Les 21 données ordonnées donnent une médiane égale à la 11\textsuperscript{e} valeur, soit $\tilde{x}=115$. Il faut donc tracer un trait vertical à $x=115$ à l'intérieur de la boîte.
+
+    On vérifie les autres éléments:
+    \begin{itemize}
+        \item $Q_1 = (x_{(5)}+x_{(6)})/2=(113+113)/2=113$ \checkmark
+        \item $Q_3 = (x_{(16)}+x_{(17)})/2=(118+118)/2=118$ \checkmark
+        \item $\text{IQR}=Q_3 - Q_1 = 5$
+        \item Barrière supérieure: $Q_3+1{,}5\times\text{IQR}=118+7{,}5=125{,}5$
+        \item La valeur $128 > 125{,}5$ est une valeur aberrante, correctement représentée par un point. \checkmark
+        \item La moustache supérieure s'arrête à $125$, la plus grande valeur non aberrante. \checkmark
+        \item La moustache inférieure s'arrête à $111$, la plus petite valeur. \checkmark
+    \end{itemize}
+\end{solution}
+
+
+\vspace{2.5in}
+
+\question[3]
+
+On construit un intervalle de confiance à 95 \% pour la variance d'une loi normale et on obtient
+$$[4 \; ; \; 16].$$
+
+Parmi les affirmations suivantes, cochez toutes celles qui sont correctes.\\
+
+\begin{oneparcheckboxes}
+\choice La vraie variance a une probabilité de 0,95 d’être entre 4 et 16.\\[4pt]
+\correctchoice Si on répétait l’échantillonnage, environ 95 \% des intervalles construits contiendraient la vraie variance.\\[4pt]
+\correctchoice Une valeur de 12 est plausible pour la variance de la population.\\[4pt]
+\choice La variance observée dans l'échantillon est égale à 10.\\[4pt]
+\choice 95 \% des observations sont comprises entre 4 et 16.\\[4pt]
+\correctchoice Un test d'hypothèse bilatéral avec $\alpha = 0.05$ rejetterait l'hypothèse $H_0 : \sigma^2 = 20$.
+\end{oneparcheckboxes}
+
+\vspace{0.5in}
+
 
 %%%%%%%%%%%%%%%% LOIS ÉCHANTILLONNALES %%%%%%%%%%%%%%%%
 
@@ -185,7 +394,7 @@ $$
 [2{,}78 \; ; \; 11{,}22]
 $$
 \end{solution}
-\vfill
+\vspace{6.5in}
 
 \part
 \begin{subparts}
@@ -195,12 +404,12 @@ $$
             \correctchoice Vrai
             \choice Faux
         \end{oneparcheckboxes}
-
-        \subpart[1] Puisque les tailles d'échantillons sont grandes, cet intervalle est valide même sans l'hypothèse de normalité des observations.
+\vspace{0.2in}
+        \subpart[1] Puisque les tailles d'échantillons sont grandes, on aurait aussi pu utiliser l'intervalle qui considère les variances connues.       
         
         \begin{oneparcheckboxes}
-            \choice Vrai
-            \correctchoice Faux
+            \correctchoice Vrai
+            \choice Faux
         \end{oneparcheckboxes}
 
     \end{subparts}
@@ -257,7 +466,7 @@ $$
 élèves.
 \end{solution}
 
-\vfill
+\vspace{7in}
 \part[2]
 Le directeur de l'école souhaite plutôt une marge d'erreur d'au plus $0,02$. Est-ce que la taille d'échantillon proposée en (a) est suffisante pour ce faire?
 
@@ -271,45 +480,140 @@ Le directeur de l'école souhaite plutôt une marge d'erreur d'au plus $0,02$. E
 \end{parts}
 
 \pageblanche
-\question[3]
 
-On construit un intervalle de confiance à 95 \% pour la variance d'une loi normale.
-$[4 \; ; \; 16]$.
 
-Parmi les affirmations suivantes, cochez toutes celles qui sont correctes.
+%%%%%%%%%%%%%%%% TESTS D'HYPOTHÈSES %%%%%%%%%%%%%%%%
+
+
+
+\pageblanche
+
+\question
+Une entreprise fabrique des palettes de chocolat et s'intéresse à la variabilité de la quantité de sucre dans une palette. Elle choisit au hasard 11 palettes. Dans l'échantillon, la quantité moyenne de sucre par palette est de $20,05 \,g$ et la variance échantillonnale est de $7,995\, g^2$. Sachant que $X$, la quantité de sucre dans une palette, est une variable aléatoire qui suit une loi normale d'espérance $\mu$ et de variance $\sigma^2$, elle fait le test suivant, au seuil $\alpha=2,5\%$,
+\begin{align*}
+	H_0 &: \sigma^2 = 5 \cr
+	H_1 &: \sigma^2 > 5.
+\end{align*}
+
+\begin{parts}
+\part[3] À partir de quelle valeur de $S^2$ rejette-t-on~$H_0$?
 
 \begin{oneparcheckboxes}
-\choice La variance a 95 \% de probabilité d’être entre 4 et 16.\\
-\correctchoice Si on répétait l’échantillonnage, environ 95 \% des intervalles construits contiendraient la vraie variance.\\
-\correctchoice Une valeur de 12 est plausible pour la variance de la population.\\
-\choice La variance observée dans l'échantillon est égale à 10.\\
-\choice 95 \% des observations sont comprises entre 4 et 16.\\
-\correctchoice Un test d'hypothèse bilatéral avec $\alpha = 0.05$ rejetterait l'hypothèse $H_0 : \sigma^2 = 20$.
-\end{oneparcheckboxes}
+    \choice 1,960
+    \choice 2,131
+    \CorrectChoice 10,24
+    \choice 15,99
+    \choice 20,48
+\end{oneparcheckboxes} 
 
-\question[4]
-Soient $X \sim \mathcal{N}(10, 4)$ et $Y \sim \mathcal{N}(5, 1)$, deux variables aléatoires indépendantes. \\
-On définit $Z = 2X - Y$. Quelle est la loi de $Z$? Laissez des traces de votre démarche.
+\vspace{1cm}
+\part[2] Quelle est la valeur de la statistique du test sous $H_0$, arrondie à 3 décimales?
 
+\begin{oneparcheckboxes}
+    \choice 1,960
+    \choice 2,131
+    \choice 10,24
+    \CorrectChoice 15,99
+    \choice 20,48
+\end{oneparcheckboxes} 
 
 \begin{solution}
-On utilise les propriétés des combinaisons linéaires de variables normales indépendantes.
-
-$$
-\mathbb{E}(Z) = 2\mathbb{E}(X) - \mathbb{E}(Y) = 2(10) - 5 = 15
-$$
-
-$$
-\mathrm{Var}(Z) = 4\mathrm{Var}(X) + \mathrm{Var}(Y) = 4(4) + 1 = 17
-$$
-
-Donc
-$$
-Z \sim \mathcal{N}(15, 17).
-$$
-
+On sait que la statistique du test est $U_0=(n-1)S^2/\sigma^2_0$. Donc $U_0=10*7,995/5=15,99.$
 \end{solution}
-%%%%%%%%%%%%%%%% TESTS D'HYPOTHÈSES %%%%%%%%%%%%%%%%
+
+\vspace{1cm}
+\part[2] Quel est le seuil observé du test?
+
+	\begin{checkboxes}
+	    \choice $\alpha^*=0,01$.
+		\choice $\alpha^*=0,025$.
+		\choice $\alpha^*=0,05$ .
+		\CorrectChoice $\alpha^* =0,1$.
+	\end{checkboxes}
+
+\vspace{1cm}
+\part[3] Si en réalité $\sigma^2=6,4$ et que la règle de décision était plutôt de rejeter $H_0$ si $\displaystyle\frac{10S^2}{5}>25,6$, quelle est l'expression de la puissance du test? 
+
+\begin{checkboxes}
+    \choice $P\left(\displaystyle \frac{10S^2}{6,4}>25,6\right)$
+    \choice $P\left(\displaystyle \frac{10S^2}{5}>25,6\right)$
+    \correctchoice $P\left(\displaystyle \frac{10S^2}{6,4}>20\right)$
+    \choice $P\left(\displaystyle \frac{10S^2}{5}>20\right)$
+\end{checkboxes}
+
+\end{parts}
+
+\pageblanche
+\question[10] Soit $X_1,\hdots,X_{24}$ et $Y_1,\hdots,Y_{7}$ deux échantillons aléatoires provenant respectivement de lois normales d'espérances $\mu_X$ et $\mu_Y$ et de variance $\sigma^2_X$ et $\sigma^2_Y$, supposées inégales.
+On veut procéder à un test de seuil $\alpha$ avec les hypothèses
+
+\begin{align*}
+    H_0:\mu_X-\mu_Y=0, & & H_1:\mu_X-\mu_Y>0.
+\end{align*}
+
+On obtient $\overline{x}=26,112$, $\overline{y}=12$, $s_X^2=120$ et $s_Y^2=28$. Quel est le seuil observé du test?
+
+\begin{solution}
+On utilise le test $t$ à deux échantillons avec variances égales. La variance pondérée est :
+$$s_p^2=\frac{(n_X-1)s_X^2+(n_Y-1)s_Y^2}{n_X+n_Y-2}=\frac{3\times 25+2\times 15}{4+3-2}=\frac{75+30}{5}=\frac{105}{5}=21.$$
+L'écart-type de la différence est :
+$$se=s_p\sqrt{\frac{1}{n_X}+\frac{1}{n_Y}}=\sqrt{21}\times\sqrt{\frac{1}{4}+\frac{1}{3}}=\sqrt{21\times\frac{7}{12}}=\sqrt{\frac{147}{12}}=\sqrt{12{,}25}=3{,}5.$$
+La statistique de test est :
+$$t_0=\frac{\overline{x}-\overline{y}}{se}=\frac{26{,}112-12}{3{,}5}=\frac{14{,}112}{3{,}5}=4{,}032.$$
+Les degrés de liberté sont $\nu=n_X+n_Y-2=5$. Le seuil observé est $\alpha^*=P(T_5>4{,}032)$. D'après la table de la loi $t$, $t_{0{,}01,\,5}=3{,}365$ et $t_{0{,}005,\,5}=4{,}032$. Puisque $t_0=4{,}032=t_{0{,}005,\,5}$, on a $\alpha^*=0{,}005$. On rejette $H_0$ au seuil $5\%$.
+\end{solution}
+\pageblanche
+\question[10] Soit $X_1,\hdots, X_{n}$ qui proviennent d'une loi normale d'espérance $\mu$ et de variance $\sigma^2=25$. 
+On fait le test d'hypothèses pour lequel $H_0:\mu=5$ et $H_1:\mu>5$ au seuil $\alpha=2,5\%$.
+Pour quelles valeurs de $n$ rejette-t-on $H_0$ si $\overline{x}=5,1$?
+
+\begin{solution}
+    On rejette $H_0$ si 
+
+    \begin{align*}
+        Z_0&>1,96\\
+        \frac{\overline{x}-5}{5/\sqrt{n}}&>1,96\\
+        \sqrt{n}(\overline{x}-5)&>9,8\\
+        \sqrt{n}&>\frac{9,8}{0,1}\\
+        n&>9604
+    \end{align*}
+\end{solution}
+\pageblanche
+
+
+
+
+\pageblanche
+\question Soit $X_1,\hdots,X_{25}$ provenant d'une loi normale d'espérance $\mu=0$ et de variance $\sigma^2=16$.
+
+\begin{parts}
+    \part[5] Quelle est la probabilité que la moyenne échantillonnale $\overline{X}$ soit égale à 0,749 fois l'écart-type échantillonnal $S$, c'est-à-dire $P(\overline{X}>0,749S)$?
+    \begin{solution}
+        \begin{align*}
+            P(\overline{X}>0,749S)&=P(\frac{\overline{X}}{S}>0,749)\\
+            &=P(\frac{\overline{X}}{S/5}>3,745)\\
+            &=P(t_{24}>3,745)\\
+            &=0,0005.
+        \end{align*}
+    \end{solution}
+    \vspace{12cm}
+
+    \part[5] Quelle est la valeur $m$, telle que la probabilité que la variance échantillonnale $S^2$ soit supérieure à $m$ est de $0,05$?
+        \begin{solution}
+        \begin{align*}
+            P(S^2>m)&=0,05\\
+            &=P(\frac{(n-1)S^2}{\sigma^2}>\frac{(n-1)m}{\sigma^2})\\
+            &=P(\chi^2_{24}>\frac{24m}{16})\\
+            &=0,0005.
+        \end{align*}
+        D'où $\frac{24m}{16}=36,42$ et $m=24,28$.
+    \end{solution}
+\end{parts}
+
+\pageblanche
+
+
+
 
 %%%%%%%%%%%%%%%% RLS %%%%%%%%%%%%%%%%
 
@@ -484,284 +788,6 @@ Parmi les graphiques ci-dessous, lequel illustre un problème avec l'homogénéi
 \end{center}
 
 
-\pageblanche
 
-\question
-Une entreprise fabrique des palettes de chocolat et s'intéresse à la variabilité de la quantité de sucre dans une palette. Elle choisit au hasard 11 palettes. Dans l'échantillon, la quantité moyenne de sucre par palette est de $20,05 \,g$ et la variance échantillonnale est de $7,995\, g^2$. Sachant que $X$, la quantité de sucre dans une palette, est une variable aléatoire qui suit une loi normale d'espérance $\mu$ et de variance $\sigma^2$, elle fait le test suivant, au seuil $\alpha=2,5\%$,
-\begin{align*}
-	H_0 &: \sigma^2 = 5 \cr
-	H_1 &: \sigma^2 > 5.
-\end{align*}
-
-\begin{parts}
-\part[3] Quelle est la valeur critique du test en grammes$^2$, c'est-à-dire, à partir de quelle valeur de $S^2$ rejette-t-on~$H_0$?
-
-\begin{oneparcheckboxes}
-    \choice 1,960
-    \choice 2,131
-    \CorrectChoice 10,24
-    \choice 15,99
-    \choice 20,48
-\end{oneparcheckboxes} 
-
-\vspace{1cm}
-\part[2] Quelle est la valeur de la statistique du test sous $H_0$, arrondie à 3 décimales?
-
-\begin{oneparcheckboxes}
-    \choice 1,960
-    \choice 2,131
-    \choice 10,24
-    \CorrectChoice 15,99
-    \choice 20,48
-\end{oneparcheckboxes} 
-
-\begin{solution}
-On sait que la statistique du test est $U_0=(n-1)S^2/\sigma^2_0$. Donc $U_0=10*7,995/5=15,99.$
-\end{solution}
-
-\vspace{1cm}
-\part[2] Quel est le seuil observé du test?
-
-	\begin{checkboxes}
-	    \choice $\alpha^*=0,01$.
-		\choice $\alpha^*=0,025$.
-		\choice $\alpha^*=0,05$ .
-		\CorrectChoice $\alpha^* =0,1$.
-	\end{checkboxes}
-
-\vspace{1cm}
-\part[3] Si en réalité $\sigma^2=6,4$ et que la règle de décision est de rejeter $H_0$ si $\displaystyle\frac{10S^2}{5}>20,48$, quelle est l'expression de la puissance du test? 
-
-\begin{checkboxes}
-    \choice $P\left(\displaystyle \frac{10S^2}{5,1}>20,48\right)$
-    \choice $P\left(\displaystyle \frac{10S^2}{5}>20,48\right)$
-    \correctchoice $P\left(\displaystyle \frac{10S^2}{5,1}>16\right)$
-    \choice $P\left(\displaystyle \frac{10S^2}{5}>16\right)$
-\end{checkboxes}
-
-\end{parts}
-
-\pageblanche
-\question[10] Soit $X_1,\hdots,X_{4}$ et $Y_1,\hdots,Y_{3}$ deux échantillons aléatoires provenant respectivement de lois normales d'espérances $\mu_X$ et $\mu_Y$ et de variance $\sigma^2_X$ et $\sigma^2_Y$, supposées égales.
-On veut procéder à un test de seuil $\alpha$ avec les hypothèses
-
-\begin{align*}
-    H_0:\mu_X-\mu_Y=0, & & H_1:\mu_X-\mu_Y>0.
-\end{align*}
-
-On obtient $\overline{x}=26,112$, $\overline{y}=12$, $s_X^2=25$ et $s_Y^2=15$. Quel est le seuil observé du test?
-
-\begin{solution}
-On utilise le test $t$ à deux échantillons avec variances égales. La variance pondérée est :
-$$s_p^2=\frac{(n_X-1)s_X^2+(n_Y-1)s_Y^2}{n_X+n_Y-2}=\frac{3\times 25+2\times 15}{4+3-2}=\frac{75+30}{5}=\frac{105}{5}=21.$$
-L'écart-type de la différence est :
-$$se=s_p\sqrt{\frac{1}{n_X}+\frac{1}{n_Y}}=\sqrt{21}\times\sqrt{\frac{1}{4}+\frac{1}{3}}=\sqrt{21\times\frac{7}{12}}=\sqrt{\frac{147}{12}}=\sqrt{12{,}25}=3{,}5.$$
-La statistique de test est :
-$$t_0=\frac{\overline{x}-\overline{y}}{se}=\frac{26{,}112-12}{3{,}5}=\frac{14{,}112}{3{,}5}=4{,}032.$$
-Les degrés de liberté sont $\nu=n_X+n_Y-2=5$. Le seuil observé est $\alpha^*=P(T_5>4{,}032)$. D'après la table de la loi $t$, $t_{0{,}01,\,5}=3{,}365$ et $t_{0{,}005,\,5}=4{,}032$. Puisque $t_0=4{,}032=t_{0{,}005,\,5}$, on a $\alpha^*=0{,}005$. On rejette $H_0$ au seuil $5\%$.
-\end{solution}
-\pageblanche
-\question[10] Soit $X_1,\hdots, X_{n}$ qui proviennent d'une loi normale d'espérance $\mu$ et de variance $\sigma^2=25$. 
-On fait le test d'hypothèses pour lequel $H_0:\mu=5$ et $H_1:\mu>5$ au seuil $\alpha=2,5\%$.
-Pour quelles valeurs de $n$ rejette-t-on $H_0$ si $\overline{x}=5,1$?
-
-\begin{solution}
-    On rejette $H_0$ si 
-
-    \begin{align*}
-        Z_0&>1,96\\
-        \frac{\overline{x}-5}{5/\sqrt{n}}&>1,96\\
-        \sqrt{n}(\overline{x}-5)&>9,8\\
-        \sqrt{n}&>\frac{9,8}{0,1}\\
-        n&>9604
-    \end{align*}
-\end{solution}
-\pageblanche
-
-\question Dites si les énoncés suivants sont vrais ou faux.
-
-\begin{parts}
-    \part[1] Soit $x_1,\hdots,x_n$. Si la médiane échantillonnale est $25$, nous sommes certains que la valeur de l'observation du milieu est $25$.
-
-    \begin{oneparcheckboxes}
-        \choice Vrai
-        \correctchoice Faux
-    \end{oneparcheckboxes}
-
-    \begin{solution}
-    Faux. Si $n$ est pair, la médiane est la moyenne des deux observations centrales; aucune d'elles n'est forcément égale à $25$. Cette propriété n'est garantie que si $n$ est impair.
-    \end{solution}
-
-        \part[1] Soit $x_1,\hdots,x_n$. Si la moyenne échantillonnale est $25$, environ $50\%$ des observations sont plus grandes que $25$ et environ $50\%$ sont plus petites que $25$.
-
-    \begin{oneparcheckboxes}
-        \choice Vrai
-        \correctchoice Faux
-    \end{oneparcheckboxes}
-    
-    \begin{solution}
-    Faux. C'est une propriété de la \textbf{médiane}, pas de la moyenne. La moyenne est sensible aux valeurs extrêmes et ne partage pas nécessairement l'échantillon en deux moitiés égales.
-    \end{solution}
-
-        \part[1] Soit $x_1,\hdots,x_n$. Si $Q_1=12$, nous savons que le minimum de l'échantillon est 12.
-
-    \begin{oneparcheckboxes}
-        \choice Vrai
-        \correctchoice Faux
-    \end{oneparcheckboxes}
- 
-    \begin{solution}
-    Faux. $Q_1$ est le premier quartile (25\textsuperscript{e} percentile); le minimum de l'échantillon peut être strictement inférieur à $Q_1$.
-    \end{solution}
-
-        \part[1] Soit $x_1,\hdots,x_n$. Nous savons que $Q_3>0$.
-
-    \begin{oneparcheckboxes}
-        \choice Vrai
-        \correctchoice Faux
-    \end{oneparcheckboxes}
-
-    \begin{solution}
-    Faux. $Q_3$ dépend des données. Si toutes les observations sont négatives, $Q_3<0$.
-    \end{solution}
-    
-
-\end{parts}
-
-\vspace{0.5cm}
-\question[3]
-\noindent
-\begin{minipage}[t]{0.5\linewidth}\vspace{0pt}
-Soit l'histogramme ci-contre.
-
-Dans quelle classe de l'histogramme se situe le quantile d'ordre 0,30?
-
-\begin{checkboxes}
-  \choice Dans la classe [10,15[
-  \correctchoice Dans la classe [15,20[
-  \choice Dans la classe [20,25[
-  \choice Dans la classe [25,30[
-  \choice Dans la classe [30,35[
-\end{checkboxes}
-\end{minipage}\hfill
-\begin{minipage}[t]{0.42\linewidth}\vspace{0pt}
-\centering
-\begin{tikzpicture}[x=0.25cm,y=0.25cm]
-
-% -------------------------------------------------
-% Axes
-% -------------------------------------------------
-\draw[->, thick] (9,0) -- (36,0);   % axe x
-\draw[->, thick] (10,0) -- (10,19); % axe y
-
-% -------------------------------------------------
-% Graduations x
-% -------------------------------------------------
-\foreach \x in {10,15,20,25,30,35}
-  \draw (\x,0) -- (\x,-0.4) node[below] {\x};
-
-% -------------------------------------------------
-% Graduations y
-% -------------------------------------------------
-\foreach \y in {0,2,4,6,8,10,12,14,16,18}
-  \draw (10,\y) -- (9.6,\y) node[left] {\y};
-
-% -------------------------------------------------
-% Labels
-% -------------------------------------------------
-\node at (23,-2.5) {Mati\`ere s\`eche (kg/jr)};
-\node[rotate=90] at (6.8,9.5) {Nombre de vaches};
-
-% -------------------------------------------------
-% Histogramme
-% -------------------------------------------------
-\draw (10,0) rectangle (15,8);
-\draw (15,0) rectangle (20,18);
-\draw (20,0) rectangle (25,10);
-\draw (25,0) rectangle (30,3);
-\draw (30,0) rectangle (35,1);
-
-\end{tikzpicture}
-\end{minipage}
-
-\begin{solution}
-    Le nombre total de vaches est $8+18+10+3+1=40$. Le quantile d'ordre $0{,}30$ correspond à la position $0{,}30 \times 40 = 12$. L'effectif cumulé après la classe $[10,15[$ est $8$. L'effectif cumulé après la classe $[15,20[$ est $8+18=26$. Puisque $8 < 12 \leq 26$, le quantile d'ordre $0{,}30$ se situe dans la classe $[15,20[$.
-\end{solution}
-
-\question[3]
-Dans un laboratoire de microtechnique, Benjamin et Guillaume ont étudié le temps de réaction (en millisecondes) d'un certain type de détecteur de mouvements. Les 21 valeurs suivantes sont des temps de réaction collectés au cours d'une journée:
-
-\begin{center}
-\begin{tabular}{  c c c c c c c c }
-111  &111  &111  &112  &113  &113  &113 \\
-113 &115  &115  &115  &115 &115 & 116 \\
-116 & 118 & 118 & 119 & 125 &125 & 128\\
-\end{tabular}
-\end{center}
-
-Le diagramme en boîte ci-dessous a été tracé à partir de ces résultats. Il manque toutefois quelque chose à ce diagramme (il ne s'agit pas d'un titre ou de noms d'axes).
-
-
-Ajoutez \textbf{sur le diagramme} l'élément manquant et dites ce que vous avez fait sous le diagramme. 
-\begin{center}
-		\begin{tikzpicture}[x=0.4cm,y=0.9cm]
-         \draw[step=0.4cm,,dotted,color=black] (107,0) grid (130,4);
-		\draw[->] (107,0) -- (130,0) node[right] {$X$} ;
-		\foreach \X in {110,115,110,115,120,125,130} {
-			\draw (\X,0.05cm) -- (\X,-0.05cm) node[below] {$\X\strut$};}
-		\draw[ultra thick][fill=red!5] (113,1) rectangle (118,3);
-
-
-		\draw[ultra thick] (111,1) -- (111,3);
-		\draw[ultra thick] (111,2) -- (113,2);
-		\draw[ultra thick] (118,2) -- (125,2);
-		%\draw[ultra thick] (4,1) -- (4,3);
-		\draw[ultra thick] (125,1) -- (125,3);
-        \node[circle, fill=black, inner sep=0pt, minimum size=4pt] at (128,2) {};
-			\end{tikzpicture}\\
-	\end{center}
-
-\begin{solution}
-    Il manque la ligne de la médiane dans le diagramme en boîte. Les 21 données ordonnées donnent une médiane égale à la 11\textsuperscript{e} valeur, soit $\tilde{x}=115$. Il faut donc tracer un trait vertical à $x=115$ à l'intérieur de la boîte.
-
-    On vérifie les autres éléments:
-    \begin{itemize}
-        \item $Q_1 = (x_{(5)}+x_{(6)})/2=(113+113)/2=113$ \checkmark
-        \item $Q_3 = (x_{(16)}+x_{(17)})/2=(118+118)/2=118$ \checkmark
-        \item $\text{IQR}=Q_3 - Q_1 = 5$
-        \item Barrière supérieure: $Q_3+1{,}5\times\text{IQR}=118+7{,}5=125{,}5$
-        \item La valeur $128 > 125{,}5$ est une valeur aberrante, correctement représentée par un point. \checkmark
-        \item La moustache supérieure s'arrête à $125$, la plus grande valeur non aberrante. \checkmark
-        \item La moustache inférieure s'arrête à $111$, la plus petite valeur. \checkmark
-    \end{itemize}
-\end{solution}
-\pageblanche
-\question Soit $X_1,\hdots,X_{25}$ provenant d'une loi normale d'espérance $\mu=0$ et de variance $\sigma^2=16$.
-
-\begin{parts}
-    \part[5] Quelle est la probabilité que la moyenne échantillonnale $\overline{X}$ soit égale à 0,749 fois l'écart-type échantillonnal $S$, c'est-à-dire $P(\overline{X}>0,749S)$?
-    \begin{solution}
-        \begin{align*}
-            P(\overline{X}>0,749S)&=P(\frac{\overline{X}}{S}>0,749)\\
-            &=P(\frac{\overline{X}}{S/5}>3,745)\\
-            &=P(t_{24}>3,745)\\
-            &=0,0005.
-        \end{align*}
-    \end{solution}
-    \vspace{12cm}
-
-    \part[5] Quelle est la valeur $m$, telle que la probabilité que la variance échantillonnale $S^2$ soit supérieure à $m$ est de $0,05$?
-        \begin{solution}
-        \begin{align*}
-            P(S^2>m)&=0,05\\
-            &=P(\frac{(n-1)S^2}{\sigma^2}>\frac{(n-1)m}{\sigma^2})\\
-            &=P(\chi^2_{24}>\frac{24m}{16})\\
-            &=0,0005.
-        \end{align*}
-        D'où $\frac{24m}{16}=36,42$ et $m=24,28$.
-    \end{solution}
-\end{parts}
-
-\pageblanche
 \end{questions}
 \end{document} 
