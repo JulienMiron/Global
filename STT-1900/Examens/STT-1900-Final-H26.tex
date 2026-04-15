@@ -49,7 +49,7 @@
 \end{itemize}
 }
 
-\providecommand{\Gradescope}{}
+\providecommand{\Gradescope}{.}
 
 
 \documentclass{Evaluation}
@@ -67,7 +67,7 @@
 
 %%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
 \question[3]
-Montrez que l'ensemble vide $\emptyset$ est à la fois mutuellement exclusif et indépendant de tout événement $A$ pour lequel $0<P(A)<1$.
+Montrez que l'ensemble vide $(\emptyset)$ est à la fois mutuellement exclusif et indépendant de tout événement $A$ pour lequel $0<P(A)<1$.
 
 \begin{solution}
 \textbf{Mutuellement exclusifs :} $A\cap\emptyset=\emptyset$ pour tout événement $A$, donc $P(A\cap\emptyset)=P(\emptyset)=0$. Ainsi $A$ et $\emptyset$ sont mutuellement exclusifs. \\[4pt]
@@ -264,13 +264,13 @@ $\alpha^* = P(Z > z_0) = P(Z > 2{,}000) = 1 - \Phi(2) \approx 0{,}02275$. Puisqu
 \end{solution}
 
 \vspace{1cm}
-\part[4] Si en réalité $\mu=5,1$ et que la règle de décision est de rejeter $H_0$ si $\displaystyle\frac{\overline{X}-5}{0,025}>1,96$, quelle est l'expression de la puissance du test? 
+\part[4] Si en réalité $\mu=5,1$ et que la règle de décision utilisée est plutôt de rejeter $H_0$ si $\displaystyle\frac{\overline{X}-5}{0,025}>2$, quelle est l'expression de la puissance du test? 
 
 \begin{checkboxes}
-    \choice $P\left(\displaystyle \frac{\overline{X}-5,1}{0,025}>1,96\right)$
-    \correctchoice $P\left(\displaystyle \frac{\overline{X}-5,1}{0,025}>-2,04\right)$
-    \choice $P\left(\displaystyle \frac{\overline{X}-5}{0,025}>1,96\right)$
-    \choice $P\left(\displaystyle \frac{\overline{X}-5}{0,025}>-2,04\right)$
+    \choice $P\left(\displaystyle \frac{\overline{X}-5,1}{0,025}>2\right)$
+    \correctchoice $P\left(\displaystyle \frac{\overline{X}-5,1}{0,025}>-2\right)$
+    \choice $P\left(\displaystyle \frac{\overline{X}-5}{0,025}>2\right)$
+    \choice $P\left(\displaystyle \frac{\overline{X}-5}{0,025}>-2\right)$
 \end{checkboxes}
 
 \begin{solution}
@@ -357,8 +357,8 @@ Le seuil observé est $\alpha^*=P(T_4>2{,}998)$. D'après la table de la loi $t$
 
 \pageblanche
 
-\question[9] Soit $X_1,\hdots,X_{4}$ et $Y_1,\hdots,Y_{3}$ deux échantillons aléatoires provenant respectivement de lois normales d'espérances $\mu_X$ et $\mu_Y$ et de variance $\sigma^2_X$ et $\sigma^2_Y$, supposées égales.
-On veut procéder au test de seuil $5\%$ avec les hypothèses
+\question[10] Soit $X_1,\hdots,X_{4}$ et $Y_1,\hdots,Y_{3}$ deux échantillons aléatoires provenant respectivement de lois normales d'espérances $\mu_X$ et $\mu_Y$ et de variance $\sigma^2_X$ et $\sigma^2_Y$, supposées égales.
+On veut procéder à un test de seuil $\alpha$ avec les hypothèses
 
 \begin{align*}
     H_0:\mu_X-\mu_Y=0, & & H_1:\mu_X-\mu_Y>0.
@@ -380,16 +380,16 @@ Les degrés de liberté sont $\nu=n_X+n_Y-2=5$. Le seuil observé est $\alpha^*=
 \pageblanche
 
 \question 
-Un ingénieur veut vérifier s'il existe une différence de rigidité d'un certain type de disque, selon le pourcentage de \textit{Pouliovachium} qui le compose.
+Pascale veut vérifier s'il existe une différence de croustillant d'un certain type de biscuit, selon le pourcentage de beurre qui le compose.
 
-Il compare donc la rigidité de 8 pourcentages différents (10\%, 20\%, 25\%, 30\%, 35\%, 40\%, 45\% et 50\%) en produisant 4 disques pour chaque pourcentage.
-La table d'ANOVA suivante est produite par le logiciel utilisé par l'ingénieur. 
+Elle compare le croustillant de 8 pourcentages différents (10\%, 20\%, 25\%, 30\%, 35\%, 40\%, 45\% et 50\%) en produisant 4 biscuits pour chaque pourcentage.
+La table d'ANOVA suivante est produite par le logiciel utilisé par Pascale.
 Dans celle-ci, certaines quantités ont été remplacées par \texttt{AAA, BBB} et \texttt{ ???}. Nous considérons que les postulats du modèle sont respectés.
 \begin{verbatim}
 ANOVA
 
                      SS      ddl      MS      F0           
-pouliovachium    1154.3      ???     ???     AAA
+beurre           1154.3      ???     ???     AAA
 Residuals         141.4      ???     ???         
 Total               BBB      ???       
 \end{verbatim}
@@ -400,12 +400,13 @@ Analysis of Variance Table
 
 Response: Y
               Df   Sum Sq   Mean Sq   F value        Pr(>F)    
-pouliovachium  7   1154.3    164.90     27.99    4.6e-10 ***
+beurre  7   1154.3    164.90     27.99    4.6e-10 ***
 Residuals     24    141.4      5.89                    
 Total         31   1295.7
 \end{verbatim}
 \end{comment}
 
+\vspace{1cm}
 \begin{parts}
     \part[3] Que vaut \texttt{AAA}?
 \begin{checkboxes}
@@ -420,7 +421,7 @@ Total         31   1295.7
 $\texttt{AAA} = F_0 = \dfrac{MS_{\text{trt}}}{MS_E} = \dfrac{SS_{\text{trt}}/(a-1)}{SS_E/(N-a)} = \dfrac{1154{,}3/7}{141{,}4/24} = \dfrac{164{,}9}{5{,}892} \approx 27{,}989$, avec $a-1=7$ traitements et $N-a=32-8=24$ résidus.
 \end{solution}
 
-\vspace{0.5cm}
+\vspace{1cm}
     \part[3] Quelle est l'estimation de $\sigma^2$?
 \begin{checkboxes}
     \choice $141{,}4$
@@ -434,7 +435,7 @@ $\texttt{AAA} = F_0 = \dfrac{MS_{\text{trt}}}{MS_E} = \dfrac{SS_{\text{trt}}/(a-
 $\hat{\sigma}^2 = MS_E = \dfrac{SS_E}{\text{Dl}_E} = \dfrac{141{,}4}{24} = 5{,}89$, où $\text{Dl}_E = N - a = 32 - 8 = 24$.
 \end{solution}
 
-\vspace{0.5cm}
+\vspace{1cm}
     \part[3] Que vaut \texttt{BBB}?
 \begin{checkboxes}
     \choice 8,163
@@ -448,13 +449,13 @@ $\hat{\sigma}^2 = MS_E = \dfrac{SS_E}{\text{Dl}_E} = \dfrac{141{,}4}{24} = 5{,}8
 $\texttt{BBB} = SS_{\text{total}} = SS_{\text{trt}} + SS_E = 1154{,}3 + 141{,}4 = 1295{,}7$.
 \end{solution}
 
-\vspace{0.5cm}
+\vspace{1cm}
 \part[3] Au seuil de 5\%, quelle conclusion pouvons-nous tirer de la table d'ANOVA?
 \begin{checkboxes}
     \choice Il n'est pas possible de tirer de conclusion car nous ne connaissons pas les valeurs remplacées par \texttt{???}.
     \choice Il faudrait répéter l'expérience plus de fois pour pouvoir conclure.
     \choice Toutes les moyennes sont significativement différentes.
-    \correctchoice La rigidité moyenne des disques d'au moins un pourcentage est significativement différente de celle d'au moins un autre pourcentage.
+    \correctchoice Au moins une moyenne est significativement différente de celle d'au moins une autre moyenne.
     \choice Toutes les moyennes sont significativement égales.
 \end{checkboxes}
 
@@ -552,23 +553,25 @@ $R^2=1-\dfrac{\text{SSE}}{\text{SST}}=1-\dfrac{0{,}741}{7{,}92}\approx 0{,}906$,
 \pageblanche
 
 \question\label{rlm}
-Un ingénieur civil cherche à modéliser la résistance à la compression ($Y$, en MPa) d'une formulation de béton à partir de trois variables : la proportion de ciment ($X_1$, en \%), le rapport eau/ciment ($X_2$) et la durée de cure ($X_3$, en jours).
-Il ajuste le modèle de régression linéaire multiple suivant :
+Madeleine cherche à modéliser le nombre moyen de buts marqués par match ($Y$) d’un trio de hockey à partir de trois variables : la proportion de mises en jeu en zone offensive ($X_1$, en \%), le ratio revirements/récupérations ($X_2$) et le temps moyen passé ensemble sur la glace ($X_3$, en minutes par match).
+
+Elle ajuste le modèle de régression linéaire multiple suivant :
 $$Y_i=\beta_0+\beta_1X_{i1}+\beta_2X_{i2}+\beta_3X_{i3}+E_i,$$
 où les $E_i$ sont indépendants et identiquement distribués de loi $\mathcal{N}(0,\,\sigma^2)$.
-Les données portent sur $47$ mélanges de béton. Les sorties suivantes ont été obtenues, deux éléments étant remplacés par \texttt{AAA} et \texttt{BBB}.
+
+Les données portent sur $47$ trios de hockey. Les sorties suivantes ont été obtenues, deux éléments étant remplacés par \texttt{AAA} et \texttt{BBB}.
 
 \begin{verbatim}
 > sommaire(RegModel.1)
 Call:
-lm(formule = Resistance ~ Ciment + EauCiment + DureeCure, data = Beton)
+lm(formule = Buts ~ ZoneOffensive + RatioRevirements + TempsGlace, data = Hockey)
 
 Paramètres:
-           Estimation   Erreur-type        t0   valeur-p
-(Ordonnée)    2.34150       0.38520     6.079   0.000001
-Ciment        0.42900       0.14300       AAA     0.0041
-EauCiment    -3.15200       0.71040    -4.436   0.000001
-DureeCure     0.08830       0.11260     0.784     0.4373
+                 Estimation   Erreur-type        t0   valeur-p
+(Ordonnée)          2.34150       0.38520     6.079   0.000001
+ZoneOffensive       0.42900       0.14300       AAA     0.0041
+RatioRevirements   -3.15200       0.71040    -4.436   0.000001
+TempsGlace          0.08830       0.11260     0.784     0.4373
 
 MSE: 4.7829  sur 43 degrés de liberté
 R-carré:  0.7650, R-carré ajusté:  BBB
@@ -606,7 +609,7 @@ R^2_{\text{ajusté}} = 1-(1-R^2)\times\frac{n-1}{n-k-1}
 
 \vfill
 
-\part[2] Au seuil de 5\%, l'effet de la durée de cure ($X_3$) sur la résistance à la compression est-il significatif, en présence des deux autres variables dans le modèle? Une seule réponse est bonne.
+\part[2] Au seuil de 5\%, l'effet du temps moyen passé ensemble sur la glace ($X_3$) sur le nombre de buts marqués est-il significatif, en présence des deux autres variables dans le modèle? Une seule réponse est bonne.
 
 \medskip\begin{checkboxes}
     \choice Oui.
@@ -622,14 +625,14 @@ L'effet de la durée de cure n'est donc pas significatif au seuil 5\%, lorsque $
 
 \pagesuivante{\ref{rlm}}
 
-\part Nous voulons maintenant tester, au seuil 5\%,
+\part[1] Nous voulons maintenant tester, au seuil 5\%,
 \begin{align*}
     H_0 &: \text{aucune des variables explicatives n'a d'effet sur la résistance à la compression,}\\
     H_1 &: \text{au moins une variable explicative a un effet sur la résistance à la compression.}
 \end{align*}
 
-\begin{subparts}
-    \subpart[1] Quelle est la valeur-$p$ associée à ce test?
+
+ Quelle est la valeur-$p$ associée à ce test?
 
     \begin{checkboxes}
         \choice $0{,}0041$
@@ -645,20 +648,6 @@ L'effet de la durée de cure n'est donc pas significatif au seuil 5\%, lorsque $
 
     \vspace{0.5cm}
 
-    \subpart[1] Quelle est la conclusion?
-
-    \medskip\begin{checkboxes}
-        \CorrectChoice Nous rejetons $H_0$ au seuil 5\% : au moins une variable a un effet significatif sur la résistance à la compression.
-        \choice Nous ne rejetons pas $H_0$ au seuil 5\%.
-        \choice Aucune des trois variables n'a d'effet significatif sur la résistance à la compression.
-        \choice Nous ne pouvons pas conclure car des valeurs sont inconnues.
-    \end{checkboxes}
-
-    \begin{solution}
-    Puisque la valeur-$p = 0{,}000001 < 0{,}05 = \alpha$, on rejette $H_0$~: au moins une des variables $X_1, X_2, X_3$ a un effet significatif sur la résistance à la compression.
-    \end{solution}
-
-\end{subparts}
 
 \end{parts}
 
