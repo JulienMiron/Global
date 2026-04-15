@@ -1,0 +1,406 @@
+\documentclass[STT-4300-Main.tex]{subfiles}
+\begin{document}
+
+\section{Modèles linéaires généralisés mixtes (MLGM)}
+\label{GLMM.section}
+
+\subsection{Définition du modèle}
+\begin{frame}{Modèles linéaires généralisés mixtes (MLGM)}
+Avec des données longitudinales ou groupées, il faut tenir compte de la
+{\color{blue}corrélation intra-grappe} (\textit{within-cluster correlation}).
+
+\bigskip
+
+Le MLG n'est pas adéquat. Le {\color{blue}MLGM} (\textit{generalized linear mixed model}, GLMM) étend le MLG en permettant aux coefficients de varier selon la grappe, ce qui tient compte de la corrélation intra-grappe.
+
+\bigskip
+Le MLGM est un compromis entre le modèle de {\color{blue}moyenne populationnelle} (\textit{population-average model}) du MLG et une approche de modélisation (sur-pa\-ra\-mé\-tri\-sée) qui ajusterait chaque grappe séparément.
+\end{frame}
+
+\begin{frame}
+Ingrédients :
+\begin{itemize}
+\item vecteurs de réponse $Y_i = (Y_{i1},\ldots,Y_{in_i})$, pour $i=1,\ldots,n$.
+\item matrice de design (\textit{design matrix}) $X_i$ pour les {\color{blue}effets fixes} (\textit{fixed effects})
+\item matrice de design $Z_i$ pour les {\color{blue}effets aléatoires} (\textit{random effects}) (pouvant chevaucher
+$X_i$).
+\item effets aléatoires $\gamma_i$ pour chaque grappe $i$. Ce sont des variables aléatoires {\color{blue}latentes} (\textit{latent}) (non observées).
+\end{itemize}
+
+\bigskip
+Hypothèses :
+\begin{itemize}
+\item $Y_{it} \mid \gamma_i$ sont indépendamment distribués selon une
+  distribution de la {\color{blue}famille exponentielle} (\textit{exponential family}).
+\item $\gamma_i$ sont indépendamment distribués selon ${\mathcal
+    N}(0, \Psi)$.
+\end{itemize}
+
+\bigskip
+Deux sources d'erreur : le processus d'échantillonnage et le processus de mesure
+au sein de l'échantillon lui-même.
+\end{frame}
+
+\begin{frame}{Cas gaussien avec lien identité}
+Dans le cas gaussien avec {\color{blue}lien identité} (\textit{identity link}), le modèle peut s'écrire :
+$$ Y_i = X_i \beta + Z_i \gamma_i + \epsilon_i \ \ \  (\mbox{ou } Y_{it} = x_{it}^T \beta + z_{it}^T \gamma_i + \epsilon_{it}),$$
+avec $\epsilon_i \sim {\mathcal N}(0, \sigma^2_{\epsilon} I)$ et $\gamma_i  \sim
+{\mathcal N}(0,\Psi)$, par exemple $\Psi = \sigma^2_{\gamma} I$.
+
+\bigskip
+De manière équivalente : $E(Y_i \mid \gamma_i) = X_i \beta + Z_i \gamma_i$.
+
+
+\bigskip
+
+Il s'ensuit que
+$$Y_i \sim {\mathcal N}(X_i \beta, Z_i \Psi Z_i^T + \sigma^2_{\epsilon} I),$$
+et la (log-)vraisemblance peut être écrite explicitement pour cette
+distribution normale multivariée (mais nécessite tout de même un algorithme
+d'optimisation en raison des paramètres dans $\Psi$).
+\end{frame}
+
+\begin{frame}
+
+\begin{center}
+\begin{tabular}{cc} 
+Ordonnée à l'origine aléatoire (\textit{random intercept}) & Pente aléatoire (\textit{random slope}) \\
+$Y_{it} = x_{it}^T \beta + \gamma_i + \epsilon_{it}$ & $Y_{it} = x_{it}^T \beta + z_{it}^T \gamma_i + \epsilon_{it}$\\
+\includegraphics[width = 5.5cm]{figures/RandomInterceptGaussian.pdf}  & \includegraphics[width =5.5cm]{figures/RandomSlopeGaussian.pdf} 
+\end{tabular}
+\end{center}
+
+
+\end{frame}
+
+\begin{frame}{Le modèle linéaire généralisé mixte}
+
+\bigskip
+Notons $\mu_{it} = E(Y_{it} \mid \gamma_i)$ ($\neq E(Y_{it})$).
+
+\bigskip
+Modèle (conditionnel à $\gamma_i$, un MLG standard) :
+\begin{itemize}
+\item $g(E(Y_{it} \mid \gamma_i)) = g(\mu_{it}) =  x_{it}^T \beta + z_{it}^T \gamma_i$
+  pour une {\color{blue}fonction de lien} (\textit{link function}) $g$.
+\item $Var(Y_{it} \mid \gamma_i) = v(\mu_{it})$.
+\end{itemize}
+
+\bigskip
+Deux sources d'erreur : le processus d'échantillonnage et le processus de mesure
+au sein de l'échantillon lui-même.
+\end{frame}
+
+\begin{frame}{Estimation du MLGM}
+
+Combiner l'information provenant de
+\begin{itemize}
+\item la distribution conditionnelle de $Y_{it}
+\mid \gamma_i$ : $f(y_{it} \mid \gamma_i, \beta, \phi)$ ;
+\item la distribution marginale des effets aléatoires : $f(\gamma_i \mid
+\phi, \Psi)$.
+\end{itemize}
+
+\bigskip
+Les $\gamma_i$ sont non observables, on s'appuie sur la {\color{blue}vraisemblance marginale} (\textit{marginal likelihood}) :
+\begin{eqnarray*}
+\lefteqn{L(\beta,\phi, \Psi) = f(y_1,\ldots,y_n)= \prod_{i=1}^n f(y_i) }\\
+& = & \prod_{i=1}^n \int \cdots \int f(y_{i} \mid \gamma_i, \beta, \phi)f(\gamma_i \mid \phi, \Psi) d \gamma_i  \\
+& = & \prod_{i=1}^n \int \cdots \int \prod_{t=1}^{n_i} f(y_{it} \mid \gamma_i,
+\beta, \phi) f(\gamma_i \mid \phi, \Psi) d \gamma_i.
+\end{eqnarray*}
+
+Comme dans les MLG, utiliser la relation du modèle pour introduire l'information des données.
+
+\end{frame}
+
+\begin{frame}{Approximations de $L(\beta,\phi, \Psi)$}
+
+La vraisemblance ne peut pas -- en général -- être exprimée sous forme fermée.
+Des méthodes numériques et des approximations pour calculer/approximer les intégrales sont nécessaires :
+\begin{itemize}
+\item Intégrations de Monte-Carlo (MCMC) (approximer les intégrales par simulation)
+\item {\color{blue}Quadrature de Gauss-Hermite} (\textit{Gauss-Hermite quadrature})
+\item {\color{blue}Approximation de Laplace} (\textit{Laplace approximation})
+\item {\color{blue}Quasi-vraisemblance pénalisée} (\textit{Penalized Quasi-Likelihood}, PQL)
+\item {\color{blue}Quasi-vraisemblance marginale} (\textit{Marginal Quasi-Likelihood}, MQL)
+\end{itemize}
+
+\bigskip
+Note : PQL et MQL peuvent produire des estimateurs biaisés. Il est préférable d'utiliser la
+quadrature gaussienne ou l'approximation de Laplace, même si elles peuvent être coûteuses
+en calcul.
+
+\bigskip
+Pour des spécifications élaborées des effets aléatoires, les seuls schémas
+d'intégration efficaces semblent être ceux basés sur les MCMC.
+
+\end{frame}
+
+\begin{frame}{Quelques options disponibles dans R}
+
+\begin{itemize}
+\item package \texttt{nlme} : fonctions \texttt{lme} et \texttt{nlme}
+  pour les modèles à effets mixtes linéaires et non linéaires. Permet des effets
+  aléatoires emboîtés.
+\item package \texttt{lme4} : fonction \texttt{lmer}. Permet l'approximation de Laplace (par défaut) et la
+quadrature gaussienne adaptative. Peut définir des ordonnées à l'origine
+aléatoires et des pentes aléatoires, ainsi que des facteurs de regroupement
+emboîtés et croisés pour les effets aléatoires.
+\item package \texttt{ADMB} : fonction \texttt{glmmadmb} basée sur une approximation
+de Laplace avec différentiation automatique. Large gamme de familles,
+large gamme de fonctions de lien, effets aléatoires simples ou multiples, incluant
+des effets emboîtés et croisés.
+\item package \texttt{glmmTMB}, fonction \texttt{glmmTMB}. Similaire à \texttt{glmmadmb}, mais avec certaines extensions différentes.
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Interprétation des effets fixes}
+Un MLGM est une {\color{blue}analyse spécifique au sujet} (\textit{subject-specific analysis}) : les coefficients
+de régression s'appliquent à chaque individu, mais pas nécessairement à la population (par
+opposition à une {\color{blue}analyse marginale} (\textit{marginal analysis}), par ex.\ les GEE).
+
+\bigskip
+On a :
+$$\mu_{it} = E(Y_{it}\mid \gamma_i) = g^{-1}(x_{it}^T \beta + z_{it}^T \gamma_i),$$
+de sorte que la moyenne conditionnelle varie avec les prédicteurs selon
+$\beta$ avec en plus une contribution spécifique au sujet due à $\gamma_i$.
+
+\end{frame}
+
+\begin{frame}
+La moyenne populationnelle $E(Y_{it})$ est définie par
+$$E(Y_{it}) = E_{\gamma_i}(E(Y_{it}\mid \gamma_i)) = \int g^{-1}(x_{it}^T \beta + z_{it}^T
+\gamma_i) dF(\gamma_i),$$
+qui est différente de $g^{-1}(x_{it}^T \beta)$, sauf dans le
+cas gaussien avec lien identité.
+
+\bigskip
+Dans certains cas (par ex.\ le modèle probit), on a
+$$E(Y_{it}) = E_{\gamma_i}(E(Y_{it}\mid \gamma_i)) = g^{-1}(x_{it}^T \beta^*),$$
+avec $\mid \beta^* \mid \leq  \mid \beta \mid$.
+\end{frame}
+
+\begin{frame}
+\begin{center}
+\begin{tabular}{cc} 
+Ordonnée à l'origine aléatoire & Pente aléatoire \\
+\includegraphics[width = 5.5cm]{figures/RandomIntercept.pdf}  & \includegraphics[width =5.5cm]{figures/RandomSlope.pdf} 
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Prédiction des effets aléatoires}
+Pour les modèles mixtes linéaires, il existe une théorie pour définir les {\color{blue}meilleurs prédicteurs} (\textit{best predictors}, BP) minimisant
+l'EQM, $\hat{\gamma}_i = E(\gamma_i \mid y_i)$, les {\color{blue}meilleurs prédicteurs linéaires} (\textit{best linear
+predictors}, BLP) et les {\color{blue}meilleurs prédicteurs linéaires sans biais} (\textit{best linear unbiased predictors}, BLUP). Ils reviennent tous
+au même.
+
+\bigskip
+Dans les logiciels pour MLGM, ce sont généralement les {\color{blue}modes conditionnels} (\textit{conditional modes}) qui sont implémentés, c'est-à-dire les
+valeurs maximisant la densité de $\gamma_i \mid y_1, \ldots, y_n$. Ce ne sont pas
+des BLUP, car ils ne sont pas linéaires, ils pourraient ne pas être sans biais et on ne sait pas
+en quel sens ils sont « meilleurs ».
+
+\bigskip
+Les meilleurs prédicteurs seraient ceux satisfaisant
+$\hat{\gamma}_i = E(\gamma_i \mid y_i)$. C'est encore un domaine de recherche ouvert (en
+particulier pour définir les propriétés de $\hat{\gamma}_i$).
+\end{frame}
+
+\begin{frame}
+En fait, la question à poser est quelle est la prédiction pour :
+\begin{itemize}
+\item un nouveau point de données dans un groupe existant : utiliser $\hat{\mu}_{it} = g^{-1}(x_{it}^T \hat{\beta} + z_{it}^T \hat{\gamma}_i)$ ;
+\item un nouveau point de données pour un nouveau groupe : utiliser $\hat{\mu}_i = g^{-1}(x_{it}^T
+\hat{\beta})$.
+\end{itemize}
+\end{frame}
+
+\subsection{Jeu de données sur la pseudonégligence}
+\begin{frame}{Analyse des données sur la pseudonégligence}
+
+Les effets de l'hémiespace sur une tâche de bissection tactile de ligne sont mesurés. Les données proviennent d'un mémoire de diplôme (Sabina Catalano, FAPSE, 2003). On dispose d'observations sur 10 sujets mesurés 10 fois pour chacune des 13 distances (de 0 à 120, 60 étant le centre de la ligne). Le sujet se voit présenter (dans un ordre aléatoire) une position sur une ligne et doit décider si elle se situe à gauche ou à droite du centre. Le nombre de réponses « gauche » (pour chaque distance) est enregistré.
+
+Dans cette expérience, la question scientifique est de déterminer s'il existe un biais systématique vers la gauche par rapport au centre de la ligne (comme suggéré par certains psychologues).
+
+\bigskip
+Le {\color{blue}point d'égalité subjective} (\textit{equality subjective point}, ESP), c'est-à-dire la distance
+pour laquelle la probabilité de « gauche » est 1/2, est le paramètre d'intérêt.
+\end{frame}
+
+\begin{frame}
+\begin{center}
+\includegraphics[width = 7.5cm]{figures/hemiID.pdf}  
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Moyenne sur les individus}
+
+\begin{center}
+\includegraphics[width = 7cm]{figures/hemi.pdf}  
+\end{center}
+\end{frame}
+
+\begin{frame}
+On considère un modèle MLGM binomial avec ordonnée à l'origine aléatoire :
+
+$$\mbox{logit}(p_i) = \log\Big( \frac{p_i}{1-p_i}\Big) = \beta_0 + \beta_1 \texttt{distance} + \gamma_i,$$
+avec $p_i = P(\mbox{« gauche » pour l'individu }i)$ et $\gamma_i \sim {\mathcal N}(0,\sigma_{\gamma}^2)$ est une ordonnée à l'origine aléatoire.
+
+\bigskip
+\bigskip
+\bigskip
+Pour chaque individu, le ESP est la distance telle que
+$$ \beta_0 + \beta_1 \texttt{distance} + \gamma_i =0,$$
+
+c'est-à-dire
+$$ ESP_i = - \frac{\beta_0 + \gamma_i}{\beta_1}.$$
+\end{frame}
+
+
+\begin{frame}[fragile]
+{\tiny
+\begin{lstlisting}
+Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) ['glmerMod']
+ Family: binomial  ( logit )
+Formula: cbind(left, 10 - left) ~ distance + (1 | sujet)
+   Data: hemi
+
+     AIC      BIC   logLik deviance df.resid 
+   371.4    380.0   -182.7    365.4      127 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-6.6927 -0.6634 -0.1685  0.6606  3.5747 
+
+Random effects:
+ Groups Name        Variance Std.Dev.
+ sujet  (Intercept) 0.2469   0.4969  
+Number of obs: 130, groups:  sujet, 10
+
+Fixed effects:
+             Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  3.804820   0.264566   14.38   <2e-16 ***
+distance        -0.063078   0.003267  -19.31   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+     (Intr)
+distance -0.744
+\end{lstlisting}
+}
+\end{frame}
+
+\begin{frame}
+Avec prudence :
+\begin{center}
+\includegraphics[width = 7cm]{figures/hemires.pdf}  
+\end{center}
+\end{frame}
+
+
+\begin{frame}[fragile]
+Les effets aléatoires en valent-ils la peine ? Comparaison avec un ajustement MLG (qui est emboîté dans un modèle MLGM) :
+
+{\tiny
+\begin{lstlisting}
+Call: glm(formula = cbind(gauche, 10 - gauche) ~ item, family = binomial, 
+    data = hemi)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-3.1932  -0.9789  -0.2511   0.9206   3.6980  
+
+Coefficients:
+             Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  3.650109   0.202573   18.02   <2e-16 ***
+item        -0.060521   0.003093  -19.57   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 988.40  on 129  degrees of freedom
+Residual deviance: 198.04  on 128  degrees of freedom
+AIC: 390.75
+
+Number of Fisher Scoring iterations: 5
+\end{lstlisting}
+}
+
+\bigskip
+Dans le MLGM : AIC=371.4 et la déviance=365.4.
+\end{frame}
+
+
+
+
+\begin{frame}[fragile]{Prédiction du ESP}
+
+{\tiny
+\begin{lstlisting}
+-(fixef(hemi.glmm)[1] +ranef(hemi.glmm)$sujet)/fixef(hemi.glmm)[2]
+        (Intercept)
+Sujet1     55.97849
+Sujet10    51.06305
+Sujet2     58.43176
+Sujet3     59.24924
+Sujet4     60.88410
+Sujet5     77.32295
+Sujet6     51.88350
+Sujet7     63.33696
+Sujet8     61.70159
+Sujet9     63.33696
+\end{lstlisting}
+}
+
+\vspace*{-2cm}
+\begin{center}
+\includegraphics[width = 6cm]{figures/ESP.pdf}  
+\end{center}
+\end{frame}
+
+
+\begin{frame}[fragile]{Avec pente aléatoire ?}
+
+{\tiny
+\begin{lstlisting}
+Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) ['glmerMod']
+ Family: binomial  ( logit )
+Formula: cbind(left, 10 - left) ~ item + (1 + distance | sujet)
+   Data: hemi
+
+     AIC      BIC   logLik deviance df.resid 
+   368.4    382.8   -179.2    358.4      125 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.8813 -0.5607 -0.0854  0.5181  2.3284 
+
+Random effects:
+ Groups Name        Variance  Std.Dev. Corr 
+ sujet  (Intercept) 1.2714312 1.12758       
+        distance    0.0001859 0.01363  -0.87
+Number of obs: 130, groups:  sujet, 10
+
+Fixed effects:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  4.02204    0.43108    9.33   <2e-16 ***
+distance    -0.06629    0.00565  -11.73   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+     (Intr)
+item -0.885
+\end{lstlisting}
+}
+\end{frame}
+
+\end{document}

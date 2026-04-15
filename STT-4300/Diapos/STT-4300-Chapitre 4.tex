@@ -1,0 +1,487 @@
+\documentclass[STT-4300-Main.tex]{subfiles}
+\begin{document}
+
+\section{Équations d'estimation généralisées (GEE)}
+\label{GEE.section}
+
+\begin{frame}{Données longitudinales}
+Dans les {\color{blue}études longitudinales} (\textit{longitudinal studies}) (par opposition
+aux études transversales), les individus sont mesurés de façon répétée au fil du
+temps. Les données longitudinales sont aussi appelées {\color{blue}données de panel} (\textit{panel data}) (surtout en
+économie).
+
+\bigskip
+L'indépendance est supposée entre les individus (comme dans les MLG), mais pas entre
+les mesures d'un même individu.
+
+\bigskip
+Les études longitudinales permettent de distinguer les changements au fil du temps
+au sein des individus.
+
+\bigskip
+Parfois, des {\color{blue}grappes} (\textit{clusters}) sont définies par d'autres groupes qu'un
+individu (pratiques médicales, villes, etc.).
+
+\bigskip
+\textbf{Notation} : voir page~\pageref{Ximatrix}.
+\end{frame}
+
+\begin{frame}{Approches possibles pour les mesures répétées}
+Modéliser $Y_{it}$ au moyen de $x_{it}$ :
+\begin{itemize}
+\item {\color{blue}Modèles marginaux} (\textit{marginal models}) (comme dans les études transversales) :\\
+non seulement $g(E(Y_{it})) = x_{it}^T \beta$ ($t=1,\ldots,n_i$), mais aussi $Var(Y_i) = V_i(\phi,\alpha)$.
+\item {\color{blue}Modèle à effets aléatoires (ou mixtes)} (\textit{random/mixed effects model}) : la corrélation entre
+  les réponses répétées est
+  impliquée par la variation des coefficients de régression entre les individus :\\
+$g(E(Y_{it}|\gamma_i)) = x_{it}^T \beta + z_{it}^T \gamma_i$, et $\gamma_i$ sont iid
+d'une distribution avec $E(\gamma_i)=0$ et $Var(\gamma_i)= \sigma^2_{\gamma}I$.
+
+Une vaste littérature existe pour ces modèles dans le cas gaussien avec lien identité,
+beaucoup moins pour d'autres distributions de la famille exponentielle (modèles GLMM).
+\end{itemize}
+
+\end{frame}
+
+\subsection{Spécification du modèle}
+\begin{frame}[allowframebreaks]{Modèles marginaux}
+L'inférence tirée du modèle marginal est de type {\color{blue}moyenne populationnelle} (\textit{population average}) par opposition à l'inférence {\color{blue}spécifique au sujet} (\textit{subject specific}) que l'on peut tirer des modèles à effets aléatoires.
+
+\bigskip
+Ingrédients du modèle :
+\begin{itemize}
+\item L'espérance marginale de la réponse $E(Y_{it}) = \mu_{it}$
+  dépend d'un ensemble de variables explicatives $x_{it}$ via $g(\mu_{it})
+  = x_{it}^T \beta$, où $g$ est la fonction de lien (mêmes choix ou choix similaires à ceux des MLG).
+\item La variance marginale dépend de la moyenne marginale $Var(Y_{it})
+  = \phi v(\mu_{it}) $.
+\item La corrélation entre $Y_{it}$ et $Y_{it^\prime}$ est une fonction des
+  moyennes marginales et possiblement de paramètres supplémentaires $\alpha$.
+\end{itemize}
+
+\bigskip
+$\beta$ est le paramètre d'intérêt, $\phi$ et $\alpha$ sont des paramètres de nuisance.
+
+\bigskip
+Les paramètres $\beta$ s'interprètent comme pour les MLG.
+
+\bigskip
+Une distribution marginale pour $Y_{it}$ est postulée (p.~ex.\ Bernoulli, Poisson). Notons,
+cependant, que cela ne définit pas une distribution conjointe multivariée pour $Y_i$
+($\leadsto$ pas de vraisemblance).
+
+\bigskip\bigskip\bigskip\bigskip\bigskip\bigskip\bigskip
+Les paramètres de régression $\beta$ sont estimés par l'approche des
+{\color{blue}équations d'estimation généralisées} (\textit{generalized estimating equations}, GEE).
+Par analogie avec les équations de score d'un MLG (voir
+p.~\pageref{EE.GLM}), on résout (pour $\beta$) :
+$$\sum_{i=1}^n D_i^T V_i(\alpha)^{-1} (Y_i - \mu_i) =0,$$
+avec $D_i = d \mu_i/ d \beta$, $V_i(\alpha) = \phi  A_i^{1/2} R(\alpha)
+A_i^{1/2}$, où $A_i = \mbox{diag}(v(\mu_{it}))$ et
+$R(\alpha)$ est une matrice de {\color{blue}corrélation « de travail »} (\textit{working correlation matrix}) (par
+opposition à la vraie matrice de corrélation $Corr(Y_i)$).
+
+\bigskip
+Les GEE peuvent s'écrire sous la forme d'un algorithme itératif des moindres carrés repondérés.
+\end{frame}
+
+\begin{frame}{Choix pour la matrice de corrélation de travail $R(\alpha)$}
+\begin{description}
+\item[{\color{blue}indépendance}] $R(\alpha)=I$, et on a en fait un
+  modèle MLG.
+\item[{\color{blue}fixe}] $R(\alpha)$ a une forme prédéfinie connue.
+\item[{\color{blue}échangeable} (\textit{exchangeable})] toutes les corrélations $R(\alpha)_{t,t^\prime}$
+sont égales à $\alpha$.
+\item[{\color{blue}autorégressive (AR)} (\textit{autoregressive})] la corrélation décroît avec
+  la différence temporelle, p.~ex.\ $R(\alpha)_{t,t^\prime} = \alpha^{|t-t^\prime|}$.
+\item[{\color{blue}$m$-dépendance} (\textit{$m$-dependence})] Les observations sont corrélées jusqu'à
+  une distance temporelle $m$.
+\item[{\color{blue}non structurée} (\textit{unstructured})] $R(\alpha)$ est
+  complètement libre (outre une diagonale de 1 et la contrainte de symétrie).
+\end{description}
+\end{frame}
+
+\begin{frame}{Estimateurs de $\phi$ et $\alpha$}
+
+Une procédure qui itère entre un
+scoring de Fisher modifié pour $\beta$ et une estimation (par les moments) de
+$\alpha$ et $\phi$ est utilisée.
+
+\bigskip
+Si on définit $r_{it} = (y_{it} -
+\mu_{it})/\sqrt{v(\mu_{it})}$, on a
+$Var(r_{it}) = \phi$. Un estimateur de $\phi$ peut être
+obtenu par ( $N=\sum_{i=1}^n n_i$)
+$$\hat{\phi} = \sum_{i=1}^n \sum_{t=1}^{n_i}
+\frac{\hat{r}_{it}^2}{N-(p+1)}.$$
+
+\smallskip
+L'estimateur spécifique de $R(\alpha)$ dépend du choix de la
+structure de corrélation. L'approche générale consiste à estimer $\alpha$ par
+une fonction simple de couples de résidus $\hat{r}_{iu}, \hat{r}_{iv}$.
+
+\smallskip
+Certaines structures de corrélation exigent des grappes de même taille, c'est-à-dire
+$n_i = n_{same}$ pour tout $i$.
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Exemples}
+
+
+
+\begin{itemize}
+\item Si $R(\alpha)_{t,t^\prime}=\alpha$ (échangeable) pour tout $t \neq
+  t^\prime$, alors étant donné $\hat{\phi}$, on a
+$$\hat{\alpha} = \frac{1}{\hat{\phi}} \sum_{i=1}^n \sum_{t>t^\prime} \hat{r}_{it}
+\hat{r}_{it^\prime} /(K-(p+1)),$$
+où $K = \sum_{i=1}^n 1/2 \ n_i(n_i-1)$.
+\item Si $(R_{\alpha,i})_{tt^\prime} = \alpha^{|t-t^\prime|}$
+  (autorégressive), une option est d'utiliser
+$$\hat{\alpha}_{t,t^\prime} = \sum_{i=1}^n \frac{\sum_{t=1}^{n_i-(t-t^\prime)}\hat{r}_{it}
+\hat{r}_{it^\prime}}{n_i}.$$
+\item $\alpha = (\alpha_1, \ldots, \alpha_{n_{same}-1})$, où
+  $\alpha_t = R(\alpha)_{t,t+1}$. Alors
+$$\hat{\alpha}_t = \frac{1}{\hat{\phi}} \sum_{i=1}^n \hat{r}_{it} \hat{r}_{i(t+1)} /
+(n-(p+1)).$$
+
+
+Si $R(\alpha)$ est tridiagonale avec $R(\alpha)_{t,t+1}=\alpha_t$
+(modèle à 1-dépendance), alors si on pose $\alpha_t=\alpha$, on peut
+l'estimer par
+$$\hat{\alpha} =  \sum_{t=1}^{n_{same}-1} \hat{\alpha}_t /(n_{same}-1).$$
+
+\bigskip
+Extension à la $m$-dépendance possible.
+\item Si $R(\alpha)$ est totalement non spécifiée, on utilise
+$$\hat{R} = \frac{1}{\hat{\phi}n} \sum_{i=1}^n \hat{A}_i^{-1/2} (Y_i - \hat{\mu}_i)
+(Y_i - \hat{\mu}_i)^T \hat{A}_i^{-1/2}.$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Remarques}
+\begin{itemize}
+\item Pour les structures de corrélation d'indépendance, échangeable et de $m$-dépendance,
+  $\phi$ n'a pas besoin d'être calculé pour résoudre
+  les équations d'estimation (il s'annule). Il est nécessaire pour la structure
+  de corrélation AR.
+\item Le choix de corrélation échangeable permet des nombres différents
+  d'observations et de temps d'observation.
+\item La corrélation AR peut accommoder un nombre et un espacement
+  arbitraires d'observations.
+\end{itemize}
+
+\bigskip
+
+Extension des GEE pour inclure des effets aléatoires :
+{\color{red} $\bigstar$ Modèles mixtes pour données non normales, voir
+\citeN{Zege:Lian:Albe:1988}.}
+\end{frame}
+
+
+\begin{frame}{Distribution asymptotique de l'estimateur GEE}
+Si un estimateur $\sqrt{n}$-convergent est utilisé pour estimer $\alpha$ et
+$\phi$, on
+peut montrer que $\sqrt{n} (\hat{\beta} - \beta)$ est asymptotiquement
+normal avec variance
+$$ \Omega = \lim_{n \rightarrow \infty} n M^{-1} Q M^{-1},$$
+où
+$$M = \sum_{i=1}^n D_i^T V_i^{-1} D_i,$$
+et
+$$Q = \sum_{i=1}^n D_i^T V_i^{-1} Var(Y_i) V_i^{-1} D_i.$$
+\end{frame}
+
+\begin{frame}{Remarques}
+\begin{itemize}
+\item La variance asymptotique de $\hat{\beta}$ ne dépend pas du
+  choix des estimateurs de $\alpha$ et $\phi$ parmi ceux
+  qui sont $\sqrt{n}$-convergents.
+\item La convergence de $\hat{\beta}$ (et $\hat{\Omega}$, voir page~\ref{Omega.page}) ne dépend
+que de la spécification correcte
+de la moyenne $\mu_i$ et non de la spécification correcte
+de la structure de corrélation.
+\item Choisir $R$ proche de la vraie matrice de corrélation augmente
+  l'efficacité.
+\item L'inférence et les diagnostics sont limités.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Diagnostics}
+
+Comme pour les MLG, on définit les résidus de Pearson (\textit{Pearson residuals})
+$$\hat{r}_{it} = \frac{y_{it} - \hat{\mu}_{it}}{\sqrt{v(\hat{\mu}_{it})}}.$$
+
+\bigskip
+Ils peuvent être représentés graphiquement pour identifier les valeurs aberrantes et autres violations des hypothèses.
+
+\end{frame}
+
+\begin{frame}{Inférence}
+On utilise la théorie asymptotique pour dériver des intervalles de confiance
+et des tests z (approximatifs).
+
+\label{Omega.page}
+\bigskip
+Un estimateur de la variance asymptotique $\Omega$ est nécessaire. Celui-ci est
+$\hat{\Omega} = \hat{M}^{-1} \hat{Q} \hat{M}^{-1},$
+où
+$$\hat{M} = \sum_{i=1}^n \hat{D}_i^T \hat{V}_i^{-1} \hat{D}_i,$$
+et
+$$\hat{Q} = \sum_{i=1}^n \hat{D}_i^T \hat{V}_i^{-1} (Y_i - \hat{\mu_i}) (Y_i -
+\hat{\mu_i})^T \hat{V}_i^{-1} \hat{D}_i.$$
+
+\smallskip
+$\hat{D}_i$ et $\hat{V}_i$ sont obtenus en substituant $\hat{\beta}$,
+$\hat{\phi}$ et $\hat{\alpha}$.
+\end{frame}
+
+\begin{frame}{}
+L'absence d'une fonction de vraisemblance pour ces modèles rend l'inférence
+limitée.
+
+\bigskip
+\bigskip
+{\color{red} $\bigstar$ Un critère de type $C_p$ pour la sélection de variables
+  dans les modèles longitudinaux marginaux, voir \citeN{Cant:Flem:Ronc:2005}.}
+
+\bigskip
+{\color{red} $\bigstar$ Un critère de type Akaike pour les GEE, voir
+  \citeN{Pan:2001}.}
+\end{frame}
+
+\subsection{Jeu de données CARDIA}
+\begin{frame}[fragile]{Analyse du jeu de données CARDIA (voir p.~\pageref{CARDIApage})}
+{\tiny
+\begin{lstlisting}
+Call: gee(formula = smoke ~ age + factor(birth) + factor(education) + 
+    factor(racesex), id = id, data = CARDIA.sub, family = binomial, 
+    corstr = "exchangeable")
+
+Coefficients:
+                      Estimate Naive S.E.    Naive z Robust S.E.   Robust z
+(Intercept)        -1.33707777 0.54231807  -2.465486  0.54510289  -2.452891
+age                 0.06480087 0.02646754   2.448315  0.02669744   2.427231
+factor(birth)2     -0.19856466 0.14606724  -1.359406  0.14563751  -1.363417
+factor(birth)3     -0.40380459 0.23689643  -1.704562  0.23858001  -1.692533
+factor(education)2 -0.68712005 0.08313860  -8.264754  0.08490269  -8.093030
+factor(education)3 -1.96140806 0.10016299 -19.582164  0.10054908 -19.506972
+factor(racesex)2   -0.17668132 0.09763816  -1.809552  0.09900202  -1.784623
+factor(racesex)3   -0.13445604 0.10634023  -1.264395  0.10833799  -1.241079
+factor(racesex)4   -0.12730906 0.10530815  -1.208919  0.10599195  -1.201120
+
+Estimated Scale Parameter:  1.000362
+Number of Iterations:  1
+
+Working Correlation
+         [,1]     [,2]     [,3]     [,4]
+[1,] 1.000000 0.727139 0.727139 0.727139
+[2,] 0.727139 1.000000 0.727139 0.727139
+[3,] 0.727139 0.727139 1.000000 0.727139
+[4,] 0.727139 0.727139 0.727139 1.000000
+\end{lstlisting}
+}
+\end{frame}
+
+\begin{frame}[fragile]{}
+{\tiny
+\begin{lstlisting}
+Call: gee(formula = smoke ~ age + factor(birth) + factor(education) + 
+    factor(racesex), id = id, data = CARDIA.sub, family = binomial, 
+    corstr = "AR-M", Mv = 1)
+
+Coefficients:
+                      Estimate Naive S.E.    Naive z Robust S.E.   Robust z
+(Intercept)        -1.46502183 0.51848241  -2.825596  0.54981825  -2.664557
+age                 0.07058083 0.02530312   2.789412  0.02691652   2.622212
+factor(birth)2     -0.21226645 0.13970893  -1.519348  0.14716072  -1.442412
+factor(birth)3     -0.41934193 0.22641663  -1.852081  0.24111643  -1.739168
+factor(education)2 -0.70331577 0.07936239  -8.862080  0.08536346  -8.239072
+factor(education)3 -1.98023517 0.09576186 -20.678745  0.10143031 -19.523112
+factor(racesex)2   -0.19210488 0.09334897  -2.057922  0.09978203  -1.925245
+factor(racesex)3   -0.14273599 0.10162928  -1.404477  0.10912066  -1.308056
+factor(racesex)4   -0.11428211 0.10047526  -1.137415  0.10674042  -1.070654
+
+Estimated Scale Parameter:  1.006728
+Number of Iterations:  2
+
+Working Correlation
+          [,1]      [,2]      [,3]      [,4]
+[1,] 1.0000000 0.7684591 0.5905294 0.4537977
+[2,] 0.7684591 1.0000000 0.7684591 0.5905294
+[3,] 0.5905294 0.7684591 1.0000000 0.7684591
+[4,] 0.4537977 0.5905294 0.7684591 1.0000000
+\end{lstlisting}
+}
+\end{frame}
+
+\begin{frame}[fragile]{}
+{\tiny
+\begin{lstlisting}
+Call: gee(formula = smoke ~ age + factor(education) + factor(racesex), 
+    id = id, data = CARDIA.sub, family = binomial, corstr = "exchangeable")
+
+Coefficients:
+                      Estimate  Naive S.E.    Naive z Robust S.E.   Robust z
+(Intercept)        -0.51416495 0.251656751  -2.043120 0.253634983  -2.027185
+age                 0.02272524 0.009743051   2.332456 0.009868721   2.302754
+factor(education)2 -0.68987727 0.082992723  -8.312503 0.084840099  -8.131500
+factor(education)3 -1.96816994 0.100008335 -19.680059 0.100455198 -19.592515
+factor(racesex)2   -0.17769210 0.097552550  -1.821501 0.098969587  -1.795421
+factor(racesex)3   -0.13115039 0.106197596  -1.234966 0.108213885  -1.211955
+factor(racesex)4   -0.12631590 0.105246698  -1.200189 0.106046722  -1.191134
+
+Estimated Scale Parameter:  0.9997882
+Number of Iterations:  1
+
+Working Correlation
+          [,1]      [,2]      [,3]      [,4]
+[1,] 1.0000000 0.7272402 0.7272402 0.7272402
+[2,] 0.7272402 1.0000000 0.7272402 0.7272402
+[3,] 0.7272402 0.7272402 1.0000000 0.7272402
+[4,] 0.7272402 0.7272402 0.7272402 1.0000000
+\end{lstlisting}
+}
+\end{frame}
+
+\begin{frame}[fragile]{}
+{\tiny
+\begin{lstlisting}
+Call: gee(formula = smoke ~ age + factor(education), id = id, data = CARDIA.sub, 
+    family = binomial, corstr = "exchangeable")
+
+Coefficients:
+                      Estimate  Naive S.E.    Naive z Robust S.E.   Robust z
+(Intercept)        -0.59982654 0.247153965  -2.426935 0.248914981  -2.409765
+age                 0.02204566 0.009672377   2.279239 0.009739698   2.263485
+factor(education)2 -0.70520857 0.082571026  -8.540630 0.084484169  -8.347227
+factor(education)3 -1.98709483 0.096223429 -20.650842 0.096193423 -20.657284
+
+Estimated Scale Parameter:  0.9995199
+Number of Iterations:  1
+
+Working Correlation
+          [,1]      [,2]      [,3]      [,4]
+[1,] 1.0000000 0.7275345 0.7275345 0.7275345
+[2,] 0.7275345 1.0000000 0.7275345 0.7275345
+[3,] 0.7275345 0.7275345 1.0000000 0.7275345
+[4,] 0.7275345 0.7275345 0.7275345 1.0000000
+\end{lstlisting}
+}
+\end{frame}
+
+\begin{frame}{}
+\begin{center}
+\includegraphics[width = 7cm]{figures/CARDIA3resid.pdf}  
+\end{center}
+\end{frame}
+
+\subsection{Jeu de données Epileptic}
+\begin{frame}{Analyse du jeu de données Epileptic}
+Essai clinique avec 59 patients épileptiques, randomisés soit au médicament
+antiépileptique progabide, soit au placebo (tiré de \citeNP{Thal:Vail:1990}).
+
+\bigskip
+Avant le traitement, le nombre de crises dans une période de huit semaines
+a été compté pour chaque patient comme mesure de référence
+(\textit{baseline}). Le nouveau traitement est-il efficace pour réduire le taux de crises chez les patients épileptiques?
+
+\bigskip
+On commence avec un modèle de Poisson, mais... surdispersion possible...
+
+\bigskip
+  \begin{tabular}{lcccc}
+\hline
+\multicolumn{1}{l}{} & \multicolumn{3}{c}{Visite}\\
+\hline
+Traitement & 1 & 2 & 3 & 4\\
+\hline
+Traité & 38.7 & 16.8 & 23.8 & 18.8 \\
+Placebo & 10.8 & 7.5 & 24.5 & 7.3\\
+\hline
+  \end{tabular}
+\end{frame}
+
+
+\begin{frame}{}
+De plus, les temps d'observation sont : après 8 (référence), 10, 12, 14 et 16
+semaines. Il faut tenir compte de la différence de durée de la
+période d'observation. On utilise un décalage (\textit{offset}) de la forme $\log(t_{it})$,
+où $t_{it}=8$ pour la première visite et $t_{it}=2$ pour les
+suivantes.
+
+\bigskip
+Une variable \texttt{post} pour tenir compte du début de l'étude,
+qui prend la valeur 1 pour les visites 1, 2, 3 et 4 et la valeur 0 pour
+la visite de référence.
+
+\bigskip
+Permettre une interaction entre \texttt{post} et le groupe.
+
+\end{frame}
+
+\begin{frame}[fragile]{}
+{\tiny
+\begin{lstlisting}
+Call: gee(formula = y ~ post * factor(group) + offset(log(rep(c(8, 
+    2, 2, 2, 2), 59))), id = Subject, data = seizure, family = poisson, 
+    corstr = "exchangeable")
+
+Coefficients:
+                               Estimate Naive S.E.    Naive z Robust S.E.   Robust z
+(Intercept)                  1.34760922  0.1510969  8.9188397   0.1573571  8.5640166
+post                         0.11183602  0.1545145  0.7237900   0.1159304  0.9646821
+factor(group)progabide       0.02753449  0.2071018  0.1329515   0.2217878  0.1241479
+post:factor(group)progabide -0.10472579  0.2197052 -0.4766650   0.2134448 -0.4906459
+
+Estimated Scale Parameter:  19.6797
+Number of Iterations:  1
+
+Working Correlation
+          [,1]      [,2]      [,3]      [,4]      [,5]
+[1,] 1.0000000 0.7713861 0.7713861 0.7713861 0.7713861
+[2,] 0.7713861 1.0000000 0.7713861 0.7713861 0.7713861
+[3,] 0.7713861 0.7713861 1.0000000 0.7713861 0.7713861
+[4,] 0.7713861 0.7713861 0.7713861 1.0000000 0.7713861
+[5,] 0.7713861 0.7713861 0.7713861 0.7713861 1.0000000
+\end{lstlisting}
+}
+\end{frame}
+
+\begin{frame}{}
+\begin{center}
+\includegraphics[width = 6.5cm]{figures/seizureresid.pdf}  
+\end{center}
+Une très grande valeur aberrante!
+\end{frame}
+
+\begin{frame}[fragile]{Sans le patient 49}
+{\tiny
+\begin{lstlisting}
+Call: gee(formula = y ~ post * factor(group) + offset(log(rep(c(8, 
+    2, 2, 2, 2), 59))), id = Subject, data = seizure, subset = Subject != 
+    49, family = poisson, corstr = "exchangeable")
+
+Coefficients:
+                              Estimate Naive S.E.    Naive z Robust S.E.   Robust z
+(Intercept)                  1.3476092  0.1105249 12.1928162   0.1573571  8.5640166
+post                         0.1118360  0.1231346  0.9082421   0.1159304  0.9646821
+factor(group)progabide      -0.1068224  0.1578051 -0.6769263   0.1936977 -0.5514904
+post:factor(group)progabide -0.3023841  0.1933863 -1.5636272   0.1710601 -1.7677071
+
+Estimated Scale Parameter:  10.52997
+Number of Iterations:  1
+
+Working Correlation
+         [,1]     [,2]     [,3]     [,4]     [,5]
+[1,] 1.000000 0.593689 0.593689 0.593689 0.593689
+[2,] 0.593689 1.000000 0.593689 0.593689 0.593689
+[3,] 0.593689 0.593689 1.000000 0.593689 0.593689
+[4,] 0.593689 0.593689 0.593689 1.000000 0.593689
+[5,] 0.593689 0.593689 0.593689 0.593689 1.000000
+\end{lstlisting}
+}
+
+Grandes différences dans (certains) paramètres estimés et erreurs
+types!
+\end{frame}
+
+\end{document}

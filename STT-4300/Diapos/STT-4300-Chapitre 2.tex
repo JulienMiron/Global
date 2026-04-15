@@ -1,0 +1,2003 @@
+\documentclass[STT-4300-Main.tex]{subfiles}
+\begin{document}
+
+\section{Modèles linéaires généralisés (MLG)}
+
+\begin{frame}{Modèles linéaires généralisés (MLG)}
+Classe de modèles unifiée par \citeN{Neld:Wedd:1972} (voir \citeNP{McCu:Neld:1989}).
+
+\bigskip
+
+Le bien connu {\color{blue}modèle linéaire} est souvent écrit
+$$Y_i = x_i^T \beta + \epsilon_i,$$
+avec $\epsilon_i \sim {\mathcal N}(0,\sigma^2)$ et donc $Y_i \sim {\mathcal N}(\mu_i,\sigma^2)$.
+
+Le même modèle peut aussi s'écrire
+$$E(Y_i) = \mu_i = x_i^T \beta.$$
+\end{frame}
+
+\begin{frame}{}
+Les modèles linéaires généralisés (MLG) (\textit{generalized linear models}, GLM) incluent des situations plus générales :
+\begin{enumerate}
+\item Des variables réponses ayant des distributions autres que la loi
+  normale (même discrètes ou catégorielles).
+\item La relation entre la réponse et les variables explicatives
+  n'a pas besoin d'être de la forme linéaire simple ci-dessus.
+\end{enumerate}
+
+La forme générale d'un MLG est :
+$${\color{blue}g(E(Y_i)) = g(\mu_i)=\eta_i=x_i^T \beta},$$
+où $g$ est appelée la fonction de lien (\textit{link function}). On note $Var(Y_i) = v_i = v(\mu_i)$.
+
+\end{frame}
+
+
+\begin{frame}{Exemples}
+
+\begin{itemize}
+\item régression logistique :\\
+ $Y_i \sim  Bernoulli(p_i)$, $E(Y_i) = p_i$
+$$\log\Big(\frac{p_i}{1-p_i}\Big) = \mbox{logit}(p_i) = x_i^T \beta.$$
+\item  Poisson :\\
+$Y_i \sim {\mathcal P}(\lambda_i)$, $E(Y_i) = \lambda_i$
+$$\log(\lambda_i) = x_i^T \beta.$$
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Limitations}
+
+\begin{itemize}
+\item la composante linéaire est conservée ( $\leadsto$ MAG, Chapitre~\ref{GAM.section})
+\item les distributions sont restreintes à la famille exponentielle (\textit{exponential family}) (voir la discussion dans la
+Section~\ref{GLM.estim.section})
+\item les réponses doivent être indépendantes ($\leadsto$ GEE, Chapitre~\ref{GEE.section}
+et MLGM, Chapitre~\ref{GLMM.section})
+\end{itemize}
+
+\end{frame}
+
+\subsection{Famille exponentielle}
+
+\begin{frame}{}
+
+
+La théorie unifiée des MLG est construite sur la {\color{blue}famille exponentielle} (\textit{exponential family}) de
+distributions, tirant avantage de ses bonnes propriétés.
+
+\bigskip
+
+\textbf{Définition} : Considérons $Y$ dont la distribution dépend d'un seul
+paramètre $\theta$. Une densité ou fonction de probabilité appartient à
+la {\color{blue}famille exponentielle} si elle peut s'écrire sous la forme
+$$f(y; \theta,\phi) = \exp\left( A \ \frac{y \theta - b(\theta)}{\phi} +
+c(y,\frac{\phi}{A}) \right),$$ 
+pour des fonctions spécifiques $b()$ et $c()$ et une constante $A$. Si $\phi$ est
+connu, c'est une famille exponentielle avec {\color{blue}paramètre canonique} $\theta$.
+
+\bigskip
+Une fonction de lien $g$ de la spécification du MLG est dite canonique si elle est
+telle que $\theta(\mu)=\eta$, c'est-à-dire si $g(\cdot) = (b^{\prime})^{-1}(\cdot)$
+(étant donné que $\mu=b^{\prime}(\theta)$, voir~\eqref{expect.exponential} à la
+page~\pageref{expect.exponential}).   
+\end{frame}
+
+
+\begin{frame}{}
+
+\textbf{Exemple} : La {\color{blue} loi normale} (où $\mu$ est le
+paramètre d'intérêt et $\sigma^2$ est considéré comme un paramètre de
+nuisance)  appartient à la famille
+exponentielle. En effet :
+\begin{eqnarray*}
+  f(y; \mu) & = & \frac{1}{\sqrt{2\pi}\sigma} \exp\big(-\frac{1}{2
+  \sigma^2}(y-\mu)^2\big)\\
+& = & \exp \big( -\frac{y^2}{2 \sigma^2} + \frac{y \mu}{\sigma^2} - \frac{\mu^2}{2 \sigma^2} - \frac{1}{2} \log(2 \pi \sigma^2) \big).
+\end{eqnarray*}
+On identifie $\theta=\mu$, $A=1$, $\phi=\sigma^ 2$, $b(\theta) = \mu^2/2=
+\theta^2/2$ et
+$$c(y,\phi/A) = -\frac{1}{2} \left( \frac{y^2}{\phi} + \log(2 \pi \phi) \right).$$
+Le lien canonique est la fonction identité.
+\end{frame}
+
+\begin{frame}{}
+
+\textbf{Exemple} : La {\color{blue}loi de Poisson} appartient à la
+famille exponentielle.
+\begin{eqnarray*}
+  f(y;\lambda) & = & \frac{\lambda^y \exp(-\lambda)}{y!}\\
+& = & \exp \big(y \log(\lambda) - \lambda - \log(y!) \big),
+\end{eqnarray*}
+où $\theta=\log(\lambda)$, $A=1$, $\phi=1$, $b(\theta) = \lambda = \exp(\theta)$
+et $c(y,\phi/A)=-\log(y!)$.
+
+\bigskip
+Le lien canonique est la fonction log().
+\end{frame}
+
+
+\begin{frame}{}
+
+\begin{table}[tbp]
+  \centering
+  \begin{tabular}{|l|c|c|c|c|}
+   \hline
+  Distribution & $A$ & $\phi$ & $b(\theta)$ & $c(y, \phi/A)$\\
+  \hline
+   ${\mathcal N}(\mu,\sigma^2)$ & $1$ & $\sigma^2$ &  $\theta^2/2$ & $-\frac{1}{2} (y^2/\phi + \log(2 \pi \phi))$ \\
+   ${\mathcal P}(\lambda)$ & $1$ & $1$ & $\exp(\theta)$ & $-\log(y!)$ \\
+   ${\mathcal B}(m,p)/m$ & & & & \\
+    $\Gamma(\mu,\nu)$ & & & &\\
+   \hline
+  \end{tabular}
+  \caption{Membres de la famille exponentielle.}
+  \label{exponential.table}
+\end{table}
+\end{frame}
+
+\begin{frame}{Propriétés de la famille exponentielle}
+
+Développons d'abord des expressions générales pour l'espérance et la variance
+de $Y$, utiles plus loin dans ce chapitre.
+
+\bigskip
+
+\textbf{Rappel} : Si $l(\theta, \phi;y) = \log(f(y; \theta,\phi))$, on a :
+\begin{equation}
+\label{reminder1}
+E\left(\frac{\partial l(\theta, \phi;Y)}{\partial \theta}\right)=0,
+\end{equation}
+et
+\begin{equation}
+\label{reminder2}
+E\left(\frac{\partial^2 l(\theta, \phi;Y)}{\partial \theta^ 2}\right) +
+E\left(\left(\frac{\partial l(\theta, \phi;Y)}{\partial \theta}\right)^2\right)=0,
+\end{equation}
+si l'ordre d'intégration et de dérivation peut être inversé (support compact
+de la distribution).
+\end{frame}
+
+
+\begin{frame}{}
+
+
+Pour les densités de la famille exponentielle, on a
+\begin{equation}
+\label{deriv1}
+\frac{\partial l(\theta, \phi;y)}{\partial \theta} = A \  \frac{y -
+b^{\prime}(\theta)}{\phi},  
+\end{equation}
+et
+\begin{equation}
+\label{deriv2}
+\frac{\partial^2 l(\theta, \phi;y)}{\partial \theta^2} = - A \frac{b^{\prime \prime}(\theta)}{\phi}
+\end{equation}
+
+\bigskip
+De \eqref{reminder1} et \eqref{deriv1} on obtient
+$$0=E\left(\frac{\partial l(\theta, \phi;Y)}{\partial \theta}\right)=A \
+\frac{E(Y) - b^{\prime}(\theta)}{\phi}$$
+ce qui donne
+\bigskip
+\begin{equation}
+\label{expect.exponential}
+{\color{blue}E(Y) = \mu = b^{\prime}(\theta)}
+\end{equation}
+\end{frame}
+
+
+\begin{frame}{}
+
+De même, de \eqref{reminder2} et \eqref{deriv2}, et en utilisant
+\eqref{expect.exponential}, on obtient
+
+\begin{eqnarray*}
+0 & = & E\left(- A \ \frac{b^{\prime \prime}(\theta)}{\phi}\right) +   E\left(
+\left( A \ \frac{Y - b^{\prime}(\theta)}{\phi}\right)^2\right)\\
+ & = &  - A \ \frac{b^{\prime \prime}(\theta)}{\phi} + A^2  \ E\left(
+\left( \frac{Y - \mu}{\phi}\right)^2\right)\\
+ & = & - \frac{b^{\prime \prime}(\theta)}{\phi} + A \ \frac{Var(Y)}{\phi^2}\\
+ & = & - b^{\prime \prime}(\theta) + A \frac{Var(Y)}{\phi}
+\end{eqnarray*}
+\bigskip
+ce qui donne
+\begin{equation}
+\label{var.exponential}
+{\color{blue}Var(Y) = \frac{b^{\prime \prime}(\theta)\phi}{ A}}
+\end{equation}
+\end{frame}
+
+\subsection{Composantes d'un MLG}
+
+\begin{frame}{}
+
+{\color{blue}Trois composantes} :
+
+\begin{enumerate}
+\item Des variables réponses indépendantes $Y_1, \ldots,Y_n$ supposées partager
+  la même distribution de la famille exponentielle ($F_{\theta_i}$).
+\item Un ensemble de paramètres $\beta$ et de variables explicatives $x_i^T = (1,
+x_{i1},  \ldots, x_{ip})$ pour $i=1,\ldots,n$.
+\item Une fonction de lien $g$ monotone et dérivable telle que
+$$g(\mu_i) = x_i^T  \beta.$$
+$\eta_i = x_i^T \beta$ est appelé le prédicteur linéaire (\textit{linear predictor}).
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}{}
+
+Le problème initial a $n$ (= taille de l'échantillon) paramètres inconnus $\mu_1,
+\ldots,\mu_n$ (ou $\theta_1, \ldots, \theta_n$) qui sont réduits à $(p+1)$
+paramètres inconnus ($\beta_0, \beta_1,\ldots,\beta_p$) en imposant la structure
+d'un modèle MLG.
+
+\bigskip
+\bigskip
+
+La transformation via la fonction de lien assure que le
+paramètre estimé se situe dans l'espace admissible des valeurs
+(par exemple, $(0,1)$ pour Bernoulli/binomiale et $(0, \infty)$ pour Poisson).
+\end{frame}
+
+\subsection{Exemples}
+
+\begin{frame}{Loi normale : $Y_i \sim {\mathcal N}(\mu_i,\sigma^2)$}
+
+
+La loi normale est utilisée pour modéliser des données continues ayant une
+distribution symétrique. Exemples : taille ou pression artérielle des individus. La
+fonction de lien correspondante est la fonction identité $g(\mu_i)=\mu_i$ (aucune restriction sur les
+valeurs possibles de $\mu_i$, un modèle linéaire).
+
+\bigskip
+\bigskip
+
+\textbf{Remarque} : Ce modèle est très populaire :
+\begin{itemize}
+\item beaucoup de phénomènes bien décrits par la loi normale
+\item la moyenne ou le total d'un échantillon aléatoire est approximé par la loi normale (théorème central limite)
+\item beaucoup de théorie disponible pour ce modèle (résultats explicites, analytiques).
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Loi binomiale : $Y_i \sim {\mathcal B}(m_i,p_i)$}
+
+Modélise un processus à résultats binaires. Exemples : le nombre de candidats qui
+réussissent un test (résultat : réussite ou échec), le nombre de patients atteints d'une maladie
+qui sont vivants à un temps spécifié depuis le diagnostic (résultat : vivant ou décédé), le
+statut tabagique d'une personne.
+
+\bigskip
+
+Pour les MLG, on préfère considérer la proportion de « succès » $P_i = Y_i/m_i$, pour
+laquelle $E(P_i) = \mu_i = p_i$.
+
+\smallskip
+Les fonctions de lien couramment utilisées pour la loi binomiale sont (restreignent le
+domaine de $\mu_i$ dans (0,1)) :
+\begin{itemize}
+\item {\color{blue} logit} : $g(\mu_i) = g(p_i) =
+\log\big(\frac{p_i}{1-p_i}\big)$ (lien canonique)
+\item {\color{blue} probit} : $g(\mu_i) = g(p_i) = \Phi^{-1}(p_i)$
+\item {\color{blue} log-log complémentaire} (\textit{complementary log-log}) : $g(\mu_i) = g(p_i) = \log(-\log(1-p_i))$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\begin{center}
+\includegraphics[width = 4.5cm]{figures/binarylinks.pdf}  
+\end{center}
+
+Lequel choisir ? Difficile à tester à partir des données, car une grande quantité de
+données est nécessaire pour de petites valeurs de~$p$.
+
+{\color{red} $\bigstar$ Familles générales de fonctions de lien, voir
+\citeN{Aran:1981}}\\
+ {\color{red}$\bigstar$ Lien non paramétrique pour les MLG, voir \citeN{Weis:Wels:1994}}\\
+{\color{red}$\bigstar$ Test d'adéquation du lien, voir \citeN{Preg:1980}}
+\end{frame}
+
+\begin{frame}{}
+Les valeurs  $o_i = \frac{p_i}{1-p_i}$ sont appelées les cotes (\textit{odds}). 
+
+\bigskip
+
+Une cote de 2/3 signifie qu'il y a 2 chances (sur 5) de succès contre 3
+chances (sur 5) d'échec.
+
+\bigskip
+Note : $p_i = \frac{o_i}{1+o_i}$.
+
+\bigskip
+Le lien logit a l'avantage de permettre l'interprétation sur l'échelle des cotes.
+
+\end{frame}
+
+
+\begin{frame}{Loi de Poisson : $Y_i \sim {\mathcal P}(\lambda_i)$}
+
+
+Utilisée pour modéliser des données de dénombrement (\textit{count data}), le nombre d'occurrences d'un événement dans une
+période de temps ou un espace défini. Exemples : le nombre de conditions médicales rapportées par une
+personne, le nombre de cyclones tropicaux pendant une saison, le nombre d'oiseaux
+observés un jour donné, le nombre de fautes d'orthographe sur la page d'un
+journal, le nombre d'appels entrants en 4 heures.
+
+\bigskip
+Ici, le lien garantit que $\lambda>0$. Les choix courants sont :
+$g(\mu_i) = g(\lambda_i) = \log(\lambda_i)$ (lien canonique) ou $g(\mu_i) =
+\sqrt{\lambda}$. 
+
+\end{frame}
+
+
+\begin{frame}{}
+\begin{center}
+\includegraphics[width = 4.5cm]{figures/poissonlinks.pdf}  
+\end{center}
+
+\textbf{Remarque} : le nombre d'événements sur un total est correctement modélisé par une
+loi binomiale. Mais, si les probabilités de succès sont petites et les totaux
+sont grands, la loi de Poisson est une bonne approximation. (Pour un petit $p$,
+$\mbox{logit}(p) = \log \left(\frac{p}{1-p} \right) \simeq \log(p)$.)
+\end{frame}
+
+
+\begin{frame}{Loi gamma : $Y_i \sim \Gamma(\mu_i,\nu)$}
+
+Utilisée pour modéliser des comportements continus asymétriques. Par exemple, le revenu ou le coût d'un
+séjour hospitalier.
+
+\bigskip 
+Ici, le lien garantit que $\mu_i>0$. Un choix courant est :
+$g(\mu_i) = \log(\mu_i)$. Le lien canonique est $1/\mu_i$ mais est plus rarement
+utilisé. On note que le lien canonique ne garantit pas $\mu_i>0$.
+
+\bigskip
+
+\textbf{Remarque} : la loi exponentielle ${\mathcal E}(\lambda_i)$ est un
+cas particulier où $\nu=1$.
+
+\end{frame}
+
+
+\begin{frame}{Extensions des MLG}
+
+Dans l'esprit des MLG, certains modèles proches peuvent être considérés.
+
+\bigskip
+
+{\color{blue}Loi multinomiale :}
+
+\bigskip
+Généralisation de la loi binomiale où il y a $K$ résultats
+possibles (au lieu de deux), avec des probabilités associées $\pi_1, \ldots,
+\pi_K$. On note $Y_i$ la variable aléatoire prenant des valeurs parmi les catégories
+$1,\ldots,K$.
+
+
+\bigskip
+Il faut distinguer entre les données {\color{blue}nominales} (pas d'ordre naturel) et 
+les données {\color{blue}ordinales}.
+\end{frame}
+
+
+\begin{frame}{}
+\textbf{Données nominales}\\
+Exemples : couleur des yeux, affiliation politique.
+
+\bigskip
+On note $Y_{ik}$ le nombre d'observations tombant dans la catégorie $k$ pour
+l'individu $i$ (si une seule mesure, alors un seul de $Y_{i1},\ldots,Y_{iK}$ est
+égal à un et les autres sont zéro). Les probabilités associées sont $p_{ik} =
+P(Y_i=k)$. 
+
+\bigskip
+On lie les prédicteurs $x_i$ aux probabilités par :
+$$\log\left(\frac{p_{ik}}{p_{i1}} \right) = x_i^T \beta_k, \ \ \ k=2,\ldots,K$$
+sous la contrainte que $\sum_{k=1}^K p_{ik}=1$, c'est-à-dire $p_{i1}=1-
+\sum_{k=2}^K p_{ik}$. 
+
+
+\end{frame}
+
+
+\begin{frame}{}
+
+\textbf{Données ordinales}\\
+Exemples : tests de dégustation, classification de radiographies, détermination du
+bien-être physique et mental. 
+
+\smallskip
+Les probabilités de réponse cumulées 
+$$\gamma_1 = \pi_1, \gamma_2=\pi_1+\pi_2, \ldots, \gamma_K=1,$$
+c'est-à-dire $\gamma_k(x_i) = P(Y_i \leq k \mid x_i)$ sont modélisées. 
+
+\bigskip
+Par exemple (modèle à lien logit)
+$$\log\left(\frac{\gamma_k(x_i)}{1-\gamma_k(x_i)} \right) = \alpha_k - x_i^T \beta$$
+pour $k=1, \ldots, (K-1)$. Le signe négatif sur le prédicteur linéaire est une
+convention assurant que de grandes valeurs de $x_i^T \beta$ mènent à une augmentation de
+la probabilité dans les catégories de numéro plus élevé.
+
+\bigskip
+\textbf{Extension} : permettre $\beta_k$ au lieu de $\beta$.
+\end{frame}
+
+
+\begin{frame}{}
+
+Ce modèle est appelé le modèle à
+{\color{blue}cotes proportionnelles} (\textit{proportional-odds}) parce que le rapport de l'événement $Y \leq k$
+en $x_i=x$ et $x_i = \tilde{x}$ est
+$$\frac{\mbox{odds}(Y\leq k\mid x)}{\mbox{odds}(Y\leq k\mid
+\tilde{x})} = \frac{\gamma_k(x)/(1-\gamma_k(x))}{\gamma_k(\tilde{x}) / 
+(1-\gamma_k(\tilde{x}))} = \exp(-(x-\tilde{x})^T \beta),$$
+indépendant de $\alpha_k$. En particulier, si $x_i$ est un indicateur pour 2
+groupes de traitement, $T_1$ et 
+$T_2$, 
+$$\frac{\mbox{odds}(Y\leq k \mid T_1)}{\mbox{odds}(Y\leq k\mid
+T_2)}= \exp(-\Delta),$$
+où $\Delta$ mesure l'effet du traitement.
+
+\smallskip
+Alternativement, on peut utiliser un lien log-log complémentaire
+$$ \log\left(-\log(1-\gamma_k(x_i))\right)= \alpha_k - x_i^T \beta,$$
+ce qui produit le modèle à {\color{blue}risques proportionnels} (\textit{proportional hazard}).
+
+\bigskip
+\textbf{Note} : dans tous ces modèles, on a besoin de $\alpha_1 \leq \alpha_2 \leq
+\ldots \leq \alpha_{K-1}$  pour assurer que les probabilités sont non négatives.
+\end{frame}
+
+\subsection{Estimation des paramètres}
+\label{GLM.estim.section}
+
+\begin{frame}[allowframebreaks]{Estimation des paramètres : maximum de vraisemblance (MV)}
+La fonction de vraisemblance pour la {\color{blue}famille exponentielle
+canonique} est
+\begin{eqnarray*}
+  \label{lik.exp}
+  \lefteqn{L(\theta_1,\ldots, \theta_n; y_1, \ldots, y_n)= \prod_{i=1}^n \exp \Big( A \ \frac{y_i \theta_i - b(\theta_i)}{\phi} +
+c(y_i,\frac{\phi}{A})\Big) }\\
+& = & \exp \Big( \frac{A}{\phi} \sum_{i=1}^n y_i \theta_i - \frac{A}{\phi}
+\sum_{i=1}^n b(\theta_i) + \sum_{i=1}^n c(y_i,\frac{\phi}{A}) \Big)
+\end{eqnarray*}
+et la fonction de log-vraisemblance est donnée par
+$$l(\theta_1,\ldots, \theta_n; y_1, \ldots, y_n)
+ =  \frac{A}{\phi} \sum_{i=1}^n y_i \theta_i - \frac{A}{\phi}
+\sum_{i=1}^n b(\theta_i) + \sum_{i=1}^n c(y_i,\frac{\phi}{A}).$$
+
+La relation  $g(\mu_i) = x_i^T \beta$ est utilisée dans la
+fonction de vraisemblance ci-dessus. Ensuite, la fonction est maximisée par rapport à
+$\beta$ (en résolvant les équations de score) pour obtenir $\hat{\beta}$.
+
+\bigskip
+
+Aucune expression analytique en forme fermée pour $\hat{\beta}$ n'est disponible en général.
+\end{frame}
+
+\begin{frame}{}
+
+\textbf{Exemple} : si $Y_i$ est une réponse binaire, c'est-à-dire $Y_i \sim
+Bernoulli(p_i)$, la vraisemblance est
+
+\begin{equation*}
+  \label{lik.bernoulli}
+  L(p_1,\ldots, p_n; y_1, \ldots, y_n) = \prod_{i=1}^n p_i^{y_i} (1-p_i)^{1-y_i},
+\end{equation*}
+et la log-vraisemblance est
+
+\begin{equation}
+  \label{loglik.bernoulli}
+l(p_1,\ldots, p_n; y_1, \ldots, y_n) = \sum_{i=1}^n y_i \log (p_i) + \sum_{i=1}^n (1-y_i) \log(1-p_i). 
+\end{equation}
+
+\bigskip
+Le lien logit implique que $\log \big(\frac{p_i}{1-p_i}\big) = x_i^T
+\beta$, et donc que
+$$p_i = \frac{\exp(x_i^T \beta)}{(1+\exp(x_i^T \beta))},$$
+\end{frame}
+
+\begin{frame}{}
+ce qui donne la log-vraisemblance
+\begin{eqnarray*}
+ \lefteqn{l(\beta;y)=l(\beta_0, \beta_1,\ldots,\beta_p; y_1, \ldots, y_n)=}\\
+& = &  \sum_{i=1}^n y_i \log \Big(\frac{\exp(x_i^T \beta)}{1+\exp(x_i^T
+  \beta)} \Big) +  \sum_{i=1}^n (1-y_i) \log\Big(\frac{1}{1+\exp(x_i^T \beta)} \Big) \\
+& = &  \sum_{i=1}^n y_i x_i^T \beta -  \sum_{i=1}^n y_i \log( 1 +
+\exp(x_i^T \beta)) \\
+& & - \sum_{i=1}^n (1-y_i) \log(1+\exp(x_i^T \beta))\\
+& = & \sum_{i=1}^n y_i x_i^T \beta - \sum_{i=1}^n \log(1+\exp(x_i^T \beta))
+\end{eqnarray*}
+\end{frame}
+
+\begin{frame}{}
+
+Les équations de score (dérivation par rapport à $\beta$) sont :
+$$\sum_{i=1}^n \Big(y_i  - \frac{\exp(x_i^T \beta)}{1+\exp(x_i^T
+  \beta)} \Big)   x_i = 0,$$
+qui doivent être résolues numériquement.
+
+\end{frame}
+
+\subsection{Méthodes numériques}
+\begin{frame}{Procédure de Newton-Raphson dans le cas univarié}
+
+Pour $x$ univarié, on souhaite résoudre $h(x)=0.$
+
+\bigskip
+
+Pour de petites distances $x^{(m)} - x^{(m-1)}$, la pente est
+\begin{equation}
+  \label{NR.eq}
+ h^{\prime}(x^{(m-1)}) = \frac{h(x^{(m)})-h(x^{(m-1)})}{x^{(m)} - x^{(m-1)}}.
+\end{equation}
+
+\bigskip
+Si $x^{(m)}$ est la solution recherchée de sorte que $h(x^{(m)})=0$, alors
+\eqref{NR.eq} peut être réarrangé pour donner
+\begin{equation}
+  \label{NRformula}
+  x^{(m)} = x^{(m-1)} - \frac{h(x^{(m-1)})}{h^{\prime}(x^{(m-1)})}.
+\end{equation}
+C'est la formule de Newton-Raphson pour résoudre $h(x)=0$ de manière itérative.
+\label{Ufct}
+\end{frame}
+
+\begin{frame}{}
+Si on applique \eqref{NRformula} pour maximiser une log-vraisemblance $l(\beta;y)$, on a
+$$\beta^{(m)} = \beta^{(m-1)} - \frac{U^{(m-1)}}{U^{\prime (m-1)}},$$
+où $U=  \frac{d l(\beta;y)}{d \beta}$.
+
+\bigskip
+Pour l'estimation par maximum de vraisemblance, il est courant d'approximer
+$U^{\prime}$ par $E(U^{\prime}) = - {\mathcal J}$ (l'information de Fisher), pour obtenir 
+\begin{equation}
+  \label{scoringformula}
+  \beta^{(m)} = \beta^{(m-1)} + \frac{U^{(m-1)}}{{\mathcal J}^{(m-1)}}.
+\end{equation}
+C'est ce qu'on appelle la {\color{blue}méthode de scoring} (\textit{method of scoring}).
+\end{frame}
+
+\begin{frame}{}
+Les équivalents multivariés de  \eqref{NRformula} et
+\eqref{scoringformula} sont
+$$\beta^{(m)} = \beta^{(m-1)} - \big[U^{\prime (m-1)}\big]^{-1} \ U^{(m-1)},$$
+et respectivement
+\begin{equation}
+  \label{multiscoring}
+\beta^{(m)} = \beta^{(m-1)} + \big[{\mathcal J}^{(m-1)}\big]^{-1} \ U^{(m-1)},
+\end{equation}
+où $\beta$ et $U$ sont maintenant des vecteurs de dimension $(p+1)$ et
+${\mathcal J}$ est une matrice $(p+1) \times (p+1)$.
+\end{frame}
+
+\subsection{Algorithme MCPI pour les MLG}
+
+\begin{frame}{Algorithme de moindres carrés pondérés itératifs (MCPI)}
+
+Étapes principales de l'algorithme de {\color{blue} moindres carrés pondérés itératifs (MCPI)}
+(\textit{Iterative Weighted Least Squares}, IWLS) pour maximiser la log-vraisemblance des MLG (voir \citeN{McCu:Neld:1989},
+p.\ 40-42 pour des détails supplémentaires) 
+
+\bigskip
+À résoudre :
+$$\frac{\partial l(\beta;y)}{\partial \beta} =  \left(
+\begin{array}{c}
+\partial l(\beta;y)/\partial \beta_0\\
+\vdots\\
+\partial l(\beta;y)/\partial \beta_p
+\end{array} \right) = 0$$
+
+On a que
+\begin{equation}
+\label{scorej}
+\frac{\partial l}{\partial \beta_j} = U_j = \sum_{i=1}^n
+  \frac{\partial l_i}{\partial
+  \beta_j} = \sum_{i=1}^n \frac{\partial l_i}{\partial \theta_i} \cdot
+  \frac{\partial \theta_i}{\partial \mu_i} \cdot \frac{\partial
+  \mu_i}{\partial \beta_j}.
+\end{equation}
+\end{frame}
+
+\begin{frame}{}
+Premièrement
+$$\frac{\partial l_i}{\partial \theta_i} = A \frac{y_i -
+b^{\prime}(\theta_i)}{\phi} \stackrel{\eqref{expect.exponential}}{=}
+ A \frac{y_i-\mu_i}{\phi}.$$
+
+\bigskip
+
+Deuxièmement $\frac{\partial \theta_i}{\partial \mu_i} = 1/(\frac{\partial
+  \mu_i}{\partial \theta_i})$
+et
+$$\frac{\partial \mu_i}{\partial \theta_i}
+\stackrel{\eqref{expect.exponential}}{=} b^{\prime \prime}(\theta_i)
+\stackrel{\eqref{var.exponential}}{=} A \frac{Var(Y_i)}{\phi}$$
+
+\bigskip
+Finalement
+$$\frac{\partial \mu_i}{\partial \beta_j}=
+\frac{\partial \mu_i}{\partial \eta_i} \cdot \frac{\partial
+  \eta_i}{\partial\beta_j} = \frac{\partial \mu_i}{\partial \eta_i}
+x_{ij}.$$
+
+\bigskip
+
+En mettant tout ensemble, \eqref{scorej} peut s'écrire
+$$\frac{\partial l}{\partial \beta_j} = U_j = \sum_{i=1}^n
+\frac{y_i-\mu_i}{Var(Y_i)} x_{ij} \Big(\frac{\partial \mu_i}{\partial
+  \eta_i}\Big)$$
+\label{EE.GLM}
+\end{frame}
+
+\begin{frame}{}
+On utilise la méthode de scoring (voir~\eqref{multiscoring} à la page~\pageref{multiscoring})  ce qui implique
+le calcul de ${\mathcal J}$, dont
+l'élément $(j,k)$ est ${\mathcal J}_{jk} = E(U_j U_k)$ et est donné par
+\begin{eqnarray*}
+  \lefteqn{{\mathcal J}_{jk} = E \left\{ \sum_{i=1}^n
+\frac{y_i-\mu_i}{Var(Y_i)} x_{ij} \Big(\frac{\partial \mu_i}{\partial
+  \eta_i}\Big) \cdot \sum_{l=1}^n
+\frac{y_l-\mu_l}{Var(Y_l)} x_{lk} \Big(\frac{\partial \mu_l}{\partial
+  \eta_l}\Big) \right\}} \hspace*{3cm}\\
+& = & \ldots (\mbox{quelques calculs supplémentaires})\\
+& = &  \sum_{i=1}^n \frac{x_{ij} x_{ik}}{Var(Y_i)}
+\Big(\frac{\partial \mu_i}{\partial
+  \eta_i}\Big)^2
+\end{eqnarray*}
+
+${\mathcal J}$ peut s'écrire $X^T W X$, où $W$ est une matrice diagonale $n \times
+n$ avec les éléments
+$$w_{ii} = \frac{1}{Var(Y_i)} \Big(\frac{\partial \mu_i}{\partial
+  \eta_i}\Big)^2$$
+\end{frame}
+
+\begin{frame}{}
+La méthode de scoring est
+$$\beta^{(m)} = \beta^{(m-1)} + \big[{\mathcal J}^{(m-1)}\big]^{-1} \ U^{(m-1)},  $$
+et implique
+$${\mathcal J}^{(m-1)} \beta^{(m)} = {\mathcal J}^{(m-1)}
+\beta^{(m-1)} + U^{(m-1)}.$$
+
+Le membre de droite de l'équation ci-dessus peut s'écrire dans notre cas
+(calculs omis) comme $X^T W^{(m-1)}
+z^{(m-1)}$, où $z^{(m-1)}$ est un vecteur avec les éléments
+$$z_i^{(m-1)} = \sum_{k=0}^p x_{ik} \beta_k^{(m-1)} +
+  (y_i-\mu_i^{(m-1)})\Big(\frac{\partial \eta_i}{\partial \mu_i}\Big)^{(m-1)},$$
+où $\mu_i^{(m-1)}$ et $(\partial \mu_i/\partial \eta_i)^{(m-1)}$ sont évalués à
+  $\beta^{(m-1)}$.
+\end{frame}
+
+\begin{frame}{}
+La méthode de scoring revient donc à résoudre par rapport à $ \beta^{(m)}$
+\begin{equation}
+  \label{IWLS}
+  X^T W^{(m-1)} X \beta^{(m)} = X^T W^{(m-1)} z^{(m-1)}.
+\end{equation}
+\label{IWLSweights}
+
+\eqref{IWLS} est un problème de moindres carrés pondérés à résoudre
+itérativement car ($z^{(m-1)}$ et $W^{(m-1)}$ dépendent de 
+$\beta^{(m-1)}$). Il suffit d'un logiciel qui calcule les moindres carrés pondérés.
+
+\bigskip
+\textbf{Remarques} :
+\begin{itemize}
+\item $\frac{\partial \mu_i}{\partial \eta_i}$ dépend de la fonction de lien
+  utilisée.
+\item $Var(Y_i)$ dépend du modèle.
+\item $\frac{\partial \mu_i}{\partial \eta_i}= b^{\prime \prime}(\theta) \propto Var(Y_i)$ lorsque le lien canonique
+est utilisé. Ceci simplifie les équations d'estimation :
+$\frac{\partial l}{\partial \beta_j} = U_j = \sum_{i=1}^n
+(y_i-\mu_i) x_{ij}$
+\end{itemize}
+\end{frame}
+
+\subsection{Jeu de données sur le cancer du sein}
+
+\begin{frame}[fragile]{}
+
+Considérons le jeu de données sur le cancer du sein de l'Exemple~2
+(p.~\pageref{example2}), et ajustons le modèle simple qui explique le
+résultat (\texttt{status}) en fonction
+de \texttt{nuclei} seulement (plus l'ordonnée à l'origine) avec un lien logit.
+
+\bigskip
+
+{\scriptsize
+\begin{lstlisting}
+Call: glm(formula = status ~ nuclei, family = binomial, 
+    data = breast,  na.action = na.omit)
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept) -3.52218    0.23205  -15.18   <2e-16 ***
+nuclei       0.85935    0.07092   12.12   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 884.35  on 682  degrees of freedom
+Residual deviance: 340.63  on 681  degrees of freedom
+  (16 observations deleted due to missingness)
+AIC: 344.63
+
+Number of Fisher Scoring iterations: 6
+\end{lstlisting}
+}
+\end{frame}
+
+\begin{frame}{}
+Si $p_i = E(\texttt{status})$, le modèle est
+$$\log\Big(\frac{p}{1-p}\Big) = \beta_0 + \beta_1 \texttt{nuclei}$$
+
+\bigskip
+
+\textbf{Interprétation}
+\begin{itemize}
+\item $\beta_1$ est relié à la pente de la courbe logistique (p.~\ref{slopelogit.fig}).
+\item L'effet d'un changement unitaire de \texttt{nuclei} est d'augmenter le log des cotes de
+$\beta_1$. De manière équivalente, l'effet d'un changement unitaire de  \texttt{nuclei} est de
+multiplier les cotes d'une réponse positive par $\exp(\beta_1)$.
+\item Lorsqu'il y a plus d'une
+covariable, même interprétation à condition que les
+autres covariables soient gardées fixes.
+\item L'effet d'un changement unitaire de \texttt{nuclei} sur $p_i$ est plus
+compliqué à établir. En présence de plusieurs variables explicatives, cet
+effet dépendrait aussi des autres covariables.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Courbes logistiques pour différentes valeurs de $\beta_1$}
+
+\label{slopelogit.fig}
+\begin{center}
+\includegraphics[width = 7.5cm]{figures/slopelogit.pdf}  
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{}
+On peut aussi ajuster le même modèle, mais avec un lien probit.
+
+
+\bigskip
+{\scriptsize
+\begin{lstlisting}
+Call: glm(formula = status ~ nuclei, family = binomial(link = probit), 
+    data = breast, na.action = na.omit)
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept) -1.96960    0.10934  -18.01   <2e-16 ***
+nuclei       0.45172    0.03177   14.22   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 884.35  on 682  degrees of freedom
+Residual deviance: 342.94  on 681  degrees of freedom
+  (16 observations deleted due to missingness)
+AIC: 346.94
+
+Number of Fisher Scoring iterations: 7
+\end{lstlisting}
+}
+\end{frame}
+
+
+\begin{frame}{Logistique vs probit}
+
+Les estimations des paramètres du modèle probit sont assez différentes de celles du
+modèle logit, car elles n'ont pas la même signification :
+
+$$\log\big(\frac{p_i}{1-p_i}\big) = x_i^T \beta^L \ \ \ \mbox{versus} \ \ \
+\Phi^{-1}(p_i) = x_i^T \beta^P.$$
+
+\bigskip
+
+Les valeurs ajustées (prédictions pour les observations dans l'échantillon) sont
+obtenues à partir de la formulation du modèle.
+\end{frame}
+
+\begin{frame}{}
+Pour le modèle logistique, $\log(p_i/(1-p_i))
+= x_i^T \beta^L$ implique $p_i = \exp(x_i^T \beta^L)/(1+\exp(x_i^T \beta^L))$ et
+donc
+$$\hat{y_i} = \hat{p_i} =  \frac{\exp(x_i^T \hat{\beta}^L)}{(1+\exp(x_i^T
+\hat{\beta}^L))}.$$
+
+\bigskip
+Pour le modèle probit, $\Phi^{-1}(p_i) = x_i^T \beta^P$ implique $p_i = \Phi(x_i^T
+\beta^P)$ et donc
+$$ \hat{y_i} = \hat{p_i} = \Phi(x_i^T \hat{\beta}^P).$$
+\end{frame}
+
+
+\begin{frame}[fragile]{Valeurs ajustées avec les modèles logit et probit}
+
+\begin{center}
+\includegraphics[width = 7cm]{figures/breastsub.pdf}  
+\end{center}
+\end{frame}
+
+
+\subsection{Vérification du modèle}
+
+\begin{frame}{Validation du modèle}
+
+\label{deviance.def}
+Une façon d'évaluer l'adéquation d'un modèle est de le comparer à un modèle plus général
+avec le nombre maximal de paramètres : un  {\color{blue}
+modèle saturé}, qui a le même nombre de paramètres que
+d'observations et mène à un ajustement parfait. La log-vraisemblance correspondante est 
+notée $l(y;y)$.
+
+\bigskip
+La {\color{blue} déviance réduite} (\textit{scaled deviance}) est définie par :
+\begin{eqnarray*}
+\lefteqn{D^*(y,\mu) = 2 \big[ l(y;y) - l(\hat{\beta};y) \big]=}\\
+& = & \sum_{i=1}^n 2 \big[ l_i(y_i;y_i) - l_i(\hat{\beta};y_i) \big] =
+\sum_{i=1}^n d_i,
+\end{eqnarray*}
+et la  {\color{blue} déviance} (\textit{deviance}) $D(y,\mu) = \phi D^*(y,\mu)$.
+\label{deviance.comp}
+\end{frame}
+
+\begin{frame}{}
+La déviance peut être considérée comme la statistique du rapport de vraisemblance pour tester un
+modèle spécifique au sein du modèle saturé, en supposant $\phi=1$. 
+Cette hypothèse est
+vraie pour les modèles binomiaux et de Poisson, pour  lesquels $D(y,\mu) =  D^*(y,\mu)$. Pour
+d'autres distributions, par ex.\ normale ou gamma, la déviance n'est pas directement liée
+à une statistique de rapport de vraisemblance. 
+
+\bigskip
+De grandes valeurs de $D$ indiquent que le modèle n'est pas bon. D'un autre
+côté, de petites valeurs de $D$ (ou $D^*$) surviennent lorsque la log-vraisemblance $l(\beta;y)$
+(d'un modèle à $p$ paramètres) est proche de la log-vraisemblance
+$l(y;y)$ (équivalent à un modèle à $n$ paramètres).
+
+\end{frame}
+
+
+\begin{frame}{}
+On a les résultats suivants :
+\begin{itemize}
+\item La distribution de $D^*$ est exactement
+$\chi^2_{(n-(p+1))}$ si $Y_i$ suit une loi normale ($D^*$ est la somme des carrés résid.\ 
+divisée par $\sigma^2$). 
+\item Pour certaines autres distributions de $Y_i$, la loi $\chi^2_{(n-(p+1))}$ peut être considérée
+comme une approximation de $D^*$.
+\item $D$ (=$D^*$) est inutilisable lorsque $Y_i$ est Bernoulli$(p_i)$. Dans ce cas, la
+distribution de $D$ est dégénérée (en fait, $D$ ne dépend pas de $Y_i$).
+\item L'approximation $\chi^2_{(n-(p+1))}$ fonctionne mal pour $Y_i \sim {\mathcal
+B}(m_i,p_i)$ si $m_i$ est petit (par ex.\ $<5$).
+\item Sauf dans le cas Bernoulli, une procédure de
+  bootstrap pourrait être
+utilisée pour approximer la distribution de $D^*$.
+\item Dans le cas de Bernoulli, il existe un correctif ad-hoc, voir {\color{red}
+$\bigstar$ \citeN{Hosm:Leme:1980}}.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{}
+Une statistique alternative d'adéquation est la statistique $X^2$ de Pearson :
+$$X^2 = \sum_{i=1}^n \frac{(y_i - \hat{\mu}_i)^2}{v(\hat{\mu}_i)}.$$
+
+\bigskip
+La distribution de $X^2$ est $\chi^2_{n-(p+1)}$ pour des $Y_i$ normalement distribués et
+cette approximation peut être utilisée pour d'autres distributions (voir la discussion sur
+$D$).
+
+\bigskip
+
+On peut démontrer que $D$ et $X^2$ sont reliés.
+\end{frame}
+
+
+\begin{frame}{Mesure globale de la qualité de l'ajustement}
+
+\begin{itemize}
+\item {\color{blue}Proportion de déviance expliquée}
+$$(D_{null}-D)/D_{null},$$
+où $D_{null}$ est la déviance de l'ajustement avec l'ordonnée à l'origine seulement.
+\item Une {\color{blue}extension de la mesure $R^2$} \cite{Nage:1991} :
+\begin{eqnarray*}
+\widetilde{R}^2 & = & \frac{1-(L_{null}/L)^{2/n}}{1-L_{null}^{2/n}}\\
+\end{eqnarray*}
+où $L_{null}$ est la vraisemblance de l'ajustement avec l'ordonnée à l'origine seulement.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Analyse des résidus}
+
+Plusieurs types de résidus peuvent être définis pour les modèles MLG. En particulier, 
+\begin{itemize}
+\item {\color{blue}résidus de Pearson} : $r_{iP} = \frac{y_i - \hat{\mu}_i}{\sqrt{v(\hat{\mu}_i)}},$
+\item {\color{blue}résidus de déviance} (\textit{deviance residuals}) : $r_{iD} = \mbox{sign}(y_i - \hat{\mu_i}) \sqrt{d_i},$
+où $d_i$ sont les composantes individuelles de la déviance $D$ (voir page~\pageref{deviance.comp}).
+\item {\color{blue}résidus de déviance standardisés} : $r_{iDS} = \frac{r_{iD}}{\sqrt{1-h_{ii}}},$
+où $h_{ii}$ sont les éléments diagonaux de la matrice chapeau (\textit{hat matrix}) $H=X(X^T
+X)^{-1}X^T$.
+\end{itemize}
+
+\bigskip
+\textbf{Note} : \\
+$\sum_{i=1}^n r_{iP}^2 = X^2$ et $\sum_{i=1}^n r_{iD}^2 =
+\sum_{i=1}^n d_i = D$.
+
+\end{frame}
+
+\begin{frame}{}
+Les résidus sont habituellement représentés graphiquement :
+\begin{itemize}
+\item en fonction des valeurs ajustées pour vérifier le manque d'ajustement (écarts/structures).
+\item en fonction des quantiles normaux (diagramme QQ). 
+\item dans l'ordre des mesures pour vérifier la corrélation sérielle.
+\item en fonction de chaque variable explicative continue pour vérifier l'hypothèse de linéarité.
+\end{itemize}
+
+\bigskip
+\textbf{Remarques} : 
+\begin{itemize}
+\item Des structures apparaissent très souvent pour $Y_i \sim {\mathcal B}(m_i,p_i)$ pour de petites valeurs de $m_i$.
+\item Les facteurs dans les covariables peuvent induire des structures particulières dans les résidus.
+\end{itemize}
+
+\bigskip
+\textbf{Note} : 
+La normalité des résidus n'est pas attendue, et donc le
+diagramme QQ normal doit être interprété avec prudence.
+\end{frame}
+
+\begin{frame}{}
+Illustration avec des données simulées à partir du modèle 
+$$Y_i \sim Bernoulli(p_i),$$
+avec $p_i = \exp(x_i^T \beta) /(1+ \exp(x_i^T \beta))$, où $x_i^T = (1, z_i)$ avec $z_i \sim N(0,1)$ et $\beta^T = (1, 0.5)$.
+
+\begin{center}
+\includegraphics[width = 5.5cm]{figures/QQnormBernoulliSim.pdf}  
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Alternative : résidus quantiles randomisés}
+
+Soit $F = F_{\theta_i}$ la fonction de répartition de $Y_i$ et
+$\Phi$ la fonction de répartition d'une variable aléatoire normale standard.
+
+\smallskip
+Les « résidus quantiles randomisés » (\textit{randomized quantile residuals}) sont définis par :
+\begin{itemize}
+\item si $F$ est continue : $r_{iQ} = \Phi^{-1}(F(y_i; \hat{\mu}_i,\hat{\phi}))$. 
+\item si $F$ est discrète : $r_{iQ} = \Phi^{-1}(u_i)$, avec $u_i$ une variable aléatoire uniforme sur l'intervalle $(a_i,b_i]$, avec $a_i = \lim_{y \rightarrow y_i} F(y;
+\hat{\mu}_i,\hat{\phi})$ et $b_i=F(y_i; \hat{\mu}_i,\hat{\phi})$, 
+\end{itemize}
+
+La distribution des « résidus quantiles randomisés » est exactement
+normale standard, à la variabilité d'échantillonnage près de $\hat{\mu}_i$ et $ \hat{\phi}$ (grâce à la transformation intégrale de probabilité).
+
+\smallskip
+Note : Lorsque $Y_i$ est discret, la définition inclut une étape de randomisation : utile de regarder plusieurs réalisations.
+\end{frame}
+
+
+\begin{frame}[fragile]{}
+Sur l'exemple logistique simulé précédent :
+
+\begin{center}
+\includegraphics[width = 5.5cm]{figures/QQrandomizedBernoulliSim.pdf}  
+\end{center}
+
+{\scriptsize
+\begin{lstlisting}
+> require(statmod) 
+> qqnorm(qresid(glm.sim))
+\end{lstlisting}
+}
+\end{frame}
+
+\subsection{Exemple 4 : Gamma}
+
+\begin{frame}[fragile]{Exemple 4 de la page~\pageref{CHUV.Ex}} 
+\label{Routput.gamma}
+
+
+\bigskip 
+{\tiny
+\begin{lstlisting}
+Call: glm(formula = CouTot ~ log(LOS) + Typadm + Typass + age + Sexe + 
+    dest, family = Gamma(link = log), data = MYdata)
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  7.2338121  0.1468364  49.264  < 2e-16 ***
+log(LOS)     0.8222203  0.0279641  29.403  < 2e-16 ***
+Typadm       0.2136148  0.0500028   4.272 4.67e-05 ***
+Typass       0.0932763  0.0791100   1.179   0.2414    
+age         -0.0005335  0.0012852  -0.415   0.6790    
+Sexe         0.0951009  0.0499814   1.903   0.0602 .  
+dest        -0.1043560  0.0692713  -1.506   0.1353    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for Gamma family taken to be 0.04961642)
+
+    Null deviance: 47.9536  on 99  degrees of freedom
+Residual deviance:  5.0718  on 93  degrees of freedom
+AIC: 1817.9
+
+Number of Fisher Scoring iterations: 5
+\end{lstlisting}
+}
+\end{frame}
+
+
+\begin{frame}{}
+La déviance est $D=5.07$ dans cet exemple, voir \texttt{Residual
+  Deviance} dans \texttt{summary(MYglm)}.
+
+\bigskip
+On l'utilise pour tester l'hypothèse $H_0$ que notre modèle ajuste bien les données.
+
+\bigskip
+La valeur-$p$ est $P(D > 5.07)$, qui doit être calculée selon une
+loi $\chi^2_{93}$. Cette probabilité est très proche de 1, ne fournissant aucune
+preuve contre $H_0$.
+
+\end{frame}
+
+\begin{frame}[fragile]{Résidus de Pearson et de déviance}
+
+\begin{center}
+\includegraphics[width = 7cm]{figures/MYresid.pdf}  
+\end{center}
+\end{frame}
+
+
+
+\begin{frame}{Résidus de Pearson en fonction des covariables continues}
+\begin{center}
+\includegraphics[width = 7cm]{figures/MYresid1.pdf}  
+\end{center}
+\end{frame}
+
+
+
+\begin{frame}{}
+
+\begin{center}
+\includegraphics[width = 5.5cm]{figures/QQresid.pdf}  
+\end{center}
+
+\textbf{Note} :  \texttt{plot()} dans R produit
+des graphiques similaires, plus le graphique des distances de Cook qui permet d'identifier
+les observations influentes.
+\end{frame}
+
+
+
+\begin{frame}{}
+\begin{center}
+\includegraphics[width = 5cm]{figures/QQresidQrandom.pdf}  
+\end{center}
+
+Les graphiques sont identiques ! (pas de randomisation impliquée).
+
+\bigskip
+Il semble y avoir quelques valeurs aberrantes ; ce jeu de données sera réanalysé au
+Chapitre~\ref{robust.section}.
+\end{frame}
+
+\subsection{Intervalles de confiance et tests z}
+\begin{frame}{Intervalles de confiance}
+L'estimateur de $\beta$ dans un MLG est habituellement obtenu par maximum
+de vraisemblance. Cela signifie que $\hat{\beta}$ hérite des propriétés générales
+du maximum de vraisemblance, en particulier la distribution
+asymptotique. À partir de
+$$ (\hat{\beta}- \beta) \sim {\mathcal N} (0,\tilde{\mathcal J}^{-1}), $$
+où $\tilde{J}$ est la matrice d'information calculée à partir de la vraisemblance conjointe, le calcul d'une approximation
+asymptotique de l'erreur standard de $\hat{\beta}$ est possible.
+\end{frame}
+
+
+\begin{frame}{}
+Du résultat de normalité asymptotique, il découle que des intervalles de
+confiance de niveau $(1-\alpha)$ pour chaque paramètre peuvent être construits comme : 
+$$\big[\hat{\beta}_i - z_{1-\alpha/2} \sqrt{(\tilde{\mathcal J}^{-1})_{ii}} ;\hat{\beta}_i +
+z_{1-\alpha/2} \sqrt{(\tilde{\mathcal J}^{-1})_{ii}} \big],$$
+où $z_{1-\alpha/2}$ est le quantile $(1-\alpha/2)$ d'une loi ${\mathcal
+  N}(0,1)$.
+
+\bigskip
+Ces intervalles sont symétriques par construction.
+
+\bigskip
+Ces intervalles de confiance peuvent mal fonctionner, en particulier si la distribution de l'estimateur du paramètre 
+est nettement asymétrique. 
+\end{frame}
+
+
+\begin{frame}{}
+En revanche, les {\color{blue}intervalles de confiance de vraisemblance profilée} (\textit{profiled likelihood confidence intervals}) ne supposent pas
+la normalité de l'estimateur et fonctionnent mieux pour les petits échantillons. Ils sont
+obtenus en inversant les statistiques du rapport de vraisemblance, et à ce titre ils sont
+encore basés sur une approximation asymptotique (la loi $\chi^2$ de la
+statistique du rapport de log-vraisemblance). 
+
+\bigskip
+Pour un modèle avec un paramètre d'intérêt $\theta$ et $\delta$ (paramètres supplémentaires),
+la vraisemblance profilée est 
+$$L_1(\theta) = \max_{\delta} L(\theta,\delta).$$
+\end{frame}
+
+
+\begin{frame}{}
+Un intervalle de confiance de vraisemblance profilée de niveau $(1-\alpha)$ est l'ensemble de toutes les valeurs
+$\theta_0$ telles qu'un test bilatéral de l'hypothèse nulle $H_0: \theta =
+\theta_0$ ne serait pas rejeté au niveau $\alpha$. La statistique du test du rapport de vraisemblance
+est utilisée.
+
+\bigskip
+Ces intervalles de confiance ne sont pas symétriques, bien que le résultat soit habituellement
+proche des intervalles de confiance obtenus à partir de la théorie du maximum de vraisemblance.
+\end{frame}
+
+
+\begin{frame}{}
+\textbf{Valeurs z} pour tester ($H_0: \beta_i=0$ contre $H_A: \beta_i \neq
+0$), ce qui  correspond à un test sur la variable $x_i$ :
+$$\texttt{z-value} = \frac{\hat{\beta}_i}{s.e.(\hat{\beta}_i)} =
+\frac{\hat{\beta}_i}{\sqrt{({\mathcal J}^{-1})_{ii}}} \stackrel{H_0}{\sim} {\mathcal
+  N}(0,1).$$
+Puis on calcule la valeur-$p$
+\begin{eqnarray*}
+\lefteqn{P(|\texttt{z-value}| > |z_{obs}|) = \hspace*{3cm}}\\
+& = & P(\texttt{z-value} < - |z_{obs}|) + P(\texttt{z-value} > |z_{obs}|) =\\
+& = & 2 (1-P(\texttt{z-value} > |z_{obs}|)) =2 ( 1 - \Phi^{-1}(|z_{obs}|)).
+\end{eqnarray*}
+
+\bigskip
+\textbf{Note :} Si la distribution dépend aussi d'un paramètre de
+nuisance ou supplémentaire (normale, gamma), la loi $t_{n-(p+1)}$ est utilisée à la place de la
+loi normale comme distribution de référence de la statistique \texttt{z} sous $H_0$. Les \texttt{z-values} sont appelées
+\texttt{t-values} dans ce cas, voir par exemple la sortie de l'exemple gamma
+à la page~\pageref{Routput.gamma}.
+\end{frame}
+
+\subsection{Tests d'hypothèses}
+\begin{frame}{Tests d'hypothèses}
+Pour tester une hypothèse paramétrique sur $\beta$, par ex.\ $H_0:
+\beta=\tilde{\beta}$, les trois tests classiques sont disponibles :
+
+\begin{description}
+\item[Statistique de Wald] $(\hat{\beta} -\tilde{\beta})^T {\mathcal J}(\tilde{\beta})
+  (\hat{\beta} -\tilde{\beta})$ qui suit une loi $\chi^2_{p+1}$
+  sous $H_0$.
+\item[Statistique du score] $U(\tilde{\beta})^T {\mathcal
+J(\tilde{\beta})}^{-1}U(\tilde{\beta})$ qui suit une loi 
+  $\chi^2_{p+1}$ sous $H_0$, ($U$ est la fonction de score définie à la
+  page~\pageref{Ufct}).
+\item[Statistique du rapport de vraisemblance] $2
+  [l(\hat{\beta};y)-l(\tilde{\beta};y)]$ qui est en fait une différence
+  de déviances, voir ci-dessous.
+\end{description}
+\end{frame}
+
+\subsection{Sélection de variables}
+
+\begin{frame}{Sélection de variables}
+
+Comparer deux modèles : un ${\mathcal M}_{p+1}$ avec $(p+1)$
+paramètres et un modèle {\color{blue} emboîté} ${\mathcal M}_{p+1-q}$
+avec $(p+1-q)$ paramètres (c'est-à-dire un modèle contenant un sous-ensemble des
+variables de ${\mathcal M}_{p+1}$).
+
+\bigskip
+La pratique courante en MLG est d'utiliser la différence de déviances pour la
+sélection de variables (modèles).
+
+\bigskip
+Pour tester l'hypothèse nulle
+$$H_0: \beta = (\cdot, \ldots, \cdot, 0_{p+2-q},\ldots,0_{p+1})$$
+(le modèle avec $(p+1-q)$ paramètres suffit), on
+définit la différence de déviances réduites
+\begin{eqnarray*}
+  \lefteqn{\Delta D^* = D^*(y,\hat{\mu}^{p+1-q}) - D^*(y,\hat{\mu}^{p+1}) = }\\ 
+& = & 2 \Big[ l(\hat{\beta}^{p+1};y) - l(\hat{\beta}^{p+1-q};y)\Big] = \frac{D(y,\hat{\mu}^{p+1-q}) - D(y,\hat{\mu}^{p+1})}{\phi}
+\end{eqnarray*}
+
+\end{frame}
+
+
+
+\begin{frame}{}
+Si $\phi$ est connu et sous $H_0$, la distribution asymptotique de $\Delta D^*$ est
+$\chi^2_{q}$ (c'est la statistique du rapport de vraisemblance). Cette approximation 
+est bien meilleure que l'approximation de la déviance elle-même. 
+
+\bigskip
+Lorsque $\phi$ n'est pas connu (par ex.\ normale, gamma, modèles de type « quasi ») l'approximation
+habituelle sous 
+$H_0$ utilise une statistique $F$ :
+$$\frac{(D(y,\hat{\mu}^{p+1-q}) - D(y,\hat{\mu}^{p+1}))/q}{\hat{\phi}} \sim
+F_{q,n-(p+1)},$$
+où $\hat{\phi}= \frac{D(y,\hat{\mu}^{p+1})}{n-(p+1)}$. 
+
+\bigskip
+Notons que pour le cas normal-identité, c'est un résultat exact, mais pour la
+loi gamma, la précision de cette approximation n'est pas bien connue.
+\end{frame}
+
+\begin{frame}{}
+La différence de déviances est souvent utilisée dans une approche séquentielle, soit
+ascendante (\textit{forward}, à partir du modèle nul/constant) soit
+descendante (\textit{backward}, à partir du modèle complet).
+
+\bigskip
+{\color{blue}Inconvénient} de cette approche : le modèle final dépend du
+« chemin » (a priori) arbitraire de la procédure.
+\end{frame}
+
+
+\begin{frame}{}
+Une approche complète serait d'utiliser un critère général pour comparer tous
+les modèles possibles. Un tel critère est le {\color{blue}critère d'information
+d'Akaike (AIC)}, qui pour un modèle général ${\mathcal M}_{d}$ avec $d$
+paramètres est défini par :
+\begin{eqnarray*}
+\lefteqn{-2 l(\hat{\beta}^d;y) + 2d  \varpropto   D^*(y,\hat{\beta}^d) + 2d} \\
+& = & \frac{D(y,\hat{\beta}^d)}{\phi} + 2 d \varpropto  D(y,\hat{\beta}^d) + 2 \phi d.
+\end{eqnarray*}
+Il faut estimer $\phi$.
+
+\bigskip
+Ce critère tient compte de la complexité du modèle
+(mesurée par le nombre de paramètres).
+Les modèles avec un AIC faible doivent être préférés.
+
+\bigskip
+Non réalisable de comparer tous les modèles possibles pour un grand $p$ ($2^p$
+modèles). Utiliser l'AIC pas-à-pas (\textit{stepwise}).
+\end{frame}
+
+
+\subsection{Jeu de données sur le cancer du sein}
+\begin{frame}[fragile]{Jeu de données sur le cancer du sein}
+{\tiny
+\begin{lstlisting}
+Coefficients:
+             Estimate Std. Error z value Pr(>|z|)    
+(Intercept) -10.10394    1.17488  -8.600  < 2e-16 ***
+clump         0.53501    0.14202   3.767 0.000165 ***
+cellsize     -0.00628    0.20908  -0.030 0.976039    
+cellshape     0.32271    0.23060   1.399 0.161688    
+adhesion      0.33064    0.12345   2.678 0.007400 ** 
+singlesize    0.09663    0.15659   0.617 0.537159    
+nuclei        0.38303    0.09384   4.082 4.47e-05 ***
+chromatin     0.44719    0.17138   2.609 0.009073 ** 
+nucleoli      0.21303    0.11287   1.887 0.059115 .  
+mitoses       0.53484    0.32877   1.627 0.103788    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 884.35  on 682  degrees of freedom
+Residual deviance: 102.89  on 673  degrees of freedom
+  (16 observations deleted due to missingness)
+AIC: 122.89
+
+Number of Fisher Scoring iterations: 8
+\end{lstlisting}
+}
+\end{frame}
+
+
+\begin{frame}{Résidus randomisés}
+\begin{center}
+\includegraphics[width = 7cm]{figures/breastQQrandom.pdf}  
+\end{center}
+\end{frame}
+
+
+\begin{frame}[fragile]{}
+Intervalles de confiance profilés à $95\%$ :
+
+{\tiny
+\begin{lstlisting}
+> round(confint(breast.fit,level=0.95),4)
+Waiting for profiling to be done...
+               2.5 %  97.5 %
+(Intercept) -12.7581 -8.0851
+clump         0.2742  0.8377
+cellsize     -0.3948  0.4379
+cellshape    -0.1482  0.7684
+adhesion      0.0930  0.5869
+singlesize   -0.2169  0.4049
+nuclei        0.2069  0.5787
+chromatin     0.1232  0.7998
+nucleoli     -0.0018  0.4456
+mitoses      -0.0067  1.1065
+\end{lstlisting}
+}
+
+et  intervalles de confiance à $95\%$ basés sur la normalité asymptotique :
+{\tiny
+\begin{lstlisting}
+> round(confint.default(breast.fit,level=0.95),4)
+               2.5 %  97.5 %
+(Intercept) -12.4067 -7.8012
+clump         0.2567  0.8134
+cellsize     -0.4161  0.4035
+cellshape    -0.1293  0.7747
+adhesion      0.0887  0.5726
+singlesize   -0.2103  0.4036
+nuclei        0.1991  0.5670
+chromatin     0.1113  0.7831
+nucleoli     -0.0082  0.4343
+mitoses      -0.1095  1.1792
+\end{lstlisting}
+}
+\end{frame}
+
+
+\begin{frame}[fragile]{Analyse de la déviance (séquentielle) :}
+
+{\tiny
+\begin{lstlisting}
+> anova(breast.fit,test="Chisq")
+
+Terms added sequentially (first to last)
+
+           Df Deviance Resid. Df Resid. Dev  Pr(>Chi)    
+NULL                         682     884.35              
+clump       1   425.87       681     458.48 < 2.2e-16 ***
+cellsize    1   261.91       680     196.58 < 2.2e-16 ***
+cellshape   1    20.08       679     176.50 7.427e-06 ***
+adhesion    1    21.39       678     155.11 3.750e-06 ***
+singlesize  1     6.45       677     148.66   0.01111 *  
+nuclei      1    28.97       676     119.69 7.348e-08 ***
+chromatin   1     9.21       675     110.48   0.00241 ** 
+nucleoli    1     3.87       674     106.61   0.04906 *  
+mitoses     1     3.72       673     102.89   0.05378 .  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{lstlisting}
+}
+
+Le modèle avec ordonnée à l'origine seulement est d'abord comparé au modèle
+avec \texttt{clump}. La déviance pour tester $H_0:
+\beta_{\texttt{clump}}=0$ passe de 884.35 à 458.48 ($\Delta D = 425.87$) (valeur-$p$, selon $\chi^2_1$, proche de 0). On rejette $H_0$.
+Ensuite on teste $H_0: \beta_{\texttt{cellsize}}=0$ : $\Delta D = 261.91$ et valeur-$p$
+$\simeq 0$. $H_0$ est rejeté.
+\end{frame}
+
+
+\begin{frame}[fragile]{}
+L'analyse dépend de l'ordre dans lequel les variables sont entrées dans le modèle :
+
+{\scriptsize
+\begin{lstlisting}
+> breast.fit2 <- glm(status~clump+cellshape+adhesion+singlesize+
+nuclei+chromatin+nucleoli+mitoses+cellsize,data=breast,
+family=binomial,na.action=na.omit)
+
+> anova(breast.fit2,test="Chisq")
+
+Terms added sequentially (first to last)
+
+           Df Deviance Resid. Df Resid. Dev  Pr(>Chi)    
+NULL                         682     884.35              
+clump       1   425.87       681     458.48 < 2.2e-16 ***
+cellshape   1   258.09       680     200.39 < 2.2e-16 ***
+adhesion    1    40.17       679     160.23 2.330e-10 ***
+singlesize  1     9.44       678     150.79  0.002127 ** 
+nuclei      1    29.38       677     121.41 5.954e-08 ***
+chromatin   1    10.58       676     110.83  0.001145 ** 
+nucleoli    1     4.18       675     106.66  0.041022 *  
+mitoses     1     3.77       674     102.89  0.052188 .  
+cellsize    1     0.00       673     102.89  0.976067    
+\end{lstlisting}
+}
+\end{frame}
+
+\begin{frame}[fragile]{}
+AIC sur tous les modèles. Ici $2^9 = 512$ modèles possibles. Lorsqu'il y a trop de modèles, peut être
+utilisé de manière pas-à-pas.
+
+{\tiny
+\begin{lstlisting}
+> step(breast.fit)
+Start:  AIC=122.89
+status ~ clump + cellsize + cellshape + adhesion + singlesize + 
+    nuclei + chromatin + nucleoli + mitoses
+
+             Df Deviance    AIC
+- cellsize    1   102.89 120.89
+- singlesize  1   103.27 121.27
+- cellshape   1   104.74 122.74
+<none>            102.89 122.89
+- mitoses     1   106.61 124.61
+- nucleoli    1   106.66 124.66
+- adhesion    1   110.31 128.31
+- chromatin   1   110.33 128.33
+- clump       1   120.72 138.72
+- nuclei      1   122.07 140.07
+
+\end{lstlisting}
+}
+\end{frame}
+
+\begin{frame}[fragile]{}
+{\tiny
+\begin{lstlisting}
+Step:  AIC=120.89
+status ~ clump + cellshape + adhesion + singlesize + nuclei +  chromatin + nucleoli + mitoses
+
+             Df Deviance    AIC
+- singlesize  1   103.27 119.27
+<none>            102.89 120.89
+- mitoses     1   106.66 122.66
+- cellshape   1   106.66 122.66
+- nucleoli    1   106.76 122.76
+- adhesion    1   110.64 126.64
+- chromatin   1   110.70 126.70
+- clump       1   121.10 137.10
+- nuclei      1   122.07 138.07
+
+Step:  AIC=119.27
+status ~ clump + cellshape + adhesion + nuclei + chromatin +    nucleoli + mitoses
+
+            Df Deviance    AIC
+<none>           103.27 119.27
+- mitoses    1   107.14 121.14
+- nucleoli   1   107.72 121.72
+- cellshape  1   107.90 121.90
+- chromatin  1   111.69 125.69
+- adhesion   1   112.17 126.17
+- clump      1   121.55 135.55
+- nuclei     1   123.15 137.15
+
+\end{lstlisting}
+}
+\end{frame}
+
+\begin{frame}[fragile]{}
+
+{\tiny
+\begin{lstlisting}
+Call:  glm(formula = status ~ clump + cellshape + adhesion + nuclei + 
+    chromatin + nucleoli + mitoses, family = binomial, data = breast, 
+    na.action = na.omit)
+
+Coefficients:
+(Intercept)    clump   cellshape   adhesion       nuclei    chromatin   nucleoli    mitoses  
+    -9.9828   0.5340      0.3453    0.3425       0.3883       0.4619     0.2261     0.5312  
+
+Degrees of Freedom: 682 Total (i.e. Null);  675 Residual
+  (16 observations deleted due to missingness)
+Null Deviance:	    884.4 
+Residual Deviance: 103.3 	AIC: 119.3
+\end{lstlisting}
+}
+
+\bigskip
+À chaque étape, tous les sous-modèles avec une variable de moins sont considérés, et
+celui avec le plus petit AIC est choisi. La procédure est arrêtée lorsqu'aucune
+amélioration de l'AIC n'est observée.
+
+\end{frame}
+
+\begin{frame}[fragile]{}
+Une recherche complète donnerait :
+
+{\tiny
+\begin{lstlisting}
+> require(MuMIn)
+> options(na.action = "na.fail")
+> breast.woNA <- na.omit(breast)
+> breast.fit.woNA <- glm(status~clump+cellsize+cellshape+adhesion+singlesize+nuclei+chromatin+nucleoli+mitoses,data=breast.woNA,family=binomial)
+> breast.all <- dredge(breast.fit.woNA,rank = "AIC")
+> head(breast.all)
+
+Model selection table 
+    (Intrc)  adhsn  cllsh    cllsz  chrmt  clump  mitss  nucle
+252  -9.983 0.3425 0.3453          0.4619 0.5340 0.5312 0.3883
+508 -10.100 0.3299 0.3182          0.4465 0.5346 0.5341 0.3831
+220  -9.767 0.3375 0.3495          0.4713 0.6225        0.3786
+256  -9.975 0.3415 0.3396 0.007847 0.4610 0.5334 0.5302 0.3883
+254 -10.010 0.3450        0.233300 0.4794 0.5759 0.5310 0.4203
+124  -9.990 0.3502 0.4655          0.5203 0.5478 0.5690 0.3871  
+          
+     nucll   sngls    df  logLik   AIC delta weight
+252 0.2261             8 -51.633 119.3  0.00  0.351
+508 0.2125 0.09612     9 -51.445 120.9  1.62  0.156
+220 0.2432             7 -53.572 121.1  1.88  0.137
+256 0.2252             9 -51.633 121.3  2.00  0.129
+254 0.2500             8 -52.677 121.4  2.09  0.124
+124                    7 -53.861 121.7  2.46  0.103
+Models ranked by AIC(x) 
+\end{lstlisting}
+}
+
+\end{frame}
+
+\subsection{Ce qui peut mal tourner... Surdispersion}
+
+\begin{frame}[fragile]{Navires de transport}
+
+Dommages causés par les vagues à la
+section avant de certains navires de transport de marchandises (tiré de \citeN{McCu:Neld:1989},
+pages 204-208).
+
+\bigskip
+La variable réponse est le nombre d'incidents de dommages. Les variables explicatives sont le
+type de navire (de $A$ à $E$), l'année de construction (classes 1960-64, 1965-69,
+1970-74, 1975-79), la période d'opération (1960-74, 1975-79) et le nombre total cumulé
+de mois de service.
+
+{\scriptsize
+\begin{verbatim}
+> head(ship)
+  Ship    Year  Period Aggregate Incidents
+1    A 1960-64 1960-74       127         0
+2    A 1960-64 1975-79        63         0
+3    A 1965-69 1960-74      1095         3
+4    A 1965-69 1975-79      1095         4
+5    A 1970-74 1960-74      1512         6
+6    A 1970-74 1975-79      3353        18
+\end{verbatim}}
+\end{frame}
+
+\begin{frame}[fragile]{}
+{\scriptsize
+\begin{lstlisting}
+> ftable(xtabs(Incidents~Ship+Year+Period,data=ship))
+             Period 1960-74 1975-79
+Ship Year                          
+A    1960-64              0       0
+     1965-69              3       4
+     1970-74              6      18
+     1975-79              0      11
+B    1960-64             39      29
+     1965-69             58      53
+     1970-74             12      44
+     1975-79              0      18
+C    1960-64              1       1
+     1965-69              0       1
+     1970-74              6       2
+     1975-79              0       1
+D    1960-64              0       0
+     1965-69              0       0
+     1970-74              2      11
+     1975-79              0       4
+E    1960-64              0       0
+     1965-69              7       7
+     1970-74              5      12
+     1975-79              0       1
+\end{lstlisting}
+}
+\end{frame}
+
+\begin{frame}{}
+Le modèle de Poisson à lien log postulé est :
+\begin{eqnarray*}
+\lefteqn{\log(E(\texttt{Incidents})) = \hspace*{4cm}}\\
+& = & \beta_0 + \log(\texttt{Aggregate}) + \beta_1 \texttt{Ship} + \beta_2
+\texttt{Year} \\
+ & & + \beta_3 \texttt{Period}.
+\end{eqnarray*}
+
+\textbf{Remarque} : $\beta_1$, $\beta_2$ et $\beta_3$ sont des vecteurs, dont la longueur est
+égale au nombre de niveaux du facteur correspondant moins un.
+\end{frame}
+
+\begin{frame}{Modèle de taux}
+Le terme
+$\log(\texttt{Aggregate})$ a un coefficient $\beta_{s}=1$, connu a priori (un
+{\color{blue}décalage} (\textit{offset}) dans la terminologie des MLG). Cette variable est incluse dans le modèle
+pour contrôler le nombre d'occasions pour que l'événement se produise (effort).
+
+\bigskip
+On note l'équivalence entre :
+\begin{eqnarray*}
+\log(E(\texttt{Incidents})) = \beta_0 + \log(\texttt{Aggregate}) + \cdots \\
+\end{eqnarray*}
+et
+\begin{eqnarray*}
+\log(E(\texttt{Incidents})/\texttt{Aggregate}) =  \beta_0 + \cdots 
+\end{eqnarray*}
+\end{frame}
+
+\begin{frame}{}
+Dans des cas comme celui ci-dessus, où la variable d'effort est un compte, la 
+modélisation peut être vue comme une approximation de Poisson à un modèle binomial.  Dans d'autres
+situations (la variable d'effort est le temps, par exemple) cela n'est pas possible.
+
+\bigskip
+\bigskip
+ La pertinence de fixer $\beta_{s}=1$ peut être vérifiée en ajustant un modèle où
+ $\beta_{s}$ est également estimé à partir des données. 
+\end{frame}
+
+\begin{frame}[fragile]{}
+
+{\scriptsize
+\begin{lstlisting}
+> ship.glm <- glm(Incidents~Ship+Year+Period+offset(log(Aggregate)),
+family=poisson,data=ship)
+> summary(ship.glm)
+
+Coefficients:
+              Estimate Std. Error z value Pr(>|z|)    
+(Intercept)   -6.40590    0.21744 -29.460  < 2e-16 ***
+ShipB         -0.54334    0.17759  -3.060  0.00222 ** 
+ShipC         -0.68740    0.32904  -2.089  0.03670 *  
+ShipD         -0.07596    0.29058  -0.261  0.79377    
+ShipE          0.32558    0.23588   1.380  0.16750    
+Year1965-69    0.69714    0.14964   4.659 3.18e-06 ***
+Year1970-74    0.81843    0.16977   4.821 1.43e-06 ***
+Year1975-79    0.45343    0.23317   1.945  0.05182 .  
+Period1975-79  0.38447    0.11827   3.251  0.00115 ** 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for poisson family taken to be 1)
+
+    Null deviance: 146.328  on 33  degrees of freedom
+Residual deviance:  38.695  on 25  degrees of freedom
+AIC: 154.56
+\end{lstlisting}
+}
+
+\end{frame}
+
+\begin{frame}{}
+Test d'adéquation avec la statistique de déviance :
+$$P(D>38.695) =  0.0395,$$
+où on a utilisé une loi $\chi^2_{25}$ pour $D$.
+
+On rejette donc (au niveau $5\%$) l'hypothèse nulle que le
+modèle ajuste bien les données.
+
+\begin{center}
+\includegraphics[width = 5cm]{figures/shipdiag.pdf}  
+\end{center}
+\end{frame}
+
+\begin{frame}{Résidus randomisés}
+\begin{center}
+\includegraphics[width = 5.5cm]{figures/shipQQrandom.pdf}  
+\end{center}
+
+{\color{blue}Raisons du manque d'ajustement ?}
+
+\end{frame}
+
+
+\begin{frame}{}
+Si $Var(Y_i) > E(Y_i)$, le modèle de Poisson ne tient plus et ce
+phénomène est appelé {\color{blue}surdispersion} (\textit{overdispersion}). (Si $Var(Y_i) < E(Y_i)$, on
+a une {\color{blue}sous-dispersion} (\textit{underdispersion}) mais celle-ci est moins courante).
+
+\bigskip
+L'une des principales raisons de la surdispersion est le regroupement dans la population
+(le paramètre varie d'un groupe à l'autre, en fonction de la taille du groupe par
+exemple). D'un point de vue statistique, le paramètre est considéré comme aléatoire plutôt
+que fixe.
+
+\bigskip
+Une grande valeur de la déviance peut indiquer une surdispersion.
+
+\bigskip
+Une première vérification sur les données est de supposer que $Var(Y_i) = \sigma^2
+v_i = \sigma^2 \mu_i$ et de regarder la valeur ajustée de $\sigma^2$. C'est un
+ajustement \textit{ad-hoc} et ne correspond pas nécessairement à une
+vraisemblance.
+\end{frame}
+
+\begin{frame}{}
+Le modèle ne peut plus être ajusté par maximum de vraisemblance, mais par un
+ensemble d'équations d'estimation différentes :
+$$\sum_{i=1}^n \Big(\frac{y_i-\mu_i}{\sigma^2 v(\mu_i)}\Big) \ \frac{\partial
+  \mu_i}{\partial \beta}=0,$$
+qui correspondent à des fonctions de quasi-vraisemblance (\textit{quasi-likelihood})
+$$\sum_{i=1}^n \int_{y_i}^{\mu_i} \frac{y_i-t}{\sigma^2 v(t)} dt.$$
+\label{QL.page}
+\end{frame}
+
+\begin{frame}{}
+\textbf{Remarques} :
+\begin{itemize}
+\item Les approches par maximum de vraisemblance et par quasi-vraisemblance donnent les mêmes
+estimateurs pour tous les modèles de la famille exponentielle à un paramètre (binomial,
+Poisson, par exemple).
+\item Notons que $\sigma^2$ n'affecte pas les équations de score, mais
+  a un impact multiplicatif sur l'erreur standard des coefficients (et sur la 
+  distribution de la différence de déviances).
+\end{itemize}
+
+\bigskip
+{voir \color{red} $\bigstar$ \citeN{Gani:Scha:1992}, \citeN{Lamb:Roed:1995} et \citeN{Dean:Lawl:1989}}
+\end{frame}
+
+\begin{frame}[fragile]{}
+\label{shipmodel.page}
+
+{\scriptsize
+\begin{lstlisting}
+> ship.glm.quasi <- glm(Incidents~Ship+Year+Period+offset(log(Aggregate)),
+family=quasipoisson,data=ship)
+> summary(ship.glm.quasi)
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   -6.40590    0.28276 -22.655  < 2e-16 ***
+ShipB         -0.54334    0.23094  -2.353  0.02681 *  
+ShipC         -0.68740    0.42789  -1.607  0.12072    
+ShipD         -0.07596    0.37787  -0.201  0.84230    
+ShipE          0.32558    0.30674   1.061  0.29864    
+Year1965-69    0.69714    0.19459   3.583  0.00143 ** 
+Year1970-74    0.81843    0.22077   3.707  0.00105 ** 
+Year1975-79    0.45343    0.30321   1.495  0.14733    
+Period1975-79  0.38447    0.15380   2.500  0.01935 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for quasipoisson family taken to be 1.691028)
+
+    Null deviance: 146.328  on 33  degrees of freedom
+Residual deviance:  38.695  on 25  degrees of freedom
+AIC: NA
+
+Number of Fisher Scoring iterations: 5
+\end{lstlisting}
+}
+\end{frame}
+
+\begin{frame}{Interprétation des paramètres}
+
+Rappelons le modèle :
+\begin{eqnarray*}
+\lefteqn{\log(E(\texttt{Incidents})) = \hspace*{4cm}}\\
+& = & \beta_0 + \log(\texttt{Aggregate}) + \beta_1 \texttt{ship} + \beta_2
+\texttt{year}  + \beta_3 \texttt{period}.
+\end{eqnarray*}
+
+\bigskip
+En fait, chaque facteur correspond à plusieurs paramètres (nombre de
+niveaux $-1$). Par exemple, si on considère que les navires de type A sont la
+référence, $\beta_1 \texttt{ship}$ est :
+$$ \beta_{1B} \iota(\texttt{shipB}) +\beta_{1C} \iota(\texttt{shipC})
++ \beta_{1D} \iota(\texttt{shipD}) + \beta_{1E} \iota(\texttt{shipE}),$$
+où $\iota(\texttt{ship}i)$ est une variable indicatrice prenant la valeur
+1 pour les navires de type $i$ et 0 sinon.
+\end{frame}
+
+\begin{frame}{}
+Par conséquent, $\beta_{1B}$ est l'effet sur $\log(\lambda)$ pour les navires de
+type B par rapport aux navires de type A. La valeur estimée de
+$\log(\lambda)$ pour les navires de type B est inférieure de 0.54334 à celle des navires
+de type A (référence).  De manière équivalente, on peut dire que le
+nombre espéré estimé de dommages $\lambda$ est multiplié par
+$\exp(-0.54334)=0.58$ pour les navires de type B par rapport aux navires de type A,
+et est donc réduit.
+
+\bigskip
+Les navires de type B et C ont le risque le plus faible, ceux de type E le
+plus élevé.
+
+\bigskip
+Les navires les plus anciens semblent être les plus sûrs, ceux construits entre
+1970-74 ayant le risque le plus élevé.
+\end{frame}
+
+\begin{frame}{}
+\textbf{Remarque sur les covariables de type facteur} :
+
+Dans l'approche par variables indicatrices utilisée
+ci-dessus, une référence doit être définie (parfois de manière très arbitraire). L'effet de ce niveau de référence est fondu dans
+l'ordonnée à l'origine. L'interprétation se fait par rapport à la référence. (Ici la
+contrainte est $\beta_{1A}=0$).
+
+Par défaut dans R, la première catégorie (ordre alphabétique) est prise comme
+référence. Cela peut être changé en redéfinissant le facteur avec la fonction
+\texttt{relevel}.
+
+\bigskip
+Alternativement, on pourrait utiliser un ensemble différent de
+{\color{blue}contrastes}, par exemple ceux où l'effet de chaque
+variable est contrasté par rapport à une moyenne globale. L'interprétation des
+coefficients dans ce cas est différente. (Ici la contrainte est
+$\sum_{i=1}^5 \beta_{1i}=0$).
+\end{frame}
+
+\begin{frame}{Approche alternative pour traiter la surdispersion}
+
+Utiliser un modèle différent,
+par exemple la loi {\color{blue}binomiale négative} (\textit{negative binomial}) (pour
+$y=0,1,2,\dots$) :
+$$P(Y_i=y_i) = \frac {\Gamma(y_i+\vartheta)}{\Gamma(\vartheta)\Gamma(y_i+1)}\left(\frac{\vartheta}{\mu_i+\vartheta}\right)^\vartheta
+\left(\frac{\mu_i}{\mu_i+\vartheta}\right)^{y_i},$$ 
+où $\Gamma(t)= \int_0^{\infty} e^{-x} x^{t-1}dx$ (pour un entier $x$,
+$\Gamma(x) = (x-1)!$).
+
+Sous ce modèle $E(Y_i)= \mu_i$ et $Var(Y_i)= \mu_i(\mu_i+1/\vartheta)$.
+\end{frame}
+
+\begin{frame}{}
+
+La surdispersion peut aussi survenir avec des données binomiales. On peut soit utiliser un
+modèle de type « quasi » avec $Var(Y_i) = \sigma^2 v(\mu_i)$ ou la
+loi {\color{blue}bêta-binomiale} (\textit{beta-binomial}) ($y=0, 1, \ldots, m_i$) :
+$$P(Y_i=y_i) = \left(
+\begin{array}{cc}
+m_i\\
+y_i
+\end{array} \right) \frac{B(\alpha+y_i,m_i+\beta-y_i)}{B(\alpha,\beta)},$$
+où $B(u,v) = \int_0^1 x^{u-1}(1-x)^{v-1}dx$.
+
+\bigskip
+Ici $E(Y_i) = m_i p_i$ et $Var(Y_i) = m_i p_i (1-p_i) (1 + (m_i-1) \tau^2)$,
+où $p_i$ et $\tau$ dépendent de $\alpha$ et $\beta$.
+
+\bigskip
+Les fonctions \texttt{glm.nb} (paquet \texttt{MASS}) et
+\texttt{negbin,betabin} (paquet \texttt{aod}) permettent d'ajuster ces modèles.
+
+\end{frame}
+
+\subsection{Ce qui peut mal tourner... Séparation (quasi-)complète}
+\begin{frame}{Séparation (quasi-)complète en régression binaire}
+
+Si les réponses 0 et 1 peuvent être (presque) séparées sur la base des
+valeurs de leurs covariables ({\color{blue}pas de chevauchement, ou séparation quasi-complète} (\textit{quasi-separation})), alors il n'y a pas de solution aux
+équations de score pour la régression binaire (ou la solution est
+$\beta=\infty$).
+
+\bigskip
+\textbf{Exemple} : Analyse des excursions récréatives pour évaluer la sensibilité de
+l'utilisation des ressources aux frais d'entrée et aux coûts (\citeNP{Gurm:Triv:1996}).
+\end{frame}
+
+\begin{frame}{}
+Variables disponibles :
+\begin{itemize}
+\item TRIPS : Nombre d'excursions en bateau au lac Somerville, Est du Texas, en 1980
+\item SO : Classement subjectif de la qualité de l'installation
+\item SKI : Goût du répondant pour le ski nautique 
+\item I : Revenu -- variable catégorielle 
+\item FC3 : Variable indicatrice de coût ; 1 si un droit d'utilisation annuel est payé au lac Somerville 
+\item C1 : Coût de déplacement au lac Conroe 
+\item C3 : Coût de déplacement au lac Somerville
+\item C4 : Coût de déplacement au lac Houston 
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{}
+{\scriptsize
+\begin{lstlisting}
+> summary(glm((TRIPS>0)~SO+SKI+FC3+I+C1+C3+C4,family=binomial,
+data=recreat))
+
+Coefficients:
+              Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  -2.881479   0.435663  -6.614 3.74e-11 ***
+SO            1.437079   0.105799  13.583  < 2e-16 ***
+SKI           0.405517   0.329754   1.230  0.21879    
+FC3          15.660215 907.987771   0.017  0.98624    
+I             0.026479   0.084000   0.315  0.75259    
+C1            0.008255   0.027099   0.305  0.76064    
+C3           -0.080926   0.017134  -4.723 2.32e-06 ***
+C4            0.071124   0.021697   3.278  0.00105 ** 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 866.53  on 658  degrees of freedom
+Residual deviance: 299.49  on 651  degrees of freedom
+AIC: 315.49
+
+Number of Fisher Scoring iterations: 16
+\end{lstlisting}
+}
+\end{frame}
+
+\begin{frame}[fragile]{Pourquoi ?}
+{\scriptsize
+\begin{lstlisting}
+> with(recreat, table(TRIPS > 0, FC3))
+       FC3
+          0   1
+  FALSE 417   0
+  TRUE  229  13
+\end{lstlisting}
+}
+\begin{center}
+\includegraphics[width = 5.5cm]{figures/recreat.pdf}  
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}{Corrections possibles :}
+\begin{itemize}
+\item régression logistique exacte \cite{Meht:Pate:1995}.
+\item approche de régression robuste \cite{Rous:Chri:2002}.
+\item méthode de réduction du biais (\textit{bias reduction}) \cite{Firt:1993,Kosm:Firt:2009} pour
+réduire le biais en échantillon fini dans la famille des MLG. Non affectée par le manque de chevauchement.
+
+\bigskip
+
+Une fonction de score corrigée est définie $U^*(\beta) = U(\beta) -\mathcal{J}(\beta) \frac{b_1(\beta)}{n}  $
+où $\mathcal{J}(\beta)$ est l'information de Fisher et $b_1(\beta)/n$ est
+le premier terme dans l'expression asymptotique du biais de l'estimateur du MV. Cela correspond à une log-vraisem\-blance pénalisée (spécification
+canonique)
+$$l^*(\beta;y) = l(\beta;y) + \frac{1}{2} \log(|\mathcal{J}(\beta)|).$$
+
+L'utilisation de l'AIC pour la sélection de modèles est
+controversée. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{}
+{\scriptsize
+\begin{lstlisting}
+> summary(brglm((TRIPS>0)~SO+SKI+FC3+I+C1+C3+C4,family=binomial,
+data=recreat))
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept) -2.76325    0.41610  -6.641 3.12e-11 ***
+SO           1.39492    0.10187  13.693  < 2e-16 ***
+SKI          0.40403    0.32265   1.252  0.21048    
+FC3          1.79847    1.71410   1.049  0.29408    
+I            0.02348    0.08187   0.287  0.77424    
+C1           0.01878    0.02180   0.861  0.38910    
+C3          -0.08293    0.01594  -5.202 1.97e-07 ***
+C4           0.06244    0.01877   3.326  0.00088 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 836.18  on 658  degrees of freedom
+Residual deviance: 300.67  on 651  degrees of freedom
+Penalized deviance: 258.0502 
+AIC:  316.67
+\end{lstlisting}
+}
+\end{frame}
+
+\subsection{Ce qui peut mal tourner... Phénomène de Hauck-Donner}
+\begin{frame}{Phénomène de Hauck-Donner en régression logistique}
+
+La \texttt{z/t-value} est une approximation de Wald
+de la log-vraisemblance pour tester $H_0: \beta_i=0$ et est
+parfois trompeuse avec
+les MLG binomiaux. En effet, une petite valeur de la \texttt{z/t-value} peut
+soit correspondre à une petite statistique du rapport de vraisemblance, soit à une
+situation où $|\hat{\beta}_i|$ est grand, l'approximation de Wald
+est mauvaise et la statistique du rapport de vraisemblance est grande.
+Ces problèmes peuvent survenir dans les cas où les probabilités ajustées sont
+extrêmement proches de 0 ou 1.
+
+\bigskip
+\bigskip
+{\color{red} $\bigstar$ \citeN{Hauc:Donn:1977}}
+
+
+\end{frame}
+
+\end{document}

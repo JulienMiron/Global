@@ -1,0 +1,803 @@
+\documentclass[STT-4300-Main.tex]{subfiles}
+\begin{document}
+
+\section{Introduction et motivation}
+
+\begin{frame}{}
+\begin{center}
+{\color{blue}«~Statistics is often wrongly perceived as a set of tools instead of a set of problems~»}
+\end{center}
+
+\bigskip
+\bigskip
+
+tiré de J.~H.~Friedman (2001) ``The Role of Statistics in Data Revolution'' \textit{International Statistical Review}, 69, 5--10.
+\end{frame}
+
+\subsection{Exemple 1 : Boston Housing}
+
+\begin{frame}{Exemple 1 -- Boston Housing}
+
+Les données Boston Housing ont été utilisées pour décrire la relation entre la valeur des logements dans les banlieues de Boston et différents attributs.
+
+\bigskip
+
+La taille de l'échantillon est de 506.
+
+\bigskip
+
+Les données proviennent à l'origine de \citeN{Harr:Rubi:1978}, utilisées dans
+\citeN{Bels:Kuh:Wels:1980}, disponibles depuis le University of California at Irvine Repository Of Machine Learning
+Database
+
+(\url{www.ics.uci.edu/~mlearn/MLRepository.html}).
+
+\end{frame}
+
+\begin{frame}{}
+
+\begin{table}[htbp]
+  \begin{center}
+{\small \begin{tabular}{ll}
+\hline
+\texttt{medv} & valeur médiane des maisons occupées par le propriétaire en \$1000\\
+\texttt{crim} & taux de criminalité par habitant par ville\\
+\texttt{zn} & proportion de terrains résidentiels zonés pour lots \\
+ & de plus de 25\,000 pi$^2$\\
+\texttt{indus} & proportion d'acres commerciales non liées au commerce de détail par ville\\
+\texttt{nox} & concentration d'oxydes nitriques (parties par 10 millions)\\
+\texttt{rm} & nombre moyen de pièces par logement\\
+\texttt{age} & proportion de logements occupés par le propriétaire construits avant 1940\\
+\texttt{dis} & distances pondérées vers cinq centres d'emploi de Boston\\
+\texttt{rad} & indice d'accessibilité aux autoroutes radiales\\
+\texttt{tax} & taux de taxe foncière à pleine valeur par \$10\,000\\
+\texttt{ptratio} & ratio élèves-enseignant par ville\\
+\texttt{b} & $1000(\mbox{Bk}-0.63)^2$, où Bk est la proportion \\
+ & de personnes noires par ville\\
+\texttt{lstat} & proportion de la population de statut inférieur\\
+\texttt{chas} & variable indicatrice de la rivière Charles \\
+& (=1 si le secteur borde la rivière ; 0 sinon)\\
+\hline
+\end{tabular}}
+  \end{center}
+\caption{Description des données Boston Housing.}
+\label{housing.table}
+\end{table}
+\end{frame}
+
+
+\begin{frame}[fragile]{}
+
+Modèle~\eqref{housing.model.linear} :
+\begin{eqnarray}
+\label{housing.model.linear}
+\lefteqn{\log(\texttt{medv}) = \beta_0 + \beta_1\texttt{crim} + \beta_2\texttt{zn}+
+\beta_3\texttt{indus}+ } \nonumber \\
+& + & \beta_4\texttt{nox} + \beta_5\texttt{rm} + \beta_6\texttt{age} +
+\beta_7\texttt{dis} + \beta_8\texttt{rad} \nonumber \\
+& + & \beta_9\texttt{tax} + \beta_{10}\texttt{ptratio} + \beta_{11}\texttt{b} +
+\beta_{12}\texttt{lstat} \nonumber \\
+& + & \beta_{13} \texttt{chas} + \epsilon.
+\end{eqnarray}
+
+\bigskip
+
+{\scriptsize
+\begin{lstlisting}
+> linearfit <- lm(log(medv)~chas+crim+zn+indus+nox+rm+age+dis+
+    rad+tax+ptratio+b+lstat,data=BostonHousing)
+> summary(linearfit)
+\end{lstlisting}
+}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{}
+
+{\scriptsize
+\begin{lstlisting}
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  4.1020423  0.2042726  20.081  < 2e-16 ***
+chas         0.1008876  0.0344859   2.925 0.003598 ** 
+crim        -0.0102715  0.0013155  -7.808 3.52e-14 ***
+zn           0.0011725  0.0005495   2.134 0.033349 *  
+indus        0.0024668  0.0024614   1.002 0.316755    
+nox         -0.7783993  0.1528902  -5.091 5.07e-07 ***
+rm           0.0908331  0.0167280   5.430 8.87e-08 ***
+age          0.0002106  0.0005287   0.398 0.690567    
+dis         -0.0490873  0.0079834  -6.149 1.62e-09 ***
+rad          0.0142673  0.0026556   5.373 1.20e-07 ***
+tax         -0.0006258  0.0001505  -4.157 3.80e-05 ***
+ptratio     -0.0382715  0.0052365  -7.309 1.10e-12 ***
+b            0.0004136  0.0001075   3.847 0.000135 ***
+lstat       -0.0290355  0.0020299 -14.304  < 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.1899 on 492 degrees of freedom
+Multiple R-squared:  0.7896,	Adjusted R-squared:  0.7841 
+F-statistic: 142.1 on 13 and 492 DF,  p-value: < 2.2e-16
+\end{lstlisting}
+}
+
+\end{frame}
+
+
+\begin{frame}{}
+\begin{center}
+\includegraphics[width = 7.5cm]{figures/BHlindiag.pdf}
+\end{center}
+\end{frame}
+
+
+\begin{frame}[fragile]{}
+
+Modèle~\eqref{housing.model.2} (inspiré de \citeNP{Bels:Kuh:Wels:1980}) :
+\begin{eqnarray}
+\label{housing.model.2}
+\lefteqn{\log(\texttt{medv}) = \beta_0 + \beta_1\texttt{crim} + \beta_2\texttt{zn}+
+\beta_3\texttt{indus}+ }\nonumber \\
+& + & \beta_4\texttt{nox}{\color{blue}^2} + \beta_5\texttt{rm}{\color{blue}^2} + \beta_6\texttt{age} +
+\beta_7 {\color{blue}\log}(\texttt{dis}) + \beta_8 {\color{blue}\log}(\texttt{rad}) \nonumber  \\
+& + & \beta_9\texttt{tax} + \beta_{10}\texttt{ptratio} + \beta_{11}\texttt{b} +
+\beta_{12} {\color{blue}\log}(\texttt{lstat})\nonumber  \\
+& + & \beta_{13} \texttt{chas} + \epsilon.
+\end{eqnarray}
+
+\bigskip
+
+{\scriptsize
+\begin{lstlisting}
+> linearfit2 <- lm(log(medv)~chas+crim+zn+indus+I(nox^2)+
+   I(rm^2)+age+log(dis)+log(rad)+tax+ptratio+b+log(lstat),
+   data=BostonHousing)
+> summary(linearfit2)
+\end{lstlisting}
+}
+\end{frame}
+
+\begin{frame}[fragile]{}
+
+{\scriptsize
+\begin{lstlisting}
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  4.558e+00  1.544e-01  29.512  < 2e-16 ***
+chas         9.140e-02  3.320e-02   2.753 0.006129 ** 
+crim        -1.186e-02  1.245e-03  -9.532  < 2e-16 ***
+zn           8.016e-05  5.056e-04   0.159 0.874105    
+indus        2.395e-04  2.364e-03   0.101 0.919318    
+I(nox^2)    -6.380e-01  1.131e-01  -5.639 2.88e-08 ***
+I(rm^2)      6.328e-03  1.312e-03   4.823 1.89e-06 ***
+age          9.074e-05  5.263e-04   0.172 0.863179    
+log(dis)    -1.913e-01  3.339e-02  -5.727 1.78e-08 ***
+log(rad)     9.571e-02  1.913e-02   5.002 7.91e-07 ***
+tax         -4.203e-04  1.227e-04  -3.426 0.000664 ***
+ptratio     -3.112e-02  5.013e-03  -6.208 1.14e-09 ***
+b            3.637e-04  1.031e-04   3.527 0.000460 ***
+log(lstat)  -3.712e-01  2.501e-02 -14.841  < 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.1825 on 492 degrees of freedom
+Multiple R-squared:  0.8059,	Adjusted R-squared:  0.8008 
+F-statistic: 157.1 on 13 and 492 DF,  p-value: < 2.2e-16
+\end{lstlisting}
+}
+\end{frame}
+
+
+\begin{frame}{}
+\begin{center}
+\includegraphics[width = 7.5cm]{figures/BHlin2.pdf}
+\end{center}
+\end{frame}
+
+
+\begin{frame}[fragile]{}
+
+Modèle~\eqref{housing.model.np}, non paramétrique :
+\begin{eqnarray*}
+\label{housing.model.np}
+\lefteqn{\log(\texttt{medv}) = \alpha + f_1(\texttt{crim}) + f_2(\texttt{zn})+
+f_3(\texttt{indus}) +} \\
+& + & f_4(\texttt{nox}) + f_5(\texttt{rm}) +  f_6(\texttt{age}) +
+f_7(\texttt{dis}) + \\
+& + & f_8(\texttt{rad}) + f_9(\texttt{tax}) + f_{10}(\texttt{ptratio}) \nonumber\\
+& + & f_{11}(\texttt{b}) + f_{12}(\texttt{lstat}) + \beta \texttt{chas} +
+\epsilon.
+\end{eqnarray*}
+
+\bigskip
+
+{\scriptsize
+\begin{lstlisting}
+> library(mgcv)
+> BHnpfit.new <- gam(log(medv)~chas+s(crim)+s(zn)+s(indus)+ 
+  s(nox,k=20)+ s(rm)+s(age)+s(dis,k=20)+s(rad,k=8)+s(tax)+s(ptratio)+
+   s(b)+s(lstat), data=BostonHousing)
+> plot(BHnpfit.new, scale=0, page=1)
+\end{lstlisting}
+}
+
+\bigskip
+\bigskip
+
+{\color{red} $\bigstar$ Sélection de variables par garrote non négatif (nonnegative garrote), voir
+\citeN{Brei:1995} et
+\citeN{Cant:Flem:Ronc:2011}.}
+\end{frame}
+
+
+
+\begin{frame}{}
+\begin{center}
+\includegraphics[width = 7.8cm]{figures/BHnpfit.pdf}
+\end{center}
+\end{frame}
+
+\subsection{Exemple 2 : Diagnostic du cancer du sein}
+
+\begin{frame}{Exemple 2 : Diagnostic du cancer du sein}
+
+\label{example2}
+
+Diagnostic du cancer du sein par cytologie mammaire (aspiration à l'aiguille fine plutôt que chirurgie invasive).
+
+\bigskip
+Données Breast cancer Wisconsin, disponibles depuis le University of
+California at Irvine Repository Of Machine Learning Database
+\url{www.ics.uci.edu/~mlearn/MLRepository.html}.
+
+\bigskip
+
+Variable réponse : 2 classes : bénigne (codée 0) ou maligne (codée 1).
+
+\bigskip
+
+Il y a 699 patientes dans l'étude, dont 16 ont une ou plusieurs valeur(s) manquante(s) dans les prédicteurs.
+\end{frame}
+
+
+\begin{frame}{}
+
+Prédicteurs disponibles :
+\begin{itemize}
+\item  Épaisseur de l'amas (Clump Thickness) (1--10)
+\item  Uniformité de la taille des cellules (Uniformity of Cell Size) (1--10)
+\item  Uniformité de la forme des cellules (Uniformity of Cell Shape) (1--10)
+\item  Adhésion marginale (Marginal Adhesion) (1--10)
+\item  Taille des cellules épithéliales simples (Single Epithelial Cell Size) (1--10)
+\item  Noyaux nus (Bare Nuclei) (1--10)
+\item  Chromatine fade (Bland Chromatin) (1--10)
+\item  Nucléoles normaux (Normal Nucleoli) (1--10)
+\item  Mitoses (1--10)
+\end{itemize}
+
+\end{frame}
+
+
+
+\begin{frame}[fragile]{}
+
+On considère un modèle logistique linéaire.
+
+\bigskip
+
+{\scriptsize
+\begin{lstlisting}
+> breast.fit <- glm(status~clump+cellsize+cellshape+adhesion+
+singlesize+nuclei+chromatin+nucleoli+mitoses,data=breast,
+family=binomial,na.action=na.omit)
+> fitted.breast <- predict(breast.fit,type="response")
+> plot(fitted.breast,na.omit(breast)$status,
+  xlab="Fitted values",ylab="Status")
+\end{lstlisting}
+}
+
+\begin{center}
+\includegraphics[width = 4.8cm]{figures/breastfitted.pdf}
+\end{center}
+
+\end{frame}
+
+
+\subsection{Exemple 3 : Étude sur la pollution de l'air}
+
+\begin{frame}{Exemple 3 : Étude sur la pollution de l'air}
+
+Données provenant de la base National Morbidity, Mortality and Air Pollution Study (NMMAPS) disponible à \url{http://www.ihapss.jhsph.edu} pour
+les 88 plus grandes régions métropolitaines des États-Unis.
+
+\bigskip
+
+La variable réponse est le nombre de décès par jour (\texttt{death}), que l'on
+modélise comme une variable de Poisson.
+\end{frame}
+
+\begin{frame}{}
+
+Variables explicatives potentiellement intéressantes :
+\begin{itemize}
+\item matière particulaire de moins de 10 $\mu$m de diamètre aérodynamique,
+moyenne tronquée à 10\% sur tous les moniteurs d'un comté (\texttt{pm10tmean})
+\item température moyenne (sur 24 heures) (\texttt{tmean})
+\item temps (\texttt{day})
+\item température du point de rosée (\texttt{dptp})
+\item jour de la semaine (\texttt{dow} : 1=sam, 2=dim, ...)
+\end{itemize}
+
+\bigskip
+
+L'intérêt principal porte sur l'effet de \texttt{pm10tmean} (pollution), qui entre
+linéairement dans le modèle.
+\end{frame}
+
+
+\begin{frame}[fragile]{San Francisco, 1\textsuperscript{er} janv.\ 1987 au 31 déc.\ 2000,
+$n=15342$}
+
+{\scriptsize
+\begin{lstlisting}
+sanFfit <- gam(death~pm10tmean+s(tmean)+s(day)+s(dptp)+factor(dow),
+data=sanF,family=poisson)
+
+ Parametric coefficients:
+               Estimate Std. Error z value Pr(>|z|)    
+(Intercept)   1.7820648  0.0245328  72.640  < 2e-16 ***
+pm10tmean     0.0017404  0.0005446   3.196  0.00139 ** 
+factor(dow)2 -0.0261762  0.0349350  -0.749  0.45369    
+factor(dow)3  0.0194925  0.0343809   0.567  0.57074    
+factor(dow)4 -0.0207042  0.0348386  -0.594  0.55232    
+factor(dow)5 -0.0013170  0.0346407  -0.038  0.96967    
+factor(dow)6 -0.0002978  0.0346081  -0.009  0.99314    
+factor(dow)7 -0.0140022  0.0345012  -0.406  0.68486    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{lstlisting}
+}
+\end{frame}
+
+\begin{frame}[fragile]{}
+
+\bigskip
+{\scriptsize
+\begin{lstlisting}
+Approximate significance of smooth terms:
+           edf Ref.df Chi.sq  p-value    
+s(tmean) 1.973  2.568  7.642   0.0388 *  
+s(day)   2.241  2.796 24.476 2.14e-05 ***
+s(dptp)  1.003  1.006  0.494   0.4830    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+R-sq.(adj) =  0.0145   Deviance explained = 2.03%
+UBRE = 0.74149  Scale est. = 1         n = 1986
+\end{lstlisting}
+}
+\end{frame}
+
+\begin{frame}{}
+
+\begin{center}
+\includegraphics[width = 7.5cm]{figures/NMMAPSfit.pdf}
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}{}
+\begin{center}
+\includegraphics[width = 4cm]{figures/NMMAPSfitwithres.pdf}
+\end{center}
+
+Questions ouvertes :
+\begin{itemize}
+\item Tous les termes sont-ils significatifs?
+\item Autres facteurs influençant le nombre de décès.
+
+($R^2$ et déviance expliquée faibles car peu de variables explicatives.)
+\item {\color{red} $\bigstar$ Modèles différents pour différents groupes d'âge (voir
+\citeNP{Domi:Same:Zege:2000})}.
+\end{itemize}
+\end{frame}
+
+\subsection{Exemple 4 : Coût de séjour pour problèmes de dos}
+\label{CHUV.Ex}
+
+\begin{frame}{Exemple 4 : Coût de séjour pour problèmes de dos}
+
+100 patients hospitalisés au \textit{Centre Hospitalier
+Universitaire Vaudois (CHUV)} à Lausanne (Suisse) durant 1999 pour
+«~problèmes médicaux de dos~» (APDRG 243).
+
+\smallskip
+Données fournies par A.\ Marazzi, voir
+\citeN{Mara:Yoha:2004}.
+
+\bigskip
+\bigskip
+
+La variable réponse est le coût du séjour (\texttt{CouTot} en francs
+suisses).
+\end{frame}
+
+
+\begin{frame}{}
+Variables explicatives :
+\begin{itemize}
+\item durée de séjour (\texttt{LOS}, en jours)
+\item type d'admission (\texttt{Typadm} : 0=planifiée, 1=urgence)
+\item type d'assurance (\texttt{TypAss} : 0=régulière, 1=privée)
+\item âge en années (\texttt{age})
+\item sexe (\texttt{Sexe} : 0=femme, 1=homme)
+\item destination à la sortie (\texttt{dest} :
+1=domicile, 0=autre établissement de santé)
+\end{itemize}
+
+\bigskip
+
+Objectifs :
+\begin{itemize}
+\item Identifier les facteurs influençant le coût du séjour
+\item Prédiction
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{}
+
+\begin{center}
+\includegraphics[width = 8cm]{figures/CostCHUV.pdf}
+\end{center}
+
+\end{frame}
+
+\begin{frame}[fragile]{Modèle gamma avec lien logarithmique.}
+
+{\scriptsize
+\begin{lstlisting}
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  7.2338121  0.1468364  49.264  < 2e-16 ***
+log(LOS)     0.8222203  0.0279641  29.403  < 2e-16 ***
+Typadm       0.2136148  0.0500028   4.272 4.67e-05 ***
+Typass       0.0932763  0.0791100   1.179   0.2414    
+age         -0.0005335  0.0012852  -0.415   0.6790    
+Sexe         0.0951009  0.0499814   1.903   0.0602 .  
+dest        -0.1043560  0.0692713  -1.506   0.1353    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for Gamma family taken to be 0.04961642)
+
+    Null deviance: 47.9536  on 99  degrees of freedom
+Residual deviance:  5.0718  on 93  degrees of freedom
+AIC: 1817.9
+
+Number of Fisher Scoring iterations: 5
+\end{lstlisting}
+}
+\end{frame}
+
+\begin{frame}{}
+
+\begin{center}
+\includegraphics[width = 6.5cm]{figures/MYdiag.pdf}
+\end{center}
+
+Valeurs aberrantes ! (voir chapitre~\ref{robust.section})
+\end{frame}
+
+\subsection{Exemple 5 : Étude CARDIA}
+
+\begin{frame}{Exemple 5 : Étude CARDIA}
+
+Données de l'étude CARDIA (Coronary Artery Risk Development in young
+Adults), disponibles depuis les archives de données du JASA à
+\url{http://lib.stat.cmu.edu/jasadata/}, voir \citeN{Prei:Gale:Lohm:Wage:2000}.
+
+\label{CARDIApage}
+\bigskip
+
+5\,115 adultes âgés de 18 à 30 ans ont été suivis et examinés jusqu'à 5 fois de
+1986 à 1996, aux années 0, 2, 5, 7 et 10.
+
+\bigskip
+
+On considère le sous-échantillon de 3693 individus pour lesquels l'information complète est disponible
+pour les 4 premières visites (aucune valeur manquante).
+
+\bigskip
+
+Variable réponse (à chaque visite) : statut tabagique autodéclaré (oui/non, codé 1/0).
+\end{frame}
+
+
+\begin{frame}{}
+
+Prédicteurs (à chaque visite) :
+\begin{itemize}
+\item âge (dépendant du temps)
+\item cohorte de naissance (1955--1962, 1963--1967) (indépendant du temps)
+\item éducation (secondaire ou moins, études collégiales partielles, diplôme universitaire) (dépendant/(in)dépendant du temps)
+\item race-sexe (hommes noirs, femmes noires, hommes blancs, femmes blanches) (indépendant du temps)
+\end{itemize}
+
+\vfill
+{\color{red} $\bigstar$ Problèmes de données manquantes (missingness), voir \citeN{Prei:Gale:Lohm:Wage:2000}}.
+\end{frame}
+
+\begin{frame}[fragile]{}
+{\tiny
+\begin{lstlisting}
+Call:
+gee(formula = smoke ~ age + factor(birth) + factor(education) + 
+    factor(racesex), id = id, data = CARDIA.sub, family = binomial, 
+    corstr = "exchangeable")
+
+Summary of Residuals:
+       Min         1Q     Median         3Q        Max 
+-0.5506120 -0.3121130 -0.1189440  0.4816228  0.9095992 
+
+Coefficients:
+                      Estimate Naive S.E.    Naive z Robust S.E.   Robust z
+(Intercept)        -1.33707777 0.54231807  -2.465486  0.54510289  -2.452891
+age                 0.06480087 0.02646754   2.448315  0.02669744   2.427231
+factor(birth)2     -0.19856466 0.14606724  -1.359406  0.14563751  -1.363417
+factor(birth)3     -0.40380459 0.23689643  -1.704562  0.23858001  -1.692533
+factor(education)2 -0.68712005 0.08313860  -8.264754  0.08490269  -8.093030
+factor(education)3 -1.96140806 0.10016299 -19.582164  0.10054908 -19.506972
+factor(racesex)2   -0.17668132 0.09763816  -1.809552  0.09900202  -1.784623
+factor(racesex)3   -0.13445604 0.10634023  -1.264395  0.10833799  -1.241079
+factor(racesex)4   -0.12730906 0.10530815  -1.208919  0.10599195  -1.201120
+
+Estimated Scale Parameter:  1.000362
+Number of Iterations:  1
+
+Working Correlation
+         [,1]     [,2]     [,3]     [,4]
+[1,] 1.000000 0.727139 0.727139 0.727139
+[2,] 0.727139 1.000000 0.727139 0.727139
+[3,] 0.727139 0.727139 1.000000 0.727139
+[4,] 0.727139 0.727139 0.727139 1.000000
+\end{lstlisting}
+}
+\end{frame}
+
+
+\subsection{Exemple 6 : Abondance d'oiseaux}
+
+\begin{frame}{Exemple 6 : Abondance d'oiseaux}
+
+Les dénombrements d'oiseaux sont-ils en déclin? Abondance d'espèces animales.
+
+\bigskip
+
+L'exemple de 5 espèces de Seal Island (Nouvelle-Écosse,
+Canada) qui hivernent principalement dans le sud des États-Unis : Northern Flicker, Red-wing Blackbird, Rusty Blackbird,
+Ruby-crowned Kinglet, Yellow-rumped Warbler.
+
+\bigskip
+
+Données fournies par le prof.\ I. MacLaren, Dalhousie University.
+
+\bigskip
+
+2245 observations (saison automnale, entre le 1\textsuperscript{er} août et le 14 novembre, sur 40 ans
+depuis 1963), soit 449 jours d'observations pour chaque espèce d'oiseau.
+
+\end{frame}
+
+\begin{frame}{}
+\begin{tabular}{ccc}
+\includegraphics[width = 3.5cm]{figures/novascotia.jpg}   & \includegraphics[width = 2.5cm]{figures/northernflicker.jpg}  & \includegraphics[width = 2.5cm]{figures/redwing2.jpg} \\
+ \includegraphics[width = 2.5cm]{figures/rustyblackbird.jpg}  & \includegraphics[width = 2.5cm]{figures/ruby_crowned_kinglet.jpg} & \includegraphics[width = 2.5cm]{figures/Yellow_rumped_Warbler.jpg}
+\end{tabular}
+
+\end{frame}
+
+\begin{frame}{}
+
+Variable réponse : nombre d'oiseaux observés (décomptes, \texttt{NUMBER}).
+
+\bigskip
+Prédicteurs :
+\begin{itemize}
+\item année (\texttt{YEAR}) -- {\color{blue}Intérêt principal}.
+\item jour (\texttt{DAY})
+\item nombre
+d'observateurs sur l'île (\texttt{NO.OBS})
+\item direction du vent à minuit la veille (\texttt{WIND.0})
+\item direction du vent à midi la veille (\texttt{WIND.1})
+\item direction du vent à minuit deux jours avant (\texttt{WIND.2})
+\item direction du vent à midi deux jours avant (\texttt{WIND.3})
+\item vitesse du vent ce jour-là (\texttt{WINDSPD})
+\item condition du ciel (1=dégagé, 2=nuageux, 3=brouillard, 4=pluie) (\texttt{SKY})
+\item proportion de lune illuminée (\texttt{MOON})
+\item espèce d'oiseau (1--5) (\texttt{BIRD})
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{}
+Modèle de Poisson avec lien logarithmique :
+\begin{eqnarray*}
+\lefteqn{\texttt{NUMBER} \sim  \alpha + f_1(\texttt{YEAR}) + f_2(\texttt{DAY}) +
+f_3(\texttt{NO.OBS})} \\
+& + & f_4(\texttt{WIND.0}) + f_5(\texttt{WIND.1}) +
+f_6(\texttt{WIND.2}) \\
+& + & f_7(\texttt{WIND.3}) + f_8(\texttt{WINDSPD}) +
+\mbox{factor(\texttt{SKY})}\\
+& + & f_9(\texttt{MOON}) + \mbox{factor}(\texttt{BIRD})
+\end{eqnarray*}
+
+\bigskip
+
+{\scriptsize
+\begin{lstlisting}
+> require(mgcv)
+> GrA.fit <- gam(NUMBER~s(YEAR,k=20)+s(DAY,k=20)+s(NO.OBS,k=8)+
+   s(WIND.0,k=20)+s(WIND.1,k=20)+s(WIND.2,k=20)+s(WIND.3,k=20)+
+   s(WINDSPD,k=20)+factor(SKY)+s(MOON,k=20)+factor(BIRD), 
+   family=poisson,data=GrA,na.action=na.omit)
+> plot(GrA.fit,scale=0,pages=1,pers=T,all.terms=T,cex.lab=2)
+\end{lstlisting}}
+\end{frame}
+
+\begin{frame}{}
+
+\begin{center}
+\includegraphics[width = 6.5cm]{figures/GrA.pdf}
+\end{center}
+\vfill{\color{red} $\bigstar$ Excès de zéros possible. Revue : \citeN{Rido:Deme:Hind:1998}}
+\end{frame}
+
+\subsection{Résumé}
+
+\begin{frame}{Qu'ont en commun les exemples 1 à 6?}
+
+{\color{blue}
+Même formulation générale du modèle :
+$$g(E(Y_i)) = g(\mu_i) = $$
+$$= \eta_i = \left\{
+   \begin{array}{l}
+   \beta_0 + \beta_1 x_{i1}+\ldots+\beta_p x_{ip} \\
+  \alpha + f_1(x_{i1})+ \ldots + f_p(x_{ip})
+  \end{array} \right.$$}
+
+\bigskip
+
+$g$ est appelée la fonction de lien (link function).
+
+\bigskip
+
+$\eta_i$ est appelé le prédicteur linéaire (additif).
+
+\end{frame}
+
+\begin{frame}{Notation}
+
+{\color{blue}Variable réponse} : \\
+observations $y_1, \ldots, y_n$
+pour $n$ individus (ou sujets) correspondant aux variables aléatoires $Y_1,
+\ldots, Y_n$.
+
+\bigskip
+
+$y_i$ (resp.\ $Y_i$) peut être multidimensionnel, auquel cas
+on notera ses éléments $y_{it}$ avec $t=1,\ldots,n_i$.
+
+\bigskip
+
+{\color{blue}Propriétés distributionnelles de $Y_i$} :
+
+$Y_i$ issu d'une distribution $F_{\theta_i}$ :
+$$Y_i \sim F_{\theta_i}$$
+On note l'espérance $E(Y_i) = \mu_i$ et la variance $Var(Y_i) = v_i$.
+\end{frame}
+
+\begin{frame}{}
+
+{\color{blue}Variables explicatives (prédicteurs)} :
+\begin{itemize}
+\item pour $y_i$ unidimensionnel :
+$$x_i = (x_{i0}, x_{i1}, \ldots, x_{ip})^T$$
+est un vecteur de dimension $(p+1)$. $x_{i0}$ est habituellement égal à 1
+(ordonnée à l'origine). Information combinée :
+$$X =  \left( \begin{array}{c}
+x_1^T\\
+\vdots \\
+x_n^T
+\end{array} \right) =
+\left(
+\begin{array}{cccc}
+x_{10} & x_{11} & \cdots & x_{1p}\\
+x_{20} & x_{21} & \cdots & x_{2p}\\
+\vdots & \vdots & \vdots & \vdots \\
+x_{n0} & x_{n1} & \cdots & x_{np}\\
+\end{array} \right)
+$$
+
+\label{Ximatrix}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+
+\begin{itemize}
+\item pour $y_i$ multidimensionnel :
+$$X_i = \left(
+\begin{array}{cccc}
+x_{i10} & x_{i11} & \cdots & x_{i1p}\\
+x_{i20} & x_{i21} & \cdots & x_{i2p}\\
+\vdots & \vdots & \vdots & \vdots \\
+x_{in_i0} & x_{in_i1} & \cdots & x_{in_ip}\\
+\end{array} \right)$$
+\end{itemize}
+
+Information combinée :
+$$X = \left(
+\begin{array}{c}
+X_1 \\
+X_2 \\
+\vdots\\
+X_n
+\end{array} \right) $$
+\end{frame}
+
+\begin{frame}{Connaissances préalables}
+
+Familiarité avec les concepts suivants :
+\begin{itemize}
+\item Estimation (maximum de vraisemblance, moindres carrés, méthode des moments, etc.)
+\item Intervalles de confiance.
+\item Distributions d'échantillonnage.
+\item Tests d'hypothèses (hypothèse nulle et alternative, statistique de test et
+sa distribution, valeur-$p$, seuil de signification, etc.).
+\item Régression linéaire.
+\item Calcul différentiel et notation matricielle.
+\item $\ldots$
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]{Principes de la modélisation statistique}
+
+\bigskip
+
+Une analyse statistique devrait comprendre les étapes suivantes :
+\begin{enumerate}
+\item {\color{blue}Analyse exploratoire des données} pour vérifier la qualité des données et aider
+à la formulation du modèle. Considérer chaque variable séparément et se poser les
+questions suivantes :
+\begin{itemize}
+\item Quelle est l'échelle de mesure?
+\item Quelle est la forme de la distribution?
+\item Comment est-elle associée aux autres variables?
+\end{itemize}
+\item {\color{blue}Formulation du modèle} :
+  \begin{itemize}
+  \item Distribution de probabilité de $Y$.
+  \item Lien avec les variables explicatives.
+  \end{itemize}
+\item {\color{blue}Estimation des paramètres} : quelle méthode? (maximum de vraisemblance,
+moindres carrés, méthode des moments, etc.)
+\newpage
+\item {\color{blue}Résidus et vérification du modèle} :
+  \begin{itemize}
+  \item Inspection graphique des résidus (indépendance, normalité approximative, moyenne nulle, variance constante).
+  \item Tests d'adéquation (goodness of fit).
+  \end{itemize}
+\item {\color{blue}Inférence et interprétation} :\\
+Tester les hypothèses sur les paramètres pour obtenir un modèle parcimonieux. Puis (et seulement
+alors) interpréter les paramètres.
+\end{enumerate}
+
+\end{frame}
+
+\end{document}

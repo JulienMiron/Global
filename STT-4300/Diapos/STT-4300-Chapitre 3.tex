@@ -1,0 +1,639 @@
+\documentclass[STT-4300-Main.tex]{subfiles}
+\begin{document}
+
+\section{Modélisation de l'excès de zéros dans les données de comptage}
+
+\begin{frame}{Excès de zéros dans les données de comptage}
+Dans plusieurs applications impliquant des données de comptage, la variable réponse contient plus de zéros que ce à quoi on s'attendrait sous une loi de Poisson (ou binomiale négative). On parle alors d'\textit{excès de zéros} (excess of zeros).
+
+\bigskip 
+\bigskip 
+
+Des exemples typiques incluent~: le nombre de visites chez le médecin au cours d'une période donnée, le nombre d'animaux observés (requins, morues, oiseaux) dans un habitat donné, le nombre de réclamations d'assurance en une année, etc.
+\end{frame}
+
+\begin{frame}{Exemple}
+
+Les données sont un échantillon d'hommes allemands en 1994, tirées de
+\citeN{Riph:Wamb:Mill:2003}. Elles ont été utilisées pour étudier la demande de soins de santé. 
+
+\bigskip
+Il y a 1812 observations. La variable réponse est \texttt{docvisits}, le nombre de
+visites chez le médecin au cours des trois derniers mois.
+\end{frame}
+
+\begin{frame}{}
+Les covariables disponibles sont~: 
+\begin{itemize}
+\item \texttt{age} âge
+\item \texttt{agesq} âge au carré / 1000
+\item \texttt{health} satisfaction envers la santé, 0 (faible) - 10 (élevée)
+\item \texttt{handicap} 1 si handicapé, 0 sinon
+\item \texttt{hdegree} degré de handicap en points de pourcentage
+\item \texttt{married} 1 si marié, 0 sinon
+\item \texttt{schooling} années de scolarité
+\item \texttt{hhincome} revenu mensuel du ménage (marks allemands / 1000)
+\item \texttt{children} 1 si enfants de moins de 16 ans, 0 sinon
+\item \texttt{self} 1 si travailleur autonome, 0 sinon
+\item \texttt{civil} 1 si fonctionnaire, 0 sinon
+\item \texttt{bluec} 1 si col bleu, 0 sinon
+\item \texttt{employed} 1 si employé, 0 sinon
+\item \texttt{public} 1 si assurance maladie publique, 0 sinon
+\item \texttt{addon} 1 si assurance complémentaire, 0 sinon
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{}
+
+\begin{center}
+\includegraphics[width = 5cm]{figures/docvis.pdf} 
+\end{center}
+
+Proportion de zéros~: $746/1812 = 41.2\%$.
+
+{\scriptsize
+\begin{lstlisting}
+> mean(docvisits$docvisits)
+[1] 2.958057
+> mean(docvisits$docvisits[docvisits$docvisits>0])
+[1] 5.028143
+\end{lstlisting}
+}
+\end{frame}
+
+\subsection{Définition des modèles}
+\begin{frame}{Modèle hurdle (hurdle model)}
+
+\citeN{Mull:1986}, \citeN{Wels:Cunn:Donn:Lind:1996}
+
+\begin{eqnarray*}
+P(Y=y) & = & \left\{ \begin{array}{ll}
+y=0 & \mbox{avec prob. } 1-p(x)\\
+y \sim \mbox{trunc.} {\mathcal P}(\lambda) & \mbox{avec prob. } p(x)
+\end{array} \right.\\
+& & \\
+& = &  \left\{
+\begin{array}{ll}
+(1-p(x))  & y=0\\
+p(x) \frac{\exp(-\lambda(z)) \lambda(z)^y}{y! (1-\exp(-\lambda(z)))} & y=1,2,\ldots
+\end{array} \right.
+\end{eqnarray*}
+où $x$ et $z$ sont deux ensembles de covariables qui peuvent être identiques ou non.
+\end{frame}
+
+\begin{frame}{}
+On peut par exemple utiliser un modèle logistique pour $p(x)$
+$$ \log \Big(\frac{p(x)}{1-p(x)} \Big) = x^T
+\beta,$$
+
+et un modèle de type log-linéaire pour $\lambda(z)$
+$$\log(\lambda(z)) = z^T \gamma.$$
+
+\bigskip
+\textbf{Note}~: Une loi binomiale négative tronquée peut être utilisée à la place de la loi de Poisson tronquée. 
+
+\end{frame}
+
+\begin{frame}{Modèle ZIP (zero-inflated Poisson)}
+
+
+\citeN{Lamb:1992}
+
+\begin{eqnarray*}
+P(Y=y)  & = & \left\{ \begin{array}{ll}
+y=0 & \mbox{avec prob. } \pi(x)\\
+y \sim {\mathcal P}(\lambda) & \mbox{avec prob. } 1-\pi(x)
+\end{array} \right. \\
+& & \\
+& = &  \left\{
+\begin{array}{ll}
+\pi(x) + (1-\pi(x)) \exp(-\lambda(z)) & y=0\\
+(1-\pi(x)) \frac{\exp(-\lambda(z)) \lambda(z)^{y}}{y!} & y=1,2,\ldots
+\end{array} \right.
+\end{eqnarray*}
+où $x$ et $z$ sont deux ensembles de covariables qui peuvent être identiques ou non.
+\end{frame}
+
+\begin{frame}{}
+On peut par exemple utiliser un modèle logistique pour $1-\pi(x)$
+$$\log \Big(\frac{\pi(x)}{1-\pi(x)} \Big) = x^T
+\alpha,$$
+
+et un modèle de type log-linéaire pour $\lambda(z)$
+$$\log(\lambda(z)) = z^T \delta.$$
+
+\bigskip
+Une loi binomiale négative peut être utilisée à la place $\rightarrow$ ZINB.
+
+\end{frame}
+
+\begin{frame}{}
+\textbf{Note}~: 
+
+\begin{itemize}
+\item $p(x)$ dans le modèle hurdle est la probabilité de «~franchir la barrière~» (hurdle)
+(c.-à-d.\ $y_i>0$).
+\item $\pi(x)$ dans le modèle ZIP est la probabilité d'observer un zéro provenant du pic de masse à zéro (spike at zero).
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\begin{center}
+\begin{tabular}{cc}
+\includegraphics[width = 5cm]{figures/Hurdlemodel.pdf}  & \includegraphics[width =5cm]{figures/ZIPmodel.pdf} 
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}{Moments}
+
+
+Rappelons que $\lambda_i$ est l'espérance (et la variance) d'une loi de Poisson. 
+
+\bigskip
+\bigskip
+\textbf{Modèle hurdle}
+
+L'espérance d'une variable de Poisson tronquée est
+$\frac{\lambda_i}{1-\exp(-\lambda_i)}$, et par conséquent~:
+$$E(Y_i) = p(x_i) \frac{\lambda_i}{1-\exp(-\lambda_i)} =  p(x_i) E(Y_i|Y_i>0)$$
+$$Var(Y_i) = p(x_i) \frac{\lambda_i + \lambda_i^2}{1-\exp(-\lambda_i)} -
+\Big(p(x_i)\frac{\lambda_i}{1-\exp(-\lambda_i)}\Big)^2$$ 
+\bigskip
+
+Dans ce modèle, $Var(Y_i)$ peut être plus grande ou plus petite que $E(Y_i)$, ce qui permet de tenir compte de la surdispersion (overdispersion) ou de la sous-dispersion (underdispersion).
+\end{frame}
+
+\begin{frame}{}
+\textbf{Modèle ZIP}
+$$E(Y_i) = (1-\pi(x_i)) \lambda_i$$
+$$Var(Y_i) = (1-\pi(x_i)) (\lambda_i+\pi(x_i) \lambda_i^2)$$
+
+\bigskip
+Pour ce modèle, $Var(Y_i) > E(Y_i)$ (surdispersion) si $\pi(x_i)>0$.
+
+\bigskip
+\bigskip
+Dans les deux modèles, les quantités sont estimées en substituant les estimations des paramètres. 
+
+\end{frame}
+
+\begin{frame}{Estimation -- Modèles hurdle}
+
+Avec un modèle logistique pour $p(x)$
+$$\mbox{logit}(p(x)) = \log \Big(\frac{p(x)}{1-p(x)} \Big) = x^T
+\beta,$$
+
+et un modèle log-linéaire pour $\lambda(z)$
+$$\log(\lambda(z)) = z^T \gamma,$$
+
+la vraisemblance $L(\beta,\gamma)$ pour le modèle hurdle de Poisson est
+\begin{eqnarray*}
+\lefteqn{L(\beta,\gamma) = \prod_{i=1}^n P(Y_i = y_i) = }\\
+&&\prod_{i=1}^n (1-p(x_i))^{\iota(y_i=0)}  \left( p(x_i)\frac{\exp(-\lambda(z_i))
+\lambda(z_i)^{y_i}}{y_i! (1-\exp(-\lambda(z_i)))} \right)^{\iota(y_i>0)},
+\end{eqnarray*}
+où $\iota(A)=1$ si $A$ est vrai et $0$ sinon.
+\end{frame}
+
+\begin{frame}{}
+La log-vraisemblance $l(\beta,\gamma)$ est~:
+\begin{eqnarray*}
+\lefteqn{l(\beta,\gamma) =  \sum_{i=1}^n \iota(y_i=0) \log(1-p(x_i)) + }\\
+& & \sum_{i=1}^n \iota(y_i>0) \left[ \log(p(x_i)) -\lambda(z_i) + y_i
+\log(\lambda(z_i)) \right.\\
+& &\left. - \log(y_i!) - \log(1-\exp(-\lambda(z_i))) \right]  \\
+& = & \sum_{y_i=0} \log\Big( \frac{1}{1+\exp(x_i^T \beta)} \Big) + \sum_{y_i>0} \log\Big(\frac{\exp(x_i^T \beta)}{1+\exp(x_i^T \beta)} \Big)+\\
+& & \sum_{y_i>0} \Big(y_i z_i^T \gamma - \exp(z_i^T \gamma) -  \log(1- \exp(-\exp(z_i^T \gamma))) - \log(y_i!)\Big)\\
+& = & l(\beta)+l(\gamma)
+\end{eqnarray*}
+
+\end{frame}
+
+\begin{frame}{}
+Les composantes de $l(\beta,\gamma)$ peuvent être ajustées séparément (paramètres orthogonaux).
+
+\bigskip
+\bigskip
+\textbf{Note}~: Le lien logistique peut être remplacé par d'autres liens pour la famille binomiale, et les expressions mises à jour en conséquence. 
+
+\bigskip
+\textbf{Note}~: La log-vraisemblance pour le modèle conditionnel binomial négatif s'obtient de manière similaire. 
+
+\end{frame}
+
+\begin{frame}[allowframebreaks]{}
+Les deux parties indépendantes d'un modèle hurdle de Poisson peuvent aussi être ajustées en exploitant le cadre des MLG (modèles linéaires généralisés) \cite{Barr:Wels:2002}~:
+
+\begin{enumerate}
+\item Une régression binaire (logistique) pour séparer les zéros des valeurs positives (en utilisant toutes les données, et en codant 1 toutes les valeurs positives). 
+
+\item Un MLG de Poisson tronqué pour les valeurs positives (en utilisant uniquement la portion des données correspondant aux réponses positives).
+
+\bigskip 
+L'espérance d'une variable de Poisson tronquée est
+$$\mu = h(\lambda) = \frac{\lambda}{1-\exp(-\lambda)},$$
+donc $\lambda=h^{-1}(\mu)$.
+
+\bigskip Avec $\log(\lambda) = z^T \gamma $, on obtient $\log(h^{-1}(\mu)) = z^T \gamma,$ 
+donc la fonction de lien est $g(x) = \log(h^{-1}(x))$.
+
+De plus, la variance d'une variable de Poisson tronquée est
+$$v(\mu) = \mu (1 + h^{-1}(\mu) -\mu),$$
+et la déviance
+\begin{eqnarray*}
+\lefteqn{D(y;\mu) = 2 \Big[ y \log(h^{-1}(\mu)) - h^{-1}(\mu)} \\
+ & & \log(1-\exp(h^{-1}(\mu))) - y \log(h^{-1}(y)) \\
+ & & h^{-1}(y) + \log(1-\exp(h^{-1}(y))) \Big]
+\end{eqnarray*}
+
+\label{truncpoisdef}
+On utilise le cadre MLG avec les spécifications ci-dessus.
+
+ \bigskip \textbf{Remarque}~: On ne peut pas inverser $h$ explicitement.
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}{Estimation -- Modèles ZIP}
+
+Avec un modèle logistique pour $\pi(x)$
+$$\log \Big(\frac{ \pi(x)}{1-\pi(x)} \Big) = x^T
+\alpha,$$
+
+et un modèle log-linéaire pour $\lambda(z)$
+$$\log(\lambda(z)) = z^T \delta,$$
+
+\bigskip la vraisemblance $L(\alpha,\delta)$ pour le modèle ZIP est
+\end{frame}
+
+\begin{frame}{}
+\begin{eqnarray*}
+\lefteqn{L(\alpha,\delta) = \prod_{i=1}^n P(Y_i = y_i) = }\\
+&&\prod_{i=1}^n (\pi(x_i) +(1-\pi(x_i))\exp(-\lambda(z_i)))^{\iota(y_i=0)}
+ \\
+&& \times \left( (1-\pi(x_i))\frac{\exp(-\lambda(z_i))
+\lambda(z_i)^{y_i}}{y_i!} \right)^{\iota(y_i>0)}
+\end{eqnarray*}
+
+\bigskip
+Cette vraisemblance doit être maximisée conjointement pour $(\alpha,\delta)$.
+
+\end{frame}
+
+
+\begin{frame}{}
+Le modèle ZIP peut aussi être ajusté à l'aide de l'algorithme EM (algorithme espérance-maximisation)
+\cite{Demp:Lair:Rubi:1977}. 
+
+
+\bigskip
+Soit $W_i=1$ lorsque $y_i$ provient du pic de masse à zéro, et $0$ sinon ($W_i$ est
+inconnue). La vraisemblance devient
+\begin{eqnarray*}
+\lefteqn{L(\alpha,\delta|W_i) = \prod_{i=1}^n P(Y_i = y_i) = }\\
+&&\prod_{i=1}^n \pi(x_i)^{W_i \iota(y_i=0)} \times (1-\pi(x_i))^{1-W_i}
+  \times \left( \frac{\exp(-\lambda(z_i))
+\lambda(z_i)^{y_i}}{y_i!} \right)^{1-W_i}
+\end{eqnarray*}
+
+\bigskip
+En conditionnant sur $W_i$ et en utilisant l'algorithme EM, on obtient l'effet de séparer les composantes. 
+\end{frame}
+
+\begin{frame}{Sources de zéros}
+
+Il est parfois souhaitable de distinguer les différents types de zéros. Il existe au moins 4 sortes de zéros, voir \citeN{Zuur:Ieno:Walk:Save:Smit:2009}~: 
+
+
+\begin{enumerate}
+\item zéros structurels (p.~ex.\ animal absent car l'habitat n'est pas convenable).
+\item erreur de conception (design error), mauvais plan expérimental ou mauvaises pratiques d'échantillonnage (p.~ex.\ échantillonnage au mauvais moment, pendant une période trop courte, dans une zone trop petite).  
+\item erreur d'observateur (p.~ex.\ espèces difficiles à identifier).
+\item erreur «~d'oiseau~»~: l'habitat est convenable, mais le site n'est pas utilisé.
+\end{enumerate}
+\end{frame}
+
+\subsection{Comparaison des modèles ZIP et hurdle} 
+\begin{frame}{}
+
+\begin{center}
+\begin{tabular}{cc}
+Modèle hurdle & Modèle ZIP\\
+\includegraphics[width = 5.5cm]{figures/114fromtiff.pdf}  & \includegraphics[width =5.5cm]{figures/115fromtiff.pdf} 
+\end{tabular}
+\end{center}
+
+\bigskip
+Figures tirées de \shortciteN{Zuur:Ieno:Walk:Save:Smit:2009}.
+
+\end{frame}
+
+
+\begin{frame}{}
+\begin{tabular}{l|l|l}
+Modèle & Hurdle & ZIP\\
+\hline
+&&\\
+Paramétrisation & orthogonale & non orthogonale \\
+&&\\
+Éq.\ d'estimation & séparées & impliquent tous les param. \\
+&&\\
+Ajust.\ composantes & séparément & simultanément \\ 
+&& ou EM pour séparer\\
+&&\\
+Interprét.\ param.\ & séparément & simultanément\\
+&&\\
+& $p_i()=$ & $\pi()$\\
+& prob.\ de présence & prob.\ de mélange \\
+&&\\
+& abondance cond. & abondance nulle 
+\end{tabular}
+\end{frame}
+
+
+\begin{frame}[fragile]{Ajustement hurdle des données de visites médicales~: abondance.}
+
+{\scriptsize
+\begin{lstlisting}
+Count model coefficients (truncated poisson with log link):
+             Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  2.711909   0.274745   9.871  < 2e-16 ***
+age         -0.019347   0.012227  -1.582 0.113573    
+agesq        0.340346   0.138224   2.462 0.013805 *  
+health      -0.165889   0.006030 -27.510  < 2e-16 ***
+handicap     0.360922   0.073755   4.893 9.91e-07 ***
+hdegree     -0.004873   0.001263  -3.859 0.000114 ***
+married     -0.150048   0.039991  -3.752 0.000175 ***
+schooling   -0.001591   0.007247  -0.220 0.826214    
+hhincome     0.005181   0.007607   0.681 0.495784    
+children     0.106423   0.038281   2.780 0.005435 ** 
+self        -0.183134   0.071802  -2.551 0.010755 *  
+civil       -0.123018   0.079012  -1.557 0.119481    
+bluec        0.077810   0.039401   1.975 0.048285 *  
+employed    -0.111501   0.046732  -2.386 0.017034 *  
+public       0.109596   0.069555   1.576 0.115100    
+addon        0.261478   0.094248   2.774 0.005531 ** 
+\end{lstlisting}
+}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Ajustement hurdle des données de visites médicales~: présence/absence.}
+
+{\scriptsize
+\begin{lstlisting}
+Zero hurdle model coefficients (binomial with logit link):
+             Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  4.228318   0.970927   4.355 1.33e-05 ***
+age         -0.100415   0.045999  -2.183   0.0290 *  
+agesq        1.252381   0.537255   2.331   0.0197 *  
+health      -0.314382   0.028633 -10.980  < 2e-16 ***
+handicap     0.125226   0.427901   0.293   0.7698    
+hdegree      0.003857   0.008130   0.474   0.6352    
+married      0.227869   0.147236   1.548   0.1217    
+schooling   -0.004350   0.023410  -0.186   0.8526    
+hhincome     0.032699   0.026482   1.235   0.2169    
+children    -0.329635   0.134636  -2.448   0.0144 *  
+self        -0.245749   0.199960  -1.229   0.2191    
+civil       -0.235280   0.214703  -1.096   0.2731    
+bluec        0.029496   0.135280   0.218   0.8274    
+employed     0.036584   0.182606   0.200   0.8412    
+public       0.051585   0.187571   0.275   0.7833    
+addon       -0.034627   0.379243  -0.091   0.9272    
+\end{lstlisting}
+}
+
+\end{frame}
+
+\begin{frame}[fragile]{Ajustement ZIP des données de visites médicales~: abondance.}
+
+{\scriptsize
+\begin{lstlisting}
+Count model coefficients (poisson with log link):
+             Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  2.696432   0.275366   9.792  < 2e-16 ***
+age         -0.018650   0.012254  -1.522 0.128015    
+agesq        0.332125   0.138565   2.397 0.016535 *  
+health      -0.165427   0.006021 -27.473  < 2e-16 ***
+handicap     0.361505   0.073723   4.904 9.41e-07 ***
+hdegree     -0.004890   0.001263  -3.872 0.000108 ***
+married     -0.149734   0.039960  -3.747 0.000179 ***
+schooling   -0.001747   0.007231  -0.242 0.809124    
+hhincome     0.005360   0.007530   0.712 0.476584    
+children     0.102861   0.038276   2.687 0.007202 ** 
+self        -0.180518   0.072126  -2.503 0.012321 *  
+civil       -0.124073   0.079062  -1.569 0.116575    
+bluec        0.077995   0.039393   1.980 0.047710 *  
+employed    -0.111584   0.046757  -2.386 0.017012 *  
+public       0.111776   0.069614   1.606 0.108349    
+addon        0.258275   0.094552   2.732 0.006303 ** 
+\end{lstlisting}
+}
+
+\end{frame}
+
+\begin{frame}[fragile]{Ajustement ZIP des données de visites médicales~: présence/absence.}
+
+{\scriptsize
+\begin{lstlisting}
+Zero-inflation model coefficients (binomial with logit link):
+             Estimate Std. Error z value Pr(>|z|)    
+(Intercept) -4.248435   1.016598  -4.179 2.93e-05 ***
+age          0.103531   0.048036   2.155   0.0311 *  
+agesq       -1.264186   0.560348  -2.256   0.0241 *  
+health       0.292041   0.029418   9.927  < 2e-16 ***
+handicap    -0.065816   0.435600  -0.151   0.8799    
+hdegree     -0.005067   0.008355  -0.607   0.5442    
+married     -0.274227   0.154044  -1.780   0.0750 .  
+schooling    0.003972   0.024582   0.162   0.8716    
+hhincome    -0.032490   0.027708  -1.173   0.2410    
+children     0.361796   0.141202   2.562   0.0104 *  
+self         0.202949   0.213576   0.950   0.3420    
+civil        0.201870   0.229784   0.879   0.3797    
+bluec       -0.013367   0.140868  -0.095   0.9244    
+employed    -0.057557   0.188931  -0.305   0.7606    
+public      -0.012178   0.200784  -0.061   0.9516    
+addon        0.077311   0.385901   0.200   0.8412  
+\end{lstlisting}
+}
+
+\end{frame}
+
+\begin{frame}{Validation du modèle et inférence}
+
+Les modèles hurdle et ZIP sont tous deux ajustés par vraisemblance. Toutes les méthodes inférentielles s'appliquent donc~: tests du rapport de vraisemblance, critère d'Akaike (AIC), etc.
+
+\bigskip
+Le modèle hurdle de Poisson étant séparable, l'inférence sur ses deux composantes peut être effectuée séparément. De plus, le cadre des MLG s'applique pleinement et on peut examiner la déviance également. 
+
+
+\bigskip
+\bigskip
+Les outils de validation graphique ne sont pas implémentés dans le package \texttt{pscl}.
+\end{frame}
+
+\subsection{Analyse de l'origine des différences de genre en science}
+\begin{frame}{Différences de genre en science}
+Étude analysant la présence établie de différences de genre en science, voir
+ \citeN{Long:1990}.
+ 
+\bigskip
+Un échantillon de 915 étudiants diplômés en biochimie. La variable réponse est \texttt{art},
+soit le nombre d'articles produits au cours des 3 dernières années du doctorat. 
+
+\begin{itemize}
+\item \texttt{fem} facteur indiquant le genre de l'étudiant (Men ou Women)
+\item \texttt{mar} facteur indiquant l'état civil de l'étudiant (Single ou Married)
+\item \texttt{kid5} nombre d'enfants de 5 ans ou moins
+\item \texttt{phd} prestige du programme de doctorat, basé sur les études de Cartter, Roose et
+Andersen, et Jones et al.
+\item \texttt{ment} nombre d'articles produits par le directeur de thèse au cours des 3 dernières années 
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{}
+\begin{center}
+\includegraphics[width = 7cm]{figures/BioC.pdf}  
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{}
+{\scriptsize
+\begin{lstlisting}
+Count model coefficients (truncated poisson with log link):
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  0.67114    0.12246   5.481 4.24e-08 ***
+femWomen    -0.22858    0.06522  -3.505 0.000457 ***
+marMarried   0.09649    0.07283   1.325 0.185209    
+kid5        -0.14219    0.04845  -2.934 0.003341 ** 
+phd         -0.01273    0.03130  -0.407 0.684343    
+ment         0.01875    0.00228   8.222  < 2e-16 ***
+Zero hurdle model coefficients (binomial with logit link):
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  0.23680    0.29552   0.801   0.4230    
+femWomen    -0.25115    0.15911  -1.579   0.1144    
+marMarried   0.32623    0.18082   1.804   0.0712 .  
+kid5        -0.28525    0.11113  -2.567   0.0103 *  
+phd          0.02222    0.07956   0.279   0.7800    
+ment         0.08012    0.01302   6.155 7.52e-10 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+> extractAIC(bioChurdle)
+[1]   12.000 3234.623
+\end{lstlisting}
+}
+
+\end{frame}
+
+\begin{frame}[fragile]{}
+{\scriptsize
+\begin{lstlisting}
+Count model coefficients (truncated poisson with log link):
+              Estimate Std. Error z value Pr(>|z|)    
+(Intercept)    0.65835    0.12440   5.292 1.21e-07 ***
+femWomen      -0.20919    0.07283  -2.872  0.00408 ** 
+kid5          -0.12937    0.05276  -2.452  0.01421 *  
+marMarried     0.09998    0.07304   1.369  0.17106    
+phd           -0.01209    0.03130  -0.386  0.69922    
+ment           0.01879    0.00228   8.242  < 2e-16 ***
+femWomen:kid5 -0.06613    0.11152  -0.593  0.55323    
+Zero hurdle model coefficients (binomial with logit link):
+              Estimate Std. Error z value Pr(>|z|)    
+(Intercept)    0.25256    0.30450   0.829   0.4069    
+femWomen      -0.27119    0.18436  -1.471   0.1413    
+kid5          -0.29739    0.12455  -2.388   0.0170 *  
+marMarried     0.32078    0.18258   1.757   0.0789 .  
+phd            0.02140    0.07965   0.269   0.7882    
+ment           0.08015    0.01302   6.155 7.52e-10 ***
+femWomen:kid5  0.04861    0.22555   0.216   0.8293    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+> extractAIC(bioChurdlewithint)
+[1]   14.000 3238.217
+\end{lstlisting}
+}
+\end{frame}
+
+\begin{frame}[fragile]{Sous-modèle 1}
+
+{\scriptsize
+\begin{lstlisting}
+Count model coefficients (truncated poisson with log link):
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  0.67114    0.12246   5.481 4.24e-08 ***
+femWomen    -0.22858    0.06522  -3.505 0.000457 ***
+marMarried   0.09649    0.07283   1.325 0.185209    
+kid5        -0.14219    0.04845  -2.934 0.003341 ** 
+phd         -0.01273    0.03130  -0.407 0.684343    
+ment         0.01875    0.00228   8.222  < 2e-16 ***
+Zero hurdle model coefficients (binomial with logit link):
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  0.32116    0.11814   2.718  0.00656 ** 
+kid5        -0.14306    0.09484  -1.508  0.13144    
+ment         0.08086    0.01248   6.479 9.25e-11 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+> extractAIC(bioChurdlesub1)
+[1]    9.000 3235.348
+\end{lstlisting}
+}
+
+\end{frame}
+
+\begin{frame}[fragile]{Sous-modèle 2}
+{\scriptsize
+\begin{lstlisting}
+Count model coefficients (truncated poisson with log link):
+             Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  0.691554   0.054696  12.644  < 2e-16 ***
+femWomen    -0.238888   0.064766  -3.688 0.000226 ***
+kid5        -0.114713   0.044280  -2.591 0.009580 ** 
+ment         0.018433   0.002228   8.275  < 2e-16 ***
+Zero hurdle model coefficients (binomial with logit link):
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  0.24871    0.10766   2.310   0.0209 *  
+ment         0.08092    0.01249   6.477 9.39e-11 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Number of iterations in BFGS optimization: 9 
+Log-likelihood: -1611 on 6 Df
+> extractAIC(bioChurdlesub2)
+[1]    6.000 3233.664
+\end{lstlisting}
+}
+\end{frame}
+
+\begin{frame}[fragile]{Ajustement ZIP}
+{\scriptsize
+\begin{lstlisting}
+Count model coefficients (poisson with log link):
+             Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  0.640838   0.121307   5.283 1.27e-07 ***
+femWomen    -0.209145   0.063405  -3.299 0.000972 ***
+marMarried   0.103751   0.071111   1.459 0.144565    
+kid5        -0.143320   0.047429  -3.022 0.002513 ** 
+phd         -0.006166   0.031008  -0.199 0.842378    
+ment         0.018098   0.002294   7.888 3.07e-15 ***
+
+Zero-inflation model coefficients (binomial with logit link):
+             Estimate Std. Error z value Pr(>|z|)   
+(Intercept) -0.577059   0.509386  -1.133  0.25728   
+femWomen     0.109746   0.280082   0.392  0.69518   
+marMarried  -0.354014   0.317611  -1.115  0.26502   
+kid5         0.217097   0.196482   1.105  0.26919   
+phd          0.001274   0.145263   0.009  0.99300   
+ment        -0.134114   0.045243  -2.964  0.00303 **
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+\end{lstlisting}
+}
+\end{frame}
+
+\end{document}

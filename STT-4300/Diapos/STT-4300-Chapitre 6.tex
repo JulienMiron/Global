@@ -1,0 +1,379 @@
+\documentclass[STT-4300-Main.tex]{subfiles}
+\begin{document}
+
+\section{Méthodes robustes}
+\label{robust.section}
+
+\subsection{MLG robustes}
+
+\subsubsection{Introduction}
+
+\begin{frame}{Statistique robuste}
+
+Les analyses statistiques peuvent être fortement affectées par les valeurs aberrantes (outliers). On ne veut pas que l'analyse (et donc les conclusions) soit influencée par une seule ou très peu d'observations.
+
+\bigskip
+Plutôt : modéliser la majorité des données.
+
+\bigskip
+Avec l'approche de la {\color{blue}statistique robuste (robust statistics)} (\citeN{Hube:1981} et \citeN{Hamp:Ronc:Rous:Stah:1986}), on considère que :
+\begin{itemize}
+\item les modèles sont au mieux des approximations idéales du processus sous-jacent
+\item des déviations par rapport aux hypothèses de distribution sont (presque) toujours présentes dans les données réelles.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+Idée de base : supposer que la distribution des données provient d'un {\color{blue}voisinage du modèle postulé}.
+
+\bigskip
+Construire des estimateurs robustes (et des statistiques de test) tels que les paramètres estimés (inférences) soient convergents sous le modèle postulé et stables dans un voisinage de celui-ci.
+
+L'estimation et l'inférence correctes sont obtenues pour les paramètres du modèle postulé (celui correspondant à la {\color{blue}majorité des données}) en limitant l'influence d'une (petite fraction de) points de données considérés comme provenant d'une population différente.
+\end{frame}
+
+\begin{frame}{}
+La {\color{blue}stabilité} de la technique robuste est obtenue au prix d'une légère perte d'{\color{blue}efficacité} au modèle. Cela peut être vu comme une prime d'assurance que l'on est prêt à payer pour se protéger contre les biais et les pertes d'efficacité dues aux déviations du modèle supposé.
+
+\begin{center}
+{\LARGE{\color{blue}La statistique robuste, en tant que collection de théories connexes, est la statistique des modèles paramétriques approchés.}}
+\end{center}
+
+\bigskip
+
+tiré de \citeN{Hamp:Ronc:Rous:Stah:1986}, p.~7.
+\end{frame}
+
+\begin{frame}{}
+{\color{blue}Voisinage du modèle postulé} :
+$F_{\epsilon} = (1-\epsilon) F_{\theta} + \epsilon G,$
+où $F_{\theta}$ est le modèle postulé, $\theta$ est un ensemble de paramètres d'intérêt, $G$ est une distribution arbitraire et $0\leq \epsilon \leq 1$.
+
+\begin{table}[h]
+{\scriptsize\begin{tabular}{lccc}
+ Inférence & \multicolumn{3}{c}{Classique} \\ \hline\\
+ $G$ &
+$0<<\varepsilon <1$ & $0<\varepsilon <<1$ & $\varepsilon =0$ \\
+\hline \\
+arbitraire & ? & ? & $F_{\theta }$ \\
+$G=\Delta _{z}$ & $F_{\varepsilon }$ & $F_{\varepsilon }$ & $F_{\theta }$ \\
+$G=F_{(\theta ,\theta ^{\prime })}$ & $F_{\varepsilon }$ &
+$F_{\varepsilon }$
+& $F_{\theta }$ \\
+$G$ tel que $F_{\varepsilon }=F_{(\theta ,\theta ^{\prime })}$ & $%
+F_{(\theta ,\theta ^{\prime })}$ & $F_{(\theta ,\theta ^{\prime })}$ & $%
+F_{\theta }$ \\ \hline\\
+ & \multicolumn{3}{c}{Robuste} \\ 
+\hline \\
+arbitraire & ? & $F_{\theta }$ & $F_{\theta }$ \\
+$G=\Delta _{z}$ & $F_{\varepsilon }$ & $F_{\theta }$ & $F_{\theta }$ \\
+$G=F_{(\theta ,\theta ^{\prime })}$ & $F_{\varepsilon }$ & $F_{\theta }$ & $%
+F_{\theta }$ \\
+$G$ tel que $F_{\varepsilon }=F_{(\theta ,\theta ^{\prime })}$ & $%
+F_{(\theta ,\theta ^{\prime })}$ & $F_{\theta }$ & $F_{\theta }$ \\
+\hline
+\end{tabular}}
+\end{table}
+
+Tableau tiré de \citeN{Heri:Cant:Copt:Vict:2009}.
+\end{frame}
+
+\begin{frame}{Outils pour mesurer la robustesse}
+\begin{itemize}
+\item La {\color{blue}fonction d'influence (influence function)} est définie par
+$$IF({\bf z}; T , F) = \lim_{\epsilon \rightarrow 0} \Big(\frac{T(F_{\epsilon}) -
+  T(F)}{\epsilon} \Big),$$
+où $T(F)$ est une fonctionnelle qui définit l'estimateur $T(F^{(n)})$, $F^{(n)}$ est la fonction de répartition empirique, $F_{\epsilon} = (1-\epsilon) F + \epsilon \Delta_{\bf z}$, et $\Delta_{\bf z}$ est une distribution qui concentre toute sa masse en ${\bf z}$.
+
+$IF$ mesure l'effet sur l'estimé d'une contamination infinitésimale au point ${\bf z}$, standardisé par la quantité de contamination. L'effet marginal maximal d'une observation ${\bf z}$ sur $T$ est approximativement $\epsilon \cdot IF({\bf z}; T , F)$.
+
+Une {\color{blue}fonction d'influence bornée (bounded influence function)} est une propriété souhaitable pour un estimateur.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\begin{itemize}
+\item {\color{blue}Point de rupture (breakdown point)} Il mesure le pourcentage maximal permis de la minorité tel que celle-ci n'a qu'une influence limitée sur l'estimateur. Plus le point de rupture est {\color{blue}grand}, plus l'estimateur est robuste.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Statistique robuste versus diagnostic ?}
+
+\bigskip
+Pourquoi ne pas effectuer un diagnostic pour identifier les observations aberrantes sur la base d'une analyse classique, puis retirer les points de données inhabituels de l'échantillon ?
+
+\bigskip
+Cela peut être peu fiable car un {\color{blue}effet de masquage (masking effect)} peut survenir, où une seule grande valeur aberrante peut en masquer d'autres. Cela signifie que les données déformées semblent être la norme plutôt que l'exception.
+
+\bigskip
+Le retrait des points aberrants basé sur une analyse classique est une décision binaire (inclus ou exclu), alors que l'approche robuste est un processus plus graduel.
+
+\bigskip
+Si l'approche par retrait est utilisée, l'inférence subséquente devrait en tenir compte (ce qui n'est souvent pas le cas).
+\end{frame}
+
+\begin{frame}{M-estimation}
+Un grand nombre d'estimateurs appartiennent à la classe des {\color{blue}estimateurs M (M-estimators)} définis par \citeN{Hube:1964}. Pour estimer un paramètre $\theta$, pour une fonction $\Psi$ donnée, ils sont définis par les {\color{blue}équations d'estimation (estimating equations)} :
+$$\sum_{i=1}^n \Psi(y_i,\theta) = 0.$$
+
+Sous certaines conditions de régularité :
+\begin{itemize}
+\item $\sqrt{n} (\hat{\theta} - \theta)$ est asymptotiquement distribué selon une loi normale de moyenne 0 et de variance $\Omega = M^{-1} Q M^{-1}$, où $M=- E(d/ d \theta \Psi(y,\theta))$ et $Q= E (\Psi(y,\theta) \Psi^T(y,\theta))$.
+\item la fonction d'influence d'un estimateur M est $M^{-1} \Psi(y,\theta)$, c'est-à-dire proportionnelle à $\Psi(y,\theta)$.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Exemple}
+
+L'{\color{blue}estimateur du maximum de vraisemblance pour les MLG} (p.~\pageref{EE.GLM}) est un estimateur M avec
+$$\Psi(y_i,\mu_i) = \frac{y_i-\mu_i}{Var(Y_i)} x_{ij}
+(\frac{\partial \mu_i}{\partial \eta_i}) = \frac{r_i}{v^{1/2}(\mu_i)} \mu_i^{\prime}.$$
+
+\bigskip
+Cette fonction est non bornée par rapport à $y_i$ et par rapport à $x_i$. L'estimateur MLG est {\color{blue}non robuste} !
+
+\end{frame}
+
+\subsubsection{Estimateur MLG robuste}
+
+\begin{frame}{Estimateur MLG robuste}
+On introduit une fonction $\psi$ pour contrôler les grandes déviations dans l'espace des $y$ et un ensemble de poids $w({\bf x}_i)$ pour réduire l'influence des points à effet de levier (leverage points) :
+\begin{equation*}
+\label{EE.eq}
+\sum_{i=1}^n \Big[ \psi(r_i ) w({\bf x}_i)
+\frac{1}{v^{1/2}(\mu_i)}  \mu_i^{\prime}  - a(\beta) \Big] = {\bf 0},
+\end{equation*}
+où $r_i = (y_i-\mu_i)/v^{1/2}(\mu_i)$ sont les résidus de Pearson (Pearson residuals) \cite{Cant:Ronc:2001a}.
+
+\bigskip
+Le terme de correction $a(\beta)$ assure la consistance de Fisher (Fisher consistency).
+
+\bigskip
+Les équations d'estimation classiques sont un cas particulier : $\psi$ est la fonction identité et $w({\bf x}_i) \equiv 1$, auquel cas $a(\beta) = 0$.
+\end{frame}
+
+\begin{frame}{}
+L'ensemble des équations d'estimation pour les MLG robustes peut être réécrit comme :
+\begin{equation*}
+\label{EEw.eq}
+\sum_{i=1}^n \Big[ \tilde{w}(r_i) r_i w({\bf x}_i)
+\frac{1}{v^{1/2}(\mu_i)}  \mu_i^{\prime}  - a(\beta) \Big] = {\bf 0},
+\end{equation*}
+où $\tilde{w}(r) = \psi(r)/r$.
+\label{EEw.page}
+
+\bigskip
+Interprétation : ce sont des équations d'estimation MLG pondérées pour assurer la robustesse et recentrées pour assurer la consistance.
+\end{frame}
+
+\begin{frame}{Choix de $\psi$}
+Un choix courant de $\psi$ pour assurer la robustesse est la fonction de Huber (Huber function) définie par $\psi_c(r) = r \cdot \min(1, c/|r|)$.
+
+\bigskip
+$c$ permet le réglage du compromis robustesse-efficacité. (En pratique, prendre $c$ entre 1 et 2).
+
+\begin{center}
+\begin{tabular}{cc}
+\includegraphics[width = 4.5cm]{figures/Huberpsi.pdf}  & \includegraphics[width =4.5cm]{figures/Huberweights.pdf} 
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}{Choix de $w({\bf x}_i)$}
+Exemples de poids $w({\bf x}_i)$ :
+
+\begin{itemize}
+\item en fonction des éléments diagonaux de la matrice chapeau (hat matrix) $H = X (X^T X)^{-1} X^T$ (par ex.\ $w({\bf x}_i) = \sqrt{1-H_{ii}}$)
+\item basés sur les distances de Mahalanobis de la matrice du plan (avec le centre et la matrice de covariance estimés de manière robuste).
+\end{itemize}
+
+\bigskip
+$\tilde{w}$ et $w$ peuvent être utilisés pour le diagnostic : ils donnent de l'information sur la façon dont chaque observation est traitée.
+\end{frame}
+
+\begin{frame}{Propriétés du MLG robuste}
+Les propriétés distributionnelles et de robustesse de l'estimateur MLG robuste découlent des résultats généraux sur la M-estimation, avec
+$$M=\frac{1}{n} X^T B X \ \ \ \mbox{et} \ \ \ Q=\frac{1}{n} X^T A X  - a(\beta) a(\beta)^T,$$
+où $B$ et $A$ sont des matrices diagonales contenant les éléments
+$$b_i = E[\psi_c(r_i) \frac{\partial}{\partial \mu_i} \log h(y_i |{\bf x}_i,
+\mu_i)] \frac{1}{v^{1/2}(\mu_i)}  w({\bf x}_i) (\frac{\partial \mu_i}{\partial
+\eta_i})^2,$$
+et
+$$a_i= E[\psi_c(r_i)^2] w^2({\bf x}_i)
+\frac{1}{v(\mu_i)} ( \frac{\partial \mu_i}{\partial \eta_i})^2.$$
+
+La fonction d'influence est bornée par rapport à $y$ pour un choix borné de $\psi$, et l'effet des valeurs aberrantes dans le plan est contrôlé avec des poids appropriés $w({\bf x})$.
+\end{frame}
+
+\begin{frame}{Sélection de variables}
+Les équations d'estimation robustes de la page~\pageref{EEw.page} peuvent être vues comme les dérivées par rapport à $\beta$ de la fonction de {\color{blue}quasi-vraisemblance robuste (robust quasi-likelihood)} $\sum_{i=1}^n Q_M(y_i, \mu_i)$, où
+\begin{equation*}
+\label{QM.explicit}
+Q_M(y_i, \mu_i) = \int_{\tilde{s}}^{\mu_i} \phi(y_i, t) w({\bf x}_i)
+dt - \frac{1}{n} \sum_{j=1}^n \int_{\tilde{t}}^{\mu_j} E \big[ \phi(y_j,t) w({\bf
+x}_j) \big] dt,
+\end{equation*}
+où $\phi(y_i,t) = \psi\big((y_i-t)/v^{1/2}(t)\big)/v^{1/2}(t)$, $\tilde{s}$ et $\tilde{t}$ tels que $\phi(y_i, \tilde{s}) = 0$, $E[\phi(y_i,\tilde{t})] = 0$.
+
+\bigskip
+Les intégrales ci-dessus sont généralement calculées numériquement.
+
+\bigskip
+Comparer avec la fonction de quasi-vraisemblance classique de la page~\pageref{QL.page}.
+\end{frame}
+
+\begin{frame}{}
+Pour comparer un modèle ${\mathcal M}_{p+1}$ avec $(p+1)$ variables à un modèle emboîté ${\mathcal M}_{p+1-q}$ avec seulement $(p+1-q)$ variables, une statistique de test peut être construite basée sur deux fois la {\color{blue}différence de quasi-vraisemblance}
+\begin{equation*}
+\label{quasi.dev}
+\Lambda_{QM} = 2 \Big[ \sum_{i=1}^n Q_M(y_i, \hat{\mu}^{p+1}_i) - \sum_{i=1}^n
+Q_M(y_i, \hat{\mu}^{p+1-q}_i) \Big].
+\end{equation*}
+
+\bigskip
+Notons que $\Lambda_{QM}$ est indépendant de $\tilde{s}$ et $\tilde{t}$.
+\end{frame}
+
+\begin{frame}{}
+Sous l'hypothèse nulle
+$$H_0: \beta = (\cdot, \ldots, \cdot,0_{p+2-q},\ldots,0_{p+q})$$
+et sous des conditions assez générales, $\Lambda_{QM}$ est asymptotiquement distribué comme
+$$\sum_{i=1}^q \lambda_i N_i^2,$$
+où $N_1, \ldots,N_q \sim {\mathcal N}(0,1)$ et $\lambda_1, \ldots, \lambda_q$ sont les $q$ valeurs propres positives de la matrice $Q(\psi,F_{\beta}) \big(M^{-1}(\psi,F_{\beta}) - \tilde{M}^{+}(\psi, F_{\beta}) \big)$.
+
+\bigskip
+On peut démontrer que le niveau et la puissance asymptotiques sous de petites déviations du modèle sont stables tant qu'un estimateur de $\beta$ avec une fonction d'influence bornée est utilisé.
+\end{frame}
+
+\subsubsection{Jeu de données sur les coûts hospitaliers}
+
+\begin{frame}{Exemple : Coûts hospitaliers de séjour}
+
+La distribution Gamma implique un second paramètre $\nu$ qui doit aussi être estimé de manière robuste. En fait, ce paramètre est tel que
+$$Var((Y_i - \mu_i)/v^{1/2}(\mu_i)) =1 / \nu,$$
+et donc tout estimateur robuste de la variance de $(Y_i - \mu_i)/v^{1/2}(\mu_i)$ peut être utilisé, par exemple un simple estimateur M (Proposition~2 de Huber (Huber's Proposal~2)), qui résout
+\begin{equation*}
+\label{nu.eq}
+\sum_{i=1}^n \Big[ \psi_c\Big(\frac{y_i-\mu_i}{v^{1/2}(\mu_i)/\sqrt{\nu}} \Big)^2 -
+E\Big(\psi_c\big(\frac{y_i-\mu_i}{v^{1/2}(\mu_i)/\sqrt{\nu}}\big)^2\Big) \Big]= 0,
+\end{equation*}
+
+\bigskip
+Les résultats asymptotiques sur $\beta$ restent valides (pour un estimateur $\sqrt{n}$-convergent de $\nu$).
+\end{frame}
+
+\begin{frame}[fragile]{}
+
+{\tiny
+\begin{lstlisting}
+Call:  glmrob(formula = CouTot ~ log(LOS) + Typadm + Typass + age +     
+Sexe + dest, family = Gamma(link = log), data = MYdata) 
+
+Coefficients:
+              Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  7.2541684  0.1038707  69.838  < 2e-16 ***
+log(LOS)     0.8391397  0.0197817  42.420  < 2e-16 ***
+Typadm       0.2232685  0.0353717   6.312 2.75e-10 ***
+Typass       0.0027594  0.0559621   0.049   0.9607    
+age         -0.0010104  0.0009091  -1.111   0.2664    
+Sexe         0.0711542  0.0353567   2.012   0.0442 *  
+dest        -0.1243614  0.0490022  -2.538   0.0112 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+Robustness weights w.r * w.x: 
+ 82 weights are ~= 1. The remaining 18 ones are summarized as
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.2048  0.4902  0.6399  0.6208  0.7696  0.9925 
+
+Number of observations: 100 
+Fitted by method 'Mqle'  (in 4 iterations)
+
+(Dispersion parameter for Gamma family taken to be 0.02349196)
+
+No deviance values available 
+\end{lstlisting}
+}
+\end{frame}
+
+\begin{frame}{}
+  \begin{center}
+  \begin{tabular}{|c|rr|rr|}
+  \hline
+  & \multicolumn{2}{c|}{Classique}  &   \multicolumn{2}{c|}{Robuste}\\
+   \hline
+  variable  & coeff. & err.\ type &  coeff. & err.\ type \\
+  \hline
+  Intercept & 7.2338 & 0.1469 & 7.2523 & 0.1049 \\
+  log(LOS) &  0.8222 & 0.0280 & 0.8391 & 0.0200 \\
+  ADM & 0.2136 & 0.0500 & 0.2221 & 0.0357\\
+  INS & 0.0933 & 0.0791 & 0.0093 & 0.0565\\
+  AGE & -0.0005 & 0.0013 & -0.0010 & 0.0009\\
+  SEX & 0.0951 & 0.0500 & 0.0727 & 0.0357\\
+  DEST & -0.1043 & 0.0693 & -0.1230 & 0.0495 \\
+  \hline
+   & \multicolumn{2}{c|}{échelle : 0.0496}  & \multicolumn{2}{c|}{échelle : 0.0243}
+  \\
+  \hline
+  \end{tabular}
+  \end{center}
+  
+Coefficients similaires, mais erreurs types plus grandes.
+
+\bigskip
+Poids inférieurs ou égaux à $0.5$ : $\tilde{w}_{14} = 0.23$,
+$\tilde{w}_{21} = 0.50$, $\tilde{w}_{28} = 0.24$, $\tilde{w}_{44} = 0.42$ et
+$\tilde{w}_{63} = 0.32$.
+
+\end{frame}
+
+\begin{frame}{Analyse de sensibilité pour la sélection de variables}
+
+\vspace*{-3cm}
+\begin{center}
+\includegraphics[width = 7.5cm]{figures/logLOScost.pdf}  
+\end{center}
+\end{frame}
+
+\begin{frame}{Valeurs-$p$ pour le test de $H_0: \beta_{SEX}=0$.}
+\begin{center}
+\begin{tabular}{cc}
+\includegraphics[width = 5cm]{figures/pvalueclass.pdf}  & \includegraphics[width =5cm]{figures/pvaluerob.pdf} 
+\end{tabular}
+\end{center}
+\end{frame}
+
+\subsection{GEE robustes}
+
+\begin{frame}{GEE robustes}
+
+Une {\color{blue}version robuste des GEE} peut être définie \cite{Cant:2004} :
+$$\sum_{i=1}^n D_i^T \Gamma_i^T V_i^{-1} (\psi_i - c_i) =0,$$
+où $D_i = \partial \mu_i / \partial \beta$, $V_i =
+ \phi A_i^{1/2} R_i(\alpha) A_i^{1/2}$, avec $R_i(\alpha)$ la matrice de corrélation de travail (working correlation matrix).
+De plus, $\psi_i = W_i \cdot (Y_i - \mu_i)$, où $W_i = W_i(X_i, y_i, \mu_i)$ est diagonale, et $c_i = E(\psi_i)$. Enfin, $\Gamma_i = E(\tilde{\psi}_i -
+\tilde{c}_i)$ avec $\tilde{\psi}_i = \partial \psi_i / \partial \mu_i$ et $
+\tilde{c}_i = \partial {c}_i / \partial \mu_i$.
+
+\bigskip
+Les équations GEE classiques sont obtenues avec $W_i$ égale à la matrice identité.
+
+\bigskip
+L'estimation de $\phi$ et de $\alpha$ doit aussi être rendue robuste.
+
+\end{frame}
+
+\subsection{Modèle hurdle robuste}
+
+\begin{frame}{Modèle hurdle robuste}
+
+Un {\color{blue}modèle hurdle robuste} peut être défini en s'appuyant sur chacune de ses deux parties.
+
+\bigskip
+Une régression binaire robuste est utilisée pour séparer les zéros des valeurs positives.
+
+\bigskip
+Le MLG robuste pour la loi de Poisson tronquée est aussi disponible \cite{Cant:Zedi:2011}. Il utilise le cadre MLG de la loi de Poisson tronquée (voir page~\pageref{truncpoisdef}) et définit l'estimateur avec les équations d'estimation de la page~\pageref{EE.eq}.
+\end{frame}
+
+\end{document}
