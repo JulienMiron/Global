@@ -1,0 +1,350 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[applemac]{inputenc}
+\usepackage[OT1,T1]{fontenc}
+% \usepackage{times}
+\usepackage{setspace}
+\usepackage{lscape}
+\usepackage{amsmath,amssymb}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb,moreverb,boxedminipage}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage{xcolor}
+
+\setlength{\textwidth}{160mm}
+\setlength{\textheight}{230mm}
+\setlength{\oddsidemargin}{-5mm}
+\setlength{\topmargin}{-10mm}
+
+\textwidth=6in
+\textheight=8in
+\topmargin=0.0in
+\oddsidemargin=0in 
+\baselineskip=18pt
+\headheight=2cm
+\setcounter{MaxMatrixCols}{10}
+
+\DeclareMathOperator*{\argmax}{argmax}
+\newcommand{\ns}{\!\!\!}
+\newcommand{\e}{\varepsilon}
+\newcommand{\be}{\beta}
+\newcommand{\s}{\sigma}
+\newcommand{\vv}{\vspace{.5cm}}
+\newcommand{\beps}{\boldsymbol{\epsilon}}
+\newcommand{\sumin}{\sum_{i=1}^n}
+\newcommand{\bg}[1]{\mbox{\boldmath{$#1$}}}
+\DeclareMathOperator{\plim}{plim}
+\DefineVerbatimEnvironment{code}{Verbatim}{fontsize=\small}
+\DefineVerbatimEnvironment{example}{Verbatim}{fontsize=\small}
+
+\def\by{\mathbf{y}}
+\def\bx{\mathbf{x}}
+\def\ba{\mathbf{a}}
+\def\bb{\mathbf{b}}
+\def\be{\mathbf{e}}
+\def\bu{\mathbf{u}}
+\def\bv{\mathbf{v}}
+\def\bz{\mathbf{z}}
+
+%===========
+%Greek letter vectors
+%===========
+\def\bbeta{\mbox{\boldmath $\beta$}}
+\def\bgamma{\mbox{\boldmath $\gamma$}}
+\def\bvareps{\mbox{\boldmath $\varepsilon$}}
+\def\bleta{\mbox{\boldmath $\eta$}}
+\def\bmu{\mbox{\boldmath $\mu$}}
+\def\btheta{\mbox{\boldmath $\theta$}}
+\def\bsigma{\mbox{\boldmath $\sigma$}}
+\def\blambgam{\mbox{\boldmath $\lambda_{\gamma}$}}
+\def\blambbet{\mbox{\boldmath $\lambda_{\beta}$}}
+\def\blambda{\mbox{\boldmath $\lambda$}}
+
+%===========
+%Matrices
+%===========
+\def\bX{\mathbf{X}}
+\def\bD{\mathbf{D}(\bsigma)}
+\def\bV{\mathbf{V}(\bsigma)}
+\def\bVinv{\mathbf{V}^{-1}(\bsigma)}
+\def\bR{\mathbf{R}(\bsigma)}
+\def\bA{\mathbf{A}}
+\def\bB{\mathbf{B}}
+\def\bZ{\mathbf{Z}}
+\def\bIn{\mathbf{I_{N}}}
+\def\bIm{\mathbf{I_{m}}}
+\def\bIni{\mathbf{I_{n}}}
+\def\SSW{\mathrm{SSW}}
+\def\SSB{\mathrm{SSB}}
+\def\Normal{\mathcal{N}\!}
+
+%===========
+%Parentheses, etc.
+%===========
+\def\op{\left(}
+\def\cp{\right)}
+\def\oc{\left[}
+\def\cc{\right]}
+\def\ok{\left\{}
+\def\ck{\right\}}
+
+%===========
+%Statistical functions and real numbers.
+%===========
+\def\exE{\mathbb{E}}
+\def\Real{\mathbb{R}}
+\def\Var{\mathbb{V}ar}
+\def\Proba{\mathbb{P}}
+
+%===========
+%Listings and hyperlink settings
+%===========
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue, urlcolor=blue}
+\urlstyle{tt}
+\lstset{language=R, basicstyle=\footnotesize\ttfamily,}
+
+%===========
+%Special Environments
+%===========
+\newenvironment{exercices}{\newcounter{moncompteur}\begin{list}
+   {\bfseries Ex. \arabic{moncompteur}}{\usecounter{moncompteur}
+     \setlength{\labelwidth}{2.6em}\setlength{\leftmargin}{3.1em}}}{\end{list}}
+\renewcommand{\labelenumi}{\bfseries\alph{enumi})}
+\newcommand{\splus}[3][0]{\texttt{>~#2}\ \ \ \ \textit{#3}\\[#1mm]}
+
+\newenvironment{exo}
+{\begin{center}\setlength{\textwidth}{140mm} \underline{Exercise:} \begin{minipage}[t]{120mm}}
+{\end{minipage}\setlength{\textwidth}{160mm}\end{center}}
+
+
+\lstset{ %
+  language=R, 
+  basicstyle=\ttfamily,
+  backgroundcolor=\color{lightgray},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  xleftmargin= 10 pt,
+  xrightmargin= 10 pt,
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  frame=none,                    % adds a frame around the code
+  numbers=none,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+}
+
+\pagestyle{fancy}
+
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\definecolor{lightgray}{gray}{0.95}
+
+
+\begin{document}
+
+
+\lhead{University of Geneva\\ \textbf{GLAM}\\
+Pr. Eva Cantoni}
+\rhead{GSEM\\ Spring 2022 \\ \textbf{Homework 05}}
+
+\begin{center}
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\fbox{{\Large Hurdle and zero-inflated models}}
+
+\bigskip
+
+\bigskip
+
+\bigskip
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% \noindent \textsc{University of Geneva} \hfill S411001 SE GLAM\\
+% Prof. Eva Cantoni \hfill Spring semester 2015\\
+% \noindent
+% \makebox[\linewidth]{\rule{\textwidth}{0.4pt}}\\[1.5ex]
+% \textbf{} \hfill \textbf{Homework 05: Hurdle and zero-inflated models}\\
+% \makebox[\linewidth]{\rule{\textwidth}{0.4pt}}\\
+% 
+% \noindent Course website: \url{https://chamilo.unige.ch/home/courses/S411001/}
+
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+\parindent=0cm
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+\linespread{1.1}
+
+
+\section{Exercise 1}
+
+A random variable $Y$ is said to follow a negative binomial distribution, denoted as $\mathcal{NB}(\mu,\vartheta)$, when its probability mass function (p.m.f.) is
+\begin{eqnarray*}
+\Proba(Y = y ; \vartheta, \mu) = \frac {\Gamma(y+\vartheta)}{\Gamma(\vartheta)\Gamma(y+1)}\left(\frac{\vartheta}{\mu+\vartheta}\right)^\vartheta
+\left(\frac{\mu}{\mu+\vartheta}\right)^{y},
+\end{eqnarray*}
+where $\Gamma(u)=\int_0^\infty t^{u-1}\exp(-t)dt$ denotes the gamma function, $\mu>0$, $\vartheta>0$ and $y~=~0,1,2,\ldots$.
+\begin{enumerate}[ref=\bf{\alph*)}]
+\item{Give the p.m.f. of a random variable distributed as a truncated $\mathcal{NB}(\mu,\vartheta)$, \textit{i.e.} with strictly positive outcomes.}
+\item\label{loglkhd}{Define a hurdle model for responses issued from a $\mathcal{NB}$ distribution with excess of zeros. Write the log-likelihood function of that model.}
+\item{Show that, in a similar fashion as for the Poisson hurdle model, the log-likelihood function computed in \ref{loglkhd} can be separated into two components: the first one for the peak at 0 and the second one for the strictly positive outcomes.
+\begin{enumerate}
+\item{What does it imply for the estimation process?}
+\item{What does it imply from the point of view of statistical inference?}
+\end{enumerate}}
+\end{enumerate}
+
+
+\section{Exercise 2}
+
+Assume that $Y_1, \ldots, Y_n$ are responses for $n$ individuals issued from 
+a
+zero-inflated Poisson model (ZIP) with covariates $x_1, \ldots, x_n$ and
+parameter $\alpha$ explaining zero responses; and covariates $z_1, \ldots,
+z_n$ and parameter $\delta$ explaining positive responses.
+
+
+Let $W_i$ be an unobservable binary variable that indicates the risk state of 
+individual
+$i$: $W_i=1$ if the subject is not at risk of an event; and $W_i=0$
+if the subject is at risk. Notice that $Y_i$ denote the event count for a
+subject and this event occurs only when $W_i=0$. We also suppose  that
+$\Pr\{W_i=1\}=\pi_i$ (where $\pi_i$ is a function of $x_i^T\alpha$) and
+$P\{Y_i=y|W_i=0\}=\lambda_i^y e^{-\lambda_i}/y!$ (where $\lambda_i$ is a
+function of $z_i^T\delta$) i.e.  $Y_i|W_i=0$ is issued from the Poisson
+distribution.
+
+
+\begin{enumerate}
+  \item[a)] Write the likelihood function $$L(\alpha, \delta |y_1, \ldots, y_n,
+w_1, \ldots, w_n)=\prod_{i=1}^n P\{Y_i=y_i|W_i=w_i\}.$$ 
+Show that the
+corresponding log-likelihood function $\ell(\alpha, \delta |y_1, \ldots,
+y_n, w_1, \ldots, w_n)$ can be written as $$\ell(\alpha |y_1, \ldots, y_n,
+w_1, \ldots, w_n)+\ell(\delta |y_1, \ldots, y_n, w_1, \ldots, w_n)$$ i.e.\ the
+parameters explaining the presence of zeros can be separated from the other
+parameters. What does it imply numerically?
+\end{enumerate}
+In practice the values $w_1, \ldots, w_n$ are never observed and the
+estimators $\hat{\alpha}, \hat{\delta}$ are obtained with the EM-algorithm\footnote{Dempster, A.P., Laird, N.M., and Rubin, D.B. (1977) Maximum Likelihood
+Estimation from Incomplete Data via the EM Algorithm, JRSS-B}.
+
+With the EM algorithm $W_1, \ldots, W_n$ are considered to be missing and are 
+estimated
+by teir expected values $w_1^{(k)}, \ldots, w_n^{(k)}$ under the current
+estimates $\alpha^{(k)}$ and $\delta^{(k)}$ (E-step). Then
+$\ell(\alpha, \delta |y_1, \ldots, y_n, w_1^{(k)}, \ldots, w_n^{(k)})$ is 
+maximized (M-step), and the E- and M-steps are iterated until convergence.
+
+More precisely, assuming $\alpha^{(k)}, \delta^{(k)}, w_1^{(k)}, \ldots,
+w_n^{(k)}$ to be the values obtained at the $(k)-$th iteration, the iteration 
+$(k+1)$
+of the EM-algorithm requires the following two steps.
+\begin{itemize}
+  \item \textit{E-step.}  Find $w_i^{(k+1)}$ the conditional expectation of
+$W_i$ given $y_i,  \alpha^{(k)}, \delta^{(k)}$ i.e. the expectation of $W_i$
+with respect to the following probability mass function $P\{W_i|Y_i=y_i,
+\alpha^{(k)}, \delta^{(k)}\}$.
+  \item \textit{M-step.}  Find $\alpha^{(k+1)}, \delta^{(k+1)}$ as
+$\argmax_{\alpha, \delta} \ell(\alpha, \delta |y_1, \ldots, y_n, w_1^{(k)},
+\ldots, w_n^{(k)})$.
+\end{itemize}
+
+We would like you to provide the detailed description of the E-step, by 
+answering the following
+questions.
+\begin{enumerate}
+ \item[b)] Find the probability $P\{W_i|Y_i=y_i, \alpha^{(k)}, 
+\delta^{(k)}\}$, for short
+you can write it as $P\{W_i|y_i, \alpha, \delta\}$. In other words find
+$P\{W_i=1|Y_i=0, \alpha^{(k)}, \delta^{(k)}\}$, $P\{W_i=0|Y_i=0,
+\alpha^{(k)}, \delta^{(k)}\}$ and $P\{W_i=0|Y_i=y_i>0, \alpha^{(k)},
+\delta^{(k)}\}$.
+
+\noindent\textit{Hint: use the Bayes formula $P\{H|D\}={P\{D|H\} P\{H\}\over
+P\{D\}}$.}
+  \item[c)] Using $P\{W_i|Y_i, \alpha^{(k)}, \delta^{(k)}\}$ find
+$w_i^{(k+1)}=E(W_i|Y_i=y_i,\alpha^{(k)}, \delta^{(k)})$.
+
+ \item[d)] How can we interpret the values of $w_1^{(k+1)}, \ldots,
+w_n^{(k+1)}$ obtained at the last iteration of the algorithm ?
+
+
+ \end{enumerate}
+%\section*{Exercise 3} %%% this homework is too long 19/04/12
+%
+%We are going to fit a Poisson hurdle model on the \emph{sex differences in science} data example (presented in class notes p.156) available in the \verb"pscl" R package. Install that package if you haven't already and load it. The data frame is called \texttt{bioChemists}. You will also need to source the \texttt{truncpoisson.R} code available from the course website to create the \texttt{truncpoisson} family object.
+%\begin{enumerate}
+%\item{Fit manually the two steps of the Poisson hurdle model to the data. Use the \texttt{family=truncpoisson} argument in the \verb"glm" command.}
+%\item{Compare these results to the output of the same model fitted with the \texttt{hurdle} command of the same package.}
+%\end{enumerate}
+
+%IRINA HERE IS THE CODE FOR YOU:
+%\begin{verbatim}
+%bioChurdle <- hurdle(art ~ ., data = bioChemists)
+%summary(bioChurdle)
+%extractAIC(bioChurdle)
+%
+%bioChurdle01 <- glm((art>0) ~ ., data = bioChemists,family=binomial)
+%summary(bioChurdle01)
+%bioChurdleabund <- glm(art ~ ., data =
+%bioChemists,family=truncpoisson,subset=(art>0))
+%# NEED THE TRUNCATED POISSON FAMILY FCUNTION
+%summary(bioChurdleabund)
+%
+%\end{verbatim}
+
+%WE SEE SMALL DIFFERENCES IN THE COEFFICIENTS OF THE TRUNCATED PART
+%(NUMERICAL DIFFERENCES ? APPROX OF $h^{-1}$?) AND LARGER DIFFERENCES FOR THE SE IN BOTH
+%PARTS (hurdle uses the numerical hessian).
+
+\section{Exercise 3}
+
+Health surveys are often used to study health care expenditures and especially the impact of income and insurance level on the frequency of health care services use. Here, we are interested to see if a high insurance level (with high premium) ``causes'' individuals to consume more health care services.
+
+Import the \verb"docvisits.asc" data file, which is part of the 1977-1978 Australian Health Survey and contains information on the number of consultations with a doctor or specialist, denoted \texttt{dvisits}, in the two-weeks period before an interview. These counts represent our response variable and we consider the following thirteen explanatory variables:
+\begin{itemize}
+\item{\texttt{sex} coded 1 for female,}
+\item{\texttt{age} in years/100,}
+\item{\texttt{agesq}, $(\text{age})^2/1000$,}
+\item{\texttt{income}, annual income/1000,}
+\item{\texttt{illness}, number of illnesses in past two weeks, with five or more coded as 5,}
+\item{\texttt{actdays}, number of reduced activity days in past two weeks due to illness or injury,}
+\item{\texttt{hscore}, general health questionnaire score, with high scores indicating bad health,}
+\item{\texttt{chcond1} coded 1 if chronic condition(s) but not limited in activity,}
+\item{\texttt{chcond2} coded 1 if chronic condition(s) and limited in activity,}
+\item{\texttt{levyplus}, \texttt{freepoor} and \texttt{freerepa}, three dummy variables for levels of health insurance, where ``levyplus''
+represents a higher level of insurance cover while ``freepoor'' and ``freerepa'' are basic levels of state-provided insurances.}
+\end{itemize}
+
+%The sample consists of 5190 adults. No information was obtained on intervals between consultations.
+
+%We focus only on the DVISITS variable, without considering other potentially
+%relevant variables which are also availabe: NONDOCCO (number of consultations
+%with non-doctor health professionals , for example, chemist, optician,
+%physiotherapist etc); HOSPADMI (number of admissions to a hospital); HOSPDAYS
+%(number of nights in a hospital); MEDICINE (total number of prescribed
+%PRESCRIB and non-prescribed medications NONPRESC).
+
+\begin{enumerate}
+\item{Source the \texttt{truncpoisson.R} code available from the course website to create the \texttt{truncpoisson} GLM family object. Fit manually the two steps of the Poisson hurdle model to the data by using the \texttt{family=truncpoisson} argument in the \verb"glm" command. Compare your results to the output from the \texttt{hurdle} command of the \texttt{pscl} package.}
+\item{Fit a simple Poisson GLM and a ZIP model. Among the three models, which provides the best fit?}
+\item{Do high insurance levels make the number of consultations increase?}
+\end{enumerate}
+
+\end{document}

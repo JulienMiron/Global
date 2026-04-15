@@ -1,0 +1,36 @@
+
+Call:
+glmmadmb(formula = NCalls ~ (FoodTreatment + ArrivalTime) * SexParent + 
+    offset(logBroodSize) + (1 | Nest), data = Owls, family = "nbinom", 
+    zeroInflation = TRUE)
+
+AIC: 3418.3 
+
+Coefficients:
+                                    Estimate Std. Error z value
+(Intercept)                           3.0702     0.7641    4.02
+FoodTreatmentSatiated                -0.4090     0.1354   -3.02
+ArrivalTime                          -0.0909     0.0309   -2.94
+SexParentMale                        -0.3968     0.9745   -0.41
+FoodTreatmentSatiated:SexParentMale   0.1624     0.1628    1.00
+ArrivalTime:SexParentMale             0.0131     0.0394    0.33
+                                    Pr(>|z|)    
+(Intercept)                          5.9e-05 ***
+FoodTreatmentSatiated                 0.0025 ** 
+ArrivalTime                           0.0033 ** 
+SexParentMale                         0.6839    
+FoodTreatmentSatiated:SexParentMale   0.3184    
+ArrivalTime:SexParentMale             0.7387    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Number of observations: total=599, Nest=27 
+Random effect variance(s):
+Group=Nest
+            Variance StdDev
+(Intercept)  0.06029 0.2455
+
+Negative binomial dispersion parameter: 2.3053 (std. err.: 0.27326)
+Zero-inflation: 0.21786  (std. err.:  0.020846 )
+
+Log-likelihood: -1700.14 

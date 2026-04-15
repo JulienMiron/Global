@@ -1,0 +1,521 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[applemac]{inputenc}
+\usepackage[OT1,T1]{fontenc}
+
+\setlength{\textwidth}{160mm}
+\setlength{\textheight}{230mm}
+\setlength{\oddsidemargin}{-5mm}
+\setlength{\topmargin}{-10mm}
+\usepackage{times}
+\usepackage{setspace}
+\usepackage{lscape}
+\usepackage{amsmath,amssymb}
+\usepackage{fancyvrb}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{fancyhdr}
+
+\usepackage{fancyvrb,moreverb,boxedminipage}
+
+
+\textwidth=6in
+\textheight=8in
+\topmargin=0.0in
+\oddsidemargin=0in 
+\baselineskip=18pt
+\headheight=2cm
+\setcounter{MaxMatrixCols}{10}
+
+\newcommand{\ns}{\!\!\!}
+\newcommand{\e}{\varepsilon}
+\newcommand{\be}{\beta}
+\newcommand{\s}{\sigma}
+\newcommand{\vv}{\vspace{.5cm}}
+\DeclareMathOperator{\plim}{plim}
+\DefineVerbatimEnvironment{code}{Verbatim}{fontsize=\small}
+\DefineVerbatimEnvironment{example}{Verbatim}{fontsize=\small}
+
+\def\by{\mathbf{y}}
+\def\bx{\mathbf{x}}
+\def\ba{\mathbf{a}}
+\def\bb{\mathbf{b}}
+\def\be{\mathbf{e}}
+\def\bu{\mathbf{u}}
+\def\bv{\mathbf{v}}
+\def\bz{\mathbf{z}}
+
+%===========
+%Greek letter vectors
+%===========
+\def\bbeta{\mbox{\boldmath $\beta$}}
+\def\bgamma{\mbox{\boldmath $\gamma$}}
+\def\bvareps{\mbox{\boldmath $\varepsilon$}}
+\def\bleta{\mbox{\boldmath $\eta$}}
+\def\bmu{\mbox{\boldmath $\mu$}}
+\def\btheta{\mbox{\boldmath $\theta$}}
+\def\bsigma{\mbox{\boldmath $\sigma$}}
+\def\blambgam{\mbox{\boldmath $\lambda_{\gamma}$}}
+\def\blambbet{\mbox{\boldmath $\lambda_{\beta}$}}
+\def\blambda{\mbox{\boldmath $\lambda$}}
+
+%===========
+%Matrices
+%===========
+\def\bX{\mathbf{X}}
+\def\bD{\mathbf{D}(\bsigma)}
+\def\bV{\mathbf{V}(\bsigma)}
+\def\bVinv{\mathbf{V}^{-1}(\bsigma)}
+\def\bR{\mathbf{R}(\bsigma)}
+\def\bA{\mathbf{A}}
+\def\bB{\mathbf{B}}
+\def\bZ{\mathbf{Z}}
+\def\bIn{\mathbf{I_{N}}}
+\def\bIm{\mathbf{I_{m}}}
+\def\bIni{\mathbf{I_{n}}}
+\def\SSW{\mathrm{SSW}}
+\def\SSB{\mathrm{SSB}}
+\def\Normal{\mathcal{N}\!}
+
+%===========
+%Parentheses, etc.
+%===========
+\def\op{\left(}
+\def\cp{\right)}
+\def\oc{\left[}
+\def\cc{\right]}
+\def\ok{\left\{}
+\def\ck{\right\}}
+
+%===========
+%Statistical functions and real numbers.
+%===========
+\def\exE{\mathbb{E}}
+\def\Real{\mathbb{R}}
+\def\Var{\mathbb{V}ar}
+\def\Proba{\mathbb{P}}
+
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue, urlcolor=blue}
+\urlstyle{tt}
+
+\newenvironment{exercices}{\newcounter{moncompteur}\begin{list}
+   {\bfseries Ex. \arabic{moncompteur}}{\usecounter{moncompteur}
+     \setlength{\labelwidth}{2.6em}\setlength{\leftmargin}{3.1em}}}{\end{list}}
+\renewcommand{\labelenumi}{\bfseries\alph{enumi})}
+\newcommand{\splus}[3][0]{\texttt{>~#2}\ \ \ \ \textit{#3}\\[#1mm]}
+
+\newenvironment{exo}
+{\begin{center}\setlength{\textwidth}{140mm} \underline{Exercise:} \begin{minipage}[t]{120mm}}
+{\end{minipage}\setlength{\textwidth}{160mm}\end{center}}
+
+
+\usepackage{verbatim}
+
+\lstset{ %
+  language=R, 
+  basicstyle=\ttfamily,
+  backgroundcolor=\color{lightgray},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  xleftmargin= 10 pt,
+  xrightmargin= 10 pt,
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  frame=none,                    % adds a frame around the code
+  numbers=none,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+}
+
+\pagestyle{fancy}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\definecolor{lightgray}{gray}{0.95}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\begin{document}
+%
+
+\lhead{University of Geneva\\ \textbf{GLAM}\\
+Prof. Eva Cantoni}
+\rhead{GSEM\\ Spring 2021 \\ \textbf{Homework 03}}
+
+\begin{center}
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\fbox{{\Large Creating functions in \texttt{R} - Handout}}
+
+\bigskip
+
+\bigskip
+
+\bigskip
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+\parindent=0cm
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+\linespread{1.1}
+\sloppy
+
+\section{\underline{Exercise 1}}
+
+% In this Exercise we would like you to write your own functions in \texttt{R}. The general procedure for defining new functions is as follows
+% \begin{center}
+% \begin{lstlisting}
+% myfun <- function(argument1,argument2,...){
+%     expression1
+%     expression2
+% }
+% \end{lstlisting}
+% \end{center}
+% where \texttt{myfun} is the name of the function you are creating, \texttt{argument1,argument2,...} can be any type of \texttt{R} objects you are using as input and \texttt{expression} can be any computation and/or already existing function applied to the arguments. By default the result of the last expression is the returned value of the function. Consult the Help manual to learn more about writing your own functions.
+% 
+% \medskip
+
+Write a function (name it \verb"mysummary") to compute and display the average and variance of a (vector) sample $\bx$, using functions such as
+\verb"mean()", \verb"var()", \verb"return()" and \verb"list()"\footnote{Hint: you can look at \texttt{R} built-in functions as examples, by typing the name of the function in the console. Compare \texttt{median} and \texttt{mean}.}.
+
+{\color{blue}
+What follows is a proposition of a function that computes the wanted quantities. This function will return a \texttt{list} containing the results of the computations using the basic functions.  
+
+<<>>=
+mysummary <- function(x){
+  res <- list(mean(x),var(x),range(x))
+  names(res) <- c('mean of x','variance of x','min and max of x')
+  return(res)
+}
+@
+In order to test our function, we shall create a vector of 100 observations drawn from a Standard Normal distribution on which, we will apply our function. We can store the results of this operation in an object named \texttt{my.sum} and retrieve its elements using the operator \$ and their respective names.
+<<>>=
+x <- rnorm(100)
+
+my.sum = mysummary(x)
+
+my.sum[[1]]
+my.sum$'mean of x'
+
+mysummary(x)$'mean of x' # since the result of our function is a list.
+
+mysummary(x)[[2]] # alternative way of retrieving the second element. 
+@
+}
+
+\section{\underline{Exercise 2}}
+
+
+The goal of this exercise is to find numerical solutions of a set of estimating (score) equations and to compare them with those obtained with the \texttt{R} built-in functions.
+
+Let's consider the \verb"breast-cancer-wisconsin.txt" dataset. We will use the response \verb"status" (coded 0/1) and only one explanatory variable  \verb"nuclei" (plus an intercept). 
+
+We consider the logit function as the link between the random part $\exE[Y_i | \bx_i]$ and the systematic part (linear predictor) $\eta_i=\beta_0 + \beta_1 x_{i1}$.
+
+Based on this, the formula for Newton-Raphson algorithm is:
+
+\begin{align*}
+\beta^{(k)}=
+\beta^{(k-1)} +& 
+\ok 
+\sum_{i=1}^n 
+\frac{\exp \op - \bx_i^T \beta^{(k-1)} \cp}{\oc 1 + \exp\op -\bx_i\beta^{(k-1)}\cp \cc ^2} 
+\bx_i\bx_i^T
+\ck ^ {-1}\\
+&\times
+\ok
+\sum_{i=1}^n 
+\oc 
+y_i - \frac{1}{1 + \exp \op -\bx_i^T\beta^{(k-1)} \cp} 
+\cc 
+\bx_i 
+\ck.
+\end{align*}
+
+\begin{enumerate}
+%  \item Write the estimating (score) equations for the proposed model.
+%  \item{Write the formulae for the Newton-Raphson algorithm and show that the ($2 \times 2$) matrix ${\mathcal J(\bbeta; \by)}$ is equal to $\sumin \exp(\bx_i^T\bbeta)(1+\exp(\bx_i^T\bbeta))^{-2} \bx_i \bx_i^T$.}
+  \item{Write an \texttt{R} function that computes an update of the estimated parameters, given the previous value, according to the Newton-Raphson algorithm.}
+  
+{\color{blue}
+  We build a function that computes \texttt{Ubeta}, which is $U(\beta, y)$ and \texttt{Jbeta} which is the Fisher information matrix.
+    
+<<>>=
+updatebeta <- function(beta, y, X){
+  eta <- as.vector(X %*% beta)
+  Ubeta <- t(X) %*% (y - exp(eta) / (1 + exp(eta)))
+  Jbeta <- t(X) %*% diag(exp(eta) / (1 + exp(eta)) ^ 2) %*% X
+  beta + solve(Jbeta, Ubeta)
+}
+@
+}
+
+  \item\label{manually}{Taking the null vector as the starting value for $\bbeta$, perform a few iterations of the Newton-Raphson procedure using a \texttt{while()} in the following way:
+  
+  \begin{lstlisting}
+  while (max(abs(beta0-beta1))>tol & it<maxit){
+  ...
+  }
+\end{lstlisting}
+  
+
+
+where \texttt{beta0} and \texttt{beta1} are the actual and next beta estimations, \texttt{tol} is equal to $10^{-8}$ and \texttt{maxit} is $50$. Report the estimated $\bbeta$ in a table.}
+  
+{\color{blue} We first have to think about changing the \texttt{status} variable from (4/2) to (1/0). 
+
+<<>>=
+breast <- read.table("breast-cancer-wiconsin.txt", header=TRUE)
+
+breast$status[which(breast$status == 4)] <- 1
+breast$status[which(breast$status == 2)] <- 0
+
+@
+
+Then we initialize our variables:
+
+<<>>=
+y <- na.omit(breast)$status # responses in the model
+x <- cbind(rep(1, length(y)), na.omit(breast)$nuclei) 
+#Construct the design matrix for our model
+
+tol <- 1e-8 # we set tol to an arbitrary value
+maxit <- 50 # same for maxit
+beta0 <- c(0, 0) #initialize the beta, could be set to any values
+@
+
+See \texttt{R} code lines 67-74 for the \texttt{while()} loop.
+
+}
+
+  \item{Write an \texttt{R} function that computes the log-likelihood of your model.}
+  
+  {\color{blue} Using the loglikehood expression of the Bernoulli distribution, be attentive to the fact that we introduce a minus sign because \texttt{optim()} minimizes by default}
+  
+<<>>=
+loglikelihood <- function(beta, x, y){
+  n <- nrow(x)
+  loglike <- 0
+  for (i in 1:n){
+    etai <- -x[i, ] %*% beta
+    loglike <- loglike + (1 - y[i]) * etai - log(1 + exp(etai))
+  }
+  return(-loglike) # optim minimizes - we need to put a minus
+}
+@
+
+  \item{Use the built-in function \verb"optim()" to solve the maximization problem (with the ``BFGS'' method). Compare your results with those in \textbf{b)}.}
+
+{\color{blue} See lines 96-102 for details.  
+}
+\end{enumerate}
+
+\section{\underline{Exercise 3}}
+
+Consider the profile likelihood of page 112 of the course slides\footnote{Based on a handout by Professor David Patterson, University of Montana \url{http://www.math.umt.edu/patterson/}}: 
+%
+\begin{equation*}
+    L_1\op\theta\cp = \underset{\mathbf{\delta}}{\mathrm{max}} \ L\op\theta, \mathbf{\delta} \cp, 
+\end{equation*}
+%
+where $\theta$ is the parameter of interest of dimension 1, and $\delta$ is the
+vector of the other model parameters. Under this formulation, we construct the following Likelihood
+Ratio (LR) statistic to test $H_0 : \theta = \theta_0$: 
+%
+\begin{equation*}
+    \mathrm{LR}\op \theta_0\cp = 
+    2\oc \log L\op \widehat{\theta} , \widehat{\mathbf{\delta}}\cp - \log L\op \theta_0 , \widehat{\mathbf{\delta}}\cp\cc = 
+    2 \oc \log L_1\op\widehat{\theta}\cp - \log L_1\op\theta_0\cp \cc \underset{H_0}{\sim}\chi^2_1,
+\end{equation*}
+%
+where $\widehat{\theta}, \widehat{\mathbf{\delta}}$ are the maximum likelihood
+(ML) estimators of $\theta$ and $\mathbf{\delta}$. The non-rejection region of
+this test is determined by the condition $\mathrm{LR}\op\theta_0\cp < F^{-1}\op
+1-\alpha\cp$, where $F$ is the cdf of the $\chi^2_1$ distribution, or
+equivalently, all the $\theta_0$ such that: 
+%
+\begin{equation} \label{eq:nonrejection}
+    \log L_1\op \theta_0\cp > \log L\op\widehat{\theta},\widehat{\mathbf{\delta}}\cp - \frac{1}{2}F^{-1}\op 1-\alpha\cp
+\end{equation}
+%
+The points within the \emph{Profile Likelihood} CI will be those $\theta_0$ within the non-rejection region of the LR test.
+
+Consider the goose permit data (file \texttt{goose.txt}) from Bishop and Heberlein (\textit{Amer. J. Agr. Econ.} 61, 1979), where 237 hunters were each offered one of 11 cash amount (bids) ranging from $1\$ $ to $ 200 \$ $ in return of their permits. We use a logit model with \texttt{log(bid)} as the explanatory variable (in addition to the intercept):
+$$\log \op \frac{\pi_i}{1-\pi_i} \cp = \beta_0  + \beta_1 \log(\texttt{bid}_i) $$
+where $\pi_i$ is the probability that a permit holder would accept bid amount $\texttt{bid}_i$.
+
+%
+\begin{enumerate}
+    \item Estimate the parameters of the model, extract the log-likelihood with  \texttt{logLik()} to determine the cutoff value as in \eqref{eq:nonrejection} for $\alpha=0.05$ and $\alpha=0.01$. Compute the profiled likelihood CI for $\beta_1$ with the \texttt{confint()} function.
+
+{\color{blue} As usual, we use the \texttt{glm()} function to obtain estimates of the model parameters.}
+
+<<include = FALSE>>=
+goose.data<-read.table("goose.txt", header=TRUE)
+goose.glm <-glm(cbind(returned,offered-returned)~log(bid), 
+                data=goose.data, family=binomial(link="logit"))
+goose.beta=coef(goose.glm)
+beta.0 = as.numeric(goose.beta[1])
+beta.1 = as.numeric(goose.beta[2])
+
+c(beta.0 ,beta.1)
+@
+
+{\color{blue} When package \texttt{MASS} is loaded, the function \texttt{confint()} provides the desired PL confidence intervals, whereas the \texttt{confint.default()} yields the typical Normal (asymptotic) confidence intervals.}
+
+<<>>=
+goose.plci.05 = confint(goose.glm, level=.95) 
+goose.nlci.05 = confint.default(object=goose.glm)
+cbind(goose.plci.05, goose.nlci.05)
+
+goose.plci.01 = confint(goose.glm, level=.99)
+goose.nlci.01 = confint.default(object=goose.glm,level=0.99)
+cbind(goose.plci.01, goose.nlci.01)
+@
+    
+    \item {\color{blue} In the following points, we intend to construct PL Confidence Intervals \emph{manually}.}
+
+\begin{enumerate}
+    \item Write an R code to compute the profile likelihood function $L_1(\beta_1)$ (which make use of the estimates of the previous point). 
+    
+    {\color{blue} Since the Profile Likelihood function is the maximization of the Likelihood with respect to one of the parameters while fixing the value of the other ones, we could think of using the \texttt{offset=...} argument in the \texttt{glm()} function. We could thus optimize the likelihood with respect to, say $\beta_0$, while fixing the value of $\beta_1$ by typing \texttt{offset = $\beta_1$} and redifining the \texttt{formula} so that it depends only on $\beta_0$. 
+    
+    Moreover, we could consider performing this optimization on a grid of values for $\beta_1$, and thus obtain values of the profile likelihood for this grid. The resulting values of the log-likelihood (extracted via \texttt{logLik()}) are thus the evaluations of the Profile Likelihood. (See the code).}
+
+<<include = FALSE>>= 
+cutoff.rule.05=as.numeric(logLik(goose.glm)-qchisq(p=0.95, df=1, lower.tail=TRUE)/2) 
+cutoff.rule.01=as.numeric(logLik(goose.glm)-qchisq(p=0.99, df=1, lower.tail=TRUE)/2)
+
+grid.beta0 = seq(-10,10, by=0.01)  #a grid of beta0
+grid.beta1 = seq(-10,10, by=0.01)  #a grid of beta1 
+
+profLik.beta.0=rep(0,times=length(grid.beta0))
+profLik.beta.1=rep(0,times=length(grid.beta1))
+
+for(i in 1:length(grid.beta0)){ 
+  profLik.beta.0[i]=as.numeric(
+    logLik(
+      glm(
+        cbind(returned,offered-returned)~ 
+        +log(bid)-1+offset(grid.beta0[i]*rep(1,11)),
+        data=goose.data, 
+        family=binomial(link="logit"))))
+}
+
+for(i in 1:length(grid.beta1)){
+ profLik.beta.1[i]=as.numeric(
+   logLik(
+     glm(
+      cbind(returned,offered-returned)~
+        1+offset(grid.beta1[i]*log(bid)),
+      data=goose.data,
+      family=binomial(link="logit"))))
+}
+@
+
+% {\color{blue} The values of the PL confidence intervals will be those in the grid whose evaluations are above the cutoff values, depending on the optimized likelihood and quantiles of the chi-squared distribution.}
+
+\item Plot the profile likelihood $L_1(\beta_1)$ and the cutoff values.  
+
+{\color{blue} In the following plot, we draw the PL function for both parameters. The values of the PL confidence intervals will be those in the grid whose evaluations are above the cutoff values, depending on the optimized likelihood and quantiles of the chi-squared distribution. For this illlustration, we have considered CI of levels 95\% and 99\%}
+
+<<echo = FALSE, fig.height=5, fig.width =10>>=
+par(mfrow=c(1,2))
+plot(grid.beta0[profLik.beta.0>cutoff.rule.05-2],
+     profLik.beta.0[profLik.beta.0>cutoff.rule.05-2], type="l",
+     main="PL CI Intercept", xlab="beta.0", ylab="Profile Likelihood")
+abline(h=cutoff.rule.05)
+
+lines(x=c(goose.plci.05[1,][1],goose.plci.05[1,][2]), y=c(cutoff.rule.05,cutoff.rule.05), col="red", lwd=5)
+lines(x=c(goose.plci.05[1,][1],goose.plci.05[1,][1]), y=c(-30,cutoff.rule.05),col="red", lty=2)
+lines(x=c(goose.plci.05[1,][2],goose.plci.05[1,][2]), y=c(-30,cutoff.rule.05),col="red", lty=2)
+text(x=goose.plci.05[1,][1], y=cutoff.rule.05, labels=as.character(signif(goose.plci.05[1,][1], 3) ), pos =1)
+text(x=goose.plci.05[1,][2], y=cutoff.rule.05, labels=as.character(signif(goose.plci.05[1,][2], 3)), pos =1)
+
+abline(h=cutoff.rule.01)
+
+lines(x=c(goose.plci.01[1,][1],goose.plci.01[1,][2]), y=c(cutoff.rule.01,cutoff.rule.01), col="blue", lwd=5)
+lines(x=c(goose.plci.01[1,][1],goose.plci.01[1,][1]), y=c(-30,cutoff.rule.01),col="blue", lty=2)
+lines(x=c(goose.plci.01[1,][2],goose.plci.01[1,][2]), y=c(-30,cutoff.rule.01),col="blue", lty=2)
+text(x=goose.plci.01[1,][1], y=cutoff.rule.01, labels=as.character(signif(goose.plci.01[1,][1], 3) ), pos =1)
+text(x=goose.plci.01[1,][2], y=cutoff.rule.01, labels=as.character(signif(goose.plci.01[1,][2], 3)), pos =1)
+
+#----
+plot(grid.beta1[profLik.beta.1>cutoff.rule.05-2],
+     profLik.beta.1[profLik.beta.1>cutoff.rule.05-2], type="l",
+     xlab="beta.1", ylab="Profile Likelihood", main="PL CI log(bid)")
+abline(h=cutoff.rule.05)
+lines(x=c(goose.plci.05[2,][1],goose.plci.05[2,][2]), y=c(cutoff.rule.05,cutoff.rule.05), col="red", lwd=5)
+lines(x=c(goose.plci.05[2,][1],goose.plci.05[2,][1]), y=c(-30,cutoff.rule.05),col="red", lty=2)
+lines(x=c(goose.plci.05[2,][2],goose.plci.05[2,][2]), y=c(-30,cutoff.rule.05),col="red", lty=2)
+text(x=goose.plci.05[2,][1], y=cutoff.rule.05, labels=as.character(signif(goose.plci.05[2,][1], 3) ), pos =1)
+text(x=goose.plci.05[2,][2], y=cutoff.rule.05, labels=as.character(signif(goose.plci.05[2,][2], 3)), pos =1)
+
+abline(h=cutoff.rule.01)
+lines(x=c(goose.plci.01[2,][1],goose.plci.01[2,][2]), y=c(cutoff.rule.01,cutoff.rule.01), col="blue", lwd=5)
+lines(x=c(goose.plci.01[2,][1],goose.plci.01[2,][1]), y=c(-30,cutoff.rule.01),col="blue", lty=2)
+lines(x=c(goose.plci.01[2,][2],goose.plci.01[2,][2]), y=c(-30,cutoff.rule.01),col="blue", lty=2)
+text(x=goose.plci.01[2,][1], y=cutoff.rule.01, labels=as.character(signif(goose.plci.01[2,][1], 3) ), pos =1)
+text(x=goose.plci.01[2,][2], y=cutoff.rule.01, labels=as.character(signif(goose.plci.01[2,][2], 3)), pos =1)
+
+legend("topright" ,legend=c("0.05", "0.01") , lty=c(1,1), col=c("red", "blue"))
+@
+
+\item Compare the results with the CI computed at point \textbf{a)}.
+
+{\color{blue} As we have said before, we can evaluate points in the grid and obtain the limits of the PLCI, by selecting the minimal (maximal) points in the grid such that their PL evaluations are beyond the cutoff rule. It is apparent that these values bare ressemblance to the ones obtained via the \texttt{confint()} method (improvements can be made by improving the grid).}
+
+We compare obtained values for $\beta_0$
+<<echo = FALSE>>=
+rbind(
+  Intercept.plci.95 = goose.plci.05[1,], 
+  Intercept.manl.95 = c( 
+    min(grid.beta0[profLik.beta.0>cutoff.rule.05]),
+    max(grid.beta0[profLik.beta.0>cutoff.rule.05]))
+  )
+
+
+rbind(
+  Intercept.plci.99 = goose.plci.01[1,], 
+  Intercept.manl.99 = c(
+    min(grid.beta0[profLik.beta.0>cutoff.rule.01]), 
+    max(grid.beta0[profLik.beta.0>cutoff.rule.01]))
+  )
+@
+
+We compare obtained values for $\beta_1$
+<<echo = FALSE>>=
+rbind(
+  log_bid.plci.95 = goose.plci.05[2,], 
+  log_bid.manl.95 = c(
+    min(grid.beta1[profLik.beta.1>cutoff.rule.05]), 
+    max(grid.beta1[profLik.beta.1>cutoff.rule.05]))
+  )
+
+rbind(
+  log_bid.plci.99 = goose.plci.01[2,], 
+  log_bid.manl.99 = c(
+    min(grid.beta1[profLik.beta.1>cutoff.rule.01]),
+    max(grid.beta1[profLik.beta.1>cutoff.rule.01]))
+  )
+@
+
+\end{enumerate}
+\end{enumerate}
+
+\end{document}

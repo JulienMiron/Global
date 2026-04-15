@@ -1,0 +1,279 @@
+\documentclass[a4paper,12pt]{article}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\usepackage[applemac]{inputenc}
+\usepackage[OT1,T1]{fontenc}
+% \usepackage{times}
+\usepackage{setspace}
+\usepackage{lscape}
+\usepackage{amsmath,amssymb}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb,moreverb,boxedminipage}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{verbatim}
+\usepackage{enumitem}
+
+\setlength{\textwidth}{160mm}
+\setlength{\textheight}{230mm}
+\setlength{\oddsidemargin}{-5mm}
+\setlength{\topmargin}{-10mm}
+
+\textwidth=6in
+\textheight=8in
+\topmargin=0.0in
+\oddsidemargin=0in 
+\baselineskip=18pt
+\headheight=2cm
+\setcounter{MaxMatrixCols}{10}
+
+
+\newcommand{\ns}{\!\!\!}
+\newcommand{\e}{\varepsilon}
+\newcommand{\be}{\beta}
+\newcommand{\s}{\sigma}
+\newcommand{\vv}{\vspace{.5cm}}
+\newcommand{\beps}{\boldsymbol{\epsilon}}
+\newcommand{\sumin}{\sum_{i=1}^n}
+\newcommand{\bg}[1]{\mbox{\boldmath{$#1$}}}
+\DeclareMathOperator{\plim}{plim}
+\DefineVerbatimEnvironment{code}{Verbatim}{fontsize=\small}
+\DefineVerbatimEnvironment{example}{Verbatim}{fontsize=\small}
+
+\def\by{\mathbf{y}}
+\def\bx{\mathbf{x}}
+\def\ba{\mathbf{a}}
+\def\bb{\mathbf{b}}
+\def\be{\mathbf{e}}
+\def\bu{\mathbf{u}}
+\def\bv{\mathbf{v}}
+\def\bz{\mathbf{z}}
+
+%===========
+%Greek letter vectors
+%===========
+\def\bbeta{\mbox{\boldmath $\beta$}}
+\def\bgamma{\mbox{\boldmath $\gamma$}}
+\def\bvareps{\mbox{\boldmath $\varepsilon$}}
+\def\bleta{\mbox{\boldmath $\eta$}}
+\def\bmu{\mbox{\boldmath $\mu$}}
+\def\btheta{\mbox{\boldmath $\theta$}}
+\def\bsigma{\mbox{\boldmath $\sigma$}}
+\def\blambgam{\mbox{\boldmath $\lambda_{\gamma}$}}
+\def\blambbet{\mbox{\boldmath $\lambda_{\beta}$}}
+\def\blambda{\mbox{\boldmath $\lambda$}}
+
+%===========
+%Matrices
+%===========
+\def\bX{\mathbf{X}}
+\def\bD{\mathbf{D}(\bsigma)}
+\def\bV{\mathbf{V}(\bsigma)}
+\def\bVinv{\mathbf{V}^{-1}(\bsigma)}
+\def\bR{\mathbf{R}(\bsigma)}
+\def\bA{\mathbf{A}}
+\def\bB{\mathbf{B}}
+\def\bZ{\mathbf{Z}}
+\def\bIn{\mathbf{I_{N}}}
+\def\bIm{\mathbf{I_{m}}}
+\def\bIni{\mathbf{I_{n}}}
+\def\SSW{\mathrm{SSW}}
+\def\SSB{\mathrm{SSB}}
+\def\Normal{\mathcal{N}\!}
+
+%===========
+%Parentheses, etc.
+%===========
+\def\op{\left(}
+\def\cp{\right)}
+\def\oc{\left[}
+\def\cc{\right]}
+\def\ok{\left\{}
+\def\ck{\right\}}
+
+%===========
+%Statistical functions and real numbers.
+%===========
+\def\exE{\mathbb{E}}
+\def\Real{\mathbb{R}}
+\def\Var{\mathbb{V}ar}
+\def\Proba{\mathbb{P}}
+
+%===========
+%Listings and hyperlink settings
+%===========
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue, urlcolor=blue}
+\urlstyle{tt}
+\lstset{language=R, basicstyle=\footnotesize\ttfamily,}
+
+%===========
+%Special Environments
+%===========
+\newenvironment{exercices}{\newcounter{moncompteur}\begin{list}
+   {\bfseries Ex. \arabic{moncompteur}}{\usecounter{moncompteur}
+     \setlength{\labelwidth}{2.6em}\setlength{\leftmargin}{3.1em}}}{\end{list}}
+\renewcommand{\labelenumi}{\bfseries\alph{enumi})}
+\newcommand{\splus}[3][0]{\texttt{>~#2}\ \ \ \ \textit{#3}\\[#1mm]}
+
+\newenvironment{exo}
+{\begin{center}\setlength{\textwidth}{140mm} \underline{Exercise:} \begin{minipage}[t]{120mm}}
+{\end{minipage}\setlength{\textwidth}{160mm}\end{center}}
+
+
+\usepackage{verbatim}
+
+\lstset{ %
+  language=R, 
+  basicstyle=\ttfamily,
+  backgroundcolor=\color{lightgray},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  xleftmargin= 10 pt,
+  xrightmargin= 10 pt,
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  frame=none,                    % adds a frame around the code
+  numbers=none,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+}
+
+\pagestyle{fancy}
+
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\definecolor{lightgray}{gray}{0.95}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+
+\lhead{University of Geneva\\ \textbf{GLAM}\\
+Pr. Eva Cantoni}
+\rhead{GSEM\\ Spring 2022 \\ \textbf{Homework 06}}
+
+\begin{center}
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\fbox{{\Large Analyzing longitudinal data using marginal models}}
+
+\bigskip
+
+\bigskip
+
+\bigskip
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \noindent \textsc{University of Geneva} \hfill S411001 SE GLAM\\
+% Prof. Eva Cantoni \hfill Spring semester 2019\\
+% \noindent
+% \makebox[\linewidth]{\rule{\textwidth}{0.4pt}}\\[1.5ex]
+% \textbf{} \hfill \textbf{Homework 06: Analyzing longitudinal data using marginal models}\\
+% \makebox[\linewidth]{\rule{\textwidth}{0.4pt}}\\
+% 
+% \noindent Course website: \url{https://chamilo.unige.ch/home/courses/S411001/}
+
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+\parindent=0cm
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+\linespread{1.1}
+\sloppy
+
+\section{\underline{Exercise 1}}
+
+Many health care professionals are trained in performing direct laryngoscopic endotracheal intubation (LEI), which is a potentially life saving procedure. Unfortunately, there is little information on the amount of training required to accomplish a successful LEI. In general, airway training programs for health care staff, such as paramedics and respiratory therapists, are not standardized and may be inadequate. This inadequacy is a grave concern, given the serious consequences of failed airway management.
+
+Out of many features of an ongoing LEI, we would like to identify which ones predict its success. For that purpose, we have the \texttt{LEI.dat} data coming from a prospective longitudinal study\footnote{Data from Dr. Orlando Hung of the Department of Anesthesia, Dalhousie University.}. This data file contains information on 436 LEIs performed during this longitudinal study; the file contains 443 rows but some observations are incomplete. In the response variable \texttt{SUCCESS}, we let $Y_{ij}$ equal to 1 if trainee $i$ successfully performs a complete LEI in less than 30 seconds during trial $j$, and 0 otherwise. Our covariates are the following features of an LEI:
+\begin{itemize}
+\item{whether the head and neck are in optimal position, \emph{i.e.} neck flexion and atlanto-occipital extension (\texttt{NECKFLEX} and \texttt{EXTOA} respectively),}
+\item{whether the trainee inserts the scope properly (\texttt{PROPLGSP}),}
+\item{whether the lift is performed successfully (\texttt{PROPLIFT}),}
+\item{whether there is appropriate request for help (\texttt{ASKASSIS}),}
+\item{whether there is unsolicited intervention by the attending anesthesiologist (\texttt{HELP}),}
+\item{whether there are complications (\texttt{COMPS}),}
+\item{the trainee's handedness (\texttt{TRHAND}),}
+\item{and the trainee's gender (\texttt{TRGEND}).}
+\end{itemize}
+All covariates are binary except for \texttt{COMPS}, which is ordinal.
+
+The \texttt{TRAINEE} variable identifies the 19 trainees, who performed from 18 to 33 trials each. The \texttt{TRIALCAT} covariate was also defined to indicate the trial's chronological position among the trainee's others: \texttt{TRIALCAT = 1} for trials 1 through 5, \texttt{TRIALCAT = 2} for trials 6 through 10, and so on.
+
+\begin{enumerate}
+\item{Suggest a model that takes into account the dependance among the observations. Estimate it with all the covariates.}
+\item{According to the Robust $z$-statistic, would you suggest a more parsimonious model~?}
+\item{Would it be reasonable to assume independence among the observations~? If so, would your conclusions be the same as before~?}
+\item{Compare the estimations using the ``independence'' working correlation option in the \verb"gee()" command to the estimations using \verb"glm()".}
+\end{enumerate}
+
+
+\section{\underline{Exercise 2}}
+
+We consider here the \texttt{Ovary.dat} data file. These data consist of the number of ovarian follicles greater than 10mm in diameter measured on each of 11 mares\footnote{The Ovary data come from an animal study reported in Pierson and Ginther (1987).}. The ovarian follicles were recorded daily from three days before ovulation until three days after the following ovulation. The measurement times were scaled so that ovulation for each mare occurs at times 0 and 1. Since the ovulation cycles vary in length, the number of measurements and the times at which they occurred vary among the mares.
+
+There are three columns in the file: an ID variable called \verb"Mare", the scaled recording \verb"Time", and the measured number of \verb"follicles".
+
+Analyze these data in the spirit of the GEE approach.
+
+
+\end{document}

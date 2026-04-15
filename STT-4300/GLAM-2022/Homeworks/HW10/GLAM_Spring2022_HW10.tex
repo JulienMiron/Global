@@ -1,0 +1,307 @@
+\documentclass[a4paper,12pt]{article}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\usepackage[applemac]{inputenc}
+\usepackage[OT1,T1]{fontenc}
+% \usepackage{times}
+\usepackage{setspace}
+\usepackage{lscape}
+\usepackage{amsmath,amssymb}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb,moreverb,boxedminipage}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{verbatim}
+\usepackage{enumitem}
+
+\setlength{\textwidth}{160mm}
+\setlength{\textheight}{230mm}
+\setlength{\oddsidemargin}{-5mm}
+\setlength{\topmargin}{-10mm}
+
+\textwidth=6in
+\textheight=8in
+\topmargin=0.0in
+\oddsidemargin=0in 
+\baselineskip=18pt
+\headheight=2cm
+\setcounter{MaxMatrixCols}{10}
+
+
+\newcommand{\ns}{\!\!\!}
+\newcommand{\e}{\varepsilon}
+\newcommand{\be}{\beta}
+\newcommand{\s}{\sigma}
+\newcommand{\vv}{\vspace{.5cm}}
+\newcommand{\beps}{\boldsymbol{\epsilon}}
+\newcommand{\sumin}{\sum_{i=1}^n}
+\newcommand{\bg}[1]{\mbox{\boldmath{$#1$}}}
+\DeclareMathOperator{\plim}{plim}
+\DefineVerbatimEnvironment{code}{Verbatim}{fontsize=\small}
+\DefineVerbatimEnvironment{example}{Verbatim}{fontsize=\small}
+
+\def\by{\mathbf{y}}
+\def\bx{\mathbf{x}}
+\def\ba{\mathbf{a}}
+\def\bb{\mathbf{b}}
+\def\be{\mathbf{e}}
+\def\bu{\mathbf{u}}
+\def\bv{\mathbf{v}}
+\def\bz{\mathbf{z}}
+
+%===========
+%Greek letter vectors
+%===========
+\def\bbeta{\mbox{\boldmath $\beta$}}
+\def\bgamma{\mbox{\boldmath $\gamma$}}
+\def\bvareps{\mbox{\boldmath $\varepsilon$}}
+\def\bleta{\mbox{\boldmath $\eta$}}
+\def\bmu{\mbox{\boldmath $\mu$}}
+\def\btheta{\mbox{\boldmath $\theta$}}
+\def\bsigma{\mbox{\boldmath $\sigma$}}
+\def\blambgam{\mbox{\boldmath $\lambda_{\gamma}$}}
+\def\blambbet{\mbox{\boldmath $\lambda_{\beta}$}}
+\def\blambda{\mbox{\boldmath $\lambda$}}
+
+%===========
+%Matrices
+%===========
+\def\bX{\mathbf{X}}
+\def\bD{\mathbf{D}(\bsigma)}
+\def\bV{\mathbf{V}(\bsigma)}
+\def\bVinv{\mathbf{V}^{-1}(\bsigma)}
+\def\bR{\mathbf{R}(\bsigma)}
+\def\bA{\mathbf{A}}
+\def\bB{\mathbf{B}}
+\def\bZ{\mathbf{Z}}
+\def\bIn{\mathbf{I_{N}}}
+\def\bIm{\mathbf{I_{m}}}
+\def\bIni{\mathbf{I_{n}}}
+\def\SSW{\mathrm{SSW}}
+\def\SSB{\mathrm{SSB}}
+\def\Normal{\mathcal{N}\!}
+
+%===========
+%Parentheses, etc.
+%===========
+\def\op{\left(}
+\def\cp{\right)}
+\def\oc{\left[}
+\def\cc{\right]}
+\def\ok{\left\{}
+\def\ck{\right\}}
+
+%===========
+%Statistical functions and real numbers.
+%===========
+\def\exE{\mathbb{E}}
+\def\Real{\mathbb{R}}
+\def\Var{\mathbb{V}ar}
+\def\Proba{\mathbb{P}}
+\def\Cov{\mathbb{C}ov}
+
+%===========
+%Listings and hyperlink settings
+%===========
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue, urlcolor=blue}
+\urlstyle{tt}
+
+%===========
+%Special Environments
+%===========
+\newenvironment{exercices}{\newcounter{moncompteur}\begin{list}
+   {\bfseries Ex. \arabic{moncompteur}}{\usecounter{moncompteur}
+     \setlength{\labelwidth}{2.6em}\setlength{\leftmargin}{3.1em}}}{\end{list}}
+% \renewcommand{\labelenumi}{\bfseries\alph{enumi})}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\newcommand{\splus}[3][0]{\texttt{>~#2}\ \ \ \ \textit{#3}\\[#1mm]}
+
+\newenvironment{exo}
+{\begin{center}\setlength{\textwidth}{140mm} \underline{Exercise:} \begin{minipage}[t]{120mm}}
+{\end{minipage}\setlength{\textwidth}{160mm}\end{center}}
+
+
+\usepackage{verbatim}
+
+\lstset{ %
+  language=R, 
+  basicstyle=\ttfamily,
+  backgroundcolor=\color{lightgray},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  xleftmargin= 10 pt,
+  xrightmargin= 10 pt,
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  frame=none,                    % adds a frame around the code
+  numbers=none,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+}
+
+\pagestyle{fancy}
+
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\definecolor{lightgray}{gray}{0.95}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+
+\lhead{University of Geneva\\ \textbf{GLAM}\\
+Pr. Eva Cantoni}
+\rhead{GSEM\\ Spring 2022 \\ \textbf{Homework 10}}
+
+\begin{center}
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\fbox{{\Large Non-parametric regression II}}
+
+\bigskip
+
+\bigskip
+
+\bigskip
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section*{\underline{Exercise 1}}
+As in HW09, we are interested in the \verb"temperature.txt" dataset.
+
+\begin{enumerate}
+\item{Fit a GAM model to describe the behavior of January temperature with respect to the longitude.}
+\item{Code a cross-validation procedure to select the best bandwidth parameter, according to the GCV criterion. Then, plot the curve of the criterion vs. the value of the parameter.}
+\item{Fit three different models with varying smoothing parameter and the optimal one. Plot the corresponding curve along with each other. Does the optimal smoothing parameter yield a sensibly better curve than the other values?}
+\end{enumerate}
+
+\section*{\underline{Exercise 2}}
+
+Let us consider a univariate nonparametric model. As shown during the lesson (\textit{c.f.} slide 271), the basis functions allows the linear representation:
+\begin{equation*}
+     \by = \bX \bbeta + \mathbf{\epsilon}.
+\end{equation*}
+In order to control the wiggliness, the parameters $\bbeta$ are estimated \textit{via} minimization of a penalized cost function:
+\begin{equation*}
+     \mathcal{C}\op\bbeta\cp = \| \by-\bX\bbeta\|_2^2 + \lambda\bbeta^T \mathbf{S}\bbeta \\.
+\end{equation*}
+In this exercise, we reparametrize the model in order to understand better some of its features. The so-called \textit{natural parametrization} is described in the course (slide 292).
+\begin{enumerate}
+  \item Following the course, define $\mathbf{P} = \mathbf{U}^T\mathbf{R}$, $\bbeta' = \mathbf{P} \bbeta$ and $\bX' = \mathbf{Q}\mathbf{U}$ (allowing $\bX = \bX' \mathbf{P}$), and express the cost function $\mathcal{C}\op\bbeta'\cp$ under this new specification.
+% \begin{answer}
+% \begin{align*}
+%             \mathcal{C}\op \bbeta' \cp 
+%             &= \| \by-\bX\bbeta\|_2^2 + \lambda\bbeta^T\mathbf{S}\bbeta
+%             = \| \by-\underbrace{\mathbf{Q}\mathbf{U}}_{\mathbf{\bX'}}\underbrace{\mathbf{U}^T\mathbf{R}\bbeta}_{\bbeta'}\|_2^2 + \lambda\bbeta^T\mathbf{R}^T\underbrace{\mathbf{R}^{-T}\mathbf{S}\mathbf{R}^{-1}}_{\mathbf{U}\mathbf{D}\mathbf{U}^{T}}\mathbf{R}\bbeta\\
+%             &= \| \by-\bX'\bbeta'\|_2^2 +  \lambda\underbrace{\bbeta^T\mathbf{R}^T\mathbf{U}}_{\bbeta'^T} \mathbf{D}\underbrace{\mathbf{U}^{T} \mathbf{R}\bbeta}_{\bbeta'}
+%             = \| \by-\bX'\bbeta'\|_2^2 + \lambda \bbeta'^T \mathbf{D}\bbeta'
+% \end{align*}
+% \end{answer}
+  \item Provide the estimator $\widehat{\bbeta'}$ of $\bbeta'$ minimizing $\mathcal{C}\op\bbeta'\cp$.
+  % \begin{answer}
+  %   \begin{align*}
+  %   \mathcal{C}\op\bbeta\cp 
+  %   &= \| \by-\bX\bbeta\|_2^2 + \lambda \int f''(x)^2 \mathrm{d}x  
+  %   = \op\by-\bX\bbeta\cp^T \op\by-\bX\bbeta\cp + \lambda\bbeta^T \mathbf{S}\bbeta \\
+  %   & =\by^T\by - \bbeta^T\bX^T\by - \by^T\bX\bbeta +\bbeta^T\bX^T\bX\bbeta+\lambda\bbeta^T\mathbf{S}\bbeta\\
+  %   &= \by^T\by - \bbeta^T\bX^T\by - \by^T\bX\bbeta +\bbeta^T\oc \bX^T\bX + \lambda\mathbf{S}\cc\bbeta \\
+  %   \frac{\partial\mathcal{C}_p}{\partial \bbeta} \op \bbeta \cp
+  %   &=  -2\bX^T\by + 2\oc \bX^T\bX + \lambda\mathbf{S} \cc\bbeta         
+  %   \end{align*}
+  %   Finally :
+  %   \begin{equation*}
+  %   \frac{\partial\mathcal{C}_p}{\partial \bbeta} \op \widehat{\bbeta}_p \cp = 0 
+  %   \Leftrightarrow
+  %    -2\bX^T\by + 2\oc \bX^T\bX + \lambda\mathbf{S} \cc\widehat{\bbeta}_p = 0           
+  %   \Leftrightarrow
+  %   \widehat{\bbeta}_p = \oc \bX^T\bX + \lambda\mathbf{S} \cc^{-1}\bX^T\by
+  %   \end{equation*}
+  % \end{answer}
+  \item Deduce the linear smoother $\mathbf{A}$ such that $\widehat{y} = \mathbf{A} y$. Compute $\mathrm{tr}(\mathbf{A})$ and           find an interpretation for this quantity.
+  \item Explain what happens to $\mathbf{A}$ as $\lambda$ increases.
+\end{enumerate}
+\section*{\underline{Exercise 3}}
+
+The \verb"mcycle" dataset (package \verb"MASS") records a series of measurements of head acceleration in a simulated motorcycle accident, used to test crash helmets. The variables are \verb"times" in milliseconds after impact, and \verb"accel" in G.
+
+\begin{enumerate}
+
+\item{Fit a GAM model to capture the dependence of \verb"accel" on \verb"times". Use \verb"gam.check()" to fix the dimension of the basis $k$. \label{mod1}}
+
+\item{In Exercise 2, we introduced the linear smoother $\mathbf{A}$, such that $\widehat{y} = \mathbf{A} y$. Here we compute the same matrix using a convenient numerical device. First, note that $\mathbf{A}_j = \mathbf{A} \mathbf{I}_j$, where $\mathbf{A}_j$ is the $jth$ column of $\mathbf{A}$ and $\mathbf{I}_j$ is the $jth$ column of the identity matrix. Thus, given a model, you can use the columns of the identity matrix in place of the response variable to generate the columns of $\mathbf{A}$:
+$\mathbf{A}_j$ \verb"<- fitted(gam("$\mathbf{I}_j$\verb" ~ s(x), ...))". Making use of this method, compute the influence matrix corresponding to your model in point \ref{mod1}.}
+
+\item{What values do the rows of $\mathbf{A}$ sum to? How is it related to the intercept of your model?}
+
+\item{The linear representation of the smoother shows that our model replaces each values $y_i$ by a weighted sum of the
+neighbouring $y_i$. Plot the weights used to compute the $65th$ predicted value, with \verb"times" in abcissa. This is known as the "equivalent kernel". Interpret the role of this kernel, and describe its specific aspects.}
+
+\item{Plot all the equivalent kernels (for rows $i = 1,...,n$) on the same frame. Why do their peak heights vary?}
+
+\item{Finally, move the smoothing parameter arround the GCV selected value. What happens to the equivalent kernel for the $65th$ observation? What can you conclude?}
+
+\end{enumerate}
+
+\end{document}

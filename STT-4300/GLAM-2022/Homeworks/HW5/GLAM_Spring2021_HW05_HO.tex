@@ -1,0 +1,496 @@
+\documentclass[a4paper,12pt]{article}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\usepackage[applemac]{inputenc}
+\usepackage[OT1,T1]{fontenc}
+% \usepackage{times}
+\usepackage{setspace}
+\usepackage{lscape}
+\usepackage{amsmath,amssymb}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb,moreverb,boxedminipage}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage{bbm}
+
+\setlength{\textwidth}{160mm}
+\setlength{\textheight}{230mm}
+\setlength{\oddsidemargin}{-5mm}
+\setlength{\topmargin}{-10mm}
+
+\textwidth=6in
+\textheight=8in
+\topmargin=0.0in
+\oddsidemargin=0in 
+\baselineskip=18pt
+\headheight=2cm
+\setcounter{MaxMatrixCols}{10}
+
+\DeclareMathOperator*{\argmax}{argmax}
+\newcommand{\ns}{\!\!\!}
+\newcommand{\e}{\varepsilon}
+\newcommand{\be}{\beta}
+\newcommand{\s}{\sigma}
+\newcommand{\vv}{\vspace{.5cm}}
+\newcommand{\beps}{\boldsymbol{\epsilon}}
+\newcommand{\sumin}{\sum_{i=1}^n}
+\newcommand{\bg}[1]{\mbox{\boldmath{$#1$}}}
+\DeclareMathOperator{\plim}{plim}
+\DefineVerbatimEnvironment{code}{Verbatim}{fontsize=\small}
+\DefineVerbatimEnvironment{example}{Verbatim}{fontsize=\small}
+
+\def\by{\mathbf{y}}
+\def\bx{\mathbf{x}}
+\def\ba{\mathbf{a}}
+\def\bb{\mathbf{b}}
+\def\be{\mathbf{e}}
+\def\bu{\mathbf{u}}
+\def\bv{\mathbf{v}}
+\def\bz{\mathbf{z}}
+
+%===========
+%Greek letter vectors
+%===========
+\def\bbeta{\mbox{\boldmath $\beta$}}
+\def\bgamma{\mbox{\boldmath $\gamma$}}
+\def\bvareps{\mbox{\boldmath $\varepsilon$}}
+\def\bleta{\mbox{\boldmath $\eta$}}
+\def\bmu{\mbox{\boldmath $\mu$}}
+\def\btheta{\mbox{\boldmath $\theta$}}
+\def\bsigma{\mbox{\boldmath $\sigma$}}
+\def\blambgam{\mbox{\boldmath $\lambda_{\gamma}$}}
+\def\blambbet{\mbox{\boldmath $\lambda_{\beta}$}}
+\def\blambda{\mbox{\boldmath $\lambda$}}
+
+%===========
+%Matrices
+%===========
+\def\bX{\mathbf{X}}
+\def\bD{\mathbf{D}(\bsigma)}
+\def\bV{\mathbf{V}(\bsigma)}
+\def\bVinv{\mathbf{V}^{-1}(\bsigma)}
+\def\bR{\mathbf{R}(\bsigma)}
+\def\bA{\mathbf{A}}
+\def\bB{\mathbf{B}}
+\def\bZ{\mathbf{Z}}
+\def\bIn{\mathbf{I_{N}}}
+\def\bIm{\mathbf{I_{m}}}
+\def\bIni{\mathbf{I_{n}}}
+\def\SSW{\mathrm{SSW}}
+\def\SSB{\mathrm{SSB}}
+\def\Normal{\mathcal{N}\!}
+
+%===========
+%Parentheses, etc.
+%===========
+\def\op{\left(}
+\def\cp{\right)}
+\def\oc{\left[}
+\def\cc{\right]}
+\def\ok{\left\{}
+\def\ck{\right\}}
+
+%===========
+%Statistical functions and real numbers.
+%===========
+\def\exE{\mathbb{E}}
+\def\Real{\mathbb{R}}
+\def\Var{\mathbb{V}ar}
+\def\Proba{\mathbb{P}}
+
+%===========
+%Listings and hyperlink settings
+%===========
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue, urlcolor=blue}
+\urlstyle{tt}
+\lstset{language=R, basicstyle=\footnotesize\ttfamily,}
+
+%===========
+%Special Environments
+%===========
+\newenvironment{exercices}{\newcounter{moncompteur}\begin{list}
+   {\bfseries Ex. \arabic{moncompteur}}{\usecounter{moncompteur}
+     \setlength{\labelwidth}{2.6em}\setlength{\leftmargin}{3.1em}}}{\end{list}}
+\renewcommand{\labelenumi}{\bfseries\alph{enumi})}
+\newcommand{\splus}[3][0]{\texttt{>~#2}\ \ \ \ \textit{#3}\\[#1mm]}
+
+\newenvironment{exo}
+{\begin{center}\setlength{\textwidth}{140mm} \underline{Exercise:} \begin{minipage}[t]{120mm}}
+{\end{minipage}\setlength{\textwidth}{160mm}\end{center}}
+
+
+\usepackage{verbatim}
+
+\lstset{ %
+  language=R, 
+  basicstyle=\ttfamily,
+  backgroundcolor=\color{lightgray},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  xleftmargin= 10 pt,
+  xrightmargin= 10 pt,
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  frame=none,                    % adds a frame around the code
+  numbers=none,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+}
+
+\pagestyle{fancy}
+
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\definecolor{lightgray}{gray}{0.95}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+\lhead{University of Geneva\\ \textbf{GLAM}\\
+Pr. Eva Cantoni}
+\rhead{GSEM\\ Spring 2022 \\ \textbf{Homework 05}}
+
+\begin{center}
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\fbox{{\Large Hurdle and zero-inflated models - Handout}}
+
+\bigskip
+
+\bigskip
+
+\bigskip
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+\parindent=0cm
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+\linespread{1.1}
+\sloppy
+\section{Exercise 1}
+
+A random variable $Y$ is said to follow a negative binomial distribution, denoted as $\mathcal{NB}(\mu,\vartheta)$, when its probability mass function (p.m.f.) is
+\begin{eqnarray*}
+\Proba(Y = y ; \vartheta, \mu) = \frac {\Gamma(y+\vartheta)}{\Gamma(\vartheta)\Gamma(y+1)}\left(\frac{\vartheta}{\mu+\vartheta}\right)^\vartheta
+\left(\frac{\mu}{\mu+\vartheta}\right)^{y},
+\end{eqnarray*}
+where $\Gamma(u)=\int_0^\infty t^{u-1}\exp(-t)dt$ denotes the gamma function, $\mu>0$, $\vartheta>0$ and $y~=~0,1,2,\ldots$.
+\begin{enumerate}[ref=\bf{\alph*)}]
+\item Give the p.m.f. of a random variable distributed as a truncated $\mathcal{NB}(\mu,\vartheta)$, \textit{i.e.} with strictly positive outcomes.
+
+\color{blue}
+We are interested in finding the expression of :
+
+$$
+\Proba \op Y = y  |   Y> 0 ; \mu , \vartheta \cp  
+= \frac {\Proba \op Y = y , y > 0 ; \mu , \vartheta \cp}{\Proba\op Y>0 ; \mu, \vartheta\cp}
+= \frac {\Proba \op Y = y , y > 0 ; \mu , \vartheta \cp}{1-\Proba\op Y = 0 ; \mu, \vartheta\cp}
+$$  	
+
+It can be shown that: 
+
+$$
+\Proba\op Y=0 ; \mu, \vartheta\cp = \op \frac{\vartheta }{\mu + \vartheta }\cp^\vartheta \\ 
+$$  
+
+Yielding : 
+$$
+\Proba \op Y = y | Y> 0 ; \mu , \vartheta \cp 
+= \frac {\Gamma(y+\vartheta)}{\Gamma(\vartheta)\Gamma(y+1)} 
+\frac{\vartheta^\vartheta}{\op\mu+\vartheta\cp^\vartheta - \vartheta^\vartheta}
+\op\frac{\mu}{\mu+\vartheta}\cp^{y}
+$$ 
+
+\color{black}
+\item \label{loglkhd}Define a hurdle model for responses issued from a $\mathcal{NB}$ distribution with excess of zeros. Write the log-likelihood function of that model.
+\color{blue} 
+
+By defining $\pi_i = \pi\op \bx_i ; \bbeta\cp$ the probability of ``crossing the hurdle'' i.e. obtaining an observation different from zero, and  $\mu_i = \mu\op \bz_i; \bgamma\cp$ the conditional expectation of the count process, we can provide the expression for the likelihood contributions using the p.m.f. we've found on the previous point. 
+
+$$
+\Proba\op Y_i = y_i | \bx_i , \bz_i ; \bbeta, \bgamma \cp 
+= 
+\ok
+\begin{array}{c c}
+1- \pi_i  & \textrm{if : } y_i = 0 \\ 
+\pi_i
+\frac {\Gamma(y_i+\vartheta)}{\Gamma(\vartheta)\Gamma(y_i+1)} 
+\frac{\vartheta^\vartheta}{\op\mu_i+\vartheta\cp^\vartheta - \vartheta^\vartheta}
+\op\frac{\mu_i}{\mu_i+\vartheta}\cp^{y_i} & \textrm{if : } y_i > 0 
+\end{array}
+\right.
+$$ 
+
+Yielding the likelihood : 
+$$
+\mathcal{L}\op \bbeta, \bgamma  ; \by ,  \bX , \bZ  \cp 
+= \prod_{i=1}^n 
+\oc 1- \pi_i \cc^{\mathbbm{1}\op y_i =  0 \cp}
+\oc 
+\pi_i
+\frac {\Gamma(y_i+\vartheta)}{\Gamma(\vartheta)\Gamma(y_i+1)} 
+\frac{\vartheta^\vartheta}{\op\mu_i+\vartheta\cp^\vartheta - \vartheta^\vartheta}
+\op\frac{\mu_i}{\mu_i+\vartheta}\cp^{y_i} 
+\cc^{\mathbbm{1}\op y_i >  0 \cp}
+$$ 
+And the log-likelihood : 
+\begin{align*}
+\ell\op \bbeta, \bgamma  ; \by ,  \bX , \bZ  \cp 
+&= \sum_{i=1}^n 
+{\mathbbm{1}\op y_i =  0 \cp} \log \op 1- \pi_i \cp + {\mathbbm{1}\op y_i >  0 \cp} \log \pi_i \\
+&+ 
+{\mathbbm{1}\op y_i >  0 \cp}\log 
+\oc 
+\frac {\Gamma(y_i+\vartheta)}{\Gamma(\vartheta)\Gamma(y_i+1)} 
+\frac{\vartheta^\vartheta}{\op\mu_i+\vartheta\cp^\vartheta - \vartheta^\vartheta}
+\op\frac{\mu_i}{\mu_i+\vartheta}\cp^{y_i} 
+\cc 
+\end{align*} 
+
+\color{black}
+
+\item{Show that, in a similar fashion as for the Poisson hurdle model, the log-likelihood function computed in \ref{loglkhd} can be separated into two components: the first one for the peak at 0 and the second one for the strictly positive outcomes.
+
+\color{blue} 
+
+It is clear that we can separate terms according to their dependence on $\bbeta$ and $\bgamma$ in the last expression, yielding:
+
+\begin{align*}
+\ell \op \bbeta, \bgamma  ; \by ,  \bX , \bZ  \cp 
+&= \sum_{i=1}^n 
+{\mathbbm{1}\op y_i =  0 \cp} \log \op 1- \pi_i \cp + {\mathbbm{1}\op y_i >  0 \cp} \log \pi_i \\
+&+ 
+\sum_{i=1}^n 
+{\mathbbm{1}\op y_i >  0 \cp}\log 
+\oc 
+\frac {\Gamma(y_i+\vartheta)}{\Gamma(\vartheta)\Gamma(y_i+1)} 
+\frac{\vartheta^\vartheta}{\op\mu_i+\vartheta\cp^\vartheta - \vartheta^\vartheta}
+\op\frac{\mu_i}{\mu_i+\vartheta}\cp^{y_i} 
+\cc \\
+\ell \op \bbeta, \bgamma  ; \by ,  \bX , \bZ  \cp 
+&= \ell_1\op\bbeta ; \by, \bX\cp + \ell_2\op \bgamma, \vartheta ; \by, \bZ \cp 
+\end{align*}  
+\color{black}
+\begin{enumerate}
+\item What does it imply for the estimation process?
+
+\color{blue} 
+The estimation of parameters $\bbeta$ and $\bgamma$ can be performed separately using either of these log-likelihood components. It is customary to use a logit link to model the probability of observing a positive count and a log-link to model the count process.  
+
+\color{black}
+\item What does it imply from the point of view of statistical inference?
+
+\color{blue} 
+Both sets of estimates are uncorrelated i.e. $\mathbb{C}ov\op\widehat{\bbeta} , \widehat{\bgamma}\cp = \mathbf{0}$  \color{black}
+\end{enumerate}}
+\end{enumerate}
+
+\section{Exercise 2}
+
+Assume that $Y_1, \ldots, Y_n$ are responses for $n$ individuals issued from 
+a
+zero-inflated Poisson model (ZIP) with covariates $x_1, \ldots, x_n$ and
+parameter $\alpha$ explaining zero responses; and covariates $z_1, \ldots,
+z_n$ and parameter $\delta$ explaining positive responses.
+
+
+Let $W_i$ be an unobservable binary variable that indicates the risk state of 
+individual
+$i$: $W_i=1$ if the subject is not at risk of an event; and $W_i=0$
+if the subject is at risk. Notice that $Y_i$ denote the event count for a
+subject and this event occurs only when $W_i=0$. We also suppose  that
+$\Pr\{W_i=1\}=\pi_i$ (where $\pi_i$ is a function of $x_i^T\alpha$) and
+$P\{Y_i=y|W_i=0\}=\lambda_i^y e^{-\lambda_i}/y!$ (where $\lambda_i$ is a
+function of $z_i^T\delta$) i.e.  $Y_i|W_i=0$ is issued from the Poisson
+distribution.
+
+
+\begin{enumerate}
+  \item[a)] Write the likelihood function $$L(\alpha, \delta |y_1, \ldots, y_n,
+w_1, \ldots, w_n)=\prod_{i=1}^n P\{Y_i=y_i|W_i=w_i\}.$$ 
+Show that the
+corresponding log-likelihood function $\ell(\alpha, \delta |y_1, \ldots,
+y_n, w_1, \ldots, w_n)$ can be written as $$\ell(\alpha |y_1, \ldots, y_n,
+w_1, \ldots, w_n)+\ell(\delta |y_1, \ldots, y_n, w_1, \ldots, w_n)$$ i.e.\ the
+parameters explaining the presence of zeros can be separated from the other
+parameters. What does it imply numerically?\\
+\end{enumerate}  
+\color{blue}
+\begin{align*}
+    L(\alpha, \delta | y_1,...,y_n,w_1,...,w_n) &= \prod_{i=1}^n P(Y_i=y_i|W_i=w_i)\\
+    &= \prod_{i=1}^n \pi(x_i^T\alpha)^{w_i} (1-\pi(x_i^T\alpha))^{1-w_i}\left(\frac{\exp(-\lambda (z_i^T\delta))\lambda(z_i^T\delta)^{y_i}}{y_i!}\right)^{1-w_i}
+\end{align*}
+Then
+\begin{align*}
+    l(\alpha, \delta | y_1,...,y_n,w_1,...,w_n)=&\sum_{i=1}^n \{w_i\log\pi(x_i^T\alpha) + (1-w_i)\log(1-\pi(x_i^T\alpha))\} + \\
+    &\sum_{i=1}^n\{-(1-w_i)\lambda(z_i^T\delta)+(1-w_i)y_i\log\lambda(z_i^T\delta)\}-\\
+    &\sum_{i=1}^n(1-w_i)\log y_i!\\
+    =&l(\alpha | y_1,...,y_n,w_1,...,w_n) + l(\delta | y_1,...,y_n,w_1,...,w_n) - \\
+    &\sum_{i=1}^n (1-w_i)\log y_i!
+\end{align*}
+\color{black}
+
+In practice the values $w_1, \ldots, w_n$ are never observed and the
+estimators $\hat{\alpha}, \hat{\delta}$ are obtained with the EM-algorithm\footnote{Dempster, A.P., Laird, N.M., and Rubin, D.B. (1977) Maximum Likelihood
+Estimation from Incomplete Data via the EM Algorithm, JRSS-B}.
+
+With the EM algorithm $W_1, \ldots, W_n$ are considered to be missing and are 
+estimated
+by teir expected values $w_1^{(k)}, \ldots, w_n^{(k)}$ under the current
+estimates $\alpha^{(k)}$ and $\delta^{(k)}$ (E-step). Then
+$\ell(\alpha, \delta |y_1, \ldots, y_n, w_1^{(k)}, \ldots, w_n^{(k)})$ is 
+maximized
+(M-step), and the E- and M-steps are iterated until convergence.
+
+More precisely, assuming $\alpha^{(k)}, \delta^{(k)}, w_1^{(k)}, \ldots,
+w_n^{(k)}$ to be the values obtained at the $(k)-$th iteration, the iteration 
+$(k+1)$
+of the EM-algorithm requires the following two steps.
+\begin{itemize}
+  \item \textit{E-step.}  Find $w_i^{(k+1)}$ the conditional expectation of
+$W_i$ given $y_i,  \alpha^{(k)}, \delta^{(k)}$ i.e. the expectation of $W_i$
+with respect to the following probability mass function $P\{W_i|Y_i=y_i,
+\alpha^{(k)}, \delta^{(k)}\}$.
+  \item \textit{M-step.}  Find $\alpha^{(k+1)}, \delta^{(k+1)}$ as
+$\argmax_{\alpha, \delta} \ell(\alpha, \delta |y_1, \ldots, y_n, w_1^{(k)},
+\ldots, w_n^{(k)})$.
+\end{itemize}
+
+We would like you to provide the detailed description of the E-step, by 
+answering the following
+questions.
+\begin{enumerate}
+ \item[b)] Find the probability $P\{W_i|Y_i=y_i, \alpha^{(k)}, 
+\delta^{(k)}\}$, for short
+you can write it as $P\{W_i|y_i, \alpha, \delta\}$. In other words find
+$P\{W_i=1|Y_i=0, \alpha^{(k)}, \delta^{(k)}\}$, $P\{W_i=0|Y_i=0,
+\alpha^{(k)}, \delta^{(k)}\}$ and $P\{W_i=0|Y_i=y_i>0, \alpha^{(k)},
+\delta^{(k)}\}$.
+
+\noindent\textit{Hint: use the Bayes formula $P\{H|D\}={P\{D|H\} P\{H\}\over
+P\{D\}}$.}\\  
+ \\
+\color{blue}
+\begin{align*}
+    P(W_i|y_i, \alpha, \delta) &= \frac{P(Y_i|w_i,\alpha, \delta)P(W_i|\alpha, \delta)}{P(Y_i=y_i|\alpha, \delta)}\\[1em]
+    &= \frac{\left( (\exp\{-\lambda_i\}\lambda_i^{y_i}/y_i!)^{1-w_i}- \mathbbm{1}(y_i>0)\mathbbm{1}(w_i =1)\right) \pi_i^{w_i}(1-\pi_i)^{1-w_i}}{\left(\pi_i+(1-\pi_i)\exp(-\lambda_i)\right)^{\mathbbm{1}(y_i=0)}\left((1-\pi_i)\exp(-\lambda_i)\lambda_i^{y_i}/y_i!\right)^{\mathbbm{1}(y_i>0)}}\\[1em]
+    &= \left\{
+	\begin{array}{ll}
+		\frac{\pi_i^{w_i}(1-\pi_i)^{1-w_i}\exp(-\lambda_i(1-w_i))}{\pi_i+(1-\pi_i)\exp(-\lambda_i)}  & \mbox{if } y_i=0; \\[1em]
+		\frac{\pi_i^{w_i}(1-\pi_i)^{1-w_i}\left((\exp(-\lambda_i)\lambda_i^{y_i}/y_i!)^{1-w_i}-\mathbbm{1}(w_i=1)\right)}{(1-\pi_i)\exp(-\lambda_i)\lambda_i^{y_i}/y_i!} & \mbox{if } y_i>0.
+	\end{array}
+\right.
+\end{align*}
+In other words
+
+\begin{align*}
+    W_i =
+\left\{
+	\begin{array}{ll}
+		1  & \mbox{with probability } \frac{\pi_i}{\pi_i+(1-\pi_i)\exp(-\lambda_i)}\ \mbox{if}\ y_i = 0 \\[1em]
+		0  & \mbox{with probability } \frac{(1-\pi_i)\exp(-\lambda_i)}{\pi_i+(1-\pi_i)\exp(-\lambda_i)}\ \mbox{if}\ y_i = 0 \\[1em]
+		0  & \mbox{with probability } 1\ \mbox{if}\ y_i > 0 \\
+	\end{array}
+\right.
+\end{align*}
+\color{black}
+
+  \item[c)] Using $P\{W_i|Y_i, \alpha^{(k)}, \delta^{(k)}\}$ find
+$w_i^{(k+1)}=E(W_i|Y_i=y_i,\alpha^{(k)}, \delta^{(k)})$.\\   \\
+\color{blue}
+From the previous point,
+\begin{align*}
+    w_i^{k+1}&=E\left(W_i|Y_i=y_i, \alpha^{(k)},\delta^{(k)}\right)\\[1em]
+    &= \frac{\pi_i^{(k)}}{\pi_i^{(k)}+(1-\pi_i^{(k)})\exp(-\lambda_i^{(k)})}
+\end{align*}
+\color{black}
+
+ \item[d)] How can we interpret the values of $w_1^{(k+1)}, \ldots,
+w_n^{(k+1)}$ obtained at the last iteration of the algorithm ?\\  
+\color{blue}
+The values of $w_i^{(k+1)},...,w_n^{(k+1)}$ can show the probability of being from the spike of a zero.
+\color{black}
+
+
+ \end{enumerate}
+
+\section{\underline{Exercise 3} }
+
+{\color{blue} 
+See the code for the solution.}
+
+\begin{enumerate}
+\item{Source the \texttt{truncpoisson.R} code available from the course website to create the \texttt{truncpoisson} GLM family object. Fit manually the two steps of the Poisson hurdle model to the data by using the \texttt{family=truncpoisson} argument in the \verb"glm" command. Compare your results to the output from the \texttt{hurdle} command of the \texttt{pscl} package.}
+\item{Fit a simple Poisson GLM and a ZIP model. Among the three models, which provides the best fit?} 
+\item{Do high insurance levels make the number of consultations increase?}
+\end{enumerate}
+
+
+
+
+\end{document}

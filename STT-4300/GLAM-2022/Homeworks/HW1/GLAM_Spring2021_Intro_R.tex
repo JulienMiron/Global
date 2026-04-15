@@ -1,0 +1,376 @@
+\documentclass[a4paper,12pt]{article}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\usepackage[applemac]{inputenc}
+\usepackage[OT1,T1]{fontenc}
+
+\setlength{\textwidth}{160mm}
+\setlength{\textheight}{230mm}
+\setlength{\oddsidemargin}{-5mm}
+\setlength{\topmargin}{-10mm}
+% \usepackage{times}
+\usepackage{setspace}
+\usepackage{lscape}
+\usepackage{amsmath,amssymb}
+\usepackage{fancyvrb}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{fancyhdr}
+
+\usepackage{fancyvrb,moreverb,boxedminipage}
+
+
+\textwidth=6in
+\textheight=8in
+\topmargin=0.0in
+\oddsidemargin=0in 
+\baselineskip=18pt
+\headheight=2cm
+\setcounter{MaxMatrixCols}{10}
+
+\newcommand{\ns}{\!\!\!}
+\newcommand{\e}{\varepsilon}
+\newcommand{\be}{\beta}
+\newcommand{\s}{\sigma}
+\newcommand{\vv}{\vspace{.5cm}}
+\DeclareMathOperator{\plim}{plim}
+\DefineVerbatimEnvironment{code}{Verbatim}{fontsize=\small}
+\DefineVerbatimEnvironment{example}{Verbatim}{fontsize=\small}
+
+\def\by{\mathbf{y}}
+\def\bx{\mathbf{x}}
+\def\ba{\mathbf{a}}
+\def\bb{\mathbf{b}}
+\def\be{\mathbf{e}}
+\def\bu{\mathbf{u}}
+\def\bv{\mathbf{v}}
+\def\bz{\mathbf{z}}
+
+%===========
+%Greek letter vectors
+%===========
+\def\bbeta{\mbox{\boldmath $\beta$}}
+\def\bgamma{\mbox{\boldmath $\gamma$}}
+\def\bvareps{\mbox{\boldmath $\varepsilon$}}
+\def\bleta{\mbox{\boldmath $\eta$}}
+\def\bmu{\mbox{\boldmath $\mu$}}
+\def\btheta{\mbox{\boldmath $\theta$}}
+\def\bsigma{\mbox{\boldmath $\sigma$}}
+\def\blambgam{\mbox{\boldmath $\lambda_{\gamma}$}}
+\def\blambbet{\mbox{\boldmath $\lambda_{\beta}$}}
+\def\blambda{\mbox{\boldmath $\lambda$}}
+
+%===========
+%Matrices
+%===========
+\def\bX{\mathbf{X}}
+\def\bD{\mathbf{D}(\bsigma)}
+\def\bV{\mathbf{V}(\bsigma)}
+\def\bVinv{\mathbf{V}^{-1}(\bsigma)}
+\def\bR{\mathbf{R}(\bsigma)}
+\def\bA{\mathbf{A}}
+\def\bB{\mathbf{B}}
+\def\bZ{\mathbf{Z}}
+\def\bIn{\mathbf{I_{N}}}
+\def\bIm{\mathbf{I_{m}}}
+\def\bIni{\mathbf{I_{n}}}
+\def\SSW{\mathrm{SSW}}
+\def\SSB{\mathrm{SSB}}
+\def\Normal{\mathcal{N}\!}
+
+%===========
+%Parentheses, etc.
+%===========
+\def\op{\left(}
+\def\cp{\right)}
+\def\oc{\left[}
+\def\cc{\right]}
+\def\ok{\left\{}
+\def\ck{\right\}}
+
+%===========
+%Statistical functions and real numbers.
+%===========
+\def\exE{\mathbb{E}}
+\def\Real{\mathbb{R}}
+\def\Var{\mathbb{V}ar}
+\def\Proba{\mathbb{P}}
+
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue, urlcolor=blue}
+\urlstyle{tt}
+
+\newenvironment{exercices}{\newcounter{moncompteur}\begin{list}
+   {\bfseries Ex. \arabic{moncompteur}}{\usecounter{moncompteur}
+     \setlength{\labelwidth}{2.6em}\setlength{\leftmargin}{3.1em}}}{\end{list}}
+\renewcommand{\labelenumi}{\bfseries\alph{enumi})}
+\newcommand{\splus}[3][0]{\texttt{>~#2}\ \ \ \ \textit{#3}\\[#1mm]}
+
+\newenvironment{exo}
+{\begin{center}\setlength{\textwidth}{140mm} \underline{Exercise:} \begin{minipage}[t]{120mm}}
+{\end{minipage}\setlength{\textwidth}{160mm}\end{center}}
+
+
+\usepackage{verbatim}
+
+\lstset{ %
+  language=R, 
+  basicstyle=\ttfamily,
+  backgroundcolor=\color{lightgray},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  xleftmargin= 10 pt,
+  xrightmargin= 10 pt,
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  frame=none,                    % adds a frame around the code
+  numbers=none,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+}
+
+\pagestyle{fancy}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\definecolor{lightgray}{gray}{0.95}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+%
+
+\lhead{University of Geneva\\ \textbf{GLAM}\\
+Pr. Eva Cantoni}
+\rhead{GSEM\\ Spring 2021 \\ \textbf{Complementary Materials}}
+
+\begin{center}
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\fbox{{\Large An introduction to \texttt{R}}}
+
+\bigskip
+
+\bigskip
+
+\bigskip
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \noindent \textsc{University of Geneva} \hfill S411001 SE GLAM\\
+% Prof. Eva Cantoni \hfill Spring semester 2015\\
+% \noindent
+% \makebox[\linewidth]{\rule{\textwidth}{0.4pt}}\\[1.5ex]
+% \textbf{} \hfill \textbf{An introduction to \texttt{R}}\\
+% \makebox[\linewidth]{\rule{\textwidth}{0.4pt}}\\
+
+\paragraph{Course website:}
+
+\url{https://chamilo.unige.ch/home/courses/S411001/}
+
+
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+\parindent=0cm
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+\linespread{1.1}
+\sloppy
+
+{\section{Introduction}}
+
+\texttt{R} is a powerful statistical software which has numerous advantages over other packages, such as SPSS or Stata, the main ones being that it is totally cross-platform (you can install it on Microsoft Windows, Mac OS and most Linux distributions) and that it is open-source (it is free). See the official webpage \url{http://www.r-project.org} for general information; you can download the software and contributed packages at \url{http://stat.ethz.ch/CRAN/}. 
+
+Editors like \texttt{Rstudio} are also available for installation and become practical for everyday interaction with the \texttt{R} environment (\url{http://www.rstudio.com}). 
+
+One main feature of this software is that nearly all the user-computer communication is done through commands, in a specific programming language. This language is actually not much different than other languages such as those used in Splus and Matlab. So since you don't have menus and dialog boxes to run your analyses and computations from, you will have to learn the basics of the R programming language in order to perform data analysis.
+
+\url{http://www.rseek.org/} is one of the best web search engines regarding \texttt{R} and its programming language.
+
+\section{The \texttt{R} General user interface (RGui)}
+
+When you open \texttt{R}, you start with a window called \emph{RGui} which itself contains a window called \emph{R Console}. The console is the place where all the numerical outputs are printed. You can actually run all your analyses and computations from the console, but once you close the software, everything that is printed in the console window is lost. Therefore we strongly recommend you to run everything from a script file that you can save and load.
+
+A script is a text file with the \emph{.R} extension in which you write commands meant to be sent to \texttt{R}. You create a script file through \textsf{File} \verb@->@ \textsf{New script}. Notice that a script always opens in a new window, also embedded in the \emph{RGui} window, which is called \emph{Untitled} until you save it through \textsf{File} \verb@->@ \textsf{Save as...} and give it a name. You load a previously saved script through \textsf{File} \verb@->@ \textsf{Open script...}.
+
+
+\section{Data objects in \texttt{R}}
+\label{objects}
+
+Working in R means manipulating data objects, whether they are numerical variables, character strings or data files.
+
+The main types of data objects are:
+\begin{itemize}
+\item{\texttt{vector}: A vector of any dimension (including scalars).}
+\item{\texttt{matrix}: Vectors bound together.}
+\item{\texttt{data.frame}: Data object. More complicated than a matrix since it also contains variable names.}
+\item{\texttt{list}: Set of different objects, often outputs/results from analyses.}
+\item{\texttt{character}: Character string, usually found between quotes `` ''.}
+\end{itemize}
+
+\section{Basic Commands}
+
+To execute a command in the console, press Enter; to run a command from a script file, select it and type Ctrl+R. General remarks:
+\begin{itemize}
+\item{\textbf{The prompt} ($>$): In the console, every command (and output) is automatically displayed after the prompt $>$ symbol; you don't have to write it yourself, the computer adds it automatically. There is no prompt in a script file.}
+\item{\textbf{Comments}: The \texttt{\#} symbol is used for comments. On a code line, whatever is written after a \texttt{\#} symbol is ignored by \texttt{R} when the command is executed. We recommend that you comment your script files as much as possible so that you don't get lost when opening them again.}
+\item{\textbf{Help}: If you need help regarding the syntax of a function, go to \textsf{Help} \verb@->@ \textsf{R functions (text)...}, and type the name of the function. This is equivalent to type in the console \texttt{help()} with the name of the function between the parentheses.}
+\item{\textbf{Esc key}: If the console seems ``stuck'' or unresponsive, press Esc to get back to a new prompt. Be sure to check your syntax before sending the command again.}
+\end{itemize}
+
+\subsection{Create a variable/assignment} \label{variable}
+
+When you want to assign values to an object, you can either use the `\verb@<-@' symbol or the `\texttt{=}' sign. You write the name of the object on the left of this symbol, the value you want to assign to it on the right.
+
+For instance, the command \texttt{x <- 4} or \texttt{x = 4} assigns the value 4 to the object called \emph{x}. If such object does not already exist, it is automatically created. In this particular example, \emph{x} is considered as a vector of length 1.
+
+To display the content of an object, type its name in the console and hit Enter.
+
+\begin{exo}
+Create a new script file and save it in your H:$\backslash$ directory. Next create an object called \emph{$y$} and give it the value 10. Finally, check the content of \emph{y} through the console.
+\end{exo}
+
+You can create numerical vectors through the function \texttt{c()}. Between parentheses are the entries of this vector separated by commas.
+
+\begin{exo}
+Create the \emph{a} vector through \texttt{a <- c(2,4,6)}. Construct the \emph{b} vector whose elements are 3, 5 and 7. Compute the sum of these two vectors by running \texttt{a+b}.
+\end{exo}
+
+We can construct matrices by binding vectors by row or by columns. Try \verb"rbind(a,b)" and \verb"cbind(a,b)". As you can see, \verb"cbind" pastes columns
+together and \verb"rbind" pastes rows.
+
+\subsection{Extracting elements from objects}
+
+To reach a specific element of a vector, you type its name and between square brackets \texttt{[]} you enter the number referring to the position of the element. For example, \texttt{a[2]} will give you back 4.
+
+When dealing with matrices, you also use square brackets but identify the element by its row and column, the two numbers being separated by a comma.
+
+\begin{exo}
+Create a matrix by binding the \emph{a} and \emph{b} vectors together through \texttt{cbind(a,b)}, call it \emph{ab}. Then try \texttt{ab[1,2]}, \texttt{ab[,2]} and \texttt{ab[3,]}. How can you extract back the \emph{a} vector from the \emph{ab} matrix?
+\end{exo}
+
+In a list object, you identify an element also by its position number but put between double square brackets \texttt{[[]]} or by typing the name of the list followed
+by the symbol \verb"$" and the name of the element.
+
+\subsection{Operators} \label{operators}
+
+You can perform computations with the common mathematical operators: \texttt{+} addition, \texttt{-} substraction, \texttt{*} multiplication, \texttt{/} division, \texttt{\^} powers, \texttt{sqrt()} square root, \texttt{log()} natural logarithm and \texttt{exp()} exponential.
+Note that the operations priorities in general are the same as in mathematics, i.e. the parentheses have the highest priority, then power, then multiplication and division, and finally addition and substraction.
+\begin{exo}
+Run the following computations: $a=3*5^2$, $b=(3*5)^2$, $c=e^{(3+5)}$, $d=\sqrt{9}$.
+\end{exo}
+\begin{exo}
+Write the code for $z_1=\frac{(a+b)c}{d}a$ and $z_2=\frac{(a+b)c}{d^2}$.
+\end{exo}
+
+
+\subsection{Plots}
+
+Plots always appear in a separate window called \emph{R Graphics}. You can copy/paste them, save them in many formats, etc. A few useful plot commands are:
+\begin{flushleft} \begin{tabular}{ll}
+\verb*qplot(x)q & \small{General plot command, see \texttt{help(plot)} for details.}\\
+\verb*qboxplot(x)q & \small{Constructs the boxplot of \emph{x}.}\\
+\verb*qhist(x)q & \small{Constructs the histogram of \emph{x}.} \\
+\verb*qabline(...)q & \small{Adds a straight line to a previously created plot. See \texttt{help(abline)} for details.} \\
+\verb*qlines(...)q & \small{Adds a line to a previously created plot, using $(x,y)$ coordinates. See \texttt{help(lines)}.} \\
+\verb*qwin.graph()q & \small{Opens a new empty \emph{R Graphics} window.} \\
+\end{tabular} \end{flushleft}
+
+
+\subsection{Other useful commands}
+
+Here is a list of other basic commands and their effect:
+\begin{flushleft} \begin{tabular}{ll}
+\verb*qlength(x)q & \small{Gives back the dimension of \emph{x} (\emph{x} must be a vector).} \\
+\verb*qdim(x)q & \small{Gives back the number of rows and columns of \emph{x} (\emph{x} must be a matrix).} \\
+\verb*qdimnames(x)q & \small{Displays the names of the rows and columns of \emph{x}.} \\
+\verb*qsummary(x)q & \small{Returns a descriptive summary of \emph{x}, including the mean and quartiles.}\\
+\verb*qsum(x)q & \small{Computes the sum of all the elements composing \emph{x}.} \\
+\verb*qmean(x)q & \small{Computes the arithmetic mean of the elements composing \emph{x}.} \\
+\verb*qvar(x)q & \small{Computes the (bias-corrected) variance of the elements composing \emph{x}.}\\
+\verb*qls()q & \small{Displays all the available objects in the environment.} \\
+\verb*qrm(x)q & \small{Removes the \emph{x} object from the \texttt{R} environment.} \\
+\end{tabular} \end{flushleft}
+
+\begin{exo}
+Create the vector \emph{z} with elements 1, 2, 3, 4 and 5. Compare \texttt{length(z)} and \texttt{dim(z)}.
+\end{exo}
+
+\section{Importing data}
+
+\texttt{R} can read many different formats of data, but as far as this course is concerned, you will only use the simplest formats such as text files with the \emph{.txt} or \emph{.dat} extensions. To import data in the \texttt{R} environment you use the \texttt{read.table(file.choose(),header=TRUE)} command. After sending the command, a dialog window pops up and you can browse your data file.
+
+You set the optional argument \texttt{header} of the \texttt{read.table} function to \texttt{TRUE} if your data file features variable names in the first row, otherwise you write \texttt{header=FALSE} in the function.
+
+\section{Work with {\tt R} and \texttt{Rstudio}}
+
+The most efficient way of working with \texttt{R} consists on saving the used commands in a script file for later execution. You can create it via the menu items {\tt File -> New script}. To save all information coded in the file it is necessary to save the script with the extension `{\tt .R}'. While in the console is simply necessary to press {\tt ENTER} to run your code, if you want to do it directly from the script you can use the option \emph{run} in the menu or the command {\tt CTRL+R} ({\tt cmd+Enter} for Mac) after selecting the code you want to run.
+
+\smallskip
+
+ In order to improve your experience of working with script files, you can use  \texttt{Rstudio}, a very convenient interface providing code highlighting and easy interaction with the \texttt{R} environment. Moreover, with its system of \emph{panes}, you can have viewers for the help files, plots, loaded packages in a single window. 
+
+\smallskip
+
+\texttt{Rstudio} can be downloaded and installed for free via their website \url{https://www.rstudio.com}
+
+\end{document}

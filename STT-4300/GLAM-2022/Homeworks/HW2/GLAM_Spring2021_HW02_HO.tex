@@ -1,0 +1,401 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[applemac]{inputenc}
+\usepackage[OT1,T1]{fontenc}
+
+\setlength{\textwidth}{160mm}
+\setlength{\textheight}{230mm}
+\setlength{\oddsidemargin}{-5mm}
+\setlength{\topmargin}{-10mm}
+% \usepackage{times}
+\usepackage{setspace}
+\usepackage{lscape}
+\usepackage{amsmath,amssymb}
+\usepackage{fancyvrb}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{fancyhdr}
+
+\usepackage{fancyvrb,moreverb,boxedminipage}
+
+\textwidth=6in
+\textheight=8in
+\topmargin=0.0in
+\oddsidemargin=0in 
+\baselineskip=18pt
+\headheight=2cm
+\setcounter{MaxMatrixCols}{10}
+
+\newcommand{\ns}{\!\!\!}
+\newcommand{\e}{\varepsilon}
+\newcommand{\be}{\beta}
+\newcommand{\s}{\sigma}
+\newcommand{\vv}{\vspace{.5cm}}
+\DeclareMathOperator{\plim}{plim}
+\DefineVerbatimEnvironment{code}{Verbatim}{fontsize=\small}
+\DefineVerbatimEnvironment{example}{Verbatim}{fontsize=\small}
+
+\def\by{\mathbf{y}}
+\def\bx{\mathbf{x}}
+\def\ba{\mathbf{a}}
+\def\bb{\mathbf{b}}
+\def\be{\mathbf{e}}
+\def\bu{\mathbf{u}}
+\def\bv{\mathbf{v}}
+\def\bz{\mathbf{z}}
+
+%===========
+%Greek letter vectors
+%===========
+\def\bbeta{\mbox{\boldmath $\beta$}}
+\def\bgamma{\mbox{\boldmath $\gamma$}}
+\def\bvareps{\mbox{\boldmath $\varepsilon$}}
+\def\bleta{\mbox{\boldmath $\eta$}}
+\def\bmu{\mbox{\boldmath $\mu$}}
+\def\btheta{\mbox{\boldmath $\theta$}}
+\def\bsigma{\mbox{\boldmath $\sigma$}}
+\def\blambgam{\mbox{\boldmath $\lambda_{\gamma}$}}
+\def\blambbet{\mbox{\boldmath $\lambda_{\beta}$}}
+\def\blambda{\mbox{\boldmath $\lambda$}}
+
+%===========
+%Matrices
+%===========
+\def\bX{\mathbf{X}}
+\def\bD{\mathbf{D}(\bsigma)}
+\def\bV{\mathbf{V}(\bsigma)}
+\def\bVinv{\mathbf{V}^{-1}(\bsigma)}
+\def\bR{\mathbf{R}(\bsigma)}
+\def\bA{\mathbf{A}}
+\def\bB{\mathbf{B}}
+\def\bZ{\mathbf{Z}}
+\def\bIn{\mathbf{I_{N}}}
+\def\bIm{\mathbf{I_{m}}}
+\def\bIni{\mathbf{I_{n}}}
+\def\SSW{\mathrm{SSW}}
+\def\SSB{\mathrm{SSB}}
+\def\Normal{\mathcal{N}\!}
+
+%===========
+%Parentheses, etc.
+%===========
+\def\op{\left(}
+\def\cp{\right)}
+\def\oc{\left[}
+\def\cc{\right]}
+\def\ok{\left\{}
+\def\ck{\right\}}
+
+%===========
+%Statistical functions and real numbers.
+%===========
+\def\exE{\mathbb{E}}
+\def\Real{\mathbb{R}}
+\def\Var{\mathbb{V}ar}
+\def\Proba{\mathbb{P}}
+
+
+\renewcommand{\labelenumi}{\bfseries\alph{enumi})}
+\newcommand{\splus}[3][0]{\texttt{>~#2}\ \ \ \ \textit{#3}\\[#1mm]}
+
+\newenvironment{exo}
+{\begin{center}\setlength{\textwidth}{140mm} \underline{Exercise:} \begin{minipage}[t]{120mm}}
+{\end{minipage}\setlength{\textwidth}{160mm}\end{center}}
+
+
+\usepackage{verbatim}
+
+\lstset{ %
+  language=R, 
+  basicstyle=\ttfamily,
+  backgroundcolor=\color{lightgray},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  xleftmargin= 10 pt,
+  xrightmargin= 10 pt,
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  frame=none,                    % adds a frame around the code
+  numbers=none,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+}
+
+\pagestyle{fancy}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\definecolor{lightgray}{gray}{0.95}
+
+% # <<opts_chunk, include = FALSE>>=
+% #   opts_chunk$set(fig.width=10, fig.height=4, out.width = '0.9\\linewidth', echo =FALSE)
+% # @
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+
+\lhead{University of Geneva\\ \textbf{GLAM}\\
+Pr. Eva Cantoni}
+\rhead{GSEM\\ Spring 2022 \\ \textbf{Homework 02}}
+
+\begin{center}
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\fbox{{\Large Handwritten exercises on GLMs - Handout}}
+
+\bigskip
+
+\bigskip
+
+\bigskip
+\end{center}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+\parindent=0cm
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+\linespread{1.1}
+\sloppy
+
+\section{\underline{Exercise 1}}
+Show that the Binomial distribution and the Gamma distribution belong to the exponential family of distributions, by identifying $\theta$, $A$, $\phi$, and the functions $b()$ and $c()$ (cf.\ p.~53 of the course slides). Using the properties of the distributions of the exponential family, give the expectation and the variance in each case.
+
+
+\textit{Notation:}
+\begin{itemize}
+\item If $Y$ follows a  binomial distribution ${\mathcal B}(m,p)$, then 
+$$P(Y=y; m,p) = {m \choose y} p^{y} (1- p)^{m-y}, \ \  \mbox{ for } y=0, \ldots, m.$$
+
+{\color{blue} 
+
+From the pmf above, we can write
+
+\begin{align*}
+  \mathbb{P}(Y = y ; m, p) &= {m \choose y} \left(\frac{p}{1-p}\right)^{y} (1- p)^{m}\\
+&=\exp\{\ln{m \choose y}+y\ln \left(\frac{p}{1-p}\right) + m\ln (1-p)\}\\
+&= \exp\{y\ln \left(\frac{p}{1-p}\right) + m\ln (1-p) + \ln{m \choose y}\}  {\color{red}} 
+\end{align*}
+From this, we deduce $\theta = \ln \frac{p}{1-p}$ {\color{red}} . Also, $b(\theta) = - m \ln(1-p)$.
+
+
+ From $\theta = \ln \frac{p}{1-p}$ we obtain
+
+\begin{align*}
+    \exp \theta&=\frac{p}{1-p}\\
+    \exp\theta - p\exp\theta&=p\\
+    \exp\theta&=p(1+\exp\theta)\\
+    p&=\frac{\exp\theta}{1+\exp\theta} 
+\end{align*}
+and therefore $b(\theta)= - m  \ln (\frac{1}{1+\exp\theta}) = m \ln(1+\exp\theta)$. \\
+
+At this point, we have :
+\begin{align*}
+  \mathbb{P}(Y = y ; m, p) &= \exp\{y\theta - b(\theta) + \ln{m \choose y}\},
+\end{align*}
+which leaves $\phi=1$, $A=1$ and $c(y, \frac{\phi}{A})= \ln{m \choose y}$
+\begin{itemize}
+  \item $\displaystyle \theta = \ln \frac{p}{1-p}$
+  \item $\displaystyle b(\theta) = m\ln \op 1 + \exp \theta \cp$
+  \item $\displaystyle \phi  = 1$ 
+  \item $\displaystyle A = 1 $ 
+  \item $\displaystyle c \op y , \frac{\phi}{A}\cp = \log { m \choose y}$ 
+\end{itemize}
+
+This gives us $\mathbb{E}(Y|\theta)=b'(\theta)=m\frac{\exp\theta}{1+\exp\theta}=mp$  and $\text{Var}(Y|\theta)=m\frac{b''(\theta)\phi}{A}=\frac{\exp\theta}{(1+\exp\theta)^2}=mp(1-p)$ 
+}
+
+
+\item If $Y$ follows a Gamma distrbution $\Gamma(\mu,\nu)$, then 
+$$f(y;\mu,\nu)=\frac{\nu \exp(-\nu y/\mu)(\nu y/\mu)^{\nu-1}}{\mu\Gamma(\nu)}, \ \  \mbox{ for } y>0.$$
+\end{itemize}
+
+{\color{blue} 
+
+From the pdf above, we can write
+
+\begin{align*}
+  f(y;\mu,\nu)&=\exp\left(\ln\frac{\nu \exp(-\nu y/\mu)(\nu y/\mu)^{\nu-1}}{\mu\Gamma(\nu)}\right)\\
+&= \exp\left(\ln \nu - \nu \frac{y}{\mu} + \nu\ln\nu+\nu\ln\frac{y}{\mu}-\ln\nu-\ln\frac{y}{\mu}-\ln\mu-\ln\Gamma(\nu)\right)\\
+&= \exp\left(-\nu( y\frac{1}{\mu} - \ln\frac{1}{\mu}) + \nu\ln\nu+(\nu-1)\ln y - \ln\Gamma(\nu) \right) 
+\end{align*}
+
+
+
+
+
+
+
+\begin{itemize}
+  \item $\displaystyle \theta = \frac{1}{\mu}$ 
+  \item $\displaystyle b(\theta) = \ln(\frac{1}{\mu}) = \ln \theta$ 
+  \item $\displaystyle \phi  = \frac{1}{\nu}$ 
+  \item $\displaystyle A = -1 $ 
+  \item $\displaystyle c\op y , \frac{\phi}{A}\cp = 
+  -\frac{A}{\phi} \ln \op - \frac{A}{\phi}\cp 
+  + \op - \frac{A}{\phi} -1\cp\ln y - \ln \Gamma \op -\frac{A}{\phi}\cp  $ 
+    \end{itemize}
+    
+    This gives us $\mathbb{E}(Y|\theta)=b'(\theta)= \frac{1}{\theta}=\mu$   and $\text{Var}(Y|\theta)=\frac{b''(\theta)\phi}{A}=\frac{1}{\theta^2\nu}=\frac{\mu^2}{\nu}$ 
+}
+
+
+\section{\underline{Exercise 2} }
+
+The beta distribution is used for situations where the measured variable takes values between 0 and 1, for example proportions.
+
+We let $Y$ follow a beta distribution with parameters $\mu$ and  $\phi$, where $\mu$ is the parameter of interest and $\phi$ is a nuisance parameter. The density function of $Y$ is
+$$f(y) = \frac{\Gamma(\phi)}{\Gamma(\phi \mu) + \Gamma(\phi (1-\mu) )} y^{\phi \mu - 1} (1-y)^{\phi (1-\mu) -1},  \ \  \mbox{ for } 0 < y < 1.$$
+
+Does this distribution belong to the exponential family? Justify your answer, and if yes deduce $E(Y)$ and $Var(Y)$.
+
+
+
+{\color{blue} 
+We write
+\begin{align*}
+  f(y)&=\exp\ok\ln\Gamma\op\phi\cp - \ln\Gamma\op \phi \mu \cp - \ln \Gamma\op \phi\op1-\mu\cp\cp +\op\phi\mu-1\cp\ln y + \op \phi\op1-\mu\cp\cp \ln \op 1-y\cp \ck\\
+  &= \exp \ok \op \phi\mu-1 \cp\ln y + \op \phi\op1-\mu\cp\cp \ln \op 1-y\cp + \ln\Gamma\op\phi\cp - \ln\Gamma\op \phi \mu \cp - \ln \Gamma\op \phi\op1-\mu\cp\cp \ck. 
+\end{align*}
+We therefore cannot express $f(y)$ as 
+\begin{align*}
+  f(y)&=\exp\ok A \frac{y\theta - b\op\theta\cp}{\phi} + c\op y, \frac{\phi}{A}\cp\ck.
+\end{align*}
+
+In particular, the term $y \theta$ cannot be identified.
+
+With this parametrisation, the beta distribution does not belong to the exponential family.
+  
+}
+\section{\underline{Exercise 3}}
+\begin{itemize}
+\item Let $f(y;\theta)$ be the probability density function of a random variable $Y$, for a given parameter $\theta$. Without using the exponential family structure, show that for ${\displaystyle U(\theta;Y) = \frac{\partial}{\partial \theta} \log f(Y;\theta)}$
+
+{\color{blue}
+  
+}
+
+\begin{enumerate}
+    \item{$\exE\left[U(\theta;Y)\right]=0$,}
+      {\color{blue}
+        \begin{align*}
+          \exE\oc U(\theta;Y)\cc  
+          &= 
+          \exE\oc \frac{\partial}{\partial \theta} \log f(Y;\theta)\cc\\  
+          &= 
+          \exE\oc \frac{1}{f(Y;\theta)} \frac{\partial}{\partial \theta} f(Y;\theta)\cc \\ 
+          &= 
+          \int \frac{1}{f(y;\theta)} \oc \frac{\partial}{\partial \theta} f(y;\theta) \cc f(y;\theta) \mathrm{d}y \\
+          &= 
+          \int  \frac{\partial}{\partial \theta} f(y;\theta) \ \mathrm{d}y \\
+          &= 
+          \frac{\partial}{\partial \theta} \int f(y;\theta)  \  \mathrm{d}y \quad \textrm{if the support is compact} \\
+          &=
+          \frac{\partial}{\partial \theta} (1) \quad \textrm{given that $f(y;\theta)$ is a density}\\
+          \exE\oc U(\theta;Y)\cc  &= 0
+        \end{align*}
+      }
+    \item{${\displaystyle \exE\left[\frac{\partial U(\theta;Y)}{ \partial \theta}\right]= - \exE\oc U^2(\theta;Y)\cc}$.}
+      {\color{blue} 
+        \begin{align*}
+          \exE\oc\frac{\partial U(\theta;Y)}{ \partial \theta}\cc 
+          &=  
+          \exE\oc\frac{\partial^2}{\partial \theta^2} \log f(Y;\theta)\cc  
+          = 
+          \exE\ok \frac{\partial}{\partial \theta}\oc \frac{1}{f(Y;\theta)} \frac{\partial}{\partial \theta} f(Y;\theta)\cc \ck \\
+          &= 
+          \exE\ok  \frac{1}{f(Y;\theta)^2} \oc  
+          f(Y;\theta) \frac{\partial^2}{\partial \theta^2} f(Y;\theta) - \op \frac{\partial}{\partial \theta} f(Y;\theta)\cp^2\cc \ck \\
+          &= 
+          \exE\oc\frac{1}{f(Y;\theta)} \frac{\partial^2}{\partial \theta^2} f(Y;\theta)\cc
+          -
+          \exE\oc \frac{1}{f(Y;\theta)} \frac{\partial}{\partial \theta} f(Y;\theta) \cc^2 \\
+          &= 
+          \int \frac{\partial^2}{\partial \theta^2} f(y;\theta) \ \mathrm{d}y 
+          -
+          \exE\oc \frac{\partial}{\partial \theta} \log f(Y;\theta) \cc^2 \\
+          &= 
+          \frac{\partial^2}{\partial \theta^2} \int f(y;\theta) \ \mathrm{d}y - 
+          \exE\oc U^2(\theta;Y)\cc 
+           \\
+          \exE\oc\frac{\partial U(\theta;Y)}{ \partial \theta}\cc  &= -\exE\oc U^2(\theta;Y)\cc
+   \end{align*}
+      } 
+\end{enumerate}
+
+\item What condition do we have to impose on the support of $Y$ to prove these two statements?
+
+{\color{blue}
+  The support of the random variable $Y$ needs to be compact, so that in particular the integral  and the partial derivative operators can be exchanged. 
+}
+\end{itemize}
+
+\section{\underline{Exercise 4}}
+
+In this exercise, we consider the problem of Maximum Likelihood estimation of the parameters of a Poisson random variable with a log link, i.e : 
+\begin{equation*}
+    g\op\mu_i\cp = \mathrm{ln}\ok \exE \oc Y_i \ | \ \bX_i = \bx_i  \cc\ck = \bx_i^T\bbeta
+\end{equation*}
+
+\begin{enumerate}
+  \item Write the estimating (score) equations for the proposed model.
+  {\color{blue}
+  
+  Start by writing : 
+
+  \begin{align*}
+    \mathcal{L} \op \bbeta; \by, \bX\cp &= \prod_{i=1}^n \frac{\exp(y_ix_i^T\beta)\exp(-\exp(x_i^T\beta))}{y_i!} \\
+    \ell(\bbeta; \by, \bX)&=\sum\limits_{i =1}^n [y_ix_i^T\beta - \exp(x_i^T\beta)-\ln(y_i!)]
+  \end{align*}
+  
+  The score function is:
+  
+  \begin{align*}
+   \frac{\partial }{\partial\bbeta}\ell \op \bbeta ; \by, \bX \cp  &= \sum_{i=1}^n \oc y_ix_i-\exp(x_i^T\beta)x_i \cc\\
+   &= \sum_{i=1}^n \oc y_i-\exp(x_i^T\beta) \cc x_i 
+  \end{align*}
+  
+  }
+  \item Show that 
+    \begin{equation*}
+   \mathcal J(\bbeta; \by) 
+   = \sum_{i=1}^n \exp\{\bx_i^T\beta\} 
+   \bx_i \bx_i^T.
+   \label{eq:J}
+  \end{equation*}
+    {\color{blue}
+From $ \mathcal J(\bbeta; \by)= -\mathbb{E}\op\frac{\partial^2 }{\partial\bbeta\partial\bbeta^T}\ell \op \bbeta ; \by, \bX \cp\cp$ and what we found in a), 
+
+\begin{align*}
+    \frac{\partial^2 }{\partial\bbeta\partial\bbeta^T} \ell \op \bbeta ; \by, \bX \cp&=\frac{\partial}{\partial \beta}\sum_{i=1}^n \oc y_i-\exp(x_i^T\beta) \cc x_i \\
+    &= -\sum_{i=1}^n \oc \exp(x_i^T\beta) \cc x_i x_i ^T  \\
+    \Leftrightarrow \mathcal J(\bbeta; \by) &= \sum_{i=1}^n \oc \exp(x_i^T\beta) \cc x_i x_i ^T 
+\end{align*}
+}
+  
+  \item Write the formula for the Newton-Raphson algorithm.  
+
+  {\color{blue}
+\begin{align*}
+    \bbeta ^ {(k)}= \bbeta^{(k-1)}+ \ok \sum_{i=1}^n \oc \exp(x_i^T\beta) \cc x_i x_i ^T\ck^{-1}\ok \sum_{i=1}^n \oc y_i-\exp(x_i^T\beta) \cc x_i \ck
+\end{align*}
+}
+\end{enumerate}
+
+
+
+
+\end{document}

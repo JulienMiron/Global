@@ -1,0 +1,284 @@
+\documentclass[a4paper,12pt]{article}\usepackage[]{graphicx}\usepackage[]{color}
+% maxwidth is the original width if it is less than linewidth
+% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\usepackage[applemac]{inputenc}
+\usepackage[OT1,T1]{fontenc}
+
+\setlength{\textwidth}{160mm}
+\setlength{\textheight}{230mm}
+\setlength{\oddsidemargin}{-5mm}
+\setlength{\topmargin}{-10mm}
+% \usepackage{times}
+\usepackage{setspace}
+\usepackage{lscape}
+\usepackage{amsmath,amssymb}
+\usepackage{fancyvrb}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{fancyhdr}
+
+\usepackage{fancyvrb,moreverb,boxedminipage}
+
+
+\textwidth=6in
+\textheight=8in
+\topmargin=0.0in
+\oddsidemargin=0in 
+\baselineskip=18pt
+\headheight=2cm
+\setcounter{MaxMatrixCols}{10}
+
+\newcommand{\ns}{\!\!\!}
+\newcommand{\e}{\varepsilon}
+\newcommand{\be}{\beta}
+\newcommand{\s}{\sigma}
+\newcommand{\vv}{\vspace{.5cm}}
+\DeclareMathOperator{\plim}{plim}
+\DefineVerbatimEnvironment{code}{Verbatim}{fontsize=\small}
+\DefineVerbatimEnvironment{example}{Verbatim}{fontsize=\small}
+
+\def\by{\mathbf{y}}
+\def\bx{\mathbf{x}}
+\def\ba{\mathbf{a}}
+\def\bb{\mathbf{b}}
+\def\be{\mathbf{e}}
+\def\bu{\mathbf{u}}
+\def\bv{\mathbf{v}}
+\def\bz{\mathbf{z}}
+
+%===========
+%Greek letter vectors
+%===========
+\def\bbeta{\mbox{\boldmath $\beta$}}
+\def\bgamma{\mbox{\boldmath $\gamma$}}
+\def\bvareps{\mbox{\boldmath $\varepsilon$}}
+\def\bleta{\mbox{\boldmath $\eta$}}
+\def\bmu{\mbox{\boldmath $\mu$}}
+\def\btheta{\mbox{\boldmath $\theta$}}
+\def\bsigma{\mbox{\boldmath $\sigma$}}
+\def\blambgam{\mbox{\boldmath $\lambda_{\gamma}$}}
+\def\blambbet{\mbox{\boldmath $\lambda_{\beta}$}}
+\def\blambda{\mbox{\boldmath $\lambda$}}
+
+%===========
+%Matrices
+%===========
+\def\bX{\mathbf{X}}
+\def\bD{\mathbf{D}(\bsigma)}
+\def\bV{\mathbf{V}(\bsigma)}
+\def\bVinv{\mathbf{V}^{-1}(\bsigma)}
+\def\bR{\mathbf{R}(\bsigma)}
+\def\bA{\mathbf{A}}
+\def\bB{\mathbf{B}}
+\def\bZ{\mathbf{Z}}
+\def\bIn{\mathbf{I_{N}}}
+\def\bIm{\mathbf{I_{m}}}
+\def\bIni{\mathbf{I_{n}}}
+\def\SSW{\mathrm{SSW}}
+\def\SSB{\mathrm{SSB}}
+\def\Normal{\mathcal{N}\!}
+
+%===========
+%Parentheses, etc.
+%===========
+\def\op{\left(}
+\def\cp{\right)}
+\def\oc{\left[}
+\def\cc{\right]}
+\def\ok{\left\{}
+\def\ck{\right\}}
+
+%===========
+%Statistical functions and real numbers.
+%===========
+\def\exE{\mathbb{E}}
+\def\Real{\mathbb{R}}
+\def\Var{\mathbb{V}ar}
+\def\Proba{\mathbb{P}}
+
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue, urlcolor=blue}
+\urlstyle{tt}
+
+\newenvironment{exercices}{\newcounter{moncompteur}\begin{list}
+   {\bfseries Ex. \arabic{moncompteur}}{\usecounter{moncompteur}
+     \setlength{\labelwidth}{2.6em}\setlength{\leftmargin}{3.1em}}}{\end{list}}
+\renewcommand{\labelenumi}{\bfseries\alph{enumi})}
+\newcommand{\splus}[3][0]{\texttt{>~#2}\ \ \ \ \textit{#3}\\[#1mm]}
+
+\newenvironment{exo}
+{\begin{center}\setlength{\textwidth}{140mm} \underline{Exercise:} \begin{minipage}[t]{120mm}}
+{\end{minipage}\setlength{\textwidth}{160mm}\end{center}}
+
+
+\usepackage{verbatim}
+
+\lstset{ %
+  language=R, 
+  basicstyle=\ttfamily,
+  backgroundcolor=\color{lightgray},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  xleftmargin= 10 pt,
+  xrightmargin= 10 pt,
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  frame=none,                    % adds a frame around the code
+  numbers=none,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+}
+
+\pagestyle{fancy}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\definecolor{lightgray}{gray}{0.95}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+%
+
+\lhead{University of Geneva\\ \textbf{GLAM}\\
+Prof. Eva Cantoni}
+\rhead{GSEM\\ Spring 2022 \\ \textbf{Homework 04}}
+
+\begin{center}
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\fbox{{\Large  Two full data analysis using \texttt{glm()}}}
+
+\bigskip
+
+\bigskip
+
+\bigskip
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+% \noindent \textsc{University of Geneva} \hfill S411001 SE GLAM\\
+% Prof. Eva Cantoni \hfill Spring semester 2015\\
+% \noindent
+% \makebox[\linewidth]{\rule{\textwidth}{0.4pt}}\\[1.5ex]
+% \textbf{} \hfill \textbf{Homework 04: Two full data analysis using \texttt{glm()}}\\
+% \makebox[\linewidth]{\rule{\textwidth}{0.4pt}}\\
+% 
+% \noindent Course website: \url{https://chamilo.unige.ch/home/courses/S411001/}
+
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+\parindent=0cm
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+\linespread{1.1}
+\sloppy
+
+\section{\underline{Exercise 1}}
+
+For this exercise, the data come from a study on infant respiratory diseases. The proportion of children developing bronchitis or pneumonia in their first year of life has been recorded by type of feeding (breast, bottle, breast with supplement) and by the newborn's sex\footnote{The GLIM
+system, C.D.Payne, Relecrre 3.77 Manual,1987}. The \verb"babyfood-bernoulli.txt" file contains the individual binary data (Bernoulli
+responses for each infant) while the file called \texttt{babyfood-binomial.txt} features grouped data (Binomial responses).
+\begin{enumerate}
+\item{Perform a complete analysis of both datasets using the \texttt{glm()} command. Compare the estimates, their standard errors, deviances, AIC criteria and residuals plots\footnote{Load the \texttt{statmod} package in order to compute randomized quantile residuals through the \texttt{qresid()} function.}. What do you observe?}
+\item{In order to investigate what you just observed, give the analytical log-likelihood expressions for a GLM using a logit link when
+\begin{enumerate}
+\item\label{bernou}{$y_1,\ldots,y_n \sim \mathcal{B}(1, p_i)$, with $n=2074$,}
+\item\label{binom}{$y_1,\ldots,y_6 \sim  \mathcal{B}(m_i,p_i)$ with $\sum_{i=1}^6 m_i = n = 2074$.}
+\end{enumerate}}
+\item\label{compu}{Compute analytically the deviance expressions $\mathcal{D}(y,\hat{p})$ for both cases \ref{bernou} and \ref{binom}. Comment the use of $\mathcal{D}(y,\hat{p})$ as a goodness of fit statistic.}
+\item{Using the results from point \ref{compu}, comment the use of the AIC criterion.}
+\end{enumerate}
+
+\section{\underline{Exercise 2}}
+
+The dataset \verb"CpsWages.txt" consists of a random sample of 534 persons (no missing data) from the Current Population Survey, with information on wages (\texttt{wage}, in dollars per hour) and other characteristics of the workers, including
+\begin{itemize}
+\item{\texttt{sex} coded 1=female and 0=male,}
+\item{\texttt{age} in years,}
+\item{\texttt{race} coded 1=other, 2=hispanic and 3=white,}
+\item{\texttt{marr}: marital status coded 1=married and 0=unmarried,}
+\item{\texttt{education}: number of years of education,}
+\item{\texttt{experience}: number of years of work experience,}
+\item{\texttt{occupation}: occupational status coded 1=management, 2=sales, 3=clerical, 4=service, 5=professional and 6=other,}
+\item{\texttt{sector}: work sector coded 0=other, 1=manufacturing and 2=construction,}
+\item{\texttt{south}: region of residence coded 1=lives in the South and 0=lives in the North,}
+\item{\texttt{union}: union membership coded 1=union member and 0=not a member.}
+\end{itemize}
+We wish to determine whether wages are related to these characteristics and specifically whether there is a gender gap in wages\footnote{Reference: Berndt, ER. The Practice of Econometrics. 1991. NY:Addison-Wesley.}.
+\begin{enumerate}
+\item{Suggest a specification for this dataset. Why is it not a good idea to include at the same time \verb"age", \verb"education" and \verb"experience"~?}
+\item{Fit the proposed model and perform diagnostic plots. Do you observe any departure from the hypotheses?}
+\item{Look at parameters estimates. Are all the parameters significant? How would you test whether the \verb"sector" variable is
+significant or not?}
+\item{Use a global approach to select a simpler model.}
+\item{Estimate the final model and check its features.}
+\item{Would your conclusions be altered if you remove the 171st and 200th observations?}
+\item{Use the package \verb"visreg"\footnote{Package has to be installed. For additional information, see the R package documentation and the following article 
+\url{https://journal.r-project.org/archive/2017/RJ-2017-046/RJ-2017-046.pdf}} to visualize the effects of the covariates on the response.}
+\item{Is there any interesting interaction that you could add in your model? If yes, use the \verb"visreg" package to visualize its effect.}
+\end{enumerate}
+
+\end{document}
