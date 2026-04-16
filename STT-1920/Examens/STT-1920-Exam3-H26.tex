@@ -1,0 +1,386 @@
+\def\Ponderation{25}
+\def\SigleNumero{STT-1920}
+\def\NomCours{Méthodes statistiques}
+\def\DateEvaluation{}
+\def\HeureEvaluation{}
+\def\Session{Hiver 2026}
+\def\NomEvaluation{Examen 3}
+
+% Ne rien mettre entre les accolades si l'enseignant (ou l'enseignante) est aussi le coordonnateur (ou la coordonnatrice)
+\def\Coordonnatrice{}
+\def\Coordonnateur{}
+
+% Ne rien mettre entre les accolades s'il y a plus d'une section
+\def\Enseignant{Julien Miron}
+\def\Enseignante{}
+
+% Ne rien mettre entre les accolades s'il s'agit d'un cours à section unique
+% Mettre le nom de chacun des enseignants et enseignantes entre les accolades
+% Une case à cocher sera générée pour chacune des sections
+\def\SectionA{}
+\def\SectionB{}
+\def\SectionC{}
+\def\SectionD{}
+
+
+\def\Directives{
+\begin{enumerate}
+\item Matériel autorisé:
+\begin{itemize}
+\item Calculatrice scientifique {\bf autorisée par la faculté des sciences et de génie};
+\item Une seule feuille aide-m\'emoire \textbf{manuscrite} de format lettre (8.5''$\times$11'') recto-verso.
+\end{itemize}
+\item Assurez-vous que cette évaluation comporte \numquestions ~exercices (incluant 1 question bonus) répartis sur \numpages{}~pages, pour un total de \numpoints{}~points et \numbonuspoints{}~points bonus.\
+\item \textbf{Veuillez ne pas dégrafer votre examen.}
+\item Vous devez\textbf{ justifier toutes vos réponses} par une démarche claire, sauf pour les questions à choix de réponse.\
+\item Pour les questions à choix de réponse et les vrais ou faux, vous pouvez mettre un X, un crochet ($\checkmark$) ou remplir la case.\
+\item Vous devez laisser tout ce qui ne servira pas durant l'examen à l'avant de la salle AVANT de rejoindre votre place.\
+\item Vous n'avez droit à AUCUN appareil électronique en votre possession durant l'examen.
+\item Une fois assis à votre place, vous devez demandez l'autorisation pour vous lever, même si l'examen n'est pas encore commencé.
+\item Dans les 5 dernières minutes de l'examen, il sera interdit de se lever avant que TOUTES les copies n'aient été ramassées.
+\end{enumerate}
+\begin{itemize}
+\item[$\rightarrow$] Le non-respect des consignes 7-8-9 entraînera une pénalité de 10\%.
+\end{itemize}
+}
+
+\newcommand{\affichepoints}{}     % ← AVEC points
+% \renewcommand{\affichepoints}{on} % ← SANS points (non vide)
+
+\providecommand{\Gradescope}{}
+
+
+\documentclass{Evaluation}
+\usepackage{multicol,graphicx}
+
+\printanswers
+
+
+
+\begin{document}
+
+\pageblanche
+
+%%%%%%%%%%%%%%%% QUESTION 1 %%%%%%%%%%%%%%%%
+\begin{questions}
+\question[3] Soit la table d'ANOVA suivante obtenue à l'aide d'un logiciel:
+\begin{verbatim}
+>summary(AnovaModel)
+               SS   DDL       MS        F0  valeur-p       
+Saumons    926.12     4   231.53    238.72    0.0001 
+Residuals   46.55    48     0.97                      
+\end{verbatim}
+
+À partir de la table d'ANOVA, quelle affirmation parmi les suivantes est vraie?
+
+\begin{checkboxes}
+\choice La proportion de la variance totale expliquée par le facteur \texttt{Saumons} est égale à $0{,}0001$. 
+\choice Nous avons 4 niveaux différents pour le facteur \texttt{Saumons}.
+\choice La variance du facteur \texttt{Saumons} est environ 20 fois plus grande que la variance du facteur \texttt{Residuals}.
+\correctchoice L'hypothèse nulle suppose que les moyennes des différents niveaux du facteur \texttt{Saumons} étaient toutes égales.
+\end{checkboxes}
+
+\begin{solution}
+D est vraie. En ANOVA à un facteur, $H_0\!: \mu_1=\mu_2=\cdots=\mu_k$.
+
+A) $0{,}0001$ est la valeur-$p$, pas le $R^2$. Le $R^2=\text{SS}_{\text{Saumons}}/\text{SS}_{\text{Total}}=926{,}12/(926{,}12+46{,}55)\approx 0{,}952$.
+
+B) $\text{DDL}=k-1=4$, donc $k=5$ niveaux (pas 4).
+
+C) $\text{MS}_{\text{Saumons}}/\text{MS}_{\text{Residuals}}=231{,}53/0{,}97\approx 238{,}7$, et non environ 20.
+\end{solution}
+
+
+\vspace{0.5cm}
+%%%%%%%%%%%%%%%% QUESTIONS 2 ET 3 %%%%%%%%%%%%%%%%
+\section*{Mise en situation -- Questions 2 et 3}
+Un ingénieur souhaite comparer la performance de trois marques de freins à disque pour vélo de route. La variable d'intérêt sera donc la distance de freinage parcourue pour passer de 40\,km/h à 0\,km/h. L'expérience est répétée $k$ fois pour chaque type de frein. Utilisez la table d'ANOVA suivante pour répondre aux questions 2 et 3.
+\begin{verbatim}
+               SS   DDL       F0    valeur-p   
+disque      45.77     2   14.329    0.000001
+Residuals   91.03    57  
+\end{verbatim}
+
+\question[3] Laquelle des affirmations suivantes est vraie?
+
+\begin{checkboxes}
+\choice Nous savons que $k=60$.
+\correctchoice L'estimateur de la variance $\sigma^2$ est environ $1{,}60$.
+\choice La variable réponse est la distance de freinage et le facteur est \texttt{Residuals}.
+\choice Comme il s'agit d'une régression linéaire simple, il n'y a pas de facteur.
+\end{checkboxes}
+
+\begin{solution}
+B est vraie. $\hat{\sigma}^2 = \text{MS}_{\text{Residuals}} = \text{SS}_{\text{Residuals}}/\text{DDL}_{\text{Residuals}} = 91{,}03/57 \approx 1{,}597 \approx 1{,}60$.
+
+A) $\text{DDL}_{\text{disque}}=I-1=2$, donc $I=3$ marques. $\text{DDL}_{\text{Residuals}}=n-I=57$, donc $n=60$. Avec $I=3$ marques et $n=60$ observations, $k=n/I=20$ répétitions par marque (pas $k=60$).
+
+C) Le facteur est \texttt{disque}, pas \texttt{Residuals}.
+
+D) Il s'agit d'une ANOVA, pas d'une régression.
+\end{solution}
+
+\vspace{0.5cm}
+\question[3] Quelle conclusion peut-on tirer à partir de cette table d'ANOVA, au seuil de $1\%$?
+
+\begin{checkboxes}
+\choice La variance de la distance de freinage d'au moins une marque de frein est différente d'au moins une autre marque.
+\correctchoice La distance de freinage moyenne d'au moins une marque de frein est différente d'au moins une autre marque.
+\choice Comme il y a de l'interaction, nous ne pouvons tirer aucune conclusion sur les facteurs individuels.
+\end{checkboxes}
+
+\begin{solution}
+B est vraie. La valeur-$p=0{,}000001 < 0{,}01 = \alpha$, on rejette $H_0$. Au moins une moyenne de distance de freinage diffère des autres.
+
+A) L'ANOVA compare les moyennes, pas les variances.
+
+C) Il s'agit d'une ANOVA à un seul facteur; il n'y a pas de terme d'interaction.
+\end{solution}
+
+
+\pageblanche
+%%%%%%%%%%%%%%%% QUESTION 4 %%%%%%%%%%%%%%%%
+\question Pour chacune des mises en situation ci-bas, donnez la lettre du modèle qui correspond parmi les suivants:
+
+\begin{enumerate}[label = \Alph*:]
+\item \textbf{Régression linéaire simple}
+\item \textbf{Analyse de la variance à un facteur}
+\item \textbf{Analyse de la variance à deux facteurs}
+\end{enumerate}
+
+\medskip
+
+\begin{parts}
+\part[3] Alexis aimerait savoir si le nombre de minutes que ses amis et lui passent à jouer à l'ordinateur à chaque semaine a un impact sur leur note à l'examen final de mathématiques de secondaire 5. Il prévoit donc étudier l'effet des minutes à jouer à l'ordinateur sur la note de l'examen.
+
+\begin{solution}
+\textbf{A -- Régression linéaire simple.} La variable explicative (minutes de jeu) et la variable réponse (note) sont toutes deux quantitatives continues.
+\end{solution}
+
+\part[3] Amandine aimerait comparer la performance de 8 types d'engrais. Elle utilise donc 5 plants de tomates pour chacun des types d'engrais (40 plants au total) et elle mesure la quantité de tomates produites.
+
+\begin{solution}
+\textbf{B -- Analyse de la variance à un facteur.} Un seul facteur catégoriel (type d'engrais) à 8 niveaux; la variable réponse est la quantité de tomates.
+\end{solution}
+
+\part[3] Benjamin veut savoir si le poids des hérissons est impacté par le type de régime de ceux-ci (parmi 3 régimes possibles) ainsi que par le milieu de vie (parmi 2 milieux de vie possibles). Pour chacune des combinaisons de type de régime et de milieu de vie, il soumet 3 hérissons à la combinaison et mesure le poids des hérissons.
+
+\begin{solution}
+\textbf{C -- Analyse de la variance à deux facteurs.} Deux facteurs catégoriels: le type de régime (3 niveaux) et le milieu de vie (2 niveaux).
+\end{solution}
+
+\part[3] Émile et Léon veulent savoir si la puissance générée par un cycliste a un impact sur le temps d'ascension du fameux \textit{Molard} de Gilly. Ils mesurent donc la puissance moyenne de 25 cyclistes pendant l'ascension ainsi que le temps d'ascension en secondes.
+
+\begin{solution}
+\textbf{A -- Régression linéaire simple.} La variable explicative (puissance) et la variable réponse (temps d'ascension) sont toutes deux quantitatives continues.
+\end{solution}
+
+\end{parts}
+
+
+\pageblanche
+%%%%%%%%%%%%%%%% QUESTION 5 %%%%%%%%%%%%%%%%
+\question Déterminez si les énoncés suivants sont vrais ou faux.
+
+\begin{parts}
+\part[2] Pour que l'analyse de la variance à 1 facteur soit valide, il faut qu'au moins un des postulats soit respecté.
+
+\begin{oneparcheckboxes}
+    \choice Vrai 
+    \correctchoice Faux
+\end{oneparcheckboxes} \vspace{0.5cm}
+
+\begin{solution}
+Faux. Pour que l'ANOVA soit valide, \textbf{tous} les postulats doivent être raisonnablement respectés (normalité des résidus, homogénéité des variances, indépendance des observations).
+\end{solution}
+
+\part[2] Lorsqu'un facteur a 2 niveaux, on peut utiliser l'analyse de la variance à un facteur ou un test de Student de comparaison de moyennes avec variances égales pour comparer les moyennes des niveaux.
+
+\begin{oneparcheckboxes}
+    \correctchoice Vrai 
+    \choice Faux
+\end{oneparcheckboxes} \vspace{0.5cm}
+
+\begin{solution}
+Vrai. Quand $k=2$, l'ANOVA à un facteur et le test $t$ de Student (variances égales) sont équivalents: $F_0 = t_0^2$.
+\end{solution}
+
+\part[2] En faisant une analyse de la variance à deux facteurs, nous obtenons une \textit{valeur-p} associée à la statistique observée du terme d'interaction égale à $0{,}001$. Au seuil $\alpha = 0{,}05$, l'interaction est significative et nous n'interprétons pas les facteurs individuellement.
+
+\begin{oneparcheckboxes}
+    \correctchoice Vrai 
+    \choice Faux
+\end{oneparcheckboxes} \vspace{0.5cm}
+
+\begin{solution}
+Vrai. La valeur-$p = 0{,}001 < 0{,}05 = \alpha$, donc l'interaction est significative. L'effet d'un facteur dépend du niveau de l'autre facteur, et on n'interprète pas les effets principaux séparément.
+\end{solution}
+
+\part[2] Dans un modèle de régression linéaire simple, si l'intervalle de confiance à $95\%$ pour $\beta_0$ est $[0{,}345;\, 12{,}765]$, nous sommes certain qu'une relation linéaire existe entre $X$ et $Y$.
+
+\begin{oneparcheckboxes}
+    \choice Vrai 
+    \correctchoice Faux
+\end{oneparcheckboxes} \vspace{0.5cm}
+
+\begin{solution}
+Faux. Cet intervalle concerne $\beta_0$ (l'ordonnée à l'origine), pas $\beta_1$ (la pente). L'existence d'une relation linéaire dépend de $\beta_1$, pas de $\beta_0$. De plus, un intervalle de confiance ne donne jamais une certitude absolue.
+\end{solution}
+
+\part[2] Dans le contexte d'une régression linéaire simple, nous avons que $y_i=x_i$ pour $i=1, \dots, n$. L'estimateur de $\beta_0$ et l'estimateur de $\beta_1$ valent tous deux~0.
+
+\begin{oneparcheckboxes}
+    \choice Vrai 
+    \correctchoice Faux
+\end{oneparcheckboxes} \vspace{0.5cm}
+
+\begin{solution}
+Faux. Si $y_i = x_i$ pour tout $i$, alors $\bar{y}=\bar{x}$ et $S_{XY}=S_{XX}$. On obtient $\hat{\beta}_1 = S_{XY}/S_{XX} = 1$ et $\hat{\beta}_0 = \bar{y}-\hat{\beta}_1\bar{x} = \bar{x}-\bar{x}=0$. Donc $\hat{\beta}_0=0$ mais $\hat{\beta}_1=1\neq 0$.
+\end{solution}
+
+\end{parts}
+
+
+\pageblanche
+%%%%%%%%%%%%%%%% QUESTION 6 %%%%%%%%%%%%%%%%
+\question\label{rls}
+Pour des raisons de santé publique, on s'intéresse à la concentration d'ozone $O_3$ dans l'air (en microgrammes par millilitre). En particulier, on cherche à savoir s'il est possible d'expliquer le taux maximal d'ozone de la journée par la température à midi donnée en degrés celsius. Afin d'étudier le modèle $Y_i=\beta_0+\beta_1 X_i+ E_i$, en supposant que les postulats de régression linéaire sont respectés, vous disposez des résultats suivants:
+
+\begin{verbatim}
+Residual standard error: 12.67 on 8 degrees of freedom
+Multiple R-squared:  0.7041,	Adjusted R-squared:  0.6671 
+F-statistic: 19.03 on 1 and 8 DF,  p-value: 0.002403
+\end{verbatim}
+
+\begin{align*}
+\sum_{i=1}^{10}x_i=219{,}1 ; \quad \sum_{i=1}^{10}x_i^2=5214{,}58;\quad \sum_{i=1}^{10}y_i=1026{,}4; \quad \sum_{i=1}^{10}y_i^2=118446{,}6;\quad \sum_{i=1}^{10}x_iy_i=23650{,}84.
+\end{align*}
+
+Vous savez aussi que 
+
+\begin{align*}
+    S_{XY} = \sum_{i}^nx_iy_i-n\bar{x}\bar{y}; \quad S_{XX}= \sum_{i}^nx_i^2-n\bar{x}^2.
+\end{align*}
+
+\begin{parts}
+\part[8] Donnez l'équation de la droite de régression permettant de prédire la concentration d'ozone $O_3$ dans l'air en fonction de la température à midi. Justifiez toutes les étapes de votre démarche.
+
+\begin{solution}
+On a $n=10$.
+
+$\bar{x}=\dfrac{219{,}1}{10}=21{,}91$ \quad et \quad $\bar{y}=\dfrac{1026{,}4}{10}=102{,}64$.
+
+$S_{XX} = 5214{,}58 - 10(21{,}91)^2 = 5214{,}58 - 4800{,}48 = 414{,}10$.
+
+$S_{XY} = 23650{,}84 - 10(21{,}91)(102{,}64) = 23650{,}84 - 22488{,}42 = 1162{,}42$.
+
+$\hat{\beta}_1 = \dfrac{S_{XY}}{S_{XX}} = \dfrac{1162{,}42}{414{,}10} \approx 2{,}81$.
+
+$\hat{\beta}_0 = \bar{y} - \hat{\beta}_1\bar{x} = 102{,}64 - 2{,}81 \times 21{,}91 \approx 102{,}64 - 61{,}57 = 41{,}07$.
+
+L'équation de la droite de régression est~: $\hat{y} = 41{,}07 + 2{,}81\,x$.
+\end{solution}
+
+\vspace{11cm}
+
+\part[2] Donnez le pourcentage de la variabilité totale de la concentration d'ozone $O_3$ dans l'air qui est expliquée par la température à midi.
+
+\begin{solution}
+Le coefficient de détermination $R^2 = 0{,}7041$ (donné dans la sortie). Donc $70{,}41\,\%$ de la variabilité totale de la concentration d'ozone est expliquée par la température à midi.
+\end{solution}
+
+\vspace{3cm}
+
+\part[3] Calculez la prévision ponctuelle de la concentration d'ozone $O_3$ dans l'air pour une température de $22$ degrés. Justifiez toutes les étapes de votre démarche.
+
+\begin{solution}
+On substitue $x=22$ dans l'équation de régression~:
+$$\hat{y}(22) = 41{,}07 + 2{,}81 \times 22 = 41{,}07 + 61{,}82 = 102{,}89.$$
+La prévision ponctuelle est d'environ $102{,}89$ microgrammes par millilitre.
+\end{solution}
+
+\vspace{7cm}
+
+\part[2] Un chercheur aimerait estimer la concentration d'ozone $O_3$ dans l'air en une journée précise. Le midi de cette journée, la température est de $14$ degrés. La prévision ponctuelle de la concentration d'ozone $O_3$ dans l'air en cette journée est environ de $81{,}83$. Choisissez l'intervalle de valeurs ayant $95\%$ de chances de contenir la concentration d'ozone $O_3$ dans l'air en cette journée. 
+
+\begin{checkboxes}
+\choice $80{,}47\pm t_{0{,}025,\,n-2}\sqrt{\text{MSE}\bigg[\dfrac{1}{n}+\dfrac{(14-\bar{x})^2}{S_{XX}}\bigg]}$
+\correctchoice $80{,}47\pm t_{0{,}025,\,n-2}\sqrt{\text{MSE}\bigg[1+\dfrac{1}{n}+\dfrac{(14-\bar{x})^2}{S_{XX}}\bigg]}$
+\end{checkboxes}
+
+\begin{solution}
+B est le bon choix. On cherche un \textbf{intervalle de prévision} pour une observation future individuelle (la concentration d'ozone «\,en une journée précise\,»). L'intervalle de prévision comporte le terme $1+\frac{1}{n}+\frac{(x_0-\bar{x})^2}{S_{XX}}$ sous la racine, alors que l'intervalle de confiance pour $E(Y\mid x_0)$ ne comporte que $\frac{1}{n}+\frac{(x_0-\bar{x})^2}{S_{XX}}$.
+\end{solution}
+
+\vspace{1cm}
+
+\part[1] Si la température à midi ce jour-là était de 18 degrés, l'intervalle de valeurs calculé à la question précédente serait...
+
+\begin{checkboxes}
+\correctchoice plus court
+\choice de même longueur
+\choice plus long
+\end{checkboxes}
+
+\begin{solution}
+A est le bon choix. La largeur de l'intervalle dépend de $(x_0-\bar{x})^2/S_{XX}$. On a $\bar{x}\approx 21{,}91$. Avec $x_0=14$~: $(14-21{,}91)^2=62{,}57$. Avec $x_0=18$~: $(18-21{,}91)^2=15{,}29$. Puisque $18$ est plus proche de $\bar{x}$, le terme $(x_0-\bar{x})^2$ est plus petit, donc l'intervalle est \textbf{plus court}.
+\end{solution}
+
+\vspace{1cm}
+
+\part[2] Quelle affirmation parmi les suivantes est vraie au seuil $1\%$?
+
+\begin{checkboxes}
+\choice La concentration d'ozone $O_3$ dans l'air et la température à midi ne sont pas unis par une relation linéaire significative.
+\choice On ne peut pas prédire la concentration d'ozone $O_3$ dans l'air à partir de la température à midi.
+\choice La concentration d'ozone $O_3$ dans l'air et la température à midi sont indépendantes.
+\correctchoice La relation linéaire entre la concentration d'ozone $O_3$ dans l'air et la température à midi est significative.
+\end{checkboxes}
+
+\begin{solution}
+D est le bon choix. La valeur-$p = 0{,}002403 < 0{,}01 = \alpha$. On rejette $H_0\!: \beta_1=0$. La relation linéaire entre la concentration d'ozone et la température à midi est significative au seuil de $1\,\%$.
+\end{solution}
+
+\end{parts}
+
+
+\pageblanche
+%%%%%%%%%%%%%%%% QUESTION BONUS %%%%%%%%%%%%%%%%
+\bonusquestion
+
+Supposons un modèle de régression linéaire
+
+\begin{align*}
+    Y_i=\beta_0+\beta_1 X_i + \epsilon_i \text{ pour } i = 1,\ldots,n
+\end{align*}
+
+où $\epsilon_i \sim \mathcal{U}[-a, a]$, c'est-à-dire une loi uniforme sur $[-a, a]$. Nous avons les informations suivantes:
+
+ \begin{align*}
+     E(\epsilon)= 0 & & Var(\epsilon)= \frac{4a^2}{12}
+ \end{align*}
+ 
+\begin{parts}
+\bonuspart[3] Donnez $E(Y_i)$ et $Var(Y_i)$.
+
+\begin{solution}
+$E(Y_i)=E(\beta_0+\beta_1 X_i + \epsilon_i)=\beta_0+\beta_1 X_i + E(\epsilon_i) = \beta_0+\beta_1 X_i$.
+
+$Var(Y_i)=Var(\beta_0+\beta_1 X_i + \epsilon_i) = Var(\epsilon_i) = \dfrac{4a^2}{12}=\dfrac{a^2}{3}$
+
+(car $\beta_0+\beta_1 X_i$ est une constante conditionnellement à $X_i$).
+\end{solution}
+
+\vspace{5cm}
+
+\bonuspart[3] Quelle est la loi de $Y$? Donnez autant de détails que possible.
+
+\begin{solution}
+Puisque $\epsilon_i \sim \mathcal{U}[-a, a]$ et que $Y_i = \beta_0+\beta_1 X_i + \epsilon_i$, la loi de $Y_i$ conditionnellement à $X_i$ est une translation de la loi uniforme~:
+$$Y_i \mid X_i \sim \mathcal{U}\!\left[\beta_0+\beta_1 X_i - a;\; \beta_0+\beta_1 X_i + a\right].$$
+\end{solution}
+
+\end{parts}
+
+\end{questions}
+\end{document}
