@@ -39,6 +39,7 @@
 \item \textbf{Veuillez ne pas dégrafer votre examen.}
 \item Vous devez\textbf{ justifier toutes vos réponses} par une démarche claire, sauf pour les questions à choix de réponse.\
 \item Pour les questions à choix de réponse et les vrais ou faux, vous pouvez mettre un X, un crochet ($\checkmark$) ou remplir la case.\
+\item Lorsqu'une boîte de réponse est présente, vous devez inscrire votre réponse dans la boîte. N'inscrivez que votre réponse numérique, sans unité.
 \item Vous devez laisser tout ce qui ne servira pas durant l'examen à l'avant de la salle AVANT de rejoindre votre place.\
 \item Vous n'avez droit à AUCUN appareil électronique en votre possession durant l'examen.
 \item Une fois assis à votre place, vous devez demandez l'autorisation pour vous lever, même si l'examen n'est pas encore commencé.
@@ -49,7 +50,7 @@
 \end{itemize}
 }
 
-\providecommand{\Gradescope}{}
+\providecommand{\Gradescope}{.}
 
 
 \documentclass{Evaluation}
@@ -322,7 +323,9 @@ Nous désirons construire l'intervalle de confiance approprié de niveau $95\%$ 
     \end{solution}
 
 
+\vfill
 
+$P(C_2>\sigma^2)=$ \boite{2.3}{1.3}
 
 \end{parts}
 
@@ -376,6 +379,10 @@ $$t_0=\frac{\overline{x}-\overline{y}}{se}=\frac{26{,}112-12}{3{,}5}=\frac{14{,}
 Les degrés de liberté sont $\nu=n_X+n_Y-2=5$. Le seuil observé est $\alpha^*=P(T_5>4{,}032)$. D'après la table de la loi $t$, $t_{0{,}01,\,5}=3{,}365$ et $t_{0{,}005,\,5}=4{,}032$. Puisque $t_0=4{,}032=t_{0{,}005,\,5}$, on a $\alpha^*=0{,}005$. On rejette $H_0$ au seuil $5\%$.
 \end{solution}
 
+
+\vfill
+$\alpha^*=$ \boite{2.3}{1.3}
+\vspace{0.5cm}
 
 \pageblanche
 
@@ -469,7 +476,7 @@ La valeur-$p = 4{,}6\times10^{-10} < 0{,}05 = \alpha$, donc on rejette $H_0$. La
 \begin{align*}\renewcommand{\arraystretch}{1.4}
    \begin{array}{|c|ccccc|c|}
    \hline
-   i & 1 & 2 & 3& 4& 5& Somme\\ \hline
+   i & 1 & 2 & 3& 4& 5& \text{Somme}\\ \hline
 x_i & -3 & -2 & 0 & 1,5 & 3,5  &0 \\  
 y_i & -1{,}1 & AAA & 1,1 & 2 & 2,5 & ???\\ 
 x_iy_i & 3,3 & BBB & 0 & 3 & 8,75 & ??? \\ 
@@ -605,7 +612,7 @@ R^2_{\text{ajusté}} = 1-(1-R^2)\times\frac{n-1}{n-k-1}
 \end{solution}
 
 \vfill
-
+$BBB=$ \boite{2.3}{1.3}
 \part[2] Au seuil de 5\%, l'effet de la durée de cure ($X_3$) sur la résistance à la compression est-il significatif, en présence des deux autres variables dans le modèle? Une seule réponse est bonne.
 
 \medskip\begin{checkboxes}
