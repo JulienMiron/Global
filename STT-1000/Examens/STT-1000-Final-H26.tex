@@ -46,7 +46,7 @@ Attention, la formule correcte pour les degrés de liberté $\nu$ est
 $$\nu = \frac{(s_1^2/n_1 + s^2_2/n_2)^2}{ \frac{(s_1^2/n_1)^2}{n_1 +1} + \frac{(s^2_2/n_2)^2}{n_2 + 1} } -2 $$
 }
 
-\providecommand{\Gradescope}{}
+\providecommand{\Gradescope}{.}
 
 
 \documentclass{Evaluation}
@@ -63,7 +63,7 @@ $$\nu = \frac{(s_1^2/n_1 + s^2_2/n_2)^2}{ \frac{(s_1^2/n_1)^2}{n_1 +1} + \frac{(
 %%%%%%%%%%%%%%%% QUESTIONS MODULES 1 à 5 %%%%%%%%%%%%%%%%
 
 \question[4]
-Soit deux événements $A$ et $B$ formant une partition de l'espace, avec $P(A)=0,7$. \\On a aussi que $P(D\mid A)=0,02$, $P(D\mid B)=0,05$.
+Soit deux événements $A$ et $B$ formant une partition de l'espace échantillonnal, avec $P(A)=0,7$. \\On a aussi que $P(D\mid A)=0,02$, $P(D\mid B)=0,05$.
 
 Quelle expression permet de calculer $P(B\mid D)$ ?\\
 
@@ -132,7 +132,7 @@ $$
 \newpage
 
 \question[4]
-Soient $X \sim \mathcal{N}(10, 4)$ et $Y \sim \mathcal{N}(5, 1)$, deux variables aléatoires indépendantes. \\
+Soit $X \sim \mathcal{N}(10, 4)$ et $Y \sim \mathcal{N}(5, 1)$, deux variables aléatoires indépendantes. \\
 On définit $Z = 2X - Y$. Quelle est la distribution de $Z$? Soyez précis et laissez des traces de votre démarche.
 
 
@@ -296,6 +296,7 @@ Ajoutez \textbf{sur le diagramme} l'élément manquant et dites ce que vous avez
 
 		\draw[ultra thick] (111,1) -- (111,3);
 		\draw[ultra thick] (111,2) -- (113,2);
+        
 		\draw[ultra thick] (118,2) -- (125,2);
 		%\draw[ultra thick] (4,1) -- (4,3);
 		\draw[ultra thick] (125,1) -- (125,3);
@@ -354,11 +355,11 @@ Parmi les affirmations suivantes, cochez toutes celles qui sont correctes.\\
 On compare le temps moyen (en millisecondes) nécessaire pour exécuter une même tâche avec deux algorithmes.
 
 \begin{itemize}
-\item Algorithme A : $n_1=50$, $\bar x_1=72$, $s_1=10$
+\item Algorithme A : $n_1=62$, $\bar x_1=72$, $s_1=10$
 \item Algorithme B : $n_2=60$, $\bar x_2=65$, $s_2=12$
 \end{itemize}
 
-On suppose que les temps d’exécution suivent des lois normales avec variances inconnues mais égales.
+On suppose que les temps d’exécution suivent des lois normales avec variances inconnues mais supposées égales.
 
 Construisez un intervalle de confiance à 95 \% pour la différence des moyennes $\mu_A - \mu_B$.
 
@@ -367,31 +368,31 @@ On utilise l’intervalle de confiance avec variance poolée.
 
 $$
 s_p^2 = \frac{(n_1-1)s_1^2 + (n_2-1)s_2^2}{n_1+n_2-2}
-= \frac{49\times100 + 59\times144}{108}
-= \frac{13396}{108} \approx 124{,}04
+= \frac{61\times100 + 59\times144}{120}
+= \frac{14596}{120} = 121,633
 $$
 
 $$
-s_p \approx 11{,}14
+s_p = 11,029
 $$
 
 $$
 SE = s_p \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}
-= 11{,}14 \sqrt{\frac{1}{50}+\frac{1}{60}}
-\approx 2{,}13
+= 11,029 \sqrt{\frac{1}{62}+\frac{1}{60}}
+= 1,997
 $$
 
-ddl $= 108$, donc $t_{0{,}975} \approx 1{,}98$
+ddl $= 120$, donc $t_{0{,}025} = 1{,}98$
 
 $$
 (\bar x_1-\bar x_2) \pm t \cdot SE
-= 7 \pm 1{,}98 \times 2{,}13
-\approx 7 \pm 4{,}22
+= 7 \pm 1{,}98 \times 1,997
+= 7 \pm 3,954
 $$
 
 Intervalle de confiance :
 $$
-[2{,}78 \; ; \; 11{,}22]
+[3,046 \; ; \; 10,954]
 $$
 \end{solution}
 \vspace{6.5in}
@@ -489,11 +490,13 @@ Le directeur de l'école souhaite plutôt une marge d'erreur d'au plus $0,02$. E
 \pageblanche
 
 \question
-Une entreprise fabrique des palettes de chocolat et s'intéresse à la variabilité de la quantité de sucre dans une palette. Elle choisit au hasard 11 palettes. Dans l'échantillon, la quantité moyenne de sucre par palette est de $20,05 \,g$ et la variance échantillonnale est de $7,995\, g^2$. Sachant que $X$, la quantité de sucre dans une palette, est une variable aléatoire qui suit une loi normale d'espérance $\mu$ et de variance $\sigma^2$, elle fait le test suivant, au seuil $\alpha=2,5\%$,
+Une entreprise fabrique des barres de chocolat et s'intéresse à la variabilité de la quantité de sucre dans les barres. Elle choisit au hasard 11 barres. Dans l'échantillon, la quantité moyenne de sucre par barre est de $20,05 \,g$ et la variance échantillonnale est de $7,995\, g^2$. Sachant que $X$, la quantité de sucre dans une barre, est une variable aléatoire qui suit une loi normale d'espérance $\mu$ et de variance $\sigma^2$, elle fait le test suivant, au seuil $\alpha=2,5\%$,
 \begin{align*}
 	H_0 &: \sigma^2 = 5 \cr
 	H_1 &: \sigma^2 > 5.
 \end{align*}
+
+\vspace{0.1in}
 
 \begin{parts}
 \part[3] À partir de quelle valeur de $S^2$ rejette-t-on~$H_0$?
@@ -546,25 +549,26 @@ On sait que la statistique du test est $U_0=(n-1)S^2/\sigma^2_0$. Donc $U_0=10*7
 \pageblanche
 \question[10] Soit $X_1,\hdots,X_{24}$ et $Y_1,\hdots,Y_{7}$ deux échantillons aléatoires provenant respectivement de lois normales d'espérances $\mu_X$ et $\mu_Y$ et de variance $\sigma^2_X$ et $\sigma^2_Y$, supposées inégales.
 On veut procéder à un test de seuil $\alpha$ avec les hypothèses
-
 \begin{align*}
     H_0:\mu_X-\mu_Y=0, & & H_1:\mu_X-\mu_Y>0.
 \end{align*}
 
-On obtient $\overline{x}=26,112$, $\overline{y}=12$, $s_X^2=120$ et $s_Y^2=28$. Quel est le seuil observé du test?
+On obtient $\overline{x}=18,18$, $\overline{y}=12$, $s_X^2=120$ et $s_Y^2=28$. Quel est le seuil observé du test?
 
 \begin{solution}
 Puisque les variances sont supposées inégales, on utilise le test $t$ de Welch à deux échantillons. L'erreur-type de la différence est :
 $$se=\sqrt{\frac{s_X^2}{n_X}+\frac{s_Y^2}{n_Y}}=\sqrt{\frac{120}{24}+\frac{28}{7}}=\sqrt{5+4}=\sqrt{9}=3.$$
 La statistique de test est :
-$$t_0=\frac{\overline{x}-\overline{y}}{se}=\frac{26{,}112-12}{3}=\frac{14{,}112}{3}=4{,}704.$$
+$$t_0=\frac{\overline{x}-\overline{y}}{se}=\frac{18,18-12}{3}=\frac{6,18}{3}=2,060.$$
 Les degrés de liberté sont :
 $$\nu=\frac{(s_X^2/n_X+s_Y^2/n_Y)^2}{\dfrac{(s_X^2/n_X)^2}{n_X+1}+\dfrac{(s_Y^2/n_Y)^2}{n_Y+1}}-2=\frac{(5+4)^2}{\dfrac{25}{25}+\dfrac{16}{8}}-2=\frac{81}{1+2}-2=27-2=25.$$
-Le seuil observé est $\alpha^*=P(T_{25}>4{,}704)$. D'après la table de la loi $t$, $t_{0{,}0005,\,25}=3{,}725$. Puisque $t_0=4{,}704>3{,}725$, on a $\alpha^*<0{,}0005$. On rejette $H_0$ au seuil $5\%$.
+Le seuil observé est $\alpha^*=P(T_{25}>2,060)$. D'après la table de la loi $t$, on a $\alpha^*=0,025$.
 \end{solution}
 \pageblanche
-\question[10] Soit $X_1,\hdots, X_{n}$ qui proviennent d'une loi normale d'espérance $\mu$ et de variance $\sigma^2=25$. 
-On fait le test d'hypothèses pour lequel $H_0:\mu=5$ et $H_1:\mu>5$ au seuil $\alpha=2,5\%$.
+
+\question[6] Soit $X_1,\hdots, X_{n}$ qui proviennent d'une loi normale d'espérance $\mu$ et de variance $\sigma^2=25$. \\
+On fait le test d'hypothèses pour lequel
+$H_0:\mu=5$ et $H_1:\mu>5$ au seuil $\alpha=2,5\%$.\\
 Pour quelles valeurs de $n$ rejette-t-on $H_0$ si $\overline{x}=5,1$?
 
 \begin{solution}
@@ -578,6 +582,46 @@ Pour quelles valeurs de $n$ rejette-t-on $H_0$ si $\overline{x}=5,1$?
         n&>9604
     \end{align*}
 \end{solution}
+\vspace{5.5in}
+\question Nous faisons un test pour confronter $H_0: \mu=15$ à $H_1:\mu\neq15$. La règle de décision est de rejeter $H_0$ si $\overline{X}<10$ ou si $\overline{X}>20$. Dans chacun des cas suivants, déterminez si une erreur est commise et déterminez de quel type, le cas échéant. 
+
+\vspace{0.5cm}
+\begin{parts}
+    \part[1] La vraie valeur de $\mu$ est 16 et nous obtenons $\overline{x}=12$.
+    
+    \begin{oneparcheckboxes}
+        \choice Erreur de type I
+        \correctchoice Erreur de type II
+        \choice Aucune erreur
+    \end{oneparcheckboxes}
+
+\vspace{0.5cm}
+        \part[1] La vraie valeur de $\mu$ est 15 et nous obtenons $\overline{x}=12$.
+    
+    \begin{oneparcheckboxes}
+        \choice Erreur de type I
+        \choice Erreur de type II
+        \correctchoice Aucune erreur
+    \end{oneparcheckboxes}
+
+\vspace{0.5cm}
+        \part[1] La vraie valeur de $\mu$ est 15 et nous obtenons $\overline{x}=21$.
+    
+    \begin{oneparcheckboxes}
+        \correctchoice Erreur de type I
+        \choice Erreur de type II
+        \choice Aucune erreur
+    \end{oneparcheckboxes}
+
+\vspace{0.5cm}
+        \part[1] La vraie valeur de $\mu$ est 18 et nous obtenons $\overline{x}=21$.
+    
+    \begin{oneparcheckboxes}
+        \choice Erreur de type I
+        \choice Erreur de type II
+        \correctchoice Aucune erreur
+    \end{oneparcheckboxes}
+\end{parts}
 \pageblanche
 
 
@@ -587,7 +631,7 @@ Pour quelles valeurs de $n$ rejette-t-on $H_0$ si $\overline{x}=5,1$?
 \question Soit $X_1,\hdots,X_{25}$ provenant d'une loi normale d'espérance $\mu=0$ et de variance $\sigma^2=16$.
 
 \begin{parts}
-    \part[5] Quelle est la probabilité que la moyenne échantillonnale $\overline{X}$ soit égale à 0,749 fois l'écart-type échantillonnal $S$, c'est-à-dire $P(\overline{X}>0,749S)$?
+    \part[5] Calculez $P(\overline{X}>0,749S)$.
     \begin{solution}
         \begin{align*}
             P(\overline{X}>0,749S)&=P(\frac{\overline{X}}{S}>0,749)\\
@@ -787,7 +831,7 @@ Parmi les graphiques ci-dessous, lequel illustre un problème avec l'homogénéi
 \includegraphics[scale=0.7]{diagRLS.png}
 \end{center}
 
-
+\pageblanche
 
 \end{questions}
 \end{document} 
