@@ -345,6 +345,200 @@ D est le bon choix. La valeur-$p = 0{,}002403 < 0{,}01 = \alpha$. On rejette $H_
 
 
 \pageblanche
+%%%%%%%%%%%%%%%% QUESTION 7 — Test du khi-carré d'ajustement %%%%%%%%%%%%%%%%
+\question[8] Une chocolaterie prétend que ses sacs de 120 bonbons contiennent les saveurs suivantes dans les proportions indiquées~: 30\,\% chocolat noir, 25\,\% chocolat au lait, 25\,\% caramel et 20\,\% noisette. Pour vérifier cette affirmation, un contrôleur de qualité prélève un sac au hasard et compte les bonbons de chaque saveur. Les résultats sont présentés ci-dessous.
+
+\begin{center}
+\begin{tabular}{l|cccc|c}
+\textbf{Saveur} & Noir & Lait & Caramel & Noisette & \textbf{Total}\\
+\hline
+\textbf{Fréquence observée} ($O_i$) & 42 & 35 & 20 & 23 & 120
+\end{tabular}
+\end{center}
+
+\begin{parts}
+\part[1] Formulez les hypothèses nulle et alternative du test du khi-carré d'ajustement.
+
+\begin{solution}
+$H_0$~: La distribution des saveurs correspond aux proportions annoncées, c'est-à-dire $p_{\text{noir}}=0{,}30$, $p_{\text{lait}}=0{,}25$, $p_{\text{caramel}}=0{,}25$, $p_{\text{noisette}}=0{,}20$.
+
+$H_1$~: La distribution des saveurs ne correspond pas aux proportions annoncées (au moins une proportion diffère).
+\end{solution}
+
+\part[3] Calculez la statistique de test $D_0$. Montrez vos calculs.
+
+\begin{solution}
+On calcule d'abord les fréquences espérées $E_i = n \times p_i$~:
+
+\begin{center}
+\begin{tabular}{l|cccc}
+\textbf{Saveur} & Noir & Lait & Caramel & Noisette \\
+\hline
+$E_i$ & $120\times0{,}30=36$ & $120\times0{,}25=30$ & $120\times0{,}25=30$ & $120\times0{,}20=24$
+\end{tabular}
+\end{center}
+
+Toutes les fréquences espérées sont $\geq 5$. $\checkmark$
+
+$$D_0 = \sum_{i=1}^{4}\frac{(O_i - E_i)^2}{E_i} = \frac{(42-36)^2}{36}+\frac{(35-30)^2}{30}+\frac{(20-30)^2}{30}+\frac{(23-24)^2}{24}$$
+$$= \frac{36}{36}+\frac{25}{30}+\frac{100}{30}+\frac{1}{24} = 1 + 0{,}833 + 3{,}333 + 0{,}042 = 5{,}208$$
+\end{solution}
+
+\part[2] Combien de degrés de liberté possède la loi de référence sous $H_0$?
+
+\begin{solution}
+$\nu = k - 1 = 4 - 1 = 3$ degrés de liberté ($k=4$ catégories, aucun paramètre estimé à partir des données).
+\end{solution}
+
+\part[2] Au seuil $\alpha=0{,}05$, quelle est votre conclusion? Justifiez. On donne $\chi^2_{0{,}05;\,3}=7{,}815$.
+
+\begin{solution}
+$D_0 = 5{,}208 < 7{,}815 = \chi^2_{0{,}05;\,3}$.
+
+On ne rejette pas $H_0$. Au seuil de 5\,\%, il n'y a pas suffisamment de preuves pour affirmer que la distribution des saveurs diffère des proportions annoncées par la chocolaterie.
+\end{solution}
+
+\end{parts}
+
+
+\pageblanche
+%%%%%%%%%%%%%%%% QUESTION 8 — Test du khi-carré d'homogénéité %%%%%%%%%%%%%%%%
+\question[8] On souhaite savoir si la répartition des choix de transport (auto, transport en commun, vélo) est la même pour les étudiants de trois campus universitaires. Un échantillon aléatoire de 300 étudiants donne les résultats suivants.
+
+\begin{center}
+\begin{tabular}{l|ccc|c}
+ & \textbf{Auto} & \textbf{Transport en commun} & \textbf{Vélo} & \textbf{Total}\\
+\hline
+\textbf{Campus A} & 40 & 45 & 15 & 100\\
+\textbf{Campus B} & 30 & 50 & 20 & 100\\
+\textbf{Campus C} & 20 & 40 & 40 & 100\\
+\hline
+\textbf{Total} & 90 & 135 & 75 & 300
+\end{tabular}
+\end{center}
+
+\begin{parts}
+\part[1] Formulez les hypothèses nulle et alternative.
+
+\begin{solution}
+$H_0$~: La distribution des choix de transport est la même pour les trois campus.
+
+$H_1$~: La distribution des choix de transport diffère pour au moins un campus.
+\end{solution}
+
+\part[3] Calculez la statistique de test $D_0$. Montrez vos calculs.
+
+\begin{solution}
+Les fréquences espérées sous $H_0$ sont $E_{ij}=\dfrac{(\text{total ligne }i)\times(\text{total colonne }j)}{n}$.
+
+\begin{center}
+\begin{tabular}{l|ccc}
+ & Auto & Transport en commun & Vélo \\
+\hline
+Campus A & $\frac{100\times 90}{300}=30$ & $\frac{100\times 135}{300}=45$ & $\frac{100\times 75}{300}=25$ \\[4pt]
+Campus B & $30$ & $45$ & $25$ \\[4pt]
+Campus C & $30$ & $45$ & $25$
+\end{tabular}
+\end{center}
+
+Toutes les fréquences espérées sont $\geq 5$. $\checkmark$
+
+\begin{align*}
+D_0 &= \frac{(40-30)^2}{30}+\frac{(45-45)^2}{45}+\frac{(15-25)^2}{25}\\
+&\quad +\frac{(30-30)^2}{30}+\frac{(50-45)^2}{45}+\frac{(20-25)^2}{25}\\
+&\quad +\frac{(20-30)^2}{30}+\frac{(40-45)^2}{45}+\frac{(40-25)^2}{25}\\[4pt]
+&= \frac{100}{30}+0+\frac{100}{25}+0+\frac{25}{45}+\frac{25}{25}+\frac{100}{30}+\frac{25}{45}+\frac{225}{25}\\[4pt]
+&= 3{,}333+0+4+0+0{,}556+1+3{,}333+0{,}556+9\\[4pt]
+&= 21{,}778
+\end{align*}
+\end{solution}
+
+\part[2] Combien de degrés de liberté possède la loi de référence sous $H_0$?
+
+\begin{solution}
+$\nu = (r-1)(c-1) = (3-1)(3-1) = 4$ degrés de liberté ($r=3$ lignes, $c=3$ colonnes).
+\end{solution}
+
+\part[2] Au seuil $\alpha=0{,}05$, quelle est votre conclusion? Justifiez. On donne $\chi^2_{0{,}05;\,4}=9{,}488$.
+
+\begin{solution}
+$D_0 = 21{,}778 > 9{,}488 = \chi^2_{0{,}05;\,4}$.
+
+On rejette $H_0$. Au seuil de 5\,\%, la distribution des choix de transport n'est pas la même pour les trois campus. En particulier, le campus C semble avoir une proportion de cyclistes nettement plus élevée.
+\end{solution}
+
+\end{parts}
+
+
+\pageblanche
+%%%%%%%%%%%%%%%% QUESTION 9 — Test du khi-carré d'indépendance %%%%%%%%%%%%%%%%
+\question[8] Une étude cherche à déterminer s'il existe un lien entre le niveau de stress (faible, modéré, élevé) et la qualité du sommeil (bonne, mauvaise) chez des adultes. Un échantillon de 200 personnes donne les résultats suivants.
+
+\begin{center}
+\begin{tabular}{l|cc|c}
+ & \textbf{Bonne qualité} & \textbf{Mauvaise qualité} & \textbf{Total}\\
+\hline
+\textbf{Stress faible} & 50 & 10 & 60\\
+\textbf{Stress modéré} & 45 & 35 & 80\\
+\textbf{Stress élevé} & 15 & 45 & 60\\
+\hline
+\textbf{Total} & 110 & 90 & 200
+\end{tabular}
+\end{center}
+
+\begin{parts}
+\part[1] Formulez les hypothèses nulle et alternative.
+
+\begin{solution}
+$H_0$~: Le niveau de stress et la qualité du sommeil sont indépendants.
+
+$H_1$~: Le niveau de stress et la qualité du sommeil ne sont pas indépendants (il existe une association).
+\end{solution}
+
+\part[3] Calculez la statistique de test $D_0$. Montrez vos calculs.
+
+\begin{solution}
+Les fréquences espérées sous $H_0$ sont $E_{ij}=\dfrac{(\text{total ligne }i)\times(\text{total colonne }j)}{n}$.
+
+\begin{center}
+\begin{tabular}{l|cc}
+ & Bonne qualité & Mauvaise qualité \\
+\hline
+Stress faible & $\frac{60\times 110}{200}=33$ & $\frac{60\times 90}{200}=27$ \\[4pt]
+Stress modéré & $\frac{80\times 110}{200}=44$ & $\frac{80\times 90}{200}=36$ \\[4pt]
+Stress élevé & $\frac{60\times 110}{200}=33$ & $\frac{60\times 90}{200}=27$
+\end{tabular}
+\end{center}
+
+Toutes les fréquences espérées sont $\geq 5$. $\checkmark$
+
+\begin{align*}
+D_0 &= \frac{(50-33)^2}{33}+\frac{(10-27)^2}{27}+\frac{(45-44)^2}{44}+\frac{(35-36)^2}{36}\\
+&\quad +\frac{(15-33)^2}{33}+\frac{(45-27)^2}{27}\\[4pt]
+&= \frac{289}{33}+\frac{289}{27}+\frac{1}{44}+\frac{1}{36}+\frac{324}{33}+\frac{324}{27}\\[4pt]
+&= 8{,}758+10{,}704+0{,}023+0{,}028+9{,}818+12{,}000\\[4pt]
+&= 41{,}331
+\end{align*}
+\end{solution}
+
+\part[2] Combien de degrés de liberté possède la loi de référence sous $H_0$?
+
+\begin{solution}
+$\nu = (r-1)(c-1) = (3-1)(2-1) = 2$ degrés de liberté ($r=3$ niveaux de stress, $c=2$ niveaux de qualité du sommeil).
+\end{solution}
+
+\part[2] Au seuil $\alpha=0{,}01$, quelle est votre conclusion? Justifiez. On donne $\chi^2_{0{,}01;\,2}=9{,}210$.
+
+\begin{solution}
+$D_0 = 41{,}331 > 9{,}210 = \chi^2_{0{,}01;\,2}$.
+
+On rejette $H_0$. Au seuil de 1\,\%, il y a suffisamment de preuves pour conclure que le niveau de stress et la qualité du sommeil ne sont pas indépendants. Les données suggèrent qu'un stress plus élevé est associé à une mauvaise qualité du sommeil.
+\end{solution}
+
+\end{parts}
+
+
+\pageblanche
 %%%%%%%%%%%%%%%% QUESTION BONUS %%%%%%%%%%%%%%%%
 \bonusquestion
 
