@@ -63,35 +63,7 @@
 
 %%%%%%%%%%%%%%%% QUESTION 1 %%%%%%%%%%%%%%%%
 \begin{questions}
-\question[3] Soit la table d'ANOVA suivante obtenue à l'aide d'un logiciel:
-\begin{verbatim}
->summary(AnovaModel)
-               SS   DDL       MS        F0  valeur-p       
-Saumons    926.12     4   231.53    238.72    0.0001 
-Residuals   46.55    48     0.97                      
-\end{verbatim}
 
-À partir de la table d'ANOVA, quelle affirmation parmi les suivantes est vraie?
-
-\begin{checkboxes}
-\choice La proportion de la variance totale expliquée par le facteur \texttt{Saumons} est égale à $0{,}0001$. 
-\choice Nous avons 4 niveaux différents pour le facteur \texttt{Saumons}.
-\choice La variance du facteur \texttt{Saumons} est environ 20 fois plus grande que la variance du facteur \texttt{Residuals}.
-\correctchoice L'hypothèse nulle suppose que les moyennes des différents niveaux du facteur \texttt{Saumons} étaient toutes égales.
-\end{checkboxes}
-
-\begin{solution}
-D est vraie. En ANOVA à un facteur, $H_0\!: \mu_1=\mu_2=\cdots=\mu_k$.
-
-A) $0{,}0001$ est la valeur-$p$, pas le $R^2$. Le $R^2=\text{SS}_{\text{Saumons}}/\text{SS}_{\text{Total}}=926{,}12/(926{,}12+46{,}55)\approx 0{,}952$.
-
-B) $\text{DDL}=k-1=4$, donc $k=5$ niveaux (pas 4).
-
-C) $\text{MS}_{\text{Saumons}}/\text{MS}_{\text{Residuals}}=231{,}53/0{,}97\approx 238{,}7$, et non environ 20.
-\end{solution}
-
-
-\vspace{0.5cm}
 %%%%%%%%%%%%%%%% QUESTIONS 2 ET 3 %%%%%%%%%%%%%%%%
 \section*{Mise en situation -- Questions 2 et 3}
 Un ingénieur souhaite comparer la performance de trois marques de freins à disque pour vélo de route. La variable d'intérêt sera donc la distance de freinage parcourue pour passer de 40\,km/h à 0\,km/h. L'expérience est répétée $k$ fois pour chaque type de frein. Utilisez la table d'ANOVA suivante pour répondre aux questions 2 et 3.
