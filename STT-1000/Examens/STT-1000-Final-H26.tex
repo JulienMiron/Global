@@ -554,13 +554,13 @@ On veut procéder à un test de seuil $\alpha$ avec les hypothèses
 On obtient $\overline{x}=26,112$, $\overline{y}=12$, $s_X^2=120$ et $s_Y^2=28$. Quel est le seuil observé du test?
 
 \begin{solution}
-On utilise le test $t$ à deux échantillons avec variances égales. La variance pondérée est :
-$$s_p^2=\frac{(n_X-1)s_X^2+(n_Y-1)s_Y^2}{n_X+n_Y-2}=\frac{3\times 25+2\times 15}{4+3-2}=\frac{75+30}{5}=\frac{105}{5}=21.$$
-L'écart-type de la différence est :
-$$se=s_p\sqrt{\frac{1}{n_X}+\frac{1}{n_Y}}=\sqrt{21}\times\sqrt{\frac{1}{4}+\frac{1}{3}}=\sqrt{21\times\frac{7}{12}}=\sqrt{\frac{147}{12}}=\sqrt{12{,}25}=3{,}5.$$
+Puisque les variances sont supposées inégales, on utilise le test $t$ de Welch à deux échantillons. L'erreur-type de la différence est :
+$$se=\sqrt{\frac{s_X^2}{n_X}+\frac{s_Y^2}{n_Y}}=\sqrt{\frac{120}{24}+\frac{28}{7}}=\sqrt{5+4}=\sqrt{9}=3.$$
 La statistique de test est :
-$$t_0=\frac{\overline{x}-\overline{y}}{se}=\frac{26{,}112-12}{3{,}5}=\frac{14{,}112}{3{,}5}=4{,}032.$$
-Les degrés de liberté sont $\nu=n_X+n_Y-2=5$. Le seuil observé est $\alpha^*=P(T_5>4{,}032)$. D'après la table de la loi $t$, $t_{0{,}01,\,5}=3{,}365$ et $t_{0{,}005,\,5}=4{,}032$. Puisque $t_0=4{,}032=t_{0{,}005,\,5}$, on a $\alpha^*=0{,}005$. On rejette $H_0$ au seuil $5\%$.
+$$t_0=\frac{\overline{x}-\overline{y}}{se}=\frac{26{,}112-12}{3}=\frac{14{,}112}{3}=4{,}704.$$
+Les degrés de liberté sont :
+$$\nu=\frac{(s_X^2/n_X+s_Y^2/n_Y)^2}{\dfrac{(s_X^2/n_X)^2}{n_X+1}+\dfrac{(s_Y^2/n_Y)^2}{n_Y+1}}-2=\frac{(5+4)^2}{\dfrac{25}{25}+\dfrac{16}{8}}-2=\frac{81}{1+2}-2=27-2=25.$$
+Le seuil observé est $\alpha^*=P(T_{25}>4{,}704)$. D'après la table de la loi $t$, $t_{0{,}0005,\,25}=3{,}725$. Puisque $t_0=4{,}704>3{,}725$, on a $\alpha^*<0{,}0005$. On rejette $H_0$ au seuil $5\%$.
 \end{solution}
 \pageblanche
 \question[10] Soit $X_1,\hdots, X_{n}$ qui proviennent d'une loi normale d'espérance $\mu$ et de variance $\sigma^2=25$. 
