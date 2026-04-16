@@ -61,24 +61,24 @@
 
 %%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
 \begin{questions}
-\question[3] Soit la table d'ANOVA suivante obtenue à l'aide de \texttt{Rcmdr}:
+\question[3] Soit la table d'ANOVA suivante obtenue à l'aide d'un logiciel:
 \begin{verbatim}
 >summary(AnovaModel)
-            Df   Sum Sq   Mean Sq   F value    Pr(>F)    
-Saumons     4    926.12    231.53    238.72    0.0001 
-Residuals   48    46.55      0.97                      
+               SS   DDL       MS        F0  valeur-p       
+Saumons    926.12     4   231.53    238.72    0.0001 
+Residuals   46.55    48     0.97                      
 \end{verbatim}
 
 À partir de la table d'ANOVA, quelle affirmation parmi les suivantes est vraie?
 
 
 
-\begin{itemize}[label = { }]
-\item A) La proportion de la variance totale expliquée par le facteur \texttt{Saumons} est égale à $0,0001$. 
-\item B) Nous avons 4 niveaux différents pour le facteur \texttt{Saumons}.
-\item C) La variance du facteur \texttt{Saumons} est environ 20 fois plus grande que la variance du facteur \texttt{Residuals}.
-\item D) L'hypothèse nulle suppose que les moyennes des différents niveaux du facteur \texttt{Saumons} étaient toutes égales.
-\end{itemize}
+\begin{checkboxes}
+\choice La proportion de la variance totale expliquée par le facteur \texttt{Saumons} est égale à $0,0001$. 
+\correctchoice Nous avons 4 niveaux différents pour le facteur \texttt{Saumons}.
+\choice La variance du facteur \texttt{Saumons} est environ 20 fois plus grande que la variance du facteur \texttt{Residuals}.
+\choice L'hypothèse nulle suppose que les moyennes des différents niveaux du facteur \texttt{Saumons} étaient toutes égales.
+\end{checkboxes}
 
  
 
@@ -88,19 +88,7 @@ B)
 \end{solution}
 
 %%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
-\question[3] Laquelle des affirmations suivantes est vraie?
-\begin{itemize}[label = {}]
-\item A) Le modèle d'analyse de la variance à deux facteurs permet de contrôler la variabilité due à un facteur qui ne nous intéresse pas.
-\item B) Le modèle d'analyse de la variance à deux facteurs est $Y_{ijk}=\mu+\tau_{i}+\beta_{j}+E_{ijk}$
-\item C) Si de l'interaction est présente dans un modèle d'ANOVA à deux facteurs, cela veut dire que l'effet d'un facteur dépend du niveau de l'autre facteur.
-\item D) Pour que la conclusion d'une ANOVA à deux facteurs soit valide, au moins un des postulats doit être respecté.
-\end{itemize}
- 
 
-
-\begin{solution}
-C)
-\end{solution}
 
 
 \newpage
@@ -108,9 +96,9 @@ C)
 \section*{Mise en situation - Questions 3 et 4}
 Un ingénieur souhaite comparer la performance de trois marques de freins à disque pour vélo de route. La variable d'intérêt sera donc la distance de freinage parcourue pour passer de 40km/h à 0km/h. L'expérience est répétée $k$ fois pour chaque type de frein. Utilisez la table d'ANOVA suivante pour répondre aux questions 3 et 5.
 \begin{verbatim}
-            Df    Sum Sq    F value      Pr(>F)    
-disque       2     45.77     14.329    0.000001
-Residuals   57     91.03      
+               SS   DDL       F0    valeur-p   
+disque      45.77     2   14.329    0.000001
+Residuals   91.03    57  
 \end{verbatim}
 
 \question[3] Laquelle des affirmations suivantes est vraie?
@@ -134,78 +122,6 @@ Residuals   57     91.03
 
  
 
-
-\newpage
-\question
-
-Voici quatre sorties obtenues avec \texttt{Rcmdr}.
-
-\smallskip
-{\bf Sortie A}
-\begin{verbatim}
-                  Df     Sum Sq    Mean Sq    F value      Pr(>F)    
-FacteurA           3    1049.94     349.98     300.29     0.00001 
-FacteurB           2     840.02     420.01     360.38     0.00001 
-FacteurA:FacteurB  6    1493.05     248.84     213.51     0.00001 
-Residuals         60      69.93       1.17                           
-\end{verbatim}
-
-{\bf Sortie B}
-\begin{verbatim}
-                  Df     Sum Sq.   Mean Sq     F value    Pr(>F)    
-FacteurA           3       1.62       0.54      0.4437    0.7226    
-FacteurB           2     751.54     375.77    308.4150   0.00001
-FacteurA:FacteurB  6       4.26       0.71      0.5825    0.7428    
-Residuals         60      73.10       1.22                         
-\end{verbatim}
-
-
-{\bf Sortie C}
-\begin{verbatim}
-                  Df    Sum Sq    Mean Sq     F value     Pr(>F)    
-FacteurA           3    990.23.    330.08    406.3890    0.00001
-FacteurB           2    767.49     383.74    472.4639    0.00001
-FacteurA:FacteurB  6      4.22       0.70      0.8651     0.5258    
-Residuals         60     48.73       0.81               
-\end{verbatim}
-
-{\bf Sortie D}
-\begin{verbatim}
-                  Df     Sum Sq.   Mean Sq    F value    Pr(>F)    
-FacteurA           3    148.095     49.365    45.2107   0.00001
-FacteurB           2      0.668      0.334     0.3059    0.7376    
-FacteurA:FacteurB  6      1.316      0.219     0.2009    0.9752    
-Residuals         60     65.513      1.092                        
-\end{verbatim}
-La page précédente (page 6) contient quatre figures représentant les moyennes des combinaisons de deux facteurs.
-
-
-Pour chacun des énoncés suivants, inscrivez le \textbf{numéro} de la figure correspondante dans la case.
-\begin{parts}
-\part[2] La figure qui correspond à la {\bf Sortie A} est la Figure 
-\begin{tikzpicture}[baseline=4mm]
-\draw (0,0) -- (1,0) -- (1,1) -- (0,1) -- cycle; 
-\end{tikzpicture}
-
-\part[2] La figure qui correspond à la {\bf Sortie B} est la Figure 
-\begin{tikzpicture}[baseline=4mm]
-\draw (0,0) -- (1,0) -- (1,1) -- (0,1) -- cycle; 
-\end{tikzpicture}
-\part[2] La figure qui correspond à la {\bf Sortie C} est la Figure \begin{tikzpicture}[baseline=4mm]
-\draw (0,0) -- (1,0) -- (1,1) -- (0,1) -- cycle; 
-\end{tikzpicture}
-\part[2] La figure qui correspond à la {\bf Sortie D} est la Figure \begin{tikzpicture}[baseline=4mm]
-\draw (0,0) -- (1,0) -- (1,1) -- (0,1) -- cycle; 
-\end{tikzpicture}
-\end{parts}
-\begin{solution}
-\begin{parts}
-\part Figure 3
-\part Figure 4
-\part Figure 2
-\part Figure 1
-\end{parts}
-\end{solution}
 \newpage
 
 %%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
@@ -299,134 +215,14 @@ Pour chacune des mises en situation ci-bas, donnez la lettre du modèle qui corr
 
 %%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
 
-\question
-Une expérience est menée pour étudier l'effet de trois Types d'Essence (A, B et C) et de quatre Types d'Additifs pour essence (W, X, Y et Z) sur la consommation d'essence (en L par 100km) obtenue par un véhicule d'essai. On a évalué aléatoirement $k$ consommations pour chacune des $12$ combinaisons à l'aide d'un plan d'expérience complètement randomisé. On suppose que les postulats sont respectés. Voici une partie d'une sortie Rcmdr. 
-\begin{verbatim}
-                          Df    Sum Sq    F value        Pr(>F)    
-Additifs                  3     52.028    21.1174    0.00004445 
-Types.d.essence           2     19.823    12.0690      0.001341 
-Additifs:Types.d.essence  6     37.693     7.6496      0.001503 
-Residuals                12      9.855                        
-\end{verbatim}
 
-\begin{parts}
-\part[3] Donnez une estimation de la variance des termes d'erreur, $\sigma^2$. Justifiez votre réponse.
-
-\part[3] Trouvez la valeur de $k$, le nombre de consommations évaluées par combinaison des facteurs. Justifiez.
-
-\part[3] Soit les hypothèses suivantes:
-\begin{align*}
-& H_0: (\tau\beta)_{ij}= 0\mbox{ pour $i=1,\ldots,a, j=1,\ldots,b$},\\
-& H_1: \mbox{ il existe au moins une paire $(i,j)$, pour laquelle $(\tau\beta)_{ij}\neq 0$}. 
-\end{align*}
-Parmi les décisions suivantes, choisissez celle qui est la bonne au seuil $\alpha=5\%$:
-\begin{itemize}[label = {}]
-\item A) Nous rejetons $H_0$ au seuil $\alpha = 5\%$.
-\item B) Nous ne rejetons pas $H_0$ au seuil $\alpha = 5\%$.
-\end{itemize}
-
- 
-
-\part[3] Parmi les conclusions suivantes, choisissez celle qui est la bonne au seuil $\alpha= 5\%$:
-\begin{itemize}[label = {}]\setlength{\itemindent}{-3em}
-\item A) L'interaction est significative et on peut tester les effets des facteurs individuels à partir de la table d'Anova.
-\item B) L'interaction est significative et on ne teste pas les effets des facteurs individuels à partir de la table d'Anova.
-\item C) Il n'y a pas d’interaction significative, donc on ne peut rien dire sur les facteurs individuels à partir de la table d'Anova.
-\item D) Il n'y a pas d'interaction significative et le facteur Types d'Essence est le seul qui est significatif.
-\item E) Il n'y a pas d’interaction significative et le facteur Types d'Additifs est le seul qui est significatif.
-\item F) Il n'y a pas d’interaction significative et les deux facteurs sont significatifs.
-\end{itemize}
- 
-
-\end{parts}
-\newpage
 
 
 
 %%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
 
 
-\question[8]
 
- Avant de procéder à une ANOVA à un facteur, on veut s'assurer que les conditions d'application du modèle d'analyse de la variance sont respectés. On produit les graphiques ci-dessous pour valider les postulats.
-\begin{figure}[!htb]
-\centering
-
-\end{figure}
-
-Nommez précisémment deux postulats du modèle que vous devriez vérifier à partir des graphiques ci-haut. Pour chacun d'eux, identifiez les deux figures utiles à sa validation et dites s'il est respecté ou non. Des points seront accordés aux choix de figures et à la conclusion s'ils sont cohérents avec le postulat identifié.
-
-\begin{itemize}[label={$\bullet$}]
-    \item \textbf{Postulat:}
-
-\noindent\framebox[17cm]{\rule{0pt}{0.9cm}}  
-
-\medskip
-
-\begin{tikzpicture}    
-\draw (0,0) -- (0.5,0) -- (0.5,0.5) -- (0,0.5) -- cycle;    
-\draw (0,0.25) node[left]{Fig. i}; 
-
-\draw (2.5,0) -- (3,0) -- (3,0.5) -- (2.5,0.5) -- cycle;    
-\draw (2.5,0.25) node[left]{Fig. ii}; 
-
-\draw (5,0) -- (5.5,0) -- (5.5,0.5) -- (5,0.5) -- cycle;    
-\draw (5,0.25) node[left]{Fig. iii}; 
-
-\draw (7.5,0) -- (8,0) -- (8,0.5) -- (7.5,0.5) -- cycle;    
-\draw (7.5,0.25) node[left]{Fig. iV}; 
-\end{tikzpicture}
-
-\textbf{Postulat respecté? }
-\medskip
-
-\begin{tikzpicture}    
-\draw (0,0) -- (0.5,0) -- (0.5,0.5) -- (0,0.5) -- cycle;    
-\draw (0,0.25) node[left]{Oui}; 
-
-\draw (2.5,0) -- (3,0) -- (3,0.5) -- (2.5,0.5) -- cycle;    
-\draw (2.5,0.25) node[left]{Non}; 
-
-\end{tikzpicture}
-
-\medskip
-
-\item \textbf{Postulat: }
-
-\noindent\framebox[17cm]{\rule{0pt}{0.9cm}}%  
-
-\medskip
-
-\begin{tikzpicture}    
-\draw (0,0) -- (0.5,0) -- (0.5,0.5) -- (0,0.5) -- cycle;    
-\draw (0,0.25) node[left]{Fig. i}; 
-
-\draw (2.5,0) -- (3,0) -- (3,0.5) -- (2.5,0.5) -- cycle;    
-\draw (2.5,0.25) node[left]{Fig. ii}; 
-
-\draw (5,0) -- (5.5,0) -- (5.5,0.5) -- (5,0.5) -- cycle;    
-\draw (5,0.25) node[left]{Fig. iii}; 
-
-\draw (7.5,0) -- (8,0) -- (8,0.5) -- (7.5,0.5) -- cycle;    
-\draw (7.5,0.25) node[left]{Fig. iV}; 
-\end{tikzpicture}
-
-\textbf{Postulat respecté? }
-\medskip 
-
-\begin{tikzpicture}    
-\draw (0,0) -- (0.5,0) -- (0.5,0.5) -- (0,0.5) -- cycle;    
-\draw (0,0.25) node[left]{Oui}; 
-
-\draw (2.5,0) -- (3,0) -- (3,0.5) -- (2.5,0.5) -- cycle;    
-\draw (2.5,0.25) node[left]{Non}; 
-
-\end{tikzpicture}
-\end{itemize}
-
-
-
-\newpage
 
 %%%%%%%%%%%%%%%% QUESTION %%%%%%%%%%%%%%%%
 \question\label{rls}
@@ -453,11 +249,6 @@ Vous savez aussi que
 
 \part[2] Donnez le pourcentage de la variabilité totale de la concentration d'ozone $O_3$ dans l'air qui est expliquée par la température à midi.
 
-
-\pagesuivante{\ref{rls}}
-\newpage
-
-\suite{\ref{rls}}
 
 
 \part[3] Calculez la prévision ponctuelle de la concentration d'ozone $O_3$ dans l'air pour une température de $22$ degres.
