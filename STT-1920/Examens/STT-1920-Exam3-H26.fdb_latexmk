@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1776620652.08594 "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1920/Examens/STT-1920-Exam3-H26.tex" "STT-1920-Exam3-H26.pdf" "STT-1920-Exam3-H26" 1776620653.27467 2
+["pdflatex"] 1776620726.01274 "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1920/Examens/STT-1920-Exam3-H26.tex" "STT-1920-Exam3-H26.pdf" "STT-1920-Exam3-H26" 1776620727.19555 2
   "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/Evaluation.cls" 1772568870.41713 18851 d8b8a845b64ea1372f301b8d9587b073 ""
   "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/logo_ul.pdf" 1771010540.30133 24889 6ad5d339e8b9c5d473a3c0752b7f7a43 ""
-  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1920/Examens/STT-1920-Exam3-H26.tex" 1776620647.07773 24602 ec7107f2c24537378274bbc90705792d ""
+  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1920/Examens/STT-1920-Exam3-H26.tex" 1776620726.28777 24856 98c2ea38206623529cfa87e398affa1c ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevoml.enc" 1153172756 2921 ae68ca7d9a4902b5e8c8b47846fadadb ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevot1.enc" 1153172756 3020 a1ac7e8d91c840af41a220ec7126413f ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -223,7 +223,7 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1770864152 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "STT-1920-Exam3-H26.aux" 1776620653.20777 6739 d1d810319df8698318cdd99c34896d8c "pdflatex"
+  "STT-1920-Exam3-H26.aux" 1776620727.12353 7017 2bc3a079937441bd08a887382df1dba7 "pdflatex"
   (generated)
   "STT-1920-Exam3-H26.aux"
   "STT-1920-Exam3-H26.log"

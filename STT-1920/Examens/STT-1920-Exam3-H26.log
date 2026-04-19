@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  19 APR 2026 13:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  19 APR 2026 13:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1311,7 +1311,7 @@ LaTeX Font Warning: Font shape `T1/fav/b/sc' undefined
 {/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevoml.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevot1.enc}]
 
 [3]
-Overfull \hbox (26.6231pt too wide) in paragraph at lines 198--199
+Overfull \hbox (26.6231pt too wide) in paragraph at lines 208--209
 []\T1/fav/m/sc/9 Dans un mo-dèle de ré-gres-sion li-néaire simple, si l'in-ter-valle de confiance à $\OT1/zavm/m/n/9 95%$ \T1/fav/m/sc/9 pour $\OML/zavm/m/it/9 ^^L[]$ \T1/fav/m/sc/9 est $\OT1/zavm/m/n/9 [0\OML/zavm/m/it/9 ;\OT1/zavm/m/n/9 345;  12\OML/zavm/m/it/9 ;\OT1/zavm/m/n/9 765]$\T1/fav/m/sc/9 ,
  []
 
@@ -1346,15 +1346,15 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 27160 strings out of 473190
- 562181 string characters out of 5715801
+ 27168 strings out of 473190
+ 562341 string characters out of 5715801
  1147842 words of memory out of 5000000
- 49898 multiletter control sequences out of 15000+600000
+ 49906 multiletter control sequences out of 15000+600000
  618834 words of font info for 108 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  113i,10n,119p,631b,764s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Bold.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Oblique.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Roman.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7t.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7y.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7v.pfb>
-Output written on STT-1920-Exam3-H26.pdf (11 pages, 132910 bytes).
+Output written on STT-1920-Exam3-H26.pdf (11 pages, 133020 bytes).
 PDF statistics:
  95 PDF objects out of 1000 (max. 8388607)
  62 compressed objects within 1 object stream
