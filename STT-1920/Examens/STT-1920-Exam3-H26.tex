@@ -466,6 +466,149 @@ On rejette $H_0$. Au seuil de 1\,\%, il y a suffisamment de preuves pour conclur
 
 
 \pageblanche
+%%%%%%%%%%%%%%%% TESTS D'HYPOTHÈSES SUR MU — 1 ÉCHANTILLON %%%%%%%%%%%%%%%%
+
+\question
+Une entreprise fabrique des barres de chocolat et s'intéresse à la quantité moyenne de sucre dans une barre. Elle choisit au hasard 16 barres. Dans l'échantillon, la quantité moyenne de sucre par barre est de $5{,}05 \,g$ et la variance échantillonnale est de $0{,}011 \, g^2$. Sachant que $X$, la quantité de sucre dans une barre, est une variable aléatoire qui suit une loi normale d'espérance $\mu$ et de variance $\sigma^2=0{,}01$, elle effectue un test, au seuil $\alpha=2{,}5\%$, avec les hypothèses suivantes:
+\begin{align*}
+	H_0 &: \mu = 5 \cr
+	H_1 &: \mu > 5.
+\end{align*}
+
+\begin{parts}
+\part[2] Quelle est la valeur critique du test en grammes, c'est-à-dire, à partir de quelle valeur de $\overline{X}$ rejette-t-on~$H_0$?
+
+\begin{oneparcheckboxes}
+    \choice 1,960
+    \choice 2,131
+    \choice 2,000
+    \CorrectChoice 5,049
+    \choice 5,053 
+\end{oneparcheckboxes} 
+
+\begin{solution}
+Puisque $\sigma^2=0{,}01$ est connue, on utilise le test $Z$ unilatéral à droite. La valeur critique en grammes est :
+$$\mu_0 + z_{\alpha}\,\frac{\sigma}{\sqrt{n}} = 5 + 1{,}960\times\frac{0{,}1}{\sqrt{16}} = 5 + 1{,}960\times 0{,}025 = 5{,}049.$$
+\end{solution}
+
+\vspace{1cm}
+\part[2] Quelle est la valeur de la statistique du test sous $H_0$, arrondie à 3 décimales?
+
+\begin{oneparcheckboxes}
+    \choice 1,960
+    \choice 2,131
+    \CorrectChoice 2,000
+    \choice 5,049
+    \choice 5,053 
+\end{oneparcheckboxes} 
+
+\begin{solution}
+Puisque $\sigma^2 = 0{,}01$ est connue et $X \sim \text{Normale}$, on utilise le test $Z$. La statistique de test est :
+\[
+z_0 = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}} = \frac{5{,}05 - 5}{0{,}1/\sqrt{16}} = \frac{0{,}05}{0{,}025} = 2{,}000.
+\]
+\end{solution}
+
+\vspace{1cm}
+\part[2] Quel est le seuil observé du test?
+
+	\begin{checkboxes}
+	    \choice $\alpha^*=0{,}025$.
+		\CorrectChoice $\alpha^*=0{,}02275$.
+		\choice $\alpha^* \in\ ]0{,}025;\,0{,}05[$ .
+		\choice $\alpha^* \in\ ]0{,}05;\,0{,}1[$.
+	\end{checkboxes}
+
+\begin{solution}
+$\alpha^* = P(Z > z_0) = P(Z > 2{,}000) = 1 - \Phi(2) \approx 0{,}02275$. Puisque $\alpha^* = 0{,}02275 < \alpha = 0{,}025$, on rejette $H_0$ au seuil $2{,}5\%$.
+\end{solution}
+
+\vspace{1cm}
+\part[4] Si en réalité $\mu=5{,}1$ et que la règle de décision est de rejeter $H_0$ si $\displaystyle\frac{\overline{X}-5}{0{,}025}>1{,}96$, quelle est l'expression de la puissance du test? 
+
+\begin{checkboxes}
+    \choice $P\left(\displaystyle \frac{\overline{X}-5{,}1}{0{,}025}>1{,}96\right)$
+    \correctchoice $P\left(\displaystyle \frac{\overline{X}-5{,}1}{0{,}025}>-2{,}04\right)$
+    \choice $P\left(\displaystyle \frac{\overline{X}-5}{0{,}025}>1{,}96\right)$
+    \choice $P\left(\displaystyle \frac{\overline{X}-5}{0{,}025}>-2{,}04\right)$
+\end{checkboxes}
+
+\begin{solution}
+La puissance est $P(\text{rejeter }H_0\mid\mu=5{,}1)$. La règle de décision est de rejeter $H_0$ quand $\overline{X}>5+1{,}96\times 0{,}025=5{,}049$.
+\begin{align*}
+\text{Puissance}&=P(\overline{X}>5{,}049\mid\mu=5{,}1)
+=P\!\left(\frac{\overline{X}-5{,}1}{0{,}025}>\frac{5{,}049-5{,}1}{0{,}025}\right)
+=P\!\left(\frac{\overline{X}-5{,}1}{0{,}025}>-2{,}04\right).
+\end{align*}
+\end{solution}
+
+\end{parts}
+
+
+\pageblanche
+
+\question[6] Soit $X_1,\hdots, X_{n}$ qui proviennent d'une loi normale d'espérance $\mu$ et de variance $\sigma^2=25$. \\
+On fait le test d'hypothèses pour lequel
+$H_0:\mu=5$ et $H_1:\mu>5$ au seuil $\alpha=2{,}5\%$.\\
+Pour quelles valeurs de $n$ rejette-t-on $H_0$ si $\overline{x}=5{,}1$?
+
+\begin{solution}
+    On rejette $H_0$ si 
+
+    \begin{align*}
+        Z_0&>1{,}96\\
+        \frac{\overline{x}-5}{5/\sqrt{n}}&>1{,}96\\
+        \sqrt{n}(\overline{x}-5)&>9{,}8\\
+        \sqrt{n}&>\frac{9{,}8}{0{,}1}\\
+        n&>9604
+    \end{align*}
+\end{solution}
+
+
+\pageblanche
+
+\question Nous faisons un test pour confronter $H_0: \mu=15$ à $H_1:\mu\neq15$. La règle de décision est de rejeter $H_0$ si $\overline{X}<10$ ou si $\overline{X}>20$. Dans chacun des cas suivants, déterminez si une erreur est commise et déterminez de quel type, le cas échéant. 
+
+\vspace{0.5cm}
+\begin{parts}
+    \part[1] La vraie valeur de $\mu$ est 16 et nous obtenons $\overline{x}=12$.
+    
+    \begin{oneparcheckboxes}
+        \choice Erreur de type I
+        \correctchoice Erreur de type II
+        \choice Aucune erreur
+    \end{oneparcheckboxes}
+
+\vspace{0.5cm}
+        \part[1] La vraie valeur de $\mu$ est 15 et nous obtenons $\overline{x}=12$.
+    
+    \begin{oneparcheckboxes}
+        \choice Erreur de type I
+        \choice Erreur de type II
+        \correctchoice Aucune erreur
+    \end{oneparcheckboxes}
+
+\vspace{0.5cm}
+        \part[1] La vraie valeur de $\mu$ est 15 et nous obtenons $\overline{x}=21$.
+    
+    \begin{oneparcheckboxes}
+        \correctchoice Erreur de type I
+        \choice Erreur de type II
+        \choice Aucune erreur
+    \end{oneparcheckboxes}
+
+\vspace{0.5cm}
+        \part[1] La vraie valeur de $\mu$ est 18 et nous obtenons $\overline{x}=21$.
+    
+    \begin{oneparcheckboxes}
+        \choice Erreur de type I
+        \choice Erreur de type II
+        \correctchoice Aucune erreur
+    \end{oneparcheckboxes}
+\end{parts}
+
+
+\pageblanche
 %%%%%%%%%%%%%%%% QUESTION BONUS %%%%%%%%%%%%%%%%
 
 
