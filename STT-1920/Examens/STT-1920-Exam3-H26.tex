@@ -30,7 +30,7 @@
 \item Calculatrice scientifique {\bf autorisée par la faculté des sciences et de génie};
 \item Une seule feuille aide-m\'emoire \textbf{manuscrite} de format lettre (8.5''$\times$11'') recto-verso.
 \end{itemize}
-\item Assurez-vous que cette évaluation comporte \numquestions ~exercices (incluant 1 question bonus) répartis sur \numpages{}~pages, pour un total de \numpoints{}~points et \numbonuspoints{}~points bonus.\
+\item Assurez-vous que cette évaluation comporte \numquestions ~exercices répartis sur \numpages{}~pages, pour un total de \numpoints{}~points.\
 \item \textbf{Veuillez ne pas dégrafer votre examen.}
 \item Vous devez\textbf{ justifier toutes vos réponses} par une démarche claire, sauf pour les questions à choix de réponse.\
 \item Pour les questions à choix de réponse et les vrais ou faux, vous pouvez mettre un X, un crochet ($\checkmark$) ou remplir la case.\
@@ -194,16 +194,7 @@ Faux. Pour que l'ANOVA soit valide, \textbf{tous} les postulats doivent être ra
 Vrai. Quand $k=2$, l'ANOVA à un facteur et le test $t$ de Student (variances égales) sont équivalents: $F_0 = t_0^2$.
 \end{solution}
 
-\part[2] En faisant une analyse de la variance à deux facteurs, nous obtenons une \textit{valeur-p} associée à la statistique observée du terme d'interaction égale à $0{,}001$. Au seuil $\alpha = 0{,}05$, l'interaction est significative et nous n'interprétons pas les facteurs individuellement.
 
-\begin{oneparcheckboxes}
-    \correctchoice Vrai 
-    \choice Faux
-\end{oneparcheckboxes} \vspace{0.5cm}
-
-\begin{solution}
-Vrai. La valeur-$p = 0{,}001 < 0{,}05 = \alpha$, donc l'interaction est significative. L'effet d'un facteur dépend du niveau de l'autre facteur, et on n'interprète pas les effets principaux séparément.
-\end{solution}
 
 \part[2] Dans un modèle de régression linéaire simple, si l'intervalle de confiance à $95\%$ pour $\beta_0$ est $[0{,}345;\, 12{,}765]$, nous sommes certain qu'une relation linéaire existe entre $X$ et $Y$.
 
@@ -236,20 +227,15 @@ Faux. Si $y_i = x_i$ pour tout $i$, alors $\bar{y}=\bar{x}$ et $S_{XY}=S_{XX}$. 
 Pour des raisons de santé publique, on s'intéresse à la concentration d'ozone $O_3$ dans l'air (en microgrammes par millilitre). En particulier, on cherche à savoir s'il est possible d'expliquer le taux maximal d'ozone de la journée par la température à midi donnée en degrés celsius. Afin d'étudier le modèle $Y_i=\beta_0+\beta_1 X_i+ E_i$, en supposant que les postulats de régression linéaire sont respectés, vous disposez des résultats suivants:
 
 \begin{verbatim}
-Residual standard error: 12.67 on 8 degrees of freedom
-Multiple R-squared:  0.7041,	Adjusted R-squared:  0.6671 
-F-statistic: 19.03 on 1 and 8 DF,  p-value: 0.002403
+MSE: 160.529 sur 8 degrés de liberté
+R-carré:  0.7041,	R-carré ajusté:  0.6671 
+F0: 19.03 sur 1 et 8 degrés de liberté,  valeur-p: 0.002403
 \end{verbatim}
 
 \begin{align*}
 \sum_{i=1}^{10}x_i=219{,}1 ; \quad \sum_{i=1}^{10}x_i^2=5214{,}58;\quad \sum_{i=1}^{10}y_i=1026{,}4; \quad \sum_{i=1}^{10}y_i^2=118446{,}6;\quad \sum_{i=1}^{10}x_iy_i=23650{,}84.
 \end{align*}
 
-Vous savez aussi que 
-
-\begin{align*}
-    S_{XY} = \sum_{i}^nx_iy_i-n\bar{x}\bar{y}; \quad S_{XX}= \sum_{i}^nx_i^2-n\bar{x}^2.
-\end{align*}
 
 \begin{parts}
 \part[8] Donnez l'équation de la droite de régression permettant de prédire la concentration d'ozone $O_3$ dans l'air en fonction de la température à midi. Justifiez toutes les étapes de votre démarche.
@@ -290,11 +276,11 @@ La prévision ponctuelle est d'environ $102{,}89$ microgrammes par millilitre.
 
 \vspace{7cm}
 
-\part[2] Un chercheur aimerait estimer la concentration d'ozone $O_3$ dans l'air en une journée précise. Le midi de cette journée, la température est de $14$ degrés. La prévision ponctuelle de la concentration d'ozone $O_3$ dans l'air en cette journée est environ de $81{,}83$. Choisissez l'intervalle de valeurs ayant $95\%$ de chances de contenir la concentration d'ozone $O_3$ dans l'air en cette journée. 
+\part[2] Un chercheur aimerait estimer la concentration d'ozone $O_3$ dans l'air lors d'une journée précise. Le midi de cette journée, la température est de $14$ degrés. La prévision ponctuelle de la concentration d'ozone $O_3$ dans l'air en cette journée est environ de $80{,}38$. Choisissez l'intervalle de valeurs ayant $95\%$ de chances de contenir la concentration d'ozone $O_3$ dans l'air en cette journée. 
 
 \begin{checkboxes}
-\choice $80{,}47\pm t_{0{,}025,\,n-2}\sqrt{\text{MSE}\bigg[\dfrac{1}{n}+\dfrac{(14-\bar{x})^2}{S_{XX}}\bigg]}$
-\correctchoice $80{,}47\pm t_{0{,}025,\,n-2}\sqrt{\text{MSE}\bigg[1+\dfrac{1}{n}+\dfrac{(14-\bar{x})^2}{S_{XX}}\bigg]}$
+\choice $80{,}38\pm t_{0{,}025,\,n-2}\sqrt{\text{MSE}\bigg[\dfrac{1}{n}+\dfrac{(14-\bar{x})^2}{S_{XX}}\bigg]}$
+\correctchoice $80{,}38\pm t_{0{,}025,\,n-2}\sqrt{\text{MSE}\bigg[1+\dfrac{1}{n}+\dfrac{(14-\bar{x})^2}{S_{XX}}\bigg]}$
 \end{checkboxes}
 
 \begin{solution}
@@ -338,15 +324,25 @@ D est le bon choix. La valeur-$p = 0{,}002403 < 0{,}01 = \alpha$. On rejette $H_
 \question[8] Une chocolaterie prétend que ses sacs de 120 bonbons contiennent les saveurs suivantes dans les proportions indiquées~: 30\,\% chocolat noir, 25\,\% chocolat au lait, 25\,\% caramel et 20\,\% noisette. Pour vérifier cette affirmation, un contrôleur de qualité prélève un sac au hasard et compte les bonbons de chaque saveur. Les résultats sont présentés ci-dessous.
 
 \begin{center}
-\begin{tabular}{l|cccc|c}
-\textbf{Saveur} & Noir & Lait & Caramel & Noisette & \textbf{Total}\\
+\begin{tabular}{l|c|c|c|c|c}
+\textbf{Saveur} &\textsc{ } Noir \textsc{ }& \textsc{ } Lait \textsc{ }  & Caramel & Noisette & \textbf{Total}\\
 \hline
-\textbf{Fréquence observée} ($O_i$) & 42 & 35 & 20 & 23 & 120
+\textbf{Fréquence observée} ($O_i$) & 42 & 35 & 20 & 23 & 120\\
+\hline
+&  &  &  &  & \\
+
+&  &  &  &  & \\
+
+\hline
+&  &  &  &  & \\
+
+&  &  &  &  & \\
+\hline
 \end{tabular}
 \end{center}
 
 \begin{parts}
-\part[1] Formulez les hypothèses nulle et alternative du test du khi-carré d'ajustement.
+\part[1] Formulez les hypothèses nulle et alternative du test du khi-carré d'adéquation.
 
 \begin{solution}
 $H_0$~: La distribution des saveurs correspond aux proportions annoncées, c'est-à-dire $p_{\text{noir}}=0{,}30$, $p_{\text{lait}}=0{,}25$, $p_{\text{caramel}}=0{,}25$, $p_{\text{noisette}}=0{,}20$.
@@ -354,7 +350,7 @@ $H_0$~: La distribution des saveurs correspond aux proportions annoncées, c'est
 $H_1$~: La distribution des saveurs ne correspond pas aux proportions annoncées (au moins une proportion diffère).
 \end{solution}
 
-\part[3] Calculez la statistique de test $D_0$. Montrez vos calculs.
+\part[3] Calculez la statistique de test $D_0$. Vous pouvez utiliser le tableau plus haut dans votre démarche.
 
 \begin{solution}
 On calcule d'abord les fréquences espérées $E_i = n \times p_i$~:
@@ -379,7 +375,7 @@ $$= \frac{36}{36}+\frac{25}{30}+\frac{100}{30}+\frac{1}{24} = 1 + 0{,}833 + 3{,}
 $\nu = k - 1 = 4 - 1 = 3$ degrés de liberté ($k=4$ catégories, aucun paramètre estimé à partir des données).
 \end{solution}
 
-\part[2] Au seuil $\alpha=0{,}05$, quelle est votre conclusion? Justifiez. On donne $\chi^2_{0{,}05;\,3}=7{,}815$.
+\part[2] Au seuil $\alpha=0{,}05$, quelle est votre conclusion? Justifiez.
 
 \begin{solution}
 $D_0 = 5{,}208 < 7{,}815 = \chi^2_{0{,}05;\,3}$.
@@ -389,94 +385,36 @@ On ne rejette pas $H_0$. Au seuil de 5\,\%, il n'y a pas suffisamment de preuves
 
 \end{parts}
 
-
-\pageblanche
-%%%%%%%%%%%%%%%% QUESTION 8 — Test du khi-carré d'homogénéité %%%%%%%%%%%%%%%%
-\question[8] On souhaite savoir si la répartition des choix de transport (auto, transport en commun, vélo) est la même pour les étudiants de trois campus universitaires. Un échantillon aléatoire de 300 étudiants donne les résultats suivants.
-
-\begin{center}
-\begin{tabular}{l|ccc|c}
- & \textbf{Auto} & \textbf{Transport en commun} & \textbf{Vélo} & \textbf{Total}\\
-\hline
-\textbf{Campus A} & 40 & 45 & 15 & 100\\
-\textbf{Campus B} & 30 & 50 & 20 & 100\\
-\textbf{Campus C} & 20 & 40 & 40 & 100\\
-\hline
-\textbf{Total} & 90 & 135 & 75 & 300
-\end{tabular}
-\end{center}
-
-\begin{parts}
-\part[1] Formulez les hypothèses nulle et alternative.
-
-\begin{solution}
-$H_0$~: La distribution des choix de transport est la même pour les trois campus.
-
-$H_1$~: La distribution des choix de transport diffère pour au moins un campus.
-\end{solution}
-
-\part[3] Calculez la statistique de test $D_0$. Montrez vos calculs.
-
-\begin{solution}
-Les fréquences espérées sous $H_0$ sont $E_{ij}=\dfrac{(\text{total ligne }i)\times(\text{total colonne }j)}{n}$.
-
-\begin{center}
-\begin{tabular}{l|ccc}
- & Auto & Transport en commun & Vélo \\
-\hline
-Campus A & $\frac{100\times 90}{300}=30$ & $\frac{100\times 135}{300}=45$ & $\frac{100\times 75}{300}=25$ \\[4pt]
-Campus B & $30$ & $45$ & $25$ \\[4pt]
-Campus C & $30$ & $45$ & $25$
-\end{tabular}
-\end{center}
-
-Toutes les fréquences espérées sont $\geq 5$. $\checkmark$
-
-\begin{align*}
-D_0 &= \frac{(40-30)^2}{30}+\frac{(45-45)^2}{45}+\frac{(15-25)^2}{25}\\
-&\quad +\frac{(30-30)^2}{30}+\frac{(50-45)^2}{45}+\frac{(20-25)^2}{25}\\
-&\quad +\frac{(20-30)^2}{30}+\frac{(40-45)^2}{45}+\frac{(40-25)^2}{25}\\[4pt]
-&= \frac{100}{30}+0+\frac{100}{25}+0+\frac{25}{45}+\frac{25}{25}+\frac{100}{30}+\frac{25}{45}+\frac{225}{25}\\[4pt]
-&= 3{,}333+0+4+0+0{,}556+1+3{,}333+0{,}556+9\\[4pt]
-&= 21{,}778
-\end{align*}
-\end{solution}
-
-\part[2] Combien de degrés de liberté possède la loi de référence sous $H_0$?
-
-\begin{solution}
-$\nu = (r-1)(c-1) = (3-1)(3-1) = 4$ degrés de liberté ($r=3$ lignes, $c=3$ colonnes).
-\end{solution}
-
-\part[2] Au seuil $\alpha=0{,}05$, quelle est votre conclusion? Justifiez. On donne $\chi^2_{0{,}05;\,4}=9{,}488$.
-
-\begin{solution}
-$D_0 = 21{,}778 > 9{,}488 = \chi^2_{0{,}05;\,4}$.
-
-On rejette $H_0$. Au seuil de 5\,\%, la distribution des choix de transport n'est pas la même pour les trois campus. En particulier, le campus C semble avoir une proportion de cyclistes nettement plus élevée.
-\end{solution}
-
-\end{parts}
-
-
 \pageblanche
 %%%%%%%%%%%%%%%% QUESTION 9 — Test du khi-carré d'indépendance %%%%%%%%%%%%%%%%
 \question[8] Une étude cherche à déterminer s'il existe un lien entre le niveau de stress (faible, modéré, élevé) et la qualité du sommeil (bonne, mauvaise) chez des adultes. Un échantillon de 200 personnes donne les résultats suivants.
 
 \begin{center}
-\begin{tabular}{l|cc|c}
+\begin{tabular}{c|cc|c}
  & \textbf{Bonne qualité} & \textbf{Mauvaise qualité} & \textbf{Total}\\
 \hline
-\textbf{Stress faible} & 50 & 10 & 60\\
-\textbf{Stress modéré} & 45 & 35 & 80\\
-\textbf{Stress élevé} & 15 & 45 & 60\\
+\textbf{Stress faible} & & &\\
+$O_{ij}$ & 50 & 10 & 60\\
+$E_{ij}$ & 33 & 27& \\
+$D_{ij}$ & 8,758 & 10,704 \\
 \hline
-\textbf{Total} & 110 & 90 & 200
+\textbf{Stress modéré} & & &\\
+$O_{ij}$  & 45 & 35 & 80\\
+$E_{ij}$ & 44 & 36\\
+$D_{ij}$ & 0,023 & 0,028 \\
+\hline
+\textbf{Stress Élevé} & & &\\
+$O_{ij}$  & 15 & 45 & 60\\
+$E_{ij}$ & 33 & 27\\
+$D_{ij}$ & 9,818 & 12 \\
+\hline
+\hline
+\textbf{Total oberservés} & 110 & 90 & 200
 \end{tabular}
 \end{center}
 
 \begin{parts}
-\part[1] Formulez les hypothèses nulle et alternative.
+\part[1] Formulez les hypothèses nulle et alternative du test d'indépendance.
 
 \begin{solution}
 $H_0$~: Le niveau de stress et la qualité du sommeil sont indépendants.
@@ -529,41 +467,7 @@ On rejette $H_0$. Au seuil de 1\,\%, il y a suffisamment de preuves pour conclur
 
 \pageblanche
 %%%%%%%%%%%%%%%% QUESTION BONUS %%%%%%%%%%%%%%%%
-\bonusquestion
 
-Supposons un modèle de régression linéaire
-
-\begin{align*}
-    Y_i=\beta_0+\beta_1 X_i + \epsilon_i \text{ pour } i = 1,\ldots,n
-\end{align*}
-
-où $\epsilon_i \sim \mathcal{U}[-a, a]$, c'est-à-dire une loi uniforme sur $[-a, a]$. Nous avons les informations suivantes:
-
- \begin{align*}
-     E(\epsilon)= 0 & & Var(\epsilon)= \frac{4a^2}{12}
- \end{align*}
- 
-\begin{parts}
-\bonuspart[3] Donnez $E(Y_i)$ et $Var(Y_i)$.
-
-\begin{solution}
-$E(Y_i)=E(\beta_0+\beta_1 X_i + \epsilon_i)=\beta_0+\beta_1 X_i + E(\epsilon_i) = \beta_0+\beta_1 X_i$.
-
-$Var(Y_i)=Var(\beta_0+\beta_1 X_i + \epsilon_i) = Var(\epsilon_i) = \dfrac{4a^2}{12}=\dfrac{a^2}{3}$
-
-(car $\beta_0+\beta_1 X_i$ est une constante conditionnellement à $X_i$).
-\end{solution}
-
-\vspace{5cm}
-
-\bonuspart[3] Quelle est la loi de $Y$? Donnez autant de détails que possible.
-
-\begin{solution}
-Puisque $\epsilon_i \sim \mathcal{U}[-a, a]$ et que $Y_i = \beta_0+\beta_1 X_i + \epsilon_i$, la loi de $Y_i$ conditionnellement à $X_i$ est une translation de la loi uniforme~:
-$$Y_i \mid X_i \sim \mathcal{U}\!\left[\beta_0+\beta_1 X_i - a;\; \beta_0+\beta_1 X_i + a\right].$$
-\end{solution}
-
-\end{parts}
 
 \end{questions}
 \end{document}
