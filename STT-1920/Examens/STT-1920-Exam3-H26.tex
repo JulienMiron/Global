@@ -65,20 +65,21 @@
 \begin{questions}
 
 %%%%%%%%%%%%%%%% QUESTIONS 2 ET 3 %%%%%%%%%%%%%%%%
-\section*{Mise en situation -- Questions 2 et 3}
-Un ingénieur souhaite comparer la performance de trois marques de freins à disque pour vélo de route. La variable d'intérêt sera donc la distance de freinage parcourue pour passer de 40\,km/h à 0\,km/h. L'expérience est répétée $k$ fois pour chaque type de frein. Utilisez la table d'ANOVA suivante pour répondre aux questions 2 et 3.
+\section*{Mise en situation -- Exercices \ref{q1} et \ref{q2}}
+Un ingénieur souhaite comparer la performance de trois marques de freins à disque pour vélo de route. La variable d'intérêt sera donc la distance de freinage parcourue pour passer de 40\,km/h à 0\,km/h. L'expérience est répétée $n$ fois pour chaque type de frein. Utilisez la table d'ANOVA suivante pour répondre aux exercices \ref{q1} et \ref{q2}.
+
 \begin{verbatim}
-               SS   DDL       F0    valeur-p   
-disque      45.77     2   14.329    0.000001
-Residuals   91.03    57  
+                   SS   DDL       MS       F0    valeur-p   
+Traitement      45.77     2   22.885   14.329    0.000001
+Erreur          91.03    57    1.597
 \end{verbatim}
 
-\question[3] Laquelle des affirmations suivantes est vraie?
+\question[3]\label{q1} Laquelle des affirmations suivantes est vraie?
 
 \begin{checkboxes}
-\choice Nous savons que $k=60$.
-\correctchoice L'estimateur de la variance $\sigma^2$ est environ $1{,}60$.
-\choice La variable réponse est la distance de freinage et le facteur est \texttt{Residuals}.
+\choice Nous savons que $n=60$.
+\correctchoice L'estimateur de la variance est $1{,}597$.
+\choice La variable réponse est la distance de freinage et le facteur est \texttt{Erreur}.
 \choice Comme il s'agit d'une régression linéaire simple, il n'y a pas de facteur.
 \end{checkboxes}
 
@@ -93,12 +94,12 @@ D) Il s'agit d'une ANOVA, pas d'une régression.
 \end{solution}
 
 \vspace{0.5cm}
-\question[3] Quelle conclusion peut-on tirer à partir de cette table d'ANOVA, au seuil de $1\%$?
+\question[3]\label{q2} Quelle conclusion peut-on tirer à partir de cette table d'ANOVA, au seuil de $1\%$?
 
 \begin{checkboxes}
 \choice La variance de la distance de freinage d'au moins une marque de frein est différente d'au moins une autre marque.
 \correctchoice La distance de freinage moyenne d'au moins une marque de frein est différente d'au moins une autre marque.
-\choice Comme il y a de l'interaction, nous ne pouvons tirer aucune conclusion sur les facteurs individuels.
+\choice Toutes les moyennes sont égales.
 \end{checkboxes}
 
 \begin{solution}
@@ -117,7 +118,7 @@ C) Il s'agit d'une ANOVA à un seul facteur; il n'y a pas de terme d'interaction
 \begin{enumerate}[label = \Alph*:]
 \item \textbf{Régression linéaire simple}
 \item \textbf{Analyse de la variance à un facteur}
-\item \textbf{Analyse de la variance à deux facteurs}
+\item \textbf{Test d'indépendance}
 \end{enumerate}
 
 \medskip
