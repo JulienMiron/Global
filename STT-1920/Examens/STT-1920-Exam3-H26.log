@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  20 APR 2026 19:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  20 APR 2026 19:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1267,30 +1267,25 @@ File: uzavm.fd 2006/05/30 Fontinst v1.929 font definitions for U/zavm.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for T1+fvm on input line 68.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/bera/t1fvm.fd
-File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
-)
+
 
 LaTeX Font Warning: Font shape `T1/fav/m/sc' undefined
-(Font)              using `T1/fav/m/n' instead on input line 77.
+(Font)              using `T1/fav/m/n' instead on input line 71.
 
 
 LaTeX Font Warning: Font shape `T1/fav/b/sc' undefined
-(Font)              using `T1/fav/b/n' instead on input line 77.
+(Font)              using `T1/fav/b/n' instead on input line 71.
 
-
+LaTeX Font Info:    Trying to load font information for T1+fvm on input line 73.
+(/usr/local/texlive/2025/texmf-dist/tex/latex/bera/t1fvm.fd
+File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
+)
 
 [2
 
 {/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevoml.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevot1.enc}]
 
 [3]
-Overfull \hbox (26.6231pt too wide) in paragraph at lines 199--200
-[]\T1/fav/m/sc/9 Dans un mo-dèle de ré-gres-sion li-néaire simple, si l'in-ter-valle de confiance à $\OT1/zavm/m/n/9 95%$ \T1/fav/m/sc/9 pour $\OML/zavm/m/it/9 ^^L[]$ \T1/fav/m/sc/9 est $\OT1/zavm/m/n/9 [0\OML/zavm/m/it/9 ;\OT1/zavm/m/n/9 345;  12\OML/zavm/m/it/9 ;\OT1/zavm/m/n/9 765]$\T1/fav/m/sc/9 ,
- []
-
-
 
 [4]
 
@@ -1301,14 +1296,8 @@ Overfull \hbox (26.6231pt too wide) in paragraph at lines 199--200
 [7]
 
 [8]
-
-[9{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevoms.enc}]
-
-[10]
-
-[11]
-This exam contains 10 questions with 30 parts, 0 subparts, and 0 subsubparts.
-This exam has a total of 96 points.
+This exam contains 7 questions with 24 parts, 0 subparts, and 0 subsubparts.
+This exam has a total of 78 points.
 This exam has a total of 0 bonus points.
 (./STT-1920-Exam3-H26.aux)
  ***********
@@ -1321,18 +1310,18 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 27186 strings out of 473190
- 562776 string characters out of 5715801
- 1142794 words of memory out of 5000000
- 49929 multiletter control sequences out of 15000+600000
- 613220 words of font info for 100 fonts, out of 8000000 for 9000
+ 27114 strings out of 473190
+ 561536 string characters out of 5715801
+ 1145794 words of memory out of 5000000
+ 49858 multiletter control sequences out of 15000+600000
+ 616329 words of font info for 100 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 113i,11n,119p,688b,705s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Bold.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Oblique.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Roman.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7t.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7y.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7v.pfb>
-Output written on STT-1920-Exam3-H26.pdf (11 pages, 112141 bytes).
+ 113i,10n,119p,631b,705s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Bold.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-BoldOblique.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Oblique.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Roman.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7t.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7y.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7v.pfb>
+Output written on STT-1920-Exam3-H26.pdf (8 pages, 113527 bytes).
 PDF statistics:
- 94 PDF objects out of 1000 (max. 8388607)
- 62 compressed objects within 1 object stream
+ 83 PDF objects out of 1000 (max. 8388607)
+ 54 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 
