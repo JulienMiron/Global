@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1776729216.19274 "STT-1920/Examens/STT-1920-Exam3-H26.tex" "STT-1920-Exam3-H26.pdf" "STT-1920-Exam3-H26" 1776729217.77909 0
+["pdflatex"] 1776729293.74149 "STT-1920/Examens/STT-1920-Exam3-H26.tex" "STT-1920-Exam3-H26.pdf" "STT-1920-Exam3-H26" 1776729295.33872 0
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevoml.enc" 1153172756 2921 ae68ca7d9a4902b5e8c8b47846fadadb ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevot1.enc" 1153172756 3020 a1ac7e8d91c840af41a220ec7126413f ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -221,8 +221,8 @@
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
   "Evaluation.cls" 1772568870.41713 18851 d8b8a845b64ea1372f301b8d9587b073 ""
-  "STT-1920-Exam3-H26.aux" 1776729217.69782 5653 ddeda413d1f26af7a17feed86c3703c3 "pdflatex"
-  "STT-1920/Examens/STT-1920-Exam3-H26.tex" 1776729209.89697 20819 b3e34da39c7ecda08936ce11f337dc5e ""
+  "STT-1920-Exam3-H26.aux" 1776729295.25869 5653 ddeda413d1f26af7a17feed86c3703c3 "pdflatex"
+  "STT-1920/Examens/STT-1920-Exam3-H26.tex" 1776729291.10162 20881 381d11cd1a9e87569bbfc7220e355677 ""
   "logo_ul.pdf" 1771010540.30133 24889 6ad5d339e8b9c5d473a3c0752b7f7a43 ""
   (generated)
   "STT-1920-Exam3-H26.aux"
