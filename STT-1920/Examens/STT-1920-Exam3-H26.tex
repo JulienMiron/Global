@@ -62,8 +62,13 @@
 \pageblanche
 
 %%%%%%%%%%%%%%%% QUESTIONS 2 ET 3 %%%%%%%%%%%%%%%%
-\section*{Mise en situation -- Exercices \ref{q1} et \ref{q2}}
-Un ingénieur souhaite comparer la performance de trois marques de freins à disque pour vélo de route. La variable d'intérêt sera donc la distance de freinage parcourue pour passer de 40\,km/h à 0\,km/h. L'expérience est répétée $n$ fois pour chaque type de frein. Utilisez la table d'ANOVA suivante pour répondre aux exercices \ref{q1} et \ref{q2}.
+
+
+
+%%%%%%%%%%%%%%%% QUESTION 1 %%%%%%%%%%%%%%%%
+\begin{questions}
+
+\question Un ingénieur souhaite comparer la performance de trois marques de freins à disque pour vélo de route. La variable d'intérêt sera donc la distance de freinage parcourue pour passer de 40\,km/h à 0\,km/h. L'expérience est répétée $n$ fois pour chaque type de frein. Utilisez la table d'ANOVA suivante pour répondre aux deux questions.
 
 \begin{verbatim}
                    SS   DDL       MS       F0    valeur-p   
@@ -71,10 +76,8 @@ Traitement      45.77     2   22.885   14.329    0.000001
 Erreur          91.03    57    1.597
 \end{verbatim}
 
-%%%%%%%%%%%%%%%% QUESTION 1 %%%%%%%%%%%%%%%%
-\begin{questions}
-
-\question[3]\label{q1} Laquelle des affirmations suivantes est vraie?
+\begin{parts}
+\part[3]   Laquelle des affirmations suivantes est vraie?
 
 \begin{checkboxes}
 \choice Nous savons que $n=60$.
@@ -94,7 +97,7 @@ D) Il s'agit d'une ANOVA, pas d'une régression.
 \end{solution}
 
 \vspace{0.5cm}
-\question[3]\label{q2} Quelle conclusion peut-on tirer à partir de cette table d'ANOVA, au seuil de $1\%$?
+\part[3] Quelle conclusion peut-on tirer à partir de cette table d'ANOVA, au seuil de $1\%$?
 
 \begin{checkboxes}
 \choice La variance de la distance de freinage d'au moins une marque de frein est différente d'au moins une autre marque.
@@ -109,12 +112,14 @@ A) L'ANOVA compare les moyennes, pas les variances.
 
 C) Il s'agit d'une ANOVA à un seul facteur; il n'y a pas de terme d'interaction.
 \end{solution}
+ 
+\end{parts}
 
-
-\pageblanche
+\vspace{0.5cm}
 %%%%%%%%%%%%%%%% QUESTION 4 %%%%%%%%%%%%%%%%
 \question Pour chacune des mises en situation ci-bas, identifiez le modèle statistique approprié.
 
+\vspace{0.5cm}
 \begin{parts}
 \part[3] Alexis aimerait savoir si le nombre de minutes que ses amis et lui passent à jouer à l'ordinateur à chaque semaine a un impact sur leur note à l'examen final de mathématiques de secondaire 5. Il prévoit donc étudier l'effet des minutes à jouer à l'ordinateur sur la note de l'examen.
 
@@ -128,7 +133,8 @@ C) Il s'agit d'une ANOVA à un seul facteur; il n'y a pas de terme d'interaction
 \textbf{A -- Régression linéaire simple.} La variable explicative (minutes de jeu) et la variable réponse (note) sont toutes deux quantitatives continues.
 \end{solution}
 
-\part[3] Amandine aimerait comparer la performance de 8 types d'engrais. Elle utilise donc 5 plants de tomates pour chacun des types d'engrais (40 plants au total) et elle mesure la quantité de tomates produites.
+\vspace{0.5cm}
+\part[3] Sophie aimerait comparer la performance de 8 types d'engrais. Elle utilise donc 5 plants de tomates pour chacun des types d'engrais (40 plants au total) et elle mesure la quantité de tomates produites.
 
 \begin{checkboxes}
 \choice Régression linéaire simple
@@ -140,6 +146,7 @@ C) Il s'agit d'une ANOVA à un seul facteur; il n'y a pas de terme d'interaction
 \textbf{B -- Analyse de la variance à un facteur.} Un seul facteur catégoriel (type d'engrais) à 8 niveaux; la variable réponse est la quantité de tomates.
 \end{solution}
 
+\vspace{0.5cm}
 \part[3] Benjamin veut savoir s'il existe un lien entre le type de régime alimentaire (omnivore, végétarien, végétalien) et le niveau d'énergie ressenti (faible, moyen, élevé) chez les étudiants de son programme. Il sonde 150 étudiants et classe chacun d'eux selon son régime et son niveau d'énergie.
 
 \begin{checkboxes}
@@ -152,7 +159,8 @@ C) Il s'agit d'une ANOVA à un seul facteur; il n'y a pas de terme d'interaction
 \textbf{C -- Test d'indépendance.} Les deux variables (type de régime et niveau d'énergie) sont catégorielles. On cherche à déterminer s'il existe une association entre elles, ce qui correspond à un test d'indépendance du khi-carré.
 \end{solution}
 
-\part[3] Émile et Léon veulent savoir si la puissance générée par un cycliste a un impact sur le temps d'ascension du fameux \textit{Molard} de Gilly. Ils mesurent donc la puissance moyenne de 25 cyclistes pendant l'ascension ainsi que le temps d'ascension en secondes.
+\vspace{0.5cm}
+\part[3] Émile et Léon veulent savoir si le temps d'ascension de la côte de Sillery peut être expliqué par la puissance générée par un cycliste. Ils mesurent donc la puissance moyenne de 25 cyclistes pendant l'ascension ainsi que le temps d'ascension en secondes.
 
 \begin{checkboxes}
 \correctchoice Régression linéaire simple
@@ -169,56 +177,70 @@ C) Il s'agit d'une ANOVA à un seul facteur; il n'y a pas de terme d'interaction
 
 \pageblanche
 %%%%%%%%%%%%%%%% QUESTION 5 %%%%%%%%%%%%%%%%
-\question Déterminez si les énoncés suivants sont vrais ou faux.
 
+
+
+\question Nous faisons un test pour confronter $H_0: \mu=15$ à $H_1:\mu\neq15$. La règle de décision est de rejeter $H_0$ si $\overline{X}<10$ ou si $\overline{X}>20$. Dans chacun des cas suivants, déterminez si une erreur est commise et déterminez de quel type, le cas échéant. 
+
+\vspace{0.5cm}
 \begin{parts}
-\part[2] Pour que l'analyse de la variance à 1 facteur soit valide, il faut qu'au moins un des postulats soit respecté.
+    \part[1] La vraie valeur de $\mu$ est 16 et nous obtenons $\overline{x}=12$.
+    
+    \begin{oneparcheckboxes}
+        \choice Erreur de type I
+        \correctchoice Erreur de type II
+        \choice Aucune erreur
+    \end{oneparcheckboxes}
 
-\begin{oneparcheckboxes}
-    \choice Vrai 
-    \correctchoice Faux
-\end{oneparcheckboxes} \vspace{0.5cm}
+\vspace{0.5cm}
+        \part[1] La vraie valeur de $\mu$ est 15 et nous obtenons $\overline{x}=12$.
+    
+    \begin{oneparcheckboxes}
+        \choice Erreur de type I
+        \choice Erreur de type II
+        \correctchoice Aucune erreur
+    \end{oneparcheckboxes}
 
-\begin{solution}
-Faux. Pour que l'ANOVA soit valide, \textbf{tous} les postulats doivent être raisonnablement respectés (normalité des résidus, homogénéité des variances, indépendance des observations).
-\end{solution}
+\vspace{0.5cm}
+        \part[1] La vraie valeur de $\mu$ est 15 et nous obtenons $\overline{x}=21$.
+    
+    \begin{oneparcheckboxes}
+        \correctchoice Erreur de type I
+        \choice Erreur de type II
+        \choice Aucune erreur
+    \end{oneparcheckboxes}
 
-\part[2] Lorsqu'un facteur a 2 niveaux, on peut utiliser l'analyse de la variance à un facteur ou un test de Student de comparaison de moyennes avec variances égales pour comparer les moyennes des niveaux.
-
-\begin{oneparcheckboxes}
-    \correctchoice Vrai 
-    \choice Faux
-\end{oneparcheckboxes} \vspace{0.5cm}
-
-\begin{solution}
-Vrai. Quand $k=2$, l'ANOVA à un facteur et le test $t$ de Student (variances égales) sont équivalents: $F_0 = t_0^2$.
-\end{solution}
-
-
-
-\part[2] Dans un modèle de régression linéaire simple, si l'intervalle de confiance à $95\%$ pour $\beta_0$ est $[0{,}345;\, 12{,}765]$, nous sommes certain qu'une relation linéaire existe entre $X$ et $Y$.
-
-\begin{oneparcheckboxes}
-    \choice Vrai 
-    \correctchoice Faux
-\end{oneparcheckboxes} \vspace{0.5cm}
-
-\begin{solution}
-Faux. Cet intervalle concerne $\beta_0$ (l'ordonnée à l'origine), pas $\beta_1$ (la pente). L'existence d'une relation linéaire dépend de $\beta_1$, pas de $\beta_0$. De plus, un intervalle de confiance ne donne jamais une certitude absolue.
-\end{solution}
-
-\part[2] Dans le contexte d'une régression linéaire simple, nous avons que $y_i=x_i$ pour $i=1, \dots, n$. L'estimateur de $\beta_0$ et l'estimateur de $\beta_1$ valent tous deux~0.
-
-\begin{oneparcheckboxes}
-    \choice Vrai 
-    \correctchoice Faux
-\end{oneparcheckboxes} \vspace{0.5cm}
-
-\begin{solution}
-Faux. Si $y_i = x_i$ pour tout $i$, alors $\bar{y}=\bar{x}$ et $S_{XY}=S_{XX}$. On obtient $\hat{\beta}_1 = S_{XY}/S_{XX} = 1$ et $\hat{\beta}_0 = \bar{y}-\hat{\beta}_1\bar{x} = \bar{x}-\bar{x}=0$. Donc $\hat{\beta}_0=0$ mais $\hat{\beta}_1=1\neq 0$.
-\end{solution}
-
+\vspace{0.5cm}
+        \part[1] La vraie valeur de $\mu$ est 18 et nous obtenons $\overline{x}=21$.
+    
+    \begin{oneparcheckboxes}
+        \choice Erreur de type I
+        \choice Erreur de type II
+        \correctchoice Aucune erreur
+    \end{oneparcheckboxes}
 \end{parts}
+
+
+\pageblanche
+
+\question[6] Soit $X_1,\hdots, X_{16}$ qui proviennent d'une loi normale d'espérance $\mu$ et de variance $\sigma^2$. \\
+On fait le test d'hypothèses pour lequel
+$H_0:\mu=5$ et $H_1:\mu>5$ au seuil $\alpha=1\%$.\\
+Pour quelles valeurs de $s^2$ rejette-t-on $H_0$ si $\overline{x}=6,301$?
+
+\begin{solution}
+    On rejette $H_0$ si 
+
+    \begin{align*}
+        Z_0&>1{,}96\\
+        \frac{\overline{x}-5}{5/\sqrt{n}}&>1{,}96\\
+        \sqrt{n}(\overline{x}-5)&>9{,}8\\
+        \sqrt{n}&>\frac{9{,}8}{0{,}1}\\
+        n&>9604
+    \end{align*}
+\end{solution}
+
+
 
 
 \pageblanche
@@ -264,7 +286,8 @@ L'équation de la droite de régression est~: $\hat{y} = 41{,}07 + 2{,}81\,x$.
 Le coefficient de détermination $R^2 = 0{,}7041$ (donné dans la sortie). Donc $70{,}41\,\%$ de la variabilité totale de la concentration d'ozone est expliquée par la température à midi.
 \end{solution}
 
-\vspace{3cm}
+\vfill
+\pagesuivante{\ref{rls}}
 
 \part[3] Calculez la prévision ponctuelle de la concentration d'ozone $O_3$ dans l'air pour une température de $22$ degrés. Justifiez toutes les étapes de votre démarche.
 
@@ -350,6 +373,7 @@ $H_0$~: La distribution des saveurs correspond aux proportions annoncées, c'est
 $H_1$~: La distribution des saveurs ne correspond pas aux proportions annoncées (au moins une proportion diffère).
 \end{solution}
 
+\vspace{2cm}
 \part[3] Calculez la statistique de test $D_0$. Vous pouvez utiliser le tableau plus haut dans votre démarche.
 
 \begin{solution}
@@ -368,14 +392,14 @@ Toutes les fréquences espérées sont $\geq 5$. $\checkmark$
 $$D_0 = \sum_{i=1}^{4}\frac{(O_i - E_i)^2}{E_i} = \frac{(42-36)^2}{36}+\frac{(35-30)^2}{30}+\frac{(20-30)^2}{30}+\frac{(23-24)^2}{24}$$
 $$= \frac{36}{36}+\frac{25}{30}+\frac{100}{30}+\frac{1}{24} = 1 + 0{,}833 + 3{,}333 + 0{,}042 = 5{,}208$$
 \end{solution}
-
+\vspace{8cm}
 \part[2] Combien de degrés de liberté possède la loi de référence sous $H_0$?
 
 \begin{solution}
 $\nu = k - 1 = 4 - 1 = 3$ degrés de liberté ($k=4$ catégories, aucun paramètre estimé à partir des données).
 \end{solution}
-
-\part[2] Au seuil $\alpha=0{,}05$, quelle est votre conclusion? Justifiez.
+\vspace{2cm}
+\part[2] Au seuil $\alpha=0{,}05$, quelle est votre conclusion? 
 
 \begin{solution}
 $D_0 = 5{,}208 < 7{,}815 = \chi^2_{0{,}05;\,3}$.
@@ -422,7 +446,8 @@ $H_0$~: Le niveau de stress et la qualité du sommeil sont indépendants.
 $H_1$~: Le niveau de stress et la qualité du sommeil ne sont pas indépendants (il existe une association).
 \end{solution}
 
-\part[3] Calculez la statistique de test $D_0$. Montrez vos calculs.
+\vspace{2cm}
+\part[3] Calculez la statistique de test $D_0$. 
 
 \begin{solution}
 Les fréquences espérées sous $H_0$ sont $E_{ij}=\dfrac{(\text{total ligne }i)\times(\text{total colonne }j)}{n}$.
@@ -448,13 +473,15 @@ D_0 &= \frac{(50-33)^2}{33}+\frac{(10-27)^2}{27}+\frac{(45-44)^2}{44}+\frac{(35-
 \end{align*}
 \end{solution}
 
+\vspace{8cm}
 \part[2] Combien de degrés de liberté possède la loi de référence sous $H_0$?
 
 \begin{solution}
 $\nu = (r-1)(c-1) = (3-1)(2-1) = 2$ degrés de liberté ($r=3$ niveaux de stress, $c=2$ niveaux de qualité du sommeil).
 \end{solution}
 
-\part[2] Au seuil $\alpha=0{,}01$, quelle est votre conclusion? Justifiez. On donne $\chi^2_{0{,}01;\,2}=9{,}210$.
+\vspace{2cm}
+\part[2] Au seuil $\alpha=0{,}01$, quelle est votre conclusion? 
 
 \begin{solution}
 $D_0 = 41{,}331 > 9{,}210 = \chi^2_{0{,}01;\,2}$.
@@ -468,147 +495,8 @@ On rejette $H_0$. Au seuil de 1\,\%, il y a suffisamment de preuves pour conclur
 \pageblanche
 %%%%%%%%%%%%%%%% TESTS D'HYPOTHÈSES SUR MU — 1 ÉCHANTILLON %%%%%%%%%%%%%%%%
 
-\question
-Une entreprise fabrique des barres de chocolat et s'intéresse à la quantité moyenne de sucre dans une barre. Elle choisit au hasard 16 barres. Dans l'échantillon, la quantité moyenne de sucre par barre est de $5{,}05 \,g$ et la variance échantillonnale est de $0{,}011 \, g^2$. Sachant que $X$, la quantité de sucre dans une barre, est une variable aléatoire qui suit une loi normale d'espérance $\mu$ et de variance $\sigma^2=0{,}01$, elle effectue un test, au seuil $\alpha=2{,}5\%$, avec les hypothèses suivantes:
-\begin{align*}
-	H_0 &: \mu = 5 \cr
-	H_1 &: \mu > 5.
-\end{align*}
-
-\begin{parts}
-\part[2] Quelle est la valeur critique du test en grammes, c'est-à-dire, à partir de quelle valeur de $\overline{X}$ rejette-t-on~$H_0$?
-
-\begin{oneparcheckboxes}
-    \choice 1,960
-    \choice 2,131
-    \choice 2,000
-    \CorrectChoice 5,049
-    \choice 5,053 
-\end{oneparcheckboxes} 
-
-\begin{solution}
-Puisque $\sigma^2=0{,}01$ est connue, on utilise le test $Z$ unilatéral à droite. La valeur critique en grammes est :
-$$\mu_0 + z_{\alpha}\,\frac{\sigma}{\sqrt{n}} = 5 + 1{,}960\times\frac{0{,}1}{\sqrt{16}} = 5 + 1{,}960\times 0{,}025 = 5{,}049.$$
-\end{solution}
-
-\vspace{1cm}
-\part[2] Quelle est la valeur de la statistique du test sous $H_0$, arrondie à 3 décimales?
-
-\begin{oneparcheckboxes}
-    \choice 1,960
-    \choice 2,131
-    \CorrectChoice 2,000
-    \choice 5,049
-    \choice 5,053 
-\end{oneparcheckboxes} 
-
-\begin{solution}
-Puisque $\sigma^2 = 0{,}01$ est connue et $X \sim \text{Normale}$, on utilise le test $Z$. La statistique de test est :
-\[
-z_0 = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}} = \frac{5{,}05 - 5}{0{,}1/\sqrt{16}} = \frac{0{,}05}{0{,}025} = 2{,}000.
-\]
-\end{solution}
-
-\vspace{1cm}
-\part[2] Quel est le seuil observé du test?
-
-	\begin{checkboxes}
-	    \choice $\alpha^*=0{,}025$.
-		\CorrectChoice $\alpha^*=0{,}02275$.
-		\choice $\alpha^* \in\ ]0{,}025;\,0{,}05[$ .
-		\choice $\alpha^* \in\ ]0{,}05;\,0{,}1[$.
-	\end{checkboxes}
-
-\begin{solution}
-$\alpha^* = P(Z > z_0) = P(Z > 2{,}000) = 1 - \Phi(2) \approx 0{,}02275$. Puisque $\alpha^* = 0{,}02275 < \alpha = 0{,}025$, on rejette $H_0$ au seuil $2{,}5\%$.
-\end{solution}
-
-\vspace{1cm}
-\part[4] Si en réalité $\mu=5{,}1$ et que la règle de décision est de rejeter $H_0$ si $\displaystyle\frac{\overline{X}-5}{0{,}025}>1{,}96$, quelle est l'expression de la puissance du test? 
-
-\begin{checkboxes}
-    \choice $P\left(\displaystyle \frac{\overline{X}-5{,}1}{0{,}025}>1{,}96\right)$
-    \correctchoice $P\left(\displaystyle \frac{\overline{X}-5{,}1}{0{,}025}>-2{,}04\right)$
-    \choice $P\left(\displaystyle \frac{\overline{X}-5}{0{,}025}>1{,}96\right)$
-    \choice $P\left(\displaystyle \frac{\overline{X}-5}{0{,}025}>-2{,}04\right)$
-\end{checkboxes}
-
-\begin{solution}
-La puissance est $P(\text{rejeter }H_0\mid\mu=5{,}1)$. La règle de décision est de rejeter $H_0$ quand $\overline{X}>5+1{,}96\times 0{,}025=5{,}049$.
-\begin{align*}
-\text{Puissance}&=P(\overline{X}>5{,}049\mid\mu=5{,}1)
-=P\!\left(\frac{\overline{X}-5{,}1}{0{,}025}>\frac{5{,}049-5{,}1}{0{,}025}\right)
-=P\!\left(\frac{\overline{X}-5{,}1}{0{,}025}>-2{,}04\right).
-\end{align*}
-\end{solution}
-
-\end{parts}
 
 
-\pageblanche
-
-\question[6] Soit $X_1,\hdots, X_{n}$ qui proviennent d'une loi normale d'espérance $\mu$ et de variance $\sigma^2=25$. \\
-On fait le test d'hypothèses pour lequel
-$H_0:\mu=5$ et $H_1:\mu>5$ au seuil $\alpha=2{,}5\%$.\\
-Pour quelles valeurs de $n$ rejette-t-on $H_0$ si $\overline{x}=5{,}1$?
-
-\begin{solution}
-    On rejette $H_0$ si 
-
-    \begin{align*}
-        Z_0&>1{,}96\\
-        \frac{\overline{x}-5}{5/\sqrt{n}}&>1{,}96\\
-        \sqrt{n}(\overline{x}-5)&>9{,}8\\
-        \sqrt{n}&>\frac{9{,}8}{0{,}1}\\
-        n&>9604
-    \end{align*}
-\end{solution}
-
-
-\pageblanche
-
-\question Nous faisons un test pour confronter $H_0: \mu=15$ à $H_1:\mu\neq15$. La règle de décision est de rejeter $H_0$ si $\overline{X}<10$ ou si $\overline{X}>20$. Dans chacun des cas suivants, déterminez si une erreur est commise et déterminez de quel type, le cas échéant. 
-
-\vspace{0.5cm}
-\begin{parts}
-    \part[1] La vraie valeur de $\mu$ est 16 et nous obtenons $\overline{x}=12$.
-    
-    \begin{oneparcheckboxes}
-        \choice Erreur de type I
-        \correctchoice Erreur de type II
-        \choice Aucune erreur
-    \end{oneparcheckboxes}
-
-\vspace{0.5cm}
-        \part[1] La vraie valeur de $\mu$ est 15 et nous obtenons $\overline{x}=12$.
-    
-    \begin{oneparcheckboxes}
-        \choice Erreur de type I
-        \choice Erreur de type II
-        \correctchoice Aucune erreur
-    \end{oneparcheckboxes}
-
-\vspace{0.5cm}
-        \part[1] La vraie valeur de $\mu$ est 15 et nous obtenons $\overline{x}=21$.
-    
-    \begin{oneparcheckboxes}
-        \correctchoice Erreur de type I
-        \choice Erreur de type II
-        \choice Aucune erreur
-    \end{oneparcheckboxes}
-
-\vspace{0.5cm}
-        \part[1] La vraie valeur de $\mu$ est 18 et nous obtenons $\overline{x}=21$.
-    
-    \begin{oneparcheckboxes}
-        \choice Erreur de type I
-        \choice Erreur de type II
-        \correctchoice Aucune erreur
-    \end{oneparcheckboxes}
-\end{parts}
-
-
-\pageblanche
 %%%%%%%%%%%%%%%% QUESTION BONUS %%%%%%%%%%%%%%%%
 
 
