@@ -216,120 +216,156 @@ D_0=\frac{(30-20)^2}{20}+\frac{(20-30)^2}{30}+\frac{(10-20)^2}{20}+\frac{(40-30)
 \end{parts}
 
 \pageblanche
-\question[8] Test a 1 echantillon - objectif: intervalle de confiance.
-Une variable suit une loi normale. On observe $n=25$, $\bar{x}=18$ et $s=5$.
+\question[8] Test a 1 echantillon - objectif: prendre une decision formelle.
+Un laboratoire affirme que la concentration moyenne d'un biomarqueur est de $100$ unites.
+Sur un echantillon aleatoire de $n=25$ patients, on observe $\bar{x}=104$ et $s=10$.
+On veut tester au seuil $5\%$:
+\[
+H_0:\mu=100\qquad\text{contre}\qquad H_1:\mu>100.
+\]
 \begin{parts}
-\part[4] Donnez un IC a 95\% pour $\mu$ (utilisez $t_{0{,}025;24}=2{,}064$).
+\part[2] Calculez la statistique de test $t_0$.
 \begin{solution}
 \[
-IC_{95\%}:\ \bar{x}\pm t_{0{,}025;24}\frac{s}{\sqrt{n}}
-=18\pm 2{,}064\times\frac{5}{5}
-=18\pm 2{,}064.
+t_0=\frac{\bar{x}-\mu_0}{s/\sqrt{n}}=\frac{104-100}{10/5}=\frac{4}{2}=2.
 \]
-Donc $IC_{95\%}=[15{,}936\ ;\ 20{,}064]$.
 \end{solution}
 
-\part[4] Peut-on affirmer que $\mu=20$ est plausible avec cet IC?
+\part[3] Avec $t_{0{,}95;24}=1{,}711$, donnez la decision.
 \begin{solution}
-Oui. La valeur 20 appartient a l'intervalle $[15{,}936\ ;\ 20{,}064]$.
+Region critique: rejeter $H_0$ si $t_0>1{,}711$.
+Comme $2>1{,}711$, on rejette $H_0$.
+\end{solution}
+
+\part[3] Formulez la conclusion en contexte.
+\begin{solution}
+Au seuil de $5\%$, les donnees supportent que la moyenne du biomarqueur est superieure a 100.
 \end{solution}
 \end{parts}
 
 \pageblanche
-\question[8] ANOVA a 1 facteur - objectif: lire le plan experimental.
-On donne la table ANOVA suivante:
+\question[8] ANOVA a 1 facteur - objectif: conclure avec la statistique $F$.
+Une equipe compare 4 formulations d'un gel cutane sur un score de cicatrisation.
+Le test ANOVA donne la table partielle suivante:
 \begin{verbatim}
-Source        ddl
-Traitement     3
-Erreur        20
-Total         23
+Source        SS      ddl      MS      F0
+Traitement   48.0      3      16.0     4.0
+Erreur       80.0     20       4.0
 \end{verbatim}
 \begin{parts}
-\part[4] Combien de niveaux du facteur ont ete compares?
+\part[2] Ecrivez les hypotheses du test global.
 \begin{solution}
-En ANOVA a 1 facteur, $ddl_{\text{trt}}=a-1$. Donc $a=3+1=4$ niveaux.
+$H_0: \mu_1=\mu_2=\mu_3=\mu_4$.
+$H_1$: au moins une moyenne differe.
 \end{solution}
 
-\part[4] Combien d'observations totales ont ete utilisees?
+\part[3] Si $F_{0{,}05;3,20}=3{,}10$, donnez la decision.
 \begin{solution}
-En ANOVA, $ddl_{\text{total}}=N-1$. Donc $N=23+1=24$ observations.
+Comme $F_0=4{,}0>3{,}10$, on rejette $H_0$.
+\end{solution}
+
+\part[3] Interpretez en contexte.
+\begin{solution}
+Au seuil de $5\%$, il existe une difference significative entre les moyennes des 4 formulations.
 \end{solution}
 \end{parts}
 
 \pageblanche
-\question[8] Regression lineaire simple - objectif: intervalle pour la pente.
-On estime le modele $Y=\beta_0+\beta_1X+\varepsilon$ et on obtient
-$\hat{\beta}_1=1{,}2$, $SE(\hat{\beta}_1)=0{,}4$, $n=12$.
+\question[8] Regression lineaire simple - objectif: tester la pente.
+On modelise la pression arterielle $Y$ en fonction de l'age $X$.
+On obtient $\hat{\beta}_1=0{,}80$, $SE(\hat{\beta}_1)=0{,}25$, avec $n=18$ observations.
+On veut tester au seuil $5\%$:
+\[
+H_0:\beta_1=0\qquad\text{contre}\qquad H_1:\beta_1\neq 0.
+\]
 \begin{parts}
-\part[4] Donnez un IC a 95\% pour $\beta_1$ (utilisez $t_{0{,}025;10}=2{,}228$).
+\part[3] Calculez la statistique de test.
 \begin{solution}
 \[
-\hat{\beta}_1\pm t_{0{,}025;10}SE(\hat{\beta}_1)
-=1{,}2\pm 2{,}228(0{,}4)
-=1{,}2\pm 0{,}891.
+t_0=\frac{\hat{\beta}_1-0}{SE(\hat{\beta}_1)}=\frac{0{,}80}{0{,}25}=3{,}2.
 \]
-Donc $IC_{95\%}(\beta_1)=[0{,}309\ ;\ 2{,}091]$.
 \end{solution}
 
-\part[4] La relation lineaire est-elle significative au seuil de 5\%?
+\part[2] Avec $t_{0{,}025;16}=2{,}12$, donnez la decision.
 \begin{solution}
-Oui. L'intervalle ne contient pas 0, donc $\beta_1\neq 0$ au seuil 5\%.
+Comme $|3{,}2|>2{,}12$, on rejette $H_0$.
+\end{solution}
+
+\part[3] Conclusion en contexte.
+\begin{solution}
+La relation lineaire entre la pression arterielle et l'age est significative au seuil de $5\%$.
 \end{solution}
 \end{parts}
 
 \pageblanche
-\question[8] Khi-carre d'ajustement - objectif: valider les conditions et conclure vite.
-On veut verifier si une loterie produit 5 symboles equiprobables.
-Sur 100 tirages: $O=(18,22,21,19,20)$.
+\question[8] Khi-carre d'ajustement - objectif: realiser un test complet a partir d'un tableau.
+On veut verifier si les issues A, B, C, D sont equiprobables.
+On observe 120 essais.
+
+\begin{center}
+\begin{tabular}{c|cccc|c}
+Issue & A & B & C & D & Total\\
+\hline
+Frequences observees $O_i$ & 24 & 36 & 30 & 30 & 120\\
+Frequences attendues $E_i$ (sous $H_0$) & 30 & 30 & 30 & 30 & 120
+\end{tabular}
+\end{center}
+
 \begin{parts}
-\part[3] Donnez les frequences attendues et verifiez la condition minimale.
+\part[3] Calculez la statistique $D_0$.
 \begin{solution}
-Sous $H_0$, chaque symbole a proba $0{,}2$, donc $E_i=100\times0{,}2=20$.
-La condition $E_i\ge 5$ est satisfaite pour les 5 categories.
+\[
+D_0=\sum\frac{(O_i-E_i)^2}{E_i}
+=\frac{(24-30)^2}{30}+\frac{(36-30)^2}{30}+\frac{(30-30)^2}{30}+\frac{(30-30)^2}{30}
+=1{,}2+1{,}2=2{,}4.
+\]
 \end{solution}
 
-\part[3] Combien de ddl?
+\part[2] Donnez les degres de liberte.
 \begin{solution}
-$\nu=k-1=5-1=4$ (aucun parametre estime).
+$\nu=k-1=4-1=3$.
 \end{solution}
 
-\part[2] Si la valeur-$p$ calculee est $0{,}84$, quelle est la conclusion a 5\%?
+\part[3] Si $\chi^2_{0{,}05;3}=7{,}815$, concluez au seuil 5\%.
 \begin{solution}
-Comme $0{,}84>0{,}05$, on ne rejette pas $H_0$.
-Les donnees sont compatibles avec des proportions equiprobables.
+Comme $2{,}4<7{,}815$, on ne rejette pas $H_0$.
+Les donnees sont compatibles avec des issues equiprobables.
 \end{solution}
 \end{parts}
 
 \pageblanche
-\question[8] Khi-carre d'independance - objectif: identifier la cellule qui contribue le plus.
-On observe:
+\question[8] Khi-carre d'independance - objectif: conclure sur l'association.
+On observe le tableau suivant:
 \begin{center}
 \begin{tabular}{c|cc|c}
  & Reussite & Echec & Total\\
 \hline
-Programme A & 40 & 10 & 50\\
+Programme A & 32 & 18 & 50\\
 Programme B & 20 & 30 & 50\\
 \hline
-Total & 60 & 40 & 100
+Total & 52 & 48 & 100
 \end{tabular}
 \end{center}
+
 \begin{parts}
-\part[3] Calculez les frequences attendues.
+\part[3] Calculez les frequences attendues sous $H_0$.
 \begin{solution}
-$E_{A,R}=50\times60/100=30$, $E_{A,E}=20$, $E_{B,R}=30$, $E_{B,E}=20$.
+$E_{A,R}=50\times52/100=26$, $E_{A,E}=24$,
+$E_{B,R}=26$, $E_{B,E}=24$.
 \end{solution}
 
-\part[3] Calculez les contributions $\frac{(O-E)^2}{E}$ de chaque cellule.
+\part[3] Calculez $D_0$.
 \begin{solution}
-A-Reussite: $(40-30)^2/30=3{,}33$.
-A-Echec: $(10-20)^2/20=5$.
-B-Reussite: $(20-30)^2/30=3{,}33$.
-B-Echec: $(30-20)^2/20=5$.
+\[
+D_0=\frac{(32-26)^2}{26}+\frac{(18-24)^2}{24}+\frac{(20-26)^2}{26}+\frac{(30-24)^2}{24}
+=1{,}385+1{,}5+1{,}385+1{,}5=5{,}77.
+\]
 \end{solution}
 
-\part[2] Quelle(s) cellule(s) contribue(nt) le plus au khi-carre?
+\part[2] Si $\chi^2_{0{,}05;1}=3{,}84$, donnez la conclusion.
 \begin{solution}
-Les cellules A-Echec et B-Echec (contribution 5 chacune) sont les plus grandes.
+Comme $5{,}77>3{,}84$, on rejette l'independance.
+Il existe une association entre le programme et l'issue.
 \end{solution}
 \end{parts}
 
