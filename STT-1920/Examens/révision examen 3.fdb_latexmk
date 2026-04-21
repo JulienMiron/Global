@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1776781689.05688 "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/STT-1920/Examens/révision examen 3.tex" "révision examen 3.pdf" "révision examen 3" 1776781690.20874 0
+["pdflatex"] 1776781724.02874 "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/STT-1920/Examens/révision examen 3.tex" "révision examen 3.pdf" "révision examen 3" 1776781725.23075 0
   "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/Evaluation.cls" 1775570778.04575 18851 d8b8a845b64ea1372f301b8d9587b073 ""
   "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/logo_ul.pdf" 1770990973.09248 24889 6ad5d339e8b9c5d473a3c0752b7f7a43 ""
-  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/STT-1920/Examens/révision examen 3.tex" 1776781688.84732 10993 3004c4cb5ee896e4ff44be2a844d9733 ""
+  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/STT-1920/Examens/révision examen 3.tex" 1776781723.74831 10995 2a568664c131d785f1534b1a4ef794c9 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevoml.enc" 1153172756 2921 ae68ca7d9a4902b5e8c8b47846fadadb ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevot1.enc" 1153172756 3020 a1ac7e8d91c840af41a220ec7126413f ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -30,7 +30,6 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/mathdesign/mdbch/md-chb7m.tfm" 1377991452 1092 044fd8c48d800e7b84cd07759060de09 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/mathdesign/mdbch/md-chb7t.tfm" 1377991452 824 390747b770e54e7fc372726f9ecd03d6 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/mathdesign/mdbch/md-chb7y.tfm" 1377991452 1292 1f9b19ec570af91b8736e5e786c912a1 ""
-  "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/mathdesign/mdbch/md-chr7v.tfm" 1377991452 1716 e946b26d80be2b9854dce098cc7d4fd7 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/mathdesign/mdbch/mdbchbma.tfm" 1377991452 1520 96b78209185f9b9b3a48fadae4e67e2a ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/mathdesign/mdbch/mdbchr7v.tfm" 1377991452 1704 f91561740916e2d61a9058a84b4d9fc1 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Bold.pfb" 1153172756 223998 6960a266224c0bd8fce6d7c842ab4d23 ""
@@ -39,14 +38,12 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb" 1136849748 29228 440002646d60f9d1a0cdf5878b9a308f ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7t.pfb" 1377991452 7189 143d6150c559a1c4db58f0247846d090 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7y.pfb" 1377991452 25894 39751de5ccddbafa10d64874d5d40099 ""
-  "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7v.pfb" 1377991452 33357 275501d693c4e1260cf31ec6e7949f38 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/vf/public/arev/favb8t.vf" 1153172756 2400 3a91f84494f7ba0b2d4f817d92ed11bb ""
   "/usr/local/texlive/2025/texmf-dist/fonts/vf/public/arev/favr8t.vf" 1153172756 2392 55a4438d965908a0abf1bb02a45b438c ""
   "/usr/local/texlive/2025/texmf-dist/fonts/vf/public/arev/zavmr7t.vf" 1153172756 1348 df271f4d810104a732df19d6f2889618 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/vf/public/arev/zavmr7y.vf" 1153172756 1364 a3a6fb37c76fd2592e1aef4b2867e0c1 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/vf/public/arev/zavmri7m.vf" 1153172756 1408 f4d599d182e3f6b917196734e9bb99c4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/vf/public/bera/fvmr8t.vf" 1136768653 2156 58631a68efc4afbec92c522ba77a542f ""
-  "/usr/local/texlive/2025/texmf-dist/fonts/vf/public/mathdesign/mdbch/mdbchr7v.vf" 1377991452 1612 6fe703a6a685d4c4f84414e8687e1785 ""
   "/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2025/texmf-dist/tex/generic/babel-french/french.ldf" 1722030099 66864 5ea28be04c8922f57dc437cc5c1c2c31 ""
   "/usr/local/texlive/2025/texmf-dist/tex/generic/babel/babel.sty" 1739572459 143388 b008e1666520ff43d0878397f2926242 ""
@@ -218,7 +215,7 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1770908146 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "révision examen 3.aux" 1776781690.1424 6708 b70b18fc15732e06b4e069e1d5d82e57 "pdflatex"
+  "révision examen 3.aux" 1776781725.16547 6708 b70b18fc15732e06b4e069e1d5d82e57 "pdflatex"
   (generated)
   "révision examen 3.aux"
   "révision examen 3.log"
