@@ -1,0 +1,219 @@
+\def\Ponderation{0}
+\def\SigleNumero{STT-1920}
+\def\NomCours{Méthodes statistiques}
+\def\DateEvaluation{}
+\def\HeureEvaluation{}
+\def\Session{Hiver 2026}
+\def\NomEvaluation{Révision Examen 3}
+
+\def\Coordonnatrice{}
+\def\Coordonnateur{}
+\def\Enseignant{Julien Miron}
+\def\Enseignante{}
+\def\SectionA{}
+\def\SectionB{}
+\def\SectionC{}
+\def\SectionD{}
+
+\def\Directives{
+\begin{enumerate}
+\item Ce document sert a la revision de l'examen 3.
+\item Les solutions sont affichees pour faciliter l'etude.
+\item Justifiez vos reponses comme a l'examen.
+\end{enumerate}
+}
+
+\newcommand{\affichepoints}{}
+\providecommand{\Gradescope}{}
+
+\documentclass{Evaluation}
+\usepackage{multicol,graphicx}
+
+\printanswers
+
+\begin{document}
+
+\pageblanche
+\begin{questions}
+
+\question[8] QCM rapide de concepts (une seule bonne reponse par item).
+\begin{parts}
+\part[2] En test a 1 echantillon, si la valeur-$p$ vaut $0{,}12$ et $\alpha=0{,}05$, on...
+\begin{oneparcheckboxes}
+\correctchoice ne rejette pas $H_0$.
+\choice rejette $H_0$.
+\choice ne peut rien conclure.
+\end{oneparcheckboxes}
+\begin{solution}
+Comme $0{,}12>0{,}05$, on ne rejette pas $H_0$.
+\end{solution}
+
+\part[2] En ANOVA a 1 facteur, l'hypothese nulle est...
+\begin{oneparcheckboxes}
+\correctchoice $\mu_1=\mu_2=\cdots=\mu_a$.
+\choice $\sigma_1^2=\sigma_2^2=\cdots=\sigma_a^2$.
+\choice $p_1=p_2=\cdots=p_a$.
+\end{oneparcheckboxes}
+\begin{solution}
+Le test $F$ global d'ANOVA compare l'egalite des moyennes.
+\end{solution}
+
+\part[2] En regression lineaire simple, si $\beta_1<0$, alors...
+\begin{oneparcheckboxes}
+\correctchoice la relation lineaire moyenne est decroissante.
+\choice les variables sont independantes.
+\choice la variance de $Y$ est negative.
+\end{oneparcheckboxes}
+\begin{solution}
+$\beta_1$ est la pente de la droite moyenne.
+\end{solution}
+
+\part[2] Pour un khi-carre d'independance avec un tableau $3\times 2$, le nombre de ddl vaut...
+\begin{oneparcheckboxes}
+\choice 1
+\correctchoice 2
+\choice 3
+\end{oneparcheckboxes}
+\begin{solution}
+$\nu=(r-1)(c-1)=(3-1)(2-1)=2$.
+\end{solution}
+\end{parts}
+
+\pageblanche
+\question[8] Test a 1 echantillon.
+On observe un echantillon normal de taille $n=16$ avec $\bar{x}=52$ et $s=8$.
+On veut tester $H_0:\mu=50$ contre $H_1:\mu>50$ au seuil $5\%$.
+\begin{parts}
+\part[3] Calculez la statistique de test.
+\begin{solution}
+\[
+T_0=\frac{\bar{x}-\mu_0}{s/\sqrt{n}}=\frac{52-50}{8/4}=\frac{2}{2}=1.
+\]
+\end{solution}
+
+\part[3] Donnez la region critique.
+\begin{solution}
+On rejette $H_0$ si $T_0>t_{0{,}95;15}\approx 1{,}753$.
+\end{solution}
+
+\part[2] Conclusion.
+\begin{solution}
+Comme $1<1{,}753$, on ne rejette pas $H_0$ au seuil de $5\%$.
+\end{solution}
+\end{parts}
+
+\pageblanche
+\question[8] ANOVA a 1 facteur.
+Trois traitements sont compares avec un total de 18 observations. La table partielle est:
+\begin{verbatim}
+Source        SS      ddl      MS      F0
+Traitement   24.0      2      ???     ???
+Erreur       30.0     15      ???
+\end{verbatim}
+\begin{parts}
+\part[3] Completez $MS_{\text{trt}}$ et $MS_E$.
+\begin{solution}
+$MS_{\text{trt}}=24/2=12$ et $MS_E=30/15=2$.
+\end{solution}
+
+\part[3] Calculez $F_0$.
+\begin{solution}
+$F_0=MS_{\text{trt}}/MS_E=12/2=6$.
+\end{solution}
+
+\part[2] Au seuil de 5\%, si $F_{0{,}05;2,15}=3{,}68$, concluez.
+\begin{solution}
+Comme $6>3{,}68$, on rejette $H_0$: au moins une moyenne differe.
+\end{solution}
+\end{parts}
+
+\pageblanche
+\question[8] Regression lineaire simple.
+On donne les resultats suivants: $n=10$, $\bar{x}=4$, $\bar{y}=13$, $S_{XX}=20$, $S_{XY}=30$, et $R^2=0{,}81$.
+\begin{parts}
+\part[3] Calculez $\hat{\beta}_1$ et $\hat{\beta}_0$.
+\begin{solution}
+\[
+\hat{\beta}_1=\frac{S_{XY}}{S_{XX}}=\frac{30}{20}=1{,}5,
+\quad
+\hat{\beta}_0=\bar{y}-\hat{\beta}_1\bar{x}=13-1{,}5(4)=7.
+\]
+Donc $\hat{y}=7+1{,}5x$.
+\end{solution}
+
+\part[2] Donnez la prediction ponctuelle pour $x=6$.
+\begin{solution}
+$\hat{y}(6)=7+1{,}5(6)=16$.
+\end{solution}
+
+\part[3] Interpretez $R^2=0{,}81$.
+\begin{solution}
+$81\%$ de la variabilite de $Y$ est expliquee par la relation lineaire avec $X$.
+\end{solution}
+\end{parts}
+
+\pageblanche
+\question[8] Khi-carre d'ajustement.
+Une machine produit quatre types de capsules. Le fabricant annonce les proportions
+$0{,}25, 0{,}25, 0{,}25, 0{,}25$. Sur $n=80$ capsules observees, on obtient
+$O=(16,24,20,20)$.
+\begin{parts}
+\part[2] Donnez les frequences attendues sous $H_0$.
+\begin{solution}
+$E_i=80(0{,}25)=20$ pour chaque categorie.
+\end{solution}
+
+\part[4] Calculez $D_0$.
+\begin{solution}
+\[
+D_0=\sum\frac{(O_i-E_i)^2}{E_i}
+=\frac{(16-20)^2}{20}+\frac{(24-20)^2}{20}+\frac{(20-20)^2}{20}+\frac{(20-20)^2}{20}
+=0{,}8+0{,}8=1{,}6.
+\]
+\end{solution}
+
+\part[2] Combien de ddl?
+\begin{solution}
+$\nu=k-1=4-1=3$.
+\end{solution}
+\end{parts}
+
+\pageblanche
+\question[8] Khi-carre d'independance.
+On observe le tableau suivant:
+\begin{center}
+\begin{tabular}{c|cc|c}
+ & Oui & Non & Total\\
+\hline
+Groupe A & 30 & 20 & 50\\
+Groupe B & 10 & 40 & 50\\
+\hline
+Total & 40 & 60 & 100
+\end{tabular}
+\end{center}
+\begin{parts}
+\part[2] Formulez $H_0$ et $H_1$.
+\begin{solution}
+$H_0$: les deux variables sont independantes.
+$H_1$: elles ne sont pas independantes.
+\end{solution}
+
+\part[3] Calculez les frequences attendues.
+\begin{solution}
+Pour A-Oui: $E=50\times40/100=20$.
+Pour A-Non: $E=50\times60/100=30$.
+Pour B-Oui: $20$.
+Pour B-Non: $30$.
+\end{solution}
+
+\part[3] Calculez $D_0$.
+\begin{solution}
+\[
+D_0=\frac{(30-20)^2}{20}+\frac{(20-30)^2}{30}+\frac{(10-20)^2}{20}+\frac{(40-30)^2}{30}
+=5+3{,}33+5+3{,}33=16{,}66.
+\]
+\end{solution}
+\end{parts}
+
+\end{questions}
+\end{document}
