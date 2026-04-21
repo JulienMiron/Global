@@ -53,7 +53,7 @@
 \documentclass{Evaluation}
 \usepackage{multicol,graphicx}
 
-\noprintanswers
+\printanswers
 
 
 
@@ -68,7 +68,7 @@
 %%%%%%%%%%%%%%%% QUESTION 1 %%%%%%%%%%%%%%%%
 \begin{questions}
 
-\question Un ingénieur souhaite comparer la performance de trois marques de freins à disque pour vélo de route. La variable d'intérêt sera donc la distance de freinage parcourue pour passer de 40\,km/h à 0\,km/h. L'expérience est répétée $n$ fois pour chaque type de frein. Utilisez la table d'ANOVA suivante pour répondre aux deux questions.
+\question Un ingénieur souhaite comparer la performance de trois marques de freins à disque pour vélo de route. La variable d'intérêt sera donc la distance de freinage parcourue pour passer de 40\,km/h à 0\,km/h. L'expérience est répétée $n$ fois pour chaque type de frein. Utilisez la table d'analyse de la variance suivante pour répondre aux deux questions.
 
 \begin{verbatim}
                    SS   DDL       MS       F0    valeur-p   
@@ -97,7 +97,7 @@ D) Il s'agit d'une ANOVA, pas d'une régression.
 \end{solution}
 
 \vspace{0.5cm}
-\part[3] Quelle conclusion peut-on tirer à partir de cette table d'ANOVA, au seuil de $1\%$?
+\part[3] Quelle conclusion peut-on tirer à partir de cette table d'analyse de la variance, au seuil de $1\%$?
 
 \begin{checkboxes}
 \choice La variance de la distance de freinage d'au moins une marque de frein est différente d'au moins une autre marque.
@@ -126,7 +126,7 @@ C) Il s'agit d'une ANOVA à un seul facteur; il n'y a pas de terme d'interaction
 \begin{checkboxes}
 \correctchoice Régression linéaire simple
 \choice Analyse de la variance à un facteur
-\choice Test d'indépendance
+\choice Test d'indépendance du khi-carré
 \end{checkboxes}
 
 \begin{solution}
@@ -139,7 +139,7 @@ C) Il s'agit d'une ANOVA à un seul facteur; il n'y a pas de terme d'interaction
 \begin{checkboxes}
 \choice Régression linéaire simple
 \correctchoice Analyse de la variance à un facteur
-\choice Test d'indépendance
+\choice Test d'indépendance du khi-carré
 \end{checkboxes}
 
 \begin{solution}
@@ -152,7 +152,7 @@ C) Il s'agit d'une ANOVA à un seul facteur; il n'y a pas de terme d'interaction
 \begin{checkboxes}
 \choice Régression linéaire simple
 \choice Analyse de la variance à un facteur
-\correctchoice Test d'indépendance
+\correctchoice Test d'indépendance du khi-carré
 \end{checkboxes}
 
 \begin{solution}
@@ -165,7 +165,7 @@ C) Il s'agit d'une ANOVA à un seul facteur; il n'y a pas de terme d'interaction
 \begin{checkboxes}
 \correctchoice Régression linéaire simple
 \choice Analyse de la variance à un facteur
-\choice Test d'indépendance
+\choice Test d'indépendance du khi-carré
 \end{checkboxes}
 
 \begin{solution}
@@ -223,7 +223,7 @@ C) Il s'agit d'une ANOVA à un seul facteur; il n'y a pas de terme d'interaction
 
 \pageblanche
 
-\question[6] Soit $X_1,\hdots, X_{16}$ qui proviennent d'une loi normale d'espérance $\mu$ et de variance $\sigma^2$. \\
+\question[10] Soit $X_1,\hdots, X_{16}$ qui proviennent d'une loi normale d'espérance $\mu$ et de variance $\sigma^2$. \\
 On fait le test d'hypothèses pour lequel
 $H_0:\mu=5$ et $H_1:\mu>5$ au seuil $\alpha=1\%$.\\
 Pour quelles valeurs de $s^2$ rejette-t-on $H_0$ si $\overline{x}=6,301$?
@@ -264,7 +264,7 @@ Pour quelles valeurs de $s^2$ rejette-t-on $H_0$ si $\overline{x}=6,301$?
 \pageblanche
 %%%%%%%%%%%%%%%% QUESTION 6 %%%%%%%%%%%%%%%%
 \question\label{rls}
-Pour des raisons de santé publique, on s'intéresse à la concentration d'ozone $O_3$ dans l'air (en microgrammes par millilitre). En particulier, on cherche à savoir s'il est possible d'expliquer le taux maximal d'ozone de la journée par la température à midi donnée en degrés celsius. Afin d'étudier le modèle $Y_i=\beta_0+\beta_1 X_i+ E_i$, en supposant que les postulats de régression linéaire sont respectés, vous disposez des résultats suivants:
+Pour des raisons de santé publique, on cherche à savoir s'il est possible d'expliquer le taux maximal d'ozone $O_3$ de la journée par la température à midi donnée en degrés celsius. Afin d'étudier le modèle $Y_i=\beta_0+\beta_1 X_i+ E_i$, en supposant que les postulats de régression linéaire sont respectés, vous disposez des résultats suivants:
 
 \begin{verbatim}
 MSE: 160.529 sur 8 degrés de liberté
@@ -273,8 +273,9 @@ F0: 19.03 sur 1 et 8 degrés de liberté,  valeur-p: 0.002403
 \end{verbatim}
 
 \begin{align*}
-\sum_{i=1}^{10}x_i=219{,}1 ; \quad \sum_{i=1}^{10}x_i^2=5214{,}58;\quad \sum_{i=1}^{10}y_i=1026{,}4; \quad \sum_{i=1}^{10}y_i^2=118446{,}6;\quad \sum_{i=1}^{10}x_iy_i=23650{,}84.
+\sum_{i=1}^{10}x_i=219{,}1 ; \quad \sum_{i=1}^{10}x_i^2=5214{,}58;\quad \sum_{i=1}^{10}y_i=1026{,}4; \quad \sum_{i=1}^{10}y_i^2=118446{,}6;\quad \sum_{i=1}^{10}x_iy_i=23650{,}84; \quad s_X^2=46,01.
 \end{align*}
+
 
 
 \begin{parts}
