@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  20 APR 2026 20:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  20 APR 2026 20:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1310,18 +1310,18 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 27128 strings out of 473190
- 561810 string characters out of 5715801
+ 27126 strings out of 473190
+ 561790 string characters out of 5715801
  1144794 words of memory out of 5000000
- 49871 multiletter control sequences out of 15000+600000
- 618848 words of font info for 104 fonts, out of 8000000 for 9000
+ 49870 multiletter control sequences out of 15000+600000
+ 616971 words of font info for 102 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  113i,10n,119p,631b,709s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Bold.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-BoldOblique.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Oblique.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Roman.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7t.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7y.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7v.pfb>
-Output written on STT-1920-Exam3-H26.pdf (8 pages, 116318 bytes).
+Output written on STT-1920-Exam3-H26.pdf (8 pages, 114109 bytes).
 PDF statistics:
- 86 PDF objects out of 1000 (max. 8388607)
- 56 compressed objects within 1 object stream
+ 83 PDF objects out of 1000 (max. 8388607)
+ 54 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 

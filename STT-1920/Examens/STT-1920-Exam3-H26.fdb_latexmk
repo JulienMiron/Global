@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1776730944.26629 "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1920/Examens/STT-1920-Exam3-H26.tex" "STT-1920-Exam3-H26.pdf" "STT-1920-Exam3-H26" 1776730945.36887 0
+["pdflatex"] 1776731005.29344 "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1920/Examens/STT-1920-Exam3-H26.tex" "STT-1920-Exam3-H26.pdf" "STT-1920-Exam3-H26" 1776731006.3598 0
   "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/Evaluation.cls" 1772568870.41713 18851 d8b8a845b64ea1372f301b8d9587b073 ""
   "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/logo_ul.pdf" 1771010540.30133 24889 6ad5d339e8b9c5d473a3c0752b7f7a43 ""
-  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1920/Examens/STT-1920-Exam3-H26.tex" 1776730941.51803 20949 043e797593540e1c02de477c0e72b64d ""
+  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1920/Examens/STT-1920-Exam3-H26.tex" 1776731005.12296 21045 ac3db009c951e3c31ebaf6ddaf7e178e ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevoml.enc" 1153172756 2921 ae68ca7d9a4902b5e8c8b47846fadadb ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevot1.enc" 1153172756 3020 a1ac7e8d91c840af41a220ec7126413f ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -23,7 +23,6 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/arev/favmri7m.tfm" 1153172756 1364 7c90fbe96380b3f11c507b958aebb5a2 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/arev/favr8r.tfm" 1153172756 1540 32499ec35e48be8e0fc7ff8a5f99c0f7 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/arev/favr8t.tfm" 1153172756 13328 79144f6b1df0d0593b37dbdc91c692a6 ""
-  "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/arev/favri8r.tfm" 1153172756 1684 c7eb01e5300fd8036453ad8b07e9d35a ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/arev/favri8t.tfm" 1153172756 5988 e3bdd88271e7a056382bae1b8392bfea ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/arev/zavmr7t.tfm" 1153172756 3416 f724efb245dc7ec50ba083ecc80b06ab ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/arev/zavmr7y.tfm" 1153172756 1628 ac115d0844ebb158e2fa27ac1de24cb4 ""
@@ -48,7 +47,6 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/vf/public/arev/favb8t.vf" 1153172756 2400 3a91f84494f7ba0b2d4f817d92ed11bb ""
   "/usr/local/texlive/2025/texmf-dist/fonts/vf/public/arev/favbi8t.vf" 1153172756 2392 e44938a149dafd218bb1ef65b20a906d ""
   "/usr/local/texlive/2025/texmf-dist/fonts/vf/public/arev/favr8t.vf" 1153172756 2392 55a4438d965908a0abf1bb02a45b438c ""
-  "/usr/local/texlive/2025/texmf-dist/fonts/vf/public/arev/favri8t.vf" 1153172756 2400 0b61187bf93935f1c4eab043a82371bf ""
   "/usr/local/texlive/2025/texmf-dist/fonts/vf/public/arev/zavmr7t.vf" 1153172756 1348 df271f4d810104a732df19d6f2889618 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/vf/public/arev/zavmr7y.vf" 1153172756 1364 a3a6fb37c76fd2592e1aef4b2867e0c1 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/vf/public/arev/zavmri7m.vf" 1153172756 1408 f4d599d182e3f6b917196734e9bb99c4 ""
@@ -225,7 +223,7 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1770864152 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "STT-1920-Exam3-H26.aux" 1776730945.3045 5906 44c682097166c9007e7db39d61b53df3 "pdflatex"
+  "STT-1920-Exam3-H26.aux" 1776731006.2937 5906 44c682097166c9007e7db39d61b53df3 "pdflatex"
   (generated)
   "STT-1920-Exam3-H26.aux"
   "STT-1920-Exam3-H26.log"

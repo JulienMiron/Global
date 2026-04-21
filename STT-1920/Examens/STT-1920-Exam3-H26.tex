@@ -162,10 +162,10 @@ C) Il s'agit d'une ANOVA à un seul facteur; il n'y a pas de terme d'interaction
 
 
 \pageblanche
-\question[12] Un biologiste veut vérifier s'il existe une différence de rigidité d'un certain type de disque, selon le pourcentage de \textit{Pouliovachium} qui le compose.
+\question[12] Une équipe en sciences biomédicales veut vérifier s'il existe une différence de réponse inflammatoire moyenne (score quantitatif) selon la concentration d'un agent actif dans une formulation.
 
-Il compare donc la rigidité de 8 pourcentages différents (10\%, 20\%, 25\%, 30\%, 35\%, 40\%, 45\% et 50\%) en produisant 4 disques pour chaque pourcentage.
-La table d'analyse de la variance suivante est produite par le logiciel utilisé par l'ingénieur.
+Elle compare donc 8 concentrations différentes (10\%, 20\%, 25\%, 30\%, 35\%, 40\%, 45\% et 50\%) en réalisant 4 mesures indépendantes pour chaque concentration.
+La table d'analyse de la variance suivante est produite par le logiciel utilisé par l'équipe.
 Dans celle-ci, certaines quantités ont été remplacées par \texttt{AAA}, \texttt{BBB} et \texttt{???}. Nous considérons que les postulats du modèle sont respectés.
 
 \begin{verbatim}
@@ -229,12 +229,12 @@ $\texttt{BBB}=SS_{\text{total}}=SS_{\text{trt}}+SS_E=1154{,}3+141{,}4=1295{,}7$.
 \choice Il n'est pas possible de tirer de conclusion car nous ne connaissons pas les valeurs remplacées par \texttt{???}.
 \choice Il faudrait répéter l'expérience plus de fois pour pouvoir conclure.
 \choice Toutes les moyennes sont significativement différentes.
-\correctchoice La rigidité moyenne des disques d'au moins un pourcentage est significativement différente de celle d'au moins un autre pourcentage.
+\correctchoice La réponse inflammatoire moyenne d'au moins une concentration est significativement différente de celle d'au moins une autre concentration.
 \choice Toutes les moyennes sont significativement égales.
 \end{checkboxes}
 
 \begin{solution}
-La valeur-$p$ associée au test $F$ est très petite (dans la sortie complète: $4{,}6\times 10^{-10}$), donc $p<0{,}05$. On rejette $H_0$ et on conclut qu'au moins une moyenne diffère.
+La valeur-$p$ associée au test $F$ est très petite (dans la sortie complète: $4{,}6\times 10^{-10}$), donc $p<0{,}05$. On rejette $H_0$ et on conclut qu'au moins une moyenne de réponse inflammatoire diffère entre les concentrations.
 \end{solution}
 
 \end{parts}
