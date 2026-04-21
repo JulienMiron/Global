@@ -6,10 +6,18 @@
 \def\Session{Hiver 2026}
 \def\NomEvaluation{Révision Examen 3}
 
+% Ne rien mettre entre les accolades si l'enseignant (ou l'enseignante)
+% est aussi le coordonnateur (ou la coordonnatrice)
 \def\Coordonnatrice{}
 \def\Coordonnateur{}
+
+% Ne rien mettre entre les accolades s'il y a plus d'une section
 \def\Enseignant{Julien Miron}
 \def\Enseignante{}
+
+% Ne rien mettre entre les accolades s'il s'agit d'un cours à section unique
+% Mettre le nom de chacun des enseignants et enseignantes entre les accolades
+% Une case à cocher sera générée pour chacune des sections
 \def\SectionA{}
 \def\SectionB{}
 \def\SectionC{}
@@ -17,9 +25,15 @@
 
 \def\Directives{
 \begin{enumerate}
-\item Ce document sert a la revision de l'examen 3.
-\item Les solutions sont affichees pour faciliter l'etude.
-\item Justifiez vos reponses comme a l'examen.
+\item Matériel autorisé:
+\begin{itemize}
+\item Calculatrice scientifique {\bf autorisée par la faculté des sciences et de génie};
+\item Une seule feuille aide-mémoire \textbf{manuscrite} de format lettre (8.5''$\times$11'') recto-verso.
+\end{itemize}
+\item Ce document sert à la révision de l'examen 3; les solutions sont affichées pour faciliter l'étude.
+\item Assurez-vous que ce document comporte \numquestions~exercices répartis sur \numpages{}~pages, pour un total de \numpoints{}~points.\
+\item Vous devez \textbf{justifier toutes vos réponses} par une démarche claire, sauf pour les questions à choix de réponse.\
+\item Pour les questions à choix de réponse et les vrais ou faux, vous pouvez mettre un X, un crochet ($\checkmark$) ou remplir la case.
 \end{enumerate}
 }
 
@@ -36,9 +50,9 @@
 \pageblanche
 \begin{questions}
 
-\question[8] QCM rapide de concepts (une seule bonne reponse par item).
+\question[8] QCM rapide de concepts (une seule bonne réponse par item).
 \begin{parts}
-\part[2] En test a 1 echantillon, si la valeur-$p$ vaut $0{,}12$ et $\alpha=0{,}05$, on...
+\part[2] En test à 1 échantillon, si la valeur-$p$ vaut $0{,}12$ et $\alpha=0{,}05$, on...
 \begin{oneparcheckboxes}
 \correctchoice ne rejette pas $H_0$.
 \choice rejette $H_0$.
@@ -48,21 +62,21 @@
 Comme $0{,}12>0{,}05$, on ne rejette pas $H_0$.
 \end{solution}
 
-\part[2] En ANOVA a 1 facteur, l'hypothese nulle est...
+\part[2] En ANOVA à 1 facteur, l'hypothèse nulle est...
 \begin{oneparcheckboxes}
 \correctchoice $\mu_1=\mu_2=\cdots=\mu_a$.
 \choice $\sigma_1^2=\sigma_2^2=\cdots=\sigma_a^2$.
 \choice $p_1=p_2=\cdots=p_a$.
 \end{oneparcheckboxes}
 \begin{solution}
-Le test $F$ global d'ANOVA compare l'egalite des moyennes.
+Le test $F$ global d'ANOVA compare l'égalité des moyennes.
 \end{solution}
 
-\part[2] En regression lineaire simple, si $\beta_1<0$, alors...
+\part[2] En régression linéaire simple, si $\beta_1<0$, alors...
 \begin{oneparcheckboxes}
-\correctchoice la relation lineaire moyenne est decroissante.
-\choice les variables sont independantes.
-\choice la variance de $Y$ est negative.
+\correctchoice la relation linéaire moyenne est décroissante.
+\choice les variables sont indépendantes.
+\choice la variance de $Y$ est négative.
 \end{oneparcheckboxes}
 \begin{solution}
 $\beta_1$ est la pente de la droite moyenne.
@@ -80,8 +94,8 @@ $\nu=(r-1)(c-1)=(3-1)(2-1)=2$.
 \end{parts}
 
 \pageblanche
-\question[8] Test a 1 echantillon.
-On observe un echantillon normal de taille $n=16$ avec $\bar{x}=52$ et $s=8$.
+\question[8] Test à 1 échantillon.
+On observe un échantillon normal de taille $n=16$ avec $\bar{x}=52$ et $s=8$.
 On veut tester $H_0:\mu=50$ contre $H_1:\mu>50$ au seuil $5\%$.
 \begin{parts}
 \part[3] Calculez la statistique de test.
@@ -103,8 +117,8 @@ Comme $1<1{,}753$, on ne rejette pas $H_0$ au seuil de $5\%$.
 \end{parts}
 
 \pageblanche
-\question[8] ANOVA a 1 facteur.
-Trois traitements sont compares avec un total de 18 observations. La table partielle est:
+\question[8] ANOVA à 1 facteur.
+Trois traitements sont comparés avec un total de 18 observations. La table partielle est:
 \begin{verbatim}
 Source        SS      ddl      MS      F0
 Traitement   24.0      2      ???     ???
@@ -123,12 +137,12 @@ $F_0=MS_{\text{trt}}/MS_E=12/2=6$.
 
 \part[2] Au seuil de 5\%, si $F_{0{,}05;2,15}=3{,}68$, concluez.
 \begin{solution}
-Comme $6>3{,}68$, on rejette $H_0$: au moins une moyenne differe.
+Comme $6>3{,}68$, on rejette $H_0$: au moins une moyenne diffère.
 \end{solution}
 \end{parts}
 
 \pageblanche
-\question[8] Regression lineaire simple.
+\question[8] Régression linéaire simple.
 On donne les resultats suivants: $n=10$, $\bar{x}=4$, $\bar{y}=13$, $S_{XX}=20$, $S_{XY}=30$, et $R^2=0{,}81$.
 \begin{parts}
 \part[3] Calculez $\hat{\beta}_1$ et $\hat{\beta}_0$.
@@ -148,7 +162,7 @@ $\hat{y}(6)=7+1{,}5(6)=16$.
 
 \part[3] Interpretez $R^2=0{,}81$.
 \begin{solution}
-$81\%$ de la variabilite de $Y$ est expliquee par la relation lineaire avec $X$.
+$81\%$ de la variabilité de $Y$ est expliquée par la relation linéaire avec $X$.
 \end{solution}
 \end{parts}
 

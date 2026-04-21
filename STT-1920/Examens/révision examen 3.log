@@ -1,13 +1,13 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  21 APR 2026 08:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  21 APR 2026 10:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1920/Examens/révision examen 3.tex"
-(/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1920/Examens/révision examen 3.tex
+**"/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/STT-1920/Examens/révision examen 3.tex"
+(/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/STT-1920/Examens/révision examen 3.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
-(/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/Evaluation.cls
+(/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/Evaluation.cls
 Document Class: Evaluation 2026/02/26 v2.0 Classe pour examens universitaires
 (/usr/local/texlive/2025/texmf-dist/tex/latex/exam/exam.cls
 Document Class: exam 2023/07/09 Version 2.704 by Philip Hirschhorn
@@ -1037,7 +1037,7 @@ Package: multicol 2024/09/14 v1.9i multicolumn formatting (FMi)
 \colbreak@box=\box137
 \mc@col@check@num=\count395
 )
-LaTeX Font Info:    Trying to load font information for T1+fav on input line 34.
+LaTeX Font Info:    Trying to load font information for T1+fav on input line 48.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/arev/t1fav.fd
 File: t1fav.fd 2006/05/30 Fontinst v1.929 font definitions for T1/fav.
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
@@ -1047,26 +1047,26 @@ File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 ) (./révision examen 3.aux)
 \openout1 = `"révision examen 3.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for MDA/cmr/m/n on input line 34.
-LaTeX Font Info:    Trying to load font information for MDA+cmr on input line 34.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for MDA/cmr/m/n on input line 48.
+LaTeX Font Info:    Trying to load font information for MDA+cmr on input line 48.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/mathdesign/mdacmr.fd
 File: mdacmr.fd 
 )
-LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    ... okay on input line 48.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1121,14 +1121,14 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Info: Redefining \degres on input line 34.
+LaTeX Info: Redefining \degres on input line 48.
 Package french.ldf Info: Setting StandardItemizeEnv=true for
 (french.ldf)             compatibility with enumitem package,
-(french.ldf)             reported on input line 34.
+(french.ldf)             reported on input line 48.
 Package french.ldf Info: Setting StandardEnumerateEnv=true for
 (french.ldf)             compatibility with enumitem package,
-(french.ldf)             reported on input line 34.
-LaTeX Info: Redefining \up on input line 34.
+(french.ldf)             reported on input line 48.
+LaTeX Info: Redefining \up on input line 48.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/pdflscape/pdflscape.sty
 Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
  (/usr/local/texlive/2025/texmf-dist/tex/latex/pdflscape/pdflscape-nometadata.sty
@@ -1174,24 +1174,67 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 <logo_ul.pdf, id=4, 313.17pt x 129.48375pt>
 File: logo_ul.pdf Graphic file (type pdf)
 <use logo_ul.pdf>
-Package pdftex.def Info: logo_ul.pdf  used on input line 34.
+Package pdftex.def Info: logo_ul.pdf  used on input line 48.
 (pdftex.def)             Requested size: 142.26378pt x 58.82233pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
+Underfull \hbox (badness 10000) in paragraph at lines 48--48
 
  []
 
 
-Overfull \hbox (65.35516pt too wide) in paragraph at lines 34--34
+Overfull \hbox (65.35516pt too wide) in paragraph at lines 48--48
 [][]    [] 
  []
 
-
+LaTeX Font Info:    Trying to load font information for OT1+zavm on input line 48.
+(/usr/local/texlive/2025/texmf-dist/tex/latex/arev/ot1zavm.fd
+File: ot1zavm.fd 2006/05/30 Fontinst v1.929 font definitions for OT1/zavm.
+)
+LaTeX Font Info:    Trying to load font information for OML+zavm on input line 48.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/arev/omlzavm.fd
+File: omlzavm.fd 2006/05/30 Fontinst v1.929 font definitions for OML/zavm.
+)
+LaTeX Font Info:    Trying to load font information for OMS+zavm on input line 48.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/arev/omszavm.fd
+File: omszavm.fd 2006/05/30 Fontinst v1.929 font definitions for OMS/zavm.
+)
+LaTeX Font Info:    Trying to load font information for OMX+mdbch on input line 48.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/mathdesign/mdbch/omxmdbch.fd
+File: omxmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for OMX/mdbch.
+)
+LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
+(Font)              scaled to size 8.64006pt on input line 48.
+LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
+(Font)              scaled to size 6.72005pt on input line 48.
+LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
+(Font)              scaled to size 4.80003pt on input line 48.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 48.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 48.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for MDA+mdbch on input line 48.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/mathdesign/mdbch/mdamdbch.fd
+File: mdamdbch.fd 2013/08/29 Fontinst v1.933 font definitions for MDA/mdbch.
+)
+LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
+(Font)              scaled to size 8.64006pt on input line 48.
+LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
+(Font)              scaled to size 6.72005pt on input line 48.
+LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
+(Font)              scaled to size 4.80003pt on input line 48.
+LaTeX Font Info:    Trying to load font information for U+zavm on input line 48.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/arev/uzavm.fd
+File: uzavm.fd 2006/05/30 Fontinst v1.929 font definitions for U/zavm.
+)
 
 [1
 
 
-{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc} </Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/logo_ul.pdf>]
+{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc} </Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/logo_ul.pdf>]
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
 * paper: <default>
@@ -1227,63 +1270,20 @@ Overfull \hbox (65.35516pt too wide) in paragraph at lines 34--34
 
 
 LaTeX Font Warning: Font shape `T1/fav/m/sc' undefined
-(Font)              using `T1/fav/m/n' instead on input line 39.
+(Font)              using `T1/fav/m/n' instead on input line 53.
 
 
 LaTeX Font Warning: Font shape `T1/fav/b/sc' undefined
-(Font)              using `T1/fav/b/n' instead on input line 39.
+(Font)              using `T1/fav/b/n' instead on input line 53.
 
-LaTeX Font Info:    Trying to load font information for OT1+zavm on input line 41.
-(/usr/local/texlive/2025/texmf-dist/tex/latex/arev/ot1zavm.fd
-File: ot1zavm.fd 2006/05/30 Fontinst v1.929 font definitions for OT1/zavm.
-)
-LaTeX Font Info:    Trying to load font information for OML+zavm on input line 41.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/arev/omlzavm.fd
-File: omlzavm.fd 2006/05/30 Fontinst v1.929 font definitions for OML/zavm.
-)
-LaTeX Font Info:    Trying to load font information for OMS+zavm on input line 41.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/arev/omszavm.fd
-File: omszavm.fd 2006/05/30 Fontinst v1.929 font definitions for OMS/zavm.
-)
-LaTeX Font Info:    Trying to load font information for OMX+mdbch on input line 41.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/mathdesign/mdbch/omxmdbch.fd
-File: omxmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for OMX/mdbch.
-)
-LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 8.64006pt on input line 41.
-LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 41.
-LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 41.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 41.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 41.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Trying to load font information for MDA+mdbch on input line 41.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/mathdesign/mdbch/mdamdbch.fd
-File: mdamdbch.fd 2013/08/29 Fontinst v1.933 font definitions for MDA/mdbch.
-)
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 8.64006pt on input line 41.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 6.72005pt on input line 41.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 4.80003pt on input line 41.
-LaTeX Font Info:    Trying to load font information for U+zavm on input line 41.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/arev/uzavm.fd
-File: uzavm.fd 2006/05/30 Fontinst v1.929 font definitions for U/zavm.
-)
+
 
 [2
 
 {/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevoml.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevot1.enc}]
 
 [3]
-LaTeX Font Info:    Trying to load font information for T1+fvm on input line 108.
+LaTeX Font Info:    Trying to load font information for T1+fvm on input line 122.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/bera/t1fvm.fd
 File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
 )
@@ -1291,7 +1291,7 @@ File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
 [4]
 
 [5]
-Overfull \hbox (15.0358pt too wide) in paragraph at lines 159--162
+Overfull \hbox (15.0358pt too wide) in paragraph at lines 173--176
 []\T1/fav/m/sc/9 Le fa-bri-cant an-nonce les pro-por-tions $\OT1/zavm/m/n/9 0\OML/zavm/m/it/9 ;\OT1/zavm/m/n/9 25\OML/zavm/m/it/9 ; \OT1/zavm/m/n/9 0\OML/zavm/m/it/9 ;\OT1/zavm/m/n/9 25\OML/zavm/m/it/9 ; \OT1/zavm/m/n/9 0\OML/zavm/m/it/9 ;\OT1/zavm/m/n/9 25\OML/zavm/m/it/9 ; \OT1/zavm/m/n/9 0\OML/zavm/m/it/9 ;\OT1/zavm/m/n/9 25$\T1/fav/m/sc/9 . Sur $\OML/zavm/m/it/9 n \OT1/zavm/m/n/9 = 80$ \T1/fav/m/sc/9 cap-sules ob-ser-vees, on ob-tient $\OML/zavm/m/it/9 O \OT1/zavm/m/n/9 = (16\OML/zavm/m/it/9 ;\OT1/zavm/m/n/9 24\OML/zavm/m/it/9 ;\OT1/zavm/m/n/9 20\OML/zavm/m/it/9 ;\OT1/zavm/m/n/9 20)$\T1/fav/m/sc/9 . 
  []
 
@@ -1324,15 +1324,15 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 27139 strings out of 473190
- 561774 string characters out of 5715801
- 1135768 words of memory out of 5000000
- 49886 multiletter control sequences out of 15000+600000
+ 27142 strings out of 473190
+ 561855 string characters out of 5715801
+ 1137297 words of memory out of 5000000
+ 49889 multiletter control sequences out of 15000+600000
  609053 words of font info for 96 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  113i,10n,119p,633b,608s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Bold.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Oblique.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Roman.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7t.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7y.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7v.pfb>
-Output written on "révision examen 3.pdf" (12 pages, 107249 bytes).
+Output written on "révision examen 3.pdf" (12 pages, 108499 bytes).
 PDF statistics:
  90 PDF objects out of 1000 (max. 8388607)
  59 compressed objects within 1 object stream
