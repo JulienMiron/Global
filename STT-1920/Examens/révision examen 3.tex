@@ -43,7 +43,7 @@
 \documentclass{Evaluation}
 \usepackage{multicol,graphicx}
 
-\noprintanswers
+\printanswers
 
 \begin{document}
 
@@ -53,41 +53,45 @@
 \question[8] QCM rapide de concepts (une seule bonne réponse par item).
 \begin{parts}
 \part[2] En test à 1 échantillon, si la valeur-$p$ vaut $0{,}12$ et $\alpha=0{,}05$, on...
-\begin{oneparcheckboxes}
+
+\begin{checkboxes}
 \correctchoice ne rejette pas $H_0$.
 \choice rejette $H_0$.
 \choice ne peut rien conclure.
-\end{oneparcheckboxes}
+\end{checkboxes}
 \begin{solution}
 Comme $0{,}12>0{,}05$, on ne rejette pas $H_0$.
 \end{solution}
 
 \part[2] En ANOVA à 1 facteur, l'hypothèse nulle est...
-\begin{oneparcheckboxes}
+
+\begin{checkboxes}
 \correctchoice $\mu_1=\mu_2=\cdots=\mu_a$.
 \choice $\sigma_1^2=\sigma_2^2=\cdots=\sigma_a^2$.
 \choice $p_1=p_2=\cdots=p_a$.
-\end{oneparcheckboxes}
+\end{checkboxes}
 \begin{solution}
 Le test $F$ global d'ANOVA compare l'égalité des moyennes.
 \end{solution}
 
 \part[2] En régression linéaire simple, si $\beta_1<0$, alors...
-\begin{oneparcheckboxes}
+
+\begin{checkboxes}
 \correctchoice la relation linéaire moyenne est décroissante.
 \choice les variables sont indépendantes.
 \choice la variance de $Y$ est négative.
-\end{oneparcheckboxes}
+\end{checkboxes}
 \begin{solution}
 $\beta_1$ est la pente de la droite moyenne.
 \end{solution}
 
 \part[2] Pour un khi-carre d'independance avec un tableau $3\times 2$, le nombre de ddl vaut...
-\begin{oneparcheckboxes}
+
+\begin{checkboxes}
 \choice 1
 \correctchoice 2
 \choice 3
-\end{oneparcheckboxes}
+\end{checkboxes}
 \begin{solution}
 $\nu=(r-1)(c-1)=(3-1)(2-1)=2$.
 \end{solution}
