@@ -1,8 +1,8 @@
 \def\Ponderation{25}
 \def\SigleNumero{STT-1920}
 \def\NomCours{Méthodes statistiques}
-\def\DateEvaluation{}
-\def\HeureEvaluation{}
+\def\DateEvaluation{28 avril 2026}
+\def\HeureEvaluation{10 h 30 à 13 h 20}
 \def\Session{Hiver 2026}
 \def\NomEvaluation{Examen 3}
 
@@ -103,6 +103,8 @@ D) Il s'agit d'une ANOVA, pas d'une régression.
 \choice La variance de la distance de freinage d'au moins une marque de frein est différente d'au moins une autre marque.
 \correctchoice La distance de freinage moyenne d'au moins une marque de frein est différente d'au moins une autre marque.
 \choice Toutes les moyennes sont égales.
+\choice Toutes les moyennes sont différentes.
+\choice Toutes les variances sont différentes.
 \end{checkboxes}
 
 \begin{solution}
@@ -231,6 +233,7 @@ $\hat{\sigma}^2=MS_E=\dfrac{SS_E}{\text{DDL}_E}=\dfrac{141{,}4}{24}=5{,}89$.
 \choice Toutes les moyennes sont significativement différentes.
 \correctchoice La réponse inflammatoire moyenne d'au moins une concentration est significativement différente de celle d'au moins une autre concentration.
 \choice Toutes les moyennes sont significativement égales.
+\choice La variance de la réponse inflammatoire d'au moins une concentration est significativement différente de celle d'au moins une autre concentration.
 \end{checkboxes}
 
 \begin{solution}
@@ -554,12 +557,13 @@ En ANOVA à un facteur, $H_0$ est $\mu_1=\mu_2=\cdots=\mu_a$.
 \end{solution}
 
 \vspace{0.5cm}
-\part[2] Dans le modèle $Y=\beta_0+\beta_1X+\varepsilon$, que signifie $\beta_1>0$?
+\part[2] Dans le modèle $Y=\beta_0+\beta_1X+\varepsilon$, que signifie $\beta_1\neq0$?
 
 \begin{checkboxes}
-\correctchoice En moyenne, $Y$ augmente quand $X$ augmente.
+\correctchoice En moyenne, $Y$ change de $\beta_1$ unités quand $X$ augmente d'une unité.
 \choice La variance de $Y$ est positive.
 \choice $X$ et $Y$ sont indépendantes.
+\choice Quand $X$ augment d'une unité, $Y$ change de $\beta_1$ unités.
 \end{checkboxes}
 
 \begin{solution}
@@ -586,6 +590,7 @@ Pour un test d'ajustement sans paramètre estimé, $\nu=k-1=5-1=4$.
 \choice On ne rejette pas l'indépendance.
 \correctchoice On rejette l'indépendance: les variables sont associées.
 \choice Les variables sont causales.
+\choice Il nous manque le nombre de degrés de liberté pour pouvoir conclure.
 \end{checkboxes}
 
 \begin{solution}
