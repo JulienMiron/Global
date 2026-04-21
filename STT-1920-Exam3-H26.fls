@@ -419,6 +419,8 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/arev/favmr7t.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/mathdesign/mdbch/md-chb7t.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/bera/fvmr8t.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/bera/fvmr8t.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/vf/public/arev/favr8t.vf
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/arev/favr8r.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/arev/favr8t.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/arev/favri8t.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/arev/favbi8t.tfm

@@ -525,6 +525,75 @@ On rejette $H_0$. Au seuil de 1\,\%, il y a suffisamment de preuves pour conclur
 
 %%%%%%%%%%%%%%%% TESTS D'HYPOTHÈSES SUR MU — 1 ÉCHANTILLON %%%%%%%%%%%%%%%%
 
+\question[10] QCM synthèse (une seule bonne réponse par item).
+
+\begin{parts}
+\part[2] \textbf{Test à 1 échantillon.} On teste $H_0:\mu=50$ contre $H_1:\mu\neq 50$ et on obtient une valeur-$p$ de $0{,}03$. Au seuil $\alpha=0{,}05$, quelle est la bonne décision?
+
+\begin{oneparcheckboxes}
+\choice On ne rejette pas $H_0$.
+\correctchoice On rejette $H_0$.
+\choice Le test est impossible à conclure sans la taille d'échantillon.
+\end{oneparcheckboxes}
+
+\begin{solution}
+Comme $0{,}03<0{,}05$, on rejette $H_0$.
+\end{solution}
+
+\vspace{0.5cm}
+\part[2] \textbf{ANOVA à 1 facteur.} Quelle est l'hypothèse nulle du test $F$ global?
+
+\begin{oneparcheckboxes}
+\correctchoice Toutes les moyennes de groupes sont égales.
+\choice Toutes les variances de groupes sont égales.
+\choice Toutes les proportions de groupes sont égales.
+\end{oneparcheckboxes}
+
+\begin{solution}
+En ANOVA à un facteur, $H_0$ est $\mu_1=\mu_2=\cdots=\mu_a$.
+\end{solution}
+
+\vspace{0.5cm}
+\part[2] \textbf{Régression linéaire simple.} Dans le modèle $Y=\beta_0+\beta_1X+\varepsilon$, que signifie $\beta_1>0$?
+
+\begin{oneparcheckboxes}
+\correctchoice En moyenne, $Y$ augmente quand $X$ augmente.
+\choice La variance de $Y$ est positive.
+\choice $X$ et $Y$ sont indépendantes.
+\end{oneparcheckboxes}
+
+\begin{solution}
+$\beta_1$ est la pente: si $\beta_1>0$, la relation linéaire moyenne est croissante.
+\end{solution}
+
+\vspace{0.5cm}
+\part[2] \textbf{Khi-carré d'ajustement.} Pour un test d'ajustement avec $k=5$ catégories et aucun paramètre estimé à partir des données, combien y a-t-il de degrés de liberté?
+
+\begin{oneparcheckboxes}
+\choice 3
+\correctchoice 4
+\choice 5
+\end{oneparcheckboxes}
+
+\begin{solution}
+Pour un test d'ajustement sans paramètre estimé, $\nu=k-1=5-1=4$.
+\end{solution}
+
+\vspace{0.5cm}
+\part[2] \textbf{Khi-carré d'indépendance.} Un test d'indépendance donne une valeur-$p$ de $0{,}002$ au seuil $5\%$. Quelle conclusion est correcte?
+
+\begin{oneparcheckboxes}
+\choice On ne rejette pas l'indépendance.
+\correctchoice On rejette l'indépendance: les variables sont associées.
+\choice Les variables sont causales.
+\end{oneparcheckboxes}
+
+\begin{solution}
+Comme $0{,}002<0{,}05$, on rejette l'hypothèse d'indépendance. Le test indique une association, pas une causalité.
+\end{solution}
+
+\end{parts}
+
 
 
 %%%%%%%%%%%%%%%% QUESTION BONUS %%%%%%%%%%%%%%%%
