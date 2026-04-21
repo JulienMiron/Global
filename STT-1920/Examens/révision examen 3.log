@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  21 APR 2026 10:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  21 APR 2026 11:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1271,71 +1271,3 @@ File: uzavm.fd 2006/05/30 Fontinst v1.929 font definitions for U/zavm.
 
 LaTeX Font Warning: Font shape `T1/fav/m/sc' undefined
 (Font)              using `T1/fav/m/n' instead on input line 53.
-
-
-LaTeX Font Warning: Font shape `T1/fav/b/sc' undefined
-(Font)              using `T1/fav/b/n' instead on input line 53.
-
-
-
-[2
-
-{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevoml.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevot1.enc}]
-
-[3]
-LaTeX Font Info:    Trying to load font information for T1+fvm on input line 122.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/bera/t1fvm.fd
-File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
-)
-
-[4]
-
-[5]
-Overfull \hbox (15.0358pt too wide) in paragraph at lines 173--176
-[]\T1/fav/m/sc/9 Le fa-bri-cant an-nonce les pro-por-tions $\OT1/zavm/m/n/9 0\OML/zavm/m/it/9 ;\OT1/zavm/m/n/9 25\OML/zavm/m/it/9 ; \OT1/zavm/m/n/9 0\OML/zavm/m/it/9 ;\OT1/zavm/m/n/9 25\OML/zavm/m/it/9 ; \OT1/zavm/m/n/9 0\OML/zavm/m/it/9 ;\OT1/zavm/m/n/9 25\OML/zavm/m/it/9 ; \OT1/zavm/m/n/9 0\OML/zavm/m/it/9 ;\OT1/zavm/m/n/9 25$\T1/fav/m/sc/9 . Sur $\OML/zavm/m/it/9 n \OT1/zavm/m/n/9 = 80$ \T1/fav/m/sc/9 cap-sules ob-ser-v�es, on ob-tient $\OML/zavm/m/it/9 O \OT1/zavm/m/n/9 = (16\OML/zavm/m/it/9 ;\OT1/zavm/m/n/9 24\OML/zavm/m/it/9 ;\OT1/zavm/m/n/9 20\OML/zavm/m/it/9 ;\OT1/zavm/m/n/9 20)$\T1/fav/m/sc/9 . 
- []
-
-
-
-[6]
-
-[7]
-
-[8]
-
-[9]
-
-[10]
-
-[11]
-
-[12]
-This exam contains 11 questions with 34 parts, 0 subparts, and 0 subsubparts.
-This exam has a total of 176 points.
-This exam has a total of 0 bonus points.
-(./révision examen 3.aux)
- ***********
-LaTeX2e <2024-11-01> patch level 2
-L3 programming layer <2025-01-18>
- ***********
-
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
- ) 
-Here is how much of TeX's memory you used:
- 27139 strings out of 473190
- 561781 string characters out of 5715801
- 1134297 words of memory out of 5000000
- 49887 multiletter control sequences out of 15000+600000
- 608648 words of font info for 95 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 113i,10n,119p,633b,608s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Bold.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Oblique.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Roman.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7t.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7y.pfb>
-Output written on "révision examen 3.pdf" (12 pages, 97688 bytes).
-PDF statistics:
- 85 PDF objects out of 1000 (max. 8388607)
- 56 compressed objects within 1 object stream
- 0 named destinations out of 1000 (max. 500000)
- 18 words of extra memory for PDF output out of 10000 (max. 10000000)
-
