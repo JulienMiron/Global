@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  21 APR 2026 08:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  21 APR 2026 08:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1546,9 +1546,23 @@ m/m/it/9 ;\OT1/zavm/m/n/9 25\OML/zavm/m/it/9 ; \OT1/zavm/m/n/9 0\OML/zavm/m/it/
 [6]
 
 [7]
-This exam contains 6 questions with 19 parts, 0 subparts, and 0 subsubparts.
-This exam has a total of 96 points.
+
+[8]
+
+[9]
+
+[10]
+
+[11]
+
+[12]
+This exam contains 11 questions with 31 parts, 0 subparts, and 0 subsubparts.
+This exam has a total of 176 points.
 This exam has a total of 0 bonus points.
+
+Class exam Warning: Point totals have changed. Rerun to get point totals right.
+
+
 (./révision examen 3.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
@@ -1558,13 +1572,16 @@ L3 programming layer <2025-01-18>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 27053 strings out of 473190
- 560079 string characters out of 5715801
+ 27132 strings out of 473190
+ 561225 string characters out of 5715801
  1135768 words of memory out of 5000000
- 49801 multiletter control sequences out of 15000+600000
- 609053 words of font info for 96 fonts, out of 8000000 for 9000
+ 49877 multiletter control sequences out of 15000+600000
+ 609808 words of font info for 99 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  113i,10n,119p,558b,608s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Bold.pfb
@@ -1575,10 +1592,10 @@ fb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr
 ></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb
 7y.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/
 md-chr7v.pfb>
-Output written on "révision examen 3.pdf" (7 pages, 97970 bytes).
+Output written on "révision examen 3.pdf" (12 pages, 106791 bytes).
 PDF statistics:
- 75 PDF objects out of 1000 (max. 8388607)
- 49 compressed objects within 1 object stream
+ 90 PDF objects out of 1000 (max. 8388607)
+ 59 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 
