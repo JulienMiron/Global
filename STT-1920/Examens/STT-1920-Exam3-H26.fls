@@ -439,6 +439,11 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/mathdesign/mdbch/md-ch
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/vf/public/arev/zavmri7m.vf
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/mathdesign/mdbch/md-chb7m.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/arev/favmri7m.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/arev/favri8t.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/bera/fvmr8t.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/bera/fvmr8t.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/vf/public/arev/favri8t.vf
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/arev/favri8r.tfm
 INPUT STT-1920-Exam3-H26.aux
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Bold.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-BoldOblique.pfb
