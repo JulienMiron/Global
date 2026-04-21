@@ -215,5 +215,123 @@ D_0=\frac{(30-20)^2}{20}+\frac{(20-30)^2}{30}+\frac{(10-20)^2}{20}+\frac{(40-30)
 \end{solution}
 \end{parts}
 
+\pageblanche
+\question[8] Test a 1 echantillon - objectif: intervalle de confiance.
+Une variable suit une loi normale. On observe $n=25$, $\bar{x}=18$ et $s=5$.
+\begin{parts}
+\part[4] Donnez un IC a 95\% pour $\mu$ (utilisez $t_{0{,}025;24}=2{,}064$).
+\begin{solution}
+\[
+IC_{95\%}:\ \bar{x}\pm t_{0{,}025;24}\frac{s}{\sqrt{n}}
+=18\pm 2{,}064\times\frac{5}{5}
+=18\pm 2{,}064.
+\]
+Donc $IC_{95\%}=[15{,}936\ ;\ 20{,}064]$.
+\end{solution}
+
+\part[4] Peut-on affirmer que $\mu=20$ est plausible avec cet IC?
+\begin{solution}
+Oui. La valeur 20 appartient a l'intervalle $[15{,}936\ ;\ 20{,}064]$.
+\end{solution}
+\end{parts}
+
+\pageblanche
+\question[8] ANOVA a 1 facteur - objectif: lire le plan experimental.
+On donne la table ANOVA suivante:
+\begin{verbatim}
+Source        ddl
+Traitement     3
+Erreur        20
+Total         23
+\end{verbatim}
+\begin{parts}
+\part[4] Combien de niveaux du facteur ont ete compares?
+\begin{solution}
+En ANOVA a 1 facteur, $ddl_{\text{trt}}=a-1$. Donc $a=3+1=4$ niveaux.
+\end{solution}
+
+\part[4] Combien d'observations totales ont ete utilisees?
+\begin{solution}
+En ANOVA, $ddl_{\text{total}}=N-1$. Donc $N=23+1=24$ observations.
+\end{solution}
+\end{parts}
+
+\pageblanche
+\question[8] Regression lineaire simple - objectif: intervalle pour la pente.
+On estime le modele $Y=\beta_0+\beta_1X+\varepsilon$ et on obtient
+$\hat{\beta}_1=1{,}2$, $SE(\hat{\beta}_1)=0{,}4$, $n=12$.
+\begin{parts}
+\part[4] Donnez un IC a 95\% pour $\beta_1$ (utilisez $t_{0{,}025;10}=2{,}228$).
+\begin{solution}
+\[
+\hat{\beta}_1\pm t_{0{,}025;10}SE(\hat{\beta}_1)
+=1{,}2\pm 2{,}228(0{,}4)
+=1{,}2\pm 0{,}891.
+\]
+Donc $IC_{95\%}(\beta_1)=[0{,}309\ ;\ 2{,}091]$.
+\end{solution}
+
+\part[4] La relation lineaire est-elle significative au seuil de 5\%?
+\begin{solution}
+Oui. L'intervalle ne contient pas 0, donc $\beta_1\neq 0$ au seuil 5\%.
+\end{solution}
+\end{parts}
+
+\pageblanche
+\question[8] Khi-carre d'ajustement - objectif: valider les conditions et conclure vite.
+On veut verifier si une loterie produit 5 symboles equiprobables.
+Sur 100 tirages: $O=(18,22,21,19,20)$.
+\begin{parts}
+\part[3] Donnez les frequences attendues et verifiez la condition minimale.
+\begin{solution}
+Sous $H_0$, chaque symbole a proba $0{,}2$, donc $E_i=100\times0{,}2=20$.
+La condition $E_i\ge 5$ est satisfaite pour les 5 categories.
+\end{solution}
+
+\part[3] Combien de ddl?
+\begin{solution}
+$\nu=k-1=5-1=4$ (aucun parametre estime).
+\end{solution}
+
+\part[2] Si la valeur-$p$ calculee est $0{,}84$, quelle est la conclusion a 5\%?
+\begin{solution}
+Comme $0{,}84>0{,}05$, on ne rejette pas $H_0$.
+Les donnees sont compatibles avec des proportions equiprobables.
+\end{solution}
+\end{parts}
+
+\pageblanche
+\question[8] Khi-carre d'independance - objectif: identifier la cellule qui contribue le plus.
+On observe:
+\begin{center}
+\begin{tabular}{c|cc|c}
+ & Reussite & Echec & Total\\
+\hline
+Programme A & 40 & 10 & 50\\
+Programme B & 20 & 30 & 50\\
+\hline
+Total & 60 & 40 & 100
+\end{tabular}
+\end{center}
+\begin{parts}
+\part[3] Calculez les frequences attendues.
+\begin{solution}
+$E_{A,R}=50\times60/100=30$, $E_{A,E}=20$, $E_{B,R}=30$, $E_{B,E}=20$.
+\end{solution}
+
+\part[3] Calculez les contributions $\frac{(O-E)^2}{E}$ de chaque cellule.
+\begin{solution}
+A-Reussite: $(40-30)^2/30=3{,}33$.
+A-Echec: $(10-20)^2/20=5$.
+B-Reussite: $(20-30)^2/30=3{,}33$.
+B-Echec: $(30-20)^2/20=5$.
+\end{solution}
+
+\part[2] Quelle(s) cellule(s) contribue(nt) le plus au khi-carre?
+\begin{solution}
+Les cellules A-Echec et B-Echec (contribution 5 chacune) sont les plus grandes.
+\end{solution}
+\end{parts}
+
 \end{questions}
 \end{document}
