@@ -280,6 +280,54 @@ Pour quelles valeurs de $s^2$ rejette-t-on $H_0$ si $\overline{x}=6,301$?
 \end{solution}
 
 
+\pageblanche
+\question[10] Test à 1 échantillon pour $\mu$ (niveau avancé).
+La concentration moyenne cible d'un principe actif est de $50$ mg/mL.
+On prélève un échantillon aléatoire de $n=12$ lots, supposé normal, et on observe
+$\bar{x}=46{,}8$ et $s=4{,}0$ mg/mL.
+On veut tester, au seuil $1\%$,
+\[
+H_0:\mu=50\qquad\text{contre}\qquad H_1:\mu\neq 50.
+\]
+On donne $t_{0{,}995;11}=3{,}106$ et $t_{0{,}975;11}=2{,}201$.
+\begin{parts}
+\part[4] Calculez la statistique de test et donnez la région critique.
+\begin{solution}
+Comme $\sigma$ est inconnue et $n=12$, on utilise un test $t$ à $11$ ddl:
+\[
+t_0=\frac{\bar{x}-\mu_0}{s/\sqrt{n}}
+=\frac{46{,}8-50}{4/\sqrt{12}}
+=\frac{-3{,}2}{1{,}155}\approx -2{,}77.
+\]
+Test bilatéral au seuil $\alpha=0{,}01$:
+\[
+	ext{Région critique: } |t_0|>t_{0{,}995;11}=3{,}106.
+\]
+\end{solution}
+
+\part[3] Prenez la décision et concluez en contexte.
+\begin{solution}
+On a $|t_0|\approx 2{,}77<3{,}106$, donc on ne rejette pas $H_0$ au seuil de $1\%$.
+
+Les données ne fournissent pas une preuve suffisante (à 1\%) que la moyenne diffère de $50$ mg/mL.
+\end{solution}
+
+\part[3] Sans recalculer $t_0$, déterminez si $50$ appartient à l'IC de niveau $95\%$ pour $\mu$ et interprétez.
+\begin{solution}
+IC à 95\% (Student, 11 ddl):
+\[
+\bar{x}\pm t_{0{,}975;11}\frac{s}{\sqrt{n}}
+=46{,}8\pm 2{,}201\times\frac{4}{\sqrt{12}}
+=46{,}8\pm 2{,}54
+=[44{,}26\,;\,49{,}34].
+\]
+Comme $50\notin [44{,}26\,;\,49{,}34]$, la valeur $50$ est exclue de l'IC à 95\%.
+
+Donc, à 5\%, on rejetterait $H_0:\mu=50$ (cohérent avec le fait qu'un test à 1\% est plus strict).
+\end{solution}
+\end{parts}
+
+
 
 
 \pageblanche
