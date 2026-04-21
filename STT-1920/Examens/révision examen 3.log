@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  21 APR 2026 08:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  21 APR 2026 08:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1291,8 +1291,8 @@ File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
 [4]
 
 [5]
-Overfull \hbox (55.69864pt too wide) in paragraph at lines 156--160
-\T1/fav/m/sc/9 Khi-carre d'ajus-te-ment. Une ma-chine pro-duit quatre types de cap-sules. Le fa-bri-cant an-nonce les pro-por-tions $\OT1/zavm/m/n/9 0\OML/zavm/m/it/9 ;\OT1/zavm/m/n/9 25\OML/zavm/m/it/9 ; \OT1/zavm/m/n/9 0\OML/zavm/m/it/9 ;\OT1/zavm/m/n/9 25\OML/zavm/m/it/9 ; \OT1/zavm/m/n/9 0\OML/zavm/m/it/9 ;\OT1/zavm/m/n/9 25\OML/zavm/m/it/9 ; \OT1/zavm/m/n/9 0\OML/zavm/m/it/9 ;\OT1/zavm/m/n/9 25$\T1/fav/m/sc/9 .
+Overfull \hbox (15.0358pt too wide) in paragraph at lines 159--162
+[]\T1/fav/m/sc/9 Le fa-bri-cant an-nonce les pro-por-tions $\OT1/zavm/m/n/9 0\OML/zavm/m/it/9 ;\OT1/zavm/m/n/9 25\OML/zavm/m/it/9 ; \OT1/zavm/m/n/9 0\OML/zavm/m/it/9 ;\OT1/zavm/m/n/9 25\OML/zavm/m/it/9 ; \OT1/zavm/m/n/9 0\OML/zavm/m/it/9 ;\OT1/zavm/m/n/9 25\OML/zavm/m/it/9 ; \OT1/zavm/m/n/9 0\OML/zavm/m/it/9 ;\OT1/zavm/m/n/9 25$\T1/fav/m/sc/9 . Sur $\OML/zavm/m/it/9 n \OT1/zavm/m/n/9 = 80$ \T1/fav/m/sc/9 cap-sules ob-ser-vees, on ob-tient $\OML/zavm/m/it/9 O \OT1/zavm/m/n/9 = (16\OML/zavm/m/it/9 ;\OT1/zavm/m/n/9 24\OML/zavm/m/it/9 ;\OT1/zavm/m/n/9 20\OML/zavm/m/it/9 ;\OT1/zavm/m/n/9 20)$\T1/fav/m/sc/9 . 
  []
 
 
@@ -1332,7 +1332,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  113i,10n,119p,633b,608s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Bold.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Oblique.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Roman.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7t.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7y.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7v.pfb>
-Output written on "révision examen 3.pdf" (12 pages, 107260 bytes).
+Output written on "révision examen 3.pdf" (12 pages, 107249 bytes).
 PDF statistics:
  90 PDF objects out of 1000 (max. 8388607)
  59 compressed objects within 1 object stream
