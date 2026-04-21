@@ -124,7 +124,7 @@ C) Il s'agit d'une ANOVA à un seul facteur; il n'y a pas de terme d'interaction
 
 \vspace{0.5cm}
 \begin{parts}
-    \part[1] La vraie valeur de $\mu$ est 16 et nous obtenons $\overline{x}=12$.
+    \part[2] La vraie valeur de $\mu$ est 16 et nous obtenons $\overline{x}=12$.
     
     \begin{oneparcheckboxes}
         \choice Erreur de type I
@@ -133,7 +133,7 @@ C) Il s'agit d'une ANOVA à un seul facteur; il n'y a pas de terme d'interaction
     \end{oneparcheckboxes}
 
 \vspace{0.5cm}
-        \part[1] La vraie valeur de $\mu$ est 15 et nous obtenons $\overline{x}=12$.
+        \part[2] La vraie valeur de $\mu$ est 15 et nous obtenons $\overline{x}=12$.
     
     \begin{oneparcheckboxes}
         \choice Erreur de type I
@@ -142,7 +142,7 @@ C) Il s'agit d'une ANOVA à un seul facteur; il n'y a pas de terme d'interaction
     \end{oneparcheckboxes}
 
 \vspace{0.5cm}
-        \part[1] La vraie valeur de $\mu$ est 15 et nous obtenons $\overline{x}=21$.
+        \part[2] La vraie valeur de $\mu$ est 15 et nous obtenons $\overline{x}=21$.
     
     \begin{oneparcheckboxes}
         \correctchoice Erreur de type I
@@ -151,7 +151,7 @@ C) Il s'agit d'une ANOVA à un seul facteur; il n'y a pas de terme d'interaction
     \end{oneparcheckboxes}
 
 \vspace{0.5cm}
-        \part[1] La vraie valeur de $\mu$ est 18 et nous obtenons $\overline{x}=21$.
+        \part[2] La vraie valeur de $\mu$ est 18 et nous obtenons $\overline{x}=21$.
     
     \begin{oneparcheckboxes}
         \choice Erreur de type I
@@ -162,7 +162,7 @@ C) Il s'agit d'une ANOVA à un seul facteur; il n'y a pas de terme d'interaction
 
 
 \pageblanche
-\question[12] Une équipe en sciences biomédicales veut vérifier s'il existe une différence de réponse inflammatoire moyenne (score quantitatif) selon la concentration d'un agent actif dans une formulation.
+\question Une équipe en sciences biomédicales veut vérifier s'il existe une différence de réponse inflammatoire moyenne (score quantitatif) selon la concentration d'un agent actif dans une formulation. \footnote{Merci à Claude pour la suggestion de mise en situation.}
 
 Elle compare donc 8 concentrations différentes (10\%, 20\%, 25\%, 30\%, 35\%, 40\%, 45\% et 50\%) en réalisant 4 mesures indépendantes pour chaque concentration.
 La table d'analyse de la variance suivante est produite par le logiciel utilisé par l'équipe.
@@ -192,20 +192,7 @@ Total               BBB      ???
 $\texttt{AAA}=F_0=\dfrac{MS_{\text{trt}}}{MS_E}=\dfrac{SS_{\text{trt}}/(a-1)}{SS_E/(N-a)}=\dfrac{1154{,}3/7}{141{,}4/24}=\dfrac{164{,}9}{5{,}892}\approx 27{,}989$.
 \end{solution}
 
-\vspace{0.5cm}
-\part[3] Quelle est l'estimation de $\sigma^2$?
 
-\begin{checkboxes}
-\choice $141{,}4$
-\choice $24$
-\correctchoice $5{,}89$
-\choice $164{,}9$
-\choice Il n'est pas possible de donner une estimation de $\sigma^2$ avec les informations données.
-\end{checkboxes}
-
-\begin{solution}
-$\hat{\sigma}^2=MS_E=\dfrac{SS_E}{\text{DDL}_E}=\dfrac{141{,}4}{24}=5{,}89$.
-\end{solution}
 
 \vspace{0.5cm}
 \part[3] Que vaut \texttt{BBB}?
@@ -221,7 +208,20 @@ $\hat{\sigma}^2=MS_E=\dfrac{SS_E}{\text{DDL}_E}=\dfrac{141{,}4}{24}=5{,}89$.
 \begin{solution}
 $\texttt{BBB}=SS_{\text{total}}=SS_{\text{trt}}+SS_E=1154{,}3+141{,}4=1295{,}7$.
 \end{solution}
+\vspace{0.5cm}
+\part[3] Quelle est l'estimation de $\sigma^2$?
 
+\begin{checkboxes}
+\choice $141{,}4$
+\choice $24$
+\correctchoice $5{,}89$
+\choice $164{,}9$
+\choice Il n'est pas possible de donner une estimation de $\sigma^2$ avec les informations données.
+\end{checkboxes}
+
+\begin{solution}
+$\hat{\sigma}^2=MS_E=\dfrac{SS_E}{\text{DDL}_E}=\dfrac{141{,}4}{24}=5{,}89$.
+\end{solution}
 \vspace{0.5cm}
 \part[3] Au seuil de 5\%, quelle conclusion pouvons-nous tirer de la table d'analyse de la variance?
 
@@ -297,7 +297,7 @@ F0: 19.03 sur 1 et 8 degrés de liberté,  valeur-p: 0.002403
 
 
 \begin{parts}
-\part[8] Donnez l'équation de la droite de régression permettant de prédire la concentration d'ozone $O_3$ dans l'air en fonction de la température à midi. Justifiez toutes les étapes de votre démarche.
+\part[7] Donnez l'équation de la droite de régression permettant de prédire la concentration d'ozone $O_3$ dans l'air en fonction de la température à midi. Justifiez toutes les étapes de votre démarche.
 
 \begin{solution}
 On a $n=10$.
@@ -326,17 +326,8 @@ Le coefficient de détermination $R^2 = 0{,}7041$ (donné dans la sortie). Donc 
 \vfill
 \pagesuivante{\ref{rls}}
 
-\part[3] Calculez la prévision ponctuelle de la concentration d'ozone $O_3$ dans l'air pour une température de $22$ degrés. Justifiez toutes les étapes de votre démarche.
 
-\begin{solution}
-On substitue $x=22$ dans l'équation de régression~:
-$$\hat{y}(22) = 41{,}07 + 2{,}81 \times 22 = 41{,}07 + 61{,}82 = 102{,}89.$$
-La prévision ponctuelle est d'environ $102{,}89$ microgrammes par millilitre.
-\end{solution}
-
-\vspace{7cm}
-
-\part[2] Un chercheur aimerait estimer la concentration d'ozone $O_3$ dans l'air lors d'une journée précise. Le midi de cette journée, la température est de $14$ degrés. La prévision ponctuelle de la concentration d'ozone $O_3$ dans l'air en cette journée est environ de $80{,}38$. Choisissez l'intervalle de valeurs ayant $95\%$ de chances de contenir la concentration d'ozone $O_3$ dans l'air en cette journée. 
+\part[1] Un chercheur aimerait estimer la concentration d'ozone $O_3$ dans l'air lors d'une journée précise. Le midi de cette journée, la température est de $14$ degrés. La prévision ponctuelle de la concentration d'ozone $O_3$ dans l'air en cette journée est environ de $80{,}38$. Choisissez l'intervalle de valeurs ayant $95\%$ de chances de contenir la concentration d'ozone $O_3$ dans l'air en cette journée. 
 
 \begin{checkboxes}
 \choice $80{,}38\pm t_{0{,}025,\,n-2}\sqrt{\text{MSE}\bigg[\dfrac{1}{n}+\dfrac{(14-\bar{x})^2}{S_{XX}}\bigg]}$
@@ -363,7 +354,7 @@ A est le bon choix. La largeur de l'intervalle dépend de $(x_0-\bar{x})^2/S_{XX
 
 \vspace{1cm}
 
-\part[2] Quelle affirmation parmi les suivantes est vraie au seuil $1\%$?
+\part[1] Quelle affirmation parmi les suivantes est vraie au seuil $1\%$?
 
 \begin{checkboxes}
 \choice La concentration d'ozone $O_3$ dans l'air et la température à midi ne sont pas unis par une relation linéaire significative.
@@ -381,7 +372,7 @@ D est le bon choix. La valeur-$p = 0{,}002403 < 0{,}01 = \alpha$. On rejette $H_
 
 \pageblanche
 %%%%%%%%%%%%%%%% QUESTION 7 — Test du khi-carré d'ajustement %%%%%%%%%%%%%%%%
-\question[8] Une chocolaterie prétend que ses sacs de 120 bonbons contiennent les saveurs suivantes dans les proportions indiquées~: 30\,\% chocolat noir, 25\,\% chocolat au lait, 25\,\% caramel et 20\,\% noisette. Pour vérifier cette affirmation, un contrôleur de qualité prélève un sac au hasard et compte les bonbons de chaque saveur. Les résultats sont présentés ci-dessous.
+\question Une chocolaterie prétend que ses sacs de 120 bonbons contiennent les saveurs suivantes dans les proportions indiquées~: 30\,\% chocolat noir, 25\,\% chocolat au lait, 25\,\% caramel et 20\,\% noisette. Pour vérifier cette affirmation, un contrôleur de qualité prélève un sac au hasard et compte les bonbons de chaque saveur. Les résultats sont présentés ci-dessous.
 
 \begin{center}
 \begin{tabular}{l|c|c|c|c|c}
@@ -402,7 +393,7 @@ D est le bon choix. La valeur-$p = 0{,}002403 < 0{,}01 = \alpha$. On rejette $H_
 \end{center}
 
 \begin{parts}
-\part[1] Formulez les hypothèses nulle et alternative du test du khi-carré d'adéquation.
+\part[2] Formulez les hypothèses nulle et alternative du test du khi-carré d'adéquation.
 
 \begin{solution}
 $H_0$~: La distribution des saveurs correspond aux proportions annoncées, c'est-à-dire $p_{\text{noir}}=0{,}30$, $p_{\text{lait}}=0{,}25$, $p_{\text{caramel}}=0{,}25$, $p_{\text{noisette}}=0{,}20$.
@@ -411,7 +402,7 @@ $H_1$~: La distribution des saveurs ne correspond pas aux proportions annoncées
 \end{solution}
 
 \vspace{2cm}
-\part[3] Calculez la statistique de test $D_0$. Vous pouvez utiliser le tableau plus haut dans votre démarche.
+\part[4] Calculez la statistique de test $D_0$. Vous pouvez utiliser le tableau dans votre démarche.
 
 \begin{solution}
 On calcule d'abord les fréquences espérées $E_i = n \times p_i$~:
@@ -436,7 +427,7 @@ $$= \frac{36}{36}+\frac{25}{30}+\frac{100}{30}+\frac{1}{24} = 1 + 0{,}833 + 3{,}
 $\nu = k - 1 = 4 - 1 = 3$ degrés de liberté ($k=4$ catégories, aucun paramètre estimé à partir des données).
 \end{solution}
 \vspace{2cm}
-\part[2] Au seuil $\alpha=0{,}05$, quelle est votre conclusion? 
+\part[3] Au seuil $\alpha=0{,}05$, quelle est votre conclusion? 
 
 \begin{solution}
 $D_0 = 5{,}208 < 7{,}815 = \chi^2_{0{,}05;\,3}$.
@@ -448,7 +439,7 @@ On ne rejette pas $H_0$. Au seuil de 5\,\%, il n'y a pas suffisamment de preuves
 
 \pageblanche
 %%%%%%%%%%%%%%%% QUESTION 9 — Test du khi-carré d'indépendance %%%%%%%%%%%%%%%%
-\question[8] Une étude cherche à déterminer s'il existe un lien entre le niveau de stress (faible, modéré, élevé) et la qualité du sommeil (bonne, mauvaise) chez des adultes. Un échantillon de 200 personnes donne les résultats suivants.
+\question Une étude cherche à déterminer s'il existe un lien entre le niveau de stress (faible, modéré, élevé) et la qualité du sommeil (bonne, mauvaise) chez des adultes. Un échantillon de 200 personnes donne les résultats suivants.
 
 \begin{center}
 \begin{tabular}{c|cc|c}
@@ -475,7 +466,7 @@ $D_{ij}$ & 9,818 & 12 \\
 \end{center}
 
 \begin{parts}
-\part[1] Formulez les hypothèses nulle et alternative du test d'indépendance.
+\part[2] Formulez les hypothèses nulle et alternative du test d'indépendance.
 
 \begin{solution}
 $H_0$~: Le niveau de stress et la qualité du sommeil sont indépendants.
@@ -484,7 +475,7 @@ $H_1$~: Le niveau de stress et la qualité du sommeil ne sont pas indépendants 
 \end{solution}
 
 \vspace{2cm}
-\part[3] Calculez la statistique de test $D_0$. 
+\part[4] Calculez la statistique de test $D_0$. 
 
 \begin{solution}
 Les fréquences espérées sous $H_0$ sont $E_{ij}=\dfrac{(\text{total ligne }i)\times(\text{total colonne }j)}{n}$.
@@ -518,7 +509,7 @@ $\nu = (r-1)(c-1) = (3-1)(2-1) = 2$ degrés de liberté ($r=3$ niveaux de stress
 \end{solution}
 
 \vspace{2cm}
-\part[2] Au seuil $\alpha=0{,}01$, quelle est votre conclusion? 
+\part[3] Au seuil $\alpha=0{,}01$, quelle est votre conclusion? 
 
 \begin{solution}
 $D_0 = 41{,}331 > 9{,}210 = \chi^2_{0{,}01;\,2}$.
