@@ -53,7 +53,7 @@
 \documentclass{Evaluation}
 \usepackage{multicol,graphicx}
 
-\printanswers
+\noprintanswers
 
 
 
@@ -116,11 +116,9 @@ C) Il s'agit d'une ANOVA à un seul facteur; il n'y a pas de terme d'interaction
 \end{parts}
 
 
-
-\pageblanche
 %%%%%%%%%%%%%%%% QUESTION 5 %%%%%%%%%%%%%%%%
 
-
+\vspace{0.5cm}
 
 \question Nous faisons un test pour confronter $H_0: \mu=15$ à $H_1:\mu\neq15$. La règle de décision est de rejeter $H_0$ si $\overline{X}<10$ ou si $\overline{X}>20$. Dans chacun des cas suivants, déterminez si une erreur est commise et déterminez de quel type, le cas échéant. 
 
@@ -164,7 +162,85 @@ C) Il s'agit d'une ANOVA à un seul facteur; il n'y a pas de terme d'interaction
 
 
 \pageblanche
+\question[12] Un biologiste veut vérifier s'il existe une différence de rigidité d'un certain type de disque, selon le pourcentage de \textit{Pouliovachium} qui le compose.
 
+Il compare donc la rigidité de 8 pourcentages différents (10\%, 20\%, 25\%, 30\%, 35\%, 40\%, 45\% et 50\%) en produisant 4 disques pour chaque pourcentage.
+La table d'analyse de la variance suivante est produite par le logiciel utilisé par l'ingénieur.
+Dans celle-ci, certaines quantités ont été remplacées par \texttt{AAA}, \texttt{BBB} et \texttt{???}. Nous considérons que les postulats du modèle sont respectés.
+
+\begin{verbatim}
+ANOVA
+
+                     SS      ddl      MS      F0
+traitement       1154.3      ???     ???     AAA
+erreur            141.4      ???     ???
+Total               BBB      ???
+\end{verbatim}
+
+\begin{parts}
+\part[3] Que vaut \texttt{AAA}?
+
+\begin{checkboxes}
+\choice 164,9
+\choice 8,163
+\correctchoice 27,989
+\choice 1154,3
+\choice Il n'est pas possible de trouver la valeur de \texttt{AAA} avec les informations données.
+\end{checkboxes}
+
+\begin{solution}
+$\texttt{AAA}=F_0=\dfrac{MS_{\text{trt}}}{MS_E}=\dfrac{SS_{\text{trt}}/(a-1)}{SS_E/(N-a)}=\dfrac{1154{,}3/7}{141{,}4/24}=\dfrac{164{,}9}{5{,}892}\approx 27{,}989$.
+\end{solution}
+
+\vspace{0.5cm}
+\part[3] Quelle est l'estimation de $\sigma^2$?
+
+\begin{checkboxes}
+\choice $141{,}4$
+\choice $24$
+\correctchoice $5{,}89$
+\choice $164{,}9$
+\choice Il n'est pas possible de donner une estimation de $\sigma^2$ avec les informations données.
+\end{checkboxes}
+
+\begin{solution}
+$\hat{\sigma}^2=MS_E=\dfrac{SS_E}{\text{DDL}_E}=\dfrac{141{,}4}{24}=5{,}89$.
+\end{solution}
+
+\vspace{0.5cm}
+\part[3] Que vaut \texttt{BBB}?
+
+\begin{checkboxes}
+\choice 8,163
+\correctchoice 1295,7
+\choice 1012,9
+\choice 0,122
+\choice Il n'est pas possible de trouver la valeur de \texttt{BBB} avec les informations données.
+\end{checkboxes}
+
+\begin{solution}
+$\texttt{BBB}=SS_{\text{total}}=SS_{\text{trt}}+SS_E=1154{,}3+141{,}4=1295{,}7$.
+\end{solution}
+
+\vspace{0.5cm}
+\part[3] Au seuil de 5\%, quelle conclusion pouvons-nous tirer de la table d'analyse de la variance?
+
+\begin{checkboxes}
+\choice Il n'est pas possible de tirer de conclusion car nous ne connaissons pas les valeurs remplacées par \texttt{???}.
+\choice Il faudrait répéter l'expérience plus de fois pour pouvoir conclure.
+\choice Toutes les moyennes sont significativement différentes.
+\correctchoice La rigidité moyenne des disques d'au moins un pourcentage est significativement différente de celle d'au moins un autre pourcentage.
+\choice Toutes les moyennes sont significativement égales.
+\end{checkboxes}
+
+\begin{solution}
+La valeur-$p$ associée au test $F$ est très petite (dans la sortie complète: $4{,}6\times 10^{-10}$), donc $p<0{,}05$. On rejette $H_0$ et on conclut qu'au moins une moyenne diffère.
+\end{solution}
+
+\end{parts}
+
+
+\pageblanche
 \question[10] Soit $X_1,\hdots, X_{16}$ qui proviennent d'une loi normale d'espérance $\mu$ et de variance $\sigma^2$. \\
 On fait le test d'hypothèses pour lequel
 $H_0:\mu=5$ et $H_1:\mu>5$ au seuil $\alpha=1\%$.\\
@@ -455,85 +531,7 @@ On rejette $H_0$. Au seuil de 1\,\%, il y a suffisamment de preuves pour conclur
 
 \pageblanche
 %%%%%%%%%%%%%%%% QUESTION ANOVA AJOUTEE %%%%%%%%%%%%%%%%
-\question[12] Un ingénieur veut vérifier s'il existe une différence de rigidité d'un certain type de disque, selon le pourcentage de \textit{Pouliovachium} qui le compose.
 
-Il compare donc la rigidité de 8 pourcentages différents (10\%, 20\%, 25\%, 30\%, 35\%, 40\%, 45\% et 50\%) en produisant 4 disques pour chaque pourcentage.
-La table d'analyse de la variance suivante est produite par le logiciel utilisé par l'ingénieur.
-Dans celle-ci, certaines quantités ont été remplacées par \texttt{AAA}, \texttt{BBB} et \texttt{???}. Nous considérons que les postulats du modèle sont respectés.
-
-\begin{verbatim}
-ANOVA
-
-                     SS      ddl      MS      F0
-pouliovachium    1154.3      ???     ???     AAA
-Residuals         141.4      ???     ???
-Total               BBB      ???
-\end{verbatim}
-
-\begin{parts}
-\part[3] Que vaut \texttt{AAA}?
-
-\begin{checkboxes}
-\choice 164,9
-\choice 8,163
-\correctchoice 27,989
-\choice 1154,3
-\choice Il n'est pas possible de trouver la valeur de \texttt{AAA} avec les informations données.
-\end{checkboxes}
-
-\begin{solution}
-$\texttt{AAA}=F_0=\dfrac{MS_{\text{trt}}}{MS_E}=\dfrac{SS_{\text{trt}}/(a-1)}{SS_E/(N-a)}=\dfrac{1154{,}3/7}{141{,}4/24}=\dfrac{164{,}9}{5{,}892}\approx 27{,}989$.
-\end{solution}
-
-\vspace{0.5cm}
-\part[3] Quelle est l'estimation de $\sigma^2$?
-
-\begin{checkboxes}
-\choice $141{,}4$
-\choice $24$
-\correctchoice $5{,}89$
-\choice $164{,}9$
-\choice Il n'est pas possible de donner une estimation de $\sigma^2$ avec les informations données.
-\end{checkboxes}
-
-\begin{solution}
-$\hat{\sigma}^2=MS_E=\dfrac{SS_E}{\text{DDL}_E}=\dfrac{141{,}4}{24}=5{,}89$.
-\end{solution}
-
-\vspace{0.5cm}
-\part[3] Que vaut \texttt{BBB}?
-
-\begin{checkboxes}
-\choice 8,163
-\correctchoice 1295,7
-\choice 1012,9
-\choice 0,122
-\choice Il n'est pas possible de trouver la valeur de \texttt{BBB} avec les informations données.
-\end{checkboxes}
-
-\begin{solution}
-$\texttt{BBB}=SS_{\text{total}}=SS_{\text{trt}}+SS_E=1154{,}3+141{,}4=1295{,}7$.
-\end{solution}
-
-\vspace{0.5cm}
-\part[3] Au seuil de 5\%, quelle conclusion pouvons-nous tirer de la table d'analyse de la variance?
-
-\begin{checkboxes}
-\choice Il n'est pas possible de tirer de conclusion car nous ne connaissons pas les valeurs remplacées par \texttt{???}.
-\choice Il faudrait répéter l'expérience plus de fois pour pouvoir conclure.
-\choice Toutes les moyennes sont significativement différentes.
-\correctchoice La rigidité moyenne des disques d'au moins un pourcentage est significativement différente de celle d'au moins un autre pourcentage.
-\choice Toutes les moyennes sont significativement égales.
-\end{checkboxes}
-
-\begin{solution}
-La valeur-$p$ associée au test $F$ est très petite (dans la sortie complète: $4{,}6\times 10^{-10}$), donc $p<0{,}05$. On rejette $H_0$ et on conclut qu'au moins une moyenne diffère.
-\end{solution}
-
-\end{parts}
-
-
-\pageblanche
 %%%%%%%%%%%%%%%% TESTS D'HYPOTHÈSES SUR MU — 1 ÉCHANTILLON %%%%%%%%%%%%%%%%
 
 
