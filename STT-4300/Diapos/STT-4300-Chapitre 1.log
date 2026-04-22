@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  22 APR 2026 10:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  22 APR 2026 10:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1435,114 +1435,118 @@ Package biblatex Info: Reference segment=0 on input line 2.
  (./STT-4300-Chapitre 1.nav)
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
 (Font)              scaled to size 6.0pt on input line 2.
+\blx@maxsegment@1=\count549
+\blx@sectionciteorder@1=\count550
+Package biblatex Info: Reference section=1 on input line 3.
+Package biblatex Info: Setting label 'refsection:1' on input line 3.
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 17.28pt on input line 4.
+(Font)              scaled to size 17.28pt on input line 5.
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/n' will be
-(Font)              scaled to size 17.28pt on input line 4.
+(Font)              scaled to size 17.28pt on input line 5.
 
 
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 4.0pt on input line 4.
+(Font)              scaled to size 4.0pt on input line 5.
 [1
 
 {/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/libertine/lbtn_25tcsq.enc}]
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/it' will be
-(Font)              scaled to size 12.0pt on input line 15.
+(Font)              scaled to size 12.0pt on input line 16.
 
 
 [2
 
 ]
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/sc' will be
-(Font)              scaled to size 12.0pt on input line 33.
+(Font)              scaled to size 12.0pt on input line 34.
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 14.4pt on input line 33.
+(Font)              scaled to size 14.4pt on input line 34.
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/n' will be
-(Font)              scaled to size 14.4pt on input line 33.
+(Font)              scaled to size 14.4pt on input line 34.
 
 
 [3
 
 {/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/libertine/lbtn_omcwp2.enc}]
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 10.95pt on input line 64.
+(Font)              scaled to size 10.95pt on input line 65.
 LaTeX Font Info:    Font shape `LS1/libertinust1math/m/n' will be
-(Font)              scaled to size 10.95pt on input line 64.
+(Font)              scaled to size 10.95pt on input line 65.
 LaTeX Font Info:    Font shape `LS1/libertinust1math/m/n' will be
-(Font)              scaled to size 8.0pt on input line 64.
+(Font)              scaled to size 8.0pt on input line 65.
 LaTeX Font Info:    Font shape `LS1/libertinust1math/m/n' will be
-(Font)              scaled to size 6.0pt on input line 64.
+(Font)              scaled to size 6.0pt on input line 65.
 LaTeX Font Info:    Font shape `LS1/libertinust1math/m/it' will be
-(Font)              scaled to size 10.95pt on input line 64.
+(Font)              scaled to size 10.95pt on input line 65.
 LaTeX Font Info:    Font shape `LS1/libertinust1math/m/it' will be
-(Font)              scaled to size 8.0pt on input line 64.
+(Font)              scaled to size 8.0pt on input line 65.
 LaTeX Font Info:    Font shape `LS1/libertinust1math/m/it' will be
-(Font)              scaled to size 6.0pt on input line 64.
+(Font)              scaled to size 6.0pt on input line 65.
 LaTeX Font Info:    Font shape `LS2/libertinust1mathsym/m/n' will be
-(Font)              scaled to size 10.95pt on input line 64.
+(Font)              scaled to size 10.95pt on input line 65.
 LaTeX Font Info:    Font shape `LS2/libertinust1mathsym/m/n' will be
-(Font)              scaled to size 8.0pt on input line 64.
+(Font)              scaled to size 8.0pt on input line 65.
 LaTeX Font Info:    Font shape `LS2/libertinust1mathsym/m/n' will be
-(Font)              scaled to size 6.0pt on input line 64.
-LaTeX Font Info:    Trying to load font information for LS2+libertinust1mathex on input line 64.
+(Font)              scaled to size 6.0pt on input line 65.
+LaTeX Font Info:    Trying to load font information for LS2+libertinust1mathex on input line 65.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/libertinust1math/ls2libertinust1mathex.fd
 File: ls2libertinust1mathex.fd 2016/03/15 v1.0.0-latex LibertinusMath extensions LS2 font definitions
 )
 LaTeX Font Info:    Font shape `LS2/libertinust1mathex/m/n' will be
-(Font)              scaled to size 10.95pt on input line 64.
+(Font)              scaled to size 10.95pt on input line 65.
 LaTeX Font Info:    Font shape `LS2/libertinust1mathex/m/n' will be
-(Font)              scaled to size 8.0pt on input line 64.
+(Font)              scaled to size 8.0pt on input line 65.
 LaTeX Font Info:    Font shape `LS2/libertinust1mathex/m/n' will be
-(Font)              scaled to size 6.0pt on input line 64.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 64.
+(Font)              scaled to size 6.0pt on input line 65.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 65.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 64.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 65.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for LS1+libertinust1mathbb on input line 64.
+LaTeX Font Info:    Trying to load font information for LS1+libertinust1mathbb on input line 65.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/libertinust1math/ls1libertinust1mathbb.fd
 File: ls1libertinust1mathbb.fd 2016/08/22 latex LibertinusT1Mathbb LS1 font definitions
 )
 LaTeX Font Info:    Font shape `LS1/libertinust1mathbb/m/n' will be
-(Font)              scaled to size 10.95pt on input line 64.
+(Font)              scaled to size 10.95pt on input line 65.
 LaTeX Font Info:    Font shape `LS1/libertinust1mathbb/m/n' will be
-(Font)              scaled to size 8.0pt on input line 64.
+(Font)              scaled to size 8.0pt on input line 65.
 LaTeX Font Info:    Font shape `LS1/libertinust1mathbb/m/n' will be
-(Font)              scaled to size 6.0pt on input line 64.
+(Font)              scaled to size 6.0pt on input line 65.
 LaTeX Font Info:    Font shape `LS1/libertinust1math/b/n' will be
-(Font)              scaled to size 10.95pt on input line 64.
+(Font)              scaled to size 10.95pt on input line 65.
 LaTeX Font Info:    Font shape `LS1/libertinust1math/b/n' will be
-(Font)              scaled to size 8.0pt on input line 64.
+(Font)              scaled to size 8.0pt on input line 65.
 LaTeX Font Info:    Font shape `LS1/libertinust1math/b/n' will be
-(Font)              scaled to size 6.0pt on input line 64.
+(Font)              scaled to size 6.0pt on input line 65.
 LaTeX Font Info:    Font shape `LS1/libertinust1math/b/it' will be
-(Font)              scaled to size 10.95pt on input line 64.
+(Font)              scaled to size 10.95pt on input line 65.
 LaTeX Font Info:    Font shape `LS1/libertinust1math/b/it' will be
-(Font)              scaled to size 8.0pt on input line 64.
+(Font)              scaled to size 8.0pt on input line 65.
 LaTeX Font Info:    Font shape `LS1/libertinust1math/b/it' will be
-(Font)              scaled to size 6.0pt on input line 64.
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 64.
+(Font)              scaled to size 6.0pt on input line 65.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 65.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for T1+LinuxLibertineMonoT-TLF on input line 64.
+LaTeX Font Info:    Trying to load font information for T1+LinuxLibertineMonoT-TLF on input line 65.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/libertine/T1LinuxLibertineMonoT-TLF.fd
 File: T1LinuxLibertineMonoT-TLF.fd 2019/05/20 (autoinst) Font definitions for T1/LinuxLibertineMonoT-TLF.
 )
 LaTeX Font Info:    Font shape `T1/LinuxLibertineMonoT-TLF/m/n' in size <10.95> not available
-(Font)              Font shape `T1/LinuxLibertineMonoT-TLF/regular/n' tried instead on input line 64.
+(Font)              Font shape `T1/LinuxLibertineMonoT-TLF/regular/n' tried instead on input line 65.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineMonoT-TLF/regular/n' will be
-(Font)              scaled to size 10.95pt on input line 64.
+(Font)              scaled to size 10.95pt on input line 65.
 
-Overfull \hbox (7.498pt too wide) in paragraph at lines 64--64
+Overfull \hbox (7.498pt too wide) in paragraph at lines 65--65
  [] 
  []
 
 
-Overfull \vbox (36.92639pt too high) detected at line 64
+Overfull \vbox (36.92639pt too high) detected at line 65
  []
 
 
@@ -1585,10 +1589,10 @@ LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
 [6
 
 ]
-<figures/BHlindiag.pdf, id=92, 505.89pt x 505.89pt>
+<figures/BHlindiag.pdf, id=93, 505.89pt x 505.89pt>
 File: figures/BHlindiag.pdf Graphic file (type pdf)
 <use figures/BHlindiag.pdf>
-Package pdftex.def Info: figures/BHlindiag.pdf  used on input line 130.
+Package pdftex.def Info: figures/BHlindiag.pdf  used on input line 131.
 (pdftex.def)             Requested size: 213.39566pt x 213.39865pt.
 
 
@@ -1611,10 +1615,10 @@ Package biblatex Info: Delimiter 'nameyeardelim' in context '' already defined, 
 [9
 
 ]
-<figures/BHlin2.pdf, id=118, 505.89pt x 505.89pt>
+<figures/BHlin2.pdf, id=119, 505.89pt x 505.89pt>
 File: figures/BHlin2.pdf Graphic file (type pdf)
 <use figures/BHlin2.pdf>
-Package pdftex.def Info: figures/BHlin2.pdf  used on input line 194.
+Package pdftex.def Info: figures/BHlin2.pdf  used on input line 195.
 (pdftex.def)             Requested size: 213.39566pt x 213.39865pt.
 
 
@@ -1628,10 +1632,10 @@ Package pdftex.def Info: figures/BHlin2.pdf  used on input line 194.
 [11
 
 ]
-<figures/BHnpfit.pdf, id=142, 505.89pt x 505.89pt>
+<figures/BHnpfit.pdf, id=143, 505.89pt x 505.89pt>
 File: figures/BHnpfit.pdf Graphic file (type pdf)
 <use figures/BHnpfit.pdf>
-Package pdftex.def Info: figures/BHnpfit.pdf  used on input line 237.
+Package pdftex.def Info: figures/BHnpfit.pdf  used on input line 238.
 (pdftex.def)             Requested size: 221.93158pt x 221.93614pt.
 
 
@@ -1639,19 +1643,19 @@ Package pdftex.def Info: figures/BHnpfit.pdf  used on input line 237.
 
  </Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/BHnpfit.pdf>]
 LaTeX Font Info:    Font shape `LS1/libertinust1math/m/n' will be
-(Font)              scaled to size 5.0pt on input line 259.
+(Font)              scaled to size 5.0pt on input line 260.
 LaTeX Font Info:    Font shape `LS1/libertinust1math/m/it' will be
-(Font)              scaled to size 5.0pt on input line 259.
+(Font)              scaled to size 5.0pt on input line 260.
 LaTeX Font Info:    Font shape `LS2/libertinust1mathsym/m/n' will be
-(Font)              scaled to size 5.0pt on input line 259.
+(Font)              scaled to size 5.0pt on input line 260.
 LaTeX Font Info:    Font shape `LS2/libertinust1mathex/m/n' will be
-(Font)              scaled to size 5.0pt on input line 259.
+(Font)              scaled to size 5.0pt on input line 260.
 LaTeX Font Info:    Font shape `LS1/libertinust1mathbb/m/n' will be
-(Font)              scaled to size 5.0pt on input line 259.
+(Font)              scaled to size 5.0pt on input line 260.
 LaTeX Font Info:    Font shape `LS1/libertinust1math/b/n' will be
-(Font)              scaled to size 5.0pt on input line 259.
+(Font)              scaled to size 5.0pt on input line 260.
 LaTeX Font Info:    Font shape `LS1/libertinust1math/b/it' will be
-(Font)              scaled to size 5.0pt on input line 259.
+(Font)              scaled to size 5.0pt on input line 260.
 
 
 [13
@@ -1664,7 +1668,7 @@ LaTeX Font Info:    Font shape `LS1/libertinust1math/b/it' will be
 \openout4 = `"STT-4300-Chapitre 1.vrb"'.
 
  (./STT-4300-Chapitre 1.vrb
-<figures/breastfitted.pdf, id=167, 505.89pt x 505.89pt>
+<figures/breastfitted.pdf, id=168, 505.89pt x 505.89pt>
 File: figures/breastfitted.pdf Graphic file (type pdf)
 <use figures/breastfitted.pdf>
 Package pdftex.def Info: figures/breastfitted.pdf  used on input line 19.
@@ -1686,49 +1690,49 @@ Package pdftex.def Info: figures/breastfitted.pdf  used on input line 19.
 
  (./STT-4300-Chapitre 1.vrb)
 LaTeX Font Info:    Font shape `LS1/libertinust1math/m/n' will be
-(Font)              scaled to size 14.4pt on input line 359.
+(Font)              scaled to size 14.4pt on input line 360.
 LaTeX Font Info:    Font shape `LS1/libertinust1math/m/n' will be
-(Font)              scaled to size 10.0pt on input line 359.
+(Font)              scaled to size 10.0pt on input line 360.
 LaTeX Font Info:    Font shape `LS1/libertinust1math/m/n' will be
-(Font)              scaled to size 7.0pt on input line 359.
+(Font)              scaled to size 7.0pt on input line 360.
 LaTeX Font Info:    Font shape `LS1/libertinust1math/m/it' will be
-(Font)              scaled to size 14.4pt on input line 359.
+(Font)              scaled to size 14.4pt on input line 360.
 LaTeX Font Info:    Font shape `LS1/libertinust1math/m/it' will be
-(Font)              scaled to size 10.0pt on input line 359.
+(Font)              scaled to size 10.0pt on input line 360.
 LaTeX Font Info:    Font shape `LS1/libertinust1math/m/it' will be
-(Font)              scaled to size 7.0pt on input line 359.
+(Font)              scaled to size 7.0pt on input line 360.
 LaTeX Font Info:    Font shape `LS2/libertinust1mathsym/m/n' will be
-(Font)              scaled to size 14.4pt on input line 359.
+(Font)              scaled to size 14.4pt on input line 360.
 LaTeX Font Info:    Font shape `LS2/libertinust1mathsym/m/n' will be
-(Font)              scaled to size 10.0pt on input line 359.
+(Font)              scaled to size 10.0pt on input line 360.
 LaTeX Font Info:    Font shape `LS2/libertinust1mathsym/m/n' will be
-(Font)              scaled to size 7.0pt on input line 359.
+(Font)              scaled to size 7.0pt on input line 360.
 LaTeX Font Info:    Font shape `LS2/libertinust1mathex/m/n' will be
-(Font)              scaled to size 14.4pt on input line 359.
+(Font)              scaled to size 14.4pt on input line 360.
 LaTeX Font Info:    Font shape `LS2/libertinust1mathex/m/n' will be
-(Font)              scaled to size 10.0pt on input line 359.
+(Font)              scaled to size 10.0pt on input line 360.
 LaTeX Font Info:    Font shape `LS2/libertinust1mathex/m/n' will be
-(Font)              scaled to size 7.0pt on input line 359.
+(Font)              scaled to size 7.0pt on input line 360.
 LaTeX Font Info:    Font shape `LS1/libertinust1mathbb/m/n' will be
-(Font)              scaled to size 14.4pt on input line 359.
+(Font)              scaled to size 14.4pt on input line 360.
 LaTeX Font Info:    Font shape `LS1/libertinust1mathbb/m/n' will be
-(Font)              scaled to size 10.0pt on input line 359.
+(Font)              scaled to size 10.0pt on input line 360.
 LaTeX Font Info:    Font shape `LS1/libertinust1mathbb/m/n' will be
-(Font)              scaled to size 7.0pt on input line 359.
+(Font)              scaled to size 7.0pt on input line 360.
 LaTeX Font Info:    Font shape `LS1/libertinust1math/b/n' will be
-(Font)              scaled to size 14.4pt on input line 359.
+(Font)              scaled to size 14.4pt on input line 360.
 LaTeX Font Info:    Font shape `LS1/libertinust1math/b/n' will be
-(Font)              scaled to size 10.0pt on input line 359.
+(Font)              scaled to size 10.0pt on input line 360.
 LaTeX Font Info:    Font shape `LS1/libertinust1math/b/n' will be
-(Font)              scaled to size 7.0pt on input line 359.
+(Font)              scaled to size 7.0pt on input line 360.
 LaTeX Font Info:    Font shape `LS1/libertinust1math/b/it' will be
-(Font)              scaled to size 14.4pt on input line 359.
+(Font)              scaled to size 14.4pt on input line 360.
 LaTeX Font Info:    Font shape `LS1/libertinust1math/b/it' will be
-(Font)              scaled to size 10.0pt on input line 359.
+(Font)              scaled to size 10.0pt on input line 360.
 LaTeX Font Info:    Font shape `LS1/libertinust1math/b/it' will be
-(Font)              scaled to size 7.0pt on input line 359.
+(Font)              scaled to size 7.0pt on input line 360.
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/n' will be
-(Font)              scaled to size 10.0pt on input line 359.
+(Font)              scaled to size 10.0pt on input line 360.
 
 
 [18
@@ -1741,22 +1745,22 @@ LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/n' will be
 [19
 
 ]
-<figures/NMMAPSfit.pdf, id=201, 505.89pt x 505.89pt>
+<figures/NMMAPSfit.pdf, id=202, 505.89pt x 505.89pt>
 File: figures/NMMAPSfit.pdf Graphic file (type pdf)
 <use figures/NMMAPSfit.pdf>
-Package pdftex.def Info: figures/NMMAPSfit.pdf  used on input line 386.
+Package pdftex.def Info: figures/NMMAPSfit.pdf  used on input line 387.
 (pdftex.def)             Requested size: 213.39566pt x 213.39865pt.
 
 
 [20
 
  </Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/NMMAPSfit.pdf>]
-<figures/NMMAPSfitwithres.pdf, id=212, 505.89pt x 505.89pt>
+<figures/NMMAPSfitwithres.pdf, id=213, 505.89pt x 505.89pt>
 File: figures/NMMAPSfitwithres.pdf Graphic file (type pdf)
 <use figures/NMMAPSfitwithres.pdf>
-Package pdftex.def Info: figures/NMMAPSfitwithres.pdf  used on input line 403.
+Package pdftex.def Info: figures/NMMAPSfitwithres.pdf  used on input line 404.
 (pdftex.def)             Requested size: 113.81102pt x 113.80489pt.
-Package biblatex Info: Delimiter 'nameyeardelim' in context '' already defined, overwriting on input line 403.
+Package biblatex Info: Delimiter 'nameyeardelim' in context '' already defined, overwriting on input line 404.
 
 
 [21
@@ -1770,10 +1774,10 @@ Package biblatex Info: Delimiter 'nameyeardelim' in context '' already defined, 
 [23
 
 ]
-<figures/CostCHUV.pdf, id=238, 505.89pt x 505.89pt>
+<figures/CostCHUV.pdf, id=239, 505.89pt x 505.89pt>
 File: figures/CostCHUV.pdf Graphic file (type pdf)
 <use figures/CostCHUV.pdf>
-Package pdftex.def Info: figures/CostCHUV.pdf  used on input line 454.
+Package pdftex.def Info: figures/CostCHUV.pdf  used on input line 455.
 (pdftex.def)             Requested size: 227.62204pt x 227.62523pt.
 
 
@@ -1787,16 +1791,16 @@ Package pdftex.def Info: figures/CostCHUV.pdf  used on input line 454.
 [25
 
 ]
-<figures/MYdiag.pdf, id=255, 505.89pt x 505.89pt>
+<figures/MYdiag.pdf, id=256, 505.89pt x 505.89pt>
 File: figures/MYdiag.pdf Graphic file (type pdf)
 <use figures/MYdiag.pdf>
-Package pdftex.def Info: figures/MYdiag.pdf  used on input line 490.
+Package pdftex.def Info: figures/MYdiag.pdf  used on input line 491.
 (pdftex.def)             Requested size: 184.9429pt x 184.9455pt.
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/n' will be
-(Font)              scaled to size 12.0pt on input line 490.
+(Font)              scaled to size 12.0pt on input line 491.
 
 
-LaTeX Warning: Reference `robust.section' on page 26 undefined on input line 490.
+LaTeX Warning: Reference `robust.section' on page 26 undefined on input line 491.
 
 
 
@@ -1816,52 +1820,45 @@ LaTeX Warning: Reference `robust.section' on page 26 undefined on input line 490
 
 Runaway argument?
 {\tiny \begin {verbatim} Call: gee(formula = smoke ~ age + factor(bir\ETC.
-/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Diapos/STT-4300-Chapitre 1.tex:538: Paragraph ended before \beamer@verbatim@framesubtitle was complete.
+/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Diapos/STT-4300-Chapitre 1.tex:539: Paragraph ended before \beamer@verbatim@framesubtitle was complete.
 <to be read again> 
                    \par 
-l.538 
+l.539 
       
 I suspect you've forgotten a `}', causing me to apply this
 control sequence to too much text. How can we recover?
 My plan is to forget the whole thing and hope for the best.
 
-/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Diapos/STT-4300-Chapitre 1.tex:564: Extra \endgroup.
-\endverbatim ->\endtrivlist \endgroup 
-                                      \@doendpe 
-l.564 \end{verbatim}
-                    
-Things are pretty mixed up, but I think the worst is over.
 
-
-/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Diapos/STT-4300-Chapitre 1.tex:564: LaTeX Error: \begin{document} ended by \end{verbatim}.
+/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Diapos/STT-4300-Chapitre 1.tex:565: LaTeX Error: \begin{document} ended by \end{verbatim}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.564 \end{verbatim}
+l.565 \end{verbatim}
                     
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Diapos/STT-4300-Chapitre 1.tex:564: Extra \endgroup.
+/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Diapos/STT-4300-Chapitre 1.tex:565: Extra \endgroup.
 \end  ...end#1\endcsname \@checkend {#1}\endgroup 
                                                   \UseHook {env/#1/after}\if...
-l.564 \end{verbatim}
+l.565 \end{verbatim}
                     
 Things are pretty mixed up, but I think the worst is over.
 
-/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Diapos/STT-4300-Chapitre 1.tex:565: Too many }'s.
-l.565 }
+/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Diapos/STT-4300-Chapitre 1.tex:566: Too many }'s.
+l.566 }
        
 You've closed more groups than you opened.
 Such booboos are generally harmless, so keep going.
 
-/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Diapos/STT-4300-Chapitre 1.tex:566: Too many }'s.
+/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Diapos/STT-4300-Chapitre 1.tex:567: Too many }'s.
 \endframe ->\egroup 
                     \begingroup \def \@currenvir {frame}
-l.566 \end{frame}
+l.567 \end{frame}
                  
 You've closed more groups than you opened.
 Such booboos are generally harmless, so keep going.
@@ -1876,35 +1873,35 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 ]
 
 [30]
-<figures/novascotia.jpg, id=295, 143.3355pt x 165.4983pt>
+<figures/novascotia.jpg, id=296, 143.3355pt x 165.4983pt>
 File: figures/novascotia.jpg Graphic file (type jpg)
 <use figures/novascotia.jpg>
-Package pdftex.def Info: figures/novascotia.jpg  used on input line 598.
+Package pdftex.def Info: figures/novascotia.jpg  used on input line 599.
 (pdftex.def)             Requested size: 99.58464pt x 114.98688pt.
-<figures/northernflicker.jpg, id=296, 275.0275pt x 271.0125pt>
+<figures/northernflicker.jpg, id=297, 275.0275pt x 271.0125pt>
 File: figures/northernflicker.jpg Graphic file (type jpg)
 <use figures/northernflicker.jpg>
-Package pdftex.def Info: figures/northernflicker.jpg  used on input line 598.
+Package pdftex.def Info: figures/northernflicker.jpg  used on input line 599.
 (pdftex.def)             Requested size: 71.13188pt x 70.09354pt.
-<figures/redwing2.jpg, id=297, 408.5664pt x 511.6716pt>
+<figures/redwing2.jpg, id=298, 408.5664pt x 511.6716pt>
 File: figures/redwing2.jpg Graphic file (type jpg)
 <use figures/redwing2.jpg>
-Package pdftex.def Info: figures/redwing2.jpg  used on input line 598.
+Package pdftex.def Info: figures/redwing2.jpg  used on input line 599.
 (pdftex.def)             Requested size: 71.13188pt x 89.08322pt.
-<figures/rustyblackbird.jpg, id=298, 436.63126pt x 301.125pt>
+<figures/rustyblackbird.jpg, id=299, 436.63126pt x 301.125pt>
 File: figures/rustyblackbird.jpg Graphic file (type jpg)
 <use figures/rustyblackbird.jpg>
-Package pdftex.def Info: figures/rustyblackbird.jpg  used on input line 598.
+Package pdftex.def Info: figures/rustyblackbird.jpg  used on input line 599.
 (pdftex.def)             Requested size: 71.13188pt x 49.05399pt.
-<figures/ruby_crowned_kinglet.jpg, id=299, 216.81pt x 289.08pt>
+<figures/ruby_crowned_kinglet.jpg, id=300, 216.81pt x 289.08pt>
 File: figures/ruby_crowned_kinglet.jpg Graphic file (type jpg)
 <use figures/ruby_crowned_kinglet.jpg>
-Package pdftex.def Info: figures/ruby_crowned_kinglet.jpg  used on input line 598.
+Package pdftex.def Info: figures/ruby_crowned_kinglet.jpg  used on input line 599.
 (pdftex.def)             Requested size: 71.13188pt x 94.8409pt.
-<figures/Yellow_rumped_Warbler.jpg, id=300, 110.3322pt x 128.6406pt>
+<figures/Yellow_rumped_Warbler.jpg, id=301, 110.3322pt x 128.6406pt>
 File: figures/Yellow_rumped_Warbler.jpg Graphic file (type jpg)
 <use figures/Yellow_rumped_Warbler.jpg>
-Package pdftex.def Info: figures/Yellow_rumped_Warbler.jpg  used on input line 598.
+Package pdftex.def Info: figures/Yellow_rumped_Warbler.jpg  used on input line 599.
 (pdftex.def)             Requested size: 71.13188pt x 82.93819pt.
 
 
@@ -1922,10 +1919,10 @@ Package pdftex.def Info: figures/Yellow_rumped_Warbler.jpg  used on input line 5
 LaTeX Warning: Characters dropped after `\end{verbatim}' on input line 23.
 
 )
-/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Diapos/STT-4300-Chapitre 1.tex:647: Missing } inserted.
+/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Diapos/STT-4300-Chapitre 1.tex:648: Missing } inserted.
 <inserted text> 
                 }
-l.647 \end{frame}
+l.648 \end{frame}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1938,10 +1935,10 @@ my insertion and my current dilemma will both disappear.
 [33
 
 ]
-<figures/GrA.pdf, id=317, 505.89pt x 505.89pt>
+<figures/GrA.pdf, id=318, 505.89pt x 505.89pt>
 File: figures/GrA.pdf Graphic file (type pdf)
 <use figures/GrA.pdf>
-Package pdftex.def Info: figures/GrA.pdf  used on input line 655.
+Package pdftex.def Info: figures/GrA.pdf  used on input line 656.
 (pdftex.def)             Requested size: 184.9429pt x 184.9455pt.
 
 
@@ -1977,6 +1974,37 @@ Package pdftex.def Info: figures/GrA.pdf  used on input line 655.
 
 
 ]
+
+[42
+
+ </usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>]
+
+[43
+
+
+]
+Package biblatex Info: Reference section=0 on input line 807.
+
+
+/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Diapos/STT-4300-Chapitre 1.tex:807: LaTeX Error: \begin{document} ended by \end{refsection}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.807 \end{refsection}
+                      
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Diapos/STT-4300-Chapitre 1.tex:807: Extra \endgroup.
+\end  ...end#1\endcsname \@checkend {#1}\endgroup 
+                                                  \UseHook {env/#1/after}\if...
+l.807 \end{refsection}
+                      
+Things are pretty mixed up, but I think the worst is over.
+
 \tf@nav=\write8
 \openout8 = `"STT-4300-Chapitre 1.nav"'.
 
@@ -1986,7 +2014,7 @@ Package pdftex.def Info: figures/GrA.pdf  used on input line 655.
 \tf@snm=\write10
 \openout10 = `"STT-4300-Chapitre 1.snm"'.
 
- (./STT-4300-Chapitre 1.aux)
+(./STT-4300-Chapitre 1.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -2002,45 +2030,21 @@ Package logreq Info: Writing requests to '"STT-4300-Chapitre 1".run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 62253 strings out of 473190
- 1487088 string characters out of 5715801
- 2366364 words of memory out of 5000000
- 84386 multiletter control sequences out of 15000+600000
+ 62336 strings out of 473190
+ 1489619 string characters out of 5715801
+ 2366680 words of memory out of 5000000
+ 84464 multiletter control sequences out of 15000+600000
  661485 words of font info for 149 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 162i,12n,154p,1289b,1746s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{cite.0@Rido:Deme:Hind:1998} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{cite.0@Prei:Gale:Lohm:Wage:2000} has been referenced but does not exist, replaced by a fixed one
-
+ 162i,12n,154p,1289b,1830s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{robust.section} has been referenced but does not exist, replaced by a fixed one
 
-
-pdfTeX warning (dest): name{cite.0@Mara:Yoha:2004} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{cite.0@Domi:Same:Zege:2000} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{cite.0@Cant:Flem:Ronc:2011} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{cite.0@Brei:1995} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{cite.0@Bels:Kuh:Wels:1980} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{cite.0@Harr:Rubi:1978} has been referenced but does not exist, replaced by a fixed one
-
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/libertinust1math/LibertinusT1Math.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/libertine/LinBiolinumT.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/libertine/LinBiolinumTB.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/libertine/LinBiolinumTI.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/libertine/LinLibertineMT.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on "STT-4300-Chapitre 1.pdf" (41 pages, 897794 bytes).
+Output written on "STT-4300-Chapitre 1.pdf" (43 pages, 907530 bytes).
 PDF statistics:
- 438 PDF objects out of 1000 (max. 8388607)
- 345 compressed objects within 4 object streams
- 108 named destinations out of 1000 (max. 500000)
+ 462 PDF objects out of 1000 (max. 8388607)
+ 364 compressed objects within 4 object streams
+ 113 named destinations out of 1000 (max. 500000)
  182 words of extra memory for PDF output out of 10000 (max. 10000000)
 
