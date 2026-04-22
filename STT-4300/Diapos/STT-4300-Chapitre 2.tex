@@ -1,5 +1,5 @@
 \documentclass{BeamerTemplate}
-\title{Chapitre 2 - Modèles linéaires généralisés (MLG)}
+\title{Chapitre 2 - Modèles linéaires généralisés (GLM)}
 \subtitle{STT-4300}
 \date{\today}
 
@@ -16,9 +16,9 @@
 \titlepage
 \end{frame}
 
-\section{Modèles linéaires généralisés (MLG)}
+\section{Modèles linéaires généralisés}
 
-\begin{frame}{Modèles linéaires généralisés (MLG)}
+\begin{frame}{Modèles linéaires généralisés (GLM)}
 Classe de modèles unifiée par \citeN{Neld:Wedd:1972} (voir \citeNP{McCu:Neld:1989}).
 
 \bigskip
@@ -32,7 +32,7 @@ $$E(Y_i) = \mu_i = x_i^T \beta.$$
 \end{frame}
 
 \begin{frame}{}
-Les modèles linéaires généralisés (MLG) (\textit{generalized linear models}, GLM) incluent des situations plus générales :
+Les modèles linéaires généralisés (GLM, de \textit{generalized linear models}) incluent des situations plus générales :
 \begin{enumerate}
 \item Des variables réponses ayant des distributions autres que la loi
   normale (même discrètes ou catégorielles).
@@ -40,7 +40,7 @@ Les modèles linéaires généralisés (MLG) (\textit{generalized linear models}
   n'a pas besoin d'être de la forme linéaire simple ci-dessus.
 \end{enumerate}
 
-La forme générale d'un MLG est :
+La forme générale d'un GLM est :
 $${\color{blue}g(E(Y_i)) = g(\mu_i)=\eta_i=x_i^T \beta},$$
 où $g$ est appelée la fonction de lien (\textit{link function}). On note $Var(Y_i) = v_i = v(\mu_i)$.
 
@@ -51,7 +51,7 @@ où $g$ est appelée la fonction de lien (\textit{link function}). On note $Var(
 
 \begin{itemize}
 \item régression logistique :\\
- $Y_i \sim  Bernoulli(p_i)$, $E(Y_i) = p_i$
+ $Y_i \sim  \text{Bernoulli}(p_i)$, $E(Y_i) = p_i$
 $$\log\Big(\frac{p_i}{1-p_i}\Big) = \mbox{logit}(p_i) = x_i^T \beta.$$
 \item  Poisson :\\
 $Y_i \sim {\mathcal P}(\lambda_i)$, $E(Y_i) = \lambda_i$
@@ -64,10 +64,10 @@ $$\log(\lambda_i) = x_i^T \beta.$$
 
 \begin{itemize}
 \item la composante linéaire est conservée ( $\leadsto$ MAG, Chapitre~\ref{GAM.section})
-\item les distributions sont restreintes à la famille exponentielle (\textit{exponential family}) (voir la discussion dans la
+\item les distributions sont restreintes à la famille exponentielle (voir la discussion dans la
 Section~\ref{GLM.estim.section})
 \item les réponses doivent être indépendantes ($\leadsto$ GEE, Chapitre~\ref{GEE.section}
-et MLGM, Chapitre~\ref{GLMM.section})
+et GLMM, Chapitre~\ref{GLMM.section})
 \end{itemize}
 
 \end{frame}
@@ -77,7 +77,7 @@ et MLGM, Chapitre~\ref{GLMM.section})
 \begin{frame}{}
 
 
-La théorie unifiée des MLG est construite sur la {\color{blue}famille exponentielle} (\textit{exponential family}) de
+La théorie unifiée des GLM est construite sur la {\color{blue}famille exponentielle} de
 distributions, tirant avantage de ses bonnes propriétés.
 
 \bigskip
@@ -91,7 +91,7 @@ pour des fonctions spécifiques $b()$ et $c()$ et une constante $A$. Si $\phi$ e
 connu, c'est une famille exponentielle avec {\color{blue}paramètre canonique} $\theta$.
 
 \bigskip
-Une fonction de lien $g$ de la spécification du MLG est dite canonique si elle est
+Une fonction de lien $g$ de la spécification du GLM est dite canonique si elle est
 telle que $\theta(\mu)=\eta$, c'est-à-dire si $g(\cdot) = (b^{\prime})^{-1}(\cdot)$
 (étant donné que $\mu=b^{\prime}(\theta)$, voir~\eqref{expect.exponential} à la
 page~\pageref{expect.exponential}).   
@@ -222,7 +222,7 @@ ce qui donne
 \end{equation}
 \end{frame}
 
-\subsection{Composantes d'un MLG}
+\subsection{Composantes d'un GLM}
 
 \begin{frame}{}
 
@@ -245,7 +245,7 @@ $\eta_i = x_i^T \beta$ est appelé le prédicteur linéaire (\textit{linear pred
 Le problème initial a $n$ (= taille de l'échantillon) paramètres inconnus $\mu_1,
 \ldots,\mu_n$ (ou $\theta_1, \ldots, \theta_n$) qui sont réduits à $(p+1)$
 paramètres inconnus ($\beta_0, \beta_1,\ldots,\beta_p$) en imposant la structure
-d'un modèle MLG.
+d'un modèle GLM.
 
 \bigskip
 \bigskip
@@ -285,7 +285,7 @@ statut tabagique d'une personne.
 
 \bigskip
 
-Pour les MLG, on préfère considérer la proportion de « succès » $P_i = Y_i/m_i$, pour
+Pour les GLM, on préfère considérer la proportion de « succès » $P_i = Y_i/m_i$, pour
 laquelle $E(P_i) = \mu_i = p_i$.
 
 \smallskip
@@ -309,7 +309,7 @@ données est nécessaire pour de petites valeurs de~$p$.
 
 {\color{red} $\bigstar$ Familles générales de fonctions de lien, voir
 \citeN{Aran:1981}}\\
- {\color{red}$\bigstar$ Lien non paramétrique pour les MLG, voir \citeN{Weis:Wels:1994}}\\
+ {\color{red}$\bigstar$ Lien non paramétrique pour les GLM, voir \citeN{Weis:Wels:1994}}\\
 {\color{red}$\bigstar$ Test d'adéquation du lien, voir \citeN{Preg:1980}}
 \end{frame}
 
@@ -377,9 +377,9 @@ cas particulier où $\nu=1$.
 \end{frame}
 
 
-\begin{frame}{Extensions des MLG}
+\begin{frame}{Extensions des GLM}
 
-Dans l'esprit des MLG, certains modèles proches peuvent être considérés.
+Dans l'esprit des GLM, certains modèles proches peuvent être considérés.
 
 \bigskip
 
@@ -589,12 +589,12 @@ où $\beta$ et $U$ sont maintenant des vecteurs de dimension $(p+1)$ et
 ${\mathcal J}$ est une matrice $(p+1) \times (p+1)$.
 \end{frame}
 
-\subsection{Algorithme MCPI pour les MLG}
+\subsection{Algorithme MCPI pour les GLM}
 
 \begin{frame}{Algorithme de moindres carrés pondérés itératifs (MCPI)}
 
 Étapes principales de l'algorithme de {\color{blue} moindres carrés pondérés itératifs (MCPI)}
-(\textit{Iterative Weighted Least Squares}, IWLS) pour maximiser la log-vraisemblance des MLG (voir \citeN{McCu:Neld:1989},
+(\textit{Iterative Weighted Least Squares}, IWLS) pour maximiser la log-vraisemblance des GLM (voir \citeN{McCu:Neld:1989},
 p.\ 40-42 pour des détails supplémentaires) 
 
 \bigskip
@@ -935,7 +935,7 @@ où $L_{null}$ est la vraisemblance de l'ajustement avec l'ordonnée à l'origin
 
 \begin{frame}{Analyse des résidus}
 
-Plusieurs types de résidus peuvent être définis pour les modèles MLG. En particulier, 
+Plusieurs types de résidus peuvent être définis pour les modèles GLM. En particulier, 
 \begin{itemize}
 \item {\color{blue}résidus de Pearson} : $r_{iP} = \frac{y_i - \hat{\mu}_i}{\sqrt{v(\hat{\mu}_i)}},$
 \item {\color{blue}résidus de déviance} (\textit{deviance residuals}) : $r_{iD} = \mbox{sign}(y_i - \hat{\mu_i}) \sqrt{d_i},$
@@ -1115,7 +1115,7 @@ Chapitre~\ref{robust.section}.
 
 \subsection{Intervalles de confiance et tests z}
 \begin{frame}{Intervalles de confiance}
-L'estimateur de $\beta$ dans un MLG est habituellement obtenu par maximum
+L'estimateur de $\beta$ dans un GLM est habituellement obtenu par maximum
 de vraisemblance. Cela signifie que $\hat{\beta}$ hérite des propriétés générales
 du maximum de vraisemblance, en particulier la distribution
 asymptotique. À partir de
@@ -1218,7 +1218,7 @@ avec $(p+1-q)$ paramètres (c'est-à-dire un modèle contenant un sous-ensemble 
 variables de ${\mathcal M}_{p+1}$).
 
 \bigskip
-La pratique courante en MLG est d'utiliser la différence de déviances pour la
+La pratique courante en GLM est d'utiliser la différence de déviances pour la
 sélection de variables (modèles).
 
 \bigskip
@@ -1620,7 +1620,7 @@ Le modèle de Poisson à lien log postulé est :
 \begin{frame}{Modèle de taux}
 Le terme
 $\log(\texttt{Aggregate})$ a un coefficient $\beta_{s}=1$, connu a priori (un
-{\color{blue}décalage} (\textit{offset}) dans la terminologie des MLG). Cette variable est incluse dans le modèle
+{\color{blue}décalage} (\textit{offset}) dans la terminologie des GLM). Cette variable est incluse dans le modèle
 pour contrôler le nombre d'occasions pour que l'événement se produise (effort).
 
 \bigskip
@@ -1951,7 +1951,7 @@ Number of Fisher Scoring iterations: 16
 \item régression logistique exacte \cite{Meht:Pate:1995}.
 \item approche de régression robuste \cite{Rous:Chri:2002}.
 \item méthode de réduction du biais (\textit{bias reduction}) \cite{Firt:1993,Kosm:Firt:2009} pour
-réduire le biais en échantillon fini dans la famille des MLG. Non affectée par le manque de chevauchement.
+réduire le biais en échantillon fini dans la famille des GLM. Non affectée par le manque de chevauchement.
 
 \bigskip
 
@@ -2001,7 +2001,7 @@ AIC:  316.67
 La \texttt{z/t-value} est une approximation de Wald
 de la log-vraisemblance pour tester $H_0: \beta_i=0$ et est
 parfois trompeuse avec
-les MLG binomiaux. En effet, une petite valeur de la \texttt{z/t-value} peut
+les GLM binomiaux. En effet, une petite valeur de la \texttt{z/t-value} peut
 soit correspondre à une petite statistique du rapport de vraisemblance, soit à une
 situation où $|\hat{\beta}_i|$ est grand, l'approximation de Wald
 est mauvaise et la statistique du rapport de vraisemblance est grande.
