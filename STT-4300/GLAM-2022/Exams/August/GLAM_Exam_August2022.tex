@@ -42,7 +42,6 @@ addpoints,
 \newcommand{\beps}{\boldsymbol{\epsilon}}
 \newcommand{\sumin}{\sum_{i=1}^n}
 \newcommand{\bg}[1]{\mbox{\boldmath{$#1$}}}
-\renewcommand{\lstlistingname}{Output}
 \DeclareMathOperator{\plim}{plim}
 \DefineVerbatimEnvironment{code}{Verbatim}{fontsize=\small}
 \DefineVerbatimEnvironment{example}{Verbatim}{fontsize=\small}
@@ -208,10 +207,8 @@ We would like to model the variable \texttt{y} as a function of the others.
  \fullwidth{We started by fitting a Poisson GLM model, Model 0, as appearing in Output~\ref{out.glm0}.}
 
 
-\setcounter{lstlisting}{-1}
-
 \begin{center}
-	\begin{lstlisting}[caption = Model 0 (GLM). ,label=out.glm0]
+	\begin{verbatim}
 	> fit0 <- glm(y ~ year + quarter + time + delay, data = aids, family = poisson())
 	> fit0
 	Call:  glm(formula = y ~ year + quarter + time + delay, family = poisson(), 
@@ -224,7 +221,7 @@ We would like to model the variable \texttt{y} as a function of the others.
 	Degrees of Freedom: 569 Total (i.e. Null);  566 Residual
 	Null Deviance:	    16720 
 	Residual Deviance: 4253 	AIC: 5659
-	\end{lstlisting}
+	\end{verbatim}
 \end{center}
 
 \begin{questions}
@@ -236,7 +233,7 @@ We would like to model the variable \texttt{y} as a function of the others.
  \fullwidth{We next fitted another Poisson GLM model, Model 1, see Output~\ref{out.glm1}.}
 
 \begin{center}
-	\begin{lstlisting}[caption = Model 1 (GLM). ,label=out.glm1]
+	\begin{verbatim}
 	> fit1 <- glm(y ~ time + delay, data = aids, family = poisson())
 	> fit1
 	
@@ -249,7 +246,7 @@ We would like to model the variable \texttt{y} as a function of the others.
 	Degrees of Freedom: 569 Total (i.e. Null);  567 Residual
 	Null Deviance:	    16720 
 	Residual Deviance: 4284 	AIC: 5687
-	\end{lstlisting}
+	\end{verbatim}
 \end{center}
 
 \question[2] Interpret the sign of the coefficient associated with the variable \texttt{time} in Model~1. 
@@ -271,7 +268,7 @@ We would like to model the variable \texttt{y} as a function of the others.
  \fullwidth{We also fitted a simpler model, Model 2, using only the variable \texttt{time}, see Output~\ref{out.glm2}. }
 
 \begin{center}
-	\begin{lstlisting}[caption = Model 2 (GLM). ,label=out.glm2]
+	\begin{verbatim}
 > fit2 <- glm(y ~ time, data = aids, family = poisson())
 > Call:  glm(formula = y ~ time, family = poisson(), data = aids)
 
@@ -282,7 +279,7 @@ Coefficients:
 Degrees of Freedom: 569 Total (i.e. Null);  568 Residual
 Null Deviance:	    16720 
 Residual Deviance: 14770 	AIC: 16180
-	\end{lstlisting}
+	\end{verbatim}
 \end{center}
 \question[2] Which of Model 1 or Model 2 performs best ? Why ?
 \begin{solution}
@@ -337,7 +334,7 @@ To deal with outlier, a robust GLM could be used; to deal with non-linearity of 
  \fullwidth{We continued the analysis by fitting a GAM model, Model 3, presented in Output~\ref{out.gam} and Figure~\ref{fig4}.}
 
 \begin{center}
-	\begin{lstlisting}[caption = Model 3 (GAM). ,label=out.gam]
+	\begin{verbatim}
 > fit_gam <- gam(y ~ s(time) + s(delay), data = aids, family = poisson)
 > summary(fit_gam)
 
@@ -381,7 +378,7 @@ s(time)  9.00 7.72    0.84  <2e-16 ***
 s(delay) 9.00 8.95    0.42  <2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-	\end{lstlisting}
+	\end{verbatim}
 \end{center} 
 
 \begin{figure}[h]
@@ -408,7 +405,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 \fullwidth{We fitted another GAM model, Model~4, presented in Output~\ref{out.gam4} and Figure~\ref{fig5}.}
 
 \begin{center}
-	\begin{lstlisting}[caption = Model 4 (GAM). ,label=out.gam4]
+	\begin{verbatim}
 	> fit_gam_quasi <- gam(y ~ s(time) + s(delay), data = aids, family = quasipoisson)
 	> summary(fit_gam_quasi)
 	
@@ -433,7 +430,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 	
 	R-sq.(adj) =  0.865   Deviance explained = 87.1%
 	GCV = 3.9956  Scale est. = 3.2445    n = 570
-	\end{lstlisting}
+	\end{verbatim}
 \end{center}
 
 \begin{figure}[h]
@@ -467,7 +464,7 @@ Hurdle model uses a Bernoulli variable, $B$. If $B = 0$, then the response is nu
 \fullwidth{Output~\ref{out.hurdle} shows a model, Model~5, accounting for excess of zeros.}
 
 \begin{center}
-	\begin{lstlisting}[caption = Model~5 (hurdle model). ,label=out.hurdle]
+	\begin{verbatim}
 	> fit3_bin <- glm(I(y > 0) ~ delay + time, data = aids, family = binomial)
 	> fit3_trunc <- glm(y ~ delay + time, data = aids, family = truncpoisson, 
 	   subset = (y > 0))
@@ -494,7 +491,7 @@ Hurdle model uses a Bernoulli variable, $B$. If $B = 0$, then the response is nu
 	Degrees of Freedom: 374 Total (i.e. Null);  372 Residual
 	Null Deviance:	    11580 
 	Residual Deviance: 2958 	AIC: 4098
-	\end{lstlisting}
+	\end{verbatim}
 \end{center}
 \question[2] According to Model~5, what is the probability that no case diagnosed at \texttt{time}$ = 11$ be reported to the Communicable Disease Surveillance Centre with a delay of 5 quarters ?
 \begin{solution}
@@ -625,7 +622,7 @@ $$\mu = \frac{\exp(x_i^T \beta)}{1+ \exp(x_i^T \beta)}.$$
 \end{figure} 
 
 \begin{center}
-	\begin{lstlisting}[caption = GLM Beta model with logit link. \\(Note: the \texttt{gam} function is used to fit the GLM model because is has a Beta family),label=out.beta]
+	\begin{verbatim}
 > fit_beta <- gam(I(food/income) ~ income + persons,family=betar, data = FoodExpenditure)
 > summary(fit_beta)
 
@@ -648,7 +645,7 @@ R-sq.(adj) =  0.438   Deviance explained = 41.6%
 > logLik(fit_beta)
 'log Lik.' 45.28002 (df=....)
 
-	\end{lstlisting}
+	\end{verbatim}
 \end{center}
 
 \question[2]  What is the effect of increasing the number of persons in the household on the expected proportion of food expenditure?
@@ -679,7 +676,7 @@ AIC = -2*45.28 + 2 *4 =  -82.56
 
 
 \begin{center}
-	\begin{lstlisting}[caption = GAM Beta model with logit link. ,label=out.beta.gam]
+	\begin{verbatim}
 > fit_beta_gam <- gam(I(food/income) ~ s(income) + s(persons,k=7), family=betar, 
    data = FoodExpenditure)
    
@@ -710,7 +707,7 @@ R-sq.(adj) =  0.467   Deviance explained =   46%
 > AIC(fit_beta_gam)
 [1] -82.79725
 	
-	\end{lstlisting}
+	\end{verbatim}
 \end{center}
 
 \begin{figure}[h]

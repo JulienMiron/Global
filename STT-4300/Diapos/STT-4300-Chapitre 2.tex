@@ -708,7 +708,7 @@ de \texttt{nuclei} seulement (plus l'ordonnée à l'origine) avec un lien logit.
 \bigskip
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 Call: glm(formula = status ~ nuclei, family = binomial, 
     data = breast,  na.action = na.omit)
 
@@ -727,7 +727,7 @@ Residual deviance: 340.63  on 681  degrees of freedom
 AIC: 344.63
 
 Number of Fisher Scoring iterations: 6
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -769,7 +769,7 @@ On peut aussi ajuster le même modèle, mais avec un lien probit.
 
 \bigskip
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 Call: glm(formula = status ~ nuclei, family = binomial(link = probit), 
     data = breast, na.action = na.omit)
 
@@ -788,7 +788,7 @@ Residual deviance: 342.94  on 681  degrees of freedom
 AIC: 346.94
 
 Number of Fisher Scoring iterations: 7
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -999,10 +999,10 @@ Sur l'exemple logistique simulé précédent :
 \end{center}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > require(statmod) 
 > qqnorm(qresid(glm.sim))
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -1014,7 +1014,7 @@ Sur l'exemple logistique simulé précédent :
 
 \bigskip 
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 Call: glm(formula = CouTot ~ log(LOS) + Typadm + Typass + age + Sexe + 
     dest, family = Gamma(link = log), data = MYdata)
 
@@ -1037,7 +1037,7 @@ Residual deviance:  5.0718  on 93  degrees of freedom
 AIC: 1817.9
 
 Number of Fisher Scoring iterations: 5
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -1274,7 +1274,7 @@ modèles). Utiliser l'AIC pas-à-pas (\textit{stepwise}).
 \subsection{Jeu de données sur le cancer du sein}
 \begin{frame}[fragile]{Jeu de données sur le cancer du sein}
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 Coefficients:
              Estimate Std. Error z value Pr(>|z|)    
 (Intercept) -10.10394    1.17488  -8.600  < 2e-16 ***
@@ -1298,7 +1298,7 @@ Residual deviance: 102.89  on 673  degrees of freedom
 AIC: 122.89
 
 Number of Fisher Scoring iterations: 8
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -1314,7 +1314,7 @@ Number of Fisher Scoring iterations: 8
 Intervalles de confiance profilés à $95\%$ :
 
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 > round(confint(breast.fit,level=0.95),4)
 Waiting for profiling to be done...
                2.5 %  97.5 %
@@ -1328,12 +1328,12 @@ nuclei        0.2069  0.5787
 chromatin     0.1232  0.7998
 nucleoli     -0.0018  0.4456
 mitoses      -0.0067  1.1065
-\end{lstlisting}
+\end{verbatim}
 }
 
 et  intervalles de confiance à $95\%$ basés sur la normalité asymptotique :
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 > round(confint.default(breast.fit,level=0.95),4)
                2.5 %  97.5 %
 (Intercept) -12.4067 -7.8012
@@ -1346,7 +1346,7 @@ nuclei        0.1991  0.5670
 chromatin     0.1113  0.7831
 nucleoli     -0.0082  0.4343
 mitoses      -0.1095  1.1792
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -1354,7 +1354,7 @@ mitoses      -0.1095  1.1792
 \begin{frame}[fragile]{Analyse de la déviance (séquentielle) :}
 
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 > anova(breast.fit,test="Chisq")
 
 Terms added sequentially (first to last)
@@ -1372,7 +1372,7 @@ nucleoli    1     3.87       674     106.61   0.04906 *
 mitoses     1     3.72       673     102.89   0.05378 .  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-\end{lstlisting}
+\end{verbatim}
 }
 
 Le modèle avec ordonnée à l'origine seulement est d'abord comparé au modèle
@@ -1387,7 +1387,7 @@ $\simeq 0$. $H_0$ est rejeté.
 L'analyse dépend de l'ordre dans lequel les variables sont entrées dans le modèle :
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > breast.fit2 <- glm(status~clump+cellshape+adhesion+singlesize+
 nuclei+chromatin+nucleoli+mitoses+cellsize,data=breast,
 family=binomial,na.action=na.omit)
@@ -1407,7 +1407,7 @@ chromatin   1    10.58       676     110.83  0.001145 **
 nucleoli    1     4.18       675     106.66  0.041022 *  
 mitoses     1     3.77       674     102.89  0.052188 .  
 cellsize    1     0.00       673     102.89  0.976067    
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -1416,7 +1416,7 @@ AIC sur tous les modèles. Ici $2^9 = 512$ modèles possibles. Lorsqu'il y a tro
 utilisé de manière pas-à-pas.
 
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 > step(breast.fit)
 Start:  AIC=122.89
 status ~ clump + cellsize + cellshape + adhesion + singlesize + 
@@ -1434,13 +1434,13 @@ status ~ clump + cellsize + cellshape + adhesion + singlesize +
 - clump       1   120.72 138.72
 - nuclei      1   122.07 140.07
 
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
 \begin{frame}[fragile]{}
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 Step:  AIC=120.89
 status ~ clump + cellshape + adhesion + singlesize + nuclei +  chromatin + nucleoli + mitoses
 
@@ -1468,14 +1468,14 @@ status ~ clump + cellshape + adhesion + nuclei + chromatin +    nucleoli + mitos
 - clump      1   121.55 135.55
 - nuclei     1   123.15 137.15
 
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
 \begin{frame}[fragile]{}
 
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 Call:  glm(formula = status ~ clump + cellshape + adhesion + nuclei + 
     chromatin + nucleoli + mitoses, family = binomial, data = breast, 
     na.action = na.omit)
@@ -1488,7 +1488,7 @@ Degrees of Freedom: 682 Total (i.e. Null);  675 Residual
   (16 observations deleted due to missingness)
 Null Deviance:	    884.4 
 Residual Deviance: 103.3 	AIC: 119.3
-\end{lstlisting}
+\end{verbatim}
 }
 
 \bigskip
@@ -1502,7 +1502,7 @@ amélioration de l'AIC n'est observée.
 Une recherche complète donnerait :
 
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 > require(MuMIn)
 > options(na.action = "na.fail")
 > breast.woNA <- na.omit(breast)
@@ -1527,7 +1527,7 @@ Model selection table
 254 0.2500             8 -52.677 121.4  2.09  0.124
 124                    7 -53.861 121.7  2.46  0.103
 Models ranked by AIC(x) 
-\end{lstlisting}
+\end{verbatim}
 }
 
 \end{frame}
@@ -1561,7 +1561,7 @@ de mois de service.
 
 \begin{frame}[fragile]{}
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > ftable(xtabs(Incidents~Ship+Year+Period,data=ship))
              Period 1960-74 1975-79
 Ship Year                          
@@ -1585,7 +1585,7 @@ E    1960-64              0       0
      1965-69              7       7
      1970-74              5      12
      1975-79              0       1
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -1633,7 +1633,7 @@ situations (la variable d'effort est le temps, par exemple) cela n'est pas possi
 \begin{frame}[fragile]{}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > ship.glm <- glm(Incidents~Ship+Year+Period+offset(log(Aggregate)),
 family=poisson,data=ship)
 > summary(ship.glm)
@@ -1657,7 +1657,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     Null deviance: 146.328  on 33  degrees of freedom
 Residual deviance:  38.695  on 25  degrees of freedom
 AIC: 154.56
-\end{lstlisting}
+\end{verbatim}
 }
 
 \end{frame}
@@ -1735,7 +1735,7 @@ Poisson, par exemple).
 \label{shipmodel.page}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > ship.glm.quasi <- glm(Incidents~Ship+Year+Period+offset(log(Aggregate)),
 family=quasipoisson,data=ship)
 > summary(ship.glm.quasi)
@@ -1761,7 +1761,7 @@ Residual deviance:  38.695  on 25  degrees of freedom
 AIC: NA
 
 Number of Fisher Scoring iterations: 5
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -1886,7 +1886,7 @@ Variables disponibles :
 
 \begin{frame}[fragile]{}
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > summary(glm((TRIPS>0)~SO+SKI+FC3+I+C1+C3+C4,family=binomial,
 data=recreat))
 
@@ -1910,19 +1910,19 @@ Residual deviance: 299.49  on 651  degrees of freedom
 AIC: 315.49
 
 Number of Fisher Scoring iterations: 16
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
 \begin{frame}[fragile]{Pourquoi ?}
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > with(recreat, table(TRIPS > 0, FC3))
        FC3
           0   1
   FALSE 417   0
   TRUE  229  13
-\end{lstlisting}
+\end{verbatim}
 }
 \begin{center}
 \includegraphics[width = 5.5cm]{figures/recreat.pdf}  
@@ -1953,7 +1953,7 @@ controversée.
 
 \begin{frame}[fragile]{}
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > summary(brglm((TRIPS>0)~SO+SKI+FC3+I+C1+C3+C4,family=binomial,
 data=recreat))
 
@@ -1976,7 +1976,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Residual deviance: 300.67  on 651  degrees of freedom
 Penalized deviance: 258.0502 
 AIC:  316.67
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 

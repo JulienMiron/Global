@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber STT-4300-Chapitre 1"] 1776866510.36666 "STT-4300-Chapitre 1.bcf" "STT-4300-Chapitre 1.bbl" "STT-4300-Chapitre 1" 1776866792.4 0
+["biber STT-4300-Chapitre 1"] 1776866510.36666 "STT-4300-Chapitre 1.bcf" "STT-4300-Chapitre 1.bbl" "STT-4300-Chapitre 1" 1776866909.28781 0
   "../STT-4300-references.bib" 1776866507.29517 13230 8c646445d14a0dcf08c3ee3e19c94818 ""
-  "STT-4300-Chapitre 1.bcf" 1776866792.25504 108881 56374a3b744f449b692aeb61f5e3691c "pdflatex"
+  "STT-4300-Chapitre 1.bcf" 1776866909.15808 108881 56374a3b744f449b692aeb61f5e3691c "pdflatex"
   (generated)
   "STT-4300-Chapitre 1.bbl"
   "STT-4300-Chapitre 1.blg"
   (rewritten before read)
-["pdflatex"] 1776866789.72908 "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Diapos/STT-4300-Chapitre 1.tex" "STT-4300-Chapitre 1.pdf" "STT-4300-Chapitre 1" 1776866792.40028 2
+["pdflatex"] 1776866906.71583 "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Diapos/STT-4300-Chapitre 1.tex" "STT-4300-Chapitre 1.pdf" "STT-4300-Chapitre 1" 1776866909.28808 2
   "../STT-4300-references.bib" 1776866507.29517 13230 8c646445d14a0dcf08c3ee3e19c94818 ""
   "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/BeamerTemplate.cls" 1776866507.27612 15551 7f09b124dd94334fa943fa39d1741dc2 ""
   "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/BHlin2.pdf" 1776297378.08004 22933 738b0762b95fc3ab0056fd54842f9139 ""
@@ -24,7 +24,7 @@
   "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/redwing2.jpg" 1776297378.10795 78491 a1c788901a6fae5f0ee8f44d8dddb9a8 ""
   "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/ruby_crowned_kinglet.jpg" 1776297378.10824 9009 461de812713260e7ead28a455e1fd56a ""
   "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/rustyblackbird.jpg" 1776297378.1087 24110 223bcc8595c59d50b7cda3ee0420a881 ""
-  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Diapos/STT-4300-Chapitre 1.tex" 1776866781.26838 24233 62da36aca68fec1a9814b53773f932f3 ""
+  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Diapos/STT-4300-Chapitre 1.tex" 1776866900.7497 24233 62da36aca68fec1a9814b53773f932f3 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/libertine/lbtn_25tcsq.enc" 1490131464 2921 8ca0eb0831f9bc5da080d3697cfe67bf ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/libertine/lbtn_dhi6qf.enc" 1558472472 2914 3d1e3c4123f03ab27df5767d5039d109 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/libertine/lbtn_omcwp2.enc" 1490131464 3293 a078e2f25d1217d5cce548c137460bf1 ""
@@ -396,13 +396,13 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1770864152 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "STT-4300-Chapitre 1.aux" 1776866792.25123 11217 28c91cafe7c0888215fcdd268947fa09 "pdflatex"
+  "STT-4300-Chapitre 1.aux" 1776866909.15445 11217 28c91cafe7c0888215fcdd268947fa09 "pdflatex"
   "STT-4300-Chapitre 1.bbl" 1776866511.72725 14936 4d6e40ac6d67888670b04ee2500203e9 "biber STT-4300-Chapitre 1"
-  "STT-4300-Chapitre 1.nav" 1776866792.25563 6156 fdeed83e15e45195b899796b02805ac0 "pdflatex"
-  "STT-4300-Chapitre 1.out" 1776866792.25305 763 fec74bf41a844452bee132b32a5c858d "pdflatex"
-  "STT-4300-Chapitre 1.run.xml" 1776866792.25559 2475 85c0c38440517ffa00b08d88a99af49a "pdflatex"
-  "STT-4300-Chapitre 1.vrb" 1776866792.14882 780 293b2f8221d5060495ef548ee0e01db4 "pdflatex"
-  "STT-4300-Main.tex" 1776866507.27607 3558 971df4cc8b837ddb73d75c3f7ba88640 ""
+  "STT-4300-Chapitre 1.nav" 1776866909.1586 6156 fdeed83e15e45195b899796b02805ac0 "pdflatex"
+  "STT-4300-Chapitre 1.out" 1776866909.15618 763 fec74bf41a844452bee132b32a5c858d "pdflatex"
+  "STT-4300-Chapitre 1.run.xml" 1776866909.15857 2475 85c0c38440517ffa00b08d88a99af49a "pdflatex"
+  "STT-4300-Chapitre 1.vrb" 1776866909.05318 780 293b2f8221d5060495ef548ee0e01db4 "pdflatex"
+  "STT-4300-Main.tex" 1776866900.74822 3558 971df4cc8b837ddb73d75c3f7ba88640 ""
   (generated)
   "STT-4300-Chapitre 1.aux"
   "STT-4300-Chapitre 1.bcf"

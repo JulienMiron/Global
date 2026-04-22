@@ -265,7 +265,7 @@ $$ ESP_i = - \frac{\beta_0 + \gamma_i}{\beta_1}.$$
 
 \begin{frame}[fragile]
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) ['glmerMod']
  Family: binomial  ( logit )
 Formula: cbind(left, 10 - left) ~ distance + (1 | sujet)
@@ -293,7 +293,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Correlation of Fixed Effects:
      (Intr)
 distance -0.744
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -309,7 +309,7 @@ Avec prudence :
 Les effets aléatoires en valent-ils la peine ? Comparaison avec un ajustement MLG (qui est emboîté dans un modèle MLGM) :
 
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 Call: glm(formula = cbind(gauche, 10 - gauche) ~ item, family = binomial, 
     data = hemi)
 
@@ -331,7 +331,7 @@ Residual deviance: 198.04  on 128  degrees of freedom
 AIC: 390.75
 
 Number of Fisher Scoring iterations: 5
-\end{lstlisting}
+\end{verbatim}
 }
 
 \bigskip
@@ -344,7 +344,7 @@ Dans le MLGM : AIC=371.4 et la déviance=365.4.
 \begin{frame}[fragile]{Prédiction du ESP}
 
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 -(fixef(hemi.glmm)[1] +ranef(hemi.glmm)$sujet)/fixef(hemi.glmm)[2]
         (Intercept)
 Sujet1     55.97849
@@ -357,7 +357,7 @@ Sujet6     51.88350
 Sujet7     63.33696
 Sujet8     61.70159
 Sujet9     63.33696
-\end{lstlisting}
+\end{verbatim}
 }
 
 \vspace*{-2cm}
@@ -370,7 +370,7 @@ Sujet9     63.33696
 \begin{frame}[fragile]{Avec pente aléatoire ?}
 
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) ['glmerMod']
  Family: binomial  ( logit )
 Formula: cbind(left, 10 - left) ~ item + (1 + distance | sujet)
@@ -399,7 +399,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Correlation of Fixed Effects:
      (Intr)
 item -0.885
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 

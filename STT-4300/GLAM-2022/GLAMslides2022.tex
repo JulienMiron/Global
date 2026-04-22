@@ -252,11 +252,11 @@ Model~\eqref{housing.model.linear}:
 \bs 
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > linearfit <- lm(log(medv)~chas+crim+zn+indus+nox+rm+age+dis+
     rad+tax+ptratio+b+lstat,data=BostonHousing)
 > summary(linearfit)
-\end{lstlisting}
+\end{verbatim}
 }
 
 \end{frame}
@@ -266,7 +266,7 @@ Model~\eqref{housing.model.linear}:
 \frametitle{}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 Coefficients:
               Estimate Std. Error t value Pr(>|t|)    
 (Intercept)  4.1020423  0.2042726  20.081  < 2e-16 ***
@@ -289,7 +289,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 Residual standard error: 0.1899 on 492 degrees of freedom
 Multiple R-squared:  0.7896,	Adjusted R-squared:  0.7841 
 F-statistic: 142.1 on 13 and 492 DF,  p-value: < 2.2e-16
-\end{lstlisting}
+\end{verbatim}
 }
 
 \end{frame}
@@ -321,19 +321,19 @@ Model~\eqref{housing.model.2} (inspired by \citeNP{Bels:Kuh:Wels:1980}):
 \bs
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > linearfit2 <- lm(log(medv)~chas+crim+zn+indus+I(nox^2)+
    I(rm^2)+age+log(dis)+log(rad)+tax+ptratio+b+log(lstat),
    data=BostonHousing)
 > summary(linearfit2)
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
 \begin{frame}[fragile]
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 Coefficients:
               Estimate Std. Error t value Pr(>|t|)    
 (Intercept)  4.558e+00  1.544e-01  29.512  < 2e-16 ***
@@ -356,7 +356,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 Residual standard error: 0.1825 on 492 degrees of freedom
 Multiple R-squared:  0.8059,	Adjusted R-squared:  0.8008 
 F-statistic: 157.1 on 13 and 492 DF,  p-value: < 2.2e-16
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -388,13 +388,13 @@ f_7(\texttt{dis}) + \\
 \bs
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > library(mgcv)
 > BHnpfit.new <- gam(log(medv)~chas+s(crim)+s(zn)+s(indus)+ 
   s(nox,k=20)+ s(rm)+s(age)+s(dis,k=20)+s(rad,k=8)+s(tax)+s(ptratio)+
    s(b)+s(lstat), data=BostonHousing)
 > plot(BHnpfit.new, scale=0, page=1)
-\end{lstlisting}
+\end{verbatim}
 }
 
 \bs 
@@ -467,14 +467,14 @@ We consider a logistic linear model.
 \bs
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > breast.fit <- glm(status~clump+cellsize+cellshape+adhesion+
 singlesize+nuclei+chromatin+nucleoli+mitoses,data=breast,
 family=binomial,na.action=na.omit)
 > fitted.breast <- predict(breast.fit,type="response")
 > plot(fitted.breast,na.omit(breast)$status,
   xlab="Fitted values",ylab="Status")
-\end{lstlisting}
+\end{verbatim}
 }
 
 \begin{center}
@@ -524,7 +524,7 @@ linearly in the model.
 $n=15342$}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 sanFfit <- gam(death~pm10tmean+s(tmean)+s(day)+s(dptp)+factor(dow),
 data=sanF,family=poisson)
 
@@ -540,7 +540,7 @@ factor(dow)6 -0.0002978  0.0346081  -0.009  0.99314
 factor(dow)7 -0.0140022  0.0345012  -0.406  0.68486    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -549,7 +549,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 
 \bs
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 Approximate significance of smooth terms:
            edf Ref.df Chi.sq  p-value    
 s(tmean) 1.973  2.568  7.642   0.0388 *  
@@ -560,7 +560,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 
 R-sq.(adj) =  0.0145   Deviance explained = 2.03%
 UBRE = 0.74149  Scale est. = 1         n = 1986
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -649,7 +649,7 @@ Goals:
 \frametitle{Gamma model with logarithmic link.}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 Coefficients:
               Estimate Std. Error t value Pr(>|t|)    
 (Intercept)  7.2338121  0.1468364  49.264  < 2e-16 ***
@@ -669,7 +669,7 @@ Residual deviance:  5.0718  on 93  degrees of freedom
 AIC: 1817.9
 
 Number of Fisher Scoring iterations: 5
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -730,7 +730,7 @@ independent)
 \begin{frame}[fragile]
 \frametitle{}
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 Call:
 gee(formula = smoke ~ age + factor(birth) + factor(education) + 
     factor(racesex), id = id, data = CARDIA.sub, family = binomial, 
@@ -761,7 +761,7 @@ Working Correlation
 [2,] 0.727139 1.000000 0.727139 0.727139
 [3,] 0.727139 0.727139 1.000000 0.727139
 [4,] 0.727139 0.727139 0.727139 1.000000
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -848,14 +848,14 @@ f_6(\texttt{WIND.2}) \\
 \bs
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > require(mgcv)
 > GrA.fit <- gam(NUMBER~s(YEAR,k=20)+s(DAY,k=20)+s(NO.OBS,k=8)+
    s(WIND.0,k=20)+s(WIND.1,k=20)+s(WIND.2,k=20)+s(WIND.3,k=20)+
    s(WINDSPD,k=20)+factor(SKY)+s(MOON,k=20)+factor(BIRD), 
    family=poisson,data=GrA,na.action=na.omit)
 > plot(GrA.fit,scale=0,pages=1,pers=T,all.terms=T,cex.lab=2)
-\end{lstlisting}}
+\end{verbatim}}
 \end{frame}
 
 \begin{frame}
@@ -1757,7 +1757,7 @@ of \texttt{nuclei} only (plus intercept) with a logit link.
 \bs
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 Call: glm(formula = status ~ nuclei, family = binomial, 
     data = breast,  na.action = na.omit)
 
@@ -1776,7 +1776,7 @@ Residual deviance: 340.63  on 681  degrees of freedom
 AIC: 344.63
 
 Number of Fisher Scoring iterations: 6
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -1821,7 +1821,7 @@ We can also fit the same model, but with a probit link.
 
 \bs
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 Call: glm(formula = status ~ nuclei, family = binomial(link = probit), 
     data = breast, na.action = na.omit)
 
@@ -1840,7 +1840,7 @@ Residual deviance: 342.94  on 681  degrees of freedom
 AIC: 346.94
 
 Number of Fisher Scoring iterations: 7
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -2066,10 +2066,10 @@ On the previous simulated logistic example:
 \end{center}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > require(statmod) 
 > qqnorm(qresid(glm.sim))
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -2082,7 +2082,7 @@ On the previous simulated logistic example:
 
 \bs 
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 Call: glm(formula = CouTot ~ log(LOS) + Typadm + Typass + age + Sexe + 
     dest, family = Gamma(link = log), data = MYdata)
 
@@ -2105,7 +2105,7 @@ Residual deviance:  5.0718  on 93  degrees of freedom
 AIC: 1817.9
 
 Number of Fisher Scoring iterations: 5
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -2357,7 +2357,7 @@ models). Use stepwise AIC.
 \begin{frame}[fragile]
 \frametitle{Breast cancer dataset}
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 Coefficients:
              Estimate Std. Error z value Pr(>|z|)    
 (Intercept) -10.10394    1.17488  -8.600  < 2e-16 ***
@@ -2381,7 +2381,7 @@ Residual deviance: 102.89  on 673  degrees of freedom
 AIC: 122.89
 
 Number of Fisher Scoring iterations: 8
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -2399,7 +2399,7 @@ Number of Fisher Scoring iterations: 8
 Profiled $95\%$ confidence intervals:
 
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 > round(confint(breast.fit,level=0.95),4)
 Waiting for profiling to be done...
                2.5 %  97.5 %
@@ -2413,12 +2413,12 @@ nuclei        0.2069  0.5787
 chromatin     0.1232  0.7998
 nucleoli     -0.0018  0.4456
 mitoses      -0.0067  1.1065
-\end{lstlisting}
+\end{verbatim}
 }
 
 and  $95\%$ confidence intervals based on asymptotic normality:
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 > round(confint.default(breast.fit,level=0.95),4)
                2.5 %  97.5 %
 (Intercept) -12.4067 -7.8012
@@ -2431,7 +2431,7 @@ nuclei        0.1991  0.5670
 chromatin     0.1113  0.7831
 nucleoli     -0.0082  0.4343
 mitoses      -0.1095  1.1792
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -2440,7 +2440,7 @@ mitoses      -0.1095  1.1792
 \frametitle{Analysis of deviance (sequential):}
 
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 > anova(breast.fit,test="Chisq")
 
 Terms added sequentially (first to last)
@@ -2458,7 +2458,7 @@ nucleoli    1     3.87       674     106.61   0.04906 *
 mitoses     1     3.72       673     102.89   0.05378 .  
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-\end{lstlisting}
+\end{verbatim}
 }
 
 The intercept only model is first compared to the model
@@ -2474,7 +2474,7 @@ $\simeq 0$.  $H_0$ is rejected.
 The analysis depends on the order the variables are entered in the model:
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > breast.fit2 <- glm(status~clump+cellshape+adhesion+singlesize+
 nuclei+chromatin+nucleoli+mitoses+cellsize,data=breast,
 family=binomial,na.action=na.omit)
@@ -2494,7 +2494,7 @@ chromatin   1    10.58       676     110.83  0.001145 **
 nucleoli    1     4.18       675     106.66  0.041022 *  
 mitoses     1     3.77       674     102.89  0.052188 .  
 cellsize    1     0.00       673     102.89  0.976067    
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -2504,7 +2504,7 @@ AIC on all models. Here $2^9 = 512$ possible models. When too many models, can b
 used in a stepwise manner.
 
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 > step(breast.fit)
 Start:  AIC=122.89
 status ~ clump + cellsize + cellshape + adhesion + singlesize + 
@@ -2522,14 +2522,14 @@ status ~ clump + cellsize + cellshape + adhesion + singlesize +
 - clump       1   120.72 138.72
 - nuclei      1   122.07 140.07
 
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{}
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 Step:  AIC=120.89
 status ~ clump + cellshape + adhesion + singlesize + nuclei +  chromatin + nucleoli + mitoses
 
@@ -2557,7 +2557,7 @@ status ~ clump + cellshape + adhesion + nuclei + chromatin +    nucleoli + mitos
 - clump      1   121.55 135.55
 - nuclei     1   123.15 137.15
 
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -2565,7 +2565,7 @@ status ~ clump + cellshape + adhesion + nuclei + chromatin +    nucleoli + mitos
 \frametitle{}
 
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 Call:  glm(formula = status ~ clump + cellshape + adhesion + nuclei + 
     chromatin + nucleoli + mitoses, family = binomial, data = breast, 
     na.action = na.omit)
@@ -2578,7 +2578,7 @@ Degrees of Freedom: 682 Total (i.e. Null);  675 Residual
   (16 observations deleted due to missingness)
 Null Deviance:	    884.4 
 Residual Deviance: 103.3 	AIC: 119.3
-\end{lstlisting}
+\end{verbatim}
 }
 
 \bs
@@ -2593,7 +2593,7 @@ improvement in AIC is observed.
 A full search, would give:
 
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 > require(MuMIn)
 > options(na.action = "na.fail")
 > breast.woNA <- na.omit(breast)
@@ -2618,7 +2618,7 @@ Model selection table
 254 0.2500             8 -52.677 121.4  2.09  0.124
 124                    7 -53.861 121.7  2.46  0.103
 Models ranked by AIC(x) 
-\end{lstlisting}
+\end{verbatim}
 }
 
 \end{frame}
@@ -2654,7 +2654,7 @@ number of months service.
 \begin{frame}[fragile]
 \frametitle{}
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > ftable(xtabs(Incidents~Ship+Year+Period,data=ship))
              Period 1960-74 1975-79
 Ship Year                          
@@ -2678,7 +2678,7 @@ E    1960-64              0       0
      1965-69              7       7
      1970-74              5      12
      1975-79              0       1
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -2729,7 +2729,7 @@ situation (effort variable is time, for example) this is not possible.
 \frametitle{}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > ship.glm <- glm(Incidents~Ship+Year+Period+offset(log(Aggregate)),
 family=poisson,data=ship)
 > summary(ship.glm)
@@ -2753,7 +2753,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
     Null deviance: 146.328  on 33  degrees of freedom
 Residual deviance:  38.695  on 25  degrees of freedom
 AIC: 154.56
-\end{lstlisting}
+\end{verbatim}
 }
 
 \end{frame}
@@ -2838,7 +2838,7 @@ Poisson, for example).
 \label{shipmodel.page}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > ship.glm.quasi <- glm(Incidents~Ship+Year+Period+offset(log(Aggregate)),
 family=quasipoisson,data=ship)
 > summary(ship.glm.quasi)
@@ -2864,7 +2864,7 @@ Residual deviance:  38.695  on 25  degrees of freedom
 AIC: NA
 
 Number of Fisher Scoring iterations: 5
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -2997,7 +2997,7 @@ Available variables:
 \begin{frame}[fragile]
 \frametitle{}
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > summary(glm((TRIPS>0)~SO+SKI+FC3+I+C1+C3+C4,family=binomial,
 data=recreat))
 
@@ -3021,20 +3021,20 @@ Residual deviance: 299.49  on 651  degrees of freedom
 AIC: 315.49
 
 Number of Fisher Scoring iterations: 16
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Why so?}
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > with(recreat, table(TRIPS > 0, FC3))
        FC3
           0   1
   FALSE 417   0
   TRUE  229  13
-\end{lstlisting}
+\end{verbatim}
 }
 \begin{center}
 \includegraphics[width = 5.5cm]{figures/recreat.pdf}  
@@ -3068,7 +3068,7 @@ controversial.
 \begin{frame}[fragile]
 \frametitle{}
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > summary(brglm((TRIPS>0)~SO+SKI+FC3+I+C1+C3+C4,family=binomial,
 data=recreat))
 
@@ -3091,7 +3091,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 Residual deviance: 300.67  on 651  degrees of freedom
 Penalized deviance: 258.0502 
 AIC:  316.67
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -3175,12 +3175,12 @@ Available covariates are:
 Proportion of zeros: $746/1812 = 41.2\%$.
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > mean(docvisits$docvisits)
 [1] 2.958057
 > mean(docvisits$docvisits[docvisits$docvisits>0])
 [1] 5.028143
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -3511,7 +3511,7 @@ Interpret param.\ & separately & simultaneously\\
 \frametitle{Hurdle fit of doctor visits data: abundance.}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 Count model coefficients (truncated poisson with log link):
              Estimate Std. Error z value Pr(>|z|)    
 (Intercept)  2.711909   0.274745   9.871  < 2e-16 ***
@@ -3530,7 +3530,7 @@ bluec        0.077810   0.039401   1.975 0.048285 *
 employed    -0.111501   0.046732  -2.386 0.017034 *  
 public       0.109596   0.069555   1.576 0.115100    
 addon        0.261478   0.094248   2.774 0.005531 ** 
-\end{lstlisting}
+\end{verbatim}
 }
 
 \end{frame}
@@ -3540,7 +3540,7 @@ addon        0.261478   0.094248   2.774 0.005531 **
 \frametitle{Hurdle fit of doctor visits data: presence/absence.}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 Zero hurdle model coefficients (binomial with logit link):
              Estimate Std. Error z value Pr(>|z|)    
 (Intercept)  4.228318   0.970927   4.355 1.33e-05 ***
@@ -3559,7 +3559,7 @@ bluec        0.029496   0.135280   0.218   0.8274
 employed     0.036584   0.182606   0.200   0.8412    
 public       0.051585   0.187571   0.275   0.7833    
 addon       -0.034627   0.379243  -0.091   0.9272    
-\end{lstlisting}
+\end{verbatim}
 }
 
 \end{frame}
@@ -3568,7 +3568,7 @@ addon       -0.034627   0.379243  -0.091   0.9272
 \frametitle{ZIP fit of doctor visits data: abundance.}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 Count model coefficients (poisson with log link):
              Estimate Std. Error z value Pr(>|z|)    
 (Intercept)  2.696432   0.275366   9.792  < 2e-16 ***
@@ -3587,7 +3587,7 @@ bluec        0.077995   0.039393   1.980 0.047710 *
 employed    -0.111584   0.046757  -2.386 0.017012 *  
 public       0.111776   0.069614   1.606 0.108349    
 addon        0.258275   0.094552   2.732 0.006303 ** 
-\end{lstlisting}
+\end{verbatim}
 }
 
 \end{frame}
@@ -3596,7 +3596,7 @@ addon        0.258275   0.094552   2.732 0.006303 **
 \frametitle{ZIP fit of doctor visits data: presence/absence.}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 Zero-inflation model coefficients (binomial with logit link):
              Estimate Std. Error z value Pr(>|z|)    
 (Intercept) -4.248435   1.016598  -4.179 2.93e-05 ***
@@ -3615,7 +3615,7 @@ bluec       -0.013367   0.140868  -0.095   0.9244
 employed    -0.057557   0.188931  -0.305   0.7606    
 public      -0.012178   0.200784  -0.061   0.9516    
 addon        0.077311   0.385901   0.200   0.8412  
-\end{lstlisting}
+\end{verbatim}
 }
 
 \end{frame}
@@ -3670,7 +3670,7 @@ years
 \begin{frame}[fragile]
 \frametitle{}
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 Count model coefficients (truncated poisson with log link):
             Estimate Std. Error z value Pr(>|z|)    
 (Intercept)  0.67114    0.12246   5.481 4.24e-08 ***
@@ -3692,7 +3692,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 > extractAIC(bioChurdle)
 [1]   12.000 3234.623
-\end{lstlisting}
+\end{verbatim}
 }
 
 \end{frame}
@@ -3700,7 +3700,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 \begin{frame}[fragile]
 \frametitle{}
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 Count model coefficients (truncated poisson with log link):
               Estimate Std. Error z value Pr(>|z|)    
 (Intercept)    0.65835    0.12440   5.292 1.21e-07 ***
@@ -3724,7 +3724,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 > extractAIC(bioChurdlewithint)
 [1]   14.000 3238.217
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -3732,7 +3732,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 \frametitle{Submodel 1}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 Count model coefficients (truncated poisson with log link):
             Estimate Std. Error z value Pr(>|z|)    
 (Intercept)  0.67114    0.12246   5.481 4.24e-08 ***
@@ -3751,7 +3751,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 > extractAIC(bioChurdlesub1)
 [1]    9.000 3235.348
-\end{lstlisting}
+\end{verbatim}
 }
 
 \end{frame}
@@ -3759,7 +3759,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 \begin{frame}[fragile]
 \frametitle{Submodel 2}
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 Count model coefficients (truncated poisson with log link):
              Estimate Std. Error z value Pr(>|z|)    
 (Intercept)  0.691554   0.054696  12.644  < 2e-16 ***
@@ -3777,14 +3777,14 @@ Number of iterations in BFGS optimization: 9
 Log-likelihood: -1611 on 6 Df
 > extractAIC(bioChurdlesub2)
 [1]    6.000 3233.664
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{ZIP fit}
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 Count model coefficients (poisson with log link):
              Estimate Std. Error z value Pr(>|z|)    
 (Intercept)  0.640838   0.121307   5.283 1.27e-07 ***
@@ -3804,7 +3804,7 @@ phd          0.001274   0.145263   0.009  0.99300
 ment        -0.134114   0.045243  -2.964  0.00303 **
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -4071,7 +4071,7 @@ limited.
 \begin{frame}[fragile]
 \frametitle{Analysis of the CARDIA dataset (see p.~\pageref{CARDIApage})}
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 Call: gee(formula = smoke ~ age + factor(birth) + factor(education) + 
     factor(racesex), id = id, data = CARDIA.sub, family = binomial, 
     corstr = "exchangeable")
@@ -4097,14 +4097,14 @@ Working Correlation
 [2,] 0.727139 1.000000 0.727139 0.727139
 [3,] 0.727139 0.727139 1.000000 0.727139
 [4,] 0.727139 0.727139 0.727139 1.000000
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{}
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 Call: gee(formula = smoke ~ age + factor(birth) + factor(education) + 
     factor(racesex), id = id, data = CARDIA.sub, family = binomial, 
     corstr = "AR-M", Mv = 1)
@@ -4130,14 +4130,14 @@ Working Correlation
 [2,] 0.7684591 1.0000000 0.7684591 0.5905294
 [3,] 0.5905294 0.7684591 1.0000000 0.7684591
 [4,] 0.4537977 0.5905294 0.7684591 1.0000000
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{}
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 Call: gee(formula = smoke ~ age + factor(education) + factor(racesex), 
     id = id, data = CARDIA.sub, family = binomial, corstr = "exchangeable")
 
@@ -4160,14 +4160,14 @@ Working Correlation
 [2,] 0.7272402 1.0000000 0.7272402 0.7272402
 [3,] 0.7272402 0.7272402 1.0000000 0.7272402
 [4,] 0.7272402 0.7272402 0.7272402 1.0000000
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{}
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 Call: gee(formula = smoke ~ age + factor(education), id = id, data = CARDIA.sub, 
     family = binomial, corstr = "exchangeable")
 
@@ -4187,7 +4187,7 @@ Working Correlation
 [2,] 0.7275345 1.0000000 0.7275345 0.7275345
 [3,] 0.7275345 0.7275345 1.0000000 0.7275345
 [4,] 0.7275345 0.7275345 0.7275345 1.0000000
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -4247,7 +4247,7 @@ Allow for interaction between \texttt{post} and group.
 \begin{frame}[fragile]
 \frametitle{}
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 Call: gee(formula = y ~ post * factor(group) + offset(log(rep(c(8, 
     2, 2, 2, 2), 59))), id = Subject, data = seizure, family = poisson, 
     corstr = "exchangeable")
@@ -4269,7 +4269,7 @@ Working Correlation
 [3,] 0.7713861 0.7713861 1.0000000 0.7713861 0.7713861
 [4,] 0.7713861 0.7713861 0.7713861 1.0000000 0.7713861
 [5,] 0.7713861 0.7713861 0.7713861 0.7713861 1.0000000
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -4284,7 +4284,7 @@ A very large outlier!
 \begin{frame}[fragile]
 \frametitle{Without patient 49}
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 Call: gee(formula = y ~ post * factor(group) + offset(log(rep(c(8, 
     2, 2, 2, 2), 59))), id = Subject, data = seizure, subset = Subject != 
     49, family = poisson, corstr = "exchangeable")
@@ -4306,7 +4306,7 @@ Working Correlation
 [3,] 0.593689 0.593689 1.000000 0.593689 0.593689
 [4,] 0.593689 0.593689 0.593689 1.000000 0.593689
 [5,] 0.593689 0.593689 0.593689 0.593689 1.000000
-\end{lstlisting}
+\end{verbatim}
 }
 
 Large differences in (some) estimated parameters and standard
@@ -4598,7 +4598,7 @@ $$ ESP_i = - \frac{\beta_0 + \gamma_i}{\beta_1}.$$
 \begin{frame}[fragile]
 \frametitle{}
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) ['glmerMod']
  Family: binomial  ( logit )
 Formula: cbind(left, 10 - left) ~ distance + (1 | sujet)
@@ -4626,7 +4626,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 Correlation of Fixed Effects:
      (Intr)
 distance -0.744
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -4644,7 +4644,7 @@ With caution:
 Are the random effects worth the trouble? Comparison with a GLM fit (which is nested within a GLMM model):
 
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 Call: glm(formula = cbind(gauche, 10 - gauche) ~ item, family = binomial, 
     data = hemi)
 
@@ -4666,7 +4666,7 @@ Residual deviance: 198.04  on 128  degrees of freedom
 AIC: 390.75
 
 Number of Fisher Scoring iterations: 5
-\end{lstlisting}
+\end{verbatim}
 }
 
 \bs
@@ -4680,7 +4680,7 @@ In GLMM: AIC=371.4 and the deviance=365.4.
 \frametitle{Prediction of ESP}
 
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 -(fixef(hemi.glmm)[1] +ranef(hemi.glmm)$sujet)/fixef(hemi.glmm)[2]
         (Intercept)
 Sujet1     55.97849
@@ -4693,7 +4693,7 @@ Sujet6     51.88350
 Sujet7     63.33696
 Sujet8     61.70159
 Sujet9     63.33696
-\end{lstlisting}
+\end{verbatim}
 }
 
 \vspace*{-2cm}
@@ -4707,7 +4707,7 @@ Sujet9     63.33696
 \frametitle{With random slope?}
 
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) ['glmerMod']
  Family: binomial  ( logit )
 Formula: cbind(left, 10 - left) ~ item + (1 + distance | sujet)
@@ -4736,7 +4736,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 Correlation of Fixed Effects:
      (Intr)
 item -0.885
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 \section{Robust GLM}
@@ -5095,7 +5095,7 @@ estimator for $\nu$).
 \frametitle{}
 
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 Call:  glmrob(formula = CouTot ~ log(LOS) + Typadm + Typass + age +     
 Sexe + dest, family = Gamma(link = log), data = MYdata) 
 
@@ -5121,7 +5121,7 @@ Fitted by method ‘Mqle’  (in 4 iterations)
 (Dispersion parameter for Gamma family taken to be 0.02349196)
 
 No deviance values available 
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -5451,7 +5451,7 @@ hypothesis that there is no residual pattern.
 \frametitle{}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 ethanol1 <- gam(NOx~s(E,k=5),data=ethanol)
 
 > gam.check(ethanol1)
@@ -5467,7 +5467,7 @@ indicate that k is too low, especially if edf is close to k'.
 
                 k'   edf k-index p-value
 s(ethanol$E) 4.000 3.982   0.682       0
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -5476,7 +5476,7 @@ s(ethanol$E) 4.000 3.982   0.682       0
 \frametitle{}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 ethanol2 <- gam(NOx~s(E,k=10),data=ethanol)
 
 > gam.check(ethanol2)
@@ -5492,7 +5492,7 @@ indicate that k is too low, especially if edf is close to k'.
 
                 k'   edf k-index p-value
 s(ethanol$E) 9.000 7.452   0.766       0
-\end{lstlisting}
+\end{verbatim}
 }
 
 \end{frame}
@@ -5501,7 +5501,7 @@ s(ethanol$E) 9.000 7.452   0.766       0
 \frametitle{}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 ethanol3 <- gam(NOx~s(E,k=15),data=ethanol)
 
 > gam.check(ethanol3)
@@ -5518,7 +5518,7 @@ indicate that k is too low, especially if edf is close to k'.
                  k'    edf k-index p-value
 s(ethanol$E) 14.000 10.633   0.884    0.11
 
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -5527,7 +5527,7 @@ s(ethanol$E) 14.000 10.633   0.884    0.11
 \frametitle{}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 ethanol4 <- gam(NOx~s(E,k=20),data=ethanol)
 
 > gam.check(ethanol4)
@@ -5543,7 +5543,7 @@ indicate that k is too low, especially if edf is close to k'.
 
                  k'    edf k-index p-value
 s(ethanol$E) 19.000 10.603   0.872    0.09
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -5844,7 +5844,7 @@ Note: $Tr(A) = Tr(F)$ because of the circularity of the trace.
 \frametitle{Ethanol automatic fit}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > ethanol.gam <- gam(NOx~s(E,k=15),data=ethanol)
 
 > ethanol.gam
@@ -5862,7 +5862,7 @@ GCV score: 0.1064968
 > ethanol.gam$sp
        s(E) 
 0.001490695   
-\end{lstlisting}
+\end{verbatim}
 }
 
 \end{frame}
@@ -5871,7 +5871,7 @@ GCV score: 0.1064968
 \frametitle{Ethanol automatic fit}
 
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 > summary(ethanol.gam)
 
 Family: gaussian 
@@ -5894,7 +5894,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 
 R-sq.(adj) =  0.928   Deviance explained = 93.7%
 GCV = 0.1065  Scale est. = 0.092419  n = 88
-\end{lstlisting}
+\end{verbatim}
 }
 
 \end{frame}
@@ -6092,7 +6092,7 @@ The distribution of $T_r$ under $H_0$ is $\chi^2_r$ if $r$ is integer.
 \frametitle{Boston housing data analysis}
 
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 > BHnpfit <- gam(log(medv)~chas+s(crim)+s(zn)+s(indus)+s(nox)+s(rm)+s(age)+s(dis)+
    s(rad,k=8)+s(tax)+s(ptratio)+s(b)+s(lstat),data=BostonHousing)
 > BHnpfit
@@ -6110,7 +6110,7 @@ Estimated degrees of freedom:
 1.33 3.09 1.00 4.99 5.24  total = 52.8 
 
 GCV score: 0.02158189     
-\end{lstlisting}
+\end{verbatim}
 }
 
 \end{frame}
@@ -6118,7 +6118,7 @@ GCV score: 0.02158189
 \begin{frame}[fragile]
 \frametitle{}
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 > gam.check(BHnpfit)
 
 Method: GCV   Optimizer: magic
@@ -6143,7 +6143,7 @@ s(tax)     9.000 3.089   0.798    0.00
 s(ptratio) 9.000 1.000   0.814    0.00
 s(b)       9.000 4.989   0.981    0.34
 s(lstat)   9.000 5.240   1.072    0.94
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -6151,7 +6151,7 @@ s(lstat)   9.000 5.240   1.072    0.94
 \frametitle{}
 
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 > BHnpfit.new <- gam(log(medv)~chas+s(crim)+s(zn)+s(indus)+s(nox,k=20)+s(rm)+s(age)+
     s(dis,k=20)+s(rad,k=8)+s(tax)+s(ptratio)+s(b)+s(lstat),data=BostonHousing)
 > BHnpfit.new
@@ -6169,7 +6169,7 @@ Estimated degrees of freedom:
  2.26  3.20  1.00  1.94  4.76  total = 57.3 
 
 GCV score: 0.02116857 
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
  
@@ -6178,7 +6178,7 @@ GCV score: 0.02116857
 \frametitle{}
 
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 > gam.check(BHnpfit.new)
 
 Method: GCV   Optimizer: magic
@@ -6203,7 +6203,7 @@ s(tax)      9.000  3.202   0.834    0.00
 s(ptratio)  9.000  1.000   0.856    0.00
 s(b)        9.000  1.945   0.978    0.34
 s(lstat)    9.000  4.755   1.077    0.94
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -6220,7 +6220,7 @@ s(lstat)    9.000  4.755   1.077    0.94
 \frametitle{}
 
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 Family: gaussian 
 Link function: identity 
 Formula: log(medv) ~ chas + s(crim) + s(zn) + s(indus) + s(nox, k = 20) +  s(rm) + s(age) + 
@@ -6252,7 +6252,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 
 R-sq.(adj) =  0.888   Deviance explained =   90%
 GCV = 0.021169  Scale est. = 0.018771  n = 506
-\end{lstlisting}
+\end{verbatim}
 }
 
 \end{frame}
@@ -6270,7 +6270,7 @@ GCV = 0.021169  Scale est. = 0.018771  n = 506
 \frametitle{Remove \texttt{zn}, \texttt{age} and \texttt{chas}?}
 
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 > BHnpfit2.new <- gam(log(medv)~s(crim)+s(indus)+s(nox,k=20)+s(rm)+s(dis,k=20)+
    s(rad,k=8)+s(tax)+s(ptratio)+s(b)+s(lstat),data=BostonHousing)
 > BHnpfit2.new
@@ -6286,7 +6286,7 @@ Estimated degrees of freedom:
  1.00  1.91  4.83  total = 53.92 
 
 GCV score: 0.02112012 
-\end{lstlisting}
+\end{verbatim}
 }
 
 \end{frame}
@@ -6296,7 +6296,7 @@ GCV score: 0.02112012
 \frametitle{}
 
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 > gam.check(BHnpfit2.new)
 
 Method: GCV   Optimizer: magic
@@ -6319,7 +6319,7 @@ s(tax)      9.000  3.268   0.823    0.00
 s(ptratio)  9.000  1.000   0.849    0.00
 s(b)        9.000  1.915   0.987    0.44
 s(lstat)    9.000  4.828   1.076    0.96
-\end{lstlisting}
+\end{verbatim}
 }
 
 \end{frame}
@@ -6337,7 +6337,7 @@ s(lstat)    9.000  4.828   1.076    0.96
 \frametitle{}
 
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 > summary(BHnpfit2.new)
 
 Family: gaussian 
@@ -6369,7 +6369,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 
 R-sq.(adj) =  0.887   Deviance explained = 89.9%
 GCV = 0.02112  Scale est. = 0.01887   n = 506
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -6387,7 +6387,7 @@ GCV = 0.02112  Scale est. = 0.01887   n = 506
 \frametitle{Remove \texttt{ptratio}?}
 
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 > BHnpfit3.new <- gam(log(medv)~s(crim)+s(indus)+s(nox,k=20)+s(rm)+s(dis,k=20)+s(rad,k=8)
 +s(tax)+s(b)+s(lstat),data=BostonHousing)
 > BHnpfit3.new
@@ -6407,7 +6407,7 @@ GCV score: 0.02258293
 
 > BHnpfit3.new$aic
 [1] -486.3607
-\end{lstlisting}
+\end{verbatim}
 }
 
 The Akaike value of this model is -486.36, much worst of what we had before.
@@ -6619,14 +6619,14 @@ f_6(\texttt{WIND.2}) \\
 \bs
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > require(mgcv)
 > GrA.fit <- gam(NUMBER~s(YEAR,k=20)+s(DAY,k=20)+s(NO.OBS,k=8)+
    s(WIND.0,k=20)+s(WIND.1,k=20)+s(WIND.2,k=20)+s(WIND.3,k=20)+
    s(WINDSPD,k=20)+factor(SKY)+s(MOON,k=20)+factor(BIRD), 
    family=poisson,data=GrA,na.action=na.omit)
 > plot(GrA.fit,scale=0,pages=1,pers=T,cex.lab=2)
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -6643,7 +6643,7 @@ f_6(\texttt{WIND.2}) \\
 \frametitle{}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > gam.check(GrA.fit)
 
 Method: UBRE   Optimizer: outer newton
@@ -6666,7 +6666,7 @@ s(WIND.2)  19.000 18.951   0.903    0.00
 s(WIND.3)  19.000 18.891   0.895    0.00
 s(WINDSPD) 19.000 18.982   0.888    0.00
 s(MOON)    19.000 18.945   0.959    0.31
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -6680,7 +6680,7 @@ s(MOON)    19.000 18.945   0.959    0.31
 \frametitle{}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > summary(GrA.fit)
 
 Family: poisson 
@@ -6705,7 +6705,7 @@ factor(BIRD)5      1.22781    0.01020 120.359  < 2e-16 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -6713,7 +6713,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 \frametitle{}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 Approximate significance of smooth terms:
               edf Ref.df Chi.sq p-value    
 s(YEAR)    18.987 19.000   9207  <2e-16 ***
@@ -6730,7 +6730,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 
 R-sq.(adj) =  0.0895   Deviance explained = 65.5%
 UBRE =  38.92  Scale est. = 1         n = 2230
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -6739,7 +6739,7 @@ UBRE =  38.92  Scale est. = 1         n = 2230
 \frametitle{Quasi-poisson model, cycle basis for \texttt{WIND}}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > gam.check(GrA.quasifit)
 Method: GCV   Optimizer: outer newton
 full convergence after 9 iterations.
@@ -6760,7 +6760,7 @@ s(WIND.2)  18.000 14.793   0.908    0.00
 s(WIND.3)  18.000  4.803   0.887    0.00
 s(WINDSPD) 19.000 17.248   0.905    0.00
 s(MOON)    19.000 16.376   0.956    0.27
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -6774,7 +6774,7 @@ s(MOON)    19.000 16.376   0.956    0.27
 \frametitle{}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > summary(GrA.quasifit)
 
 Family: quasipoisson 
@@ -6798,7 +6798,7 @@ factor(BIRD)4      2.065e-01  8.888e-02   2.324   0.0202 *
 factor(BIRD)5      1.228e+00  7.508e-02  16.356   <2e-16 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -6806,7 +6806,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 \frametitle{}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 Approximate significance of smooth terms:
               edf Ref.df     F  p-value    
 s(YEAR)    28.697 28.964 8.007  < 2e-16 ***
@@ -6823,7 +6823,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 
 R-sq.(adj) =  0.103   Deviance explained =   67%
 GCV = 43.889  Scale est. = 54.171    n = 2230
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -6832,7 +6832,7 @@ GCV = 43.889  Scale est. = 54.171    n = 2230
 \frametitle{Quasi-poisson, cycle basis for \texttt{WIND}, without outlier}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > gam.check(GrA.quasifit.wo)
 Method: GCV   Optimizer: outer newton
 full convergence after 9 iterations.
@@ -6853,7 +6853,7 @@ s(WIND.2)  18.000 15.715   0.887    0.00
 s(WIND.3)  18.000 15.871   0.904    0.00
 s(WINDSPD) 19.000 15.680   0.910    0.00
 s(MOON)    19.000 17.462   0.968    0.55
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -6868,7 +6868,7 @@ s(MOON)    19.000 17.462   0.968    0.55
 \frametitle{Negative binomial, cycle basis for \texttt{WIND}, without outlier}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > gam.check(GrAFitnegbin.wo)
 Method: REML   Optimizer: outer newton
 full convergence after 6 iterations.
@@ -6889,7 +6889,7 @@ s(WIND.2)  18.000  2.182   0.689    0.00
 s(WIND.3)  18.000  2.225   0.729    0.00
 s(WINDSPD) 19.000  2.202   0.698    0.00
 s(MOON)     9.000  1.007   0.778    0.34
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -6905,7 +6905,7 @@ s(MOON)     9.000  1.007   0.778    0.34
 \frametitle{}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > summary(GrAFitnegbin.wo)
 
 Family: Negative Binomial(0.444) 
@@ -6929,7 +6929,7 @@ factor(BIRD)4     -1.03015    0.10348  -9.955   <2e-16 ***
 factor(BIRD)5      1.52882    0.10154  15.057   <2e-16 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -6937,7 +6937,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 \frametitle{}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 
 Approximate significance of smooth terms:
               edf Ref.df  Chi.sq  p-value    
@@ -6955,7 +6955,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 
 R-sq.(adj) =  -0.121   Deviance explained = 52.2%
 -REML = 7125.7  Scale est. = 1         n = 2229
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 

@@ -52,12 +52,12 @@ Les covariables disponibles sont~:
 Proportion de zéros~: $746/1812 = 41.2\%$.
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > mean(docvisits$docvisits)
 [1] 2.958057
 > mean(docvisits$docvisits[docvisits$docvisits>0])
 [1] 5.028143
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -355,7 +355,7 @@ Interprét.\ param.\ & séparément & simultanément\\
 \begin{frame}[fragile]{Ajustement hurdle des données de visites médicales~: abondance.}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 Count model coefficients (truncated poisson with log link):
              Estimate Std. Error z value Pr(>|z|)    
 (Intercept)  2.711909   0.274745   9.871  < 2e-16 ***
@@ -374,7 +374,7 @@ bluec        0.077810   0.039401   1.975 0.048285 *
 employed    -0.111501   0.046732  -2.386 0.017034 *  
 public       0.109596   0.069555   1.576 0.115100    
 addon        0.261478   0.094248   2.774 0.005531 ** 
-\end{lstlisting}
+\end{verbatim}
 }
 
 \end{frame}
@@ -383,7 +383,7 @@ addon        0.261478   0.094248   2.774 0.005531 **
 \begin{frame}[fragile]{Ajustement hurdle des données de visites médicales~: présence/absence.}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 Zero hurdle model coefficients (binomial with logit link):
              Estimate Std. Error z value Pr(>|z|)    
 (Intercept)  4.228318   0.970927   4.355 1.33e-05 ***
@@ -402,7 +402,7 @@ bluec        0.029496   0.135280   0.218   0.8274
 employed     0.036584   0.182606   0.200   0.8412    
 public       0.051585   0.187571   0.275   0.7833    
 addon       -0.034627   0.379243  -0.091   0.9272    
-\end{lstlisting}
+\end{verbatim}
 }
 
 \end{frame}
@@ -410,7 +410,7 @@ addon       -0.034627   0.379243  -0.091   0.9272
 \begin{frame}[fragile]{Ajustement ZIP des données de visites médicales~: abondance.}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 Count model coefficients (poisson with log link):
              Estimate Std. Error z value Pr(>|z|)    
 (Intercept)  2.696432   0.275366   9.792  < 2e-16 ***
@@ -429,7 +429,7 @@ bluec        0.077995   0.039393   1.980 0.047710 *
 employed    -0.111584   0.046757  -2.386 0.017012 *  
 public       0.111776   0.069614   1.606 0.108349    
 addon        0.258275   0.094552   2.732 0.006303 ** 
-\end{lstlisting}
+\end{verbatim}
 }
 
 \end{frame}
@@ -437,7 +437,7 @@ addon        0.258275   0.094552   2.732 0.006303 **
 \begin{frame}[fragile]{Ajustement ZIP des données de visites médicales~: présence/absence.}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 Zero-inflation model coefficients (binomial with logit link):
              Estimate Std. Error z value Pr(>|z|)    
 (Intercept) -4.248435   1.016598  -4.179 2.93e-05 ***
@@ -456,7 +456,7 @@ bluec       -0.013367   0.140868  -0.095   0.9244
 employed    -0.057557   0.188931  -0.305   0.7606    
 public      -0.012178   0.200784  -0.061   0.9516    
 addon        0.077311   0.385901   0.200   0.8412  
-\end{lstlisting}
+\end{verbatim}
 }
 
 \end{frame}
@@ -502,7 +502,7 @@ Andersen, et Jones et al.
 
 \begin{frame}[fragile]{}
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 Count model coefficients (truncated poisson with log link):
             Estimate Std. Error z value Pr(>|z|)    
 (Intercept)  0.67114    0.12246   5.481 4.24e-08 ***
@@ -524,14 +524,14 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 > extractAIC(bioChurdle)
 [1]   12.000 3234.623
-\end{lstlisting}
+\end{verbatim}
 }
 
 \end{frame}
 
 \begin{frame}[fragile]{}
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 Count model coefficients (truncated poisson with log link):
               Estimate Std. Error z value Pr(>|z|)    
 (Intercept)    0.65835    0.12440   5.292 1.21e-07 ***
@@ -555,14 +555,14 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 > extractAIC(bioChurdlewithint)
 [1]   14.000 3238.217
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
 \begin{frame}[fragile]{Sous-modèle 1}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 Count model coefficients (truncated poisson with log link):
             Estimate Std. Error z value Pr(>|z|)    
 (Intercept)  0.67114    0.12246   5.481 4.24e-08 ***
@@ -581,14 +581,14 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 > extractAIC(bioChurdlesub1)
 [1]    9.000 3235.348
-\end{lstlisting}
+\end{verbatim}
 }
 
 \end{frame}
 
 \begin{frame}[fragile]{Sous-modèle 2}
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 Count model coefficients (truncated poisson with log link):
              Estimate Std. Error z value Pr(>|z|)    
 (Intercept)  0.691554   0.054696  12.644  < 2e-16 ***
@@ -606,13 +606,13 @@ Number of iterations in BFGS optimization: 9
 Log-likelihood: -1611 on 6 Df
 > extractAIC(bioChurdlesub2)
 [1]    6.000 3233.664
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
 \begin{frame}[fragile]{Ajustement ZIP}
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 Count model coefficients (poisson with log link):
              Estimate Std. Error z value Pr(>|z|)    
 (Intercept)  0.640838   0.121307   5.283 1.27e-07 ***
@@ -632,7 +632,7 @@ phd          0.001274   0.145263   0.009  0.99300
 ment        -0.134114   0.045243  -2.964  0.00303 **
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 

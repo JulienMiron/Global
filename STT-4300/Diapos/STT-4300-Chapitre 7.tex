@@ -197,7 +197,7 @@ Idée : estimer le paramètre d'échelle $\sigma^2$ par différenciation des ré
 \begin{frame}[fragile]{}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 ethanol1 <- gam(NOx~s(E,k=5),data=ethanol)
 
 > gam.check(ethanol1)
@@ -213,7 +213,7 @@ indicate that k is too low, especially if edf is close to k'.
 
                 k'   edf k-index p-value
 s(ethanol$E) 4.000 3.982   0.682       0
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -221,7 +221,7 @@ s(ethanol$E) 4.000 3.982   0.682       0
 \begin{frame}[fragile]{}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 ethanol2 <- gam(NOx~s(E,k=10),data=ethanol)
 
 > gam.check(ethanol2)
@@ -237,7 +237,7 @@ indicate that k is too low, especially if edf is close to k'.
 
                 k'   edf k-index p-value
 s(ethanol$E) 9.000 7.452   0.766       0
-\end{lstlisting}
+\end{verbatim}
 }
 
 \end{frame}
@@ -245,7 +245,7 @@ s(ethanol$E) 9.000 7.452   0.766       0
 \begin{frame}[fragile]{}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 ethanol3 <- gam(NOx~s(E,k=15),data=ethanol)
 
 > gam.check(ethanol3)
@@ -262,7 +262,7 @@ indicate that k is too low, especially if edf is close to k'.
                  k'    edf k-index p-value
 s(ethanol$E) 14.000 10.633   0.884    0.11
 
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -270,7 +270,7 @@ s(ethanol$E) 14.000 10.633   0.884    0.11
 \begin{frame}[fragile]{}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 ethanol4 <- gam(NOx~s(E,k=20),data=ethanol)
 
 > gam.check(ethanol4)
@@ -286,7 +286,7 @@ indicate that k is too low, especially if edf is close to k'.
 
                  k'    edf k-index p-value
 s(ethanol$E) 19.000 10.603   0.872    0.09
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -558,7 +558,7 @@ Note : $Tr(A) = Tr(F)$ en raison de la circularité de la trace.
 \begin{frame}[fragile]{Ajustement automatique éthanol}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > ethanol.gam <- gam(NOx~s(E,k=15),data=ethanol)
 
 > ethanol.gam
@@ -576,7 +576,7 @@ GCV score: 0.1064968
 > ethanol.gam$sp
        s(E) 
 0.001490695   
-\end{lstlisting}
+\end{verbatim}
 }
 
 \end{frame}
@@ -584,7 +584,7 @@ GCV score: 0.1064968
 \begin{frame}[fragile]{Ajustement automatique éthanol}
 
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 > summary(ethanol.gam)
 
 Family: gaussian 
@@ -607,7 +607,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 R-sq.(adj) =  0.928   Deviance explained = 93.7%
 GCV = 0.1065  Scale est. = 0.092419  n = 88
-\end{lstlisting}
+\end{verbatim}
 }
 
 \end{frame}
@@ -792,7 +792,7 @@ La distribution de $T_r$ sous $H_0$ est $\chi^2_r$ si $r$ est entier.
 \begin{frame}[fragile]{Analyse des données Boston housing}
 
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 > BHnpfit <- gam(log(medv)~chas+s(crim)+s(zn)+s(indus)+s(nox)+s(rm)+s(age)+s(dis)+
    s(rad,k=8)+s(tax)+s(ptratio)+s(b)+s(lstat),data=BostonHousing)
 > BHnpfit
@@ -810,14 +810,14 @@ Estimated degrees of freedom:
 1.33 3.09 1.00 4.99 5.24  total = 52.8 
 
 GCV score: 0.02158189     
-\end{lstlisting}
+\end{verbatim}
 }
 
 \end{frame}
 
 \begin{frame}[fragile]{}
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 > gam.check(BHnpfit)
 
 Method: GCV   Optimizer: magic
@@ -842,14 +842,14 @@ s(tax)     9.000 3.089   0.798    0.00
 s(ptratio) 9.000 1.000   0.814    0.00
 s(b)       9.000 4.989   0.981    0.34
 s(lstat)   9.000 5.240   1.072    0.94
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
 \begin{frame}[fragile]{}
 
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 > BHnpfit.new <- gam(log(medv)~chas+s(crim)+s(zn)+s(indus)+s(nox,k=20)+s(rm)+s(age)+
     s(dis,k=20)+s(rad,k=8)+s(tax)+s(ptratio)+s(b)+s(lstat),data=BostonHousing)
 > BHnpfit.new
@@ -867,7 +867,7 @@ Estimated degrees of freedom:
  2.26  3.20  1.00  1.94  4.76  total = 57.3 
 
 GCV score: 0.02116857 
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
  
@@ -875,7 +875,7 @@ GCV score: 0.02116857
 \begin{frame}[fragile]{}
 
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 > gam.check(BHnpfit.new)
 
 Method: GCV   Optimizer: magic
@@ -900,7 +900,7 @@ s(tax)      9.000  3.202   0.834    0.00
 s(ptratio)  9.000  1.000   0.856    0.00
 s(b)        9.000  1.945   0.978    0.34
 s(lstat)    9.000  4.755   1.077    0.94
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -915,7 +915,7 @@ s(lstat)    9.000  4.755   1.077    0.94
 \begin{frame}[fragile]{}
 
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 Family: gaussian 
 Link function: identity 
 Formula: log(medv) ~ chas + s(crim) + s(zn) + s(indus) + s(nox, k = 20) +  s(rm) + s(age) + 
@@ -947,7 +947,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 R-sq.(adj) =  0.888   Deviance explained =   90%
 GCV = 0.021169  Scale est. = 0.018771  n = 506
-\end{lstlisting}
+\end{verbatim}
 }
 
 \end{frame}
@@ -963,7 +963,7 @@ GCV = 0.021169  Scale est. = 0.018771  n = 506
 \begin{frame}[fragile]{Retirer \texttt{zn}, \texttt{age} et \texttt{chas}?}
 
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 > BHnpfit2.new <- gam(log(medv)~s(crim)+s(indus)+s(nox,k=20)+s(rm)+s(dis,k=20)+
    s(rad,k=8)+s(tax)+s(ptratio)+s(b)+s(lstat),data=BostonHousing)
 > BHnpfit2.new
@@ -979,7 +979,7 @@ Estimated degrees of freedom:
  1.00  1.91  4.83  total = 53.92 
 
 GCV score: 0.02112012 
-\end{lstlisting}
+\end{verbatim}
 }
 
 \end{frame}
@@ -988,7 +988,7 @@ GCV score: 0.02112012
 \begin{frame}[fragile]{}
 
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 > gam.check(BHnpfit2.new)
 
 Method: GCV   Optimizer: magic
@@ -1011,7 +1011,7 @@ s(tax)      9.000  3.268   0.823    0.00
 s(ptratio)  9.000  1.000   0.849    0.00
 s(b)        9.000  1.915   0.987    0.44
 s(lstat)    9.000  4.828   1.076    0.96
-\end{lstlisting}
+\end{verbatim}
 }
 
 \end{frame}
@@ -1027,7 +1027,7 @@ s(lstat)    9.000  4.828   1.076    0.96
 \begin{frame}[fragile]{}
 
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 > summary(BHnpfit2.new)
 
 Family: gaussian 
@@ -1059,7 +1059,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 R-sq.(adj) =  0.887   Deviance explained = 89.9%
 GCV = 0.02112  Scale est. = 0.01887   n = 506
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -1075,7 +1075,7 @@ GCV = 0.02112  Scale est. = 0.01887   n = 506
 \begin{frame}[fragile]{Retirer \texttt{ptratio}?}
 
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 > BHnpfit3.new <- gam(log(medv)~s(crim)+s(indus)+s(nox,k=20)+s(rm)+s(dis,k=20)+s(rad,k=8)
 +s(tax)+s(b)+s(lstat),data=BostonHousing)
 > BHnpfit3.new
@@ -1095,7 +1095,7 @@ GCV score: 0.02258293
 
 > BHnpfit3.new$aic
 [1] -486.3607
-\end{lstlisting}
+\end{verbatim}
 }
 
 La valeur d'Akaike de ce modèle est $-486{,}36$, bien pire que ce qu'on avait auparavant.
@@ -1295,14 +1295,14 @@ f_6(\texttt{WIND.2}) \\
 \bigskip
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > require(mgcv)
 > GrA.fit <- gam(NUMBER~s(YEAR,k=20)+s(DAY,k=20)+s(NO.OBS,k=8)+
    s(WIND.0,k=20)+s(WIND.1,k=20)+s(WIND.2,k=20)+s(WIND.3,k=20)+
    s(WINDSPD,k=20)+factor(SKY)+s(MOON,k=20)+factor(BIRD), 
    family=poisson,data=GrA,na.action=na.omit)
 > plot(GrA.fit,scale=0,pages=1,pers=T,cex.lab=2)
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -1317,7 +1317,7 @@ f_6(\texttt{WIND.2}) \\
 \begin{frame}[fragile]{}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > gam.check(GrA.fit)
 
 Method: UBRE   Optimizer: outer newton
@@ -1340,7 +1340,7 @@ s(WIND.2)  19.000 18.951   0.903    0.00
 s(WIND.3)  19.000 18.891   0.895    0.00
 s(WINDSPD) 19.000 18.982   0.888    0.00
 s(MOON)    19.000 18.945   0.959    0.31
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -1353,7 +1353,7 @@ s(MOON)    19.000 18.945   0.959    0.31
 \begin{frame}[fragile]{}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > summary(GrA.fit)
 
 Family: poisson 
@@ -1378,14 +1378,14 @@ factor(BIRD)5      1.22781    0.01020 120.359  < 2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
 \begin{frame}[fragile]{}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 Approximate significance of smooth terms:
               edf Ref.df Chi.sq p-value    
 s(YEAR)    18.987 19.000   9207  <2e-16 ***
@@ -1402,7 +1402,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 R-sq.(adj) =  0.0895   Deviance explained = 65.5%
 UBRE =  38.92  Scale est. = 1         n = 2230
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -1410,7 +1410,7 @@ UBRE =  38.92  Scale est. = 1         n = 2230
 \begin{frame}[fragile]{Modèle quasi-Poisson, base cyclique pour \texttt{WIND}}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > gam.check(GrA.quasifit)
 Method: GCV   Optimizer: outer newton
 full convergence after 9 iterations.
@@ -1431,7 +1431,7 @@ s(WIND.2)  18.000 14.793   0.908    0.00
 s(WIND.3)  18.000  4.803   0.887    0.00
 s(WINDSPD) 19.000 17.248   0.905    0.00
 s(MOON)    19.000 16.376   0.956    0.27
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -1444,7 +1444,7 @@ s(MOON)    19.000 16.376   0.956    0.27
 \begin{frame}[fragile]{}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > summary(GrA.quasifit)
 
 Family: quasipoisson 
@@ -1468,14 +1468,14 @@ factor(BIRD)4      2.065e-01  8.888e-02   2.324   0.0202 *
 factor(BIRD)5      1.228e+00  7.508e-02  16.356   <2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
 \begin{frame}[fragile]{}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 Approximate significance of smooth terms:
               edf Ref.df     F  p-value    
 s(YEAR)    28.697 28.964 8.007  < 2e-16 ***
@@ -1492,7 +1492,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 R-sq.(adj) =  0.103   Deviance explained =   67%
 GCV = 43.889  Scale est. = 54.171    n = 2230
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -1500,7 +1500,7 @@ GCV = 43.889  Scale est. = 54.171    n = 2230
 \begin{frame}[fragile]{Quasi-Poisson, base cyclique pour \texttt{WIND}, sans valeur aberrante}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > gam.check(GrA.quasifit.wo)
 Method: GCV   Optimizer: outer newton
 full convergence after 9 iterations.
@@ -1521,7 +1521,7 @@ s(WIND.2)  18.000 15.715   0.887    0.00
 s(WIND.3)  18.000 15.871   0.904    0.00
 s(WINDSPD) 19.000 15.680   0.910    0.00
 s(MOON)    19.000 17.462   0.968    0.55
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -1535,7 +1535,7 @@ s(MOON)    19.000 17.462   0.968    0.55
 \begin{frame}[fragile]{Binomiale négative, base cyclique pour \texttt{WIND}, sans valeur aberrante}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > gam.check(GrAFitnegbin.wo)
 Method: REML   Optimizer: outer newton
 full convergence after 6 iterations.
@@ -1556,7 +1556,7 @@ s(WIND.2)  18.000  2.182   0.689    0.00
 s(WIND.3)  18.000  2.225   0.729    0.00
 s(WINDSPD) 19.000  2.202   0.698    0.00
 s(MOON)     9.000  1.007   0.778    0.34
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -1571,7 +1571,7 @@ s(MOON)     9.000  1.007   0.778    0.34
 \begin{frame}[fragile]{}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > summary(GrAFitnegbin.wo)
 
 Family: Negative Binomial(0.444) 
@@ -1595,14 +1595,14 @@ factor(BIRD)4     -1.03015    0.10348  -9.955   <2e-16 ***
 factor(BIRD)5      1.52882    0.10154  15.057   <2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
 \begin{frame}[fragile]{}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 
 Approximate significance of smooth terms:
               edf Ref.df  Chi.sq  p-value    
@@ -1620,7 +1620,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 R-sq.(adj) =  -0.121   Deviance explained = 52.2%
 -REML = 7125.7  Scale est. = 1         n = 2229
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 

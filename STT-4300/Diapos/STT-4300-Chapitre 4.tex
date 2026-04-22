@@ -251,7 +251,7 @@ limitée.
 \subsection{Jeu de données CARDIA}
 \begin{frame}[fragile]{Analyse du jeu de données CARDIA (voir p.~\pageref{CARDIApage})}
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 Call: gee(formula = smoke ~ age + factor(birth) + factor(education) + 
     factor(racesex), id = id, data = CARDIA.sub, family = binomial, 
     corstr = "exchangeable")
@@ -277,13 +277,13 @@ Working Correlation
 [2,] 0.727139 1.000000 0.727139 0.727139
 [3,] 0.727139 0.727139 1.000000 0.727139
 [4,] 0.727139 0.727139 0.727139 1.000000
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
 \begin{frame}[fragile]{}
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 Call: gee(formula = smoke ~ age + factor(birth) + factor(education) + 
     factor(racesex), id = id, data = CARDIA.sub, family = binomial, 
     corstr = "AR-M", Mv = 1)
@@ -309,13 +309,13 @@ Working Correlation
 [2,] 0.7684591 1.0000000 0.7684591 0.5905294
 [3,] 0.5905294 0.7684591 1.0000000 0.7684591
 [4,] 0.4537977 0.5905294 0.7684591 1.0000000
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
 \begin{frame}[fragile]{}
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 Call: gee(formula = smoke ~ age + factor(education) + factor(racesex), 
     id = id, data = CARDIA.sub, family = binomial, corstr = "exchangeable")
 
@@ -338,13 +338,13 @@ Working Correlation
 [2,] 0.7272402 1.0000000 0.7272402 0.7272402
 [3,] 0.7272402 0.7272402 1.0000000 0.7272402
 [4,] 0.7272402 0.7272402 0.7272402 1.0000000
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
 \begin{frame}[fragile]{}
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 Call: gee(formula = smoke ~ age + factor(education), id = id, data = CARDIA.sub, 
     family = binomial, corstr = "exchangeable")
 
@@ -364,7 +364,7 @@ Working Correlation
 [2,] 0.7275345 1.0000000 0.7275345 0.7275345
 [3,] 0.7275345 0.7275345 1.0000000 0.7275345
 [4,] 0.7275345 0.7275345 0.7275345 1.0000000
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -420,7 +420,7 @@ Permettre une interaction entre \texttt{post} et le groupe.
 
 \begin{frame}[fragile]{}
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 Call: gee(formula = y ~ post * factor(group) + offset(log(rep(c(8, 
     2, 2, 2, 2), 59))), id = Subject, data = seizure, family = poisson, 
     corstr = "exchangeable")
@@ -442,7 +442,7 @@ Working Correlation
 [3,] 0.7713861 0.7713861 1.0000000 0.7713861 0.7713861
 [4,] 0.7713861 0.7713861 0.7713861 1.0000000 0.7713861
 [5,] 0.7713861 0.7713861 0.7713861 0.7713861 1.0000000
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -455,7 +455,7 @@ Une très grande valeur aberrante!
 
 \begin{frame}[fragile]{Sans le patient 49}
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 Call: gee(formula = y ~ post * factor(group) + offset(log(rep(c(8, 
     2, 2, 2, 2), 59))), id = Subject, data = seizure, subset = Subject != 
     49, family = poisson, corstr = "exchangeable")
@@ -477,7 +477,7 @@ Working Correlation
 [3,] 0.593689 0.593689 1.000000 0.593689 0.593689
 [4,] 0.593689 0.593689 0.593689 1.000000 0.593689
 [5,] 0.593689 0.593689 0.593689 0.593689 1.000000
-\end{lstlisting}
+\end{verbatim}
 }
 
 Grandes différences dans (certains) paramètres estimés et erreurs

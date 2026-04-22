@@ -42,7 +42,6 @@ answers%
 \newcommand{\beps}{\boldsymbol{\epsilon}}
 \newcommand{\sumin}{\sum_{i=1}^n}
 \newcommand{\bg}[1]{\mbox{\boldmath{$#1$}}}
-\renewcommand{\lstlistingname}{Output}
 \DeclareMathOperator{\plim}{plim}
 \DefineVerbatimEnvironment{code}{Verbatim}{fontsize=\small}
 \DefineVerbatimEnvironment{example}{Verbatim}{fontsize=\small}
@@ -197,7 +196,7 @@ The dataset \texttt{CO2} gives the result of a controlled experiment conducted o
 We start by naively fitting two GLM models to this data as presented in Output~\ref{out.glm1} and Output~\ref{out.glm2}.
 
 \begin{center}
-\begin{lstlisting}[caption=GLM Model 1. ,label=out.glm1]
+\begin{verbatim}
 > fit_1 <- glm(uptake ~ conc + Treatment + Type, family = gaussian(),data=CO2)
 > fit_1
 
@@ -218,12 +217,12 @@ Residual Deviance: 3068 	AIC: .....
 > sigma(fit_1)
 [1] 6.193074
 
-\end{lstlisting}
+\end{verbatim}
 \end{center}
 
 
 \begin{center}
-\begin{lstlisting}[caption=GLM Model 2 ,label=out.glm2]
+\begin{verbatim}
 
 > fit_2 <- glm(log(uptake) ~ log(conc-92) + Treatment + Type, family = gaussian(),data=CO2)
 > fit_2
@@ -242,7 +241,7 @@ Residual Deviance: 2.459 	AIC: -48.22
 > sigma(fit_2)
 [1] 0.1753334
 
-\end{lstlisting} 
+\end{verbatim} 
 \end{center}
 
 \begin{questions}
@@ -317,7 +316,7 @@ The variable Plant is nested in the variables Treatment and Type, hence the mode
 \end{solution}
 
 \begin{center}
-\begin{lstlisting}[caption=GLM Model 3. ,label=out.glm3]
+\begin{verbatim}
 > fit_3 <- glm(log(uptake) ~ log(conc-92) + Plant + Treatment + Type , family = gaussian(),
   data=CO2)
 > summary(fit_3)
@@ -358,17 +357,17 @@ AIC: -102.47
 
 Number of Fisher Scoring iterations: 2
 
-\end{lstlisting}
+\end{verbatim}
 \end{center}
 
 
 \question[2] We could fit an alternative model as in Output~\ref{out.glm4}.
 
 \begin{center}
-\begin{lstlisting}[caption=GLM Model 4. ,label=out.glm4]
+\begin{verbatim}
  fit_4 <- glm(uptake ~ log(conc-92) + Treatment + Type, family = gaussian(link="log"), 
  data=CO2)
-\end{lstlisting}
+\end{verbatim}
 \end{center}
 
 Is Model 4 the same as Model 2? Explain in details.
@@ -401,7 +400,7 @@ The two models are not the same. Model 2 is $ E (\log(Y_i)) = x_i^T \beta $, whe
 
 \newpage
 \begin{center}
-\begin{lstlisting}[caption=GLMM model. ,label=out.glmm]
+\begin{verbatim}
 > fit_glmm <- lmer(log(uptake) ~ log(conc-92) + Treatment + Type + (1 | Plant),  data=CO2)
 
 > summary(fit_glmm)
@@ -437,7 +436,7 @@ TypeMsssspp -0.516  0.000  0.000
 > logLik(fit_glmm)
 'log Lik.' 36.66494 (df=6)
 
-\end{lstlisting}
+\end{verbatim}
 \end{center}
 
 \question[1] What is the name of the term \texttt{(1 | Plant)} in the GLMM model?
@@ -469,7 +468,7 @@ The sign of the coefficient of \texttt{Treatment} is negative for the level \tex
 
 \newpage
 \begin{center}
-\begin{lstlisting}[caption=Random effect predictions of the GLMM model. ,label=out.glmm.ref]
+\begin{verbatim}
 > ranef(fit_glmm)
 $Plant
      (Intercept)
@@ -485,7 +484,7 @@ Mn1  0.08593023
 Mc2 -0.30362231
 Mc3  0.01718117
 Mc1  0.04430088
-\end{lstlisting}
+\end{verbatim}
 \end{center}
 
 
@@ -506,7 +505,7 @@ Except for the Gaussian family, the marginal likelihood is an integral that cann
 
 
 \begin{center}
-\begin{lstlisting}[caption=GAMM Model. ,label=out.gamm]	
+\begin{verbatim}	
 > fit_gamm <- gamm4(log(uptake) ~ s(log(conc-92), k = 7) + Treatment + Type + (1|Plant), 
    data = CO2) 
    
@@ -561,7 +560,7 @@ indicate that k is too low, especially if edf is close to k'.
 s(log(conc-92)) 6.00 3.52    0.39     <2e-16 ***
 ---
 
-\end{lstlisting}
+\end{verbatim}
 \end{center}
 
 \begin{figure}[htbp]
@@ -733,7 +732,7 @@ $\Omega_i = \tau^2 V_i$ for all $i \in \{1,\cdots n\}$ and the estimating equati
 \end{solution}
 
 \begin{center}
-	\begin{lstlisting}[caption=GEE Model ,label=out.gee]
+	\begin{verbatim}
 > fit_gee <- gee(log(uptake) ~ log(conc-92) + Treatment + Type, id = Plant, 
   corstr = "exchangeable")	
 
@@ -774,7 +773,7 @@ Working Correlation
 [5,] 0.4900651 0.4900651 0.4900651 0.4900651 1.0000000 0.4900651 0.4900651
 [6,] 0.4900651 0.4900651 0.4900651 0.4900651 0.4900651 1.0000000 0.4900651
 [7,] 0.4900651 0.4900651 0.4900651 0.4900651 0.4900651 0.4900651 1.0000000
-	\end{lstlisting}
+	\end{verbatim}
 \end{center}
 
 \question[1] We fitted a GEE model on the CO2 data. Output \ref{out.gee} shows a summary of this fit. Compare it to the GLMM Model summarized in Output \ref{out.glmm} of the previous exercise. What do you notice ? Comment. 

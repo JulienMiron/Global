@@ -231,12 +231,12 @@ Pr. Eva Cantoni}
 
 In this Exercise we would like you to write your own functions in \texttt{R}. The general procedure for defining new functions is as follows
 \begin{center}
-\begin{lstlisting}
+\begin{verbatim}
 myfun <- function(argument1,argument2,...){
     expression1
     expression2
 }
-\end{lstlisting}
+\end{verbatim}
 \end{center}
 where \texttt{myfun} is the name of the function you are creating, \texttt{argument1,argument2,...} can be any type of \texttt{R} objects you are using as input and \texttt{expression} can be any computation and/or already existing function applied to the arguments. By default the result of the last expression is the returned value of the function. Consult the Help manual to learn more about writing your own functions.
 
@@ -276,11 +276,11 @@ y_i - \frac{1}{1 + \exp \op -\bx_i^T\beta^{(k-1)} \cp}
   \item{Write an \texttt{R} function that computes an update of the estimated parameters, given the previous value, according to the Newton-Raphson algorithm.}
   \item\label{manually}{Taking the null vector as the starting value for $\bbeta$, perform a few iterations of the Newton-Raphson procedure using a \texttt{while()} in the following way:
   
-  \begin{lstlisting}
+  \begin{verbatim}
   while (max(abs(beta0-beta1))>tol & it<maxit){
   ...
   }
-\end{lstlisting}
+\end{verbatim}
   
 
 
