@@ -1,7 +1,14 @@
-\documentclass[STT-4300-Main.tex]{subfiles}
+\documentclass{BeamerTemplate}
 \title{Chapitre 1 - Introduction et motivation}
 \subtitle{STT-4300 - Régression II}
 \date{\today}
+
+\IfFileExists{../STT-4300-references.bib}{%
+	\addbibresource{../STT-4300-references.bib}%
+}{%
+	\addbibresource{STT-4300/STT-4300-references.bib}%
+}
+
 \begin{document}
 \begin{refsection}
 
@@ -494,7 +501,7 @@ Number of Fisher Scoring iterations: 5
 \includegraphics[width = 6.5cm]{figures/MYdiag.pdf}
 \end{center}
 
-Valeurs aberrantes ! (voir chapitre~\ref{robust.section})
+Valeurs aberrantes ! (voir chapitre sur les méthodes robustes)
 \end{frame}
 
 \subsection{Exemple 5 : Étude CARDIA}
@@ -536,8 +543,8 @@ Prédicteurs (à chaque visite) :
 {\color{red} $\bigstar$ Problèmes de données manquantes (missingness), voir \citeN{Prei:Gale:Lohm:Wage:2000}}.
 \end{frame}
 
-\begin{frame}[fragile]{}
-{\tiny
+\begin{frame}[fragile]{Sortie GEE (CARDIA)}
+\tiny
 \begin{verbatim}
 Call:
 gee(formula = smoke ~ age + factor(birth) + factor(education) + 
@@ -570,7 +577,7 @@ Working Correlation
 [3,] 0.727139 0.727139 1.000000 0.727139
 [4,] 0.727139 0.727139 0.727139 1.000000
 \end{verbatim}
-}
+\normalsize
 \end{frame}
 
 
@@ -629,7 +636,7 @@ d'observateurs sur l'île (\texttt{NO.OBS})
 \end{frame}
 
 
-\begin{frame}[fragile]{}
+\begin{frame}[fragile]{Code R (MAG)}
 Modèle de Poisson avec lien logarithmique :
 \begin{eqnarray*}
 \lefteqn{\texttt{NUMBER} \sim  \alpha + f_1(\texttt{YEAR}) + f_2(\texttt{DAY}) +
@@ -643,7 +650,7 @@ f_6(\texttt{WIND.2}) \\
 
 \bigskip
 
-{\scriptsize
+\scriptsize
 \begin{verbatim}
 > require(mgcv)
 > GrA.fit <- gam(NUMBER~s(YEAR,k=20)+s(DAY,k=20)+s(NO.OBS,k=8)+
@@ -651,7 +658,8 @@ f_6(\texttt{WIND.2}) \\
    s(WINDSPD,k=20)+factor(SKY)+s(MOON,k=20)+factor(BIRD), 
    family=poisson,data=GrA,na.action=na.omit)
 > plot(GrA.fit,scale=0,pages=1,pers=T,all.terms=T,cex.lab=2)
-\end{verbatim}}
+\end{verbatim}
+\normalsize
 \end{frame}
 
 \begin{frame}{}
