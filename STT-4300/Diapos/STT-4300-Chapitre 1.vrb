@@ -13,11 +13,11 @@ f_6(\texttt{WIND.2}) \\
 \bigskip
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > require(mgcv)
 > GrA.fit <- gam(NUMBER~s(YEAR,k=20)+s(DAY,k=20)+s(NO.OBS,k=8)+
    s(WIND.0,k=20)+s(WIND.1,k=20)+s(WIND.2,k=20)+s(WIND.3,k=20)+
    s(WINDSPD,k=20)+factor(SKY)+s(MOON,k=20)+factor(BIRD),
    family=poisson,data=GrA,na.action=na.omit)
 > plot(GrA.fit,scale=0,pages=1,pers=T,all.terms=T,cex.lab=2)
-\end{lstlisting}}
+\end{verbatim}}

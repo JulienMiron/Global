@@ -736,8 +736,8 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinLibertine
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinLibertineMT-tlf-t1.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/vf/public/libertine/LinLibertineMT-tlf-t1.vf
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinLibertineMT-tlf-t1--base.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/vf/public/libertine/LinBiolinumT-tlf-t1.vf
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinBiolinumT-tlf-t1--base.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/vf/public/libertine/LinLibertineMT-tlf-t1.vf
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinLibertineMT-tlf-t1--base.tfm
 OUTPUT STT-4300-Chapitre 1.vrb
 INPUT ./STT-4300-Chapitre 1.vrb
 INPUT ./STT-4300-Chapitre 1.vrb
@@ -751,6 +751,24 @@ OUTPUT STT-4300-Chapitre 1.vrb
 INPUT ./STT-4300-Chapitre 1.vrb
 INPUT ./STT-4300-Chapitre 1.vrb
 INPUT STT-4300-Chapitre 1.vrb
+OUTPUT STT-4300-Chapitre 1.vrb
+INPUT ./STT-4300-Chapitre 1.vrb
+INPUT ./STT-4300-Chapitre 1.vrb
+INPUT STT-4300-Chapitre 1.vrb
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/BHlin2.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/BHlin2.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/BHlin2.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/BHlin2.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/BHlin2.pdf
+OUTPUT STT-4300-Chapitre 1.vrb
+INPUT ./STT-4300-Chapitre 1.vrb
+INPUT ./STT-4300-Chapitre 1.vrb
+INPUT STT-4300-Chapitre 1.vrb
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/BHnpfit.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/BHnpfit.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/BHnpfit.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/BHnpfit.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/BHnpfit.pdf
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathrm.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathit.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathsym.tfm
@@ -761,24 +779,8 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/liber
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathrm-bold.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathit-bold.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm
-OUTPUT STT-4300-Chapitre 1.vrb
-INPUT ./STT-4300-Chapitre 1.vrb
-INPUT ./STT-4300-Chapitre 1.vrb
-INPUT STT-4300-Chapitre 1.vrb
-INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/BHlin2.pdf
-INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/BHlin2.pdf
-INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/BHlin2.pdf
-INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/BHlin2.pdf
-INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/BHlin2.pdf
-OUTPUT STT-4300-Chapitre 1.vrb
-INPUT ./STT-4300-Chapitre 1.vrb
-INPUT ./STT-4300-Chapitre 1.vrb
-INPUT STT-4300-Chapitre 1.vrb
-INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/BHnpfit.pdf
-INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/BHnpfit.pdf
-INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/BHnpfit.pdf
-INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/BHnpfit.pdf
-INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/BHnpfit.pdf
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/vf/public/libertine/LinBiolinumT-tlf-t1.vf
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinBiolinumT-tlf-t1--base.tfm
 OUTPUT STT-4300-Chapitre 1.vrb
 INPUT ./STT-4300-Chapitre 1.vrb
 INPUT ./STT-4300-Chapitre 1.vrb
