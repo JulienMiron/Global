@@ -1387,6 +1387,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 Package hyperref Info: Link coloring ON on input line 5.
+ (./STT-4300-Chapitre 1.out) (./STT-4300-Chapitre 1.out)
 \@outlinefile=\write7
 \openout7 = `"STT-4300-Chapitre 1.out"'.
 
@@ -1438,14 +1439,14 @@ LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
 \blx@sectionciteorder@1=\count550
 Package biblatex Info: Reference section=1 on input line 6.
 Package biblatex Info: Setting label 'refsection:1' on input line 6.
-<ligne2.png, id=13, 622.47652pt x 5.45435pt>
+<ligne2.png, id=45, 622.47652pt x 5.45435pt>
 File: ligne2.png Graphic file (type png)
 <use ligne2.png>
 Package pdftex.def Info: ligne2.png  used on input line 10.
 (pdftex.def)             Requested size: 455.24408pt x 3.98894pt.
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
 (Font)              scaled to size 17.28pt on input line 10.
-<logo_ul.pdf, id=14, 313.17pt x 129.48375pt>
+<logo_ul.pdf, id=46, 313.17pt x 129.48375pt>
 File: logo_ul.pdf Graphic file (type pdf)
 <use logo_ul.pdf>
 Package pdftex.def Info: logo_ul.pdf  used on input line 10.
@@ -1571,12 +1572,6 @@ Overfull \vbox (36.92639pt too high) detected at line 72
 \openout4 = `"STT-4300-Chapitre 1.vrb"'.
 
  (./STT-4300-Chapitre 1.vrb
-LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/n' will be
-(Font)              scaled to size 12.0pt on input line 3.
-
-
-LaTeX Warning: Reference `housing.model.linear' on page 6 undefined on input line 3.
-
 LaTeX Font Info:    Font shape `LS1/libertinust1math/m/n' will be
 (Font)              scaled to size 12.0pt on input line 4.
 LaTeX Font Info:    Font shape `LS1/libertinust1math/m/it' will be
@@ -1609,7 +1604,7 @@ LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
 [7
 
 ]
-<figures/BHlindiag.pdf, id=73, 505.89pt x 505.89pt>
+<figures/BHlindiag.pdf, id=103, 505.89pt x 505.89pt>
 File: figures/BHlindiag.pdf Graphic file (type pdf)
 <use figures/BHlindiag.pdf>
 Package pdftex.def Info: figures/BHlindiag.pdf  used on input line 138.
@@ -1622,9 +1617,6 @@ Package pdftex.def Info: figures/BHlindiag.pdf  used on input line 138.
 \openout4 = `"STT-4300-Chapitre 1.vrb"'.
 
  (./STT-4300-Chapitre 1.vrb
-
-LaTeX Warning: Reference `housing.model.2' on page 9 undefined on input line 3.
-
 Package biblatex Info: Delimiter 'nameyeardelim' in context '' already defined, overwriting on input line 3.
 )
 
@@ -1638,7 +1630,7 @@ Package biblatex Info: Delimiter 'nameyeardelim' in context '' already defined, 
 [10
 
 ]
-<figures/BHlin2.pdf, id=98, 505.89pt x 505.89pt>
+<figures/BHlin2.pdf, id=128, 505.89pt x 505.89pt>
 File: figures/BHlin2.pdf Graphic file (type pdf)
 <use figures/BHlin2.pdf>
 Package pdftex.def Info: figures/BHlin2.pdf  used on input line 202.
@@ -1650,16 +1642,12 @@ Package pdftex.def Info: figures/BHlin2.pdf  used on input line 202.
  </Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/BHlin2.pdf>]
 \openout4 = `"STT-4300-Chapitre 1.vrb"'.
 
- (./STT-4300-Chapitre 1.vrb
-
-LaTeX Warning: Reference `housing.model.np' on page 12 undefined on input line 3.
-
-)
+ (./STT-4300-Chapitre 1.vrb)
 
 [12
 
 ]
-<figures/BHnpfit.pdf, id=122, 505.89pt x 505.89pt>
+<figures/BHnpfit.pdf, id=152, 505.89pt x 505.89pt>
 File: figures/BHnpfit.pdf Graphic file (type pdf)
 <use figures/BHnpfit.pdf>
 Package pdftex.def Info: figures/BHnpfit.pdf  used on input line 245.
@@ -1695,7 +1683,7 @@ LaTeX Font Info:    Font shape `LS1/libertinust1math/b/it' will be
 \openout4 = `"STT-4300-Chapitre 1.vrb"'.
 
  (./STT-4300-Chapitre 1.vrb
-<figures/breastfitted.pdf, id=147, 505.89pt x 505.89pt>
+<figures/breastfitted.pdf, id=177, 505.89pt x 505.89pt>
 File: figures/breastfitted.pdf Graphic file (type pdf)
 <use figures/breastfitted.pdf>
 Package pdftex.def Info: figures/breastfitted.pdf  used on input line 19.
@@ -1772,7 +1760,7 @@ LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/n' will be
 [20
 
 ]
-<figures/NMMAPSfit.pdf, id=183, 505.89pt x 505.89pt>
+<figures/NMMAPSfit.pdf, id=211, 505.89pt x 505.89pt>
 File: figures/NMMAPSfit.pdf Graphic file (type pdf)
 <use figures/NMMAPSfit.pdf>
 Package pdftex.def Info: figures/NMMAPSfit.pdf  used on input line 394.
@@ -1782,7 +1770,7 @@ Package pdftex.def Info: figures/NMMAPSfit.pdf  used on input line 394.
 [21
 
  </Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/NMMAPSfit.pdf>]
-<figures/NMMAPSfitwithres.pdf, id=194, 505.89pt x 505.89pt>
+<figures/NMMAPSfitwithres.pdf, id=222, 505.89pt x 505.89pt>
 File: figures/NMMAPSfitwithres.pdf Graphic file (type pdf)
 <use figures/NMMAPSfitwithres.pdf>
 Package pdftex.def Info: figures/NMMAPSfitwithres.pdf  used on input line 411.
@@ -1801,7 +1789,7 @@ Package biblatex Info: Delimiter 'nameyeardelim' in context '' already defined, 
 [24
 
 ]
-<figures/CostCHUV.pdf, id=221, 505.89pt x 505.89pt>
+<figures/CostCHUV.pdf, id=248, 505.89pt x 505.89pt>
 File: figures/CostCHUV.pdf Graphic file (type pdf)
 <use figures/CostCHUV.pdf>
 Package pdftex.def Info: figures/CostCHUV.pdf  used on input line 462.
@@ -1818,11 +1806,13 @@ Package pdftex.def Info: figures/CostCHUV.pdf  used on input line 462.
 [26
 
 ]
-<figures/MYdiag.pdf, id=238, 505.89pt x 505.89pt>
+<figures/MYdiag.pdf, id=265, 505.89pt x 505.89pt>
 File: figures/MYdiag.pdf Graphic file (type pdf)
 <use figures/MYdiag.pdf>
 Package pdftex.def Info: figures/MYdiag.pdf  used on input line 498.
 (pdftex.def)             Requested size: 184.9429pt x 184.9455pt.
+LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/n' will be
+(Font)              scaled to size 12.0pt on input line 498.
 
 
 LaTeX Warning: Reference `robust.section' on page 27 undefined on input line 498.
@@ -1898,32 +1888,32 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 ]
 
 [31]
-<figures/novascotia.jpg, id=280, 143.3355pt x 165.4983pt>
+<figures/novascotia.jpg, id=306, 143.3355pt x 165.4983pt>
 File: figures/novascotia.jpg Graphic file (type jpg)
 <use figures/novascotia.jpg>
 Package pdftex.def Info: figures/novascotia.jpg  used on input line 606.
 (pdftex.def)             Requested size: 99.58464pt x 114.98688pt.
-<figures/northernflicker.jpg, id=281, 275.0275pt x 271.0125pt>
+<figures/northernflicker.jpg, id=307, 275.0275pt x 271.0125pt>
 File: figures/northernflicker.jpg Graphic file (type jpg)
 <use figures/northernflicker.jpg>
 Package pdftex.def Info: figures/northernflicker.jpg  used on input line 606.
 (pdftex.def)             Requested size: 71.13188pt x 70.09354pt.
-<figures/redwing2.jpg, id=282, 408.5664pt x 511.6716pt>
+<figures/redwing2.jpg, id=308, 408.5664pt x 511.6716pt>
 File: figures/redwing2.jpg Graphic file (type jpg)
 <use figures/redwing2.jpg>
 Package pdftex.def Info: figures/redwing2.jpg  used on input line 606.
 (pdftex.def)             Requested size: 71.13188pt x 89.08322pt.
-<figures/rustyblackbird.jpg, id=283, 436.63126pt x 301.125pt>
+<figures/rustyblackbird.jpg, id=309, 436.63126pt x 301.125pt>
 File: figures/rustyblackbird.jpg Graphic file (type jpg)
 <use figures/rustyblackbird.jpg>
 Package pdftex.def Info: figures/rustyblackbird.jpg  used on input line 606.
 (pdftex.def)             Requested size: 71.13188pt x 49.05399pt.
-<figures/ruby_crowned_kinglet.jpg, id=284, 216.81pt x 289.08pt>
+<figures/ruby_crowned_kinglet.jpg, id=310, 216.81pt x 289.08pt>
 File: figures/ruby_crowned_kinglet.jpg Graphic file (type jpg)
 <use figures/ruby_crowned_kinglet.jpg>
 Package pdftex.def Info: figures/ruby_crowned_kinglet.jpg  used on input line 606.
 (pdftex.def)             Requested size: 71.13188pt x 94.8409pt.
-<figures/Yellow_rumped_Warbler.jpg, id=285, 110.3322pt x 128.6406pt>
+<figures/Yellow_rumped_Warbler.jpg, id=311, 110.3322pt x 128.6406pt>
 File: figures/Yellow_rumped_Warbler.jpg Graphic file (type jpg)
 <use figures/Yellow_rumped_Warbler.jpg>
 Package pdftex.def Info: figures/Yellow_rumped_Warbler.jpg  used on input line 606.
@@ -1960,7 +1950,7 @@ my insertion and my current dilemma will both disappear.
 [34
 
 ]
-<figures/GrA.pdf, id=302, 505.89pt x 505.89pt>
+<figures/GrA.pdf, id=327, 505.89pt x 505.89pt>
 File: figures/GrA.pdf Graphic file (type pdf)
 <use figures/GrA.pdf>
 Package pdftex.def Info: figures/GrA.pdf  used on input line 663.
@@ -2052,31 +2042,17 @@ L3 programming layer <2025-01-18>
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `"STT-4300-Chapitre 1".out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"STT-4300-Chapitre 1".out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  5343B52E98954C9A4B1AABD3378952A1;763.
-
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                "STT-4300-Chapitre 1"
-(biblatex)                and rerun LaTeX afterwards.
-
+Package rerunfilecheck Info: File `"STT-4300-Chapitre 1".out' has not changed.
+(rerunfilecheck)             Checksum: 5343B52E98954C9A4B1AABD3378952A1;763.
 Package logreq Info: Writing requests to '"STT-4300-Chapitre 1".run.xml'.
 \openout1 = `"STT-4300-Chapitre 1.run.xml"'.
 
  ) 
 Here is how much of TeX's memory you used:
- 62390 strings out of 473190
- 1491213 string characters out of 5715801
- 2365463 words of memory out of 5000000
- 84517 multiletter control sequences out of 15000+600000
+ 62423 strings out of 473190
+ 1491681 string characters out of 5715801
+ 2366801 words of memory out of 5000000
+ 84546 multiletter control sequences out of 15000+600000
  661897 words of font info for 150 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  162i,12n,154p,1289b,1836s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2084,10 +2060,10 @@ Here is how much of TeX's memory you used:
 pdfTeX warning (dest): name{robust.section} has been referenced but does not exist, replaced by a fixed one
 
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/libertinust1math/LibertinusT1Math.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/libertine/LinBiolinumT.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/libertine/LinBiolinumTB.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/libertine/LinBiolinumTI.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/libertine/LinLibertineMT.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on "STT-4300-Chapitre 1.pdf" (45 pages, 931013 bytes).
+Output written on "STT-4300-Chapitre 1.pdf" (45 pages, 931456 bytes).
 PDF statistics:
- 452 PDF objects out of 1000 (max. 8388607)
- 350 compressed objects within 4 object streams
+ 477 PDF objects out of 1000 (max. 8388607)
+ 375 compressed objects within 4 object streams
  117 named destinations out of 1000 (max. 500000)
- 128 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 192 words of extra memory for PDF output out of 10000 (max. 10000000)
 

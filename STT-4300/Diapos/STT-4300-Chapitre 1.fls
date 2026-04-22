@@ -596,6 +596,12 @@ INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.st
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+INPUT ./STT-4300-Chapitre 1.out
+INPUT ./STT-4300-Chapitre 1.out
+INPUT STT-4300-Chapitre 1.out
+INPUT STT-4300-Chapitre 1.out
+INPUT ./STT-4300-Chapitre 1.out
+INPUT ./STT-4300-Chapitre 1.out
 OUTPUT STT-4300-Chapitre 1.out
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
@@ -726,7 +732,6 @@ OUTPUT STT-4300-Chapitre 1.vrb
 INPUT ./STT-4300-Chapitre 1.vrb
 INPUT ./STT-4300-Chapitre 1.vrb
 INPUT STT-4300-Chapitre 1.vrb
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinBiolinumTB-tlf-t1.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathrm.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathit.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathsym.tfm
@@ -741,8 +746,6 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinLibertine
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinBiolinumT-tlf-t1.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinLibertineMT-tlf-t1.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinLibertineMT-tlf-t1.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/vf/public/libertine/LinBiolinumTB-tlf-t1.vf
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinBiolinumTB-tlf-t1--base.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/vf/public/libertine/LinLibertineMT-tlf-t1.vf
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinLibertineMT-tlf-t1--base.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/vf/public/libertine/LinLibertineMT-tlf-t1.vf
@@ -864,6 +867,9 @@ INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Globa
 INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/MYdiag.pdf
 INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/MYdiag.pdf
 INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/MYdiag.pdf
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinBiolinumTB-tlf-t1.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/vf/public/libertine/LinBiolinumTB-tlf-t1.vf
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinBiolinumTB-tlf-t1--base.tfm
 OUTPUT STT-4300-Chapitre 1.vrb
 INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/novascotia.jpg
 INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/novascotia.jpg
@@ -912,6 +918,7 @@ OUTPUT STT-4300-Chapitre 1.snm
 INPUT STT-4300-Chapitre 1.aux
 INPUT ./STT-4300-Chapitre 1.out
 INPUT ./STT-4300-Chapitre 1.out
+INPUT STT-4300-Chapitre 1.run.xml
 OUTPUT STT-4300-Chapitre 1.run.xml
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/libertinust1math/LibertinusT1Math.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/libertine/LinBiolinumT.pfb
