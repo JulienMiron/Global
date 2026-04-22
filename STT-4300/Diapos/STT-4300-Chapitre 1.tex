@@ -81,11 +81,11 @@ Modèle~\eqref{housing.model.linear} :
 \bigskip
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > linearfit <- lm(log(medv)~chas+crim+zn+indus+nox+rm+age+dis+
     rad+tax+ptratio+b+lstat,data=BostonHousing)
 > summary(linearfit)
-\end{lstlisting}
+\end{verbatim}
 }
 
 \end{frame}
@@ -94,7 +94,7 @@ Modèle~\eqref{housing.model.linear} :
 \begin{frame}[fragile]{}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 Coefficients:
               Estimate Std. Error t value Pr(>|t|)    
 (Intercept)  4.1020423  0.2042726  20.081  < 2e-16 ***
@@ -117,7 +117,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Residual standard error: 0.1899 on 492 degrees of freedom
 Multiple R-squared:  0.7896,	Adjusted R-squared:  0.7841 
 F-statistic: 142.1 on 13 and 492 DF,  p-value: < 2.2e-16
-\end{lstlisting}
+\end{verbatim}
 }
 
 \end{frame}
@@ -147,19 +147,19 @@ Modèle~\eqref{housing.model.2} (inspiré de \citeNP{Bels:Kuh:Wels:1980}) :
 \bigskip
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > linearfit2 <- lm(log(medv)~chas+crim+zn+indus+I(nox^2)+
    I(rm^2)+age+log(dis)+log(rad)+tax+ptratio+b+log(lstat),
    data=BostonHousing)
 > summary(linearfit2)
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
 \begin{frame}[fragile]{}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 Coefficients:
               Estimate Std. Error t value Pr(>|t|)    
 (Intercept)  4.558e+00  1.544e-01  29.512  < 2e-16 ***
@@ -182,7 +182,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Residual standard error: 0.1825 on 492 degrees of freedom
 Multiple R-squared:  0.8059,	Adjusted R-squared:  0.8008 
 F-statistic: 157.1 on 13 and 492 DF,  p-value: < 2.2e-16
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -211,13 +211,13 @@ f_7(\texttt{dis}) + \\
 \bigskip
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > library(mgcv)
 > BHnpfit.new <- gam(log(medv)~chas+s(crim)+s(zn)+s(indus)+ 
   s(nox,k=20)+ s(rm)+s(age)+s(dis,k=20)+s(rad,k=8)+s(tax)+s(ptratio)+
    s(b)+s(lstat), data=BostonHousing)
 > plot(BHnpfit.new, scale=0, page=1)
-\end{lstlisting}
+\end{verbatim}
 }
 
 \bigskip
@@ -285,14 +285,14 @@ On considère un modèle logistique linéaire.
 \bigskip
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > breast.fit <- glm(status~clump+cellsize+cellshape+adhesion+
 singlesize+nuclei+chromatin+nucleoli+mitoses,data=breast,
 family=binomial,na.action=na.omit)
 > fitted.breast <- predict(breast.fit,type="response")
 > plot(fitted.breast,na.omit(breast)$status,
   xlab="Fitted values",ylab="Status")
-\end{lstlisting}
+\end{verbatim}
 }
 
 \begin{center}
@@ -338,7 +338,7 @@ linéairement dans le modèle.
 $n=15342$}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 sanFfit <- gam(death~pm10tmean+s(tmean)+s(day)+s(dptp)+factor(dow),
 data=sanF,family=poisson)
 
@@ -354,7 +354,7 @@ factor(dow)6 -0.0002978  0.0346081  -0.009  0.99314
 factor(dow)7 -0.0140022  0.0345012  -0.406  0.68486    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -362,7 +362,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 \bigskip
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 Approximate significance of smooth terms:
            edf Ref.df Chi.sq  p-value    
 s(tmean) 1.973  2.568  7.642   0.0388 *  
@@ -373,7 +373,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 R-sq.(adj) =  0.0145   Deviance explained = 2.03%
 UBRE = 0.74149  Scale est. = 1         n = 1986
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -456,7 +456,7 @@ Objectifs :
 \begin{frame}[fragile]{Modèle gamma avec lien logarithmique.}
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 Coefficients:
               Estimate Std. Error t value Pr(>|t|)    
 (Intercept)  7.2338121  0.1468364  49.264  < 2e-16 ***
@@ -476,7 +476,7 @@ Residual deviance:  5.0718  on 93  degrees of freedom
 AIC: 1817.9
 
 Number of Fisher Scoring iterations: 5
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -530,7 +530,7 @@ Prédicteurs (à chaque visite) :
 
 \begin{frame}[fragile]{}
 {\tiny
-\begin{lstlisting}
+\begin{verbatim}
 Call:
 gee(formula = smoke ~ age + factor(birth) + factor(education) + 
     factor(racesex), id = id, data = CARDIA.sub, family = binomial, 
@@ -561,7 +561,7 @@ Working Correlation
 [2,] 0.727139 1.000000 0.727139 0.727139
 [3,] 0.727139 0.727139 1.000000 0.727139
 [4,] 0.727139 0.727139 0.727139 1.000000
-\end{lstlisting}
+\end{verbatim}
 }
 \end{frame}
 
@@ -636,14 +636,14 @@ f_6(\texttt{WIND.2}) \\
 \bigskip
 
 {\scriptsize
-\begin{lstlisting}
+\begin{verbatim}
 > require(mgcv)
 > GrA.fit <- gam(NUMBER~s(YEAR,k=20)+s(DAY,k=20)+s(NO.OBS,k=8)+
    s(WIND.0,k=20)+s(WIND.1,k=20)+s(WIND.2,k=20)+s(WIND.3,k=20)+
    s(WINDSPD,k=20)+factor(SKY)+s(MOON,k=20)+factor(BIRD), 
    family=poisson,data=GrA,na.action=na.omit)
 > plot(GrA.fit,scale=0,pages=1,pers=T,all.terms=T,cex.lab=2)
-\end{lstlisting}}
+\end{verbatim}}
 \end{frame}
 
 \begin{frame}{}
