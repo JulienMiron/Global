@@ -1,0 +1,9 @@
+\babel@toc {french}{}\relax 
+\beamer@sectionintoc {1}{Introduction et motivation}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{Exemple 1 : Boston Housing}{4}{0}{1}
+\beamer@subsectionintoc {1}{2}{Exemple 2 : Diagnostic du cancer du sein}{14}{0}{1}
+\beamer@subsectionintoc {1}{3}{Exemple 3 : Étude sur la pollution de l'air}{17}{0}{1}
+\beamer@subsectionintoc {1}{4}{Exemple 4 : Coût de séjour pour problèmes de dos}{23}{0}{1}
+\beamer@subsectionintoc {1}{5}{Exemple 5 : Étude CARDIA}{28}{0}{1}
+\beamer@subsectionintoc {1}{6}{Exemple 6 : Abondance d'oiseaux}{30}{0}{1}
+\beamer@subsectionintoc {1}{7}{Résumé}{36}{0}{1}
