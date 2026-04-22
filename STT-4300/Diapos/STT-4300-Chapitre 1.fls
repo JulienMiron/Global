@@ -520,3 +520,397 @@ INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/siunitx/siunitx.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/siunitx/siunitx.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translations/translations.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translations/translations.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/oberdiek/centernot.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/oberdiek/centernot.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/subfiles/subfiles.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/subfiles/subfiles.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/tools/tabularx.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/tools/tabularx.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/booktabs/booktabs.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/booktabs/booktabs.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/multirow/multirow.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/multirow/multirow.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerfontthemeprofessionalfonts.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/beamer/beamerfontthemeprofessionalfonts.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/logreq/logreq.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/logreq/logreq.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/logreq/logreq.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/logreq/logreq.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/logreq/logreq.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/ifthen.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/ifthen.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-dm.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-dm.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-dm.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-compat.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-compat.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-compat.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-natbib.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-natbib.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-natbib.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/bbx/authoryear.bbx
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/bbx/authoryear.bbx
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/bbx/authoryear.bbx
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/cbx/authoryear.cbx
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/cbx/authoryear.cbx
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/cbx/authoryear.cbx
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.cfg
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.cfg
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.cfg
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
+INPUT ../STT-4300-references.bib
+INPUT ../STT-4300-references.bib
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/stringenc/se-pdfdoc.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/stringenc/se-pdfdoc.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/stringenc/se-pdfdoc.def
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/libertine/T1LinuxBiolinumT-TLF.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/libertine/T1LinuxBiolinumT-TLF.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/libertine/T1LinuxBiolinumT-TLF.fd
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinBiolinumT-tlf-t1.tfm
+INPUT ./STT-4300-Chapitre 1.aux
+INPUT ./STT-4300-Chapitre 1.aux
+INPUT STT-4300-Chapitre 1.aux
+OUTPUT STT-4300-Chapitre 1.aux
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/libertinust1math/ls1libertinust1math.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/libertinust1math/ls1libertinust1math.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/libertinust1math/ls1libertinust1math.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/libertinust1math/ls2libertinust1mathsym.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/libertinust1math/ls2libertinust1mathsym.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/libertinust1math/ls2libertinust1mathsym.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+INPUT /usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+INPUT /usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+INPUT ./STT-4300-Chapitre 1.out
+INPUT ./STT-4300-Chapitre 1.out
+INPUT STT-4300-Chapitre 1.out
+INPUT STT-4300-Chapitre 1.out
+INPUT ./STT-4300-Chapitre 1.out
+INPUT ./STT-4300-Chapitre 1.out
+OUTPUT STT-4300-Chapitre 1.out
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-bibliography-dictionary-English.dict
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-bibliography-dictionary-English.dict
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-bibliography-dictionary-English.dict
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-environment-dictionary-English.dict
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-environment-dictionary-English.dict
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-environment-dictionary-English.dict
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-months-dictionary-English.dict
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-months-dictionary-English.dict
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-months-dictionary-English.dict
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-numbers-dictionary-English.dict
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-numbers-dictionary-English.dict
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-numbers-dictionary-English.dict
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-theorem-dictionary-English.dict
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-theorem-dictionary-English.dict
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-theorem-dictionary-English.dict
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translations/translations-basic-dictionary-french.trsl
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translations/translations-basic-dictionary-french.trsl
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translations/translations-basic-dictionary-french.trsl
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/french.lbx
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/french.lbx
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/french.lbx
+OUTPUT STT-4300-Chapitre 1.bcf
+INPUT STT-4300-Chapitre 1.bbl
+INPUT ./STT-4300-Chapitre 1.bbl
+INPUT ./STT-4300-Chapitre 1.bbl
+INPUT ./STT-4300-Chapitre 1.bbl
+INPUT STT-4300-Chapitre 1.bbl
+INPUT ./STT-4300-Chapitre 1.nav
+INPUT ./STT-4300-Chapitre 1.nav
+INPUT STT-4300-Chapitre 1.nav
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinBiolinumT-tlf-t1.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinBiolinumT-tlf-t1.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinBiolinumTB-tlf-t1.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinBiolinumT-tlf-t1.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/vf/public/libertine/LinBiolinumTB-tlf-t1.vf
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinBiolinumTB-tlf-t1--base.tfm
+INPUT /usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/libertine/lbtn_25tcsq.enc
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/vf/public/libertine/LinBiolinumT-tlf-t1.vf
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinBiolinumT-tlf-t1--base.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinBiolinumTI-tlf-t1.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/vf/public/libertine/LinBiolinumT-tlf-t1.vf
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinBiolinumT-tlf-t1--base.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/vf/public/libertine/LinBiolinumTI-tlf-t1.vf
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinBiolinumTI-tlf-t1--base.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinBiolinumT-tlf-sc-t1.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinBiolinumT-tlf-t1.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinBiolinumTB-tlf-t1.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/vf/public/libertine/LinBiolinumTB-tlf-t1.vf
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinBiolinumTB-tlf-t1--base.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/vf/public/libertine/LinBiolinumT-tlf-sc-t1.vf
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinBiolinumT-tlf-sc-t1--base.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/libertine/lbtn_omcwp2.enc
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinBiolinumT-tlf-t1.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathrm.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathrm.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathrm.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathit.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathit.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathit.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathsym.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathsym.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathsym.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/libertinust1math/ls2libertinust1mathex.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/libertinust1math/ls2libertinust1mathex.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/libertinust1math/ls2libertinust1mathex.fd
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathex.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathex.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathex.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/libertinust1math/ls1libertinust1mathbb.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/libertinust1math/ls1libertinust1mathbb.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/libertinust1math/ls1libertinust1mathbb.fd
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathbb.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathbb.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathbb.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathrm-bold.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathrm-bold.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathrm-bold.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathit-bold.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathit-bold.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathit-bold.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/jknapltx/ursfs.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/jknapltx/ursfs.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/jknapltx/ursfs.fd
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/libertine/T1LinuxLibertineMonoT-TLF.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/libertine/T1LinuxLibertineMonoT-TLF.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/libertine/T1LinuxLibertineMonoT-TLF.fd
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinLibertineMT-tlf-t1.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/vf/public/libertine/LinLibertineMT-tlf-t1.vf
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinLibertineMT-tlf-t1--base.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/libertine/lbtn_dhi6qf.enc
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/vf/public/libertine/LinBiolinumT-tlf-t1.vf
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinBiolinumT-tlf-t1--base.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/libertinust1math/libusMR.enc
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/libertinust1math/libusMI.enc
+OUTPUT STT-4300-Chapitre 1.vrb
+INPUT ./STT-4300-Chapitre 1.vrb
+INPUT ./STT-4300-Chapitre 1.vrb
+INPUT STT-4300-Chapitre 1.vrb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathrm.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathit.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathsym.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathex.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathbb.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathrm-bold.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathit-bold.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinLibertineMT-tlf-t1.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinBiolinumT-tlf-t1.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinLibertineMT-tlf-t1.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinLibertineMT-tlf-t1.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/vf/public/libertine/LinLibertineMT-tlf-t1.vf
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinLibertineMT-tlf-t1--base.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/vf/public/libertine/LinLibertineMT-tlf-t1.vf
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinLibertineMT-tlf-t1--base.tfm
+OUTPUT STT-4300-Chapitre 1.vrb
+INPUT ./STT-4300-Chapitre 1.vrb
+INPUT ./STT-4300-Chapitre 1.vrb
+INPUT STT-4300-Chapitre 1.vrb
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/BHlindiag.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/BHlindiag.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/BHlindiag.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/BHlindiag.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/BHlindiag.pdf
+OUTPUT STT-4300-Chapitre 1.vrb
+INPUT ./STT-4300-Chapitre 1.vrb
+INPUT ./STT-4300-Chapitre 1.vrb
+INPUT STT-4300-Chapitre 1.vrb
+OUTPUT STT-4300-Chapitre 1.vrb
+INPUT ./STT-4300-Chapitre 1.vrb
+INPUT ./STT-4300-Chapitre 1.vrb
+INPUT STT-4300-Chapitre 1.vrb
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/BHlin2.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/BHlin2.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/BHlin2.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/BHlin2.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/BHlin2.pdf
+OUTPUT STT-4300-Chapitre 1.vrb
+INPUT ./STT-4300-Chapitre 1.vrb
+INPUT ./STT-4300-Chapitre 1.vrb
+INPUT STT-4300-Chapitre 1.vrb
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/BHnpfit.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/BHnpfit.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/BHnpfit.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/BHnpfit.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/BHnpfit.pdf
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathrm.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathit.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathsym.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathex.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathbb.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathrm-bold.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathit-bold.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/vf/public/libertine/LinBiolinumT-tlf-t1.vf
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinBiolinumT-tlf-t1--base.tfm
+OUTPUT STT-4300-Chapitre 1.vrb
+INPUT ./STT-4300-Chapitre 1.vrb
+INPUT ./STT-4300-Chapitre 1.vrb
+INPUT STT-4300-Chapitre 1.vrb
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/breastfitted.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/breastfitted.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/breastfitted.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/breastfitted.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/breastfitted.pdf
+OUTPUT STT-4300-Chapitre 1.vrb
+INPUT ./STT-4300-Chapitre 1.vrb
+INPUT ./STT-4300-Chapitre 1.vrb
+INPUT STT-4300-Chapitre 1.vrb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathrm.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathrm.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathrm.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathit.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathit.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathit.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathsym.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathsym.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathsym.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathex.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathex.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathex.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathbb.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathbb.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathbb.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathrm-bold.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathrm-bold.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathrm-bold.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathit-bold.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathit-bold.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathit-bold.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/rsfs/rsfs7.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinBiolinumTB-tlf-t1.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/vf/public/libertine/LinBiolinumTB-tlf-t1.vf
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinBiolinumTB-tlf-t1--base.tfm
+OUTPUT STT-4300-Chapitre 1.vrb
+INPUT ./STT-4300-Chapitre 1.vrb
+INPUT ./STT-4300-Chapitre 1.vrb
+INPUT STT-4300-Chapitre 1.vrb
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/NMMAPSfit.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/NMMAPSfit.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/NMMAPSfit.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/NMMAPSfit.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/NMMAPSfit.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/NMMAPSfitwithres.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/NMMAPSfitwithres.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/NMMAPSfitwithres.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/NMMAPSfitwithres.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/NMMAPSfitwithres.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/CostCHUV.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/CostCHUV.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/CostCHUV.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/CostCHUV.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/CostCHUV.pdf
+OUTPUT STT-4300-Chapitre 1.vrb
+INPUT ./STT-4300-Chapitre 1.vrb
+INPUT ./STT-4300-Chapitre 1.vrb
+INPUT STT-4300-Chapitre 1.vrb
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/MYdiag.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/MYdiag.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/MYdiag.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/MYdiag.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/MYdiag.pdf
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinBiolinumTB-tlf-t1.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/vf/public/libertine/LinBiolinumTB-tlf-t1.vf
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/libertine/LinBiolinumTB-tlf-t1--base.tfm
+OUTPUT STT-4300-Chapitre 1.vrb
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/novascotia.jpg
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/novascotia.jpg
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/novascotia.jpg
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/novascotia.jpg
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/novascotia.jpg
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/northernflicker.jpg
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/northernflicker.jpg
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/northernflicker.jpg
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/northernflicker.jpg
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/northernflicker.jpg
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/redwing2.jpg
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/redwing2.jpg
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/redwing2.jpg
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/redwing2.jpg
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/redwing2.jpg
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/rustyblackbird.jpg
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/rustyblackbird.jpg
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/rustyblackbird.jpg
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/rustyblackbird.jpg
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/rustyblackbird.jpg
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/ruby_crowned_kinglet.jpg
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/ruby_crowned_kinglet.jpg
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/ruby_crowned_kinglet.jpg
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/ruby_crowned_kinglet.jpg
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/ruby_crowned_kinglet.jpg
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/Yellow_rumped_Warbler.jpg
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/Yellow_rumped_Warbler.jpg
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/Yellow_rumped_Warbler.jpg
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/Yellow_rumped_Warbler.jpg
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/Yellow_rumped_Warbler.jpg
+OUTPUT STT-4300-Chapitre 1.vrb
+INPUT ./STT-4300-Chapitre 1.vrb
+INPUT ./STT-4300-Chapitre 1.vrb
+INPUT STT-4300-Chapitre 1.vrb
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/GrA.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/GrA.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/GrA.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/GrA.pdf
+INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/GLAM-2022/figures/GrA.pdf
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/libertinust1math/libusEX.enc
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/libertinust1math/libusSYM.enc
+OUTPUT STT-4300-Chapitre 1.nav
+OUTPUT STT-4300-Chapitre 1.toc
+OUTPUT STT-4300-Chapitre 1.snm
+INPUT STT-4300-Chapitre 1.aux
+INPUT ./STT-4300-Chapitre 1.out
+INPUT ./STT-4300-Chapitre 1.out
+INPUT STT-4300-Chapitre 1.run.xml
+OUTPUT STT-4300-Chapitre 1.run.xml
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/libertinust1math/LibertinusT1Math.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/libertine/LinBiolinumT.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/libertine/LinBiolinumTB.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/libertine/LinBiolinumTI.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/libertine/LinLibertineMT.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb
