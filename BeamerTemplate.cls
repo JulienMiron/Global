@@ -428,9 +428,14 @@
 
 \RequirePackage[
   backend=biber,         % Moteur de tri et de traitement
-  style=numeric-comp,    % Style numérique compact : [1-3] au lieu de [1,2,3]
-  sorting=none           % Ordre d'apparition (pas de tri alphabétique)
+  style=authoryear,      % Style auteur-année, adapté aux commandes existantes
+  natbib=true,           % Active les commandes de compatibilité natbib
+  sorting=nyt            % Tri nom, année, titre
 ]{biblatex}
+
+% Alias pour compatibilité avec des commandes historiques utilisées dans les cours
+\providecommand{\citeN}{\citet}
+\providecommand{\citeNP}{\citealt}
 
 % Note : chaque fichier .tex doit charger son propre .bib via
 %   \addbibresource{monfichier.bib}

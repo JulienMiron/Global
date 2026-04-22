@@ -7,6 +7,20 @@
 \usepackage{enumitem}
 \usepackage{hyperref}
 \usepackage{booktabs}
+\usepackage[
+	backend=biber,
+	style=authoryear,
+	natbib=true,
+	sorting=nyt
+]{biblatex}
+\IfFileExists{STT-4300-references.bib}{%
+	\addbibresource{STT-4300-references.bib}%
+}{%
+	\addbibresource{STT-4300/STT-4300-references.bib}%
+}
+
+\providecommand{\citeN}{\citet}
+\providecommand{\citeNP}{\citealt}
 
 \newtheorem{definition}{Définition}[section]
 \newtheorem{propriete}{Propriété}[section]
@@ -604,5 +618,8 @@ où $D(y,\mu)$ est la déviance.
 \item \textbf{GCV}~: estime l'erreur de prédiction. Plus petit = meilleur.
 \item Proportion de déviance expliquée.
 \end{itemize}
+
+\newpage
+\printbibliography
 
 \end{document}
