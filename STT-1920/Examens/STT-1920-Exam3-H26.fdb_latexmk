@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1776774208.10044 "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1920/Examens/STT-1920-Exam3-H26.tex" "STT-1920-Exam3-H26.pdf" "STT-1920-Exam3-H26" 1776774209.11574 0
-  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/Evaluation.cls" 1772568870.41713 18851 d8b8a845b64ea1372f301b8d9587b073 ""
-  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/logo_ul.pdf" 1771010540.30133 24889 6ad5d339e8b9c5d473a3c0752b7f7a43 ""
-  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1920/Examens/STT-1920-Exam3-H26.tex" 1776774205.70566 22981 9719b3b34d4d88c78c113ab74aa333ee ""
+["pdflatex"] 1777388979.01315 "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/STT-1920/Examens/STT-1920-Exam3-H26.tex" "STT-1920-Exam3-H26.pdf" "STT-1920-Exam3-H26" 1777388980.16272 0
+  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/Evaluation.cls" 1775570778.04575 18851 d8b8a845b64ea1372f301b8d9587b073 ""
+  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/logo_ul.pdf" 1770990973.09248 24889 6ad5d339e8b9c5d473a3c0752b7f7a43 ""
+  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Quarto/Global/STT-1920/Examens/STT-1920-Exam3-H26.tex" 1777388976.24748 25160 6a73cfaf1541ad7ca65c203121292d8a ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevoml.enc" 1153172756 2921 ae68ca7d9a4902b5e8c8b47846fadadb ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevot1.enc" 1153172756 3020 a1ac7e8d91c840af41a220ec7126413f ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -220,10 +220,10 @@
   "/usr/local/texlive/2025/texmf-dist/tex/latex/xcolor/xcolor.sty" 1727642399 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/xfrac/xfrac.sty" 1717530934 14945 a207ee7fd6b8cf6d82afb367c583ddd3 ""
   "/usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf" 1739380943 42148 61becc7c670cd061bb319c643c27fdd4 ""
-  "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1770864152 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
+  "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1770908146 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "STT-1920-Exam3-H26.aux" 1776774209.05224 6967 85c20e6092c1f47362cbdcb90008c811 "pdflatex"
+  "STT-1920-Exam3-H26.aux" 1777388980.08843 7693 72f958f76121b2006bc5bf7b32f2a8f4 "pdflatex"
   (generated)
   "STT-1920-Exam3-H26.aux"
   "STT-1920-Exam3-H26.log"

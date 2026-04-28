@@ -134,6 +134,10 @@ C) Il s'agit d'une ANOVA à un seul facteur; il n'y a pas de terme d'interaction
         \choice Aucune erreur
     \end{oneparcheckboxes}
 
+\begin{solution}
+La vraie valeur est $\mu=16$, donc $H_0$ est fausse. Comme $\bar{x}=12$ est dans la zone d'acceptation ($10\leq \bar{x}\leq 20$), on ne rejette pas $H_0$. Ne pas rejeter une hypothèse nulle fausse est une \textbf{erreur de type II}.
+\end{solution}
+
 \vspace{0.5cm}
         \part[2] La vraie valeur de $\mu$ est 15 et nous obtenons $\overline{x}=12$.
     
@@ -142,6 +146,10 @@ C) Il s'agit d'une ANOVA à un seul facteur; il n'y a pas de terme d'interaction
         \choice Erreur de type II
         \correctchoice Aucune erreur
     \end{oneparcheckboxes}
+
+\begin{solution}
+La vraie valeur est $\mu=15$, donc $H_0$ est vraie. Comme $\bar{x}=12$ est dans la zone d'acceptation ($10\leq \bar{x}\leq 20$), on ne rejette pas $H_0$. La décision est correcte, donc \textbf{aucune erreur}.
+\end{solution}
 
 \vspace{0.5cm}
         \part[2] La vraie valeur de $\mu$ est 15 et nous obtenons $\overline{x}=21$.
@@ -152,6 +160,10 @@ C) Il s'agit d'une ANOVA à un seul facteur; il n'y a pas de terme d'interaction
         \choice Aucune erreur
     \end{oneparcheckboxes}
 
+\begin{solution}
+La vraie valeur est $\mu=15$, donc $H_0$ est vraie. Comme $\bar{x}=21>20$, on rejette $H_0$. Rejeter une hypothèse nulle vraie est une \textbf{erreur de type I}.
+\end{solution}
+
 \vspace{0.5cm}
         \part[2] La vraie valeur de $\mu$ est 18 et nous obtenons $\overline{x}=21$.
     
@@ -160,6 +172,10 @@ C) Il s'agit d'une ANOVA à un seul facteur; il n'y a pas de terme d'interaction
         \choice Erreur de type II
         \correctchoice Aucune erreur
     \end{oneparcheckboxes}
+
+\begin{solution}
+La vraie valeur est $\mu=18$, donc $H_0$ est fausse. Comme $\bar{x}=21>20$, on rejette $H_0$. Rejeter une hypothèse nulle fausse est la bonne décision, donc \textbf{aucune erreur}.
+\end{solution}
 \end{parts}
 
 
@@ -289,6 +305,32 @@ Au seuil 1\%, procédez au test dont les hypothèses sont
 \[
 H_0:\mu=50\qquad\text{contre}\qquad H_1:\mu\neq 50.
 \]
+
+\begin{solution}
+Comme la variance de la population est inconnue et $n=12$ (échantillon normal), on utilise un test $t$ bilatéral.
+
+\textbf{Hypothèses:}
+\[
+H_0:\mu=50,\qquad H_1:\mu\neq 50.
+\]
+
+\textbf{Statistique de test:}
+\[
+t_0=\frac{\bar{x}-\mu_0}{s/\sqrt{n}}=\frac{46{,}8-50}{4/\sqrt{12}}
+=\frac{-3{,}2}{1{,}1547}\approx -2{,}77.
+\]
+
+Sous $H_0$, $T\sim t_{11}$.
+
+\textbf{Règle de décision (bilatérale, $\alpha=0{,}01$):}
+rejeter $H_0$ si $|t_0|>t_{0{,}995;11}\approx 3{,}106$.
+
+Ici, $|t_0|=2{,}77<3{,}106$, donc on ne rejette pas $H_0$.
+
+Équivalent par valeur-$p$: $p\approx 0{,}018>0{,}01$.
+
+\textbf{Conclusion:} au seuil de $1\%$, il n'y a pas suffisamment de preuves pour conclure que la concentration moyenne diffère de $50$ mg/mL.
+\end{solution}
 
 
 
