@@ -329,12 +329,14 @@ L'interprétation fréquentiste correcte est que, si on répétait la procédure
 
 \newpage
 
-\question[4]
-Soit $X_1,\ldots,X_n$ un échantillon aléatoire simple issu d'une loi $\mathcal{N}(\mu,\sigma^2)$, et soit $S^2$ la variance échantillonnale. Sachant que
-\[
-\frac{(n-1)S^2}{\sigma^2}
-\]
-suit une loi du khi-carré à $n-1$ degrés de liberté, donnez $\text{Var}(S^2)$ en fonction de $\sigma^2$ et $n$. \textbf{\textit{Donnez les détails de votre démarche.}}
+\question[6]
+Soit $X_1,\ldots,X_n$ un échantillon aléatoire simple issu d'une loi $\mathcal{N}(\mu,\sigma^2)$. Soit les deux estimateurs de $\sigma^2$
+
+\begin{align*}
+    S^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\overline{X})^2 & & T^2=\frac{1}{n}\sum_{i=1}^n(X_i-\overline{X})^2
+\end{align*}
+
+Sachant que $\displaystyle \frac{(n-1)S^2}{\sigma^2}$ suit une loi du khi-carré à $n-1$ degrés de liberté, donnez $\text{Var}(T^2)$ en fonction de $\sigma^2$ et $n$. \textbf{\textit{Donnez les détails de votre démarche.}}
 
 \begin{solution}
 Puisque $\dfrac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1}$, et que la variance d'une loi khi-carré à $k$ degrés de liberté vaut $2k$, on a
@@ -823,7 +825,7 @@ On peut donc conclure, au seuil de \(5\%\), qu'il existe une relation linéaire 
 \choice Graphique C
 \end{checkboxes}
 
-\includegraphics[scale = 1]{diag}
+%\includegraphics[scale = 1]{diag}
 
 
   
