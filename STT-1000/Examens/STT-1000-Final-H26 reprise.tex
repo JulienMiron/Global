@@ -1,0 +1,843 @@
+\def\Ponderation{40}
+\def\SigleNumero{STT-1000}
+\def\NomCours{Probabilités et statistique}
+\def\DateEvaluation{Hiver 2026}
+\def\HeureEvaluation{}
+\def\Session{}
+\def\NomEvaluation{Examen 2 - Reprise}
+
+% Ne rien mettre entre les accolades si l'enseignant (ou l'enseignante) est aussi le coordonnateur (ou la coordonnatrice)
+\def\Coordonnatrice{}
+\def\Coordonnateur{}
+
+% Ne rien mettre entre les accolades s'il y a plus d'une section
+\def\Enseignant{}
+\def\Enseignante{}
+
+% Ne rien mettre entre les accolades s'il s'agit d'un cours à section unique
+% Mettre le nom de chacun des enseignants et enseignantes entre les accolades
+% Une case à cocher sera générée pour chacune des sections
+\def\SectionA{Anne-Sophie Charest}
+\def\SectionB{Julien Miron}
+\def\SectionC{}
+\def\SectionD{}
+
+
+\def\Directives{
+\begin{enumerate}
+\item Matériel autorisé:
+\begin{itemize}
+\item Calculatrice scientifique {\bf autorisée par la faculté des sciences et de génie};
+\item Le feuillet de formules fourni avec l'examen. Celui-ci inclut la table de la loi normale. Veuillez ne rien écrire sur le feuillet de formules.
+\end{itemize}
+\item Assurez-vous que cette évaluation comporte \numquestions ~exercices répartis sur \numpages{}~pages, pour un total de \numpoints{}~points.\
+\item \textbf{Veuillez ne pas dégrafer votre examen.}
+\item Vous devez\textbf{ justifier toutes vos réponses} par une démarche claire, sauf pour les questions à choix de réponse.\
+\item Pour les questions à choix de réponse et les vrais ou faux, vous pouvez mettre un X, un crochet ($\checkmark$) ou remplir la case.\
+\item Vous devez laisser tout ce qui ne servira pas durant l'examen à l'avant de la salle AVANT de rejoindre votre place.\
+\item Vous n'avez droit à AUCUN appareil électronique en votre possession durant l'examen.
+\item Une fois assis à votre place, vous devez demandez l'autorisation pour vous lever, même si l'examen n'est pas encore commencé, sauf lorsque vous avez terminé l'examen.
+\item Dans les 5 dernières minutes de l'examen, il sera interdit de se lever avant que TOUTES les copies n'aient été ramassées.
+\end{enumerate}
+\begin{itemize}
+\item[$\rightarrow$] Le non-respect des consignes 7-8-9 entraînera une pénalité de 10\%.
+\end{itemize}
+Attention, la formule correcte pour les degrés de liberté $\nu$ est 
+$$\nu = \frac{(s_1^2/n_1 + s^2_2/n_2)^2}{ \frac{(s_1^2/n_1)^2}{n_1 +1} + \frac{(s^2_2/n_2)^2}{n_2 + 1} } -2 $$
+}
+
+\providecommand{\Gradescope}{}
+
+
+\documentclass{Evaluation}
+\usepackage{multicol,graphicx}
+
+\noprintanswers
+\begin{document}
+
+\begin{questions}
+
+
+\pageblanche
+
+%%%%%%%%%%%%%%%% QUESTIONS MODULES 1 à 5 %%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%% STATISTIQUES DESCRIPTIVES %%%%%%%%%%%%%%%%
+
+\question[4]
+
+Supposons le petit échantillon suivant :
+\[
+2,\;4,\;4,\;6,\;9.
+\]
+
+Ajoutez une observation à ce jeu de données de façon à diminuer la moyenne et à modifier l'étendue, mais sans modifier la médiane. Justifiez brièvement votre réponse.
+
+\begin{solution}
+Une réponse possible est d'ajouter \(1\).
+
+Le nouveau jeu de données ordonné est
+\[
+1,\;2,\;4,\;4,\;6,\;9.
+\]
+
+La médiane reste égale à
+\[
+\frac{4+4}{2}=4.
+\]
+
+La moyenne initiale est
+\[
+\bar{x}=\frac{2+4+4+6+9}{5}=5.
+\]
+
+La nouvelle moyenne est
+\[
+\bar{x}_{\text{nouvelle}}=\frac{1+2+4+4+6+9}{6}
+=
+\frac{26}{6}
+\approx 4{,}33.
+\]
+
+La moyenne a donc diminué.
+
+L'étendue initiale était
+\[
+9-2=7.
+\]
+
+La nouvelle étendue est
+\[
+9-1=8.
+\]
+
+L'étendue a donc été modifiée.
+\end{solution}
+
+\vspace{2in}
+
+\question[5]
+
+Vous voulez connaître l'âge des gens présents à une fête de quartier. Un ami questionne tous les individus présents et vous remet les résultats sous la forme suivante: 
+
+
+\begin{table}[h!]
+\begin{center}
+\begin{tabular}{c|c}
+Classe d'âge & Fréquence \\
+\hline
+$[0,5]$ & 8 \\
+$[5,10]$ & 15 \\
+$[10, 25]$ & 6 \\
+$[25, 40]$ & ? \\
+$[40, 100]$ & 10 
+\end{tabular}
+\end{center}
+\end{table}
+
+Le nombre d'individus âgés entre 25 et 40 ans est illisible. Votre ami avait toutefois pris le temps de faire un histogramme des données et vous informe que la hauteur du rectangle pour le groupe des individus âgés de 5 à 10 ans est de 0,06. Déduisez le nombre total de personnes présentes à la fête de quartier. 
+
+\begin{solution}
+Dans un histogramme, la hauteur $h$ d'une classe est donnée par: 
+\begin{align*}
+h=\frac{\mbox{Fréquence relative}}{\mbox{longueur de la classe}}
+\end{align*}
+donc
+\begin{align*}
+\mbox{Fréquence relative}=hauteur\times\mbox{longueur de la classe}=0.06\times(10-5)=0.3
+\end{align*}
+Aussi, la fréquence relative est donnée par: 
+\begin{align*}
+\mbox{Fréquence relative}=\frac{\mbox{Fréquence}}{\mbox{nombre total d'observations}}
+\end{align*}
+On déduit donc que: 
+\begin{align*}
+\mbox{nombre total d'observations} =\frac{\mbox{Fréquence}}{\mbox{Fréquence relative}}=\frac{15}{0.3}=50
+\end{align*}
+Le nombre total de personnes présentes à la fête de quartier est donc de $n=50$.    
+\end{solution}
+
+\newpage
+
+
+%%%%%%%%%%%%%%%% LOIS ÉCHANTILLONNALES %%%%%%%%%%%%%%%%
+
+\question[4]
+Soit \(X_1,\ldots,X_{17}\) un échantillon aléatoire simple issu d'une distribution $\mathcal{N}(\mu=5,\sigma^2=4)$,
+et soit \(S^2\) la variance échantillonnale.
+
+Trouvez l'espérance de la variable
+\[
+Y=4S^2.
+\]
+\vspace{2.5in}
+\begin{solution}
+Comme \(S^2\) est la variance échantillonnale, on sait que
+\[
+E(S^2)=\sigma^2.
+\]
+
+Ici,
+\[
+\sigma^2=4.
+\]
+
+Donc,
+\[
+E(S^2)=4.
+\]
+
+On cherche
+\[
+E(Y)=E(4S^2).
+\]
+
+Par linéarité de l'espérance,
+\[
+E(Y)=4E(S^2).
+\]
+
+Donc,
+\[
+E(Y)=4(4)=16.
+\]
+
+Ainsi,
+\[
+\boxed{E(Y)=16.}
+\]
+\end{solution}
+
+%%%%%%%%%%%%%%%% INTERVALLES DE CONFIANCE %%%%%%%%%%%%%%%%
+\newpage
+
+\question[6]
+On a construit un intervalle de confiance pour la proportion de personnes qui préfèrent le chocolat noir au chocolat au lait. On a utilisé un échantillon de \(2400\) personnes, parmi lesquelles \(960\) ont répondu qu'elles préféraient le chocolat noir.
+
+On a obtenu l'intervalle
+\[
+[37{,}83\%;\ 42{,}17\%].
+\]
+
+Quel est le niveau de confiance de cet intervalle?
+
+\begin{solution}
+On a
+\[
+\hat{p}=\frac{960}{2400}=0{,}40.
+\]
+
+L'intervalle obtenu est
+\[
+[0{,}3783;\ 0{,}4217].
+\]
+
+La marge d'erreur est donc
+\[
+0{,}4217-0{,}40=0{,}0217.
+\]
+
+Pour un intervalle de confiance pour une proportion, la forme de l'intervalle est
+\[
+\hat{p}\pm z_{\alpha/2}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}.
+\]
+
+Ici,
+\[
+\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}
+=
+\sqrt{\frac{0{,}40(0{,}60)}{2400}}
+=
+\sqrt{0{,}0001}
+=
+0{,}01.
+\]
+
+On cherche donc la valeur de \(z_{\alpha/2}\) telle que
+\[
+z_{\alpha/2}(0{,}01)=0{,}0217.
+\]
+
+Ainsi,
+\[
+z_{\alpha/2}=2{,}17.
+\]
+
+Le niveau de confiance est donc
+\[
+P(-2{,}17\leq Z\leq 2{,}17),
+\]
+où \(Z\sim N(0,1)\).
+
+À l'aide de la table de la loi normale,
+\[
+P(-2{,}17\leq Z\leq 2{,}17)
+=
+2\Phi(2{,}17)-1.
+\]
+
+Comme
+\[
+\Phi(2{,}17)\approx 0{,}9850,
+\]
+on obtient
+\[
+2(0{,}9850)-1=0{,}9700.
+\]
+
+Le niveau de confiance est donc environ
+\[
+\boxed{97\%.}
+\]
+\end{solution}
+
+\vspace{5in}
+
+\question[4] 
+On s'intéresse aux frais d'inscription des étudiants de 1er cycle à temps plein au Québec. Avec un échantillon aléatoire de \(n=121\) étudiants de cette population, on obtient l'intervalle de confiance à \(95\%\) suivant :
+\[
+[2550,\;2630].
+\]
+
+Cochez les énoncés qui sont vrais parmi les suivants. Aucune justification n'est requise.
+
+\begin{checkboxes}
+\choice Il y a \(95\%\) des étudiants de 1er cycle à temps plein au Québec qui paient des frais d'inscription entre \(2550\ \$\) et \(2630\ \$\).
+
+\choice Si on pigeait un échantillon de \(1000\) étudiants pour construire un intervalle de confiance à \(95\%\) sur la moyenne, l'intervalle obtenu aurait une plus grande probabilité de contenir la vraie valeur de \(\mu\) que celui obtenu à partir de \(121\) étudiants.
+
+\choice Si on pigeait un autre échantillon de \(121\) étudiants pour construire un intervalle de confiance à \(95\%\) sur la moyenne, l'intervalle obtenu aurait la même longueur que celui-ci.
+
+\correctchoice Si on pigeait plusieurs échantillons de \(121\) étudiants dans cette population, et qu'on construisait avec chacun d'eux un intervalle de confiance à \(95\%\) pour \(\mu\), alors environ \(95\%\) de ces intervalles contiendraient la vraie valeur moyenne des frais d'inscription des étudiants de 1er cycle à temps plein au Québec.
+\end{checkboxes}
+
+\begin{solution}
+Seul le dernier énoncé est vrai.
+
+Un intervalle de confiance à \(95\%\) ne signifie pas que \(95\%\) des individus ont une valeur comprise dans l'intervalle. Il porte sur la moyenne \(\mu\), pas sur les observations individuelles.
+
+Un intervalle construit avec \(n=1000\) pourrait être plus court, mais si le niveau de confiance demeure \(95\%\), la procédure conserve un niveau de confiance de \(95\%\).
+
+Deux échantillons différents de même taille peuvent donner des intervalles de longueurs différentes, notamment parce que les estimations obtenues à partir des échantillons peuvent varier.
+
+L'interprétation fréquentiste correcte est que, si on répétait la procédure d'échantillonnage et de construction d'intervalles un grand nombre de fois, environ \(95\%\) des intervalles ainsi construits contiendraient la vraie moyenne \(\mu\).
+\end{solution}
+
+%%%%%%%%%%%%%%%% LOIS ÉCHANTILLONNALES %%%%%%%%%%%%%%%%
+
+\newpage
+
+\question[4]
+Soit $X_1,\ldots,X_n$ un échantillon aléatoire simple issu d'une loi $\mathcal{N}(\mu,\sigma^2)$, et soit $S^2$ la variance échantillonnale. Sachant que
+\[
+\frac{(n-1)S^2}{\sigma^2}
+\]
+suit une loi du khi-carré à $n-1$ degrés de liberté, donnez $\text{Var}(S^2)$ en fonction de $\sigma^2$ et $n$. \textbf{\textit{Donnez les détails de votre démarche.}}
+
+\begin{solution}
+Puisque $\dfrac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1}$, et que la variance d'une loi khi-carré à $k$ degrés de liberté vaut $2k$, on a
+\[
+\text{Var}\!\left(\frac{(n-1)S^2}{\sigma^2}\right)=2(n-1).
+\]
+
+Or, $S^2 = \dfrac{\sigma^2}{n-1}\cdot\dfrac{(n-1)S^2}{\sigma^2}$, donc par linéarité de la variance :
+\begin{align*}
+\text{Var}(S^2)
+&= \text{Var}\!\left(\frac{\sigma^2}{n-1}\cdot\frac{(n-1)S^2}{\sigma^2}\right)\\
+&= \frac{\sigma^4}{(n-1)^2}\,\text{Var}\!\left(\frac{(n-1)S^2}{\sigma^2}\right)\\
+&= \frac{\sigma^4}{(n-1)^2}\cdot 2(n-1)\\
+&= \frac{2\sigma^4}{n-1}.
+\end{align*}
+\end{solution}
+
+\vspace{4in}
+
+%%%%%%%%%%%%%%%% TESTS D'HYPOTHÈSES %%%%%%%%%%%%%%%%
+
+\newpage 
+
+\question[4]
+Je veux tester les hypothèses suivantes en pigeant un échantillon de taille \(n=25\) dans une population normale de variance inconnue :
+\[
+H_0:\mu=21
+\qquad \text{contre} \qquad
+H_1:\mu<21.
+\]
+
+J'obtiens un seuil observé de \(0{,}8413\).
+
+Quel serait le seuil observé pour le test bilatéral avec la même hypothèse nulle?
+
+\begin{solution}
+Le seuil observé donné correspond au test unilatéral à gauche :
+\[
+H_1:\mu<21.
+\]
+
+Ici, le seuil observé unilatéral est
+\[
+0{,}8413.
+\]
+
+Cela signifie que la statistique observée n'est pas dans la queue gauche de la distribution. Elle est plutôt du côté opposé à l'hypothèse alternative.
+
+Pour le test bilatéral correspondant,
+\[
+H_0:\mu=21
+\qquad \text{contre} \qquad
+H_1:\mu\neq 21,
+\]
+le seuil observé bilatéral est
+\[
+2\min(0{,}8413,\;1-0{,}8413).
+\]
+
+Donc,
+\[
+2\min(0{,}8413,\;0{,}1587)
+=
+2(0{,}1587)
+=
+0{,}3174.
+\]
+
+Ainsi, le seuil observé pour le test bilatéral correspondant est
+\[
+\boxed{0{,}3174}.
+\]
+\end{solution}
+\vspace{2.5in}
+
+\newpage
+\question[]
+
+Caroline a trouvé une pièce de monnaie. Son intuition lui dit que la pièce tombe plus souvent sur le côté PILE que sur le côté FACE. Elle souhaite vérifier cette hypothèse et lance donc la pièce à \(64\) reprises dans les airs en notant le résultat obtenu.
+
+\begin{parts}
+
+\part[8] Au seuil de \(5\%\), quelle est la puissance de son test statistique si, en vérité, la pièce de monnaie a une probabilité de \(70\%\) de tomber sur le côté PILE?
+
+\begin{solution}
+Soit
+\[
+X=\text{le nombre de fois où la pièce tombe sur PILE parmi les 64 lancers}.
+\]
+
+On veut tester
+\[
+H_0:p=0{,}5
+\qquad \text{contre} \qquad
+H_1:p>0{,}5.
+\]
+
+Sous \(H_0\), on a
+\[
+X\sim \mathrm{Bin}(64,0{,}5).
+\]
+
+Comme l'hypothèse alternative est unilatérale à droite, la région de rejet est de la forme
+\[
+X\geq c.
+\]
+
+On cherche donc une valeur de \(c\) telle que
+\[
+P_{0{,}5}(X\geq c)\leq 0{,}05.
+\]
+
+On peut vérifier que
+\[
+P_{0{,}5}(X\geq 39)\approx 0{,}0517
+\]
+et que
+\[
+P_{0{,}5}(X\geq 40)\approx 0{,}0300.
+\]
+
+Ainsi, au seuil de \(5\%\), on rejette \(H_0\) si
+\[
+X\geq 40.
+\]
+
+On cherche maintenant la puissance du test lorsque la vraie probabilité d'obtenir PILE est \(p=0{,}7\).
+
+Sous cette valeur de \(p\), on a
+\[
+X\sim \mathrm{Bin}(64,0{,}7).
+\]
+
+La puissance est donc
+\[
+P_{0{,}7}(X\geq 40).
+\]
+
+Ainsi,
+\[
+P_{0{,}7}(X\geq 40)
+=
+\sum_{x=40}^{64}
+\binom{64}{x}
+(0{,}7)^x(0{,}3)^{64-x}.
+\]
+
+Numériquement,
+\[
+P_{0{,}7}(X\geq 40)\approx 0{,}9236.
+\]
+
+La puissance du test est donc environ
+\[
+\boxed{0{,}924}.
+\]
+
+Le test a donc environ \(92{,}4\%\) de chances de rejeter \(H_0\) si la vraie probabilité d'obtenir PILE est \(0{,}7\).
+\end{solution}
+\vspace{6in}
+\part[3] Caroline avait aussi pensé utiliser un seuil de \(10\%\). Cochez la bonne réponse ci-dessous.
+
+\begin{checkboxes}
+\choice La puissance aurait été plus petite avec un seuil de \(10\%\).
+\correctchoice La puissance aurait été plus grande avec un seuil de \(10\%\).
+\choice La puissance aurait été identique avec un seuil de \(10\%\).
+\choice On ne peut pas savoir avec l'information donnée si la puissance aurait été plus grande, plus petite ou identique avec un seuil de \(10\%\).
+\end{checkboxes}
+
+\begin{solution}
+En augmentant le seuil du test de \(5\%\) à \(10\%\), on augmente la probabilité de rejeter \(H_0\).
+
+La région de rejet devient donc plus grande ou reste la même. La puissance, qui est la probabilité de rejeter \(H_0\) lorsque l'hypothèse alternative est vraie, ne peut donc pas diminuer.
+
+Dans ce contexte, la puissance serait plus grande avec un seuil de \(10\%\).
+\end{solution}
+
+\end{parts}
+
+\newpage
+
+%%%%%%%%%%%%%%%% TESTS APPARIÉS %%%%%%%%%%%%%%%%
+
+\question[]
+On veut vérifier si un programme d'entraînement physique de 6 semaines réduit la pression artérielle systolique (en mmHg) d'adultes sédentaires. Six participants sont sélectionnés au hasard et leur pression artérielle est mesurée avant et après le programme.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|l|cccccc|c|}
+\hline
+\multirow{2}{*}{Mesure} & \multicolumn{6}{c|}{Participant} & \multirow{2}{*}{Moyenne} \\
+\cline{2-7}
+ & 1 & 2 & 3 & 4 & 5 & 6 & \\
+\hline
+Avant & 152 & 145 & 163 & 148 & 155 & AAA & ??? \\
+Apr\`es & 146 & 140 & 155 & 143 & 151 & 147 & 147 \\
+\hline
+\end{tabular}
+\end{center}
+
+On pose $d_i = \text{Avant}_i - \text{Après}_i$ et on vous informe que:
+\[
+s_D^2 = 4 \qquad \text{et} \qquad \bar{d} = 5.
+\]
+
+\begin{parts}
+
+\part[2] Que vaut AAA~? Justifiez votre réponse.
+
+\begin{solution}
+Puisque $\bar{d}=5$ et $\overline{x}_{\text{après}}=147$, on a
+\[
+\overline{x}_{\text{avant}}=\bar{d}+\overline{x}_{\text{après}}=5+147=152.
+\]
+Donc
+\[
+\frac{152+145+163+148+155+\text{AAA}}{6}=152
+\implies 763+\text{AAA}=912
+\implies \text{AAA}=149.
+\]
+\end{solution}
+
+\vspace{3.5cm}
+
+\part[5] Au seuil $\alpha=5\%$, testez si le programme réduit la pression artérielle en moyenne. Posez les hypothèses, calculez la statistique de test, donnez la règle de décision et concluez.
+
+\begin{solution}
+On pose $\mu_D = E(\text{Avant}_i - \text{Après}_i)$ et on teste
+\[
+H_0:\mu_D=0 \qquad\text{contre}\qquad H_1:\mu_D>0.
+\]
+
+La statistique de test est
+\[
+T_0=\frac{\bar{d}}{s_D/\sqrt{n}}=\frac{5}{2/\sqrt{6}}=\frac{5\sqrt{6}}{2}\approx 6{,}12.
+\]
+
+Sous $H_0$, $T_0\sim t_5$. La règle de décision est de rejeter $H_0$ si $T_0>t_{0{,}05;\,5}=2{,}015$.
+
+Comme $6{,}12>2{,}015$, on rejette $H_0$ au seuil $5\%$.
+
+On conclut qu'il y a une évidence statistique que le programme réduit la pression artérielle systolique en moyenne.
+\end{solution}
+
+\vspace{5cm}
+
+\part[2] Pourquoi est-il probablement préférable d'utiliser des échantillons appariés dans ce contexte~? Une seule réponse est bonne.
+
+\begin{checkboxes}
+\choice Car tous les participants ont naturellement la même pression artérielle de base.
+\choice Car la mesure après le programme est plus précise que la mesure avant.
+\correctchoice Car nous voulons nous protéger contre la possibilité que les différences naturelles de pression artérielle entre les participants influencent la décision du test.
+\choice Car nous rejetons $H_0$ au seuil $\alpha=5\%$.
+\choice Car il s'agit d'observations prises dans le temps.
+\end{checkboxes}
+
+\begin{solution}
+En appariant les mesures avant et après pour chaque participant, on élimine la variabilité due aux différences entre individus (certains ont naturellement une pression plus élevée que d'autres). Le test porte alors uniquement sur la différence intra-individu attribuable au programme.
+\end{solution}
+
+\end{parts}
+
+\newpage
+
+%%%%%%%%%%%%%%%% RLS %%%%%%%%%%%%%%%%
+
+
+\question[]
+
+On a ajusté un modèle de régression linéaire pour le prix de vente d'une maison, en milliers de dollars, en fonction de l'évaluation de cette maison, aussi en milliers de dollars, à l'aide d'un jeu de données de \(92\) observations. On a obtenu les valeurs suivantes :
+\[
+\hat{\beta}_0 = 20{,}942,
+\qquad
+\hat{\beta}_1 = 1{,}06873,
+\qquad
+\hat{\sigma}^2 = 1075.
+\]
+
+De plus, on vous indique que
+\[
+\bar{x} = 201{,}7504
+\qquad \text{et} \qquad
+S_{xx} = 5209571.
+\]
+
+\begin{parts}
+
+\part[3] Interprétez la pente estimée, en contexte.
+
+\begin{solution}
+La pente estimée est
+\[
+\hat{\beta}_1=1{,}06873.
+\]
+
+Cela signifie que, selon le modèle ajusté, lorsqu'une maison a une évaluation plus élevée de \(1\) millier de dollars, son prix de vente moyen prévu augmente d'environ \(1{,}06873\) millier de dollars.
+
+Autrement dit, une augmentation de \(1\,000\) \$ de l'évaluation est associée à une augmentation moyenne d'environ
+\[
+1\,069\ \text{\$}
+\]
+du prix de vente.
+\end{solution}
+
+\vspace{1.5in}
+
+\part[6] Un ami vient de mettre en vente sa maison, qui a été évaluée à \(280\) milliers de dollars.
+
+Construisez un intervalle de confiance à \(95\%\) pour le prix de vente de sa maison.
+
+\begin{solution}
+Comme on s'intéresse au prix de vente d'une maison individuelle, on construit un intervalle de prédiction.
+
+Pour \(x_0=280\), la valeur prédite est
+\[
+\hat{y}_0
+=
+\hat{\beta}_0+\hat{\beta}_1x_0.
+\]
+
+Donc,
+\[
+\hat{y}_0
+=
+20{,}942+1{,}06873(280)
+=
+320{,}1864.
+\]
+
+L'intervalle de prévision à \(95\%\) est donné par
+\[
+\hat{y}_0
+\pm
+t_{0{,}975;\,n-2}
+\hat{\sigma}
+\sqrt{
+1+\frac{1}{n}+\frac{(x_0-\bar{x})^2}{S_{xx}}
+}.
+\]
+
+Ici, \(n=92\), donc les degrés de liberté sont
+\[
+n-2=90.
+\]
+
+On utilise
+\[
+t_{0{,}975;\,90}\approx 1{,}987.
+\]
+
+De plus,
+\[
+\hat{\sigma}
+=
+\sqrt{1075}.
+\]
+
+Donc,
+\[
+\hat{\sigma}
+\sqrt{
+1+\frac{1}{n}+\frac{(x_0-\bar{x})^2}{S_{xx}}
+}
+=
+\sqrt{
+1075
+\left(
+1+\frac{1}{92}
++
+\frac{(280-201{,}7504)^2}{5209571}
+\right)
+}.
+\]
+
+Ainsi,
+\[
+\hat{\sigma}
+\sqrt{
+1+\frac{1}{n}+\frac{(x_0-\bar{x})^2}{S_{xx}}
+}
+\approx
+32{,}984.
+\]
+
+L'intervalle est donc
+\[
+320{,}1864
+\pm
+1{,}987(32{,}984).
+\]
+
+On obtient
+\[
+320{,}1864
+\pm
+65{,}539.
+\]
+
+L'intervalle de prédiction à \(95\%\) est donc environ
+\[
+[254{,}647,\;385{,}726].
+\]
+
+En contexte, on prévoit que le prix de vente de cette maison se situera entre environ
+\[
+254\,647\ \text{\$}
+\quad \text{et} \quad
+385\,726\ \text{\$}.
+\]
+\end{solution}
+
+\vspace{3 in}
+\newpage
+
+\part[4] Au seuil de \(5\%\), peut-on conclure qu'il existe une relation linéaire significative entre l'évaluation d'une maison et son prix de vente?
+
+\begin{solution}
+On veut tester
+\[
+H_0:\beta_1=0
+\qquad \text{contre} \qquad
+H_1:\beta_1\neq 0.
+\]
+
+La statistique de test est
+\[
+T=
+\frac{\hat{\beta}_1-0}{\mathrm{SE}(\hat{\beta}_1)}.
+\]
+
+On a
+\[
+\mathrm{SE}(\hat{\beta}_1)
+=
+\sqrt{\frac{\hat{\sigma}^2}{S_{xx}}}.
+\]
+
+Donc,
+\[
+\mathrm{SE}(\hat{\beta}_1)
+=
+\sqrt{\frac{1075}{5209571}}
+\approx
+0{,}01437.
+\]
+
+Ainsi,
+\[
+T
+=
+\frac{1{,}06873}{0{,}01437}
+\approx
+74{,}38.
+\]
+
+Sous \(H_0\), la statistique de test suit une loi de Student à
+\[
+n-2=90
+\]
+degrés de liberté.
+
+Au seuil de \(5\%\), pour un test bilatéral, la valeur critique est environ
+\[
+t_{0{,}975;90}\approx 1{,}987.
+\]
+
+Comme
+\[
+|74{,}38|>1{,}987,
+\]
+on rejette \(H_0\).
+
+On peut donc conclure, au seuil de \(5\%\), qu'il existe une relation linéaire significative entre l'évaluation d'une maison et son prix de vente.
+\end{solution}
+
+\vspace{3.5in}
+
+\part[] On veut maintenant vérifier la validité des postulats du modèle de régression.
+
+\begin{subparts}
+\subpart[1] Parmi les graphiques ci-dessous lequel permet de vérifier le postulat de normalité des erreurs? 
+
+\begin{checkboxes}
+\choice Graphique A
+\choice Graphique B
+\choice Graphique C
+\end{checkboxes}
+
+\includegraphics[scale = 1]{diag}
+
+
+  
+\vspace{0.1 in}
+\subpart[1] Que concluez-vous quant au postulat de normalité des erreurs?
+
+\begin{checkboxes}
+\choice Le postulat de normalité est vérifié.
+\choice Le postulat de normalité n'est pas vérifié.
+\choice Le graphique ne permet pas de conclure; il faudrait une analyse plus poussée.
+\end{checkboxes}
+
+\end{subparts}
+\end{parts}
+
+\end{questions}
+\end{document} 
