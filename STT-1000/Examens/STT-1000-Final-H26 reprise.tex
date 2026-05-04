@@ -213,7 +213,7 @@ Ainsi,
 %%%%%%%%%%%%%%%% INTERVALLES DE CONFIANCE %%%%%%%%%%%%%%%%
 \newpage
 
-\question[8]
+\question[10]
 On a construit un intervalle de confiance pour la proportion de personnes qui préfèrent le chocolat noir au chocolat au lait. On a utilisé un échantillon de \(2400\) personnes, parmi lesquelles \(960\) ont répondu qu'elles préféraient le chocolat noir.
 
 On a obtenu l'intervalle
@@ -376,7 +376,7 @@ Donc,
 
 %%%%%%%%%%%%%%%% INTERVALLES DE CONFIANCE À DEUX POPULATIONS %%%%%%%%%%%%%%%%
 \newpage
-\question[6]
+\question[8]
 Deux entreprises produisent des batteries rechargeables. On s'intéresse à la durée de vie moyenne, en heures, de leurs batteries.
 
 Pour l'entreprise A, on prélève un échantillon de taille \(n_A=36\) et on obtient \(\bar x_A=82\). On sait que l'écart-type de la population vaut \(\sigma_A=12\).
@@ -426,12 +426,85 @@ Donc, un intervalle de confiance à \(95\%\) pour \(\mu_A-\mu_B\) est
 \]
 \end{solution}
 
+\vspace{2in}
+
+\question[6]
+Déterminez si chacun des énoncés suivants est vrai ou faux.
+
+\begin{parts}
+    \part[1] Si les variances de deux populations normales sont connues, la statistique de test pour comparer deux moyennes indépendantes suit une loi normale centrée réduite sous \(H_0\).
+
+    \begin{oneparcheckboxes}
+        \correctchoice Vrai
+        \choice Faux
+    \end{oneparcheckboxes}
+
+    \begin{solution}
+    Vrai. Dans ce cas, on utilise un test \(Z\) à deux échantillons.
+    \end{solution}
+
+    \part[1] Si un intervalle de confiance à \(95\%\) pour \(\mu_1-\mu_2\) contient \(0\), alors on rejette nécessairement \(H_0:\mu_1-\mu_2=0\) au seuil de \(5\%\).
+
+    \begin{oneparcheckboxes}
+        \choice Vrai
+        \correctchoice Faux
+    \end{oneparcheckboxes}
+
+    \begin{solution}
+    Faux. Si \(0\) appartient à l'intervalle, la valeur nulle est plausible et on ne rejette pas \(H_0\) au seuil correspondant.
+    \end{solution}
+
+    \part[1] Pour un test unilatéral à droite, augmenter \(\alpha\) rend le rejet de \(H_0\) plus facile.
+
+    \begin{oneparcheckboxes}
+        \correctchoice Vrai
+        \choice Faux
+    \end{oneparcheckboxes}
+
+    \begin{solution}
+    Vrai. La région de rejet devient plus grande lorsque \(\alpha\) augmente.
+    \end{solution}
+
+    \part[1] Dans un test apparié, on applique le test sur les différences à l'intérieur de chaque paire.
+
+    \begin{oneparcheckboxes}
+        \correctchoice Vrai
+        \choice Faux
+    \end{oneparcheckboxes}
+
+    \begin{solution}
+    Vrai. Le test apparié repose sur l'échantillon des différences \(D_i\).
+    \end{solution}
+
+    \part[1] Si \(\hat p=0{,}5\), alors la marge d'erreur d'un intervalle de confiance pour une proportion est toujours nulle.
+
+    \begin{oneparcheckboxes}
+        \choice Vrai
+        \correctchoice Faux
+    \end{oneparcheckboxes}
+
+    \begin{solution}
+    Faux. La marge d'erreur dépend aussi de la taille d'échantillon et du niveau de confiance.
+    \end{solution}
+
+    \part[1] Si \(X_1,\ldots,X_n\) proviennent d'une loi normale, alors \(E(S^2)=\sigma^2\).
+
+    \begin{oneparcheckboxes}
+        \correctchoice Vrai
+        \choice Faux
+    \end{oneparcheckboxes}
+
+    \begin{solution}
+    Vrai. La variance échantillonnale \(S^2\) est un estimateur sans biais de \(\sigma^2\).
+    \end{solution}
+\end{parts}
+
 
 %%%%%%%%%%%%%%%% TESTS D'HYPOTHÈSES %%%%%%%%%%%%%%%%
 
 \newpage 
 
-\question[6]
+\question[8]
 Je veux tester les hypothèses suivantes en pigeant un échantillon de taille \(n=25\) dans une population normale de variance inconnue :
 \[
 H_0:\mu=21
@@ -484,7 +557,7 @@ Ainsi, le seuil observé pour le test bilatéral correspondant est
 
 \newpage
 
-\question[6]
+\question[8]
 Deux chaînes d'assemblage produisent des composantes électroniques. On veut vérifier si la chaîne A produit en moyenne des composantes plus lourdes que la chaîne B.
 
 On prélève deux échantillons indépendants et on obtient les résultats suivants :
