@@ -352,9 +352,81 @@ Or, $S^2 = \dfrac{\sigma^2}{n-1}\cdot\dfrac{(n-1)S^2}{\sigma^2}$, donc par liné
 &= \frac{\sigma^4}{(n-1)^2}\cdot 2(n-1)\\
 &= \frac{2\sigma^4}{n-1}.
 \end{align*}
+
+Comme
+\[
+T^2=\frac{1}{n}\sum_{i=1}^n(X_i-\overline{X})^2=\frac{n-1}{n}S^2,
+\]
+on obtient
+\begin{align*}
+\text{Var}(T^2)
+&=\text{Var}\!\left(\frac{n-1}{n}S^2\right)\\
+&=\left(\frac{n-1}{n}\right)^2\text{Var}(S^2)\\
+&=\left(\frac{n-1}{n}\right)^2\frac{2\sigma^4}{n-1}\\
+&=\frac{2(n-1)\sigma^4}{n^2}.
+\end{align*}
+
+Donc,
+\[
+\boxed{\text{Var}(T^2)=\frac{2(n-1)\sigma^4}{n^2}}.
+\]
 \end{solution}
 
 \vspace{4in}
+
+%%%%%%%%%%%%%%%% INTERVALLES DE CONFIANCE À DEUX POPULATIONS %%%%%%%%%%%%%%%%
+
+\question[6]
+Deux entreprises produisent des batteries rechargeables. On s'intéresse à la durée de vie moyenne, en heures, de leurs batteries.
+
+Pour l'entreprise A, on prélève un échantillon de taille \(n_A=36\) et on obtient \(\bar x_A=82\). On sait que l'écart-type de la population vaut \(\sigma_A=12\).
+
+Pour l'entreprise B, on prélève un échantillon de taille \(n_B=49\) et on obtient \(\bar x_B=76\). On sait que l'écart-type de la population vaut \(\sigma_B=14\).
+
+Construisez un intervalle de confiance à \(95\%\) pour la différence des moyennes \(\mu_A-\mu_B\).
+
+\begin{solution}
+Comme les variances des deux populations sont connues, on utilise l'intervalle de confiance
+\[
+(\bar x_A-\bar x_B)\pm z_{\alpha/2}\sqrt{\frac{\sigma_A^2}{n_A}+\frac{\sigma_B^2}{n_B}}.
+\]
+
+On a
+\[
+\bar x_A-\bar x_B=82-76=6.
+\]
+
+L'erreur-type vaut
+\[
+\sqrt{\frac{12^2}{36}+\frac{14^2}{49}}
+=\sqrt{4+4}
+=\sqrt{8}
+\approx 2{,}828.
+\]
+
+Pour un niveau de confiance de \(95\%\), on utilise \(z_{0{,}025}=1{,}96\).
+
+La marge d'erreur est donc
+\[
+1{,}96\times 2{,}828\approx 5{,}54.
+\]
+
+Ainsi, l'intervalle de confiance est
+\[
+6\pm 5{,}54,
+\]
+soit
+\[
+[0{,}46;\ 11{,}54].
+\]
+
+Donc, un intervalle de confiance à \(95\%\) pour \(\mu_A-\mu_B\) est
+\[
+\boxed{[0{,}46;\ 11{,}54]}.
+\]
+\end{solution}
+
+\vspace{3in}
 
 %%%%%%%%%%%%%%%% TESTS D'HYPOTHÈSES %%%%%%%%%%%%%%%%
 
@@ -409,6 +481,65 @@ Ainsi, le seuil observé pour le test bilatéral correspondant est
 \[
 \boxed{0{,}3174}.
 \]
+\end{solution}
+
+\vspace{2.5in}
+
+\question[6]
+Deux chaînes d'assemblage produisent des composantes électroniques. On veut vérifier si la chaîne A produit en moyenne des composantes plus lourdes que la chaîne B.
+
+On prélève deux échantillons indépendants et on obtient les résultats suivants :
+\begin{itemize}
+\item Chaîne A : \(n_A=64\), \(\bar x_A=503\) mg, \(\sigma_A=8\) mg;
+\item Chaîne B : \(n_B=100\), \(\bar x_B=500\) mg, \(\sigma_B=10\) mg.
+\end{itemize}
+
+On suppose que les deux populations sont normales et que les variances sont connues.
+
+Au seuil \(\alpha=5\%\), testez
+\[
+H_0:\mu_A-\mu_B=0
+\qquad \text{contre} \qquad
+H_1:\mu_A-\mu_B>0.
+\]
+
+\begin{solution}
+Comme les variances des deux populations sont connues, on utilise un test \(Z\) à deux échantillons.
+
+La statistique de test est
+\[
+Z_0=\frac{(\bar x_A-\bar x_B)-0}{\sqrt{\sigma_A^2/n_A+\sigma_B^2/n_B}}.
+\]
+
+On a
+\[
+\bar x_A-\bar x_B=503-500=3
+\]
+et
+\[
+\sqrt{\frac{8^2}{64}+\frac{10^2}{100}}
+=\sqrt{1+1}
+=\sqrt{2}
+\approx 1{,}414.
+\]
+
+Donc,
+\[
+Z_0=\frac{3}{1{,}414}\approx 2{,}12.
+\]
+
+Au seuil \(\alpha=5\%\), pour un test unilatéral à droite, on rejette \(H_0\) si
+\[
+Z_0>z_{0{,}05}=1{,}645.
+\]
+
+Comme
+\[
+2{,}12>1{,}645,
+\]
+on rejette \(H_0\) au seuil de \(5\%\).
+
+On conclut qu'il y a une évidence statistique que la chaîne A produit en moyenne des composantes plus lourdes que la chaîne B.
 \end{solution}
 \vspace{2.5in}
 
