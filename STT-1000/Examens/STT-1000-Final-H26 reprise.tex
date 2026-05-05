@@ -60,20 +60,186 @@ $$\nu = \frac{(s_1^2/n_1 + s^2_2/n_2)^2}{ \frac{(s_1^2/n_1)^2}{n_1 +1} + \frac{(
 
 \pageblanche
 
-%%%%%%%%%%%%%%%% QUESTIONS MODULES 1 à 5 %%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%% QUESTIONS RÉCAPITULATIFS - MODULES 1 À 5 %%%%%%%%%%%%%%%%
 
+\question Dites si les énoncés suivants sont vrais ou faux. Aucune justification n'est requise.
 
+\begin{parts}
+
+    \part[1] Soit $x_1,\ldots,x_n$. Si la médiane vaut $25$, environ $50\%$ des observations sont supérieures à $25$ et environ $50\%$ sont inférieures à $25$.
+
+    \begin{oneparcheckboxes}
+        \correctchoice Vrai
+        \choice Faux
+    \end{oneparcheckboxes}
+
+    \begin{solution}
+    Vrai. C'est la définition de la médiane : elle partage l'échantillon en deux moitiés égales.
+    \end{solution}
+
+    \part[1] Soit $x_1,\ldots,x_n$. Si on ajoute une constante $c>0$ à chaque observation, l'écart-type ne change pas.
+
+    \begin{oneparcheckboxes}
+        \correctchoice Vrai
+        \choice Faux
+    \end{oneparcheckboxes}
+
+    \begin{solution}
+    Vrai. L'écart-type mesure la dispersion autour de la moyenne. Une translation de toutes les observations ne modifie pas les distances entre les valeurs et leur moyenne.
+    \end{solution}
+
+    \part[1] Soit $x_1,\ldots,x_n$. L'étendue est une mesure de dispersion résistante à la présence de valeurs aberrantes.
+
+    \begin{oneparcheckboxes}
+        \choice Vrai
+        \correctchoice Faux
+    \end{oneparcheckboxes}
+
+    \begin{solution}
+    Faux. L'étendue est définie comme la différence entre le maximum et le minimum, et est donc très sensible aux valeurs extrêmes.
+    \end{solution}
+
+    \part[1] Soit $x_1,\ldots,x_n$. Si la variance échantillonnale $S^2$ vaut $0$, alors toutes les observations sont identiques.
+
+    \begin{oneparcheckboxes}
+        \correctchoice Vrai
+        \choice Faux
+    \end{oneparcheckboxes}
+
+    \begin{solution}
+    Vrai. $S^2=0$ implique que chaque terme $(X_i-\overline{X})^2=0$, donc $X_i=\overline{X}$ pour tout $i$.
+    \end{solution}
+
+\end{parts}
+
+\vspace{0.5cm}
+
+\question[4]
+Soit deux événements $A$ et $B$ formant une partition de l'espace échantillonnal, avec $P(A)=0{,}6$. On sait aussi que $P(D\mid A)=0{,}05$ et $P(D\mid B)=0{,}10$.
+
+Quelle expression permet de calculer $P(A\mid D)$?\\
+
+\begin{checkboxes}
+\choice $\dfrac{0{,}4\times 0{,}10}{0{,}05+0{,}10}$\\[4pt]
+\choice $\dfrac{0{,}05}{0{,}6\times 0{,}05+0{,}4\times 0{,}10}$\\[4pt]
+\correctchoice $\dfrac{0{,}6\times 0{,}05}{0{,}6\times 0{,}05+0{,}4\times 0{,}10}$\\[4pt]
+\choice $\dfrac{0{,}4\times 0{,}10}{0{,}6\times 0{,}05+0{,}4\times 0{,}10}$\\[4pt]
+\choice $\dfrac{0{,}6\times 0{,}05}{0{,}6\times 0{,}05+0{,}6\times 0{,}10}$
+\end{checkboxes}
+
+\begin{solution}
+La bonne réponse est \textbf{c)}.
+
+D'après le théorème de Bayes :
+$$P(A\mid D)=\frac{P(D\mid A)\,P(A)}{P(D\mid A)\,P(A)+P(D\mid B)\,P(B)}=\frac{0{,}6\times 0{,}05}{0{,}6\times 0{,}05+0{,}4\times 0{,}10}.$$
+
+Problèmes avec les autres réponses :
+\begin{itemize}
+\item \textbf{a)} utilise $P(B)=0{,}4$ au numérateur avec $P(D\mid B)=0{,}10$, au lieu de $P(D\mid A)\,P(A)$;
+\item \textbf{b)} oublie les poids $P(A)$ et $P(B)$ au numérateur;
+\item \textbf{d)} calcule $P(B\mid D)$ et non $P(A\mid D)$;
+\item \textbf{e)} utilise $P(A)=0{,}6$ dans les deux termes du dénominateur.
+\end{itemize}
+\end{solution}
+
+\vspace{0.2in}
+
+\question[3]
+Un centre d'appels reçoit des appels selon un processus de Poisson de taux $4$ par heure. On s'intéresse au temps d'attente jusqu'au prochain appel. Quelle est l'expression correcte pour calculer la probabilité que ce temps soit \emph{supérieur} à $30$ minutes?\\
+
+\begin{checkboxes}
+\choice $P(T>0{,}5)$, où $T\sim \mathrm{Exp}(8)$
+\correctchoice $P(T>0{,}5)$, où $T\sim \mathrm{Exp}(4)$
+\choice $P(X>2)$, où $X\sim \mathrm{Poisson}(4)$
+\choice $P(X>0{,}5)$, où $X\sim \mathrm{Poisson}(4)$
+\choice $P(T>0{,}5)$, où $T\sim \mathrm{Gamma}(4,4)$
+\end{checkboxes}
+
+\begin{solution}
+La bonne réponse est \textbf{b)}.
+
+Dans un processus de Poisson de taux $4$ par heure, le \textbf{temps d'attente jusqu'au prochain événement} suit une loi exponentielle de paramètre $4$. On s'intéresse à un temps supérieur à $0{,}5$ heure (soit 30 minutes), d'où $P(T>0{,}5)$ avec $T\sim\mathrm{Exp}(4)$.
+
+Problèmes avec les autres réponses :
+\begin{itemize}
+\item \textbf{a)} Le paramètre $8$ ne correspond pas au taux du processus de Poisson;
+\item \textbf{c)} et \textbf{d)} utilisent une loi de Poisson, qui modélise un \emph{nombre} d'événements, pas un temps d'attente;
+\item \textbf{e)} La loi Gamma conviendrait au temps d'attente jusqu'au $k$-ième appel, pas jusqu'au prochain.
+\end{itemize}
+\end{solution}
+
+\vspace{0.2in}
+
+\question Dites si les énoncés suivants sont vrais ou faux. Aucune justification n'est requise.
+
+\begin{parts}
+
+    \part[1] Si $X \sim \mathrm{Bin}(n, p)$, alors $E(X) = np$ et $\mathrm{Var}(X) = np(1-p)$.
+
+    \begin{oneparcheckboxes}
+        \correctchoice Vrai
+        \choice Faux
+    \end{oneparcheckboxes}
+
+    \begin{solution}
+    Vrai. Ce sont les formules classiques de l'espérance et de la variance de la loi binomiale.
+    \end{solution}
+
+    \part[1] Si $X \sim \mathrm{Exp}(\lambda)$, alors $\mathrm{Var}(X) = \lambda^2$.
+
+    \begin{oneparcheckboxes}
+        \choice Vrai
+        \correctchoice Faux
+    \end{oneparcheckboxes}
+
+    \begin{solution}
+    Faux. Pour une loi exponentielle de paramètre $\lambda$, on a $\mathrm{Var}(X)=\dfrac{1}{\lambda^2}$ (et $E(X)=\dfrac{1}{\lambda}$).
+    \end{solution}
+
+\end{parts}
+
+\vspace{0.5cm}
+
+\question[2]
+Soit $X \sim \mathcal{N}(4,\,9)$ et $Y \sim \mathcal{N}(2,\,1)$, deux variables aléatoires indépendantes. Quelle est la distribution de $W = 3X - 2Y$?\\
+
+\begin{checkboxes}
+\choice $\mathcal{N}(8,\,10)$\\[4pt]
+\choice $\mathcal{N}(8,\,29)$\\[4pt]
+\correctchoice $\mathcal{N}(8,\,85)$\\[4pt]
+\choice $\mathcal{N}(16,\,85)$\\[4pt]
+\choice $\mathcal{N}(8,\,130)$
+\end{checkboxes}
+
+\begin{solution}
+La bonne réponse est \textbf{c)}.
+\begin{align*}
+E(W)&=3E(X)-2E(Y)=3(4)-2(2)=8.\\
+\mathrm{Var}(W)&=3^2\mathrm{Var}(X)+2^2\mathrm{Var}(Y)=9(9)+4(1)=81+4=85.
+\end{align*}
+Donc $W\sim\mathcal{N}(8,\,85)$.
+
+Problèmes avec les autres réponses :
+\begin{itemize}
+\item \textbf{a)} additionne simplement les variances sans tenir compte des coefficients;
+\item \textbf{b)} multiplie les variances par les coefficients (sans les mettre au carré) : $3(9)+2(1)=29$;
+\item \textbf{d)} utilise $3E(X)+2E(Y)=16$ pour la moyenne au lieu de $3E(X)-2E(Y)=8$;
+\item \textbf{e)} multiplie $(3^2+2^2)(9+1)=130$.
+\end{itemize}
+\end{solution}
+
+\newpage
 
 %%%%%%%%%%%%%%%% STATISTIQUES DESCRIPTIVES %%%%%%%%%%%%%%%%
 
-\question[4]
+\question[3]
 
 Supposons le petit échantillon suivant :
 \[
 2,\;4,\;4,\;6,\;9.
 \]
 
-Ajoutez une observation à ce jeu de données de façon à diminuer la moyenne et à modifier l'étendue, mais sans modifier la médiane. Justifiez brièvement votre réponse.
+Ajoutez une observation à ce jeu de données de façon à diminuer la moyenne sans modifier la médiane. Justifiez brièvement votre réponse.
 
 \begin{solution}
 Une réponse possible est d'ajouter \(1\).
@@ -102,18 +268,6 @@ La nouvelle moyenne est
 \]
 
 La moyenne a donc diminué.
-
-L'étendue initiale était
-\[
-9-2=7.
-\]
-
-La nouvelle étendue est
-\[
-9-1=8.
-\]
-
-L'étendue a donc été modifiée.
 \end{solution}
 
 \vspace{2in}
@@ -292,87 +446,6 @@ Le niveau de confiance est donc environ
 \boxed{97\%.}
 \]
 \end{solution}
-
-\newpage
-
-\question[4] 
-On s'intéresse aux frais d'inscription des étudiants de 1er cycle à temps plein au Québec. Avec un échantillon aléatoire de \(n=121\) étudiants de cette population, on obtient l'intervalle de confiance à \(95\%\) suivant :
-\[
-[2550,\;2630].
-\]
-
-Cochez les énoncés qui sont vrais parmi les suivants. Aucune justification n'est requise.
-
-\begin{checkboxes}
-\choice Il y a \(95\%\) des étudiants de 1er cycle à temps plein au Québec qui paient des frais d'inscription entre \(2550\ \$\) et \(2630\ \$\).
-
-\choice Si on pigeait un échantillon de \(1000\) étudiants pour construire un intervalle de confiance à \(95\%\) sur la moyenne, l'intervalle obtenu aurait une plus grande probabilité de contenir la vraie valeur de \(\mu\) que celui obtenu à partir de \(121\) étudiants.
-
-\choice Si on pigeait un autre échantillon de \(121\) étudiants pour construire un intervalle de confiance à \(95\%\) sur la moyenne, l'intervalle obtenu aurait la même longueur que celui-ci.
-
-\correctchoice Si on pigeait plusieurs échantillons de \(121\) étudiants dans cette population, et qu'on construisait avec chacun d'eux un intervalle de confiance à \(95\%\) pour \(\mu\), alors environ \(95\%\) de ces intervalles contiendraient la vraie valeur moyenne des frais d'inscription des étudiants de 1er cycle à temps plein au Québec.
-\end{checkboxes}
-
-\begin{solution}
-Seul le dernier énoncé est vrai.
-
-Un intervalle de confiance à \(95\%\) ne signifie pas que \(95\%\) des individus ont une valeur comprise dans l'intervalle. Il porte sur la moyenne \(\mu\), pas sur les observations individuelles.
-
-Un intervalle construit avec \(n=1000\) pourrait être plus court, mais si le niveau de confiance demeure \(95\%\), la procédure conserve un niveau de confiance de \(95\%\).
-
-Deux échantillons différents de même taille peuvent donner des intervalles de longueurs différentes, notamment parce que les estimations obtenues à partir des échantillons peuvent varier.
-
-L'interprétation fréquentiste correcte est que, si on répétait la procédure d'échantillonnage et de construction d'intervalles un grand nombre de fois, environ \(95\%\) des intervalles ainsi construits contiendraient la vraie moyenne \(\mu\).
-\end{solution}
-
-\vspace{1cm}
-
-
-
-\question[6]
-Soit $X_1,\ldots,X_n$ un échantillon aléatoire simple issu d'une loi $\mathcal{N}(\mu,\sigma^2)$. Soit les deux estimateurs de $\sigma^2$
-
-\begin{align*}
-    S^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\overline{X})^2 & & T^2=\frac{1}{n}\sum_{i=1}^n(X_i-\overline{X})^2
-\end{align*}
-
-Sachant que $\displaystyle \frac{(n-1)S^2}{\sigma^2}$ suit une loi du khi-carré à $n-1$ degrés de liberté, donnez $\text{Var}(T^2)$ en fonction de $\sigma^2$ et $n$. \textbf{\textit{Donnez les détails de votre démarche.}}
-
-\begin{solution}
-Puisque $\dfrac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1}$, et que la variance d'une loi khi-carré à $k$ degrés de liberté vaut $2k$, on a
-\[
-\text{Var}\!\left(\frac{(n-1)S^2}{\sigma^2}\right)=2(n-1).
-\]
-
-Or, $S^2 = \dfrac{\sigma^2}{n-1}\cdot\dfrac{(n-1)S^2}{\sigma^2}$, donc par linéarité de la variance :
-\begin{align*}
-\text{Var}(S^2)
-&= \text{Var}\!\left(\frac{\sigma^2}{n-1}\cdot\frac{(n-1)S^2}{\sigma^2}\right)\\
-&= \frac{\sigma^4}{(n-1)^2}\,\text{Var}\!\left(\frac{(n-1)S^2}{\sigma^2}\right)\\
-&= \frac{\sigma^4}{(n-1)^2}\cdot 2(n-1)\\
-&= \frac{2\sigma^4}{n-1}.
-\end{align*}
-
-Comme
-\[
-T^2=\frac{1}{n}\sum_{i=1}^n(X_i-\overline{X})^2=\frac{n-1}{n}S^2,
-\]
-on obtient
-\begin{align*}
-\text{Var}(T^2)
-&=\text{Var}\!\left(\frac{n-1}{n}S^2\right)\\
-&=\left(\frac{n-1}{n}\right)^2\text{Var}(S^2)\\
-&=\left(\frac{n-1}{n}\right)^2\frac{2\sigma^4}{n-1}\\
-&=\frac{2(n-1)\sigma^4}{n^2}.
-\end{align*}
-
-Donc,
-\[
-\boxed{\text{Var}(T^2)=\frac{2(n-1)\sigma^4}{n^2}}.
-\]
-\end{solution}
-
-
 
 %%%%%%%%%%%%%%%% INTERVALLES DE CONFIANCE À DEUX POPULATIONS %%%%%%%%%%%%%%%%
 \newpage
@@ -664,7 +737,7 @@ On veut vérifier si un programme d'entraînement physique de 6 semaines réduit
 \cline{2-7}
  & 1 & 2 & 3 & 4 & 5 & 6 & \\
 \hline
-Avant & 152 & 145 & 163 & 148 & 155 & AAA & ??? \\
+Avant & 152 & 145 & 163 & 148 & 155 & 149 & 152 \\
 Apr\`es & 146 & 140 & 155 & 143 & 151 & 147 & 147 \\
 \hline
 \end{tabular}
@@ -676,23 +749,6 @@ s_D^2 = 4 \qquad \text{et} \qquad \bar{d} = 5.
 \]
 
 \begin{parts}
-
-\part[2] Que vaut AAA~? Justifiez votre réponse.
-
-\begin{solution}
-Puisque $\bar{d}=5$ et $\overline{x}_{\text{après}}=147$, on a
-\[
-\overline{x}_{\text{avant}}=\bar{d}+\overline{x}_{\text{après}}=5+147=152.
-\]
-Donc
-\[
-\frac{152+145+163+148+155+\text{AAA}}{6}=152
-\implies 763+\text{AAA}=912
-\implies \text{AAA}=149.
-\]
-\end{solution}
-
-\vspace{3.5cm}
 
 \part[5] Au seuil $\alpha=5\%$, testez si le programme réduit la pression artérielle en moyenne. 
 
@@ -947,31 +1003,6 @@ On peut donc conclure, au seuil de \(5\%\), qu'il existe une relation linéaire 
 
 \vspace{3.5in}
 
-\part[] On veut maintenant vérifier la validité des postulats du modèle de régression.
-
-\begin{subparts}
-\subpart[1] Parmi les graphiques ci-dessous lequel permet de vérifier le postulat de normalité des erreurs? 
-
-\begin{checkboxes}
-\choice Graphique A
-\choice Graphique B
-\choice Graphique C
-\end{checkboxes}
-
-%\includegraphics[scale = 1]{diag}
-
-
-  
-\vspace{0.1 in}
-\subpart[1] Que concluez-vous quant au postulat de normalité des erreurs?
-
-\begin{checkboxes}
-\choice Le postulat de normalité est vérifié.
-\choice Le postulat de normalité n'est pas vérifié.
-\choice Le graphique ne permet pas de conclure; il faudrait une analyse plus poussée.
-\end{checkboxes}
-
-\end{subparts}
 \end{parts}
 
 \end{questions}
