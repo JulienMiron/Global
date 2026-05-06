@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  5 MAY 2026 12:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  6 MAY 2026 12:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1183,7 +1183,7 @@ Overfull \hbox (65.35516pt too wide) in paragraph at lines 56--56
 
 
 Overfull \hbox (3.90103pt too wide) in paragraph at lines 56--56
-[]\T1/fav/m/n/9 Assurez-vous que cette éva-lua-tion com-porte 16 exer-cices ré-par-tis sur 14 pages, pour un to-tal de 103 points. 
+[]\T1/fav/m/n/9 Assurez-vous que cette éva-lua-tion com-porte 16 exer-cices ré-par-tis sur 14 pages, pour un to-tal de 105 points. 
  []
 
 LaTeX Font Info:    Trying to load font information for OT1+zavm on input line 56.
@@ -1358,33 +1358,33 @@ Underfull \hbox (badness 10000) in paragraph at lines 210--211
 [12]
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 1014--1015
+Underfull \hbox (badness 10000) in paragraph at lines 1038--1039
 
  []
 
 
-LaTeX Warning: File `diagRLS.png' not found on input line 1024.
+LaTeX Warning: File `diagRLS.png' not found on input line 1048.
 
 
-/Users/jmiron/Library/CloudStorage/OneDrive-UniversitÃ©Laval/Github/Global/STT-1000/Examens/STT-1000-Final-H26 reprise.tex:1024: Package pdftex.def Error: File `diagRLS.png' not found: using draft setting.
+/Users/jmiron/Library/CloudStorage/OneDrive-UniversitÃ©Laval/Github/Global/STT-1000/Examens/STT-1000-Final-H26 reprise.tex:1048: Package pdftex.def Error: File `diagRLS.png' not found: using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1024 \includegraphics[scale=0.7]{diagRLS.png}
+l.1048 \includegraphics[scale=0.7]{diagRLS.png}
                                                
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-LaTeX Font Info:    Trying to load font information for T1+fvm on input line 1024.
+LaTeX Font Info:    Trying to load font information for T1+fvm on input line 1048.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/bera/t1fvm.fd
 File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
 )
 
 [14]
-This exam contains 16 questions with 13 parts, 0 subparts, and 0 subsubparts.
-This exam has a total of 103 points.
+This exam contains 16 questions with 14 parts, 2 subparts, and 0 subsubparts.
+This exam has a total of 105 points.
 This exam has a total of 0 bonus points.
 (./STT-1000-Final-H26 reprise.aux)
  ***********
@@ -1397,15 +1397,15 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 27174 strings out of 473190
- 562869 string characters out of 5715801
+ 27191 strings out of 473190
+ 563211 string characters out of 5715801
  1149096 words of memory out of 5000000
- 49918 multiletter control sequences out of 15000+600000
+ 49935 multiletter control sequences out of 15000+600000
  610868 words of font info for 99 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 113i,10n,119p,641b,706s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 113i,10n,119p,641b,819s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Bold.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Oblique.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/arev/ArevSans-Roman.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7t.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7y.pfb>
-Output written on "STT-1000-Final-H26 reprise.pdf" (14 pages, 112030 bytes).
+Output written on "STT-1000-Final-H26 reprise.pdf" (14 pages, 112524 bytes).
 PDF statistics:
  100 PDF objects out of 1000 (max. 8388607)
  66 compressed objects within 1 object stream
