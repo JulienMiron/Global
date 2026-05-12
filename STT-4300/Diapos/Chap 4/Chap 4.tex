@@ -16,22 +16,22 @@
 
 
 \begin{center}
-{\textbf{\LARGE Chapitre 4: Mod\`eles de r\'egression pour donn\'ees binaires}}
+{\textbf{\LARGE Chapitre 1: Modèles de régression pour données binaires}}
 \end{center}
 
-\noindent Les mod\`eles vus dans les deux chapitres pr\'ec\'dents ne permettent de consid\'erer que les cas o\`u la variable r\'eponse $Y_i$ est continue, pusiqu'on supposait  que $Y_i$ suivait une loi normale. Cependant, dans plusieurs situation, on a une variable r\'eponse discr\`ete qui ne peut prendre qu'un nombre fini (ou d\'enombrable) de valeurs possibles. Dans ce chapitre, on s'int\'eresse au cas o\`u $Y_i$ suit une loi de Bernoulli ou une loi binomiale. Voici quatre exemples:
+\noindent Les modèles vus dans les deux chapitres précédents ne permettent de considérer que les cas où la variable réponse $Y_i$ est continue, pusiqu'on supposait  que $Y_i$ suivait une loi normale. Cependant, dans plusieurs situation, on a une variable réponse discrète qui ne peut prendre qu'un nombre fini (ou dénombrable) de valeurs possibles. Dans ce chapitre, on s'intéresse au cas où $Y_i$ suit une loi de Bernoulli ou une loi binomiale. Voici quatre exemples:
 \begin{enumerate}
-\item[{\bf Ex 1:}] Consid\'erons le jeu de donn\'ees \textsf{quilpie} de la library \texttt{GLMsData} du logiciel \textrm{R}. Ce jeu de donn\'ees contient des observations de 1921 \`a 1988 de la quantit\'e de pluie mesur\'ee durant le mois de juillet \`a Quilpie en Australie. Le jeu de donn\'ees contient des variables explicatives qui concernent la pression atmosph\'erique. La variable r\'eponse ne peut prendre que 2 valeurs: 1 si la quanti\'e de pluie mesur\'ee est sup\'erieure \`a 10 millim\`etres et 0 sinon.
-\item[{\bf Ex 2:}] Consid\'erons le jeu de donn\'ees \textsf{nminer} de la library \texttt{GLMsData} du logiciel \textrm{R}. Ce jeu de donn\'ees contient 31 observations de 9 variables. La variable r\'eponse \textsf{Mminers} ne peut prendre que 2 valeurs: 1 si un mineur bruyant est d\'etect\'e dans la parcelle de terre et 0 sinon.
-\item[{\bf Ex 3:}] Consid\'erons le jeu de donn\'ees \textsf{deposit} de la library \texttt{GLMsData} du logiciel \textrm{R}. Ce jeu de donn\'ees contient 18 observations avec deux variables explicatives : type ($A$, $B$ ou $C$) et dose d'insecticide. La variable r\'eponse $Y_i$ est le nombre d'insectes tu\'es parmi les $m_i$ insectes vivants au d\'ebut de l'exp\'erience.
-\item[{\bf Ex 4:}] Consid\'erons le jeu de donn\'ees \textsf{turbines} de la library \texttt{GLMsData} du logiciel \textrm{R}. Ce jeu de donn\'ees contient 11 observations avec une variable explicative : nombre d'heures de fonctionnement. La variable r\'eponse $Y_i$ est le nombre machines qui pr\'esentent des fissures parmi les $m_i$ machines neuves au d\'ebut de l'exp\'erience.
+\item[{\bf Ex 1:}] Considérons le jeu de données \textsf{quilpie} de la library \texttt{GLMsData} du logiciel \textrm{R}. Ce jeu de données contient des observations de 1921 \`a 1988 de la quantité de pluie mesurée durant le mois de juillet \`a Quilpie en Australie. Le jeu de données contient des variables explicatives qui concernent la pression atmosphérique. La variable réponse ne peut prendre que 2 valeurs: 1 si la quantié de pluie mesurée est supérieure \`a 10 millimètres et 0 sinon.
+\item[{\bf Ex 2:}] Considérons le jeu de données \textsf{nminer} de la library \texttt{GLMsData} du logiciel \textrm{R}. Ce jeu de données contient 31 observations de 9 variables. La variable réponse \textsf{Mminers} ne peut prendre que 2 valeurs: 1 si un mineur bruyant est détecté dans la parcelle de terre et 0 sinon.
+\item[{\bf Ex 3:}] Considérons le jeu de données \textsf{deposit} de la library \texttt{GLMsData} du logiciel \textrm{R}. Ce jeu de données contient 18 observations avec deux variables explicatives : type ($A$, $B$ ou $C$) et dose d'insecticide. La variable réponse $Y_i$ est le nombre d'insectes tués parmi les $m_i$ insectes vivants au début de l'expérience.
+\item[{\bf Ex 4:}] Considérons le jeu de données \textsf{turbines} de la library \texttt{GLMsData} du logiciel \textrm{R}. Ce jeu de données contient 11 observations avec une variable explicative : nombre d'heures de fonctionnement. La variable réponse $Y_i$ est le nombre machines qui présentent des fissures parmi les $m_i$ machines neuves au début de l'expérience.
 \end{enumerate}
 
-\section{Donn\'ees et mod\`ele}
+\section{Données et modèle}
 
-\subsection{Donn\'ees individuelles}
+\subsection{Données individuelles}
 
-\noindent Dans les deux premiers exemples, la variable r\'eponse $Y_i$ ne peut prendre 	que deux valeurs possibles: 0 et 1. Les donn\'ees sont donc sous la forme $\{(Y_i,X_i), i=1,\cdots,n\}$; o\`u $n$ est nombre d'oservations, $Y_i \in \{0,1\}$ est la variable r\'eponse et $X_i=(X_{i1},\cdots,X_{ip})^\top$ est l'ensemble des variables explicatives pour l'observation $i$. On dit que $Y_i$ suit une loi de Bernoulli avec un param\`etre $pi_i \in [0,1]$. On pose alors $P(Y_i=1)=\pi_i$ et $P(Y_i=0)=1-P(Y_i=1)=1-\pi_i$ et on a
+\noindent Dans les deux premiers exemples, la variable réponse $Y_i$ ne peut prendre 	que deux valeurs possibles: 0 et 1. Les données sont donc sous la forme $\{(Y_i,X_i), i=1,\cdots,n\}$; où $n$ est nombre d'oservations, $Y_i \in \{0,1\}$ est la variable réponse et $X_i=(X_{i1},\cdots,X_{ip})^\top$ est l'ensemble des variables explicatives pour l'observation $i$. On dit que $Y_i$ suit une loi de Bernoulli avec un paramètre $\pi_i \in [0,1]$. On pose alors $P(Y_i=1)=\pi_i$ et $P(Y_i=0)=1-P(Y_i=1)=1-\pi_i$ et on a
 
 \begin{eqnarray*}
 P(Y_i=y_i)&=& \pi_i^{y_i}(1-\pi_i)^{1-y_i}, \, \, \, y_i \in \{0,1\}\\
@@ -39,88 +39,94 @@ E[Y_i] &=& \mu_i = \pi_i \\
 Var[Y_i] &=& \sigma^2_i = \pi_i(1-\pi_i).
 \end{eqnarray*}
 
-\noindent D'autres part, on pose $\eta_i=\beta_0+\beta_1 X_{i1} + \cdots + \beta_p X_{ip}, i=1,\cdots,n$. Ici $p$ est le nombre de variables explicatives consid\'er\'ees et $\beta=(\beta_0,\beta_1,\cdots,\beta_p)^\top$ est un vecteur de $p+1$ coefficient de r\'egression. \`a estimer \`a parti des donn\'ees. 
+\noindent D'autres part, on pose $\eta_i=\beta_0+\beta_1 X_{i1} + \cdots + \beta_p X_{ip}, i=1,\cdots,n$. Ici $p$ est le nombre de variables explicatives considérées et $\beta=(\beta_0,\beta_1,\cdots,\beta_p)^\top$ est un vecteur de $p+1$ coefficient de régression. \`a estimer \`a parti des données. 
 
-\noindent Finalement, on a $\eta_i = g(\pi_i)$; o\`u $g(\cdot)$ est une fonction de lien, suppos\'ee connue. La fonction de lien la plus populaire est $$g(u)=\mbox{logit}(u)=\log\left(\frac{u}{1-u}\right).$$ 
+\noindent Finalement, on a $\eta_i = g(\pi_i)$; où $g(\cdot)$ est une fonction de lien, supposée connue. La fonction de lien la plus utilisée est $$g(u)=\mbox{logit}(u)=\log\left(\frac{u}{1-u}\right).$$ 
 
-\noindent Avec cette fonction de lien, on a 
+En combinant les deux
+
+\begin{align*}
+    \log\left(\frac{\pi_i}{1-\pi_i}\right)=\beta_0+\beta_1 X_{i1} + \cdots + \beta_p X_{ip}
+\end{align*}
+
+et
 $$\pi_i = P(Y_i = 1) = \frac{e^{\beta_0+\beta_1 X_{i1} + \cdots + \beta_p X_{ip}}}{1+e^{\beta_0+\beta_1 X_{i1} + \cdots + \beta_p X_{ip}}}.$$
 
-\noindent Et donc, si $\beta_j>0$, une hause de $X_{ij}$ avec toutes les autres variables explicatives maintenues constantes augmentera la probabilit\'e $P(Y_i = 1)$. Si $\beta_j<0$, une hause de $X_{ij}$ avec toutes les autres variables explicatives maintenues constantes diminuera la probabilit\'e $P(Y_i = 1)$. Finalement, si $\beta_j=0$, alors $X_{ij}$ n'a pas d'effets sur la probabilit\'e $P(Y_i = 1)$.
+\noindent Et donc, si $\beta_j>0$, une hause de $X_{ij}$ avec toutes les autres variables explicatives maintenues constantes augmentera la probabilité $P(Y_i = 1)$. Si $\beta_j<0$, une hause de $X_{ij}$ avec toutes les autres variables explicatives maintenues constantes diminuera la probabilité $P(Y_i = 1)$. Finalement, si $\beta_j=0$, alors $X_{ij}$ n'a pas d'effets sur la probabilité $P(Y_i = 1)$.
 
-\subsection{Donn\'ees group\'ees}
+\subsection{Données groupées}
 
-\noindent Dans les deux derniers exemples, la variable r\'eponse $Y_i$ peut prendre n'importe quelle valeur dans l'ensemble $\{0,1,\cdots,m_i\}$, o\`u $m_i$ est un entier connu \`a l'avance et qui varie d'une observation \`a une autre. 'A toute fin pratique, $m_i$ peut \^etre consid\'er\'e comme un nombre total d'expr\'eriences ind\'ependantes ayant deux r\'esultats possibles (succ\`es ou \'echec) et $Y_i$ est interpr\'et\'e comme le nombre de succ\`es parmi les $m_i$ exp\'eriences. Les donn\'ees sont donc sous la forme $\{(Y_i,m_i,X_i), i=1,\cdots,n\}$. On dit que $Y_i$ suit une loi Binomiale de param\`etres $m_i$ et $\pi_i \in [0,1]$ et on \'ecrit $Y_i \sim \mbox{Bin}(m_i,\pi_i)$. Selon cette loi, on a:
+\noindent Dans les deux derniers exemples, la variable réponse $Y_i$ peut prendre n'importe quelle valeur dans l'ensemble $\{0,1,\cdots,m_i\}$, où $m_i$ est un entier connu \`a l'avance et qui varie d'une observation \`a une autre. 'A toute fin pratique, $m_i$ peut \^etre considéré comme un nombre total d'exprériences indépendantes ayant deux résultats possibles (succès ou échec) et $Y_i$ est interprété comme le nombre de succès parmi les $m_i$ expériences. Les données sont donc sous la forme $\{(Y_i,m_i,X_i), i=1,\cdots,n\}$. On dit que $Y_i$ suit une loi Binomiale de paramètres $m_i$ et $\pi_i \in [0,1]$ et on écrit $Y_i \sim \mbox{Bin}(m_i,\pi_i)$. Selon cette loi, on a:
 \begin{eqnarray*}
 P(Y_i=y_i)&=& \binom{m_i}{y_i} \pi_i^{y_i}(1-\pi_i)^{m_i-y_i}, \, \, \, y_i \in \{0,1,\cdots,m_i\}\\
 E[Y_i] &=& \mu_i = m_i \pi_i \\
 Var[Y_i] &=& \sigma^2_i = m_i \pi_i(1-\pi_i) = \frac{\mu_i(m_i-\mu_i)}{m_i}.
 \end{eqnarray*}
 
-\noindent Pour relier la variable r\'eponse aux variables explicative, on pose $\eta_i=g(\pi_i), i=1,\cdots,n$. Ce choix est motiv\'e par le fait que $\pi_i$ doit appartenir \`a l'intervalle $[0,1]$.
+\noindent Pour relier la variable réponse aux variables explicative, on pose $\eta_i=g(\pi_i), i=1,\cdots,n$. Ce choix est motivé par le fait que $\pi_i$ doit appartenir \`a l'intervalle $[0,1]$.
 
-\noindent Si on a $m_1=m_2=\cdots=m_n=1$, on retrouve la loi de Bernoulli des deux premiers exemples. La loi de Bernoulli est un cas particulier de la loi binomiale. Dans la suite de ce chapitre, on se contentera de pr\'esenter les d\'eveloppements pour la loi binomiale.
+\noindent Si on a $m_1=m_2=\cdots=m_n=1$, on retrouve la loi de Bernoulli des deux premiers exemples. La loi de Bernoulli est un cas particulier de la loi binomiale. Dans la suite de ce chapitre, on se contentera de présenter les développements pour la loi binomiale.
 
 \subsection{Fonctions de lien}
 
-La fonction de lien $g$ sp\'ecifi\'ee pour des donn\'ees binaires doit s'assurer que $\pi_i=g^{-1}(\eta_i)$ appartient \`a l'intervalle $[0,1]$, puisque $\pi_i$ est une probabilit\'e. Trois fonctions de lien sont commun\'ement utilis\'ees pour les donn\'ees binaires:
+La fonction de lien $g$ spécifiée pour des données binaires doit s'assurer que $\pi_i=g^{-1}(\eta_i)$ appartient \`a l'intervalle $[0,1]$, puisque $\pi_i$ est une probabilité. Trois fonctions de lien sont communément utilisées pour les données binaires:
 \begin{enumerate}
-\item[{\bf Logit:}] Cette fonction est d\'efinie par $$g(u)=\mbox{logit}(u)=\log\left(\frac{u}{1-u}\right).$$
-\noindent Ainsi, on a $\pi_i=g^{-1}(\eta_i)=e^{\eta_i}/(1+e^{\eta_i})$. Avec logiciel \textrm{R}, on sp\'eficie \textsf{link="logit"} \`a l'int\'erieur de la fonction \textsf{glm}.
-\item[{\bf Probit:}] Cette fonction est d\'efinie par $g(u)=\Phi^{-1}(u)$, o\`u $\Phi$ est la fonction de r\'epartition de la loi normale standard ${\cal N}(0,1)$.  Ainsi, on a $\pi_i=g^{-1}(\eta_i)=\Phi(\eta_i)$. Avec logiciel \textrm{R}, on sp\'eficie \textsf{link="probit"} \`a l'int\'erieur de la fonction \textsf{glm}.
-\item[{\bf c-log-log:}] Cette fonction est d\'efinie par $g(u)=\log\{-\log(1-u)\}$. Ainsi, on a $\pi_i=g^{-1}(\eta_i)=1-e^{-e^{\eta_i}}$. Avec logiciel \textrm{R}, on sp\'eficie \textsf{link="cloglog"} \`a l'int\'erieur de la fonction \textsf{glm}.
+\item[{\bf Logit:}] Cette fonction est définie par $$g(u)=\mbox{logit}(u)=\log\left(\frac{u}{1-u}\right).$$
+\noindent Ainsi, on a $\pi_i=g^{-1}(\eta_i)=e^{\eta_i}/(1+e^{\eta_i})$. Avec logiciel \textrm{R}, on spéficie \textsf{link="logit"} \`a l'intérieur de la fonction \textsf{glm}.
+\item[{\bf Probit:}] Cette fonction est définie par $g(u)=\Phi^{-1}(u)$, où $\Phi$ est la fonction de répartition de la loi normale standard ${\cal N}(0,1)$.  Ainsi, on a $\pi_i=g^{-1}(\eta_i)=\Phi(\eta_i)$. Avec logiciel \textrm{R}, on spéficie \textsf{link="probit"} \`a l'intérieur de la fonction \textsf{glm}.
+\item[{\bf c-log-log:}] Cette fonction est définie par $g(u)=\log\{-\log(1-u)\}$. Ainsi, on a $\pi_i=g^{-1}(\eta_i)=1-e^{-e^{\eta_i}}$. Avec logiciel \textrm{R}, on spéficie \textsf{link="cloglog"} \`a l'intérieur de la fonction \textsf{glm}.
 \end{enumerate}
 
-\noindent On remarque que dans les trois cas pr\'esent\'es ci-haut, $g^{-1}(\cdot)$ est une fonction de r\'epartition. 
+\noindent On remarque que dans les trois cas présentés ci-haut, $g^{-1}(\cdot)$ est une fonction de répartition. 
 
 
-\section{Inf\'erence statistique}
+\section{Inférence statistique}
 
-\subsection{Estimation des param\`etres $\beta$}
-Le vecteur des param\`etres du mod\`ele est $\beta=(\beta_0,\beta_1,\cdots,\beta_p)^\top$. La fonction de log-vraisemblance est
+\subsection{Estimation des paramètres $\beta$}
+Le vecteur des paramètres du modèle est $\beta=(\beta_0,\beta_1,\cdots,\beta_p)^\top$. La fonction de log-vraisemblance est
 \begin{eqnarray*}
 \sum_{i=1}^n \log\left[P(Y_i=y_i)\right]&=&\sum_{i=1}^n \log\left[\binom{m_i}{y_i} \pi_i^{y_i}(1-\pi_i)^{m_i-y_i}\right] \\ 
 &=& \sum_{i=1}^n \left\{\log\left[\binom{m_i}{y_i}\right]+y_i\log(\pi_i)+(m_i-y_i)\log(1-\pi_i)\right\}.
 \end{eqnarray*}
 
-\noindent Cette fonction d\'epent du vecteur de param\`etres $\beta$ \`a travers $\pi_i$, puisqu'on a 
+\noindent Cette fonction dépent du vecteur de paramètres $\beta$ \`a travers $\pi_i$, puisqu'on a 
 $$\pi_i = g^{-1}(\eta_i) = g^{-1}(\beta_0+\beta_1 X_{i1} + \cdots + \beta_p X_{ip}).$$
 
-\noindent En rempla\c{c}ant $\pi_i$ par $\mu_i/m_i$ dans l'expression pr\'ec\'edente, on montre que cette fonction log-vraisemblance est \'egale \`a
+\noindent En rempla\c{c}ant $\pi_i$ par $\mu_i/m_i$ dans l'expression précédente, on montre que cette fonction log-vraisemblance est égale \`a
 $$l(\mu;y) = \sum_{i=1}^n \left\{y_i \log(\mu_i) + (m_i-y_i) \log(m_i-\mu_i)\right\} + K$$
 
-\noindent o\`u $$K = \sum_{i=1}^n \left\{\log\left[\binom{m_i}{y_i}\right] - m_i\log(m_i)\right\}$$
-est une constante qui ne d\'epend pas de $\beta$. L'estimateur de maximum de vraisemblance de $\beta$, disons $\hat\beta$, est la valeur de $\beta$ qui maximise $l(\beta;y,\mu)$. On calcule par la suite la matrice d'information de Fisher $I$. L'\'el\'ement \`a la position $(j,k)$ de la matrice $I$ est \'egal \`a 
+\noindent où $$K = \sum_{i=1}^n \left\{\log\left[\binom{m_i}{y_i}\right] - m_i\log(m_i)\right\}$$
+est une constante qui ne dépend pas de $\beta$. L'estimateur de maximum de vraisemblance de $\beta$, disons $\hat\beta$, est la valeur de $\beta$ qui maximise $l(\beta;y,\mu)$. On calcule par la suite la matrice d'information de Fisher $I$. L'élément \`a la position $(j,k)$ de la matrice $I$ est égal \`a 
 $$-\frac{\partial^2 l(\beta;y,\mu)}{\partial \beta_j \partial \beta_k}$$
-\'evalu\'ee \`a $\beta=\hat\beta$. La matrice de variance-covariance de $\hat\beta$ est alors estim\'ee par $v(\hat\beta)=I^{-1}$. Par la th\'eorie g\'en\'erale de l'estimation par maximum de vraisemblance, la distribution asympotique de $\hat\beta$ est approxim\'ee par la loi normale multivari\'ee ${\cal N}\{\beta,v(\hat\beta)\}$.
+évaluée \`a $\beta=\hat\beta$. La matrice de variance-covariance de $\hat\beta$ est alors estimée par $v(\hat\beta)=I^{-1}$. Par la théorie générale de l'estimation par maximum de vraisemblance, la distribution asympotique de $\hat\beta$ est approximée par la loi normale multivariée ${\cal N}\{\beta,v(\hat\beta)\}$.
 
-\noindent On montre que $v(\hat\beta) = (X^\top W X)^{-1}$ o\`u $X$ est une matrice $n \times (p+1)$ contenant les variables explicatives, incluant l'intercepte et $W$ est une matrice diagonale de taille $n$ avec les entr\'ees $w_{i}=\hat\mu_i(m_i-\hat\mu_i)/m_i, i=1,\cdots,n$ sur la diagonale. Ici, on a
+\noindent On montre que $v(\hat\beta) = (X^\top W X)^{-1}$ où $X$ est une matrice $n \times (p+1)$ contenant les variables explicatives, incluant l'ordonnée à l'origine et $W$ est une matrice diagonale de taille $n$ avec les entrées $w_{i}=\hat\mu_i(m_i-\hat\mu_i)/m_i, i=1,\cdots,n$ sur la diagonale. Ici, on a
 $$\hat\mu_i  = m_i \hat \pi_i = m_i g^{-1}(\hat\eta_i) = m_i g^{-1}(\hat\beta_0+\hat\beta_1 X_{i1} + \cdots + \hat\beta_p X_{ip})$$
 
-\subsection{Tests d'hypoth\`eses et intervalles de confiance}
-Les intervalles de confiances et les tests d'hypoth\`eses concernant les $\beta_j$ sont obtenus par la m\'ethode de Wald.
+\subsection{Tests d'hypothèses et intervalles de confiance}
+Les intervalles de confiances et les tests d'hypothèses concernant les $\beta_j$ sont obtenus par la méthode de Wald.
 
-\noindent Ainsi, un intervalle de confiance \`a $100\times(1-\alpha)\%$ pour $\beta_j$ est donn\'e par $$[\hat\beta_j - z_{\alpha/2} \sqrt{v(\hat\beta_j)};\hat\beta_j + z_{\alpha/2} \sqrt{v(\hat\beta_j)}],$$
-o\`u $z_{\gamma}$ est le quantile de la loi normale standard d\'efini par $P(Z>z_{\gamma})=\gamma$, $\gamma \in (0,1)$, $Z \sim {\cal N}(0,1)$ et $v(\hat\beta_j)$ est l'\'el\'ement $(j+1,j+1)$ de la matrice $v(\hat\beta)$, $j=0,1,\cdots,p$.
+\noindent Ainsi, un intervalle de confiance \`a $100\times(1-\alpha)\%$ pour $\beta_j$ est donné par $$[\hat\beta_j - z_{\alpha/2} \sqrt{v(\hat\beta_j)};\hat\beta_j + z_{\alpha/2} \sqrt{v(\hat\beta_j)}],$$
+où $z_{\gamma}$ est le quantile de la loi normale standard défini par $P(Z>z_{\gamma})=\gamma$, $\gamma \in (0,1)$, $Z \sim {\cal N}(0,1)$ et $v(\hat\beta_j)$ est l'élément $(j+1,j+1)$ de la matrice $v(\hat\beta)$, $j=0,1,\cdots,p$.
 
-\noindent Consid\'erant maintenant le test d'hypoth\`ese $H_0: \beta_j = 0$ versus $H_1: \beta_j \neq 0$. On rejetter $H_0$ au seuil $\alpha$ si $|z_{obs}|>z_{\alpha/2}$, avec $z_{obs}=\hat\beta_j/\sqrt{v(\hat\beta_j)}$. Le seuil observ\'e ($p$-valeur ou $p$-value) est $\alpha^*=P(|Z|>|z_{obs}|)=2P(Z>|z_{obs}|)$, $Z \sim {\cal N}(0,1)$.
+\noindent Considérant maintenant le test d'hypothèse $H_0: \beta_j = 0$ versus $H_1: \beta_j \neq 0$. On rejetter $H_0$ au seuil $\alpha$ si $|z_{obs}|>z_{\alpha/2}$, avec $z_{obs}=\hat\beta_j/\sqrt{v(\hat\beta_j)}$. Le seuil observé ($p$-valeur ou $p$-value) est $\alpha^*=P(|Z|>|z_{obs}|)=2P(Z>|z_{obs}|)$, $Z \sim {\cal N}(0,1)$.
 
-\noindent Int\'eressons nous maintenant \`a $\pi^*$ lorsque $X=X^*=(1,X_1^*,\cdots,X_p^*)^\top$. On estime $\pi$ par $\hat\pi^*=g^{-1}(\hat\beta_0+\hat\beta_1 X_{1}^* + \cdots + \hat\beta_p X_{p}^*)=g^{-1}(X^*\hat\beta)$.
+\noindent Intéressons nous maintenant \`a $\pi^*$ lorsque $X=X^*=(1,X_1^*,\cdots,X_p^*)^\top$. On estime $\pi$ par $\hat\pi^*=g^{-1}(\hat\beta_0+\hat\beta_1 X_{1}^* + \cdots + \hat\beta_p X_{p}^*)=g^{-1}(X^*\hat\beta)$.
 
-\noindent Un intervalle de confinace \`a $100\times(1-\alpha)\%$ pour $X^*\beta$ est donn\'e par 
+\noindent Un intervalle de confinace \`a $100\times(1-\alpha)\%$ pour $X^*\beta$ est donné par 
 $$\left[ X^*\hat\beta - z_{\alpha/2}\sqrt{v(X^*\hat\beta)}   , X^*\hat\beta + z_{\alpha/2}\sqrt{v(X^*\hat\beta)}\right],$$
 
-\noindent avec $v(X^*\hat\beta)=X^* v(\hat\beta) {X^*}^\top$. On en d\'eduit un intervalle de confiance \`a $100\times(1-\alpha)\%$ pour $\pi^*$:
+\noindent avec $v(X^*\hat\beta)=X^* v(\hat\beta) {X^*}^\top$. On en déduit un intervalle de confiance \`a $100\times(1-\alpha)\%$ pour $\pi^*$:
 $$\left[ g^{-1}\left\{X^*\hat\beta - z_{\alpha/2}\sqrt{v(X^*\hat\beta)}\right\},g^{-1}\left\{X^*\hat\beta + z_{\alpha/2}\sqrt{v(X^*\hat\beta)}\right\}   \right].$$
 
-\noindent Alternativement, on peut approximer $Var(\hat\pi^*)$ par la r\`egle du delta. On obtient $v(\hat\pi^*)=h(X^*\hat\beta)v(X^*\hat\beta)$, o\`u $h(u)=\{\partial g^{-1}(u)/\partial u\}^2$. 
+\noindent Alternativement, on peut approximer $Var(\hat\pi^*)$ par la règle du delta. On obtient $v(\hat\pi^*)=h(X^*\hat\beta)v(X^*\hat\beta)$, où $h(u)=\{\partial g^{-1}(u)/\partial u\}^2$. 
 
-\noindent Un intervalle de confiance approximatif \`a $100\times(1-\alpha)\%$ pour $\pi^*$ est donn\'e par 
+\noindent Un intervalle de confiance approximatif \`a $100\times(1-\alpha)\%$ pour $\pi^*$ est donné par 
 $$\left[\hat\pi^* - 1.96 \sqrt{v(\hat\pi^*)},\hat\pi^* - 1.96 \sqrt{v(\hat\pi^*)}\right].$$
 
 \subsection{Exemple en R}
 
-Consid\'erons le jeu de donn\'ees \textsf{turbines} de la library \texttt{GLMsData} du logiciel \textrm{R}.
+Considérons le jeu de données \textsf{turbines} de la library \texttt{GLMsData} du logiciel \textrm{R}.
 
 \begin{verbatim}
 > if (!require("GLMsData")) install.packages("GLMsData")
@@ -163,9 +169,9 @@ beta1 (probit)   0.000578   0.000063   9.238777        0
 beta1 (cloglog)  0.000810   0.000090   8.992278        0
 \end{verbatim}
 
-\noindent Les trois fonctions de lien donnent des r\'esultats tr\`es similaires, ce qui est tr\`es fr\'equent.
+\noindent Les trois fonctions de lien donnent des résultats très similaires, ce qui est très fréquent.
 
-\noindent Tra\c{c}ons maintenant $\hat\pi^*$ avec les intervalles de confiance pour diff\'erentes valeurs du nombre d'heures de fonctionnement. On utilise le lien logit et on calcule les intervalles de confiance de deux mani\`eres diff\'erentes, comme d\'etaill\'e ci-haut. Voici le code \textrm{R} pour la premi\`ere m\'ethode:
+\noindent Tra\c{c}ons maintenant $\hat\pi^*$ avec les intervalles de confiance pour différentes valeurs du nombre d'heures de fonctionnement. On utilise le lien logit et on calcule les intervalles de confiance de deux manières différentes, comme détaillé ci-haut. Voici le code \textrm{R} pour la première méthode:
 
 \begin{verbatim}
 ############################################################################
@@ -199,7 +205,7 @@ lines(Heures,intervalle.confiance.2.pi.chapeau,lty=2)
 \includegraphics[scale=0.3]{Graphique2.pdf}
 \end{center}
 
-\noindent Et voici le code \textrm{R} pour la deuxi\`ere m\'ethode:
+\noindent Et voici le code \textrm{R} pour la deuxière méthode:
 
 \begin{verbatim}
 ## 2eme facon: intervalles de confiance approximatifs
@@ -222,9 +228,9 @@ lines(Heures,pi.chapeau+1.96*se.pi.chapeau,lty=2)
 \includegraphics[scale=0.3]{Graphique3.pdf}
 \end{center}
 
-\noindent Les deux graphiques sont tr\`es similaires.
+\noindent Les deux graphiques sont très similaires.
 
-\noindent Tra\c{c}ons maintenant $\hat\pi^*$ pour diff\'erentes valeurs du nombre d'heures de fonctionnement en consid\'erant les 3 fonctions de lien.
+\noindent Tra\c{c}ons maintenant $\hat\pi^*$ pour différentes valeurs du nombre d'heures de fonctionnement en considérant les 3 fonctions de lien.
 
 \begin{verbatim}
 ###################################################################
@@ -254,32 +260,32 @@ legend("topleft",lwd=2,lty=c(1,2,4),
 \includegraphics[scale=0.3]{Graphique4.pdf}
 \end{center}
 
-\noindent Les courbes obtenues avec les trois fonctions de lien sont tr\`es similaires. Ce qui est tr\`es fr\'equent.
+\noindent Les courbes obtenues avec les trois fonctions de lien sont très similaires. Ce qui est très fréquent.
 
-\section{S\'election de mod\`eles}
+\section{Sélection de modèles}
 
-\subsection{D\'eviance}
+\subsection{Déviance}
 
-Consid\'erons maintenant un mod\`ele, dit satur\'e, avec $n$ param\`etres $\{\tilde \mu_1, \cdots, \tilde \mu_n\}$ et sans variables explicatives. Sous ce mod\`ele, on a $$P(Y_i=y_i)= \binom{m_i}{y_i} \frac{\tilde \mu_i^{y_i}(m_i-\tilde \mu_i)^{m_i-y_i}}{m_i^{m_i}}$$ et on montre que les estimateurs de maximum de vraisemblance de $\{\tilde \mu_1, \cdots, \tilde \mu_n\}$ sont $\{y_1,\cdots,y_n\}$. La statistique de test de rapport de vraisemblance entre ce mod\`ele satur\'e et le mod\`ele complet consid\'er\'e dans la section pr\'ec\'edente est 
+Considérons maintenant un modèle, dit saturé, avec $n$ paramètres $\{\tilde \mu_1, \cdots, \tilde \mu_n\}$ et sans variables explicatives. Sous ce modèle, on a $$P(Y_i=y_i)= \binom{m_i}{y_i} \frac{\tilde \mu_i^{y_i}(m_i-\tilde \mu_i)^{m_i-y_i}}{m_i^{m_i}}$$ et on montre que les estimateurs de maximum de vraisemblance de $\{\tilde \mu_1, \cdots, \tilde \mu_n\}$ sont $\{y_1,\cdots,y_n\}$. La statistique de test de rapport de vraisemblance entre ce modèle saturé et le modèle complet considéré dans la section précédente est 
 \begin{eqnarray*}
 D &=& 2\left\{  l(y,y)-l(\hat \mu,y) \right\}\\
 &=& 2 \sum_{i=1}^n \left\{y_i \log\left(\frac{y_i}{\hat\mu_i}\right) + (m_i-y_i) \log\left(\frac{m_i-y_i}{m_i-\hat\mu_i}\right)\right\} \\
 &=& 2  \sum_{i=1}^n d_i.
 \end{eqnarray*}
 
-\noindent La statistique $D$ est appel\'ee la d\'eviance du mod\`ele alors que la statistique $d_i$ est la d\'eviance individuellle de l'observation $i$. La statistique $D$ joue le m\^eme r\^ole que la somme des carr\'es des r\'esidus pour la r\'egression lin\'eaire. Elle est utilis\'ee pour \'evaluer l'ajustement et l'ad\'equation du mod\`ele aux donn\'ees et pour comparer des mod\`eles.
+\noindent La statistique $D$ est appelée la déviance du modèle alors que la statistique $d_i$ est la déviance individuellle de l'observation $i$. La statistique $D$ joue le m\^eme r\^ole que la somme des carrés des résidus pour la régression linéaire. Elle est utilisée pour évaluer l'ajustement et l'adéquation du modèle aux données et pour comparer des modèles.
 
-\subsection{Comparaison de mod\`eles embo\^it\'es}
+\subsection{Comparaison de modèles embo\^ités}
 
-Deux mod\`eles sont embo\^it\'es si l'un des deux est un cas particulier de l'autre. Pour comparer deux mod\`eles embo\^it\'es, on commence par ajuster chacun des mod\`eles aux donn\'ees. On calcule par la suite la d\'eviance de chaque mod\`ele, disons $D_1$ et $D_2$. La statistique de test pour comparer les deux mod\`eles est $\chi^2 = D_2-D_1$. Sous $H_0:\mbox{le mod\`ele r\'eduit est plus ad\'equat aux donn\'ees}$, on a $\chi^2$ suit une loi de Khi-deux \`a $d$ degr\'es de libert\'e, o\`u $d$ est la diff\'erence entre le nombre de param\`etres du mod\`ele complet et celui du mod\`ele r\'eduit. 
+Deux modèles sont embo\^ités si l'un des deux est un cas particulier de l'autre. Pour comparer deux modèles embo\^ités, on commence par ajuster chacun des modèles aux données. On calcule par la suite la déviance de chaque modèle, disons $D_1$ et $D_2$. La statistique de test pour comparer les deux modèles est $\chi^2 = D_2-D_1$. Sous $H_0:\mbox{le modèle réduit est plus adéquat aux données}$, on a $\chi^2$ suit une loi de Khi-deux \`a $d$ degrés de liberté, où $d$ est la différence entre le nombre de paramètres du modèle complet et celui du modèle réduit. 
 
-\noindent Revenons sur le jeu de donn\'ees \textsf{turbines} de la library \texttt{GLMsData} du logiciel \textrm{R}. On voudrait savoir si c'est pertinent d'ajouter des termes quadratique et cubique avec la fonction de lien logit. Ainsi, avec le mod\`ele complet on a:
+\noindent Revenons sur le jeu de données \textsf{turbines} de la library \texttt{GLMsData} du logiciel \textrm{R}. On voudrait savoir si c'est pertinent d'ajouter des termes quadratique et cubique avec la fonction de lien logit. Ainsi, avec le modèle complet on a:
 $$\pi_i = \frac{e^{\beta_0+\beta_1 x_i + \beta_2 x_i^2 + \beta_3 x_i^3}}{1+e^{\beta_0+\beta_1 x_i + \beta_2 x_i^2 + \beta_3 x_i^3}}$$
 
-\noindent alors qu'avec le mod\`ele r\'eduit, on a 
+\noindent alors qu'avec le modèle réduit, on a 
 $$\pi_i = \frac{e^{\beta_0+\beta_1 x_i}}{1+e^{\beta_0+\beta_1 x_i}}.$$
 
-\noindent Comparer ces deux mod\`eles revient \`a tester l'hypoth\`ese nulle $H_0: \beta_2=\beta_3=0$. On calcule alors la d\'eviance de chacun de ces mod\`eles. La statistique du test est la diff\'erence entre les deux d\'eviances.
+\noindent Comparer ces deux modèles revient \`a tester l'hypothèse nulle $H_0: \beta_2=\beta_3=0$. On calcule alors la déviance de chacun de ces modèles. La statistique du test est la différence entre les deux déviances.
 
 \begin{verbatim}
 > data(turbines)#### Rendre le jeu de donnees turbines disponible
@@ -314,19 +320,19 @@ The following objects are masked from turbines (pos = 4):
 [1] 0.4767217
 \end{verbatim}
 
-\noindent Le seuil observ\'e du test est 0.47. On ne rejette pas l'hypoth\`ese nulle. On conclut que le mod\`ele r\'eduit est plus ad\'equat aux donn\'ees.
+\noindent Le seuil observé du test est 0.47. On ne rejette pas l'hypothèse nulle. On conclut que le modèle réduit est plus adéquat aux données.
 
-\subsection{Comparaison de mod\`eles non-embo\^it\'es}
+\subsection{Comparaison de modèles non-embo\^ités}
 
-Comme pour les mod\`eles lin\'eaires, on compare les mod\`eles non-embo\^it\'es en utilisant les crit\`eres $AIC$ et $BIC$. Ces crit\`eres sont d\'efinis comme suit: 
+Comme pour les modèles linéaires, on compare les modèles non-embo\^ités en utilisant les critères $AIC$ et $BIC$. Ces critères sont définis comme suit: 
 \begin{eqnarray*}
 AIC &=& -2 l(\hat\mu;y) + 2 (p+1) \\
 BIC &=& -2 l(\hat\mu;y) + \log(n) (p+1) \\
 \end{eqnarray*}
 
-\noindent Le mod\`ele ayant le plus petit $AIC$ (ou $BIC$) est pr\'ef\'erable.
+\noindent Le modèle ayant le plus petit $AIC$ (ou $BIC$) est préférable.
 
-\noindent Consid\'erons le jeu de donn\'ees \textsf{deposit} de la library \texttt{GLMsData} du logiciel \textrm{R}. Ce jeu de donn\'ees comporte deux variables explicatives: type et dose de l'insecticide utilis\'e et la variable r\'eponse est le nombre d'insectes tu\'es parmi ceux qui ont commenc\'e l'exp\'erience. On consid\`ere deux mod\`eles. Le premier avec les deux variables explicatives et leur interaction. Le deuxi\`eme mod\`ele consid\`ere la variable dose de l'insecticide avec des termes quadratique et cubique. Ces deux mod\`eles ne sont pas embo\^it\'es. On utilise les crit\`eres $AIC$ et $BIC$ pour d\'eterminer celui qui est plus ad\'equat aux donn\'ees. 
+\noindent Considérons le jeu de données \textsf{deposit} de la library \texttt{GLMsData} du logiciel \textrm{R}. Ce jeu de données comporte deux variables explicatives: type et dose de l'insecticide utilisé et la variable réponse est le nombre d'insectes tués parmi ceux qui ont commencé l'expérience. On considère deux modèles. Le premier avec les deux variables explicatives et leur interaction. Le deuxième modèle considère la variable dose de l'insecticide avec des termes quadratique et cubique. Ces deux modèles ne sont pas embo\^ités. On utilise les critères $AIC$ et $BIC$ pour déterminer celui qui est plus adéquat aux données. 
 
 \begin{verbatim}
 > if (!require("GLMsData")) install.packages("GLMsData")
@@ -353,11 +359,11 @@ BIC &=& -2 l(\hat\mu;y) + \log(n) (p+1) \\
 [1] 281.637
 \end{verbatim}
 
-\noindent Selon les crit\`eres $AIC$ et $BIC$, le premier mod\`ele est plus ad\'equat aux donn\'ees.
+\noindent Selon les critères $AIC$ et $BIC$, le premier modèle est plus adéquat aux données.
 
-\subsection{S\'election automatique de mod\`ele}
+\subsection{Sélection automatique de modèle}
 
-Les m\'ethodes pas \`a pas {\it forward}, {\it backward} et {\it stepwise} fonctionnenet exactement comme pour les mod\`eles lin\'eaires. On consid\`ere le jeu de donn\'ees \textsf{deposit} de la library \texttt{GLMsData} du logiciel \textrm{R}. On utilise ces proc\'edures pour s\'electionner le meilleur mod\`ele. Le mod\`ele le plus complet comporte les deux variables explicatives: type et dose de l'insecticide, ainsi que leur interaction et les termes quadratique et cubique de dose.
+Les méthodes pas \`a pas {\it forward}, {\it backward} et {\it stepwise} fonctionnenet exactement comme pour les modèles linéaires. On considère le jeu de données \textsf{deposit} de la library \texttt{GLMsData} du logiciel \textrm{R}. On utilise ces procédures pour sélectionner le meilleur modèle. Le modèle le plus complet comporte les deux variables explicatives: type et dose de l'insecticide, ainsi que leur interaction et les termes quadratique et cubique de dose.
 
 \begin{verbatim}
 > max.modele <- glm(cbind(Killed,Number-Killed)~factor(Insecticide)*Deposit+
@@ -521,30 +527,30 @@ Null Deviance:      413.6
 Residual Deviance: 14.5         AIC: 86.7
 \end{verbatim}
 
-\noindent Selon les trois proc\`edures, le mod\`ele retenu est celui qui inclut les deux variables explicatives (type et dose de l'insecticide) et le terme quadratique de la dose.
+\noindent Selon les trois procèdures, le modèle retenu est celui qui inclut les deux variables explicatives (type et dose de l'insecticide) et le terme quadratique de la dose.
 
-\section{Validation et diagnostique de mod\`eles}
+\section{Validation et diagnostique de modèles}
 
-\subsection{R\'esidus}
+\subsection{Résidus}
 
-Comme pour la r\'egression lin\'eaire , les r\'esidus ont un r\^ole important dans la validation des mod\`eles. Pour la r\'egression logistique, on distingue deux types de r\'esidus: r\'esidus d\'eviance et r\'esidus Pearson.
+Comme pour la régression linéaire , les résidus ont un r\^ole important dans la validation des modèles. Pour la régression logistique, on distingue deux types de résidus: résidus déviance et résidus Pearson.
 
-\noindent Les r\'esidus d\'eviance sont d\'efinis par $r_{D,i}= \mbox{signe}(y_i-\mu_i) \sqrt{d_i}$, o\`u 
+\noindent Les résidus déviance sont définis par $r_{D,i}= \mbox{signe}(y_i-\mu_i) \sqrt{d_i}$, où 
 $$\mbox{signe}(u) = \begin{cases} 1  & \mbox{si } u>0, \\
 -1 & \mbox{si } u<0, \\
 0 & \mbox{si } u=0 \end{cases}$$
 et $$d_i=2 \times \left\{y_i \log\left(\frac{y_i}{\hat\mu_i}\right) + (m_i-y_i) \log\left(\frac{m_i-y_i}{m_i-\hat\mu_i}\right)\right\}.$$
 
-\noindent D'autre part, les r\'esidus Pearson sont d\'efinis par $$r_{P,i}=\frac{y_i-m_i\hat\pi_i}{\sqrt{m_i\hat\pi_i(1-\hat\pi_i)}}=\frac{y_i-\hat\mu_i}{\sqrt{\frac{\hat\mu_i(m_i-\hat\mu_i)}{m_i}}}.$$
+\noindent D'autre part, les résidus Pearson sont définis par $$r_{P,i}=\frac{y_i-m_i\hat\pi_i}{\sqrt{m_i\hat\pi_i(1-\hat\pi_i)}}=\frac{y_i-\hat\mu_i}{\sqrt{\frac{\hat\mu_i(m_i-\hat\mu_i)}{m_i}}}.$$
 
 
-\subsection{Tests d'ad\'equation globale}
+\subsection{Tests d'adéquation globale}
 
-Deux statistiques sont disponibles pour tester l'ad\'equation globale d'un mod\`ele: la premi\`ere est la d\'eviance $D=\sum\limits_{i=1}^n r_{D,i}^2$ et la deuxi\`eme est la statistique Khi-deux de Pearson $$\chi^2_P=\sum\limits_{i=1}^n r_{P,i}^2=\sum_{i=1}^n \frac{m_i(y_i-\hat\mu_i)^2}{\hat\mu_i(m_i-\hat\mu_i)}.$$
+Deux statistiques sont disponibles pour tester l'adéquation globale d'un modèle: la première est la déviance $D=\sum\limits_{i=1}^n r_{D,i}^2$ et la deuxième est la statistique Khi-deux de Pearson $$\chi^2_P=\sum\limits_{i=1}^n r_{P,i}^2=\sum_{i=1}^n \frac{m_i(y_i-\hat\mu_i)^2}{\hat\mu_i(m_i-\hat\mu_i)}.$$
 
-\noindent Lorsque tous les $m_i \rightarrow \infty$, les statistiques $D$ et $\chi^2_P$ convergent en loi vers une distribution de Khi-deux \`a $n-(p+1)$ degr\'es de libert\'e si le mod\`ele est bien sp\'ecifi\'e. Il est primordial de noter que ces tests ne sont valides que pour des donn\'ees group\'ees avec des $m_i$ \'elev\'es puisqu<ils reposent sur un r\'esultat asymptotique.
+\noindent Lorsque tous les $m_i \rightarrow \infty$, les statistiques $D$ et $\chi^2_P$ convergent en loi vers une distribution de Khi-deux \`a $n-(p+1)$ degrés de liberté si le modèle est bien spécifié. Il est primordial de noter que ces tests ne sont valides que pour des données groupées avec des $m_i$ élevés puisqu<ils reposent sur un résultat asymptotique.
 
-\noindent Revenons au jeu de donn\'ees \textsf{deposit} de la library \texttt{GLMsData} du logiciel \textrm{R}. \`A la section pr\'ec\'edente, on a retenu le mod\`ele avec les deux variables explicatives (type et dose de l'insecticide) et le terme quadratique de la dose. Testons l'ad\'equation globale de ce mod\`ele.
+\noindent Revenons au jeu de données \textsf{deposit} de la library \texttt{GLMsData} du logiciel \textrm{R}. \`A la section précédente, on a retenu le modèle avec les deux variables explicatives (type et dose de l'insecticide) et le terme quadratique de la dose. Testons l'adéquation globale de ce modèle.
 
 \begin{verbatim}
 > if (!require("GLMsData")) install.packages("GLMsData")
@@ -589,11 +595,11 @@ Le chargement a nécessité le package : statmod
 [1] 0.4661418
 \end{verbatim}
 
-\noindent On obtient des seuils observ\'es de 0.339 et 0.466. Le mod\`ele propos\'e est bien ad\'equat aux donn\'ees.
+\noindent On obtient des seuils observés de 0.339 et 0.466. Le modèle proposé est bien adéquat aux données.
 
 \subsection{Graphiques}
 
-Les graphiques de des r\'esidus en fonction des num\'eros des observations ne doivent montrer qucune tendance. 
+Les graphiques de des résidus en fonction des numéros des observations ne doivent montrer qucune tendance. 
 
 \begin{verbatim}
 plot(residus.deviance,type="p",xlab="Numero d'observation",ylab="Residus deviance")
@@ -611,16 +617,16 @@ et
 \includegraphics[scale=0.3]{Graphique6.pdf}
 \end{center}
 
-\noindent Si ces graphiques ont tendance horizentales mais plusieurs des valeurs sont sup\'erieures \`a 3 en valeur absolue, cela peut sugg\`erer la pr\'esence d'une extra-variabilit\'e. En effet, si la loi binomiale est bien sp\'ecifi\'ee, alors on a $E[Y_i]=m_i \pi_i$ et $Var[Y_i]=m_i \pi_i (1-\pi_i)$. Il arrive dans certaines situations o\`u on a $E[Y_i]=m_i \pi_i$ mais $Var[Y_i] > m_i \pi_i (1-\pi_i)$. On dit qu'on est en pr\'esence d'une extra-variabilit\'e ({\it overdispersion} en anglais). Dans cette situation, on pose $Var[Y_i] = \phi m_i \pi_i (1-\pi_i)$ et on estime $\phi$ par $\chi^2_P/(n-(p+1))$
+\noindent Si ces graphiques ont tendance horizentales mais plusieurs des valeurs sont supérieures \`a 3 en valeur absolue, cela peut suggèrer la présence d'une extra-variabilité. En effet, si la loi binomiale est bien spécifiée, alors on a $E[Y_i]=m_i \pi_i$ et $Var[Y_i]=m_i \pi_i (1-\pi_i)$. Il arrive dans certaines situations où on a $E[Y_i]=m_i \pi_i$ mais $Var[Y_i] > m_i \pi_i (1-\pi_i)$. On dit qu'on est en présence d'une extra-variabilité ({\it overdispersion} en anglais). Dans cette situation, on pose $Var[Y_i] = \phi m_i \pi_i (1-\pi_i)$ et on estime $\phi$ par $\chi^2_P/(n-(p+1))$
 
 \begin{verbatim}
 > Pearson/(n-(p+1))
 [1] 0.981905
 \end{verbatim}
 
-\noindent Dans notre cas, la valeur de $\chi^2_P/(n-(p+1))$ est tr\`es proche de 1. On ne d\'etecte aucune extra-variabilit\'e. Une solution \`a apporter en cas d'une \'eventuelle extra-variabilit\'e est de sp\'ecifier l'option \textsf{family=quasibinomial()} au lieu de \textsf{family=binomial()}. Cette solution consid\`ere une distribution pour $Y_i$ telle que $E[Y_i]=m_i \pi_i$ et $Var[Y_i]= \phi m_i \pi_i (1-\pi_i)$, avec $\phi>1$.
+\noindent Dans notre cas, la valeur de $\chi^2_P/(n-(p+1))$ est très proche de 1. On ne détecte aucune extra-variabilité. Une solution \`a apporter en cas d'une éventuelle extra-variabilité est de spécifier l'option \textsf{family=quasibinomial()} au lieu de \textsf{family=binomial()}. Cette solution considère une distribution pour $Y_i$ telle que $E[Y_i]=m_i \pi_i$ et $Var[Y_i]= \phi m_i \pi_i (1-\pi_i)$, avec $\phi>1$.
 
-\noindent Pour v\'erifier la lin\'earit\'e $\eta_i=\beta_0+\beta_1 X_{i1}+\cdots+\beta_p X_{ip}$, on trace le nuage de points $\{(\hat\pi_i,\tilde\pi_i),i=1\cdots,n\}$. Ici, $\hat\pi_i=g^{-1}(\hat\eta_i)$ est l'estimateur de $\pi_i$ selon le mod\`ele consid\'er\'e et $\tilde\pi_i=y_i/m_i$ est l'estimateur empirique de $\pi_i$. Si la relation $\eta_i=\beta_0+\beta_1 X_{i1}+\cdots+\beta_p X_{ip}$ est bien sp\'ecifi\'ee, les estimateurs $\hat\pi_i$ et $\tilde\pi_i$ doivent \^etre proches et le nuage de points doit \^etre autour de la droite $x=y$.
+\noindent Pour vérifier la linéarité $\eta_i=\beta_0+\beta_1 X_{i1}+\cdots+\beta_p X_{ip}$, on trace le nuage de points $\{(\hat\pi_i,\tilde\pi_i),i=1\cdots,n\}$. Ici, $\hat\pi_i=g^{-1}(\hat\eta_i)$ est l'estimateur de $\pi_i$ selon le modèle considéré et $\tilde\pi_i=y_i/m_i$ est l'estimateur empirique de $\pi_i$. Si la relation $\eta_i=\beta_0+\beta_1 X_{i1}+\cdots+\beta_p X_{ip}$ est bien spécifiée, les estimateurs $\hat\pi_i$ et $\tilde\pi_i$ doivent \^etre proches et le nuage de points doit \^etre autour de la droite $x=y$.
 
 \begin{verbatim}
 > pi.chapeau <- fitted(modele)
@@ -639,36 +645,36 @@ et
 
 \subsection{Observations aberrantes \& valeurs influentes}
 
-Le principe des observations aberrantes et valeurs influentes est identique pour les r\'egressions logistique et lin\'eaire. Les d\'efinitions des leviers des observations, des r\'esidus standardi\'es et studenti\'es sont diff\'erentes dans la cas d'une r\'egression logistique mais ces quantit\'es ont la m\^eme interpr\'etation et utilit\'e que dans le cadre d'une r\'egression lin\'eaire. C'est la m\^eme chose pour la distance de Cook, les DFBETAS, DFFITS et rapport de ratios. 
+Le principe des observations aberrantes et valeurs influentes est identique pour les régressions logistique et linéaire. Les définitions des leviers des observations, des résidus standardiés et studentiés sont différentes dans la cas d'une régression logistique mais ces quantités ont la m\^eme interprétation et utilité que dans le cadre d'une régression linéaire. C'est la m\^eme chose pour la distance de Cook, les DFBETAS, DFFITS et rapport de ratios. 
 
-\subsection{Sp\'ecificit\'e, sensibilit\'e et courbe ROC}
+\subsection{Spécificité, sensibilité et courbe ROC}
 
-Toutes les proc\'edures de diagnostique et validation de mod\`ele cit\'ees ci-haut ne sont valides que pour les donn\'ees group\'ees. Dans le cas de donn\'ees individuelles, c'est plus difficile d'\'evaluer l'ad\'equation des mod\`eles. Cependant, il est possible de mesurer la capacit\'e pr\'edictive du mod\`ele. 
+Toutes les procédures de diagnostique et validation de modèle citées ci-haut ne sont valides que pour les données groupées. Dans le cas de données individuelles, c'est plus difficile d'évaluer l'adéquation des modèles. Cependant, il est possible de mesurer la capacité prédictive du modèle. 
 
-\noindent Consid\'erons un mod\`ele avec des donn\'ees individuelles o\`u la variable r\'eponse est $Y_i \in \{0,1\}$, avec $P(Y_i=1)=\pi_i=g^{-1}(\nu_i)$, $\nu_i=\beta_0+\beta_1 X_{i1}+\cdots+\beta_p X_{ip}$ et $P(Y_i=0)=1-P(Y_i=1)$. On ajuste le mod\`ele, on obtient $\hat\beta_0$, $\hat\beta_1$, $\cdots$, $\hat\beta_p$ et on calcule les probabilit\'es pr\'edites $\hat\pi_i=g^{-1}(\hat\eta_i)$ avec $\hat\eta_i=\hat\beta_0+\hat\beta_1 X_{i1}+\cdots+\hat\beta_p X_{ip}$.
+\noindent Considérons un modèle avec des données individuelles où la variable réponse est $Y_i \in \{0,1\}$, avec $P(Y_i=1)=\pi_i=g^{-1}(\nu_i)$, $\nu_i=\beta_0+\beta_1 X_{i1}+\cdots+\beta_p X_{ip}$ et $P(Y_i=0)=1-P(Y_i=1)$. On ajuste le modèle, on obtient $\hat\beta_0$, $\hat\beta_1$, $\cdots$, $\hat\beta_p$ et on calcule les probabilités prédites $\hat\pi_i=g^{-1}(\hat\eta_i)$ avec $\hat\eta_i=\hat\beta_0+\hat\beta_1 X_{i1}+\cdots+\hat\beta_p X_{ip}$.
 
-\noindent Fixons maintenant un r\'eel $u \in [0,1]$. Dans un contexte de classification, on pose $\hat y_i=1$ si $\hat\pi_i>u$ et $\hat y_i=0$ sinon. La valeur la plus utilis\'ee est $u=1/2$. On mesure la capacit\'e pr\'edictive du mod\`ele par la sp\'ecificit\'e et la sensibilit\'e, d\'efinies respectivement par $Spec = P(\hat y=0| y=0)$ et $Sens = P(\hat y=1| y=1)$. La sp\'ecificit\'e et la sensibilit\'e ref\`erent aux taux de vrais n\'egatifs et vrais positifs, respectivement. Plus ces valeurs sont proches de 1, plus grande est la capacit\'e pr\'edictive du mod\`ele. 
+\noindent Fixons maintenant un réel $u \in [0,1]$. Dans un contexte de classification, on pose $\hat y_i=1$ si $\hat\pi_i>u$ et $\hat y_i=0$ sinon. La valeur la plus utilisée est $u=1/2$. On mesure la capacité prédictive du modèle par la spécificité et la sensibilité, définies respectivement par $Spec = P(\hat y=0| y=0)$ et $Sens = P(\hat y=1| y=1)$. La spécificité et la sensibilité refèrent aux taux de vrais négatifs et vrais positifs, respectivement. Plus ces valeurs sont proches de 1, plus grande est la capacité prédictive du modèle. 
 
-\noindent Pour un $u$ fix\'e, on calcule $\hat y_1, \cdots, \hat y_n$ et on estime la sp\'ecificit\'e et la sensibilit\'e du mod\`ele par 
+\noindent Pour un $u$ fixé, on calcule $\hat y_1, \cdots, \hat y_n$ et on estime la spécificité et la sensibilité du modèle par 
 \begin{eqnarray*}
 \widehat{Spec}(u)&=&\frac{\sum_{i=1}^n I_{\{\hat y_i=0\}}}{\sum_{i=1}^n I_{\{(\hat y_i=0)\&(y_i=0)\}}} = \frac{\sum_{i=1}^n I_{\{\hat \pi_i < u \}}}{\sum_{i=1}^n I_{\{(\hat \pi_i < u)\&(y_i=0)\}}} \\
 \widehat{Sens}(u)&=&\frac{\sum_{i=1}^n I_{\{\hat y_i=1\}}}{\sum_{i=1}^n I_{\{(\hat y_i=1)\&(y_i=1)\}}} = \frac{\sum_{i=1}^n I_{\{\hat \pi_i > u \}}}{\sum_{i=1}^n I_{\{(\hat \pi_i > u)\&(y_i=1)\}}}
 \end{eqnarray*}
 
-\noindent Faisons maintenant varier $u$ \`a l'int\'erieur d'une grille de $B$ points dans $[0,1]$: $\{u_1=0,u_1,u+2,\cdots,u_B=1\}$, avec $B$ suffisament grand.
+\noindent Faisons maintenant varier $u$ \`a l'intérieur d'une grille de $B$ points dans $[0,1]$: $\{u_1=0,u_1,u+2,\cdots,u_B=1\}$, avec $B$ suffisament grand.
 
-\noindent Pour $b=0,1,\cdots,B$, on calcule $\widehat{Spec}(u_b)$ et $\widehat{Sens}(u_b)$. On trace le nuage de points $\{(1-\widehat{Spec}(u_b),\widehat{Sens}(u_b)),b=0,\cdots,B\}$. En reliant ces points, on obtient une courbe qu'on appelle la courbe ROC. On calcule l'aire sous cette courbe. Plus cette aire est grande, plus la capacit\'e pr\'edictive du mod\`ele est grande. 
+\noindent Pour $b=0,1,\cdots,B$, on calcule $\widehat{Spec}(u_b)$ et $\widehat{Sens}(u_b)$. On trace le nuage de points $\{(1-\widehat{Spec}(u_b),\widehat{Sens}(u_b)),b=0,\cdots,B\}$. En reliant ces points, on obtient une courbe qu'on appelle la courbe ROC. On calcule l'aire sous cette courbe. Plus cette aire est grande, plus la capacité prédictive du modèle est grande. 
 $$
 \mbox{Aire sous la courbe ROC} \in \begin{cases}
-[0.9,1], & \mbox{ le mod\`ele est excellent} \\
-[0.8,0.9], & \mbox{ le mod\`ele est bon} \\
-[0.7,0.8], & \mbox{ le mod\`ele est moyen} \\
-[0.6,0.7], & \mbox{ le mod\`ele est mauvais} \\
-[0.7,0.8], & \mbox{ le mod\`ele est tr\`es faible.} \\
+[0.9,1], & \mbox{ le modèle est excellent} \\
+[0.8,0.9], & \mbox{ le modèle est bon} \\
+[0.7,0.8], & \mbox{ le modèle est moyen} \\
+[0.6,0.7], & \mbox{ le modèle est mauvais} \\
+[0.7,0.8], & \mbox{ le modèle est très faible.} \\
 \end{cases}
 $$
 
-\noindent Consid\'erons maintenant le jeu de donn\'ees \textsf{quilpie} de la library \texttt{GLMsData} du logiciel \textrm{R}. Ce jeu de donn\'ees contient des observations de 1921 \`a 1988 de la quantit\'e de pluie mesur\'ee durant le mois de juillet \`a Quilpie en Australie. On consid\`ere une seule variable explicative $SOI$ qui mesure la pression atmosph\'erique. La variable r\'eponse ne peut prendre que 2 valeurs: 1 si la quanti\'e de pluie mesur\'ee est sup\'erieure \`a 10 millim\`etres et 0 sinon.
+\noindent Considérons maintenant le jeu de données \textsf{quilpie} de la library \texttt{GLMsData} du logiciel \textrm{R}. Ce jeu de données contient des observations de 1921 \`a 1988 de la quantité de pluie mesurée durant le mois de juillet \`a Quilpie en Australie. On considère une seule variable explicative $SOI$ qui mesure la pression atmosphérique. La variable réponse ne peut prendre que 2 valeurs: 1 si la quantié de pluie mesurée est supérieure \`a 10 millimètres et 0 sinon.
 
 \begin{verbatim}
 > if (!require("GLMsData")) install.packages("GLMsData")
@@ -689,7 +695,7 @@ Le chargement a nécessité le package : clinfun
   ROC curve with AUC = 0.7835498 and s.e. = 0.05651002 
 \end{verbatim}
 
-\noindent On obtient une aire sous la courbe de 0.78 avec une erreur-type de 0.056. On conclut que le mod\`ele est bon. On peut aussi tracer la courbe ROC:
+\noindent On obtient une aire sous la courbe de 0.78 avec une erreur-type de 0.056. On conclut que le modèle est bon. On peut aussi tracer la courbe ROC:
 
 \begin{verbatim}
 > plot(courbe.roc)
