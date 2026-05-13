@@ -19,7 +19,7 @@
 {\textbf{\LARGE Chapitre 1: Modèles de régression pour données binaires}}
 \end{center}
 
-\noindent Les modèles vus dans les deux chapitres précédents ne permettent de considérer que les cas où la variable réponse $Y_i$ est continue, pusiqu'on supposait  que $Y_i$ suivait une loi normale. Cependant, dans plusieurs situation, on a une variable réponse discrète qui ne peut prendre qu'un nombre fini (ou dénombrable) de valeurs possibles. Dans ce chapitre, on s'intéresse au cas où $Y_i$ suit une loi de Bernoulli ou une loi binomiale. Voici quatre exemples:
+\noindent Les modèles de régression linéaire ne permettent de considérer que les cas où la variable réponse $Y_i$ est normale. Cependant, dans plusieurs situations, on a une variable réponse discrète qui ne peut prendre qu'un nombre fini (ou dénombrable) de valeurs possibles. Dans ce chapitre, on s'intéresse au cas où $Y_i$ suit une loi de Bernoulli ou une loi binomiale. Voici quatre exemples:
 \begin{enumerate}
 \item[{\bf Ex 1:}] Considérons le jeu de données \textsf{quilpie} de la library \texttt{GLMsData} du logiciel \textrm{R}. Ce jeu de données contient des observations de 1921 \`a 1988 de la quantité de pluie mesurée durant le mois de juillet \`a Quilpie en Australie. Le jeu de données contient des variables explicatives qui concernent la pression atmosphérique. La variable réponse ne peut prendre que 2 valeurs: 1 si la quantié de pluie mesurée est supérieure \`a 10 millimètres et 0 sinon.
 \item[{\bf Ex 2:}] Considérons le jeu de données \textsf{nminer} de la library \texttt{GLMsData} du logiciel \textrm{R}. Ce jeu de données contient 31 observations de 9 variables. La variable réponse \textsf{Mminers} ne peut prendre que 2 valeurs: 1 si un mineur bruyant est détecté dans la parcelle de terre et 0 sinon.
@@ -41,18 +41,16 @@ Var[Y_i] &=& \sigma^2_i = \pi_i(1-\pi_i).
 
 \noindent D'autres part, on pose $\eta_i=\beta_0+\beta_1 X_{i1} + \cdots + \beta_p X_{ip}, i=1,\cdots,n$. Ici $p$ est le nombre de variables explicatives considérées et $\beta=(\beta_0,\beta_1,\cdots,\beta_p)^\top$ est un vecteur de $p+1$ coefficient de régression. \`a estimer \`a parti des données. 
 
-\noindent Finalement, on a $\eta_i = g(\pi_i)$; où $g(\cdot)$ est une fonction de lien, supposée connue. La fonction de lien la plus utilisée est $$g(u)=\mbox{logit}(u)=\log\left(\frac{u}{1-u}\right).$$ 
+\noindent Finalement, on a $\eta_i = g(\pi_i)$; où $g(\cdot)$ est une fonction de lien, supposée connue. 
 
-En combinant les deux
+Comme
 
 \begin{align*}
-    \log\left(\frac{\pi_i}{1-\pi_i}\right)=\beta_0+\beta_1 X_{i1} + \cdots + \beta_p X_{ip}
+    g(\pi_i)=\beta_0+\beta_1 X_{i1} + \cdots + \beta_p X_{ip}
 \end{align*}
 
-et
-$$\pi_i = P(Y_i = 1) = \frac{e^{\beta_0+\beta_1 X_{i1} + \cdots + \beta_p X_{ip}}}{1+e^{\beta_0+\beta_1 X_{i1} + \cdots + \beta_p X_{ip}}}.$$
-
-\noindent Et donc, si $\beta_j>0$, une hause de $X_{ij}$ avec toutes les autres variables explicatives maintenues constantes augmentera la probabilité $P(Y_i = 1)$. Si $\beta_j<0$, une hause de $X_{ij}$ avec toutes les autres variables explicatives maintenues constantes diminuera la probabilité $P(Y_i = 1)$. Finalement, si $\beta_j=0$, alors $X_{ij}$ n'a pas d'effets sur la probabilité $P(Y_i = 1)$.
+on peut écrire
+$$\pi_i = P(Y_i = 1) = g^{-1}(\beta_0+\beta_1 X_{i1} + \cdots + \beta_p X_{ip}).$$
 
 \subsection{Données groupées}
 
@@ -65,16 +63,16 @@ Var[Y_i] &=& \sigma^2_i = m_i \pi_i(1-\pi_i) = \frac{\mu_i(m_i-\mu_i)}{m_i}.
 
 \noindent Pour relier la variable réponse aux variables explicative, on pose $\eta_i=g(\pi_i), i=1,\cdots,n$. Ce choix est motivé par le fait que $\pi_i$ doit appartenir \`a l'intervalle $[0,1]$.
 
-\noindent Si on a $m_1=m_2=\cdots=m_n=1$, on retrouve la loi de Bernoulli des deux premiers exemples. La loi de Bernoulli est un cas particulier de la loi binomiale. Dans la suite de ce chapitre, on se contentera de présenter les développements pour la loi binomiale.
+\noindent Si on a $m_1=m_2=\cdots=m_n=1$, on retrouve la loi de Bernoulli des deux premiers exemples. La loi de Bernoulli est un cas particulier de la loi binomiale. Dans la suite de ce chapitre, on se contentera donc de présenter les développements pour la loi binomiale.
 
 \subsection{Fonctions de lien}
 
 La fonction de lien $g$ spécifiée pour des données binaires doit s'assurer que $\pi_i=g^{-1}(\eta_i)$ appartient \`a l'intervalle $[0,1]$, puisque $\pi_i$ est une probabilité. Trois fonctions de lien sont communément utilisées pour les données binaires:
 \begin{enumerate}
 \item[{\bf Logit:}] Cette fonction est définie par $$g(u)=\mbox{logit}(u)=\log\left(\frac{u}{1-u}\right).$$
-\noindent Ainsi, on a $\pi_i=g^{-1}(\eta_i)=e^{\eta_i}/(1+e^{\eta_i})$. Avec logiciel \textrm{R}, on spéficie \textsf{link="logit"} \`a l'intérieur de la fonction \textsf{glm}.
-\item[{\bf Probit:}] Cette fonction est définie par $g(u)=\Phi^{-1}(u)$, où $\Phi$ est la fonction de répartition de la loi normale standard ${\cal N}(0,1)$.  Ainsi, on a $\pi_i=g^{-1}(\eta_i)=\Phi(\eta_i)$. Avec logiciel \textrm{R}, on spéficie \textsf{link="probit"} \`a l'intérieur de la fonction \textsf{glm}.
-\item[{\bf c-log-log:}] Cette fonction est définie par $g(u)=\log\{-\log(1-u)\}$. Ainsi, on a $\pi_i=g^{-1}(\eta_i)=1-e^{-e^{\eta_i}}$. Avec logiciel \textrm{R}, on spéficie \textsf{link="cloglog"} \`a l'intérieur de la fonction \textsf{glm}.
+\noindent Ainsi, on a $$\pi_i=g^{-1}(\eta_i)=\frac{e^{\eta_i}}{(1+e^{\eta_i})}.$$ Avec le logiciel \textrm{R}, on spéficie \textsf{link="logit"} \`a l'intérieur de la fonction \textsf{glm}.
+\item[{\bf Probit:}] Cette fonction est définie par $$g(u)=\Phi^{-1}(u),$$ où $\Phi$ est la fonction de répartition de la loi normale standard ${\cal N}(0,1)$.  Ainsi, on a $$\pi_i=g^{-1}(\eta_i)=\Phi(\eta_i).$$ Avec le logiciel \textrm{R}, on spéficie \textsf{link="probit"} \`a l'intérieur de la fonction \textsf{glm}.
+\item[{\bf c-log-log:}] Cette fonction est définie par $$g(u)=\log\{-\log(1-u)\}.$$ Ainsi, on a $$\pi_i=g^{-1}(\eta_i)=1-e^{-e^{\eta_i}}.$$ Avec le logiciel \textrm{R}, on spéficie \textsf{link="cloglog"} \`a l'intérieur de la fonction \textsf{glm}.
 \end{enumerate}
 
 \noindent On remarque que dans les trois cas présentés ci-haut, $g^{-1}(\cdot)$ est une fonction de répartition. 
