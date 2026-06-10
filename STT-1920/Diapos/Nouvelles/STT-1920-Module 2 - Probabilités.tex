@@ -1,0 +1,207 @@
+\documentclass{BeamerTemplate}
+
+\title{Module 2 - Probabilités}
+
+\subtitle{STT-1920 Méthodes statistiques}
+\date{\today}
+
+\begin{document}
+\begin{frame}[t]
+  \titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Expérience aléatoire}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Expérience aléatoire}
+
+\begin{Boite}{Expérience aléatoire $\mathcal{E}$}
+Expérience dont le résultat dépend du hasard et ne peut être prédit avec certitude.
+\end{Boite}
+
+\medskip
+
+\begin{Boite}{Espace échantillonnal $\mathcal{U}$}
+Ensemble de tous les résultats possibles de $\mathcal{E}$.
+\end{Boite}
+
+\medskip
+\underline{Exemples :}
+\begin{itemize}\itemsep3mm
+  \item Lancer un dé à 6 faces et noter le résultat : $\mathcal{U} = \{1, 2, 3, 4, 5, 6\}$.
+  \item Mesurer le diamètre d'une pièce usinée : $\mathcal{U} = (0, +\infty)$.
+  \item Compter le nombre de pannes en une semaine : $\mathcal{U} = \{0, 1, 2, \ldots\}$.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Événements}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Événements}
+
+\begin{Boite}{Événement}
+Sous-ensemble de l'espace échantillonnal $\mathcal{U}$, soit un ensemble de résultats possibles.
+\end{Boite}
+
+\medskip
+Opérations sur les événements $A$ et $B$ :
+\begin{itemize}\itemsep5mm
+  \item \textbf{Complémentaire} $\overline{A}$ : tous les résultats qui ne sont \emph{pas} dans $A$.
+  \item \textbf{Intersection} $A \cap B$ : résultats qui sont à la fois dans $A$ \emph{et} dans $B$.
+  \item \textbf{Union} $A \cup B$ : résultats qui sont dans $A$ \emph{ou} dans $B$ (ou les deux).
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]{Événements mutuellement exclusifs}
+
+\begin{Boite}{Événements mutuellement exclusifs}
+$A$ et $B$ sont mutuellement exclusifs (ou incompatibles) si $A \cap B = \emptyset$.
+\end{Boite}
+
+\medskip
+Cela signifie que $A$ et $B$ \alert{ne peuvent pas se réaliser simultanément}.
+
+\bigskip
+\underline{Exemple :} On pige une carte dans un jeu standard.
+\begin{itemize}\itemsep3mm
+  \item $A$ = «la carte est un cœur» et $B$ = «la carte est un trèfle».\\
+  $\Rightarrow$ $A$ et $B$ sont mutuellement exclusifs.
+  \item $A$ = «la carte est un cœur» et $C$ = «la carte est un roi».\\
+  $\Rightarrow$ $A$ et $C$ ne sont pas mutuellement exclusifs (roi de cœur).
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Probabilité}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Définition de la probabilité}
+
+\begin{Boite}{Probabilité d'un événement}
+$P(A)$ est un nombre dans $[0, 1]$ mesurant la \alert{vraisemblance} que $A$ se réalise.
+\end{Boite}
+
+\medskip
+Trois axiomes fondamentaux (Kolmogorov) :
+\begin{enumerate}\itemsep4mm
+  \item $0 \le P(A) \le 1$ pour tout événement $A$.
+  \item $P(\mathcal{U}) = 1$.
+  \item Si $A$ et $B$ sont mutuellement exclusifs : $P(A \cup B) = P(A) + P(B)$.
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}[t]{Règles de calcul}
+
+\begin{Boite}{Complément}
+$$P(\overline{A}) = 1 - P(A)$$
+\end{Boite}
+
+\begin{Boite}{Addition générale}
+$$P(A \cup B) = P(A) + P(B) - P(A \cap B)$$
+\end{Boite}
+
+\medskip
+\underline{Note :} Si $A$ et $B$ sont mutuellement exclusifs ($P(A \cap B) = 0$) :
+$$P(A \cup B) = P(A) + P(B)$$
+
+\end{frame}
+
+\begin{frame}[t]{Exemple — groupes sanguins}
+
+Les proportions dans la population québécoise sont :
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Groupe & A & B & AB & O \\ \hline
+Proportion & 0{,}43 & 0{,}08 & 0{,}03 & 0{,}46 \\ \hline
+\end{tabular}
+\end{center}
+
+\bigskip
+Un individu est choisi au hasard. Quelle est la probabilité qu'il appartienne au groupe B ou au groupe O ?
+
+\uncover<2->{
+\bigskip
+Les groupes sanguins sont mutuellement exclusifs :
+$$P(B \cup O) = P(B) + P(O) = 0{,}08 + 0{,}46 = \alert{0{,}54}$$
+}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Probabilité conditionnelle et indépendance}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Probabilité conditionnelle}
+
+\begin{Boite}{Probabilité conditionnelle}
+La probabilité de $A$ sachant que $B$ s'est réalisé :
+$$P(A \mid B) = \frac{P(A \cap B)}{P(B)}, \quad P(B) > 0$$
+\end{Boite}
+
+\medskip
+La connaissance de $B$ \alert{modifie} la probabilité de $A$.
+
+\bigskip
+\begin{Boite}{Règle de multiplication}
+$$P(A \cap B) = P(A \mid B)\,P(B) = P(B \mid A)\,P(A)$$
+\end{Boite}
+
+\end{frame}
+
+\begin{frame}[t]{Événements indépendants}
+
+\begin{Boite}{Indépendance}
+$A$ et $B$ sont indépendants si la réalisation de l'un n'affecte pas la probabilité de l'autre :
+$$P(A \mid B) = P(A) \quad \Longleftrightarrow \quad P(A \cap B) = P(A)\,P(B)$$
+\end{Boite}
+
+\medskip
+\underline{Attention :} indépendance $\neq$ exclusivité mutuelle.
+\begin{itemize}\itemsep3mm
+  \item Deux événements exclusifs ne peuvent pas se réaliser ensemble $\Rightarrow$ la réalisation de l'un \emph{exclut} l'autre : ce n'est pas de l'indépendance (à moins que $P(A)=0$ ou $P(B)=0$).
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Loi des probabilités totales}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Loi des probabilités totales}
+
+Soit $B_1, B_2, \ldots, B_k$ une \alert{partition} de $\mathcal{U}$ :
+$$\mathcal{U} = B_1 \cup B_2 \cup \cdots \cup B_k, \quad B_i \cap B_j = \emptyset \text{ si } i \neq j$$
+
+\begin{Boite}{Loi des probabilités totales}
+$$P(A) = \sum_{j=1}^{k} P(A \mid B_j)\,P(B_j)$$
+\end{Boite}
+
+\medskip
+Utile quand on connaît $P(A \mid B_j)$ mais pas $P(A)$ directement.
+
+\end{frame}
+
+\begin{frame}[t]{Théorème de Bayes}
+
+\begin{Boite}{Théorème de Bayes}
+Avec la même partition $B_1, \ldots, B_k$ :
+$$P(B_i \mid A) = \frac{P(A \mid B_i)\,P(B_i)}{\displaystyle\sum_{j=1}^{k} P(A \mid B_j)\,P(B_j)}$$
+\end{Boite}
+
+\medskip
+Permet de \alert{mettre à jour} une probabilité à la lumière d'une nouvelle observation.
+
+\bigskip
+\underline{Exemple :} Test de dépistage — quelle est la probabilité d'être réellement malade si le test est positif?
+
+\end{frame}
+
+\end{document}

@@ -1,0 +1,162 @@
+\documentclass{BeamerTemplate}
+
+\title{Module 5 - Lois échantillonnales et estimation ponctuelle}
+
+\subtitle{STT-1920 Méthodes statistiques}
+\date{\today}
+
+\begin{document}
+\begin{frame}[t]
+  \titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Population et échantillon}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Population, paramètre et échantillon}
+
+\begin{Boite}{Population}
+Ensemble de toutes les unités d'intérêt. Caractérisée par des \alert{paramètres} inconnus : $\mu$, $\sigma^2$, $p$, etc.
+\end{Boite}
+
+\begin{Boite}{Échantillon}
+Sous-ensemble de la population, observé. Donne lieu à des \alert{statistiques} (estimations des paramètres).
+\end{Boite}
+
+\medskip
+\begin{center}
+\begin{tikzpicture}
+  \node[draw, rounded corners, fill=blue!10, minimum width=4cm, minimum height=1cm] (pop) {Population ($\mu$, $\sigma^2$)};
+  \node[draw, rounded corners, fill=orange!20, minimum width=4cm, minimum height=1cm, right=2cm of pop] (ech) {Échantillon ($\bar{x}$, $s^2$)};
+  \draw[->, thick] (pop) -- node[above]{\small tirage} (ech);
+  \draw[->, thick, dashed] (ech) -- node[below]{\small inférence} (pop);
+\end{tikzpicture}
+\end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Distribution de la moyenne échantillonnale}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Distribution de $\overline{X}$}
+
+Soient $X_1, \ldots, X_n$ un échantillon aléatoire i.i.d. de loi $\mathcal{N}(\mu, \sigma^2)$.
+
+\bigskip
+\begin{Boite}{Distribution exacte de $\overline{X}$}
+$$\overline{X} \sim \mathcal{N}\!\left(\mu,\, \frac{\sigma^2}{n}\right)$$
+\end{Boite}
+
+\medskip
+\begin{Boite}{Distribution approximative (TCL)}
+Si les $X_i$ ne sont pas normaux mais $n$ est grand :
+$$\overline{X} \;\dot{\sim}\; \mathcal{N}\!\left(\mu,\, \frac{\sigma^2}{n}\right)$$
+\end{Boite}
+
+\medskip
+$\Rightarrow$ Plus $n$ augmente, plus $\overline{X}$ est concentré autour de $\mu$.
+
+\end{frame}
+
+\begin{frame}[t]{Erreur-type}
+
+\begin{Boite}{Erreur-type de $\overline{X}$}
+$$\text{ET}(\overline{X}) = \frac{\sigma}{\sqrt{n}}$$
+\end{Boite}
+
+\medskip
+L'erreur-type mesure la \alert{précision} de la moyenne échantillonnale comme estimateur de $\mu$.
+
+\bigskip
+\begin{itemize}\itemsep5mm
+  \item Si $\sigma$ est grand $\Rightarrow$ grande variabilité dans la population.
+  \item Si $n$ est grand $\Rightarrow$ $\overline{X}$ est plus précis ($\text{ET} \to 0$).
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Estimateurs et leurs propriétés}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Estimateur ponctuel}
+
+\begin{Boite}{Estimateur}
+Statistique $\hat{\theta}$ utilisée pour estimer un paramètre inconnu $\theta$.
+\end{Boite}
+
+\medskip
+Exemples naturels :
+\begin{itemize}\itemsep4mm
+  \item $\hat{\mu} = \overline{X} = \frac{1}{n}\sum X_i$ : estimateur de $\mu$.
+  \item $\hat{\sigma}^2 = S^2 = \frac{1}{n-1}\sum(X_i - \overline{X})^2$ : estimateur de $\sigma^2$.
+  \item $\hat{p} = \overline{X}$ (si $X_i \sim$ Bernoulli$(p)$) : estimateur de $p$.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]{Biais d'un estimateur}
+
+\begin{Boite}{Biais}
+$$\text{Biais}(\hat{\theta},\theta) = E(\hat{\theta}) - \theta$$
+Un estimateur est \alert{sans biais} si $E(\hat{\theta}) = \theta$, i.e. $\text{Biais} = 0$.
+\end{Boite}
+
+\medskip
+\underline{Exemples :}
+\begin{itemize}\itemsep4mm
+  \item $E(\overline{X}) = \mu \Rightarrow$ $\overline{X}$ est \alert{sans biais} pour $\mu$.
+  \item $E(S^2) = \sigma^2 \Rightarrow$ $S^2$ est \alert{sans biais} pour $\sigma^2$ (d'où le facteur $\frac{1}{n-1}$).
+  \item $E\!\left(\frac{1}{n}\sum(X_i-\overline{X})^2\right) = \frac{n-1}{n}\sigma^2 \neq \sigma^2 \Rightarrow$ biaisé.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]{Erreur quadratique moyenne (EQM)}
+
+\begin{Boite}{EQM}
+$$\text{EQM}(\hat{\theta},\theta) = E\!\left[(\hat{\theta}-\theta)^2\right] = V(\hat{\theta}) + \left[\text{Biais}(\hat{\theta},\theta)\right]^2$$
+\end{Boite}
+
+\medskip
+\begin{itemize}\itemsep5mm
+  \item L'EQM combine biais et variance : un bon estimateur a une EQM faible.
+  \item Si $\hat{\theta}$ est sans biais : $\text{EQM}(\hat{\theta},\theta) = V(\hat{\theta})$.
+  \item Un estimateur biaisé peut avoir une EQM plus faible qu'un estimateur sans biais (s'il a une variance nettement plus petite).
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]{Convergence}
+
+\begin{Boite}{Estimateur convergent}
+$\hat{\theta}$ est convergent si, quand $n \to \infty$, $\hat{\theta} \to \theta$ en probabilité :
+$$P(|\hat{\theta} - \theta| > \varepsilon) \to 0 \quad \text{pour tout } \varepsilon > 0$$
+\end{Boite}
+
+\medskip
+\underline{Exemple :} $\overline{X}$ est convergent pour $\mu$ :
+$$V(\overline{X}) = \frac{\sigma^2}{n} \to 0 \quad (n \to \infty)$$
+
+\medskip
+Un bon estimateur est sans biais \emph{et} convergent.
+
+\end{frame}
+
+\begin{frame}[t]{Résumé : propriétés des estimateurs}
+
+\begin{center}
+\begin{tabular}{lcc}\hline
+\textbf{Estimateur} & \textbf{Sans biais?} & \textbf{EQM} \\ \hline
+$\overline{X}$ pour $\mu$ & Oui & $\sigma^2/n$ \\[4pt]
+$S^2$ pour $\sigma^2$ & Oui & $2\sigma^4/(n-1)$ \\[4pt]
+$\frac{1}{n}\sum(X_i-\overline{X})^2$ pour $\sigma^2$ & Non & $<2\sigma^4/(n-1)$ \\[4pt]
+$\hat{p}=\overline{X}$ pour $p$ (Bernoulli) & Oui & $p(1-p)/n$ \\ \hline
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+\end{document}

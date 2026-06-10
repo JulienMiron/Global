@@ -1,0 +1,188 @@
+\documentclass{BeamerTemplate}
+
+\title{Module 3 - Variables aléatoires discrètes}
+
+\subtitle{STT-1920 Méthodes statistiques}
+\date{\today}
+
+\begin{document}
+\begin{frame}[t]
+  \titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Variable aléatoire}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Variable aléatoire}
+
+\begin{Boite}{Variable aléatoire}
+Une variable aléatoire $X$ est une fonction qui associe un nombre réel à chaque résultat d'une expérience aléatoire.
+\end{Boite}
+
+\medskip
+\begin{itemize}\itemsep5mm
+  \item \textbf{Variable aléatoire discrète} : prend des valeurs isolées, généralement entières.\\
+  Exemples : nombre de pannes, nombre de clients, nombre de défauts.
+  \item \textbf{Variable aléatoire continue} : prend toutes les valeurs dans un intervalle.\\
+  Exemples : diamètre, température, durée de vie. (Module 4)
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]{Loi de probabilité (cas discret)}
+
+\begin{Boite}{Fonction de masse de probabilité}
+Pour une v.a. discrète $X$, la loi de probabilité est :
+$$p(x) = P(X = x), \quad x \in \{x_1, x_2, \ldots\}$$
+avec $p(x) \ge 0$ et $\displaystyle\sum_x p(x) = 1$.
+\end{Boite}
+
+\medskip
+\begin{Boite}{Fonction de répartition}
+$$F(x) = P(X \le x) = \sum_{x_i \le x} p(x_i)$$
+\end{Boite}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Espérance et variance}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Espérance et variance}
+
+\begin{Boite}{Espérance (moyenne)}
+$$\mu = E(X) = \sum_x x\, p(x)$$
+\end{Boite}
+
+\begin{Boite}{Variance et écart-type}
+$$\sigma^2 = V(X) = E\!\left[(X-\mu)^2\right] = \sum_x (x-\mu)^2\, p(x) = E(X^2) - \mu^2$$
+$$\sigma = \sqrt{V(X)}$$
+\end{Boite}
+
+\medskip
+$\mu$ mesure le \alert{centre} de la distribution ; $\sigma$ mesure sa \alert{dispersion}.
+
+\end{frame}
+
+\begin{frame}[t]{Propriétés de l'espérance et de la variance}
+
+Pour des constantes $a$, $b$ et des v.a. $X$, $Y$ :
+
+\bigskip
+\begin{center}
+\begin{tabular}{ll}
+$E(aX + b) = a E(X) + b$ & \\[6pt]
+$V(aX + b) = a^2 V(X)$ & \\[6pt]
+$E(X + Y) = E(X) + E(Y)$ & \\[6pt]
+$V(X + Y) = V(X) + V(Y)$ & si $X$ et $Y$ sont \alert{indépendantes}
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Loi de Bernoulli}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Loi de Bernoulli}
+
+\begin{Boite}{Épreuve de Bernoulli}
+Expérience avec seulement deux résultats : \textbf{succès} (prob. $p$) ou \textbf{échec} (prob. $1-p$).
+\end{Boite}
+
+\begin{Boite}{$X \sim \text{Bernoulli}(p)$}
+$$P(X=1) = p, \quad P(X=0) = 1-p$$
+$$E(X) = p \qquad V(X) = p(1-p)$$
+\end{Boite}
+
+\medskip
+\underline{Exemples :} $X = 1$ si une pièce est conforme ; $X = 1$ si un individu appartient au groupe sanguin A.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Loi binomiale}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Loi binomiale}
+
+\begin{Boite}{Schéma de Bernoulli}
+$n$ épreuves de Bernoulli \alert{indépendantes}, chacune avec probabilité de succès $p$.\\
+$Y$ = nombre total de succès.
+\end{Boite}
+
+\begin{Boite}{$Y \sim \text{Binomiale}(n, p)$}
+$$P(Y = k) = \binom{n}{k} p^k (1-p)^{n-k}, \quad k = 0, 1, \ldots, n$$
+$$E(Y) = np \qquad V(Y) = np(1-p)$$
+\end{Boite}
+
+\end{frame}
+
+\begin{frame}[t]{Loi binomiale — exemple}
+
+\underline{Exemple :} Un couple prévoit avoir 4 enfants. La probabilité de transmettre un allèle dominant est $p = 0{,}75$.
+
+Soit $Y$ = nombre d'enfants porteurs de l'allèle dominant. $Y \sim \text{Binomiale}(4, 0{,}75)$.
+
+\bigskip
+\begin{itemize}\itemsep5mm
+  \item $P(Y = 3) = \binom{4}{3}(0{,}75)^3(0{,}25)^1 \approx \alert{0{,}422}$
+  \item $E(Y) = 4 \times 0{,}75 = 3$
+  \item $V(Y) = 4 \times 0{,}75 \times 0{,}25 = 0{,}75$
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Loi de Poisson}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Loi de Poisson}
+
+Utilisée pour modéliser le \alert{nombre d'événements rares} survenant dans un intervalle de temps ou d'espace fixé.
+
+\begin{Boite}{$N \sim \text{Poisson}(\lambda)$}
+$$P(N = k) = \frac{e^{-\lambda}\lambda^k}{k!}, \quad k = 0, 1, 2, \ldots$$
+$$E(N) = \lambda \qquad V(N) = \lambda$$
+\end{Boite}
+
+\medskip
+Le paramètre $\lambda > 0$ est le nombre moyen d'événements par unité.
+
+\end{frame}
+
+\begin{frame}[t]{Loi de Poisson — exemple}
+
+\underline{Exemple :} Le nombre de naissances quotidiennes dans un centre d'obstétrique suit une $\text{Poisson}(\lambda = 8)$.
+
+\bigskip
+\begin{itemize}\itemsep5mm
+  \item $P(N = 0) = e^{-8} \approx 0{,}000335$
+  \item $P(N \ge 3) = 1 - P(N \le 2) = 1 - e^{-8}(1 + 8 + 32) \approx \alert{0{,}986}$
+  \item $E(N) = 8$ naissances par jour
+  \item $V(N) = 8$
+\end{itemize}
+
+\bigskip
+Après 365 jours, la moyenne des observations est environ $8$ et la variance est environ $8$.
+
+\end{frame}
+
+\begin{frame}[t]{Quand utiliser quelle loi?}
+
+\begin{center}
+\begin{tabular}{lll}\hline
+\textbf{Situation} & \textbf{Loi} & \textbf{Paramètres} \\ \hline
+1 essai : succès ou échec & Bernoulli & $p$ \\[4pt]
+$n$ essais indép., $k$ succès & Binomiale & $n$, $p$ \\[4pt]
+Nombre d'événements rares & Poisson & $\lambda$ \\ \hline
+\end{tabular}
+\end{center}
+
+\bigskip
+\underline{Règle pratique :} la loi de Poisson est une bonne approximation de la Binomiale$(n, p)$ quand $n$ est grand ($n \ge 20$) et $p$ est petit ($p \le 0{,}05$), avec $\lambda = np$.
+
+\end{frame}
+
+\end{document}

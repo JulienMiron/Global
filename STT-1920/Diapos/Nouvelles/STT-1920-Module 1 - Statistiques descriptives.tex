@@ -1,0 +1,239 @@
+\documentclass{BeamerTemplate}
+
+\title{Module 1 - Statistiques descriptives}
+
+\subtitle{STT-1920 Méthodes statistiques}
+\date{\today}
+
+\begin{document}
+\begin{frame}[t]
+  \titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Données statistiques}
+
+Un jeu de données est composé d'\alert{observations} sur une ou plusieurs \alert{variables}.
+
+\bigskip
+Exemple : caractéristiques mesurées sur un lot de pièces usinées.
+
+{\small
+\begin{center}
+\begin{tabular}{ccccc}\hline
+Pièce & Diamètre (mm) & Matériau & Qualité & Défauts \\ \hline
+1 & 25{,}3 & Acier & Bonne & 0 \\
+2 & 25{,}8 & Aluminium & Moyenne & 2 \\
+3 & 24{,}9 & Acier & Bonne & 0 \\
+4 & 26{,}1 & Acier & Mauvaise & 5 \\
+$\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ \\\hline
+\end{tabular}
+\end{center}
+}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Types de variables}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Types de variables}
+
+\begin{Boite}{Variable quantitative}
+Variable dont la valeur est un nombre (entier ou réel).
+\begin{itemize}
+  \item \textbf{Continue} : prend toutes les valeurs dans un intervalle (ex. : diamètre, température, masse).
+  \item \textbf{Discrète} : prend des valeurs entières ou dénombrables (ex. : nombre de défauts).
+\end{itemize}
+\end{Boite}
+
+\medskip
+
+\begin{Boite}{Variable qualitative}
+Variable dont la valeur est une catégorie.
+\begin{itemize}
+  \item \textbf{Nominale} : catégories sans ordre naturel (ex. : matériau, couleur).
+  \item \textbf{Ordinale} : catégories ordonnées (ex. : qualité : bonne / moyenne / mauvaise).
+\end{itemize}
+\end{Boite}
+
+\end{frame}
+
+\begin{frame}[t]{Types de variables — exemples}
+
+Identifiez le type de chaque variable :
+
+\bigskip
+\begin{tabular}{lll}
+\hline
+Variable & Valeurs possibles & Type \\ \hline
+Poids d'un colis (kg) & $[0{,}1;\, 50]$ & \\[4pt]
+Nombre de retours clients & $0, 1, 2, \ldots$ & \\[4pt]
+Couleur d'un voyant & Rouge / Vert / Orange & \\[4pt]
+Niveau de satisfaction & 1 à 5 étoiles & \\[4pt]
+Durée d'usinage (s) & $\mathbb{R}^+$ & \\[4pt]
+\hline
+\end{tabular}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Mesures de position}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Mesures de position}
+
+Les mesures de position résument le \alert{centre} d'une distribution.
+
+\bigskip
+\begin{Boite}{Moyenne échantillonnale}
+$$\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i$$
+\end{Boite}
+
+\begin{Boite}{Médiane}
+Valeur qui divise les données en deux moitiés égales (50\textsuperscript{e} percentile).
+\end{Boite}
+
+\medskip
+La \alert{médiane} est robuste aux valeurs extrêmes ; la \alert{moyenne} y est sensible.
+
+\end{frame}
+
+\begin{frame}[t]{Quantiles}
+
+\begin{Boite}{Quantile d'ordre $p$}
+La valeur $q_p$ telle qu'une proportion $p$ des observations lui est inférieure ou égale.
+\end{Boite}
+
+\medskip
+Cas particuliers importants :
+\begin{itemize}\itemsep4mm
+  \item $q_{0{,}25}$ = 1\textsuperscript{er} quartile ($Q_1$)
+  \item $q_{0{,}50}$ = médiane ($Q_2$)
+  \item $q_{0{,}75}$ = 3\textsuperscript{e} quartile ($Q_3$)
+  \item $q_{0{,}90}$, $q_{0{,}95}$, $q_{0{,}99}$ = percentiles courants
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]{Quantiles — calcul à partir d'un histogramme}
+
+Pour $n$ observations, le quantile $q_p$ est approximativement la $(n \cdot p)$\textsuperscript{e} observation dans les données triées.
+
+\bigskip
+\underline{Exemple :} Un histogramme représente $n=40$ observations réparties dans les classes $[10,15[$, $[15,20[$, $[20,25[$, $[25,30[$, $[30,35]$ avec effectifs $8, 18, 10, 3, 1$.
+
+\begin{itemize}\itemsep3mm
+  \item $q_{0{,}30}$ : rang = $40 \times 0{,}30 = 12$\textsuperscript{e} observation.\\
+  Les 8 premières sont dans $[10,15[$ ; la 12\textsuperscript{e} est dans \alert{$[15,20[$}.
+  \item $q_{0{,}50}$ : rang = 20\textsuperscript{e} observation. Classe : \alert{$[15,20[$}.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Mesures de dispersion}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Mesures de dispersion}
+
+Les mesures de dispersion résument la \alert{variabilité} des données.
+
+\bigskip
+\begin{Boite}{Variance et écart-type}
+$$s^2 = \frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2 \qquad s = \sqrt{s^2}$$
+\end{Boite}
+
+\begin{Boite}{Écart interquartile (EIQ)}
+$$\text{EIQ} = Q_3 - Q_1$$
+\end{Boite}
+
+\medskip
+L'EIQ est robuste aux valeurs extrêmes ; $s$ y est sensible.
+
+\end{frame}
+
+\begin{frame}[t]{Récapitulatif : mesures descriptives}
+
+\begin{center}
+\begin{tabular}{lll}\hline
+ & \textbf{Position} & \textbf{Dispersion} \\ \hline
+\textbf{Classique} & Moyenne $\bar{x}$ & Écart-type $s$ \\[3pt]
+\textbf{Robuste} & Médiane & EIQ \\ \hline
+\end{tabular}
+\end{center}
+
+\bigskip
+\begin{itemize}\itemsep5mm
+  \item Utiliser la moyenne et l'écart-type quand les données sont \alert{symétriques} et sans valeurs aberrantes.
+  \item Utiliser la médiane et l'EIQ quand les données sont \alert{asymétriques} ou contiennent des valeurs aberrantes.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Représentations graphiques}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Histogramme}
+
+\begin{Boite}{Histogramme}
+Représentation graphique de la distribution d'une variable quantitative par classes (intervalles). Chaque rectangle a une hauteur proportionnelle à l'effectif (ou la fréquence) de la classe.
+\end{Boite}
+
+\medskip
+Informations fournies :
+\begin{itemize}\itemsep3mm
+  \item forme de la distribution (symétrique, asymétrique, bimodale)
+  \item concentration des valeurs
+  \item présence de valeurs aberrantes
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]{Diagramme en boîte (\textit{boxplot})}
+
+\begin{Boite}{Diagramme en boîte}
+Représentation graphique basée sur les cinq statistiques d'ordre :
+$$\min, \; Q_1, \; Q_2\text{ (médiane)}, \; Q_3, \; \max$$
+\end{Boite}
+
+\medskip
+\begin{itemize}\itemsep4mm
+  \item La boîte s'étend de $Q_1$ à $Q_3$ (longueur = EIQ).
+  \item La ligne centrale indique la médiane.
+  \item Les moustaches s'étendent jusqu'à $\text{Q}_1 - 1{,}5\,\text{EIQ}$ et $\text{Q}_3 + 1{,}5\,\text{EIQ}$ au maximum.
+  \item Les points en dehors des moustaches sont des \alert{valeurs aberrantes potentielles}.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]{Interprétation graphique}
+
+À partir d'un histogramme ou d'un diagramme en boîte, on peut identifier :
+
+\bigskip
+\begin{columns}[t]
+\column{0.5\textwidth}
+\textbf{Distribution symétrique}
+\begin{itemize}
+  \item Histogramme en forme de cloche.
+  \item Médiane $\approx$ Moyenne.
+  \item Boîte centrée, moustaches égales.
+\end{itemize}
+
+\column{0.5\textwidth}
+\textbf{Distribution asymétrique}
+\begin{itemize}
+  \item Queue étalée d'un côté.
+  \item Médiane $\neq$ Moyenne.
+  \item Boîte décalée, moustaches inégales.
+\end{itemize}
+\end{columns}
+
+\end{frame}
+
+\end{document}

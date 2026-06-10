@@ -1,0 +1,185 @@
+\documentclass{BeamerTemplate}
+
+\title{Module 8 - Analyse de la variance (ANOVA)}
+
+\subtitle{STT-1920 Méthodes statistiques}
+\date{\today}
+
+\begin{document}
+\begin{frame}[t]
+  \titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{ANOVA à un facteur}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Motivation}
+
+On veut comparer les moyennes de \alert{$I \ge 3$ groupes} (traitements, niveaux d'un facteur).
+
+\bigskip
+\underline{Exemple :} Comparer la distance de freinage de 3 marques de freins à disque ($I=3$), avec $k$ mesures par marque.
+
+\bigskip
+\begin{itemize}\itemsep4mm
+  \item Effectuer plusieurs tests $t$ deux à deux multiplie les erreurs de type I.
+  \item L'ANOVA teste l'égalité de toutes les moyennes en une seule procédure.
+\end{itemize}
+
+\bigskip
+$H_0 : \mu_1 = \mu_2 = \cdots = \mu_I \quad$ contre $\quad H_1 :$ au moins une $\mu_i$ diffère.
+
+\end{frame}
+
+\begin{frame}[t]{Modèle d'ANOVA à un facteur}
+
+\begin{Boite}{Modèle}
+$$Y_{ij} = \mu + \tau_i + \varepsilon_{ij}, \quad i=1,\ldots,I,\; j=1,\ldots,n_i$$
+\end{Boite}
+
+\begin{itemize}\itemsep4mm
+  \item $\mu$ : moyenne générale.
+  \item $\tau_i$ : effet du $i$\textsuperscript{e} traitement, avec $\sum_i \tau_i = 0$.
+  \item $\varepsilon_{ij} \sim \mathcal{N}(0, \sigma^2)$ i.i.d. : erreur aléatoire.
+\end{itemize}
+
+\bigskip
+\begin{Boite}{Postulats du modèle}
+\begin{itemize}
+  \item Normalité des erreurs.
+  \item Homogénéité des variances ($\sigma^2$ identique dans tous les groupes).
+  \item Indépendance des observations.
+\end{itemize}
+\end{Boite}
+
+\end{frame}
+
+\begin{frame}[t]{Décomposition de la variance}
+
+L'idée clé : décomposer la variabilité totale en variabilité \alert{entre groupes} et variabilité \alert{au sein des groupes}.
+
+\bigskip
+$$SS_T = SS_{\text{Trait}} + SS_E$$
+
+\medskip
+\begin{itemize}\itemsep4mm
+  \item $SS_T = \sum_{i,j}(Y_{ij} - \overline{Y})^2$ : variabilité totale.
+  \item $SS_{\text{Trait}} = \sum_i n_i(\overline{Y}_{i\cdot} - \overline{Y})^2$ : variabilité entre groupes.
+  \item $SS_E = \sum_{i,j}(Y_{ij} - \overline{Y}_{i\cdot})^2$ : variabilité au sein des groupes (erreur).
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]{Table d'ANOVA}
+
+\begin{center}
+\begin{tabular}{lccccc}\hline
+\textbf{Source} & \textbf{SS} & \textbf{ddl} & \textbf{MS} & \textbf{$F_0$} & \textbf{Valeur-$p$} \\ \hline
+Traitement & $SS_{\text{Trait}}$ & $I-1$ & $MS_{\text{Trait}}$ & $F_0 = MS_{\text{Trait}}/MS_E$ & \\[3pt]
+Erreur & $SS_E$ & $n-I$ & $MS_E$ & & \\[3pt]
+Total & $SS_T$ & $n-1$ & & & \\ \hline
+\end{tabular}
+\end{center}
+
+\medskip
+\begin{itemize}\itemsep3mm
+  \item $MS = SS / \text{ddl}$ : carré moyen.
+  \item $MS_E = \hat{\sigma}^2$ : estimateur de la variance.
+  \item Sous $H_0$ : $F_0 \sim F_{I-1,\,n-I}$.
+  \item Rejeter $H_0$ si $F_0 > F_{\alpha;\,I-1,\,n-I}$ ou si valeur-$p < \alpha$.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]{Exemple — freins à disque}
+
+\begin{verbatim}
+                   SS   DDL       MS       F0    valeur-p
+Traitement      45.77     2   22.885   14.329    0.000001
+Erreur          91.03    57    1.597
+\end{verbatim}
+
+\begin{itemize}\itemsep4mm
+  \item $I-1=2 \Rightarrow I=3$ marques de freins.
+  \item $n-I=57 \Rightarrow n=60$ observations. Donc $k=20$ répétitions par marque.
+  \item $\hat{\sigma}^2 = MS_E = 1{,}597$.
+  \item $F_0 = 14{,}329$, valeur-$p = 0{,}000001 < 0{,}01 = \alpha$.
+  \item \alert{On rejette $H_0$} : au moins une moyenne de distance de freinage diffère.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{ANOVA à deux facteurs}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{ANOVA à deux facteurs}
+
+On s'intéresse à l'effet de \alert{deux facteurs} A et B sur la variable réponse.
+
+\bigskip
+\begin{Boite}{Modèle avec interaction}
+$$Y_{ijk} = \mu + \tau_i + \beta_j + (\tau\beta)_{ij} + \varepsilon_{ijk}$$
+\end{Boite}
+
+\begin{itemize}\itemsep4mm
+  \item $\tau_i$ : effet principal du facteur A.
+  \item $\beta_j$ : effet principal du facteur B.
+  \item $(\tau\beta)_{ij}$ : \alert{terme d'interaction} — l'effet de A dépend du niveau de B.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]{Interaction}
+
+\begin{Boite}{Interaction}
+L'effet d'un facteur dépend du niveau de l'autre facteur.
+\end{Boite}
+
+\medskip
+\begin{itemize}\itemsep5mm
+  \item \textbf{Pas d'interaction} : les courbes des profils moyens sont parallèles.
+  \item \textbf{Interaction présente} : les courbes se croisent.
+\end{itemize}
+
+\bigskip
+Si l'interaction est significative, on ne peut pas interpréter les effets principaux indépendamment.
+
+\end{frame}
+
+\begin{frame}[t]{Table d'ANOVA à deux facteurs}
+
+\begin{center}
+\small
+\begin{tabular}{lcccc}\hline
+\textbf{Source} & \textbf{ddl} & \textbf{MS} & \textbf{$F_0$} \\ \hline
+Facteur A & $I-1$ & $MS_A$ & $MS_A/MS_E$ \\[3pt]
+Facteur B & $J-1$ & $MS_B$ & $MS_B/MS_E$ \\[3pt]
+Interaction $A \times B$ & $(I-1)(J-1)$ & $MS_{AB}$ & $MS_{AB}/MS_E$ \\[3pt]
+Erreur & $IJ(n-1)$ & $MS_E$ & \\[3pt]
+Total & $IJn-1$ & & \\ \hline
+\end{tabular}
+\end{center}
+
+\medskip
+On teste d'abord l'interaction, puis les effets principaux si pertinent.
+
+\end{frame}
+
+\begin{frame}[t]{Comparaisons multiples (post-hoc)}
+
+Après un test $F$ significatif, on veut savoir \alert{quels groupes diffèrent}.
+
+\bigskip
+\begin{Boite}{Méthode de Tukey (HSD)}
+Contrôle le taux d'erreur familial à $\alpha$ pour l'ensemble des comparaisons deux à deux.
+$$|\overline{y}_{i\cdot} - \overline{y}_{j\cdot}| > q_{\alpha;\,I,\,n-I}\,\frac{MS_E}{\sqrt{k}}$$
+\end{Boite}
+
+\medskip
+D'autres méthodes existent : Bonferroni, Dunnett (comparaison à un contrôle), etc.
+
+\end{frame}
+
+\end{document}

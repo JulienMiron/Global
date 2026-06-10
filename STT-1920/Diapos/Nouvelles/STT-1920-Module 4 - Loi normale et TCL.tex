@@ -1,0 +1,187 @@
+\documentclass{BeamerTemplate}
+
+\title{Module 4 - Loi normale et théorème central limite}
+
+\subtitle{STT-1920 Méthodes statistiques}
+\date{\today}
+
+\begin{document}
+\begin{frame}[t]
+  \titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Variables aléatoires continues}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Variables aléatoires continues}
+
+\begin{Boite}{Variable aléatoire continue}
+Variable qui peut prendre toutes les valeurs dans un intervalle (ou $\mathbb{R}$).\\
+La probabilité d'une valeur exacte est \alert{nulle} : $P(X = x) = 0$.
+\end{Boite}
+
+\medskip
+\begin{Boite}{Densité de probabilité $f(x)$}
+Fonction telle que :
+$$P(a \le X \le b) = \int_a^b f(x)\,dx, \qquad f(x) \ge 0, \quad \int_{-\infty}^{+\infty} f(x)\,dx = 1$$
+\end{Boite}
+
+\medskip
+L'espérance et la variance sont définies comme pour les lois discrètes (sommes $\to$ intégrales).
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Loi normale}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Loi normale}
+
+\begin{Boite}{$X \sim \mathcal{N}(\mu, \sigma^2)$}
+$$f(x) = \frac{1}{\sigma\sqrt{2\pi}}\exp\!\left(-\frac{(x-\mu)^2}{2\sigma^2}\right), \quad x \in \mathbb{R}$$
+$$E(X) = \mu \qquad V(X) = \sigma^2$$
+\end{Boite}
+
+\medskip
+Propriétés :
+\begin{itemize}\itemsep3mm
+  \item Courbe en forme de \alert{cloche}, symétrique autour de $\mu$.
+  \item Paramètre $\mu$ : centre (position).
+  \item Paramètre $\sigma$ : largeur (dispersion).
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]{Règle empirique (68-95-99,7)}
+
+Pour $X \sim \mathcal{N}(\mu, \sigma^2)$ :
+
+\bigskip
+\begin{itemize}\itemsep6mm
+  \item $P(\mu - \sigma \le X \le \mu + \sigma) \approx 0{,}68$
+  \item $P(\mu - 2\sigma \le X \le \mu + 2\sigma) \approx 0{,}95$
+  \item $P(\mu - 3\sigma \le X \le \mu + 3\sigma) \approx 0{,}997$
+\end{itemize}
+
+\bigskip
+$\Rightarrow$ Presque toutes les observations se trouvent à moins de 3 écarts-types de la moyenne.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Standardisation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Loi normale centrée réduite}
+
+\begin{Boite}{Standardisation}
+Si $X \sim \mathcal{N}(\mu, \sigma^2)$, alors :
+$$Z = \frac{X - \mu}{\sigma} \sim \mathcal{N}(0, 1)$$
+\end{Boite}
+
+\begin{Boite}{Calcul de probabilité}
+$$P(X \le x) = P\!\left(Z \le \frac{x-\mu}{\sigma}\right) = \Phi\!\left(\frac{x-\mu}{\sigma}\right)$$
+\end{Boite}
+
+\medskip
+$\Phi(z)$ est la fonction de répartition de $\mathcal{N}(0,1)$ (table de la loi normale).
+
+\end{frame}
+
+\begin{frame}[t]{Calcul de probabilités — exemples}
+
+$X \sim \mathcal{N}(8, 25)$ (moyenne $\mu = 8$, variance $\sigma^2 = 25$, donc $\sigma = 5$).
+
+\bigskip
+\begin{itemize}\itemsep6mm
+  \item $P(X \le 13) = \Phi\!\left(\dfrac{13-8}{5}\right) = \Phi(1) \approx \alert{0{,}841}$
+  \item $P(X > 3) = 1 - \Phi\!\left(\dfrac{3-8}{5}\right) = 1 - \Phi(-1) = \Phi(1) \approx 0{,}841$
+  \item $P(3 \le X \le 13) = \Phi(1) - \Phi(-1) \approx 0{,}683$
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]{Quantiles de la loi normale}
+
+On cherche parfois $x$ tel que $P(X \le x) = p$.
+
+\bigskip
+\begin{Boite}{Quantile de $\mathcal{N}(\mu, \sigma^2)$}
+$$x = \mu + z_p \cdot \sigma$$
+où $z_p = \Phi^{-1}(p)$ est le quantile d'ordre $p$ de $\mathcal{N}(0,1)$.
+\end{Boite}
+
+\medskip
+Quantiles usuels de $\mathcal{N}(0,1)$ :
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+$p$ & 0{,}90 & 0{,}95 & 0{,}975 & 0{,}99 & 0{,}995 \\ \hline
+$z_p$ & 1{,}282 & 1{,}645 & 1{,}960 & 2{,}326 & 2{,}576 \\ \hline
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Théorème central limite}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Théorème central limite (TCL)}
+
+\begin{Boite}{Théorème central limite}
+Soient $X_1, X_2, \ldots, X_n$ des v.a. i.i.d. d'espérance $\mu$ et de variance $\sigma^2 < \infty$.\\
+Quand $n \to \infty$ :
+$$\overline{X} = \frac{1}{n}\sum_{i=1}^{n} X_i \xrightarrow{\text{loi}} \mathcal{N}\!\left(\mu, \frac{\sigma^2}{n}\right)$$
+\end{Boite}
+
+\medskip
+\begin{itemize}\itemsep4mm
+  \item \alert{Peu importe} la distribution des $X_i$, la moyenne échantillonnale est approximativement normale pour $n$ suffisamment grand.
+  \item En pratique : $n \ge 30$ suffit souvent.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]{Pourquoi le TCL est fondamental}
+
+Le TCL justifie l'utilisation de la loi normale pour l'inférence statistique, même quand la population n'est pas normale.
+
+\bigskip
+\begin{columns}[t]
+\column{0.5\textwidth}
+\textbf{Ce qu'on sait :}
+\begin{itemize}\itemsep3mm
+  \item $X_i$ i.i.d., espérance $\mu$, variance $\sigma^2$
+\end{itemize}
+
+\column{0.5\textwidth}
+\textbf{Ce qu'on peut dire :}
+\begin{itemize}\itemsep3mm
+  \item $E(\overline{X}) = \mu$
+  \item $V(\overline{X}) = \sigma^2/n$
+  \item $\overline{X} \approx \mathcal{N}(\mu, \sigma^2/n)$ pour $n$ grand
+\end{itemize}
+\end{columns}
+
+\bigskip
+$\Rightarrow$ Toute la théorie des intervalles de confiance et des tests d'hypothèses repose sur ce résultat.
+
+\end{frame}
+
+\begin{frame}[t]{TCL — illustration}
+
+\underline{Exemple :} Une infirmière note le nombre quotidien de naissances ($N \sim \text{Poisson}(8)$) sur 365 jours.
+
+\bigskip
+\begin{itemize}\itemsep5mm
+  \item $E(N) = 8$, $V(N) = 8$.
+  \item Après 365 jours, par le TCL :
+  $$\overline{N} \approx \mathcal{N}\!\left(8, \frac{8}{365}\right) = \mathcal{N}(8, 0{,}022)$$
+  \item La moyenne observée sera très proche de 8.
+\end{itemize}
+
+\end{frame}
+
+\end{document}

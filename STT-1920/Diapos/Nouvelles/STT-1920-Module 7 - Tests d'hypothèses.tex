@@ -1,0 +1,192 @@
+\documentclass{BeamerTemplate}
+
+\title{Module 7 - Tests d'hypothèses}
+
+\subtitle{STT-1920 Méthodes statistiques}
+\date{\today}
+
+\begin{document}
+\begin{frame}[t]
+  \titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Concepts fondamentaux}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Hypothèse statistique}
+
+\begin{Boite}{Hypothèse statistique}
+Énoncé sur un paramètre d'une population (ex. $\mu = 15$, $\mu > 10$, $p \neq 0{,}5$).
+\end{Boite}
+
+\medskip
+Dans un test d'hypothèses, on confronte :
+\begin{itemize}\itemsep5mm
+  \item $H_0$ : \textbf{hypothèse nulle} — le \textit{statu quo}, considérée vraie \textit{a priori}.
+  \item $H_1$ : \textbf{hypothèse alternative} — ce qu'on cherche à démontrer.
+\end{itemize}
+
+\bigskip
+\underline{Exemples :}
+\begin{itemize}\itemsep3mm
+  \item $H_0 : \mu = 15 \quad$ contre $\quad H_1 : \mu \ne 15$ \quad (bilatéral)
+  \item $H_0 : \mu \le 10 \quad$ contre $\quad H_1 : \mu > 10$ \quad (unilatéral droit)
+  \item $H_0 : p = 0{,}5 \quad$ contre $\quad H_1 : p < 0{,}5$ \quad (unilatéral gauche)
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Erreurs et décisions}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Erreurs de type I et II}
+
+\begin{center}
+\begin{tabular}{l|cc}\hline
+ & $H_0$ vraie & $H_0$ fausse \\ \hline
+Ne pas rejeter $H_0$ & \textcolor{green!60!black}{Bonne décision} & \textcolor{red}{Erreur de type II} \\[4pt]
+Rejeter $H_0$ & \textcolor{red}{Erreur de type I} & \textcolor{green!60!black}{Bonne décision} \\ \hline
+\end{tabular}
+\end{center}
+
+\medskip
+\begin{Boite}{Niveau du test $\alpha$}
+$$\alpha = P(\text{Rejeter }H_0 \mid H_0 \text{ vraie}) = P(\text{Erreur de type I})$$
+\end{Boite}
+
+\begin{Boite}{Puissance du test}
+$$1-\beta = P(\text{Rejeter }H_0 \mid H_0 \text{ fausse})$$
+\end{Boite}
+
+\end{frame}
+
+\begin{frame}[t]{Exemples — erreurs de décision}
+
+Test : $H_0 : \mu = 15$ contre $H_1 : \mu \ne 15$.\\
+Règle : rejeter $H_0$ si $\overline{X} < 10$ ou $\overline{X} > 20$.
+
+\bigskip
+\begin{itemize}\itemsep6mm
+  \item $\mu = 15$ (vrai), $\overline{x} = 12$ (zone d'acceptation) $\Rightarrow$ \textcolor{green!60!black}{bonne décision}.
+  \item $\mu = 15$ (vrai), $\overline{x} = 21$ (zone de rejet) $\Rightarrow$ \textcolor{red}{erreur de type I}.
+  \item $\mu = 16$ (faux), $\overline{x} = 12$ (zone d'acceptation) $\Rightarrow$ \textcolor{red}{erreur de type II}.
+  \item $\mu = 18$ (faux), $\overline{x} = 21$ (zone de rejet) $\Rightarrow$ \textcolor{green!60!black}{bonne décision}.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Valeur-\texorpdfstring{$p$}{p} et procédure de test}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Valeur-$p$}
+
+\begin{Boite}{Valeur-$p$}
+La probabilité d'obtenir une statistique de test aussi extrême ou plus, si $H_0$ était vraie.
+$$\text{valeur-}p = P(\text{statistique aussi extrême} \mid H_0 \text{ vraie})$$
+\end{Boite}
+
+\medskip
+\begin{Boite}{Règle de décision}
+\begin{itemize}
+  \item Valeur-$p$ $\le \alpha$ $\Rightarrow$ \alert{rejeter $H_0$}.
+  \item Valeur-$p$ $> \alpha$ $\Rightarrow$ ne pas rejeter $H_0$.
+\end{itemize}
+\end{Boite}
+
+\medskip
+Une valeur-$p$ petite témoigne de données \alert{incompatibles} avec $H_0$.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Test pour \texorpdfstring{$\mu$}{mu} à un échantillon}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Test pour $\mu$ — $\sigma$ connue}
+
+$H_0 : \mu = \mu_0$ contre $H_1 : \mu \ne \mu_0$ (ou $>$ ou $<$).
+
+\bigskip
+\begin{Boite}{Statistique de test}
+$$Z_0 = \frac{\overline{X} - \mu_0}{\sigma/\sqrt{n}} \sim \mathcal{N}(0,1) \text{ sous } H_0$$
+\end{Boite}
+
+\medskip
+Zone de rejet au seuil $\alpha$ (test bilatéral) :
+$$|Z_0| > z_{\alpha/2}$$
+
+\medskip
+Valeur-$p$ (bilatéral) : $2\,P(Z > |z_0|)$ où $z_0$ est la valeur observée de $Z_0$.
+
+\end{frame}
+
+\begin{frame}[t]{Test pour $\mu$ — $\sigma$ inconnue}
+
+$H_0 : \mu = \mu_0$ contre $H_1 : \mu \ne \mu_0$.
+
+\bigskip
+\begin{Boite}{Statistique de test (Student)}
+$$T_0 = \frac{\overline{X} - \mu_0}{S/\sqrt{n}} \sim t_{n-1} \text{ sous } H_0$$
+\end{Boite}
+
+\medskip
+Zone de rejet au seuil $\alpha$ (bilatéral) :
+$$|T_0| > t_{\alpha/2;\, n-1}$$
+
+\medskip
+Plus fréquent en pratique (on connaît rarement $\sigma$).
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Tests à deux échantillons}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Test de comparaison de deux moyennes}
+
+On compare deux populations indépendantes :
+$$H_0 : \mu_1 = \mu_2 \quad \text{contre} \quad H_1 : \mu_1 \ne \mu_2$$
+
+\bigskip
+\begin{Boite}{Statistique de test ($\sigma_1^2 = \sigma_2^2$ inconnue — variances égales)}
+$$T_0 = \frac{\overline{X}_1 - \overline{X}_2}{S_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}} \sim t_{n_1+n_2-2} \text{ sous } H_0$$
+\end{Boite}
+
+$$S_p^2 = \frac{(n_1-1)S_1^2 + (n_2-1)S_2^2}{n_1+n_2-2} \quad \text{(variance regroupée)}$$
+
+\end{frame}
+
+\begin{frame}[t]{Test de comparaison de deux moyennes — données appariées}
+
+Quand les observations sont appariées (avant/après, même unité), on travaille sur les \alert{différences} $D_i = X_{1i} - X_{2i}$.
+
+\bigskip
+\begin{Boite}{Test sur $D_i = X_{1i} - X_{2i}$}
+$$H_0 : \mu_D = 0 \quad \Rightarrow \quad T_0 = \frac{\overline{D}}{S_D/\sqrt{n}} \sim t_{n-1} \text{ sous } H_0$$
+\end{Boite}
+
+\medskip
+Utiliser le test apparié quand les deux mesures sont prises sur la \alert{même unité}.
+
+\end{frame}
+
+\begin{frame}[t]{Récapitulatif — tests à 1 et 2 échantillons}
+
+\begin{center}
+\small
+\begin{tabular}{lll}\hline
+\textbf{Test} & \textbf{Statistique} & \textbf{Loi} \\ \hline
+$H_0:\mu=\mu_0$, $\sigma$ connue & $Z_0=(\overline{x}-\mu_0)/(\sigma/\sqrt{n})$ & $\mathcal{N}(0,1)$ \\[3pt]
+$H_0:\mu=\mu_0$, $\sigma$ inconnue & $T_0=(\overline{x}-\mu_0)/(s/\sqrt{n})$ & $t_{n-1}$ \\[3pt]
+$H_0:\mu_1=\mu_2$, ind., $\sigma_1^2=\sigma_2^2$ & $T_0=(\overline{x}_1-\overline{x}_2)/(s_p\sqrt{1/n_1+1/n_2})$ & $t_{n_1+n_2-2}$ \\[3pt]
+$H_0:\mu_D=0$ (appariées) & $T_0=\overline{d}/(s_d/\sqrt{n})$ & $t_{n-1}$ \\[3pt]
+$H_0:p=p_0$ & $Z_0=(\hat{p}-p_0)/\sqrt{p_0(1-p_0)/n}$ & $\mathcal{N}(0,1)$ \\ \hline
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+\end{document}

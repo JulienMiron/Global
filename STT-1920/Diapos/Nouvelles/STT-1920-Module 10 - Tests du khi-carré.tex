@@ -1,0 +1,136 @@
+\documentclass{BeamerTemplate}
+
+\title{Module 10 - Tests du khi-carré}
+
+\subtitle{STT-1920 Méthodes statistiques}
+\date{\today}
+
+\begin{document}
+\begin{frame}[t]
+  \titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Test d'ajustement}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Test d'ajustement ($\chi^2$ goodness-of-fit)}
+
+\begin{Boite}{Objectif}
+Tester si une distribution observée est compatible avec une distribution théorique supposée.
+\end{Boite}
+
+\medskip
+$H_0$ : les données suivent la distribution $F_0$ spécifiée.
+
+\bigskip
+Pour $k$ catégories avec effectifs observés $O_j$ et effectifs théoriques $E_j = n\,p_{0j}$ :
+
+\begin{Boite}{Statistique de test}
+$$\chi^2_0 = \sum_{j=1}^{k} \frac{(O_j - E_j)^2}{E_j} \;\dot{\sim}\; \chi^2_{k-1} \text{ sous } H_0$$
+\end{Boite}
+
+\medskip
+Rejeter $H_0$ si $\chi^2_0 > \chi^2_{\alpha;\,k-1}$ ou valeur-$p < \alpha$.
+
+\end{frame}
+
+\begin{frame}[t]{Conditions d'application}
+
+Pour que l'approximation $\chi^2$ soit valide :
+\begin{itemize}\itemsep5mm
+  \item Les effectifs \alert{théoriques} $E_j \ge 5$ pour chaque catégorie.
+  \item Si ce n'est pas le cas, regrouper des catégories.
+  \item $n$ suffisamment grand.
+\end{itemize}
+
+\bigskip
+\underline{Exemple :} Dé équilibré — on lance un dé 60 fois. Est-il équilibré?
+\begin{itemize}
+  \item $H_0$ : $p_j = 1/6$ pour $j = 1, \ldots, 6$.
+  \item $E_j = 60/6 = 10$ pour chaque face.
+  \item Calculer $\chi^2_0 = \sum_{j=1}^{6}(O_j-10)^2/10 \sim \chi^2_5$.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Test d'indépendance}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Test d'indépendance}
+
+\begin{Boite}{Objectif}
+Tester si deux variables qualitatives sont \alert{indépendantes} dans une population.
+\end{Boite}
+
+\medskip
+Les données sont présentées dans un \alert{tableau de contingence} $r \times c$ :
+
+\begin{center}
+\begin{tabular}{c|cccc|c}
+ & $B_1$ & $B_2$ & $\cdots$ & $B_c$ & Total \\ \hline
+$A_1$ & $O_{11}$ & $O_{12}$ & & $O_{1c}$ & $n_{1\cdot}$ \\
+$\vdots$ & & & & & \\
+$A_r$ & $O_{r1}$ & & & $O_{rc}$ & $n_{r\cdot}$ \\ \hline
+Total & $n_{\cdot 1}$ & & & $n_{\cdot c}$ & $n$ \\
+\end{tabular}
+\end{center}
+
+$H_0$ : $A$ et $B$ sont indépendantes.
+
+\end{frame}
+
+\begin{frame}[t]{Effectifs théoriques et statistique de test}
+
+Sous $H_0$ (indépendance) :
+$$E_{ij} = \frac{n_{i\cdot} \times n_{\cdot j}}{n}$$
+
+\begin{Boite}{Statistique du khi-carré d'indépendance}
+$$\chi^2_0 = \sum_{i=1}^{r}\sum_{j=1}^{c} \frac{(O_{ij} - E_{ij})^2}{E_{ij}} \;\dot{\sim}\; \chi^2_{(r-1)(c-1)} \text{ sous } H_0$$
+\end{Boite}
+
+\medskip
+Degrés de liberté : $\nu = (r-1)(c-1)$.
+
+\medskip
+Rejeter $H_0$ si $\chi^2_0 > \chi^2_{\alpha;\,(r-1)(c-1)}$ ou valeur-$p < \alpha$.
+
+\end{frame}
+
+\begin{frame}[t]{Exemple — tableau $3 \times 2$}
+
+\underline{Exemple :} On veut savoir si le groupe sanguin et le sexe sont indépendants.
+
+Tableau $3 \times 2$ ($r=3$, $c=2$) :
+$$\nu = (r-1)(c-1) = (3-1)(2-1) = \alert{2}$$
+
+\bigskip
+\begin{itemize}\itemsep5mm
+  \item Calculer les $E_{ij}$ à partir des totaux marginaux.
+  \item Calculer $\chi^2_0 = \sum (O_{ij}-E_{ij})^2/E_{ij}$.
+  \item Comparer à $\chi^2_{\alpha;\,2}$ (ex. $\chi^2_{0{,}05;\,2} = 5{,}991$).
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]{Récapitulatif — tests du khi-carré}
+
+\begin{center}
+\begin{tabular}{lll}\hline
+\textbf{Test} & \textbf{$H_0$} & \textbf{ddl} \\ \hline
+Ajustement & Distribution $= F_0$ & $k-1$ \\[4pt]
+Indépendance & $A \perp B$ & $(r-1)(c-1)$ \\ \hline
+\end{tabular}
+\end{center}
+
+\bigskip
+\begin{itemize}\itemsep5mm
+  \item Les deux tests utilisent la même statistique $\chi^2_0 = \sum(O-E)^2/E$.
+  \item Toujours vérifier que $E_{ij} \ge 5$.
+  \item Test unilatéral droit seulement (on rejette quand $\chi^2_0$ est \alert{grand}).
+\end{itemize}
+
+\end{frame}
+
+\end{document}

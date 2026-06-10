@@ -1,0 +1,205 @@
+\documentclass{BeamerTemplate}
+
+\title{Module 6 - Intervalles de confiance}
+
+\subtitle{STT-1920 Méthodes statistiques}
+\date{\today}
+
+\begin{document}
+\begin{frame}[t]
+  \titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Concept d'intervalle de confiance}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Limite de l'estimation ponctuelle}
+
+L'estimation ponctuelle fournit \alert{une seule valeur} pour le paramètre.
+
+\bigskip
+\begin{itemize}\itemsep5mm
+  \item Elle ne renseigne pas sur la \alert{précision} de l'estimateur.
+  \item Deux échantillons différents donneront deux estimations différentes.
+\end{itemize}
+
+\bigskip
+$\Rightarrow$ L'intervalle de confiance complète l'estimation ponctuelle en lui associant une \alert{marge d'erreur} et un \alert{niveau de confiance}.
+
+\end{frame}
+
+\begin{frame}[t]{Définition}
+
+\begin{Boite}{Intervalle de confiance de niveau $1-\alpha$}
+Deux statistiques $C_1$ et $C_2$ telles que :
+$$P(C_1 \le \theta \le C_2) = 1 - \alpha$$
+\end{Boite}
+
+\medskip
+\begin{itemize}\itemsep5mm
+  \item $1-\alpha$ : \alert{niveau de confiance} (ex. : $0{,}95$, $0{,}99$).
+  \item $\alpha$ : probabilité que l'intervalle \emph{ne contienne pas} $\theta$.
+  \item L'intervalle est \alert{aléatoire} (dépend de l'échantillon) ; $\theta$ est fixe.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]{Interprétation}
+
+\begin{Boite}{\faInfoCircle\ Interprétation correcte d'un IC à 95\%}
+Si on répète l'expérience un grand nombre de fois et qu'on calcule l'IC à chaque fois, \alert{95\% de ces intervalles contiendront} la vraie valeur de $\theta$.
+\end{Boite}
+
+\medskip
+\underline{Interprétations incorrectes :}
+\begin{itemize}\itemsep3mm
+  \item «Il y a 95\% de chances que $\theta$ soit dans cet intervalle.» (\alert{faux} : $\theta$ est fixe)
+  \item «95\% des observations sont dans l'intervalle.» (\alert{faux} : l'IC porte sur $\theta$, pas sur les $X_i$)
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{IC pour \texorpdfstring{$\mu$}{mu} (\texorpdfstring{$\sigma$}{sigma} connue)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{IC pour $\mu$ ($\sigma$ connue)}
+
+Si $X_i \sim \mathcal{N}(\mu, \sigma^2)$ ou $n$ grand, avec $\sigma$ \alert{connue} :
+
+\begin{Boite}{IC à $1-\alpha$ pour $\mu$ ($\sigma$ connue)}
+$$\left[\overline{x} - z_{\alpha/2}\frac{\sigma}{\sqrt{n}};\; \overline{x} + z_{\alpha/2}\frac{\sigma}{\sqrt{n}}\right]$$
+\end{Boite}
+
+\medskip
+\begin{itemize}\itemsep4mm
+  \item \textbf{Marge d'erreur} : $M = z_{\alpha/2}\,\dfrac{\sigma}{\sqrt{n}}$
+  \item $z_{\alpha/2}$ : quantile de $\mathcal{N}(0,1)$ tel que $P(Z > z_{\alpha/2}) = \alpha/2$.
+  \item Pour $1-\alpha = 0{,}95$ : $z_{0{,}025} = 1{,}96$.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]{Marge d'erreur et taille d'échantillon}
+
+La marge d'erreur $M = z_{\alpha/2}\,\dfrac{\sigma}{\sqrt{n}}$ diminue quand :
+\begin{itemize}\itemsep3mm
+  \item $n$ augmente (plus d'observations $\Rightarrow$ plus précis),
+  \item $\sigma$ diminue (moins de variabilité dans la population),
+  \item $1-\alpha$ diminue (niveau de confiance plus bas).
+\end{itemize}
+
+\bigskip
+\begin{Boite}{Taille minimale pour une marge $M$ fixée}
+$$n \ge \left(\frac{z_{\alpha/2}\,\sigma}{M}\right)^2$$
+\end{Boite}
+
+\end{frame}
+
+\begin{frame}[t]{Exemple — IC pour $\mu$ ($\sigma$ connue)}
+
+$X \sim \mathcal{N}(\mu, 4)$ (donc $\sigma = 2$). Échantillon $n=25$, $\overline{x} = 500{,}6$ mg.
+
+\bigskip
+IC à 95\% pour $\mu$ :
+$$500{,}6 \pm 1{,}96 \times \frac{2}{\sqrt{25}} = 500{,}6 \pm 0{,}784 = \alert{[499{,}816 \;;\; 501{,}384]}$$
+
+\bigskip
+Taille minimale pour $M \le 0{,}5$ :
+$$n \ge \left(\frac{1{,}96 \times 2}{0{,}5}\right)^2 = (7{,}84)^2 \approx 61{,}5 \Rightarrow n = \alert{62}$$
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Loi de Student et IC pour \texorpdfstring{$\mu$}{mu} (\texorpdfstring{$\sigma$}{sigma} inconnue)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Loi de Student $t_\nu$}
+
+Quand $\sigma$ est \alert{inconnue}, on remplace $\sigma$ par $S$ :
+
+$$T = \frac{\overline{X} - \mu}{S/\sqrt{n}} \sim t_{n-1}$$
+
+\begin{Boite}{Loi de Student ($t_\nu$)}
+\begin{itemize}
+  \item Symétrique autour de 0 comme $\mathcal{N}(0,1)$.
+  \item Queues plus lourdes que la normale (plus de variabilité car $S$ est aléatoire).
+  \item Quand $\nu \to \infty$ : $t_\nu \to \mathcal{N}(0,1)$.
+\end{itemize}
+\end{Boite}
+
+\end{frame}
+
+\begin{frame}[t]{IC pour $\mu$ ($\sigma$ inconnue)}
+
+\begin{Boite}{IC à $1-\alpha$ pour $\mu$ ($\sigma$ inconnue)}
+$$\left[\overline{x} - t_{\alpha/2;\, n-1}\,\frac{s}{\sqrt{n}};\; \overline{x} + t_{\alpha/2;\,n-1}\,\frac{s}{\sqrt{n}}\right]$$
+\end{Boite}
+
+\medskip
+\begin{itemize}\itemsep4mm
+  \item $t_{\alpha/2;\,n-1}$ : quantile de Student avec $n-1$ degrés de liberté.
+  \item L'IC basé sur Student est \alert{plus large} que celui basé sur $\mathcal{N}(0,1)$.
+  \item Utiliser ce type d'IC quand $\sigma$ est inconnu (cas le plus fréquent).
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{IC pour une proportion}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{IC pour une proportion $p$}
+
+Pour $n$ grande, par le TCL, $\hat{p} = \overline{X} \approx \mathcal{N}\!\left(p, \frac{p(1-p)}{n}\right)$.
+
+\begin{Boite}{IC à $1-\alpha$ pour $p$}
+$$\hat{p} \pm z_{\alpha/2}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$$
+\end{Boite}
+
+\medskip
+\begin{itemize}\itemsep4mm
+  \item On remplace $p$ par $\hat{p}$ dans l'erreur-type.
+  \item Valide quand $n\hat{p} \ge 5$ et $n(1-\hat{p}) \ge 5$.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{IC pour \texorpdfstring{$\sigma^2$}{sigma2}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{IC pour $\sigma^2$ (loi du khi-carré)}
+
+Si $X_i \sim \mathcal{N}(\mu, \sigma^2)$ :
+$$\frac{(n-1)S^2}{\sigma^2} \sim \chi^2_{n-1}$$
+
+\begin{Boite}{IC à $1-\alpha$ pour $\sigma^2$}
+$$\left[\frac{(n-1)s^2}{\chi^2_{\alpha/2;\,n-1}};\; \frac{(n-1)s^2}{\chi^2_{1-\alpha/2;\,n-1}}\right]$$
+\end{Boite}
+
+\medskip
+\begin{itemize}\itemsep3mm
+  \item La loi $\chi^2$ est \alert{asymétrique} $\Rightarrow$ l'IC pour $\sigma^2$ n'est pas symétrique autour de $s^2$.
+  \item Les quantiles $\chi^2_{\alpha/2}$ et $\chi^2_{1-\alpha/2}$ sont différents.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]{Récapitulatif des IC}
+
+\begin{center}
+\small
+\begin{tabular}{lll}\hline
+\textbf{Paramètre} & \textbf{Condition} & \textbf{Loi utilisée} \\ \hline
+$\mu$ & $\sigma$ connue & $\mathcal{N}(0,1)$ \\[3pt]
+$\mu$ & $\sigma$ inconnue & $t_{n-1}$ \\[3pt]
+$p$ & $n$ grand & $\mathcal{N}(0,1)$ \\[3pt]
+$\sigma^2$ & pop. normale & $\chi^2_{n-1}$ \\ \hline
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+\end{document}

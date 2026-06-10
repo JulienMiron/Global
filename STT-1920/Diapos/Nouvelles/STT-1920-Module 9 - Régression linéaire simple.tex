@@ -1,0 +1,175 @@
+\documentclass{BeamerTemplate}
+
+\title{Module 9 - Régression linéaire simple}
+
+\subtitle{STT-1920 Méthodes statistiques}
+\date{\today}
+
+\begin{document}
+\begin{frame}[t]
+  \titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Corrélation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Association linéaire entre deux variables}
+
+On dispose de $n$ paires d'observations $(x_i, y_i)$.\\
+On veut mesurer et modéliser la \alert{relation linéaire} entre $X$ et $Y$.
+
+\bigskip
+\begin{Boite}{Coefficient de corrélation de Pearson}
+$$r = \frac{\displaystyle\sum_{i=1}^n (x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\displaystyle\sum_{i=1}^n(x_i-\bar{x})^2 \cdot \sum_{i=1}^n(y_i-\bar{y})^2}}$$
+\end{Boite}
+
+\medskip
+\begin{itemize}\itemsep3mm
+  \item $-1 \le r \le 1$.
+  \item $r > 0$ : relation croissante ; $r < 0$ : relation décroissante.
+  \item $|r|$ proche de 1 : forte relation linéaire ; proche de 0 : faible.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]{Attention : corrélation $\neq$ causalité}
+
+Un coefficient $r$ élevé indique une \alert{association} linéaire, pas nécessairement une relation de cause à effet.
+
+\bigskip
+\underline{Exemples de pièges :}
+\begin{itemize}\itemsep5mm
+  \item Variables confondantes : les ventes de crème glacée et les noyades sont corrélées — à cause de la chaleur.
+  \item Relation non linéaire : $r \approx 0$ ne signifie pas absence de relation.
+  \item Extrapolation hors du domaine observé.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Modèle de régression}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Modèle de régression linéaire simple}
+
+\begin{Boite}{Modèle}
+$$Y_i = \beta_0 + \beta_1 x_i + \varepsilon_i, \quad \varepsilon_i \sim \mathcal{N}(0, \sigma^2) \text{ i.i.d.}$$
+\end{Boite}
+
+\begin{itemize}\itemsep4mm
+  \item $\beta_0$ : \alert{ordonnée à l'origine} (valeur moyenne de $Y$ quand $x=0$).
+  \item $\beta_1$ : \alert{pente} (variation moyenne de $Y$ pour une augmentation de 1 unité de $x$).
+  \item Si $\beta_1 > 0$ : relation croissante ; si $\beta_1 < 0$ : relation décroissante.
+  \item $\varepsilon_i$ : erreur aléatoire (non expliquée par le modèle).
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Estimation par MCO}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Estimateurs des moindres carrés ordinaires (MCO)}
+
+On minimise la somme des carrés des résidus :
+$$\min_{\beta_0,\beta_1} \sum_{i=1}^n (y_i - \beta_0 - \beta_1 x_i)^2$$
+
+\begin{Boite}{Estimateurs MCO}
+$$\hat{\beta}_1 = \frac{\displaystyle\sum_{i=1}^n (x_i-\bar{x})(y_i-\bar{y})}{\displaystyle\sum_{i=1}^n (x_i-\bar{x})^2} = \frac{S_{xy}}{S_{xx}}$$
+$$\hat{\beta}_0 = \bar{y} - \hat{\beta}_1\, \bar{x}$$
+\end{Boite}
+
+\end{frame}
+
+\begin{frame}[t]{Droite ajustée et résidus}
+
+La droite ajustée (valeurs prédites) :
+$$\hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1\, x_i$$
+
+\begin{Boite}{Résidu}
+$$e_i = y_i - \hat{y}_i$$
+\end{Boite}
+
+\medskip
+Les résidus mesurent l'écart entre les valeurs observées et les valeurs prédites par le modèle.
+
+\bigskip
+\begin{Boite}{Estimateur de $\sigma^2$}
+$$\hat{\sigma}^2 = s^2 = \frac{SS_E}{n-2} = \frac{\displaystyle\sum_{i=1}^n e_i^2}{n-2}$$
+\end{Boite}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Inférence}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Test sur la pente $\beta_1$}
+
+$H_0 : \beta_1 = 0$ (aucune relation linéaire) contre $H_1 : \beta_1 \ne 0$.
+
+\bigskip
+\begin{Boite}{Statistique de test}
+$$T_0 = \frac{\hat{\beta}_1}{s/\sqrt{S_{xx}}} \sim t_{n-2} \text{ sous } H_0$$
+\end{Boite}
+
+\medskip
+Rejeter $H_0$ si $|T_0| > t_{\alpha/2;\,n-2}$.
+
+\bigskip
+\begin{Boite}{IC à $1-\alpha$ pour $\beta_1$}
+$$\hat{\beta}_1 \pm t_{\alpha/2;\,n-2}\,\frac{s}{\sqrt{S_{xx}}}$$
+\end{Boite}
+
+\end{frame}
+
+\begin{frame}[t]{Coefficient de détermination $R^2$}
+
+\begin{Boite}{$R^2$}
+$$R^2 = 1 - \frac{SS_E}{SS_T} = \frac{SS_R}{SS_T}$$
+\end{Boite}
+
+\medskip
+\begin{itemize}\itemsep4mm
+  \item $0 \le R^2 \le 1$.
+  \item $R^2$ mesure la \alert{proportion de la variabilité de $Y$ expliquée} par la droite de régression.
+  \item $R^2 = r^2$ en régression simple.
+  \item Un $R^2$ élevé ne garantit pas un bon modèle (vérifier les postulats).
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Vérification des postulats}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Postulats et diagnostics}
+
+Les postulats du modèle ($\varepsilon_i \sim \mathcal{N}(0, \sigma^2)$ i.i.d.) doivent être vérifiés à l'aide des résidus.
+
+\bigskip
+\begin{itemize}\itemsep5mm
+  \item \textbf{Linéarité} : graphique résidus vs $x$ — pas de patron systématique.
+  \item \textbf{Homoscédasticité} (variance constante) : graphique résidus vs $\hat{y}$ — dispersion uniforme.
+  \item \textbf{Normalité} : diagramme quantile-quantile des résidus — points alignés.
+  \item \textbf{Indépendance} : résidus vs ordre dans le temps — pas de tendance.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]{Prévision}
+
+La droite ajustée permet de \alert{prévoir} la valeur de $Y$ pour une nouvelle observation $x^*$.
+
+\bigskip
+\begin{Boite}{Valeur prédite}
+$$\hat{y}^* = \hat{\beta}_0 + \hat{\beta}_1\, x^*$$
+\end{Boite}
+
+\medskip
+\underline{Attention :} ne jamais extrapoler hors du domaine observé de $X$. La relation linéaire ajustée n'est valide que dans la plage des $x_i$ observés.
+
+\end{frame}
+
+\end{document}
