@@ -1,0 +1,378 @@
+\documentclass[11pt,french]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{lmodern}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage[top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage[colorlinks=true, linkcolor=blue!70!black, urlcolor=blue!70!black]{hyperref}
+
+\renewcommand{\baselinestretch}{1.15}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize Université Laval \\ Département de mathématiques et de statistique}
+\fancyhead[R]{\footnotesize STT-2902 -- Modélisation statistique \\ Julien Miron}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.5pt}
+\setlength{\headheight}{28pt}
+
+% Commandes pour les encadrés informels
+\newcommand{\definition}[2]{%
+  \medskip\noindent\fbox{\textbf{Définition}} \textbf{(#1)} \quad #2\medskip}
+\newcommand{\remarque}[1]{%
+  \medskip\noindent\textit{\textbf{Remarque.}} #1\medskip}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\bfseries Chapitre 1 -- Collecte de données et méthodes d'échantillonnage}
+\end{center}
+
+\bigskip
+\tableofcontents
+
+\newpage
+
+%%============================================================
+\section{Introduction}
+%%============================================================
+
+Avant de pouvoir analyser des données, il faut les collecter. La qualité de toute analyse
+statistique dépend en grande partie de la façon dont les données ont été recueillies. Un
+échantillon mal conçu ou entaché d'un biais peut mener à des conclusions erronées, peu
+importe la rigueur des méthodes statistiques appliquées par la suite.
+
+Ce chapitre présente les principaux concepts liés à la collecte de données~: les types
+d'études statistiques, les méthodes d'échantillonnage et les sources de biais à éviter.
+
+%%------------------------------------------------------------
+\subsection{Population et échantillon}
+%%------------------------------------------------------------
+
+\textbf{Définition.} La \textbf{population} est l'ensemble de tous les individus sur lesquels
+porte l'étude. Un \textbf{échantillon} est un sous-ensemble de la population qui est
+effectivement observé.
+
+En pratique, il est rarement possible d'observer toute la population (recensement). On se
+contente donc d'un échantillon, à partir duquel on cherche à tirer des conclusions sur la
+population entière.
+
+\textbf{Définition.} La \textbf{base de sondage} est la liste (ou la description) de tous les
+individus de la population à partir de laquelle on sélectionne l'échantillon. Idéalement,
+la base de sondage correspond exactement à la population cible.
+
+\textbf{Exemple.} Si l'on souhaite étudier la consommation de boissons énergisantes chez les
+étudiants de l'Université Laval, la population cible est l'ensemble des étudiants inscrits.
+La base de sondage pourrait être la liste des étudiants fournie par le bureau du registraire.
+
+%%============================================================
+\section{Types d'études}
+%%============================================================
+
+On distingue deux grands types d'études statistiques~: les \textbf{études observationnelles}
+et les \textbf{expériences}.
+
+%%------------------------------------------------------------
+\subsection{Étude observationnelle}
+%%------------------------------------------------------------
+
+\textbf{Définition.} Dans une \textbf{étude observationnelle}, le chercheur observe les
+individus sans intervenir sur les variables mesurées. Les individus ne sont pas assignés à
+des groupes par le chercheur~: on mesure les variables telles qu'elles se présentent
+naturellement.
+
+Par conséquent, une étude observationnelle ne permet pas de conclure à un lien de
+\textbf{causalité} entre deux variables. D'autres variables non mesurées, appelées
+\textbf{variables confondantes}, pourraient en effet expliquer la relation observée.
+
+\textbf{Exemple.} On observe que les étudiants de la faculté de médecine consomment davantage
+de boissons énergisantes que ceux d'autres facultés. On ne peut pas conclure que le fait
+d'être inscrit en médecine \emph{cause} une plus grande consommation~: il se peut que les
+étudiants en médecine aient un horaire plus chargé, ce qui expliquerait les deux phénomènes
+simultanément.
+
+%%------------------------------------------------------------
+\subsection{Expérience (étude expérimentale)}
+%%------------------------------------------------------------
+
+\textbf{Définition.} Dans une \textbf{expérience}, le chercheur impose délibérément un
+traitement à certains individus afin d'en observer l'effet. L'\textbf{attribution aléatoire}
+des individus aux groupes de traitement est la caractéristique essentielle d'une expérience
+bien conçue.
+
+Grâce à l'attribution aléatoire, les variables confondantes tendent à se répartir
+uniformément entre les groupes. On peut alors attribuer les différences observées au
+traitement lui-même, et ainsi conclure à un lien de causalité.
+
+\textbf{Éléments d'une expérience bien conçue~:}
+\begin{itemize}[itemsep=2pt]
+  \item \textbf{Groupe traitement}~: reçoit le traitement étudié.
+  \item \textbf{Groupe témoin (contrôle)}~: ne reçoit pas le traitement, ou reçoit un placebo.
+  \item \textbf{Attribution aléatoire}~: les individus sont assignés aux groupes de façon
+        aléatoire, indépendamment de leurs caractéristiques.
+  \item \textbf{Effet placebo}~: amélioration observée chez un individu qui croit recevoir un
+        traitement actif alors qu'il reçoit un placebo. C'est pourquoi les essais médicaux sont
+        souvent conçus en double aveugle.
+  \item \textbf{Simple aveugle}~: les sujets ne savent pas à quel groupe ils appartiennent.
+  \item \textbf{Double aveugle}~: ni les sujets ni les évaluateurs ne connaissent l'appartenance
+        de chaque sujet à un groupe.
+\end{itemize}
+
+\remarque{Pour pouvoir généraliser les conclusions d'une expérience à l'ensemble de la
+population, les individus doivent avoir été sélectionnés de façon représentative (par exemple,
+par un échantillonnage probabiliste). L'attribution aléatoire permet de conclure à la
+causalité~; l'échantillonnage aléatoire permet de généraliser.}
+
+%%============================================================
+\section{Méthodes d'échantillonnage}
+%%============================================================
+
+Il existe deux grandes familles de méthodes d'échantillonnage~: les méthodes
+\textbf{non probabilistes} et les méthodes \textbf{probabilistes}.
+
+%%------------------------------------------------------------
+\subsection{Échantillonnage non probabiliste}
+%%------------------------------------------------------------
+
+Dans un échantillonnage non probabiliste, les individus de la population n'ont pas tous une
+probabilité connue et non nulle d'être sélectionnés. Ces méthodes sont généralement plus
+faciles et moins coûteuses à mettre en oeuvre, mais elles introduisent un risque de biais et
+ne permettent pas d'appliquer rigoureusement les méthodes d'inférence statistique.
+
+\subsubsection{Échantillon de convenance}
+
+On sélectionne les individus les plus facilement accessibles~: par exemple, demander à ses
+amis ou recruter des étudiants volontaires dans un cours. Ce type d'échantillon n'est
+généralement pas représentatif de la population, car les individus facilement accessibles
+peuvent différer de façon systématique du reste de la population.
+
+\subsubsection{Échantillon raisonné (ou de jugement)}
+
+Le chercheur sélectionne lui-même les individus qu'il juge représentatifs de la population,
+en se basant sur son expertise. Bien que cette méthode puisse sembler raisonnable, elle est
+subjective et peut introduire des biais difficiles à détecter.
+
+%%------------------------------------------------------------
+\subsection{Échantillonnage probabiliste}
+%%------------------------------------------------------------
+
+\textbf{Définition.} Dans un \textbf{échantillonnage probabiliste}, chaque individu de la
+population a une probabilité \emph{connue} et \emph{non nulle} d'être sélectionné. Ces
+probabilités ne doivent pas nécessairement être égales.
+
+L'échantillonnage probabiliste est la condition nécessaire pour utiliser les méthodes
+d'inférence statistique et pour généraliser les conclusions à la population.
+
+\subsubsection{Échantillonnage aléatoire simple (EAS)}
+
+On sélectionne $n$ individus parmi les $N$ individus de la population de façon entièrement
+aléatoire, sans remise (chaque individu a donc la même probabilité $n/N$ d'être choisi). En
+pratique, on numérote les individus de la base de sondage et on utilise un générateur de
+nombres aléatoires pour effectuer la sélection.
+
+\textbf{Avantages~:} simple à comprendre et à mettre en oeuvre~; sert de référence théorique
+pour les autres méthodes.
+
+\textbf{Inconvénients~:} nécessite une base de sondage complète et à jour~; peut être
+inefficace si la population est hétérogène.
+
+\subsubsection{Échantillonnage systématique}
+
+On choisit un individu de départ au hasard parmi les $k$ premiers, où $k = N/n$ (arrondi au
+nombre entier le plus proche), puis on sélectionne tous les $k$\ieme{} individus suivants.
+
+\textbf{Exemple.} On souhaite interroger 200 étudiants parmi 10\,000. Le pas de sélection est
+$k = 10\,000/200 = 50$. On tire un nombre aléatoire $r$ entre 1 et 50, puis on sélectionne les
+individus $r,\; r+50,\; r+100,\; \ldots,\; r+9\,950$.
+
+\textbf{Avantages~:} facile à mettre en oeuvre une fois la base de sondage établie.
+
+\textbf{Inconvénients~:} risque de biais si la liste présente une périodicité qui coïncide
+avec le pas de sélection.
+
+\subsubsection{Échantillonnage stratifié}
+
+On divise la population en sous-groupes homogènes appelés \textbf{strates}, puis on effectue
+un EAS indépendant dans chaque strate. La taille de l'échantillon dans chaque strate peut
+être proportionnelle à la taille de la strate (\textbf{stratification proportionnelle}) ou
+non (\textbf{stratification disproportionnelle}).
+
+\textbf{Exemple.} Pour étudier la consommation de boissons énergisantes par faculté, on
+pourrait stratifier par faculté et sélectionner un nombre d'étudiants proportionnel à la
+taille de chaque faculté.
+
+\textbf{Avantages~:} plus précis que l'EAS lorsque les strates sont homogènes en elles-mêmes
+mais hétérogènes entre elles~; garantit une représentation de chaque strate dans l'échantillon.
+
+\textbf{Inconvénients~:} nécessite de connaître l'appartenance de chaque individu à une strate
+avant d'échantillonner.
+
+\subsubsection{Échantillonnage par grappes}
+
+On divise la population en sous-groupes appelés \textbf{grappes}, on en sélectionne quelques-unes
+aléatoirement, puis on interroge tous les individus des grappes sélectionnées (plan à une phase)
+ou un sous-échantillon dans chaque grappe retenue (plan à deux phases).
+
+\textbf{Exemple.} Une université comporte 20 facultés divisées en 10 départements chacune.
+On pourrait sélectionner 3 départements au hasard et interroger tous les étudiants de ces
+départements.
+
+\textbf{Avantages~:} très pratique lorsqu'il n'existe pas de liste complète de la population,
+mais qu'il est facile d'identifier des groupes naturels~; réduit les coûts de collecte.
+
+\textbf{Inconvénients~:} moins précis que l'EAS, car les individus d'une même grappe tendent
+à se ressembler~; l'information apportée par chaque individu est donc partiellement redondante.
+
+%%------------------------------------------------------------
+\subsection{Résumé comparatif}
+%%------------------------------------------------------------
+
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{3.5cm}p{5.2cm}p{5.2cm}}
+\toprule
+\textbf{Méthode} & \textbf{Avantages principaux} & \textbf{Inconvénients principaux} \\
+\midrule
+EAS & Référence théorique, équitable & Nécessite une liste complète \\
+Systématique & Simple à mettre en oeuvre & Risque de biais périodique \\
+Stratifié & Très précis, représentatif par strate & Nécessite la connaissance des strates \\
+Par grappes & Pratique, économique & Moins précis, dépend de l'homogénéité intra-grappe \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+%%============================================================
+\section{Sources de biais}
+%%============================================================
+
+Un \textbf{biais} est une erreur \emph{systématique} qui fait que les données recueillies ne
+représentent pas fidèlement la population cible. Il est important de distinguer les biais des
+erreurs d'échantillonnage~: l'erreur d'échantillonnage est une variation aléatoire inhérente
+à tout processus d'échantillonnage, tandis qu'un biais est une déviation constante et
+orientée.
+
+%%------------------------------------------------------------
+\subsection{Biais de couverture}
+%%------------------------------------------------------------
+
+Le biais de couverture survient lorsque la base de sondage ne correspond pas exactement à la
+population cible~: certains individus sont absents de la liste et ne peuvent pas être
+sélectionnés.
+
+\textbf{Exemple.} Utiliser un annuaire téléphonique de lignes fixes comme base de sondage pour
+étudier la population québécoise en général exclut toutes les personnes sans ligne fixe
+(notamment les jeunes adultes). Si l'âge est lié à la variable d'intérêt, cela introduit un
+biais dans les estimations.
+
+%%------------------------------------------------------------
+\subsection{Biais de sélection}
+%%------------------------------------------------------------
+
+Le biais de sélection survient lorsque le mécanisme de sélection des individus favorise
+systématiquement certains sous-groupes de la population. Il est particulièrement fréquent dans
+les échantillonnages non probabilistes.
+
+\textbf{Exemple.} Un sondage en ligne ne peut rejoindre que les personnes ayant accès à
+Internet et habituées à ce mode de communication, ce qui exclut une partie de la population.
+
+%%------------------------------------------------------------
+\subsection{Biais de non-réponse}
+%%------------------------------------------------------------
+
+Le biais de non-réponse survient lorsque les individus qui ne répondent pas au sondage ont des
+caractéristiques systématiquement différentes de ceux qui y répondent.
+
+\remarque{Un taux de non-réponse élevé n'entraîne pas \emph{nécessairement} un biais. Un biais
+apparaît seulement si les non-répondants diffèrent \emph{systématiquement} des répondants
+quant à la variable d'intérêt. Cependant, un taux de non-réponse élevé augmente le risque de
+biais et rend difficile la vérification de cette hypothèse.}
+
+%%------------------------------------------------------------
+\subsection{Biais de mesure}
+%%------------------------------------------------------------
+
+Le biais de mesure survient lorsque la façon de mesurer une variable -- notamment la formulation
+des questions -- influence les réponses obtenues.
+
+\textbf{Sources courantes de biais de mesure~:}
+\begin{itemize}[itemsep=4pt]
+  \item \textbf{Questions orientées (ou suggestives)~:} une question formulée de façon à
+        suggérer une réponse.
+
+        Formulation biaisée~: \og Êtes-vous d'accord que les boissons énergisantes sont
+        nuisibles à la santé~? \fg
+
+        Formulation neutre~: \og Quelle est votre opinion sur les boissons énergisantes~? \fg
+
+  \item \textbf{Désirabilité sociale~:} les répondants ont tendance à donner des réponses
+        socialement acceptables plutôt que leurs vraies opinions (par exemple, sous-déclarer
+        leur consommation d'alcool).
+
+  \item \textbf{Effet de l'intervieweur~:} la présence, le ton ou l'apparence de l'intervieweur
+        peut influencer les réponses.
+
+  \item \textbf{Ordre des questions~:} l'ordre dans lequel les questions sont posées peut
+        influencer les réponses aux questions subséquentes.
+\end{itemize}
+
+%%============================================================
+\section{Quand peut-on généraliser et conclure à la causalité~?}
+%%============================================================
+
+%%------------------------------------------------------------
+\subsection{Généraliser à la population}
+%%------------------------------------------------------------
+
+On peut généraliser les résultats d'un échantillon à l'ensemble de la population lorsque
+l'échantillon a été sélectionné par \textbf{échantillonnage probabiliste}. Un échantillon non
+probabiliste (de convenance ou raisonné) ne permet pas de généraliser de façon rigoureuse.
+
+%%------------------------------------------------------------
+\subsection{Conclure à la causalité}
+%%------------------------------------------------------------
+
+On peut conclure à un lien de causalité entre une variable explicative et une variable réponse
+uniquement lorsque les individus ont été \textbf{assignés aléatoirement} aux groupes de
+traitement. Cette condition est remplie dans une expérience bien conçue.
+
+Dans une étude observationnelle, la présence d'une association statistique entre deux variables
+ne suffit pas à conclure à la causalité, car des variables confondantes pourraient être à
+l'origine de la relation observée.
+
+%%------------------------------------------------------------
+\subsection{Tableau récapitulatif}
+%%------------------------------------------------------------
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Condition} & \textbf{Généraliser à la population} & \textbf{Conclure à la causalité} \\
+\midrule
+Échantillonnage probabiliste uniquement & Oui & Non \\
+Attribution aléatoire uniquement        & Non$^{*}$ & Oui \\
+Les deux réunies                        & Oui & Oui \\
+Aucune des deux                         & Non & Non \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+{\footnotesize $^{*}$~À moins que l'expérience ait été menée sur un échantillon probabiliste
+de la population.}
+
+\bigskip
+
+\remarque{Ces deux dimensions -- généralisation et causalité -- sont indépendantes. Une
+expérience réalisée sur des étudiants volontaires d'une seule université peut permettre de
+conclure à la causalité (grâce à l'attribution aléatoire), sans que ces résultats puissent
+être généralisés à l'ensemble de la population (faute d'un échantillonnage probabiliste).}
+
+\end{document}

@@ -1,0 +1,367 @@
+\documentclass[11pt,french]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{lmodern}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage[top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{diagbox}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage[colorlinks=true, linkcolor=blue!70!black, urlcolor=blue!70!black]{hyperref}
+
+\renewcommand{\baselinestretch}{1.15}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize Université Laval \\ Département de mathématiques et de statistique}
+\fancyhead[R]{\footnotesize STT-2902 -- Modélisation statistique \\ Julien Miron}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.5pt}
+\setlength{\headheight}{28pt}
+
+% Largeur de colonne centrée pour les tableaux
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+\newcommand{\remarque}[1]{\medskip\noindent\textit{\textbf{Remarque.}} #1\medskip}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\bfseries Chapitre 5 -- Association entre variables catégoriques}
+\end{center}
+
+\bigskip
+\tableofcontents
+
+\newpage
+
+%%============================================================
+\section{Introduction}
+%%============================================================
+
+Les chapitres précédents portaient sur l'inférence pour une variable continue (moyenne,
+variance) ou une variable catégorique à deux modalités (proportion). Ce chapitre traite de
+l'association entre \emph{deux} variables catégoriques.
+
+La question centrale est la suivante~: peut-on conclure, à partir des données observées,
+que les deux variables sont associées dans la population, ou la relation observée est-elle
+simplement due à la variabilité inhérente à l'échantillonnage~?
+
+%%============================================================
+\section{Tableau de contingence}
+%%============================================================
+
+Lorsqu'on observe deux variables catégoriques sur les mêmes individus, on résume les données
+dans un \textbf{tableau de contingence} (parfois appelé tableau croisé).
+
+\textbf{Définition.} Un \textbf{tableau de contingence} à $r$ lignes et $c$ colonnes est un
+tableau dont les lignes représentent les $r$~modalités d'une variable~$X$ et les colonnes
+représentent les $c$~modalités d'une variable~$Y$. Chaque cellule~$(i,j)$ contient la
+fréquence observée $O_{ij}$, c'est-à-dire le nombre d'individus pour lesquels $X = i$ et
+$Y = j$.
+
+%%------------------------------------------------------------
+\subsection{Fréquences marginales}
+%%------------------------------------------------------------
+
+Les \textbf{fréquences marginales} sont les totaux par ligne et par colonne~:
+\begin{align*}
+  n_{i\cdot} &= \sum_{j=1}^{c} O_{ij}
+    && \text{(total de la ligne } i\text{),}\\
+  n_{\cdot j} &= \sum_{i=1}^{r} O_{ij}
+    && \text{(total de la colonne } j\text{),}\\
+  n &= \sum_{i=1}^{r} \sum_{j=1}^{c} O_{ij}
+    && \text{(total général).}
+\end{align*}
+
+%%------------------------------------------------------------
+\subsection{Proportions conditionnelles}
+%%------------------------------------------------------------
+
+Les \textbf{proportions conditionnelles} permettent d'examiner informellement la présence
+d'une association. La proportion conditionnelle de $Y = j$ sachant $X = i$ est~:
+\[
+  \hat{p}_{j \mid i} = \frac{O_{ij}}{n_{i\cdot}}.
+\]
+Si les proportions conditionnelles sont semblables d'une ligne à l'autre (resp. d'une colonne
+à l'autre), les données semblent compatibles avec une situation d'indépendance. En revanche,
+si elles varient considérablement, cela suggère une association entre $X$ et $Y$.
+
+%%------------------------------------------------------------
+\subsection{Exemple illustratif}
+%%------------------------------------------------------------
+
+\textbf{Exemple.} On interroge 200 personnes sur leur boisson chaude préférée (Café, Thé,
+Chocolat chaud) selon la saison de l'entrevue (Hiver, Été, Automne). Le tableau de contingence
+est le suivant~:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{|P{3cm}|P{2cm}|P{2cm}|P{2cm}|P{2cm}|}
+\hline
+\diagbox[innerwidth=3cm]{Boisson}{Saison} & Hiver & Été & Automne & \textbf{Total} \\
+\hline
+Café          & 40 & 30 & 25 & \textbf{95} \\
+\hline
+Thé           & 20 & 35 & 15 & \textbf{70} \\
+\hline
+Chocolat chaud & 25 &  5 &  5 & \textbf{35} \\
+\hline
+\textbf{Total} & \textbf{85} & \textbf{70} & \textbf{45} & \textbf{200} \\
+\hline
+\end{tabular}
+\end{center}
+
+Par exemple, la proportion conditionnelle de personnes qui choisissent le chocolat chaud
+\emph{en hiver} est $25/85 \approx 29{,}4\,\%$, alors qu'elle n'est que $5/70 \approx 7{,}1\,\%$
+\emph{en été}. Cette variation suggère qu'il pourrait exister une association entre la boisson
+choisie et la saison.
+
+%%============================================================
+\section{Indépendance de deux variables catégoriques}
+%%============================================================
+
+\textbf{Définition.} Deux variables catégoriques $X$ et $Y$ sont \textbf{indépendantes} si la
+distribution conditionnelle de $Y$ est identique pour toutes les modalités de $X$
+(et réciproquement). Formellement~:
+\[
+  P(X = i,\; Y = j) = P(X = i)\cdot P(Y = j)
+  \quad \text{pour tout } i \in \{1,\ldots,r\},\; j \in \{1,\ldots,c\}.
+\]
+
+Si $X$ et $Y$ sont indépendantes, la fréquence \emph{attendue} dans la cellule $(i,j)$ d'un
+tableau de contingence issu d'un échantillon de taille $n$ est~:
+\[
+  E_{ij}
+  = n \cdot P(X = i) \cdot P(Y = j)
+  \;\approx\; n \cdot \frac{n_{i\cdot}}{n} \cdot \frac{n_{\cdot j}}{n}
+  = \frac{n_{i\cdot} \cdot n_{\cdot j}}{n}.
+\]
+
+%%============================================================
+\section{Test d'indépendance du khi-carré}
+%%============================================================
+
+%%------------------------------------------------------------
+\subsection{Hypothèses}
+%%------------------------------------------------------------
+
+\[
+  H_0 : X \text{ et } Y \text{ sont indépendantes}
+  \qquad\text{contre}\qquad
+  H_1 : X \text{ et } Y \text{ ne sont pas indépendantes.}
+\]
+
+%%------------------------------------------------------------
+\subsection{Fréquences attendues sous $H_0$}
+%%------------------------------------------------------------
+
+Sous $H_0$, la fréquence attendue dans la cellule $(i,j)$ est estimée par~:
+\[
+  E_{ij} = \frac{n_{i\cdot} \cdot n_{\cdot j}}{n}.
+\]
+
+\remarque{La somme de toutes les fréquences attendues est égale à la somme de toutes les
+fréquences observées~: $\sum_{i,j} E_{ij} = n$.}
+
+%%------------------------------------------------------------
+\subsection{Statistique de test}
+%%------------------------------------------------------------
+
+La statistique du khi-carré mesure l'écart global entre les fréquences observées et les
+fréquences attendues sous $H_0$~:
+\[
+  \chi^2 = \sum_{i=1}^{r} \sum_{j=1}^{c} \frac{(O_{ij} - E_{ij})^2}{E_{ij}}.
+\]
+
+\begin{itemize}[itemsep=2pt]
+  \item Si $\chi^2 \approx 0$, les fréquences observées sont très proches de celles attendues
+        sous l'indépendance~; les données sont compatibles avec $H_0$.
+  \item Plus $\chi^2$ est grand, plus les données s'éloignent de l'indépendance, et plus
+        l'évidence contre $H_0$ est forte.
+\end{itemize}
+
+%%------------------------------------------------------------
+\subsection{Distribution sous $H_0$ et degrés de liberté}
+%%------------------------------------------------------------
+
+Sous $H_0$, lorsque les conditions de validité sont satisfaites, la statistique $\chi^2$ suit
+approximativement une loi du khi-carré à $(r-1)(c-1)$ degrés de liberté~:
+\[
+  \chi^2 \;\overset{H_0}{\sim}\; \chi^2_{(r-1)(c-1)}.
+\]
+
+\textbf{Définition.} Les \textbf{degrés de liberté} du test du khi-carré d'indépendance pour
+un tableau $r \times c$ sont $(r-1)(c-1)$.
+
+\textbf{Exemple.} Pour un tableau $3 \times 3$~: $(3-1)(3-1) = 4$ degrés de liberté.
+Pour un tableau $2 \times 2$~: $(2-1)(2-1) = 1$ degré de liberté.
+
+%%------------------------------------------------------------
+\subsection{Condition de validité}
+%%------------------------------------------------------------
+
+L'approximation par la loi du khi-carré est valide lorsque \textbf{toutes} les fréquences
+attendues $E_{ij}$ sont supérieures ou égales à~5.
+
+Si cette condition n'est pas satisfaite, on peut~:
+\begin{itemize}[itemsep=2pt]
+  \item regrouper certaines modalités pour augmenter les fréquences attendues~;
+  \item utiliser le test exact de Fisher (applicable aux tableaux $2 \times 2$).
+\end{itemize}
+
+%%------------------------------------------------------------
+\subsection{Règle de décision}
+%%------------------------------------------------------------
+
+On rejette $H_0$ au seuil $\alpha$ si~:
+\[
+  \chi^2_{obs} > \chi^2_{\alpha;\,(r-1)(c-1)},
+\]
+où $\chi^2_{\alpha;\,(r-1)(c-1)}$ est le quantile d'ordre $1-\alpha$ de la loi du khi-carré
+à $(r-1)(c-1)$ degrés de liberté.
+
+\remarque{Le test du khi-carré d'indépendance est \textbf{toujours unilatéral à droite}. En
+effet, lorsque $H_1$ est vraie, les fréquences observées s'éloignent des fréquences attendues,
+ce qui fait augmenter la valeur de $\chi^2$. Contrairement aux tests sur la moyenne ou la
+proportion, il n'est pas possible de définir une direction précise pour l'hypothèse
+alternative~: on dit simplement qu'il \emph{existe} une association.}
+
+%%------------------------------------------------------------
+\subsection{Procédure complète -- exemple}
+%%------------------------------------------------------------
+
+\textbf{Exemple.} On reprend le tableau de l'exemple de la section~2 (boissons et saisons,
+$n = 200$) et on teste formellement l'indépendance au seuil $\alpha = 5\,\%$.
+
+\medskip
+\textbf{Étape 1 -- Hypothèses~:}
+\begin{itemize}[itemsep=2pt]
+  \item $H_0$~: le choix de boisson chaude et la saison sont indépendants.
+  \item $H_1$~: il existe une association entre le choix de boisson chaude et la saison.
+\end{itemize}
+
+\textbf{Étape 2 -- Fréquences attendues sous $H_0$~:}
+\[
+  E_{ij} = \frac{n_{i\cdot} \cdot n_{\cdot j}}{n}.
+\]
+
+\begin{center}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{|P{3cm}|P{3.5cm}|P{3.5cm}|P{3.5cm}|}
+\hline
+\diagbox[innerwidth=3cm]{Boisson}{Saison} & Hiver & Été & Automne \\
+\hline
+Café
+  & $\dfrac{95 \times 85}{200} = 40{,}375$
+  & $\dfrac{95 \times 70}{200} = 33{,}25$
+  & $\dfrac{95 \times 45}{200} = 21{,}375$ \\[4pt]
+\hline
+Thé
+  & $\dfrac{70 \times 85}{200} = 29{,}75$
+  & $\dfrac{70 \times 70}{200} = 24{,}50$
+  & $\dfrac{70 \times 45}{200} = 15{,}75$ \\[4pt]
+\hline
+Chocolat chaud
+  & $\dfrac{35 \times 85}{200} = 14{,}875$
+  & $\dfrac{35 \times 70}{200} = 12{,}25$
+  & $\dfrac{35 \times 45}{200} = 7{,}875$ \\[4pt]
+\hline
+\end{tabular}
+\end{center}
+
+Toutes les fréquences attendues sont supérieures à~5~: la condition de validité est satisfaite.
+
+\textbf{Étape 3 -- Calcul de la statistique de test~:}
+\begin{align*}
+  \chi^2_{obs}
+  &= \frac{(40 - 40{,}375)^2}{40{,}375}
+   + \frac{(30 - 33{,}25)^2}{33{,}25}
+   + \frac{(25 - 21{,}375)^2}{21{,}375} \\[4pt]
+  &\quad + \frac{(20 - 29{,}75)^2}{29{,}75}
+   + \frac{(35 - 24{,}50)^2}{24{,}50}
+   + \frac{(15 - 15{,}75)^2}{15{,}75} \\[4pt]
+  &\quad + \frac{(25 - 14{,}875)^2}{14{,}875}
+   + \frac{(5 - 12{,}25)^2}{12{,}25}
+   + \frac{(5 - 7{,}875)^2}{7{,}875} \\[4pt]
+  &\approx 0{,}003 + 0{,}318 + 0{,}614 + 3{,}193 + 4{,}500 + 0{,}036
+           + 6{,}893 + 4{,}286 + 1{,}049 \\[4pt]
+  &\approx 20{,}89.
+\end{align*}
+
+\textbf{Étape 4 -- Degrés de liberté~:} $(r-1)(c-1) = (3-1)(3-1) = 4$.
+
+\textbf{Étape 5 -- Valeur critique~:} $\chi^2_{0{,}05;\,4} = 9{,}488$.
+
+\textbf{Étape 6 -- Décision~:} Comme $\chi^2_{obs} = 20{,}89 > 9{,}488$, on \textbf{rejette
+$H_0$} au seuil de $5\,\%$.
+
+\textbf{Conclusion~:} Il y a une association statistiquement significative entre le choix de
+boisson chaude et la saison ($p < 0{,}05$).
+
+%%============================================================
+\section{Remarques complémentaires}
+%%============================================================
+
+%%------------------------------------------------------------
+\subsection{Le test du khi-carré ne mesure pas la force de l'association}
+%%------------------------------------------------------------
+
+Le test du khi-carré détermine si une association est \emph{statistiquement significative}
+(c'est-à-dire peu probable sous $H_0$), mais il n'indique pas la \emph{force} de cette
+association. En particulier, un très grand échantillon peut conduire à rejeter $H_0$ même
+pour une association très faible et sans intérêt pratique.
+
+Pour quantifier la force de l'association, on peut calculer le \textbf{V de Cramér}~:
+\[
+  V = \sqrt{\frac{\chi^2}{n \cdot \min(r-1,\; c-1)}},
+\]
+dont les valeurs se situent entre~0 (aucune association) et~1 (association maximale).
+
+%%------------------------------------------------------------
+\subsection{Lien avec le test de différence de deux proportions}
+%%------------------------------------------------------------
+
+Dans le cas particulier d'un tableau $2 \times 2$, le test du khi-carré est équivalent au
+test bilatéral de différence de deux proportions. On obtient la relation~:
+\[
+  \chi^2_{obs} = Z_{obs}^2,
+\]
+où $Z_{obs}$ est la statistique du test $Z$ pour la différence de deux proportions, et la loi
+$\chi^2_1$ est précisément la loi de $Z^2$ lorsque $Z \sim \mathcal{N}(0,1)$.
+
+%%------------------------------------------------------------
+\subsection{Résumé de la procédure}
+%%------------------------------------------------------------
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{p{4cm}p{9cm}}
+\toprule
+\textbf{Étape} & \textbf{Description} \\
+\midrule
+1. Hypothèses
+  & $H_0$~: indépendance \quad vs \quad $H_1$~: association. \\
+2. Fréquences attendues
+  & $E_{ij} = n_{i\cdot} \cdot n_{\cdot j} / n$ pour chaque cellule. \\
+3. Condition de validité
+  & Vérifier que $E_{ij} \geq 5$ pour toutes les cellules. \\
+4. Statistique
+  & $\chi^2 = \displaystyle\sum_{i,j} (O_{ij} - E_{ij})^2 / E_{ij}$. \\
+5. Degrés de liberté
+  & $\nu = (r-1)(c-1)$. \\
+6. Valeur critique
+  & $\chi^2_{\alpha;\,\nu}$ (unilatéral à droite). \\
+7. Décision
+  & Rejeter $H_0$ si $\chi^2_{obs} > \chi^2_{\alpha;\,\nu}$. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\end{document}
