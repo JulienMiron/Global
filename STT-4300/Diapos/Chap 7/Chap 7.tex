@@ -10,6 +10,8 @@
 
 % Code listing
 \usepackage[listings]{tcolorbox}
+\usepackage[normalem]{ulem}
+\usepackage{xcolor}
 
 
 \begin{document}
@@ -54,7 +56,7 @@
 
 \noindent L'id\'ee de la validation crois\'ee est de partager le jeu de donn\'ees en deux parties. La premi\`ere partie est appel\'ee jeu de donn\'ees entrainement. Elle sert \`a estimer les param\`etres du mod\`ele. La deuxi\`eme partie est le jeu de donn\'ees test. Elle sert \`a estimer le taux d'erreur test.
 
-\noindent Revenons au jeu de donn\'ees \textsf{Auto} de la library \texttt{ISLR} du logiciel \textrm{R}. Il est compos\'e de $n=392$ observations. On le partage en deux jeux de donn\'ees. Le premier est compos\'e des $n_1=275$ premi\`eres observations. Il sert \`a estimer les param\`etres $\beta$. Le deuxi\`eme est compos\'es des $n_2=n-n_1=392-275=117$ derni\`eres observations. Il sert \`a estimer le taux d'erreur test par $$\frac{1}{n_2}\sum\limits_{i=n_1+1}^{n_2} (Y_i-\hat Y_i)^2=\frac{1}{117} \sum\limits_{i=276}^{392} (Y_i-\hat Y_i)^2.$$ 
+\noindent Revenons au jeu de donn\'ees \textsf{Auto} de la library \texttt{ISLR} du logiciel \textrm{R}. Il est compos\'e de $n=392$ observations. On le partage en deux jeux de donn\'ees. Le premier est compos\'e des $n_1=275$ premi\`eres observations. Il sert \`a estimer les param\`etres $\beta$. Le deuxi\`eme est compos\'es des $n_2=n-n_1=392-275=117$ derni\`eres observations. Il sert \`a estimer le taux d'erreur test par $$\frac{1}{n_2}\sum\limits_{i=n_1+1}^{\sout{n_2}\textcolor{red}{n}} (Y_i-\hat Y_i)^2=\frac{1}{117} \sum\limits_{i=276}^{392} (Y_i-\hat Y_i)^2.$$ 
 \noindent Si on consid\`ere le mod\`ele 1, alors $\hat Y_i=\hat\beta_0+\hat\beta_1 X_{i}$ est la valeur pr\'edite de $Y_i$ avec $\hat\beta_0$ et $\hat\beta_1$ calcul\'e \`a partir de $\{(Y_i,X_{i}), i=1,\cdots,275\}$.
 
 \begin{verbatim}
@@ -88,7 +90,7 @@
 [1] 52.7879
 \end{verbatim}
 
-\noindent C'est le mod\`ele 4 qui semble avoir la meilleure pr\'ediction. Cependant, la partition du jeux de donn\'ees original en deux est arbitraire. La fa\c{c}on la plus facile de r\'eduire ce al\'ea d\^u \`a la r\'epartition du jeux de donn\'ees en deux est de recommencer cette proc\'edure un grand nombre de fois et de prendre des moyennes. 
+\noindent C'est le mod\`ele 4 qui semble avoir la meilleure pr\'ediction. Cependant, la partition du \sout{jeux}\textcolor{red}{jeu} de donn\'ees original en deux est arbitraire. La fa\c{c}on la plus facile de r\'eduire ce al\'ea d\^u \`a la r\'epartition du \sout{jeux}\textcolor{red}{jeu} de donn\'ees en deux est de recommencer cette proc\'edure un grand nombre de fois et de prendre des moyennes. 
 
 \begin{verbatim}
 > if (!require("ISLR")) install.packages("ISLR")
@@ -141,11 +143,11 @@
 [1] 19.42957
 \end{verbatim}
 
-\noindent En fin de compte, le mod\`ele 3 semble \^etre le meilleur pour pr\'edire des observations futures. M\^eme si on r\'ep\`ete l'op\'eration plusieur fois, on obtient le m\^eme r\'esultat.
+\noindent En fin de compte, le mod\`ele 3 semble \^etre le meilleur pour pr\'edire des observations futures. M\^eme si on r\'ep\`ete l'op\'eration plusieur\textcolor{red}{s} fois, on obtient le m\^eme r\'esultat.
 
 \noindent Un deuxi\`eme d\'efaut des deux approches pr\'esent\'ees est la pr\'ecision des estimateurs $\hat \beta$. En effet, nous sommes en train d'estimer $\beta$ avec seulement $70\%$ des donn\'es. Et donc la variance de l'estimateur $\hat\beta$ est relativement grande. 
 
-\noindent Pour rem\'edier \`a cela, pour $i=,\cdots,n$, on estime $\hat\beta$ avec toutes les observations sauf la $i^{\mbox{\`eme}}$. On calcule $\hat y_{i,(-i)}$. Le crit\`ere sera donc $$VC_{(n)} = \frac{\sum\limits_{i=1}^n (y_i-\hat y_{i,(-i)})^2}{n}.$$
+\noindent Pour rem\'edier \`a cela, pour $i=\textcolor{red}{1},\sout{,}\cdots,n$, on estime $\hat\beta$ avec toutes les observations sauf la $i^{\mbox{\`eme}}$. On calcule $\hat y_{i,(-i)}$. Le crit\`ere sera donc $$VC_{(n)} = \frac{\sum\limits_{i=1}^n (y_i-\hat y_{i,(-i)})^2}{n}.$$
 
 \noindent On montre que $$VC_{(n)} = \frac{1}{n}  \sum\limits_{i=1}^n \left(\frac{y_i-\hat y_i}{1-h_i}\right)^2,$$
 
@@ -184,7 +186,7 @@
 
 \noindent Le mod\`ele 3 est encore une fois le meilleur pour pr\'edire des observations futures.
 
-\noindent Le calcul de $VC_{(n)}$ est direct dans le cas d'une r\'egression lin\'eaire. Cependant, pour d'autres mod\`eles de r\'egression dans la famille des r\'gressions lin\'eaires g\'n\'eralis\'es, ce calcul requi\`ere l'ajustement de $n$ mod\`eles de r\'egression, ce qui peut \^etre difficile d'un point de vue informatique. Pour cette raison, on peut consid\'erer une autre version de validation crois\'ee $VC_{(K)}$. Dans la pratique, on utilise $K=5$ ou $K=10$. On partage le jeu de donn\'ees en $K$ parties de tailles quasiment \'egales: $A_1,\cdots,A_K$. Pour $k=1,\cdots,K$, on estime les param\`etres $\beta$ \`a partir de toutes les donn\'ees sauf $A_k$ et on utilise $A_k$ pour estimer l'erreur avec
+\noindent Le calcul de $VC_{(n)}$ est direct dans le cas d'une r\'egression lin\'eaire. Cependant, pour d'autres mod\`eles de r\'egression dans la famille des r\'e\textcolor{red}{g}ressions lin\'eaires g\'e\textcolor{red}{n}\'eralis\'e\textcolor{red}{e}s, ce calcul requi\`ere l'ajustement de $n$ mod\`eles de r\'egression, ce qui peut \^etre difficile d'un point de vue informatique. Pour cette raison, on peut consid\'erer une autre version de validation crois\'ee $VC_{(K)}$. Dans la pratique, on utilise $K=5$ ou $K=10$. On partage le jeu de donn\'ees en $K$ parties de tailles quasiment \'egales: $A_1,\cdots,A_K$. Pour $k=1,\cdots,K$, on estime les param\`etres $\beta$ \`a partir de toutes les donn\'ees sauf $A_k$ et on utilise $A_k$ pour estimer l'erreur avec
 $$MSE_k = \frac{1}{n_k} \sum_{i \in A_k} \left\{y_i-\hat y_{i,(-k)}\right\}^2,$$
 o\`u $n_k$ est la taille de $A_k$. On estime par la suite l'erreur test par :
 $$VC_{(K)} = \frac{1}{K}  \sum\limits_{k=1}^K MSE_k.$$
@@ -323,9 +325,9 @@ Var[\hat\beta^{(R)}_{\lambda}] &=&  \sigma^2 (X^\top X + \lambda \tilde I_p)^{-1
 [1] 18468.89
 \end{verbatim}
 
-\noindent On trouve $\sum\limits_{i=1}^p \hat\beta_j^2=18468.89$ et $\sum\limits_{i=1}^p [\hat\beta^{(R)}_{j,\lambda}]^2=5720.707$. On parlent d'un ph\'enom\`ene de r\'etr\'ecissement.
+\noindent On trouve $\sum\limits_{i=1}^p \hat\beta_j^2=18468.89$ et $\sum\limits_{i=1}^p [\hat\beta^{(R)}_{j,\lambda}]^2=5720.707$. On parle\sout{nt} d'un ph\'enom\`ene de r\'etr\'ecissement.
 
-\noindent G\'en\'eralement, la r\'egression ridge diminue consid\'erablement le taux d'erreur test. Par cons\'equent, elle cro\^it la pr\'ecision des pr\'edictions. Estimons le taux d'erreur test avec $\lambda=e^6$ et comparons ce taux d'erreur avec celui de la r\'egression lin\'eaire standard, qui correspond \`a $\lambda=0$.
+\noindent G\'en\'eralement, la r\'egression ridge diminue consid\'erablement le taux d'erreur test. Par cons\'equent, elle \sout{cro\^it}\textcolor{red}{am\'eliore} la pr\'ecision des pr\'edictions. Estimons le taux d'erreur test avec $\lambda=e^6$ et comparons ce taux d'erreur avec celui de la r\'egression lin\'eaire standard, qui correspond \`a $\lambda=0$.
 
 \begin{verbatim}
 > x.entrainement <- x[1:200,]
@@ -358,7 +360,7 @@ $$l^{(L)}_\lambda(\beta_0,\beta_1,\cdots,\beta_p) = \sum_{i=1}^n \left\{Y_i - (\
 
 \noindent Une carat\'eristique int\'eressante de la r\'egression Lasso est que pour les grandes valeurs de $\lambda$, certains terme $\hat\beta_j$ deviennent identiquement \'egals \`a 0. Cet aspect permet une m\'ethode tr\`es efficace de s\'election de mod\`ele. 
 
-\noindent Encore une fois, lorsque $\lambda=0$, on a $\hat\beta^{(L)}_{\lambda}=\hat\beta$. Lorsque $\lambda$ croit, le biais de $\hat\beta^{(L)}_{\lambda}$ diminue alors que sa variance cro\^it.
+\noindent Encore une fois, lorsque $\lambda=0$, on a $\hat\beta^{(L)}_{\lambda}=\hat\beta$. Lorsque $\lambda$ croit, le biais de $\hat\beta^{(L)}_{\lambda}$ \sout{diminue}\textcolor{red}{cro\^it} alors que sa variance \sout{cro\^it}\textcolor{red}{diminue}.
 
 \begin{verbatim}
 > reg.lasso <- glmnet(x, y, alpha = 1)
@@ -409,11 +411,11 @@ Errors        -0.89001203
 NewLeagueN     .         
 \end{verbatim}
 
-\noindent Et on trouve que plusieurs coefficients $\hat\beta^{(L)}_{j,\lambda}$ sont identiquement \'egaux \`a z\'ero. Ceci nous produre une m\'ethode intuitive et naturelle de s\'election de mod\`eles.
+\noindent Et on trouve que plusieurs coefficients $\hat\beta^{(L)}_{j,\lambda}$ sont identiquement \'egaux \`a z\'ero. Ceci nous pro\sout{d}\textcolor{red}{du}re une m\'ethode intuitive et naturelle de s\'election de mod\`eles.
 
 \subsection{S\'election du param\`etre $\lambda$}
 
-Il existe quelques m\'ethodes pour s\'electionner le param\`etre $\lambda$. La m\'ethode la plus intuitive est celle bas\'ee sur le taux d'erreur test. Ce taux d'erreur est estim\'e par validation crois\'ee pour plusieurs valeurs de $\lambda$. On choisi par la suite la valeur de $\lambda$ qui minimise le taux d'erreur test.
+Il existe quelques m\'ethodes pour s\'electionner le param\`etre $\lambda$. La m\'ethode la plus intuitive est celle bas\'ee sur le taux d'erreur test. Ce taux d'erreur est estim\'e par validation crois\'ee pour plusieurs valeurs de $\lambda$. On choisi\textcolor{red}{t} par la suite la valeur de $\lambda$ qui minimise le taux d'erreur test.
 
 \noindent Pour la r\'egression ridge, on a: 
 \begin{verbatim}
@@ -423,7 +425,7 @@ Il existe quelques m\'ethodes pour s\'electionner le param\`etre $\lambda$. La m
 [1] 2.2
 \end{verbatim}
 
-\noindent et donc, on choisi $\lambda=e^{2.2}$.
+\noindent et donc, on choisi\textcolor{red}{t} $\lambda=e^{2.2}$.
 
 \noindent Et pour la r\'egression lasso, on a :
 \begin{verbatim}
@@ -437,7 +439,7 @@ Il existe quelques m\'ethodes pour s\'electionner le param\`etre $\lambda$. La m
 [1] 3
 \end{verbatim}
 
-\noindent et donc, on choisi $\lambda=e^{3}$.
+\noindent et donc, on choisi\textcolor{red}{t} $\lambda=e^{3}$.
 
 \end{document}
 

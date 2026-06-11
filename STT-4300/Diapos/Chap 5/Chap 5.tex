@@ -10,6 +10,8 @@
 
 % Code listing
 \usepackage[listings]{tcolorbox}
+\usepackage[normalem]{ulem}
+\usepackage{xcolor}
 
 
 \begin{document}
@@ -19,19 +21,19 @@
 {\textbf{\LARGE Chapitre 5: Mod\`eles lin\'eaires g\'en\'eralis\'es}}
 \end{center}
 
-\noindent Jusqu'\`a maintenant, on a vu la r\'egression lin\'eaire (Chapitre 2 et 3) et la r\'egression logistique (Chapitre 4). On constate que plusieurs concepts comme l'inf\'erence statistique concernant les coefficients de r\'egression $\beta$, la s\'election de mod\`eles et la d\'etection sont identiques pour les deux situations, m\^eme si chaque mod\`ele peut avoir des particularit\'es qui requi\`erent des proc\'edures sp\'ecifiques comme la courbe ROC pour la r\'egression lin\'eaire. Dans ce chapire, on consid\`ere une pr\'esentation unifi\'ee pour ces mod\`eles. On suppose que la variable r\'eponse $Y_i$ suit une distribution qui appartient \`a la famille exponentielle qui inclut la loi normale, la loi de Bernoulli et la loi binomiale.
+\noindent Jusqu'\`a maintenant, on a vu la r\'egression lin\'eaire (Chapitre 2 et 3) et la r\'egression logistique (Chapitre 4). On constate que plusieurs concepts comme l'inf\'erence statistique concernant les coefficients de r\'egression $\beta$, la s\'election de mod\`eles et la d\'etection sont identiques pour les deux situations, m\^eme si chaque mod\`ele peut avoir des particularit\'es qui requi\`erent des proc\'edures sp\'ecifiques comme la courbe ROC pour la r\'egression \sout{lin\'eaire}\textcolor{red}{logistique}. Dans ce chap\sout{ire}\textcolor{red}{itre}, on consid\`ere une pr\'esentation unifi\'ee pour ces mod\`eles. On suppose que la variable r\'eponse $Y_i$ suit une distribution qui appartient \`a la famille exponentielle qui inclut la loi normale, la loi de Bernoulli et la loi binomiale.
 
 \section{Famille exponentielle}
 
 \subsection{D\'efinition et exemples}
 
-Cette famille de lois contient la vaste majorit\'e des lois couramment utilis\'ees en pratique. On dit que la distribution de la variable al\'eatoire $Y$ appartient \` la famille exponentielle si la fonction de probabilit\'e de $Y$ s'\'ecrit sous la forme:
+Cette famille de lois contient la vaste majorit\'e des lois couramment utilis\'ees en pratique. On dit que la distribution de la variable al\'eatoire $Y$ appartient \textcolor{red}{\`a} la famille exponentielle si la fonction de probabilit\'e de $Y$ s'\'ecrit sous la forme:
 $$f_Y(y) = a(y,\phi) \exp\left\{\frac{y\theta-b(\theta)}{\phi}\right\}.$$
-\noindent Ici, $f_Y(y)$ est la fonction de densit\'e si $Y$ est continue et la fonction de mass $P(Y=y)$ si $Y$ est discr\`ete.
+\noindent Ici, $f_Y(y)$ est la fonction de densit\'e si $Y$ est continue et la fonction de mas\sout{s}\textcolor{red}{se} $P(Y=y)$ si $Y$ est discr\`ete.
 
-\noindent La distribution est param\'etr\'ee avec deux param\`etres: le param\`etre canonique $\theta$ et le param\`etre de dispersion $\phi$. On montre que $E[Y]=\mu b'(\theta)$, o\`u $b'(u)=db(u)/du$ est la d\'eriv\'ee de $b(u)$ par rapport \`a $u$. Par cons\'equent, le param\`etre canonique est directement li\'e \`a l'esp\'erance de $Y$. On montre aussi que $Var(Y)=\phi b''(\theta)$, o\`u $b''(u)=d^2b(u)/du^2$ est la d\'eriv\'ee seconde de $b(u)$ par rapport \`a $u$. On en d\'eduit que $Var[Y]=\phi V(\mu)$, avec $V(u)=b''[{b'}^{-1}(u)]$. Le param\`etre de dispersion $\phi$ mod\'elise donc la variance de $Y$.
+\noindent La distribution est param\'etr\'ee avec deux param\`etres: le param\`etre canonique $\theta$ et le param\`etre de dispersion $\phi$. On montre que $E[Y]=\sout{\mu }b'(\theta)$, o\`u $b'(u)=db(u)/du$ est la d\'eriv\'ee de $b(u)$ par rapport \`a $u$. Par cons\'equent, le param\`etre canonique est directement li\'e \`a l'esp\'erance de $Y$. On montre aussi que $Var(Y)=\phi b''(\theta)$, o\`u $b''(u)=d^2b(u)/du^2$ est la d\'eriv\'ee seconde de $b(u)$ par rapport \`a $u$. On en d\'eduit que $Var[Y]=\phi V(\mu)$, avec $V(u)=b''[{b'}^{-1}(u)]$. Le param\`etre de dispersion $\phi$ mod\'elise donc la variance de $Y$.
 
-\noindent Les distributions de la famille exponentielle poss\`dent, en g\'en\'eral, deux param\`etres $\theta$ et $\phi$. Cependant, pour certaines distributions, le param\`etre de dispersion est fix\'e \`a 1 et on a aisnsi un seul param\`etre.
+\noindent Les distributions de la famille exponentielle poss\`\textcolor{red}{e}dent, en g\'en\'eral, deux param\`etres $\theta$ et $\phi$. Cependant, pour certaines distributions, le param\`etre de dispersion est fix\'e \`a 1 et on a ai\sout{sn}\textcolor{red}{n}si un seul param\`etre.
 
 \noindent Voici quelques exemples de ces distributions:
 \begin{enumerate}
@@ -41,7 +43,7 @@ F_Y(y)&=&\frac{1}{\sqrt{2\pi \sigma^2}} \exp\left\{-\frac{(y-\mu)^2}{2\sigma^2}\
 &=& \frac{1}{\sqrt{2\pi \sigma^2}} \exp\left\{\frac{y\mu-\mu^2/2}{\sigma^2}-\frac{y^2}{2\sigma^2}\right\}
 \end{eqnarray*}
 
-Cette fonction de densit\'e est un cas particulier d'une fonction de probabilit\'e d'une loi appartenant \`a la famille exponentielle avec $\theta=\mu$, $\phi=\sigma^2$, $$a(\theta)=\frac{1}{\sqrt{2\pi \sigma^2}} \exp\left\{-\frac{y^2}{2\sigma^2}\right\}$$ et $b(\theta)=\theta^2/2$. Plus encore, on a $E(Y)=b'(\theta)=\theta=\mu$ et $Var(Y)=\phi b''(\theta) = \sigma^2$ puisque $b''(u)=1$. On en d\'eduit que $V(\mu)=1$.
+Cette fonction de densit\'e est un cas particulier d'une fonction de probabilit\'e d'une loi appartenant \`a la famille exponentielle avec $\theta=\mu$, $\phi=\sigma^2$, $$a(\sout{\theta}\textcolor{red}{y,\phi})=\frac{1}{\sqrt{2\pi \sigma^2}} \exp\left\{-\frac{y^2}{2\sigma^2}\right\}$$ et $b(\theta)=\theta^2/2$. Plus encore, on a $E(Y)=b'(\theta)=\theta=\mu$ et $Var(Y)=\phi b''(\theta) = \sigma^2$ puisque $b''(u)=1$. On en d\'eduit que $V(\mu)=1$.
 
 \item[$\bullet$]{\bf Loi binomiale:} Soit $Y \sim \mbox{Bin}(m,\pi)$. On a alors pour $y=0,1,\cdots,m$:
 \begin{eqnarray*}
@@ -202,7 +204,7 @@ $$l(\beta) = \sum_{i=1}^n \left\{y_i(\beta_0+\beta_1 X_{i1}+\cdots+\beta_p X_{ip
 
 \noindent La distribution asymptotique de $\hat\beta$ v\'erifie
 $$\hat\beta \sim {\cal N}\left\{\beta,(X^\top WX)^{-1}\right\},$$
-\noindent o\`u $W$ est une matrice diagonale de taille $n$ avec les \'el\'ements $w_i=\hat\mu_i=\hat\beta_0+\hat\beta_1 X_{i1}+\cdots+\hat\beta_p X_{ip}, i=1,\cdots,n$ sur la diagonale.
+\noindent o\`u $W$ est une matrice diagonale de taille $n$ avec les \'el\'ements $w_i=\hat\mu_i=\sout{\hat\beta_0+\hat\beta_1 X_{i1}+\cdots+\hat\beta_p X_{ip}}\textcolor{red}{e^{\hat\beta_0+\hat\beta_1 X_{i1}+\cdots+\hat\beta_p X_{ip}}}, i=1,\cdots,n$ sur la diagonale.
 
 \noindent La d\'eviance de ce mod\`ele est 
 $$d(y,\mu)=2\left\{y\log(\frac{y}{\mu})-(y-\mu)\right\}$$
@@ -218,7 +220,7 @@ $$X^2 = \sum_{i=1}^n \frac{(y_i-\hat\mu_i)^2}{\hat\mu_i} \, \, \, \mbox{ et } \,
 
 \subsection{Variables explicatives {\it offset}}
 
-La variable r\'eponse $Y_i$ est le nombre de nouveaux cas de cancer des poumons parmi $m_i$ qui repr\'esente la population d'une tranche d'\^age dans une ville donn\'ee. Normalement, on aurait eu une r\'egression logistique avec $Y_i \sim \mbox{Bin}(m_i,\pi_i)$, o\`u $\pi_i$ est la probabilit\'e qu'un individu d\'eveloppe le cancer en question. Une estimation empirique de $\pi_i$ est donn\'ee par $\tilde\pi_i=Y_i/m_i$. Selon les donn\'ees qu'on a, $\tilde pi_1=11/3059 \approx 3.6 \times 10^{-3}$. Cette est probabilit\'e est tr\`es petite et une r\'egression logistique ne semble pas \^etre appropri\'ee pour analyser ces donn\'ees. 
+La variable r\'eponse $Y_i$ est le nombre de nouveaux cas de cancer des poumons parmi $m_i$ qui repr\'esente la population d'une tranche d'\^age dans une ville donn\'ee. Normalement, on aurait eu une r\'egression logistique avec $Y_i \sim \mbox{Bin}(m_i,\pi_i)$, o\`u $\pi_i$ est la probabilit\'e qu'un individu d\'eveloppe le cancer en question. Une estimation empirique de $\pi_i$ est donn\'ee par $\tilde\pi_i=Y_i/m_i$. Selon les donn\'ees qu'on a, $\sout{\tilde pi_1}\textcolor{red}{\tilde\pi_1}=11/3059 \approx 3.6 \times 10^{-3}$. Cette est probabilit\'e est tr\`es petite et une r\'egression logistique ne semble pas \^etre appropri\'ee pour analyser ces donn\'ees. 
 
 \noindent Une alternative est de mod\'eliser l'esp\'erance du ratio $Y_i/m_i$ en fonction des variables explicatives. Autrement dit, on \'ecrit que $Y_i$ suit une loi de Poisson avec un param\`etre $\mu_i$ qui v\'erifie
 $$\log(\frac{\mu_i}{m_i}) = \beta_0+\beta_1 X_{i1}+\cdots+\beta_p X_{ip}.$$
@@ -253,7 +255,7 @@ $$\log(\mu_i) = \beta_0+\log(m_i)+\beta_1 X_{i1}+\cdots+\beta_p X_{ip}.$$
  
 \subsection{Variabilit\'e extra-Poissonni\`ene}
 
-Avec une variable r\'eponse $Y_i$ qui suit une distribution Poisson, on doit avoir $E[Y_i]=Var[Y_i]=\mu_i$. Dans la pratique, il arrive qu'on ait $E[Y_i]>Var[Y_i]$. Dans ce qui suit, on pr\'esente deux strat\'egies pour rem\'edier \`a ce probl\`eme. 
+Avec une variable r\'eponse $Y_i$ qui suit une distribution Poisson, on doit avoir $E[Y_i]=Var[Y_i]=\mu_i$. Dans la pratique, il arrive qu'on ait $\sout{E[Y_i]>Var[Y_i]}\textcolor{red}{Var[Y_i]>E[Y_i]}$. Dans ce qui suit, on pr\'esente deux strat\'egies pour rem\'edier \`a ce probl\`eme. 
 
 \subsubsection{Approche Quasi-Poisson} La premi\`ere strat\'egie consiste \`a consid\'erer un mod\`ele Quasi-Poisson. Avec ce mod\`ele, on sp\'ecifie seulement les deux premiers moment de la distribution de $Y_i$: $E[Y_i]=\mu_i$ et $Var[Y_i]=\phi \mu_i$. Avec cette approche, on obtient les m\^emes estimateurs $\hat\beta$ qu'un mod\`ele de Poisson mais la matrice $Var(\hat\beta)$ est multipli\'e par $\tilde \phi_P=X^2/(n-(p+1))$.
 
@@ -333,7 +335,7 @@ $$P(Y_i=y_i) = \frac{\Gamma(y_i+1/\alpha)}{\Gamma(y_i+1)\Gamma(1/\alpha)} \left(
 
 \noindent Pour d\'efinir un mod\`ele de r\'egression, on pose $\mu_i = e^{\beta_0+\beta_1 X_{i1}+\cdots+\beta_p X_{ip}}$. Avec cette fonction de lien, les coefficients $\beta$ gardent la m\^eme interpr\'etation que dans une r\'egression Poisson.
 
-\noindent Les param\`etres de ce mod\`eles sont donc $\beta$ et $\alpha$ et on retrouve la r\'egresssion Poisson lorsque $\alpha \rightarrow 0$. Le principal inconv\'eniant de ce mod\`ele est qu'on doit estimer $\alpha$ et $\beta$ simultan\'ement. Ceci peut causer des probl\`emes au niveau num\'erique.
+\noindent Les param\`etres de ce mod\`ele\sout{s} sont donc $\beta$ et $\alpha$ et on retrouve la r\'egress\sout{s}ion Poisson lorsque $\alpha \rightarrow 0$. Le principal inconv\'eniant de ce mod\`ele est qu'on doit estimer $\alpha$ et $\beta$ simultan\'ement. Ceci peut causer des probl\`emes au niveau num\'erique.
 
 \noindent Un avantage int\'eressant pour ce mod\`ele est qu'il nous permet de tester l'hypoth\`ese nulle $H_0:\alpha=0$. \`A cet effet, on ajuste le mod\`ele Poisson et le mod\`ele avec une loi binomiale n\'egative et on calcule les d\'eviances des deux mod\`eles, disons $D_0$ et $D_1$. La statistique du test sera alors $Q_{obs}=D_0-D_1$. Sous l'hypoth\`ese nulle $H_0:\alpha=0$, on a $$Q \sim \frac{1}{2} \chi^2_0 + \frac{1}{2} \chi^2_1$$
 car on teste $\alpha$ sur la limite de son domaine de d\'efinition. Le seuil observ\'e est alors \'egal \`a $\alpha^*=P(\chi^2_1>Q_{obs})/2$. 

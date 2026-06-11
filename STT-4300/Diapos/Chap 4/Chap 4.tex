@@ -10,13 +10,15 @@
 
 % Code listing
 \usepackage[listings]{tcolorbox}
+\usepackage[normalem]{ulem}
+\usepackage{xcolor}
 
 
 \begin{document}
 
 
 \begin{center}
-{\textbf{\LARGE Chapitre 1: Modèles de régression pour données binaires}}
+{\textbf{\LARGE \sout{Chapitre 1}\textcolor{red}{Chapitre 4}: Modèles de régression pour données binaires}}
 \end{center}
 
 \noindent Les modèles de régression linéaire ne permettent de considérer que les cas où la variable réponse $Y_i$ est normale. Cependant, dans plusieurs situations, on a une variable réponse discrète qui ne peut prendre qu'un nombre fini (ou dénombrable) de valeurs possibles. Dans ce chapitre, on s'intéresse au cas où $Y_i$ suit une loi de Bernoulli ou une loi binomiale. Voici quatre exemples:
@@ -31,7 +33,7 @@
 
 \subsection{Données individuelles}
 
-\noindent Dans les deux premiers exemples, la variable réponse $Y_i$ ne peut prendre 	que deux valeurs possibles: 0 et 1. Les données sont donc sous la forme $\{(Y_i,X_i), i=1,\cdots,n\}$; où $n$ est nombre d'oservations, $Y_i \in \{0,1\}$ est la variable réponse et $X_i=(X_{i1},\cdots,X_{ip})^\top$ est l'ensemble des variables explicatives pour l'observation $i$. On dit que $Y_i$ suit une loi de Bernoulli avec un paramètre $\pi_i \in [0,1]$. On pose alors $P(Y_i=1)=\pi_i$ et $P(Y_i=0)=1-P(Y_i=1)=1-\pi_i$ et on a
+\noindent Dans les deux premiers exemples, la variable réponse $Y_i$ ne peut prendre 	que deux valeurs possibles: 0 et 1. Les données sont donc sous la forme $\{(Y_i,X_i), i=1,\cdots,n\}$; où $n$ est nombre d'\sout{oservations}\textcolor{red}{observations}, $Y_i \in \{0,1\}$ est la variable réponse et $X_i=(X_{i1},\cdots,X_{ip})^\top$ est l'ensemble des variables explicatives pour l'observation $i$. On dit que $Y_i$ suit une loi de Bernoulli avec un paramètre $\pi_i \in [0,1]$. On pose alors $P(Y_i=1)=\pi_i$ et $P(Y_i=0)=1-P(Y_i=1)=1-\pi_i$ et on a
 
 \begin{eqnarray*}
 P(Y_i=y_i)&=& \pi_i^{y_i}(1-\pi_i)^{1-y_i}, \, \, \, y_i \in \{0,1\}\\
@@ -39,7 +41,7 @@ E[Y_i] &=& \mu_i = \pi_i \\
 Var[Y_i] &=& \sigma^2_i = \pi_i(1-\pi_i).
 \end{eqnarray*}
 
-\noindent D'autres part, on pose $\eta_i=\beta_0+\beta_1 X_{i1} + \cdots + \beta_p X_{ip}, i=1,\cdots,n$. Ici $p$ est le nombre de variables explicatives considérées et $\beta=(\beta_0,\beta_1,\cdots,\beta_p)^\top$ est un vecteur de $p+1$ coefficient de régression. \`a estimer \`a parti des données. 
+\noindent D'\sout{autres}\textcolor{red}{autre} part, on pose $\eta_i=\beta_0+\beta_1 X_{i1} + \cdots + \beta_p X_{ip}, i=1,\cdots,n$. Ici $p$ est le nombre de variables explicatives considérées et $\beta=(\beta_0,\beta_1,\cdots,\beta_p)^\top$ est un vecteur de $p+1$ \sout{coefficient}\textcolor{red}{coefficients} de régression\sout{. \`a estimer \`a parti}\textcolor{red}{, à estimer à partir} des données. 
 
 \noindent Finalement, on a $\eta_i = g(\pi_i)$; où $g(\cdot)$ est une fonction de lien, supposée connue. 
 
@@ -54,7 +56,7 @@ $$\pi_i = P(Y_i = 1) = g^{-1}(\beta_0+\beta_1 X_{i1} + \cdots + \beta_p X_{ip}).
 
 \subsection{Données groupées}
 
-\noindent Dans les deux derniers exemples, la variable réponse $Y_i$ peut prendre n'importe quelle valeur dans l'ensemble $\{0,1,\cdots,m_i\}$, où $m_i$ est un entier connu \`a l'avance et qui varie d'une observation \`a une autre. 'A toute fin pratique, $m_i$ peut \^etre considéré comme un nombre total d'exprériences indépendantes ayant deux résultats possibles (succès ou échec) et $Y_i$ est interprété comme le nombre de succès parmi les $m_i$ expériences. Les données sont donc sous la forme $\{(Y_i,m_i,X_i), i=1,\cdots,n\}$. On dit que $Y_i$ suit une loi Binomiale de paramètres $m_i$ et $\pi_i \in [0,1]$ et on écrit $Y_i \sim \mbox{Bin}(m_i,\pi_i)$. Selon cette loi, on a:
+\noindent Dans les deux derniers exemples, la variable réponse $Y_i$ peut prendre n'importe quelle valeur dans l'ensemble $\{0,1,\cdots,m_i\}$, où $m_i$ est un entier connu \`a l'avance et qui varie d'une observation \`a une autre. \sout{'A}\textcolor{red}{\`A} toute fin pratique, $m_i$ peut \^etre considéré comme un nombre total d'\sout{exprériences}\textcolor{red}{expériences} indépendantes ayant deux résultats possibles (succès ou échec) et $Y_i$ est interprété comme le nombre de succès parmi les $m_i$ expériences. Les données sont donc sous la forme $\{(Y_i,m_i,X_i), i=1,\cdots,n\}$. On dit que $Y_i$ suit une loi Binomiale de paramètres $m_i$ et $\pi_i \in [0,1]$ et on écrit $Y_i \sim \mbox{Bin}(m_i,\pi_i)$. Selon cette loi, on a:
 \begin{eqnarray*}
 P(Y_i=y_i)&=& \binom{m_i}{y_i} \pi_i^{y_i}(1-\pi_i)^{m_i-y_i}, \, \, \, y_i \in \{0,1,\cdots,m_i\}\\
 E[Y_i] &=& \mu_i = m_i \pi_i \\
@@ -111,7 +113,7 @@ où $z_{\gamma}$ est le quantile de la loi normale standard défini par $P(Z>z_{
 
 \noindent Intéressons nous maintenant \`a $\pi^*$ lorsque $X=X^*=(1,X_1^*,\cdots,X_p^*)^\top$. On estime $\pi$ par $\hat\pi^*=g^{-1}(\hat\beta_0+\hat\beta_1 X_{1}^* + \cdots + \hat\beta_p X_{p}^*)=g^{-1}(X^*\hat\beta)$.
 
-\noindent Un intervalle de confinace \`a $100\times(1-\alpha)\%$ pour $X^*\beta$ est donné par 
+\noindent Un intervalle de confi\sout{nace}\textcolor{red}{ance} \`a $100\times(1-\alpha)\%$ pour $X^*\beta$ est donné par 
 $$\left[ X^*\hat\beta - z_{\alpha/2}\sqrt{v(X^*\hat\beta)}   , X^*\hat\beta + z_{\alpha/2}\sqrt{v(X^*\hat\beta)}\right],$$
 
 \noindent avec $v(X^*\hat\beta)=X^* v(\hat\beta) {X^*}^\top$. On en déduit un intervalle de confiance \`a $100\times(1-\alpha)\%$ pour $\pi^*$:
@@ -120,7 +122,7 @@ $$\left[ g^{-1}\left\{X^*\hat\beta - z_{\alpha/2}\sqrt{v(X^*\hat\beta)}\right\},
 \noindent Alternativement, on peut approximer $Var(\hat\pi^*)$ par la règle du delta. On obtient $v(\hat\pi^*)=h(X^*\hat\beta)v(X^*\hat\beta)$, où $h(u)=\{\partial g^{-1}(u)/\partial u\}^2$. 
 
 \noindent Un intervalle de confiance approximatif \`a $100\times(1-\alpha)\%$ pour $\pi^*$ est donné par 
-$$\left[\hat\pi^* - 1.96 \sqrt{v(\hat\pi^*)},\hat\pi^* - 1.96 \sqrt{v(\hat\pi^*)}\right].$$
+$$\left[\hat\pi^* - 1.96 \sqrt{v(\hat\pi^*)},\hat\pi^* \sout{-}\textcolor{red}{+} 1.96 \sqrt{v(\hat\pi^*)}\right].$$
 
 \subsection{Exemple en R}
 
@@ -203,7 +205,7 @@ lines(Heures,intervalle.confiance.2.pi.chapeau,lty=2)
 \includegraphics[scale=0.3]{Graphique2.pdf}
 \end{center}
 
-\noindent Et voici le code \textrm{R} pour la deuxière méthode:
+\noindent Et voici le code \textrm{R} pour la deuxi\sout{ère}\textcolor{red}{ème} méthode:
 
 \begin{verbatim}
 ## 2eme facon: intervalles de confiance approximatifs
@@ -258,7 +260,7 @@ legend("topleft",lwd=2,lty=c(1,2,4),
 \includegraphics[scale=0.3]{Graphique4.pdf}
 \end{center}
 
-\noindent Les courbes obtenues avec les trois fonctions de lien sont très similaires. Ce qui est très fréquent.
+\noindent Les courbes obtenues avec les trois fonctions de lien sont très similaires\sout{. Ce qui est très fréquent}\textcolor{red}{, ce qui est très fréquent}.
 
 \section{Sélection de modèles}
 
@@ -271,11 +273,11 @@ D &=& 2\left\{  l(y,y)-l(\hat \mu,y) \right\}\\
 &=& 2  \sum_{i=1}^n d_i.
 \end{eqnarray*}
 
-\noindent La statistique $D$ est appelée la déviance du modèle alors que la statistique $d_i$ est la déviance individuellle de l'observation $i$. La statistique $D$ joue le m\^eme r\^ole que la somme des carrés des résidus pour la régression linéaire. Elle est utilisée pour évaluer l'ajustement et l'adéquation du modèle aux données et pour comparer des modèles.
+\noindent La statistique $D$ est appelée la déviance du modèle alors que la statistique $d_i$ est la déviance individue\sout{llle}\textcolor{red}{lle} de l'observation $i$. La statistique $D$ joue le m\^eme r\^ole que la somme des carrés des résidus pour la régression linéaire. Elle est utilisée pour évaluer l'ajustement et l'adéquation du modèle aux données et pour comparer des modèles.
 
 \subsection{Comparaison de modèles embo\^ités}
 
-Deux modèles sont embo\^ités si l'un des deux est un cas particulier de l'autre. Pour comparer deux modèles embo\^ités, on commence par ajuster chacun des modèles aux données. On calcule par la suite la déviance de chaque modèle, disons $D_1$ et $D_2$. La statistique de test pour comparer les deux modèles est $\chi^2 = D_2-D_1$. Sous $H_0:\mbox{le modèle réduit est plus adéquat aux données}$, on a $\chi^2$ suit une loi de Khi-deux \`a $d$ degrés de liberté, où $d$ est la différence entre le nombre de paramètres du modèle complet et celui du modèle réduit. 
+Deux modèles sont embo\^ités si l'un des deux est un cas particulier de l'autre. Pour comparer deux modèles embo\^ités, on commence par ajuster chacun des modèles aux données. On calcule par la suite la déviance de chaque modèle, disons $D_1$ et $D_2$. La statistique de test pour comparer les deux modèles est $\chi^2 = D_2-D_1$. Sous $H_0:\mbox{le modèle réduit est plus adéquat aux données}$, on a \textcolor{red}{que }$\chi^2$ suit une loi de Khi-deux \`a $d$ degrés de liberté, où $d$ est la différence entre le nombre de paramètres du modèle complet et celui du modèle réduit. 
 
 \noindent Revenons sur le jeu de données \textsf{turbines} de la library \texttt{GLMsData} du logiciel \textrm{R}. On voudrait savoir si c'est pertinent d'ajouter des termes quadratique et cubique avec la fonction de lien logit. Ainsi, avec le modèle complet on a:
 $$\pi_i = \frac{e^{\beta_0+\beta_1 x_i + \beta_2 x_i^2 + \beta_3 x_i^3}}{1+e^{\beta_0+\beta_1 x_i + \beta_2 x_i^2 + \beta_3 x_i^3}}$$
@@ -361,7 +363,7 @@ BIC &=& -2 l(\hat\mu;y) + \log(n) (p+1) \\
 
 \subsection{Sélection automatique de modèle}
 
-Les méthodes pas \`a pas {\it forward}, {\it backward} et {\it stepwise} fonctionnenet exactement comme pour les modèles linéaires. On considère le jeu de données \textsf{deposit} de la library \texttt{GLMsData} du logiciel \textrm{R}. On utilise ces procédures pour sélectionner le meilleur modèle. Le modèle le plus complet comporte les deux variables explicatives: type et dose de l'insecticide, ainsi que leur interaction et les termes quadratique et cubique de dose.
+Les méthodes pas \`a pas {\it forward}, {\it backward} et {\it stepwise} fonctionn\sout{enet}\textcolor{red}{ent} exactement comme pour les modèles linéaires. On considère le jeu de données \textsf{deposit} de la library \texttt{GLMsData} du logiciel \textrm{R}. On utilise ces procédures pour sélectionner le meilleur modèle. Le modèle le plus complet comporte les deux variables explicatives: type et dose de l'insecticide, ainsi que leur interaction et les termes quadratique et cubique de dose.
 
 \begin{verbatim}
 > max.modele <- glm(cbind(Killed,Number-Killed)~factor(Insecticide)*Deposit+
@@ -615,7 +617,7 @@ et
 \includegraphics[scale=0.3]{Graphique6.pdf}
 \end{center}
 
-\noindent Si ces graphiques ont tendance horizentales mais plusieurs des valeurs sont supérieures \`a 3 en valeur absolue, cela peut suggèrer la présence d'une extra-variabilité. En effet, si la loi binomiale est bien spécifiée, alors on a $E[Y_i]=m_i \pi_i$ et $Var[Y_i]=m_i \pi_i (1-\pi_i)$. Il arrive dans certaines situations où on a $E[Y_i]=m_i \pi_i$ mais $Var[Y_i] > m_i \pi_i (1-\pi_i)$. On dit qu'on est en présence d'une extra-variabilité ({\it overdispersion} en anglais). Dans cette situation, on pose $Var[Y_i] = \phi m_i \pi_i (1-\pi_i)$ et on estime $\phi$ par $\chi^2_P/(n-(p+1))$
+\noindent Si ces graphiques ont \sout{tendance horizentales}\textcolor{red}{une tendance horizontale} mais plusieurs des valeurs sont supérieures \`a 3 en valeur absolue, cela peut suggèrer la présence d'une extra-variabilité. En effet, si la loi binomiale est bien spécifiée, alors on a $E[Y_i]=m_i \pi_i$ et $Var[Y_i]=m_i \pi_i (1-\pi_i)$. Il arrive dans certaines situations où on a $E[Y_i]=m_i \pi_i$ mais $Var[Y_i] > m_i \pi_i (1-\pi_i)$. On dit qu'on est en présence d'une extra-variabilité ({\it overdispersion} en anglais). Dans cette situation, on pose $Var[Y_i] = \phi m_i \pi_i (1-\pi_i)$ et on estime $\phi$ par $\chi^2_P/(n-(p+1))$
 
 \begin{verbatim}
 > Pearson/(n-(p+1))
@@ -643,7 +645,7 @@ et
 
 \subsection{Observations aberrantes \& valeurs influentes}
 
-Le principe des observations aberrantes et valeurs influentes est identique pour les régressions logistique et linéaire. Les définitions des leviers des observations, des résidus standardiés et studentiés sont différentes dans la cas d'une régression logistique mais ces quantités ont la m\^eme interprétation et utilité que dans le cadre d'une régression linéaire. C'est la m\^eme chose pour la distance de Cook, les DFBETAS, DFFITS et rapport de ratios. 
+Le principe des observations aberrantes et valeurs influentes est identique pour les régressions logistique et linéaire. Les définitions des leviers des observations, des résidus standardi\sout{és}\textcolor{red}{sés} et studenti\sout{és}\textcolor{red}{sés} sont différentes dans la cas d'une régression logistique mais ces quantités ont la m\^eme interprétation et utilité que dans le cadre d'une régression linéaire. C'est la m\^eme chose pour la distance de Cook, les DFBETAS, DFFITS et rapport de ratios. 
 
 \subsection{Spécificité, sensibilité et courbe ROC}
 
@@ -651,15 +653,15 @@ Toutes les procédures de diagnostique et validation de modèle citées ci-haut 
 
 \noindent Considérons un modèle avec des données individuelles où la variable réponse est $Y_i \in \{0,1\}$, avec $P(Y_i=1)=\pi_i=g^{-1}(\nu_i)$, $\nu_i=\beta_0+\beta_1 X_{i1}+\cdots+\beta_p X_{ip}$ et $P(Y_i=0)=1-P(Y_i=1)$. On ajuste le modèle, on obtient $\hat\beta_0$, $\hat\beta_1$, $\cdots$, $\hat\beta_p$ et on calcule les probabilités prédites $\hat\pi_i=g^{-1}(\hat\eta_i)$ avec $\hat\eta_i=\hat\beta_0+\hat\beta_1 X_{i1}+\cdots+\hat\beta_p X_{ip}$.
 
-\noindent Fixons maintenant un réel $u \in [0,1]$. Dans un contexte de classification, on pose $\hat y_i=1$ si $\hat\pi_i>u$ et $\hat y_i=0$ sinon. La valeur la plus utilisée est $u=1/2$. On mesure la capacité prédictive du modèle par la spécificité et la sensibilité, définies respectivement par $Spec = P(\hat y=0| y=0)$ et $Sens = P(\hat y=1| y=1)$. La spécificité et la sensibilité refèrent aux taux de vrais négatifs et vrais positifs, respectivement. Plus ces valeurs sont proches de 1, plus grande est la capacité prédictive du modèle. 
+\noindent Fixons maintenant un réel $u \in [0,1]$. Dans un contexte de classification, on pose $\hat y_i=1$ si $\hat\pi_i>u$ et $\hat y_i=0$ sinon. La valeur la plus utilisée est $u=1/2$. On mesure la capacité prédictive du modèle par la spécificité et la sensibilité, définies respectivement par $Spec = P(\hat y=0| y=0)$ et $Sens = P(\hat y=1| y=1)$. La spécificité et la sensibilité r\sout{efèrent}\textcolor{red}{éfèrent} aux taux de vrais négatifs et vrais positifs, respectivement. Plus ces valeurs sont proches de 1, plus grande est la capacité prédictive du modèle. 
 
 \noindent Pour un $u$ fixé, on calcule $\hat y_1, \cdots, \hat y_n$ et on estime la spécificité et la sensibilité du modèle par 
 \begin{eqnarray*}
-\widehat{Spec}(u)&=&\frac{\sum_{i=1}^n I_{\{\hat y_i=0\}}}{\sum_{i=1}^n I_{\{(\hat y_i=0)\&(y_i=0)\}}} = \frac{\sum_{i=1}^n I_{\{\hat \pi_i < u \}}}{\sum_{i=1}^n I_{\{(\hat \pi_i < u)\&(y_i=0)\}}} \\
-\widehat{Sens}(u)&=&\frac{\sum_{i=1}^n I_{\{\hat y_i=1\}}}{\sum_{i=1}^n I_{\{(\hat y_i=1)\&(y_i=1)\}}} = \frac{\sum_{i=1}^n I_{\{\hat \pi_i > u \}}}{\sum_{i=1}^n I_{\{(\hat \pi_i > u)\&(y_i=1)\}}}
+\widehat{Spec}(u)&=&\sout{\frac{\sum_{i=1}^n I_{\{\hat y_i=0\}}}{\sum_{i=1}^n I_{\{(\hat y_i=0)\&(y_i=0)\}}} = \frac{\sum_{i=1}^n I_{\{\hat \pi_i < u \}}}{\sum_{i=1}^n I_{\{(\hat \pi_i < u)\&(y_i=0)\}}}} \textcolor{red}{\frac{\sum_{i=1}^n I_{\{(\hat \pi_i < u)\&(y_i=0)\}}}{\sum_{i=1}^n I_{\{y_i=0\}}}} \\
+\widehat{Sens}(u)&=&\sout{\frac{\sum_{i=1}^n I_{\{\hat y_i=1\}}}{\sum_{i=1}^n I_{\{(\hat y_i=1)\&(y_i=1)\}}} = \frac{\sum_{i=1}^n I_{\{\hat \pi_i > u \}}}{\sum_{i=1}^n I_{\{(\hat \pi_i > u)\&(y_i=1)\}}}} \textcolor{red}{\frac{\sum_{i=1}^n I_{\{(\hat \pi_i > u)\&(y_i=1)\}}}{\sum_{i=1}^n I_{\{y_i=1\}}}}
 \end{eqnarray*}
 
-\noindent Faisons maintenant varier $u$ \`a l'intérieur d'une grille de $B$ points dans $[0,1]$: $\{u_1=0,u_1,u+2,\cdots,u_B=1\}$, avec $B$ suffisament grand.
+\noindent Faisons maintenant varier $u$ \`a l'intérieur d'une grille de $B$ points dans $[0,1]$: $\{u_1=0,\sout{u_1,u+2}\textcolor{red}{u_2,}\cdots,u_B=1\}$, avec $B$ suffis\sout{a}\textcolor{red}{a}ment grand.
 
 \noindent Pour $b=0,1,\cdots,B$, on calcule $\widehat{Spec}(u_b)$ et $\widehat{Sens}(u_b)$. On trace le nuage de points $\{(1-\widehat{Spec}(u_b),\widehat{Sens}(u_b)),b=0,\cdots,B\}$. En reliant ces points, on obtient une courbe qu'on appelle la courbe ROC. On calcule l'aire sous cette courbe. Plus cette aire est grande, plus la capacité prédictive du modèle est grande. 
 $$
@@ -668,7 +670,7 @@ $$
 [0.8,0.9], & \mbox{ le modèle est bon} \\
 [0.7,0.8], & \mbox{ le modèle est moyen} \\
 [0.6,0.7], & \mbox{ le modèle est mauvais} \\
-[0.7,0.8], & \mbox{ le modèle est très faible.} \\
+\sout{[0.7,0.8]}\textcolor{red}{[0.5,0.6]}, & \mbox{ le modèle est très faible.} \\
 \end{cases}
 $$
 

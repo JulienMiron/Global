@@ -10,6 +10,8 @@
 
 % Code listing
 \usepackage[listings]{tcolorbox}
+\usepackage[normalem]{ulem}
+\usepackage{xcolor}
 
 
 \begin{document}
@@ -41,12 +43,12 @@
 \end{center}
 
 
-\noindent Ce graphique montre que la relation entre $X$ et $Y$ n'est clairement pas clairement pas lin\'eaire. Dans le chapitre pr\'ec\'edent, on a consid\'er\'e deux approaches pour \'etudier la relation entre $X$ et $Y$; soient l'estimateur des $k$ plus proches voisins et l'estimateur par noyau. Ces approches nous ont permis d'estimer $f(x)=E[Y|X=x]$. Dans ce chapitre, on pr\'esente des approches aleternatives pour estimer $f(x)$.
+\noindent Ce graphique montre que la relation entre $X$ et $Y$ n'est clairement pas \sout{clairement pas }lin\'eaire. Dans le chapitre pr\'ec\'edent, on a consid\'er\'e deux \sout{approaches}\textcolor{red}{approches} pour \'etudier la relation entre $X$ et $Y$; soient l'estimateur des $k$ plus proches voisins et l'estimateur par noyau. Ces approches nous ont permis d'estimer $f(x)=E[Y|X=x]$. Dans ce chapitre, on pr\'esente des approches al\sout{e}\textcolor{red}{}ternatives pour estimer $f(x)$.
 
 \section{R\'egression polynomiale}
 
 \noindent L'id\'ee de la r\'egression polynomiale est d'approximer $f(x)$ par un polyn\^ome de degr\'e $p$.  Ainsi, on pose 
-$$f(x) = \beta_0 + \beta_1 x + \cdots + \beta_p x$$
+$$f(x) = \beta_0 + \beta_1 x + \cdots + \beta_p x\textcolor{red}{^p}$$
 et on obtient le mod\`ele lin\'eaire 
 $$Y_i = \beta_0 + \beta_1 X_i + \cdots + \beta_p X_i^p + \epsilon_i, \, \, \, i=1,\cdots,n.$$
 \noindent On peut faire l'hypoth\`ese que $\epsilon_i \sim {\cal N}(0,\sigma^2)$ ou que simplement $E[\epsilon_i]=0$ et $Var[\epsilon_i]=\sigma^2>0$.
@@ -62,11 +64,11 @@ $$X =\begin{pmatrix} 1 & X_1 & \cdots & X_1^p \\
 
 \noindent Le vecteur $\beta$ de coefficients de regr\'ession contient $p+1$ \'el\'ements. On dit qu'on a $p+1$ degr\'es de libert\'e.
 
-\noindent Pour s\'electioner la valeur la plus ad\'equate pour $p$, on peut se fier \`a des crit\`eres comme l'AIC ou le BIC ou encore effectuer des tests d'hypoth\`eses avec des statistiques $F$. Dans ce chapitre, on adopte l'esprit du chapitre pr\'ec\'edent et on choisi la valeur de $p$ qui minimise le taux d'erreur test. On peut estimer le taux d'erreur test avec la proc\'edure qui exclut une observation du jeu de donn\'ees entrainement \`a la fois. On a vu au Chapitre 7 que cette m\'ethode nous conduit \`a une expression explicite pour le crit\`ere de la validation crois\'ee.
+\noindent Pour s\'electioner la valeur la plus ad\'equate pour $p$, on peut se fier \`a des crit\`eres comme l'AIC ou le BIC ou encore effectuer des tests d'hypoth\`eses avec des statistiques $F$. Dans ce chapitre, on adopte l'esprit du chapitre pr\'ec\'edent et on choisi\textcolor{red}{t} la valeur de $p$ qui minimise le taux d'erreur test. On peut estimer le taux d'erreur test avec la proc\'edure qui exclut une observation du jeu de donn\'ees entrainement \`a la fois. On a vu au Chapitre 7 que cette m\'ethode nous conduit \`a une expression explicite pour le crit\`ere de la validation crois\'ee.
 
-\noindent Une fois qu'on choisi la valeur de $p$, on a alors
-$$\hat f(x) = \hat\beta_0 + \hat\beta_1 x + \cdots + \beta_p x^p = x_* \hat\beta;$$
-\noindent o\`u $x_* = \begin{pmatrix} 1 & x & x^2 & \cdots & x_p \end{pmatrix}$.
+\noindent Une fois qu'on choisi\textcolor{red}{t} la valeur de $p$, on a alors
+$$\hat f(x) = \hat\beta_0 + \hat\beta_1 x + \cdots + \sout{\beta_p}\textcolor{red}{\hat\beta_p} x^p = x_* \hat\beta;$$
+\noindent o\`u $x_* = \begin{pmatrix} 1 & x & x^2 & \cdots & \sout{x_p}\textcolor{red}{x^p} \end{pmatrix}$.
 \noindent On en d\'eduit que $Var[\hat f(x)]= x_* Var[\hat\beta] x_*^\top$. Cette expression nous permet d'obtenir des bandes de confiance autour de $\hat f(x)$.
 
 \begin{verbatim}
@@ -100,11 +102,11 @@ $$Y_i = \beta_0 b_0(X_i)+ \beta_1 b_1(X_i) + \cdots + \beta_p b_p(X_i) + \epsilo
 
 \noindent avec $b_k(x)=x^k$ pour $k=0,1,\cdots,p$. Cette approche peut \^etre g\'en\'eralis\'ee de plusieurs fa\c{c}ons.
 
-\section{R\'egression avec des fonctions constantes par moceaux}
+\section{R\'egression avec des fonctions constantes par mo\sout{c}\textcolor{red}{r}ceaux}
 
-Posons $[A,B]$ le domaine de d\'efinition de la variable explicative $X$. Dans la pratique, on peut par exemple, poser $A=\mbox{min}\{X_1,\cdots,X_n\}-\varepsilon$ et $B=\mbox{min}\{X_1,\cdots,X_n\}+\varepsilon$ o\`u $\varepsilon$ est un tr\`es petit r\'eel positif. 
+Posons $[A,B]$ le domaine de d\'efinition de la variable explicative $X$. Dans la pratique, on peut par exemple, poser $A=\mbox{min}\{X_1,\cdots,X_n\}-\varepsilon$ et $B=\mbox{\sout{min}}\textcolor{red}{max}\{X_1,\cdots,X_n\}+\varepsilon$ o\`u $\varepsilon$ est un tr\`es petit r\'eel positif. 
 
-\noindent Consid\'erons une partition $A = c_0 < c_1 < \cdots < c_K = B$ de l'intervalle $[A,B]$. Pour $k=1,\cdots,K$, on d\'efition la fonction indicatrice $b_k(x)$ par:
+\noindent Consid\'erons une partition $A = c_0 < c_1 < \cdots < c_K = B$ de l'intervalle $[A,B]$. Pour $k=1,\cdots,K$, on d\'efi\sout{tion}\textcolor{red}{nit} la fonction indicatrice $b_k(x)$ par:
 $$b_k(x) = \begin{cases} 1 & \mbox{ si } x \in [c_{k-1},c_k] \\ 0 & \mbox{ sinon }\end{cases}$$
 
 \noindent Cette approche approxime $f(x)$ par une fonction constante par escalier: $f(x)=\beta_k$ si $x \in [c_{k-1},c_k]$. Autrement dit, on a
@@ -159,7 +161,7 @@ $$
 \noindent On d\'efinit alors le mod\`ele 
 $$Y_i  = \beta_1 b_1(X_i) + \beta_2 b_2(X_i) + \cdots + \beta_{K+p} b_{K+p}(X_i) + \epsilon_i, \, \, \, i=1,\cdots,n.$$ 
 
-\noindent L'estimateur des moindres carr\'es de $\beta=(beta_1,\cdots,\beta_{K+p})^\top$ est $(X^\top X)^{-1} X^\top Y,$ o\`u 
+\noindent L'estimateur des moindres carr\'es de $\beta=(\sout{beta_1}\textcolor{red}{\beta_1},\cdots,\beta_{K+p})^\top$ est $(X^\top X)^{-1} X^\top Y,$ o\`u 
 $$X =
 \begin{pmatrix}
 b_1(X_1) & b_2(X_1) & \cdots & b_{K+p}(X_1) \\
@@ -218,13 +220,13 @@ prediction.sn$fit-1.96*prediction.sn$se.fit,lty=2,col="blue")
 \includegraphics[scale=0.3]{Graphique5.pdf}
 \end{center}
 
-\noindent Un autre d\'efault des splines est qu'elles peuvent avoir tendance \`a aller chercher le maximum de points. Pour rem\'edier \`a ce probl\`eme, on impose une p\'enalit\'e pour les splines trop variables. Ainsi, on estime $\beta$ en minimisant
+\noindent Un autre d\'efau\sout{l}t des splines est qu'elles peuvent avoir tendance \`a aller chercher le maximum de points. Pour rem\'edier \`a ce probl\`eme, on impose une p\'enalit\'e pour les splines trop variables. Ainsi, on estime $\beta$ en minimisant
 $$\sum_{i=1}^n \left\{Y_i - [\beta_1 b_1(X_i) + \beta_2 b_2(X_i) + \cdots + \beta_{K+p} b_{K+p}(X_i)]\right\}^2 + \lambda \int_A^B f''(t)^2 dt.$$
 
 \noindent On montre que l'estimateur qui en r\'esulte est donn\'e par
 $$\hat \beta_\lambda = (X^\top X + \lambda M)^{-1} X^\top Y.$$
 
-\noindent Ici, $M$ est une matrice carr\'e de dimensioon $K+p$ et l'\'el\'ement \`a la position $(l,q)$ de la matrice $M$ est \'egal \`a $\int_A^B b''_l(t) b''_q(t) dt$.
+\noindent Ici, $M$ est une matrice carr\'e\textcolor{red}{e} de dimensi\sout{oo}\textcolor{red}{o}n $K+p$ et l'\'el\'ement \`a la position $(l,q)$ de la matrice $M$ est \'egal \`a $\int_A^B b''_l(t) b''_q(t) dt$.
 
 \noindent Le param\`etre $\lambda$ est un param\`etre qui contr\^ole la r\'egularit\'e de $\hat f$. Dans la pratique, on estime ce param\`etre par validation crois\'ee.
 

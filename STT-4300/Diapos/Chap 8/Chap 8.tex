@@ -10,6 +10,8 @@
 
 % Code listing
 \usepackage[listings]{tcolorbox}
+\usepackage[normalem]{ulem}
+\usepackage{xcolor}
 
 
 \begin{document}
@@ -41,7 +43,7 @@ On commence par tracer le nuage de points $\{(X_i,Y_i), i=1,\cdots,392\}$, o\`u 
 \end{center}
 
 
-\noindent Ce graphique montre que la relation entre $X$ et $Y$ n'est clairement pas clairement pas lin\'eaire. Dans ce chapitre, on consid\'erera plus approches pour \'etudier la relation entre $X$ et $Y$ dans cette situation.
+\noindent Ce graphique montre que la relation entre $X$ et $Y$ n'est clairement pas \sout{clairement pas }lin\'eaire. Dans ce chapitre, on consid\'erera \sout{plus}\textcolor{red}{plusieurs} approches pour \'etudier la relation entre $X$ et $Y$ dans cette situation.
 
 \section{Estimateur des $k$ plus proches voisins}
 
@@ -154,11 +156,11 @@ $$E[\hat f(x)] \approx f(x) + \frac{1}{2k}  f''(x) \sum_{i \in N_k(x)} \left(E[X
 \includegraphics[scale=0.3]{Graphique4.pdf}
 \end{center}
 
-\noindent Supposons maintenant qu'on a deux variables explicatives. Les donn\'ees sont donc $\{(Y_i,X_{i1},X{i2}), i=1,\cdots,n\}$ et le mod\`ele est 
+\noindent Supposons maintenant qu'on a deux variables explicatives. Les donn\'ees sont donc $\{(Y_i,X_{i1},\sout{X}\textcolor{red}{X_{}}\sout{\{i2\}}\textcolor{red}{i2}), i=1,\cdots,n\}$ et le mod\`ele est 
 $$Y_i = f(X_{i1},X_{i2})+\epsilon_i;$$
-\noindent avec $E[\epsilon_i|X_{i1},X_{i2}]=0$. L'estimateur des $k$ plus proches voisins de $f$ est quasiment identitique au cas avec une seule variable explicative. La seule diff\'erence est la fa\c{c}on de d\'efinir les distances de proximit\'e $d_i(x)$. 
+\noindent avec $E[\epsilon_i|X_{i1},X_{i2}]=0$. L'estimateur des $k$ plus proches voisins de $f$ est quasiment \sout{identitique}\textcolor{red}{identique} au cas avec une seule variable explicative. La seule diff\'erence est la fa\c{c}on de d\'efinir les distances de proximit\'e $d_i(x)$. 
 
-\noindent Dans cette situation, $d_i(x)$ est la distance entre $x=(x_1,x_2)^\top$ et $(X_{i1},X_{i2)^\top}$. La premi\`ere id\'e est de poser
+\noindent Dans cette situation, $d_i(x)$ est la distance entre $x=(x_1,x_2)^\top$ et $(X_{i1},\sout{X_{i2)^\top}}\textcolor{red}{X_{i2})^\top}$. La premi\`ere id\'e\textcolor{red}{e} est de poser
 \begin{eqnarray*}
 d_i(x) &=& (X_{i1}-x_1)^2 + (X_{i2}-x_2)^2 \\ 
 &=& \begin{pmatrix} X_{i1}-x_1 & X_{i2}-x_2 \end{pmatrix} \times \begin{pmatrix} X_{i1}-x_1 \\ X_{i2}-x_2 \end{pmatrix} \\
@@ -250,7 +252,7 @@ sont des poids positifs qui v\'erifient $w_1(x)+w_2(x)+\cdots+w_n(x)=1$. Ces poi
 \includegraphics[scale=0.3]{Graphique5.pdf}
 \end{center}
 
-\noindent Ces graphiques nous montre qu'on doit choisir le param\`etre $h$. Ceci est fait avec la m\'ethode de validation crois\'ee. Si on exclut une seule observation \`a la fois, on montre que lke crit\`ere de validation crois\'ee s'\'ecrit
+\noindent Ces graphiques nous montr\sout{e}\textcolor{red}{ent} qu'on doit choisir le param\`etre $h$. Ceci est fait avec la m\'ethode de validation crois\'ee. Si on exclut une seule observation \`a la fois, on montre que l\sout{k}\textcolor{red}{}e crit\`ere de validation crois\'ee s'\'ecrit
 $$cv.n = \frac{1}{n} \sum_{i=1}^n \left(\frac{Y_i-\hat f(X_i)}{1-w_i(X_i)}\right)^2$$
 
 \noindent Si on revient \`a l'exemple des autos, on a :
