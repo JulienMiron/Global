@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1781272532.60601 "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-2902/Chapitre1.tex" "Chapitre1.pdf" "Chapitre1" 1781272533.61632 2
+["pdflatex"] 1781272534.60653 "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-2902/Chapitre1.tex" "Chapitre1.pdf" "Chapitre1" 1781272535.34607 2
   "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-2902/Chapitre1.tex" 1781272531.04513 18603 a58e8e7ca37e153166ab6bf258d09e43 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1254269338 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1202520719 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -119,9 +119,9 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1770864152 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "Chapitre1.aux" 1781272533.5411 3572 430daca81229b48190c1fac37cd0c6ed "pdflatex"
-  "Chapitre1.out" 1781272533.54183 4645 b9c232839805c28cb739f9eed3c26988 "pdflatex"
-  "Chapitre1.toc" 1781272533.54208 2258 132bc0c7e8ebe55ee847bbc7c3485198 "pdflatex"
+  "Chapitre1.aux" 1781272535.28299 3572 430daca81229b48190c1fac37cd0c6ed "pdflatex"
+  "Chapitre1.out" 1781272535.28369 4645 b9c232839805c28cb739f9eed3c26988 "pdflatex"
+  "Chapitre1.toc" 1781272535.2839 2258 132bc0c7e8ebe55ee847bbc7c3485198 "pdflatex"
   (generated)
   "Chapitre1.aux"
   "Chapitre1.log"

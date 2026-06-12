@@ -766,4 +766,71 @@ If that doesn't work, type  X <return>  to quit.
 ./Chapitre1.toc:25: LaTeX Error: Undefined color `blue!70!black'.
 
 See the LaTeX manual or LaTeX Companion for explanation.
-T
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.25 ...Tableau rÃ©capitulatif}{8}{subsection.5.3}
+                                                  %
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+)
+\tf@toc=\write4
+\openout4 = `Chapitre1.toc'.
+
+
+
+[1{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}
+
+]
+
+[2]
+
+[3]
+Overfull \hbox (8.34698pt too wide) in paragraph at lines 192--195
+[]\T1/lmr/bx/n/10.95 Exemple. \T1/lmr/m/n/10.95 On sou-haite in-ter-ro-ger 200 étu-diants parmi 10000. Le pas de sé-lec-tion est $\OML/lmm/m/it/10.95 k \OT1/lmr/m/n/10.95 = 10 000\OML/lmm/m/it/10.95 =\OT1/lmr/m/n/10.95 200 =
+ []
+
+
+
+[4{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}]
+
+[5]
+
+[6]
+
+[7]
+Overfull \hbox (34.70316pt too wide) in paragraph at lines 356--366
+ [] 
+ []
+
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <9> on input line 368.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 368.
+
+
+[8{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}] (./Chapitre1.aux)
+ ***********
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+ ***********
+Package rerunfilecheck Info: File `Chapitre1.out' has not changed.
+(rerunfilecheck)             Checksum: B9C232839805C28CB739F9EED3C26988;4645.
+ ) 
+Here is how much of TeX's memory you used:
+ 13065 strings out of 473190
+ 207172 string characters out of 5715801
+ 630330 words of memory out of 5000000
+ 36105 multiletter control sequences out of 15000+600000
+ 618690 words of font info for 76 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 75i,12n,79p,478b,531s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
+Output written on Chapitre1.pdf (8 pages, 203573 bytes).
+PDF statistics:
+ 229 PDF objects out of 1000 (max. 8388607)
+ 196 compressed objects within 2 object streams
+ 34 named destinations out of 1000 (max. 500000)
+ 193 words of extra memory for PDF output out of 10000 (max. 10000000)
+
