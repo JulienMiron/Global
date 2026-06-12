@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  12 JUN 2026 09:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  12 JUN 2026 09:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -463,7 +463,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2 ...{\numberline {1}Introduction}{2}{section.1}
+l.2 ...{\numberline {1}Introduction}{3}{section.1}
                                                   %
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -475,7 +475,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.3 ...ulation et échantillon}{2}{subsection.1.1}
+l.3 ...ulation et échantillon}{3}{subsection.1.1}
                                                   %
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -517,7 +517,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.4 ...umberline {2}Types d'études}{2}{section.2}
+l.4 ...umberline {2}Types d'études}{3}{section.2}
                                                   %
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -529,7 +529,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.5 ...Étude observationnelle}{2}{subsection.2.1}
+l.5 ...Étude observationnelle}{3}{subsection.2.1}
                                                   %
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -541,7 +541,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.6 ...(étude expérimentale)}{3}{subsection.2.2}
+l.6 ...(étude expérimentale)}{4}{subsection.2.2}
                                                   %
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -553,7 +553,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.7 ...Méthodes d'échantillonnage}{3}{section.3}
+l.7 ...Méthodes d'échantillonnage}{4}{section.3}
                                                   %
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -565,7 +565,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.8 ...onnage non probabiliste}{3}{subsection.3.1}
+l.8 ...onnage non probabiliste}{4}{subsection.3.1}
                                                   %
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -577,7 +577,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.9 ...llon de convenance}{4}{subsubsection.3.1.1}
+l.9 ...llon de convenance}{5}{subsubsection.3.1.1}
                                                   %
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -589,7 +589,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.10 ... (ou de jugement)}{4}{subsubsection.3.1.2}
+l.10 ... (ou de jugement)}{5}{subsubsection.3.1.2}
                                                   %
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -601,7 +601,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.11 ...illonnage probabiliste}{4}{subsection.3.2}
+l.11 ...illonnage probabiliste}{5}{subsection.3.2}
                                                   %
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -613,7 +613,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.12 ...oire simple (EAS)}{4}{subsubsection.3.2.1}
+l.12 ...oire simple (EAS)}{5}{subsubsection.3.2.1}
                                                   %
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -625,7 +625,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.13 ...age systématique}{4}{subsubsection.3.2.2}
+l.13 ...age systématique}{5}{subsubsection.3.2.2}
                                                   %
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -637,7 +637,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.14 ...onnage stratifié}{5}{subsubsection.3.2.3}
+l.14 ...onnage stratifié}{6}{subsubsection.3.2.3}
                                                   %
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -649,7 +649,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.15 ...nnage par grappes}{5}{subsubsection.3.2.4}
+l.15 ...nnage par grappes}{6}{subsubsection.3.2.4}
                                                   %
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -661,7 +661,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.16 ....3}Résumé comparatif}{6}{subsection.3.3}
+l.16 ....3}Résumé comparatif}{7}{subsection.3.3}
                                                   %
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -673,7 +673,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.17 ...berline {4}Sources de biais}{6}{section.4}
+l.17 ...berline {4}Sources de biais}{7}{section.4}
                                                   %
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -685,7 +685,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.18 ....1}Biais de couverture}{6}{subsection.4.1}
+l.18 ....1}Biais de couverture}{7}{subsection.4.1}
                                                   %
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -697,7 +697,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.19 ....2}Biais de sélection}{6}{subsection.4.2}
+l.19 ....2}Biais de sélection}{7}{subsection.4.2}
                                                   %
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -709,7 +709,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.20 ...}Biais de non-réponse}{6}{subsection.4.3}
+l.20 ...}Biais de non-réponse}{7}{subsection.4.3}
                                                   %
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -721,7 +721,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.21 ...e {4.4}Biais de mesure}{7}{subsection.4.4}
+l.21 ...e {4.4}Biais de mesure}{8}{subsection.4.4}
                                                   %
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -733,7 +733,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.22 ...conclure à la causalité~?}{7}{section.5}
+l.22 ...conclure à la causalité~?}{8}{section.5}
                                                   %
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -745,11 +745,16 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.23 ...liser à la population}{7}{subsection.5.1}
+l.23 ...liser à la population}{8}{subsection.5.1}
                                                   %
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
+
+
+[1{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}
+
+]
 
 ./Chapitre1.toc:24: LaTeX Error: Undefined color `blue!70!black'.
 
@@ -757,7 +762,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.24 ...clure à la causalité}{7}{subsection.5.2}
+l.24 ...clure à la causalité}{8}{subsection.5.2}
                                                   %
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -769,7 +774,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.25 ...Tableau récapitulatif}{8}{subsection.5.3}
+l.25 ...Tableau récapitulatif}{9}{subsection.5.3}
                                                   %
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -780,37 +785,35 @@ If that doesn't work, type  X <return>  to quit.
 
 
 
-[1{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}
-
-]
-
 [2]
 
 [3]
-Overfull \hbox (8.34698pt too wide) in paragraph at lines 192--195
+
+[4]
+Overfull \hbox (8.34698pt too wide) in paragraph at lines 197--200
 []\T1/lmr/bx/n/10.95 Exemple. \T1/lmr/m/n/10.95 On sou-haite in-ter-ro-ger 200 �tu-diants parmi 10000. Le pas de s�-lec-tion est $\OML/lmm/m/it/10.95 k \OT1/lmr/m/n/10.95 = 10 000\OML/lmm/m/it/10.95 =\OT1/lmr/m/n/10.95 200 =
  []
 
 
 
-[4{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}]
-
-[5]
+[5{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}]
 
 [6]
 
 [7]
-Overfull \hbox (34.70316pt too wide) in paragraph at lines 356--366
+
+[8]
+Overfull \hbox (34.70316pt too wide) in paragraph at lines 361--371
  [] 
  []
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 368.
+(Font)              <9> on input line 373.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 368.
+(Font)              <5> on input line 373.
 
 
-[8{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}] (./Chapitre1.aux)
+[9{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}] (./Chapitre1.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -819,18 +822,18 @@ Package rerunfilecheck Info: File `Chapitre1.out' has not changed.
 (rerunfilecheck)             Checksum: B9C232839805C28CB739F9EED3C26988;4645.
  ) 
 Here is how much of TeX's memory you used:
- 13065 strings out of 473190
- 207172 string characters out of 5715801
- 630330 words of memory out of 5000000
+ 13066 strings out of 473190
+ 207178 string characters out of 5715801
+ 629330 words of memory out of 5000000
  36105 multiletter control sequences out of 15000+600000
  618690 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,12n,79p,478b,531s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,13n,79p,478b,712s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
-Output written on Chapitre1.pdf (8 pages, 203573 bytes).
+Output written on Chapitre1.pdf (9 pages, 206986 bytes).
 PDF statistics:
- 229 PDF objects out of 1000 (max. 8388607)
- 196 compressed objects within 2 object streams
- 34 named destinations out of 1000 (max. 500000)
+ 233 PDF objects out of 1000 (max. 8388607)
+ 199 compressed objects within 2 object streams
+ 35 named destinations out of 1000 (max. 500000)
  193 words of extra memory for PDF output out of 10000 (max. 10000000)
 
