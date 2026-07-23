@@ -18,694 +18,426 @@
 
 
 \begin{center}
-{\textbf{\LARGE \sout{Chapitre 1}\textcolor{red}{Chapitre 4}: Modèles de régression pour données binaires}}
+{\textbf{\LARGE Chapitre 4: Estimateur des $k$ plus proches voisins et estimateur de noyau}}
 \end{center}
 
-\noindent Les modèles de régression linéaire ne permettent de considérer que les cas où la variable réponse $Y_i$ est normale. Cependant, dans plusieurs situations, on a une variable réponse discrète qui ne peut prendre qu'un nombre fini (ou dénombrable) de valeurs possibles. Dans ce chapitre, on s'intéresse au cas où $Y_i$ suit une loi de Bernoulli ou une loi binomiale. Voici quatre exemples:
-\begin{enumerate}
-\item[{\bf Ex 1:}] Considérons le jeu de données \textsf{quilpie} de la library \texttt{GLMsData} du logiciel \textrm{R}. Ce jeu de données contient des observations de 1921 \`a 1988 de la quantité de pluie mesurée durant le mois de juillet \`a Quilpie en Australie. Le jeu de données contient des variables explicatives qui concernent la pression atmosphérique. La variable réponse ne peut prendre que 2 valeurs: 1 si la quantié de pluie mesurée est supérieure \`a 10 millimètres et 0 sinon.
-\item[{\bf Ex 2:}] Considérons le jeu de données \textsf{nminer} de la library \texttt{GLMsData} du logiciel \textrm{R}. Ce jeu de données contient 31 observations de 9 variables. La variable réponse \textsf{Mminers} ne peut prendre que 2 valeurs: 1 si un mineur bruyant est détecté dans la parcelle de terre et 0 sinon.
-\item[{\bf Ex 3:}] Considérons le jeu de données \textsf{deposit} de la library \texttt{GLMsData} du logiciel \textrm{R}. Ce jeu de données contient 18 observations avec deux variables explicatives : type ($A$, $B$ ou $C$) et dose d'insecticide. La variable réponse $Y_i$ est le nombre d'insectes tués parmi les $m_i$ insectes vivants au début de l'expérience.
-\item[{\bf Ex 4:}] Considérons le jeu de données \textsf{turbines} de la library \texttt{GLMsData} du logiciel \textrm{R}. Ce jeu de données contient 11 observations avec une variable explicative : nombre d'heures de fonctionnement. La variable réponse $Y_i$ est le nombre machines qui présentent des fissures parmi les $m_i$ machines neuves au début de l'expérience.
-\end{enumerate}
+\tableofcontents
+\newpage
 
-\section{Données et modèle}
+\noindent Consid\'erons le jeu de donn\'ees \textsf{Auto} de la library \texttt{ISLR} du logiciel \textrm{R}. Ce jeu de donn\'ees contient 392 observations. La variable r\'eponse est \texttt{mpg}, la distance moyenne en miles parcourue par la voiture avec un gallon de carburant. On s'int\'eresse \`a une seule variable explicative, soit le poids de la voiture \textrm{weight}.
 
-\subsection{Données individuelles}
-
-\noindent Dans les deux premiers exemples, la variable réponse $Y_i$ ne peut prendre 	que deux valeurs possibles: 0 et 1. Les données sont donc sous la forme $\{(Y_i,X_i), i=1,\cdots,n\}$; où $n$ est nombre d'\sout{oservations}\textcolor{red}{observations}, $Y_i \in \{0,1\}$ est la variable réponse et $X_i=(X_{i1},\cdots,X_{ip})^\top$ est l'ensemble des variables explicatives pour l'observation $i$. On dit que $Y_i$ suit une loi de Bernoulli avec un paramètre $\pi_i \in [0,1]$. On pose alors $P(Y_i=1)=\pi_i$ et $P(Y_i=0)=1-P(Y_i=1)=1-\pi_i$ et on a
-
-\begin{eqnarray*}
-P(Y_i=y_i)&=& \pi_i^{y_i}(1-\pi_i)^{1-y_i}, \, \, \, y_i \in \{0,1\}\\
-E[Y_i] &=& \mu_i = \pi_i \\
-Var[Y_i] &=& \sigma^2_i = \pi_i(1-\pi_i).
-\end{eqnarray*}
-
-\noindent D'\sout{autres}\textcolor{red}{autre} part, on pose $\eta_i=\beta_0+\beta_1 X_{i1} + \cdots + \beta_p X_{ip}, i=1,\cdots,n$. Ici $p$ est le nombre de variables explicatives considérées et $\beta=(\beta_0,\beta_1,\cdots,\beta_p)^\top$ est un vecteur de $p+1$ \sout{coefficient}\textcolor{red}{coefficients} de régression\sout{. \`a estimer \`a parti}\textcolor{red}{, à estimer à partir} des données. 
-
-\noindent Finalement, on a $\eta_i = g(\pi_i)$; où $g(\cdot)$ est une fonction de lien, supposée connue. 
-
-Comme
-
-\begin{align*}
-    g(\pi_i)=\beta_0+\beta_1 X_{i1} + \cdots + \beta_p X_{ip}
-\end{align*}
-
-on peut écrire
-$$\pi_i = P(Y_i = 1) = g^{-1}(\beta_0+\beta_1 X_{i1} + \cdots + \beta_p X_{ip}).$$
-
-\subsection{Données groupées}
-
-\noindent Dans les deux derniers exemples, la variable réponse $Y_i$ peut prendre n'importe quelle valeur dans l'ensemble $\{0,1,\cdots,m_i\}$, où $m_i$ est un entier connu \`a l'avance et qui varie d'une observation \`a une autre. \sout{'A}\textcolor{red}{\`A} toute fin pratique, $m_i$ peut \^etre considéré comme un nombre total d'\sout{exprériences}\textcolor{red}{expériences} indépendantes ayant deux résultats possibles (succès ou échec) et $Y_i$ est interprété comme le nombre de succès parmi les $m_i$ expériences. Les données sont donc sous la forme $\{(Y_i,m_i,X_i), i=1,\cdots,n\}$. On dit que $Y_i$ suit une loi Binomiale de paramètres $m_i$ et $\pi_i \in [0,1]$ et on écrit $Y_i \sim \mbox{Bin}(m_i,\pi_i)$. Selon cette loi, on a:
-\begin{eqnarray*}
-P(Y_i=y_i)&=& \binom{m_i}{y_i} \pi_i^{y_i}(1-\pi_i)^{m_i-y_i}, \, \, \, y_i \in \{0,1,\cdots,m_i\}\\
-E[Y_i] &=& \mu_i = m_i \pi_i \\
-Var[Y_i] &=& \sigma^2_i = m_i \pi_i(1-\pi_i) = \frac{\mu_i(m_i-\mu_i)}{m_i}.
-\end{eqnarray*}
-
-\noindent Pour relier la variable réponse aux variables explicative, on pose $\eta_i=g(\pi_i), i=1,\cdots,n$. Ce choix est motivé par le fait que $\pi_i$ doit appartenir \`a l'intervalle $[0,1]$.
-
-\noindent Si on a $m_1=m_2=\cdots=m_n=1$, on retrouve la loi de Bernoulli des deux premiers exemples. La loi de Bernoulli est un cas particulier de la loi binomiale. Dans la suite de ce chapitre, on se contentera donc de présenter les développements pour la loi binomiale.
-
-\subsection{Fonctions de lien}
-
-La fonction de lien $g$ spécifiée pour des données binaires doit s'assurer que $\pi_i=g^{-1}(\eta_i)$ appartient \`a l'intervalle $[0,1]$, puisque $\pi_i$ est une probabilité. Trois fonctions de lien sont communément utilisées pour les données binaires:
-\begin{enumerate}
-\item[{\bf Logit:}] Cette fonction est définie par $$g(u)=\mbox{logit}(u)=\log\left(\frac{u}{1-u}\right).$$
-\noindent Ainsi, on a $$\pi_i=g^{-1}(\eta_i)=\frac{e^{\eta_i}}{(1+e^{\eta_i})}.$$ Avec le logiciel \textrm{R}, on spéficie \textsf{link="logit"} \`a l'intérieur de la fonction \textsf{glm}.
-\item[{\bf Probit:}] Cette fonction est définie par $$g(u)=\Phi^{-1}(u),$$ où $\Phi$ est la fonction de répartition de la loi normale standard ${\cal N}(0,1)$.  Ainsi, on a $$\pi_i=g^{-1}(\eta_i)=\Phi(\eta_i).$$ Avec le logiciel \textrm{R}, on spéficie \textsf{link="probit"} \`a l'intérieur de la fonction \textsf{glm}.
-\item[{\bf c-log-log:}] Cette fonction est définie par $$g(u)=\log\{-\log(1-u)\}.$$ Ainsi, on a $$\pi_i=g^{-1}(\eta_i)=1-e^{-e^{\eta_i}}.$$ Avec le logiciel \textrm{R}, on spéficie \textsf{link="cloglog"} \`a l'intérieur de la fonction \textsf{glm}.
-\end{enumerate}
-
-\noindent On remarque que dans les trois cas présentés ci-haut, $g^{-1}(\cdot)$ est une fonction de répartition. 
-
-
-\section{Inférence statistique}
-
-\subsection{Estimation des paramètres $\beta$}
-Le vecteur des paramètres du modèle est $\beta=(\beta_0,\beta_1,\cdots,\beta_p)^\top$. La fonction de log-vraisemblance est
-\begin{eqnarray*}
-\sum_{i=1}^n \log\left[P(Y_i=y_i)\right]&=&\sum_{i=1}^n \log\left[\binom{m_i}{y_i} \pi_i^{y_i}(1-\pi_i)^{m_i-y_i}\right] \\ 
-&=& \sum_{i=1}^n \left\{\log\left[\binom{m_i}{y_i}\right]+y_i\log(\pi_i)+(m_i-y_i)\log(1-\pi_i)\right\}.
-\end{eqnarray*}
-
-\noindent Cette fonction dépent du vecteur de paramètres $\beta$ \`a travers $\pi_i$, puisqu'on a 
-$$\pi_i = g^{-1}(\eta_i) = g^{-1}(\beta_0+\beta_1 X_{i1} + \cdots + \beta_p X_{ip}).$$
-
-\noindent En rempla\c{c}ant $\pi_i$ par $\mu_i/m_i$ dans l'expression précédente, on montre que cette fonction log-vraisemblance est égale \`a
-$$l(\mu;y) = \sum_{i=1}^n \left\{y_i \log(\mu_i) + (m_i-y_i) \log(m_i-\mu_i)\right\} + K$$
-
-\noindent où $$K = \sum_{i=1}^n \left\{\log\left[\binom{m_i}{y_i}\right] - m_i\log(m_i)\right\}$$
-est une constante qui ne dépend pas de $\beta$. L'estimateur de maximum de vraisemblance de $\beta$, disons $\hat\beta$, est la valeur de $\beta$ qui maximise $l(\beta;y,\mu)$. On calcule par la suite la matrice d'information de Fisher $I$. L'élément \`a la position $(j,k)$ de la matrice $I$ est égal \`a 
-$$-\frac{\partial^2 l(\beta;y,\mu)}{\partial \beta_j \partial \beta_k}$$
-évaluée \`a $\beta=\hat\beta$. La matrice de variance-covariance de $\hat\beta$ est alors estimée par $v(\hat\beta)=I^{-1}$. Par la théorie générale de l'estimation par maximum de vraisemblance, la distribution asympotique de $\hat\beta$ est approximée par la loi normale multivariée ${\cal N}\{\beta,v(\hat\beta)\}$.
-
-\noindent On montre que $v(\hat\beta) = (X^\top W X)^{-1}$ où $X$ est une matrice $n \times (p+1)$ contenant les variables explicatives, incluant l'ordonnée à l'origine et $W$ est une matrice diagonale de taille $n$ avec les entrées $w_{i}=\hat\mu_i(m_i-\hat\mu_i)/m_i, i=1,\cdots,n$ sur la diagonale. Ici, on a
-$$\hat\mu_i  = m_i \hat \pi_i = m_i g^{-1}(\hat\eta_i) = m_i g^{-1}(\hat\beta_0+\hat\beta_1 X_{i1} + \cdots + \hat\beta_p X_{ip})$$
-
-\subsection{Tests d'hypothèses et intervalles de confiance}
-Les intervalles de confiances et les tests d'hypothèses concernant les $\beta_j$ sont obtenus par la méthode de Wald.
-
-\noindent Ainsi, un intervalle de confiance \`a $100\times(1-\alpha)\%$ pour $\beta_j$ est donné par $$[\hat\beta_j - z_{\alpha/2} \sqrt{v(\hat\beta_j)};\hat\beta_j + z_{\alpha/2} \sqrt{v(\hat\beta_j)}],$$
-où $z_{\gamma}$ est le quantile de la loi normale standard défini par $P(Z>z_{\gamma})=\gamma$, $\gamma \in (0,1)$, $Z \sim {\cal N}(0,1)$ et $v(\hat\beta_j)$ est l'élément $(j+1,j+1)$ de la matrice $v(\hat\beta)$, $j=0,1,\cdots,p$.
-
-\noindent Considérant maintenant le test d'hypothèse $H_0: \beta_j = 0$ versus $H_1: \beta_j \neq 0$. On rejetter $H_0$ au seuil $\alpha$ si $|z_{obs}|>z_{\alpha/2}$, avec $z_{obs}=\hat\beta_j/\sqrt{v(\hat\beta_j)}$. Le seuil observé ($p$-valeur ou $p$-value) est $\alpha^*=P(|Z|>|z_{obs}|)=2P(Z>|z_{obs}|)$, $Z \sim {\cal N}(0,1)$.
-
-\noindent Intéressons nous maintenant \`a $\pi^*$ lorsque $X=X^*=(1,X_1^*,\cdots,X_p^*)^\top$. On estime $\pi$ par $\hat\pi^*=g^{-1}(\hat\beta_0+\hat\beta_1 X_{1}^* + \cdots + \hat\beta_p X_{p}^*)=g^{-1}(X^*\hat\beta)$.
-
-\noindent Un intervalle de confi\sout{nace}\textcolor{red}{ance} \`a $100\times(1-\alpha)\%$ pour $X^*\beta$ est donné par 
-$$\left[ X^*\hat\beta - z_{\alpha/2}\sqrt{v(X^*\hat\beta)}   , X^*\hat\beta + z_{\alpha/2}\sqrt{v(X^*\hat\beta)}\right],$$
-
-\noindent avec $v(X^*\hat\beta)=X^* v(\hat\beta) {X^*}^\top$. On en déduit un intervalle de confiance \`a $100\times(1-\alpha)\%$ pour $\pi^*$:
-$$\left[ g^{-1}\left\{X^*\hat\beta - z_{\alpha/2}\sqrt{v(X^*\hat\beta)}\right\},g^{-1}\left\{X^*\hat\beta + z_{\alpha/2}\sqrt{v(X^*\hat\beta)}\right\}   \right].$$
-
-\noindent Alternativement, on peut approximer $Var(\hat\pi^*)$ par la règle du delta. On obtient $v(\hat\pi^*)=h(X^*\hat\beta)v(X^*\hat\beta)$, où $h(u)=\{\partial g^{-1}(u)/\partial u\}^2$. 
-
-\noindent Un intervalle de confiance approximatif \`a $100\times(1-\alpha)\%$ pour $\pi^*$ est donné par 
-$$\left[\hat\pi^* - 1.96 \sqrt{v(\hat\pi^*)},\hat\pi^* \sout{-}\textcolor{red}{+} 1.96 \sqrt{v(\hat\pi^*)}\right].$$
-
-\subsection{Exemple en R}
-
-Considérons le jeu de données \textsf{turbines} de la library \texttt{GLMsData} du logiciel \textrm{R}.
+On commence par tracer le nuage de points $\{(X_i,Y_i), i=1,\cdots,392\}$, o\`u $X_i$ et $Y_i$ sont, respectivement, le poids et la distance moyenne en miles parcourue avec un gallon de carburant de la voiture $i$. 
 
 \begin{verbatim}
-> if (!require("GLMsData")) install.packages("GLMsData")
-> library("GLMsData")#### Installer la librairie GLMsData
+> if (!require("ISLR")) install.packages("ISLR")
+> library("ISLR")#### Installer la librairie ISLR
 > 
-> data(turbines)#### Rendre le jeu de donnees turbines disponible
-> attach(turbines)
-The following objects are masked from turbines (pos = 4):
-
-    Fissures, Hours, Turbines
-
+> data(Auto)
+> X <- Auto$weight
+> Y <- Auto$mpg
 > 
-> ##################################################################
-> ## Ajustement du modele avec trois fonctions de lien differents ##
-> ##################################################################
-> 
-> modele.logit <- glm(cbind(Fissures,Turbines-Fissures)~Hours,
-                      data=turbines,family=binomial(link="logit"))
-> modele.probit <- glm(cbind(Fissures,Turbines-Fissures)~Hours,
-                       data=turbines,family=binomial(link="probit"))
-> modele.cloglog <- glm(cbind(Fissures,Turbines-Fissures)~Hours,
-                        data=turbines,family=binomial(link="cloglog"))
-> 
-> resultats <- round(rbind(summary(modele.logit)$coef,
-                           summary(modele.probit)$coef,
-                           summary(modele.cloglog)$coef),6)
-> 
-> resultats <- resultats[c(1,3,5,2,4,6),]
-> 
-> row.names(resultats) <- c("beta0 (logit)", "beta0 (probit)","beta0 (cloglog)",
-                            "beta1 (logit)", "beta1 (probit)","beta1 (cloglog)")
-> 
-> resultats
-                 Estimate Std. Error    z value Pr(>|z|)
-beta0 (logit)   -3.923597   0.377959 -10.381013        0
-beta0 (probit)  -2.275807   0.197419 -11.527823        0
-beta0 (cloglog) -3.603280   0.324739 -11.095923        0
-beta1 (logit)    0.000999   0.000114   8.753682        0
-beta1 (probit)   0.000578   0.000063   9.238777        0
-beta1 (cloglog)  0.000810   0.000090   8.992278        0
+> plot(X,Y,xlab="Poids de la voiture",
++      ylab="Distance parcourue avec un gallon de carburant")
 \end{verbatim}
 
-\noindent Les trois fonctions de lien donnent des résultats très similaires, ce qui est très fréquent.
+\noindent Et on obtient 
+\begin{center}
+\includegraphics[scale=0.3]{Graphique1.pdf}
+\end{center}
 
-\noindent Tra\c{c}ons maintenant $\hat\pi^*$ avec les intervalles de confiance pour différentes valeurs du nombre d'heures de fonctionnement. On utilise le lien logit et on calcule les intervalles de confiance de deux manières différentes, comme détaillé ci-haut. Voici le code \textrm{R} pour la première méthode:
+
+\noindent Ce graphique montre que la relation entre $X$ et $Y$ n'est clairement pas \sout{clairement pas }lin\'eaire. Dans ce chapitre, on consid\'erera \sout{plus}\textcolor{red}{plusieurs} approches pour \'etudier la relation entre $X$ et $Y$ dans cette situation.
+
+\section{Estimateur des $k$ plus proches voisins}
+
+
+Supposons que la relation entre $X$ et $Y$ s'\'ecrit sous la forme $Y_i = f(X_i) + \epsilon_i$, o\`u $f$ est une fonction inconnue \`a estimer et $\epsilon$ est un terme d'erreur qui v\'erifie $E[\epsilon_i|X_i]=0$. On suppose que la fonction $f$ est assez lisse. Autrement dit, on suppose que $f$ est deux fois d\'erivable. Avec ces hypoth\`eses, on a $$f(x) = E[Y | X = x].$$
+
+\noindent On suppose en outre que la variable $X$ est continue. Autrement dit, il n'y a pas d'\'egalit\'e entre les $X_i$; i.e. $P(X_i=X_{i'})=0$ si $i \neq i'$. 
+
+\noindent Sous ces hypoth\`eses, l'estimateur des $k$ plus proches voisins estime la fonction $f$ par
+$$\hat f(x) = \frac{1}{k} \sum_{i \in N_k(x)} Y_i,$$
+
+\noindent o\`u $N_k(x)$ est l'ensemble des indices des $k$ plus proches voisins de $x$. Pour d\'efinir rigoureusement $N_k(x)$, on pose $d_i(x)=(X_i-x)^2$ pour $i=1,\cdots,n$. On ordonne les distances $d_i(x)$ dans l'ordre croissant $$d_{(1)}(x)<d_{(2)}(x)<\cdots<d_{(n)}(x).$$
+\noindent $N_k(x)$ est donc l'ensemble des indices $i$ qui v\'erifient $\{d_{(i)}(x) \le d_{(k)}(x)\}$. 
+
+\noindent Avec l'exemple pr\'ec\'edent, on calcule $\hat f$ en utilisant diff\'erentes valeurs de $k$. 
 
 \begin{verbatim}
-############################################################################
-## On trace la courbe de pi predit en fonction du nombre d'heures         ##
-## de fonctionnement avec les intervalles de confiance pour le lien logit ##
-############################################################################
-
-## 1ere facon: intervalles de confiance exacts
-
-Heures <- 0:5000
-nouvelles.donnees <- predict(modele.logit,
-                     newdata=data.frame(Hours=Heures),se.fit=TRUE)
-nu.chapeau <- nouvelles.donnees$fit
-se.nu.chapeau <- nouvelles.donnees$se.fit
-pi.chapeau <- exp(nu.chapeau)/(1+exp(nu.chapeau))
-A <- exp(nu.chapeau-1.96*se.nu.chapeau)
-B <- exp(nu.chapeau+1.96*se.nu.chapeau)
-intervalle.confiance.1.pi.chapeau <- A/(A+1)
-intervalle.confiance.2.pi.chapeau <- B/(B+1)
-
-plot(Hours,Fissures/Turbines,xlab="Nombre d'heures de fonctionnement",pch=19,las=1,
-     xlim=c(0,5000),ylim=c(0,0.7),ylab="Proportion de machines avec des fissures")
-lines(Heures,pi.chapeau)
-lines(Heures,intervalle.confiance.1.pi.chapeau,lty=2)
-lines(Heures,intervalle.confiance.2.pi.chapeau,lty=2)
+> if (!require("FNN")) install.packages("FNN")
+Le chargement a nécessité le package : FNN
+Message d'avis :
+le package ‘FNN’ a été compilé avec la version R 4.4.2 
+> library(FNN)
+> 
+> axe.x <- data.frame(lstat=min(X):max(X))
+> 
+> pred_10 <- knn.reg(train=X,test=axe.x,y=Y,k=10)
+> pred_50 <- knn.reg(train=X,test=axe.x,y=Y,k=50)
+> pred_75 <- knn.reg(train=X,test=axe.x,y=Y,k=75)
+> pred_100 <- knn.reg(train=X,test=axe.x,y=Y,k=100)
+> 
+> par(mfrow = c(2,2))
+> 
+> plot(X,Y,type="p")
+> lines(axe.x$lstat,pred_10$pred,col="red")
+> title("Regression KNN avec K=10")
+> 
+> plot(X,Y,type="p")
+> lines(axe.x$lstat,pred_50$pred,col="red")
+> title("Regression KNN avec K=50")
+> 
+> plot(X,Y,type="p")
+> lines(axe.x$lstat,pred_75$pred,col="red")
+> title("Regression KNN avec K=75")
+> 
+> plot(X,Y,type="p")
+> lines(axe.x$lstat,pred_100$pred,col="red")
+> title("Regression KNN avec K=100")
 \end{verbatim}
 
-\noindent et on obtient
-
+\noindent Et on obtient 
 \begin{center}
 \includegraphics[scale=0.3]{Graphique2.pdf}
 \end{center}
 
-\noindent Et voici le code \textrm{R} pour la deuxi\sout{ère}\textcolor{red}{ème} méthode:
+\noindent Ces graphiques montrent que le comportement g\'en\'eral de $\hat f$ d\'epend du choix de $k$.
+
+\noindent Examinons $\hat f$ de plus pr\`es. Lorsque $X_i$ est proche de $x$, on peut \'ecrire
+$$E(Y_i)=f(X_i) \approx f(x) + f'(x)(X_i-x) + \frac{1}{2} f''(x)(X_i-x)^2$$
+et donc 
+$$E[\hat f(x)] \approx f(x) + f'(x) \frac{1}{k} \sum_{i \in N_k(x)} \left(E[X_i]-x\right) + \frac{1}{2k}  f''(x) \sum_{i \in N_k(x)} \left(E[X_i]-x\right)^2.$$
+
+\noindent Si les $X_i$s sont sym\'etriquement distribu\'es autour de $x$, alors $$\sum_{i \in N_k(x)} \left(E[X_i]-x\right) \approx 0$$
+et
+$$E[\hat f(x)] \approx f(x) + \frac{1}{2k}  f''(x) \sum_{i \in N_k(x)} \left(E[X_i]-x\right)^2.$$
+
+\noindent On montre que le biais $\sum_{i \in N_k(x)} \left(E[X_i]-x\right)^2/(2k)$ cro\^it avec $k$. 
+
+\noindent D'autre part, si on fait l'hypoth\`ese que $Var[\epsilon_i]=\sigma^2$, alors on a $Var[\hat f(x)]=\sigma^2/k$. Ce terme d\'ecroit avec $k$. 
+
+\noindent Il faut donc s\'electionner $k$ qui minimise l'erreur quadratique moyenne $$biais^2[\hat f(x)]+Var[\hat f(x)].$$
+
+\noindent Dans la pratique, on s\'electionne $k$ par la m\'ethode de validation crois\'ee.
 
 \begin{verbatim}
-## 2eme facon: intervalles de confiance approximatifs
-
-Heures <- 0:5000
-nouvelles.donnees <- predict(modele.logit,newdata=data.frame(Hours=Heures),
-                             se.fit=TRUE,type="response")
-pi.chapeau <- nouvelles.donnees$fit
-se.pi.chapeau <- nouvelles.donnees$se.fit
-plot(Hours,Fissures/Turbines,xlab="Nombre d'heures de fonctionnement",pch=19,las=1,
-     xlim=c(0,5000),ylim=c(0,0.7),ylab="Proportion de machines avec des fissures")
-lines(Heures,pi.chapeau)
-lines(Heures,pi.chapeau-1.96*se.pi.chapeau,lty=2)
-lines(Heures,pi.chapeau+1.96*se.pi.chapeau,lty=2)
+> ####################
+> ## Selection de K ##
+> ####################
+> 
+> valeurs.k <- seq(1,150)
+> cv.k <- NULL
+> for(k in valeurs.k)
++ {
++ reg.knn.cv <- knn.reg(train=X,y=Y,k=k)
++ cv.k <- c(cv.k,reg.knn.cv$PRESS)
++ }
+> 
+> k.min <- valeurs.k[which.min(cv.k)]; k.min
+[1] 45
+> 
+> plot(valeurs.k,cv.k,xlab="Valeurs de k",ylab="Taux d'erreur test")
 \end{verbatim}
 
-\noindent et on obtient
-
+\noindent Et on obtient 
 \begin{center}
 \includegraphics[scale=0.3]{Graphique3.pdf}
 \end{center}
 
-\noindent Les deux graphiques sont très similaires.
-
-\noindent Tra\c{c}ons maintenant $\hat\pi^*$ pour différentes valeurs du nombre d'heures de fonctionnement en considérant les 3 fonctions de lien.
+\noindent La m\'ethode de validation crois\'ee avec le taux d'erreur test estim\'e en enlevant une observation \`a la fois donne $k_{\mbox{min}}=45$. Avec cette valeur, on a:
 
 \begin{verbatim}
-###################################################################
-## On trace la courbe de pi predit en fonction du nombre d'heure ##
-## de fonctionnement pour les liens logit, probit et cloglog     ##
-###################################################################
+> pred_k.min <- knn.reg(train=X,test=axe.x,y=Y,k=k.min)
+> plot(X,Y,type="p",xlab="Poids de l'auto",
++      ylab="Miles parcourus avec un gallon de carburant")
+> lines(axe.x$lstat,pred_k.min$pred,col="red")
+> title("Regression KNN avec K=k min")
+\end{verbatim}
 
-Heures <- 0:5000
-nouvelles.donnees.logit <- predict(modele.logit,newdata=data.frame(Hours=Heures),
-                                   se.fit=TRUE,type="response")
-nouvelles.donnees.probit <- predict(modele.probit,newdata=data.frame(Hours=Heures),
-                                    se.fit=TRUE,type="response")
-nouvelles.donnees.cloglog <- predict(modele.cloglog,newdata=data.frame(Hours=Heures),
-                                     se.fit=TRUE,type="response")
-plot(Hours,Fissures/Turbines,xlab="Nombre d'heures de fonctionnement",pch=19,las=1,
-     xlim=c(0,5000),ylim=c(0,0.7),ylab="Proportion de machines avec des fissures")
-lines(Heures,nouvelles.donnees.logit$fit,lty=1)
-lines(Heures,nouvelles.donnees.probit$fit,lty=2)
-lines(Heures,nouvelles.donnees.cloglog$fit,lty=4)
-legend("topleft",lwd=2,lty=c(1,2,4),
-       legend=c("Lien logit","Lien probit", "Lien cloglog"),bty="n")
-\end{verbatim} 
-
-\noindent et on obtient
-
+\noindent Et on obtient 
 \begin{center}
 \includegraphics[scale=0.3]{Graphique4.pdf}
 \end{center}
 
-\noindent Les courbes obtenues avec les trois fonctions de lien sont très similaires\sout{. Ce qui est très fréquent}\textcolor{red}{, ce qui est très fréquent}.
+\noindent Supposons maintenant qu'on a deux variables explicatives. Les donn\'ees sont donc $\{(Y_i,X_{i1},\sout{X}\textcolor{red}{X_{}}\sout{\{i2\}}\textcolor{red}{i2}), i=1,\cdots,n\}$ et le mod\`ele est 
+$$Y_i = f(X_{i1},X_{i2})+\epsilon_i;$$
+\noindent avec $E[\epsilon_i|X_{i1},X_{i2}]=0$. L'estimateur des $k$ plus proches voisins de $f$ est quasiment \sout{identitique}\textcolor{red}{identique} au cas avec une seule variable explicative. La seule diff\'erence est la fa\c{c}on de d\'efinir les distances de proximit\'e $d_i(x)$. 
 
-\section{Sélection de modèles}
-
-\subsection{Déviance}
-
-Considérons maintenant un modèle, dit saturé, avec $n$ paramètres $\{\tilde \mu_1, \cdots, \tilde \mu_n\}$ et sans variables explicatives. Sous ce modèle, on a $$P(Y_i=y_i)= \binom{m_i}{y_i} \frac{\tilde \mu_i^{y_i}(m_i-\tilde \mu_i)^{m_i-y_i}}{m_i^{m_i}}$$ et on montre que les estimateurs de maximum de vraisemblance de $\{\tilde \mu_1, \cdots, \tilde \mu_n\}$ sont $\{y_1,\cdots,y_n\}$. La statistique de test de rapport de vraisemblance entre ce modèle saturé et le modèle complet considéré dans la section précédente est 
+\noindent Dans cette situation, $d_i(x)$ est la distance entre $x=(x_1,x_2)^\top$ et $(X_{i1},\sout{X_{i2)^\top}}\textcolor{red}{X_{i2})^\top}$. La premi\`ere id\'e\textcolor{red}{e} est de poser
 \begin{eqnarray*}
-D &=& 2\left\{  l(y,y)-l(\hat \mu,y) \right\}\\
-&=& 2 \sum_{i=1}^n \left\{y_i \log\left(\frac{y_i}{\hat\mu_i}\right) + (m_i-y_i) \log\left(\frac{m_i-y_i}{m_i-\hat\mu_i}\right)\right\} \\
-&=& 2  \sum_{i=1}^n d_i.
+d_i(x) &=& (X_{i1}-x_1)^2 + (X_{i2}-x_2)^2 \\ 
+&=& \begin{pmatrix} X_{i1}-x_1 & X_{i2}-x_2 \end{pmatrix} \times \begin{pmatrix} X_{i1}-x_1 \\ X_{i2}-x_2 \end{pmatrix} \\
+&=& {\begin{pmatrix} X_{i1}-x_1 \\ X_{i2}-x_2 \end{pmatrix}}^\top \times \begin{pmatrix} X_{i1}-x_1 \\ X_{i2}-x_2 \end{pmatrix}
 \end{eqnarray*}
 
-\noindent La statistique $D$ est appelée la déviance du modèle alors que la statistique $d_i$ est la déviance individue\sout{llle}\textcolor{red}{lle} de l'observation $i$. La statistique $D$ joue le m\^eme r\^ole que la somme des carrés des résidus pour la régression linéaire. Elle est utilisée pour évaluer l'ajustement et l'adéquation du modèle aux données et pour comparer des modèles.
 
-\subsection{Comparaison de modèles embo\^ités}
-
-Deux modèles sont embo\^ités si l'un des deux est un cas particulier de l'autre. Pour comparer deux modèles embo\^ités, on commence par ajuster chacun des modèles aux données. On calcule par la suite la déviance de chaque modèle, disons $D_1$ et $D_2$. La statistique de test pour comparer les deux modèles est $\chi^2 = D_2-D_1$. Sous $H_0:\mbox{le modèle réduit est plus adéquat aux données}$, on a \textcolor{red}{que }$\chi^2$ suit une loi de Khi-deux \`a $d$ degrés de liberté, où $d$ est la différence entre le nombre de paramètres du modèle complet et celui du modèle réduit. 
-
-\noindent Revenons sur le jeu de données \textsf{turbines} de la library \texttt{GLMsData} du logiciel \textrm{R}. On voudrait savoir si c'est pertinent d'ajouter des termes quadratique et cubique avec la fonction de lien logit. Ainsi, avec le modèle complet on a:
-$$\pi_i = \frac{e^{\beta_0+\beta_1 x_i + \beta_2 x_i^2 + \beta_3 x_i^3}}{1+e^{\beta_0+\beta_1 x_i + \beta_2 x_i^2 + \beta_3 x_i^3}}$$
-
-\noindent alors qu'avec le modèle réduit, on a 
-$$\pi_i = \frac{e^{\beta_0+\beta_1 x_i}}{1+e^{\beta_0+\beta_1 x_i}}.$$
-
-\noindent Comparer ces deux modèles revient \`a tester l'hypothèse nulle $H_0: \beta_2=\beta_3=0$. On calcule alors la déviance de chacun de ces modèles. La statistique du test est la différence entre les deux déviances.
-
-\begin{verbatim}
-> data(turbines)#### Rendre le jeu de donnees turbines disponible
-> attach(turbines)
-The following objects are masked from turbines (pos = 3):
-
-    Fissures, Hours, Turbines
-
-The following objects are masked from turbines (pos = 4):
-
-    Fissures, Hours, Turbines
-
-> 
-> #####################################
-> ## Comparaison de modeles emboites ##
-> #####################################
-> 
-> ## Modele complet avec des termes quadratique 
-> ## et cubique de la variable explicative Heure
-> 
-> modele.complet <- glm(cbind(Fissures,Turbines-Fissures)~Hours+Hours^2)+
-+                       I(Hours^3),data=turbines,family=binomial(link="logit"))
-> 
-> modele.reduit <- glm(cbind(Fissures,Turbines-Fissures)~Hours,data=turbines,
-+                      family=binomial(link="logit"))
-> 
-> stat.test <- deviance(modele.reduit)-deviance(modele.complet)
-> 
-> p.valeur <- 1-pchisq(stat.test,df=2)
-> 
-> p.valeur
-[1] 0.4767217
-\end{verbatim}
-
-\noindent Le seuil observé du test est 0.47. On ne rejette pas l'hypothèse nulle. On conclut que le modèle réduit est plus adéquat aux données.
-
-\subsection{Comparaison de modèles non-embo\^ités}
-
-Comme pour les modèles linéaires, on compare les modèles non-embo\^ités en utilisant les critères $AIC$ et $BIC$. Ces critères sont définis comme suit: 
+\noindent Cependant, c'est possible que les ordres de grandeur de $X_{i1}$ et $X_{i2}$ soient diff\'erents. C'est le cas, par exemple, si $X_{i1}$ et $X_{i2}$ sont le poids (en kilogrammes) et la cylindr\'ee (en $\mbox{pouces}^3$) de la voiture $i$. En effet, $X_{i1}$ varie de 1500 \`a 5000 alors que $X_{i2}$ varie de 60 \`a 500. Dans cette situation, $X_{i1}$ aura plus d'impact sur $d_i(x)$ que $X_{i2}$. Une fa\c{c}on simple de surmonter cette difficult\'e est de pond\'erer la somme de carr\'es par l'inverse de la matrice de variance-covariance des variables explicatives. On obtient
+$$d_i(x) = {\begin{pmatrix} X_{i1}-x_1 \\ X_{i2}-x_2 \end{pmatrix}}^\top \times V^{-1} \times \begin{pmatrix} X_{i1}-x_1 \\ X_{i2}-x_2 \end{pmatrix},$$
+o\`u
+$$V = \begin{pmatrix} s_1^2 & s_{12} \\ s_{12} & s_2^2 \end{pmatrix},$$
 \begin{eqnarray*}
-AIC &=& -2 l(\hat\mu;y) + 2 (p+1) \\
-BIC &=& -2 l(\hat\mu;y) + \log(n) (p+1) \\
+s_1^2 &=& \frac{1}{n-1} \sum_{i=1}^n (X_{i1}-\bar{X_1})^2 \\ 
+s_2^2 &=& \frac{1}{n-1} \sum_{i=1}^n (X_{i2}-\bar{X_2})^2 \\ 
+s_{12} &=& \frac{1}{n-1} \sum_{i=1}^n (X_{i1}-\bar{X_1})(X_{i2}-\bar{X_2}).
 \end{eqnarray*}
 
-\noindent Le modèle ayant le plus petit $AIC$ (ou $BIC$) est préférable.
+\noindent C'est la distance de Mahalanobis. On peut facilement g\'en\'eraliser cette distance \`a $p$ variables explicatives continues.
 
-\noindent Considérons le jeu de données \textsf{deposit} de la library \texttt{GLMsData} du logiciel \textrm{R}. Ce jeu de données comporte deux variables explicatives: type et dose de l'insecticide utilisé et la variable réponse est le nombre d'insectes tués parmi ceux qui ont commencé l'expérience. On considère deux modèles. Le premier avec les deux variables explicatives et leur interaction. Le deuxième modèle considère la variable dose de l'insecticide avec des termes quadratique et cubique. Ces deux modèles ne sont pas embo\^ités. On utilise les critères $AIC$ et $BIC$ pour déterminer celui qui est plus adéquat aux données. 
+\section{Estimateur de noyau}
 
-\begin{verbatim}
-> if (!require("GLMsData")) install.packages("GLMsData")
-> library("GLMsData")#### Installer la librairie GLMsData
-> 
-> data(deposit)#### Rendre le jeu de donnees deposit disponible
-> n <- dim(deposit)[1]
-> 
-> 
-> modele1 <- glm(cbind(Killed,Number-Killed)~factor(Insecticide)*Deposit,
-+                data=deposit,family=binomial)
-> 
-> modele2 <- glm(cbind(Killed,Number-Killed)~Deposit+I(Deposit^2)+I(Deposit^3),
-+                data=deposit,family=binomial)
-> 
-> AIC1 <- extractAIC(modele1)[2]; AIC1
-[1] 116.9708
-> AIC2 <- extractAIC(modele2)[2]; AIC2
-[1] 278.0755
-> 
-> BIC1 <- extractAIC(modele1,k=log(n))[2]; BIC1
-[1] 122.313
-> BIC2 <- extractAIC(modele2,k=log(n))[2]; BIC2
-[1] 281.637
-\end{verbatim}
+\noindent Reconsid\'erons le cas o\`u on a une seule variable explicative, $p=1$.
 
-\noindent Selon les critères $AIC$ et $BIC$, le premier modèle est plus adéquat aux données.
+\noindent L'estimateur des $k$ plus proches voisins s'\'ecrit 
+\begin{eqnarray*}
+\hat f(x) &=& \frac{1}{k} \sum_{i \in N_k(x)} Y_i \\
+&=& \frac{\sum_{i=1}^n 1_{\{i \in N_k(x)\}}Y_i}{\sum_{i=1}^n 1_{\{i \in N_k(x)\}}}
+\end{eqnarray*}
 
-\subsection{Sélection automatique de modèle}
+\noindent On peut d\'efinir la notion de voisinage entre $x$ et $X_i$ autrement. Par exemple, on peut dire que $x$ et $X_i$ sont voisins si $X_i \in [x-h,x+h]$, qu'on peut encore \'ecrire $|X_i-x| \le h$ o\`u $h>0$ est un param\`etre de voisinage qui joue le m\^eme r\^ole que $k$.
 
-Les méthodes pas \`a pas {\it forward}, {\it backward} et {\it stepwise} fonctionn\sout{enet}\textcolor{red}{ent} exactement comme pour les modèles linéaires. On considère le jeu de données \textsf{deposit} de la library \texttt{GLMsData} du logiciel \textrm{R}. On utilise ces procédures pour sélectionner le meilleur modèle. Le modèle le plus complet comporte les deux variables explicatives: type et dose de l'insecticide, ainsi que leur interaction et les termes quadratique et cubique de dose.
+\noindent Ainsi, $\hat f(x)$ devient
+\begin{eqnarray*}
+\hat f(x) &=& \frac{\sum_{i=1}^n 1_{\{|X_i-x| \le h\}}Y_i}{\sum_{i=1}^n 1_{\{|X_i-x| \le h\}}} \\
+&=& \frac{\sum_{i=1}^n K\left(\frac{X_i-x}{h}\right)Y_i}{\sum_{i=1}^n K\left(\frac{X_i-x}{h}\right)} \\
+&=& \sum_{i=1}^n w_i(x) Y_i
+\end{eqnarray*}
+
+\noindent o\`u $K(u)=1_{\{|u|<1\}}$ est appel\'e noyau et $$w_i(x)=\frac{K\left(\frac{X_i-x}{h}\right)}{\sum_{j=1}^n K\left(\frac{X_j-x}{h}\right)}, \, \, \, i=1\cdots,n$$
+sont des poids positifs qui v\'erifient $w_1(x)+w_2(x)+\cdots+w_n(x)=1$. Ces poids ne peuvent prendre que les valeurs 0 ou $1/A$ o\`u $A=\sum_{i=1}^n 1_{\{|X_i-x| \le h\}}$ est le nombre d'observations voisins de $x$. 
+
+\noindent Ainsi, la contribution de l'observation $(X_i,Y_i)$ \`a $\hat f(x)$ passe subitement de $1/A$ \`a 0 si $x$ sort du voisinage de $X_i$. Ainsi, $\hat f$ est une fonction discontinue de $x$. L'id\'ee de l'estimateur \`a noyau, aussi appel\'e estimateur de Nadaraya-Watson est d'avoir des poids qui diminuent d'une fa\c{c}on continue au fur et \`a mesure que $x$ s'\'eloigne de $X_i$.
+
+\noindent \`A cet effet, on peut g\'en\'eraliser la d\'efinition du noyau K. On peut par exemple consid\'erer le noyau Gaussien $K(u)=e^{-u^2/2}$. On obtient ainsi des poids continus et un estimateur $\hat f_{NW}$ continu.
+
+\noindent Avec l'exemple consid\'er\'e dans la section pr\'ec\'edente, on calcule $\hat f_{NW}$ en utilisant diff\'erentes valeurs de $h$.
 
 \begin{verbatim}
-> max.modele <- glm(cbind(Killed,Number-Killed)~factor(Insecticide)*Deposit+
-                    I(Deposit^2)+I(Deposit^3),data=deposit,family=binomial)
-> min.modele <- glm(cbind(Killed,Number-Killed)~1,data=deposit,family=binomial)
+> library("ISLR")#### Installer la librairie ISLR
 > 
-> step(min.modele,scope=list(lower=min.modele, upper=max.modele),
-       direction="forward")
-Start:  AIC=477.84
-cbind(Killed, Number - Killed) ~ 1
-
-                      Df Deviance    AIC
-+ Deposit              1   231.56 297.76
-+ I(Deposit^2)         1   258.25 324.44
-+ factor(Insecticide)  2   259.41 327.61
-+ I(Deposit^3)         1   285.10 351.30
-<none>                     413.64 477.84
-
-Step:  AIC=297.76
-cbind(Killed, Number - Killed) ~ Deposit
-
-                      Df Deviance    AIC
-+ factor(Insecticide)  2   48.026 118.22
-+ I(Deposit^3)         1  207.878 276.08
-+ I(Deposit^2)         1  208.131 276.33
-<none>                    231.559 297.76
-
-Step:  AIC=118.22
-cbind(Killed, Number - Killed) ~ Deposit + factor(Insecticide)
-
-                              Df Deviance     AIC
-+ I(Deposit^2)                 1   14.499  86.696
-+ I(Deposit^3)                 1   15.160  87.357
-+ factor(Insecticide):Deposit  2   42.773 116.971
-<none>                             48.026 118.223
-
-Step:  AIC=86.7
-cbind(Killed, Number - Killed) ~ Deposit + factor(Insecticide) + 
-    I(Deposit^2)
-
-                              Df Deviance    AIC
-<none>                             14.499 86.696
-+ I(Deposit^3)                 1   14.406 88.604
-+ factor(Insecticide):Deposit  2   14.358 90.556
-
-Call:  glm(formula = cbind(Killed, Number - Killed) ~ Deposit +
-           factor(Insecticide) + 
-    I(Deposit^2), family = binomial, data = deposit)
-
-Coefficients:
-         (Intercept)               Deposit  factor(Insecticide)B  
-             -6.3808                2.1511                0.3061                
-             
-             factor(Insecticide)C          I(Deposit^2)  
-             2.9264                        -0.1532  
-
-Degrees of Freedom: 17 Total (i.e. Null);  13 Residual
-Null Deviance:      413.6 
-Residual Deviance: 14.5         AIC: 86.7
-> step(max.modele,scope=list(lower=min.modele, upper=max.modele),
-       direction="backward")
-Start:  AIC=92.5
-cbind(Killed, Number - Killed) ~ factor(Insecticide) * Deposit + 
-    I(Deposit^2) + I(Deposit^3)
-
-                              Df Deviance    AIC
-- factor(Insecticide):Deposit  2   14.406 88.604
-- I(Deposit^3)                 1   14.358 90.556
-- I(Deposit^2)                 1   14.905 91.102
-<none>                             14.301 92.498
-
-Step:  AIC=88.6
-cbind(Killed, Number - Killed) ~ factor(Insecticide) + Deposit + 
-    I(Deposit^2) + I(Deposit^3)
-
-                      Df Deviance     AIC
-- I(Deposit^3)         1   14.499  86.696
-- I(Deposit^2)         1   15.160  87.357
-<none>                     14.406  88.604
-- Deposit              1   18.576  90.774
-- factor(Insecticide)  2  207.878 278.075
-
-Step:  AIC=86.7
-cbind(Killed, Number - Killed) ~ factor(Insecticide) + Deposit + 
-    I(Deposit^2)
-
-                      Df Deviance     AIC
-<none>                     14.499  86.696
-- I(Deposit^2)         1   48.026 118.223
-- Deposit              1   80.710 150.907
-- factor(Insecticide)  2  208.131 276.328
-
-Call:  glm(formula = cbind(Killed, Number - Killed) ~ factor(Insecticide) + 
-           Deposit + I(Deposit^2), family = binomial, data = deposit)
-
-Coefficients:
-         (Intercept)  factor(Insecticide)B  factor(Insecticide)C  
-             -6.3808                0.3061                2.9264               
-                           Deposit          I(Deposit^2) 
-                            2.1511               -0.1532  
-
-Degrees of Freedom: 17 Total (i.e. Null);  13 Residual
-Null Deviance:      413.6 
-Residual Deviance: 14.5         AIC: 86.7
-> step(min.modele,scope=list(lower=min.modele, upper=max.modele),
-       direction="both")
-Start:  AIC=477.84
-cbind(Killed, Number - Killed) ~ 1
-
-                      Df Deviance    AIC
-+ Deposit              1   231.56 297.76
-+ I(Deposit^2)         1   258.25 324.44
-+ factor(Insecticide)  2   259.41 327.61
-+ I(Deposit^3)         1   285.10 351.30
-<none>                     413.64 477.84
-
-Step:  AIC=297.76
-cbind(Killed, Number - Killed) ~ Deposit
-
-                      Df Deviance    AIC
-+ factor(Insecticide)  2    48.03 118.22
-+ I(Deposit^3)         1   207.88 276.08
-+ I(Deposit^2)         1   208.13 276.33
-<none>                     231.56 297.76
-- Deposit              1   413.64 477.84
-
-Step:  AIC=118.22
-cbind(Killed, Number - Killed) ~ Deposit + factor(Insecticide)
-
-                              Df Deviance    AIC
-+ I(Deposit^2)                 1   14.499  86.70
-+ I(Deposit^3)                 1   15.160  87.36
-+ factor(Insecticide):Deposit  2   42.773 116.97
-<none>                             48.026 118.22
-- factor(Insecticide)          2  231.559 297.76
-- Deposit                      1  259.414 327.61
-
-Step:  AIC=86.7
-cbind(Killed, Number - Killed) ~ Deposit + factor(Insecticide) + 
-    I(Deposit^2)
-
-                              Df Deviance     AIC
-<none>                             14.499  86.696
-+ I(Deposit^3)                 1   14.406  88.604
-+ factor(Insecticide):Deposit  2   14.358  90.556
-- I(Deposit^2)                 1   48.026 118.223
-- Deposit                      1   80.710 150.907
-- factor(Insecticide)          2  208.131 276.328
-
-Call:  glm(formula = cbind(Killed, Number - Killed) ~ Deposit + 
-           factor(Insecticide) + I(Deposit^2), family = binomial, data = deposit)
-
-Coefficients:
-         (Intercept)               Deposit  factor(Insecticide)B  
-             -6.3808                2.1511                0.3061 
-             factor(Insecticide)C          I(Deposit^2)  
-                            2.9264               -0.1532  
-
-Degrees of Freedom: 17 Total (i.e. Null);  13 Residual
-Null Deviance:      413.6 
-Residual Deviance: 14.5         AIC: 86.7
-\end{verbatim}
-
-\noindent Selon les trois procèdures, le modèle retenu est celui qui inclut les deux variables explicatives (type et dose de l'insecticide) et le terme quadratique de la dose.
-
-\section{Validation et diagnostique de modèles}
-
-\subsection{Résidus}
-
-Comme pour la régression linéaire , les résidus ont un r\^ole important dans la validation des modèles. Pour la régression logistique, on distingue deux types de résidus: résidus déviance et résidus Pearson.
-
-\noindent Les résidus déviance sont définis par $r_{D,i}= \mbox{signe}(y_i-\mu_i) \sqrt{d_i}$, où 
-$$\mbox{signe}(u) = \begin{cases} 1  & \mbox{si } u>0, \\
--1 & \mbox{si } u<0, \\
-0 & \mbox{si } u=0 \end{cases}$$
-et $$d_i=2 \times \left\{y_i \log\left(\frac{y_i}{\hat\mu_i}\right) + (m_i-y_i) \log\left(\frac{m_i-y_i}{m_i-\hat\mu_i}\right)\right\}.$$
-
-\noindent D'autre part, les résidus Pearson sont définis par $$r_{P,i}=\frac{y_i-m_i\hat\pi_i}{\sqrt{m_i\hat\pi_i(1-\hat\pi_i)}}=\frac{y_i-\hat\mu_i}{\sqrt{\frac{\hat\mu_i(m_i-\hat\mu_i)}{m_i}}}.$$
-
-
-\subsection{Tests d'adéquation globale}
-
-Deux statistiques sont disponibles pour tester l'adéquation globale d'un modèle: la première est la déviance $D=\sum\limits_{i=1}^n r_{D,i}^2$ et la deuxième est la statistique Khi-deux de Pearson $$\chi^2_P=\sum\limits_{i=1}^n r_{P,i}^2=\sum_{i=1}^n \frac{m_i(y_i-\hat\mu_i)^2}{\hat\mu_i(m_i-\hat\mu_i)}.$$
-
-\noindent Lorsque tous les $m_i \rightarrow \infty$, les statistiques $D$ et $\chi^2_P$ convergent en loi vers une distribution de Khi-deux \`a $n-(p+1)$ degrés de liberté si le modèle est bien spécifié. Il est primordial de noter que ces tests ne sont valides que pour des données groupées avec des $m_i$ élevés puisqu<ils reposent sur un résultat asymptotique.
-
-\noindent Revenons au jeu de données \textsf{deposit} de la library \texttt{GLMsData} du logiciel \textrm{R}. \`A la section précédente, on a retenu le modèle avec les deux variables explicatives (type et dose de l'insecticide) et le terme quadratique de la dose. Testons l'adéquation globale de ce modèle.
-
-\begin{verbatim}
-> if (!require("GLMsData")) install.packages("GLMsData")
-Le chargement a nécessité le package : GLMsData
-> library("GLMsData")#### Installer la librairie GLMsData
+> data(Auto)
+> X <- Auto$weight
+> Y <- Auto$mpg
 > 
-> if (!require("statmod")) install.packages("statmod")
-Le chargement a nécessité le package : statmod
-> library("statmod")#### Installer la librairie statmod
-> ## La librairie statmod permet de calculer les residus Pearson
+> if (!require("KernSmooth")) install.packages("KernSmooth")
+> library(KernSmooth)
 > 
-> data(deposit)#### Rendre le jeu de donnees deposit disponible
-> n <- dim(deposit)[1]
-> p <- dim(deposit)[2]
-> df <- n-(p+1)
+> NW20 <- locpoly(x=X, y=Y, degree=0, bandwidth=20) 
+> NW50 <- locpoly(x=X, y=Y, degree=0, bandwidth=50) 
+> NW400 <- locpoly(x=X, y=Y, degree=0, bandwidth=400)
+> NW800 <- locpoly(x=X, y=Y, degree=0, bandwidth=800)
 > 
-> modele <- glm(cbind(Killed,Number-Killed)~factor(Insecticide)+Deposit
-+                +I(Deposit^2),data=deposit,family=binomial)
 > 
-> ############################################
-> ## Calcul des residus deviance et Pearson ##
-> ############################################
+> par(mfrow = c(2,2))
 > 
-> residus.deviance <- resid(modele)
-> residus.Pearson <- qresid(modele)
+> plot(X,Y,xlab="Poids de la voiture",
++      ylab="Miles parcourus avec un gallon de carburant")
+> lines(NW20$x,NW20$y,col="red")
+> title("Estimateur de Nadaraya Watson avec h=20")
 > 
-> ##########################################
-> ## Calcul des statistiques d'adequation ##
-> ##########################################
+> plot(X,Y,xlab="Poids de la voiture",
++      ylab="Miles parcourus avec un gallon de carburant")
+> lines(NW50$x,NW50$y,col="red")
+> title("Estimateur de Nadaraya Watson avec h=50")
 > 
-> Deviance <- deviance(modele)
-> ## doit donner la meme chose que sum(residus.deviance^2)
-> Pearson <- sum(residus.Pearson^2)
+> plot(X,Y,xlab="Poids de la voiture",
++      ylab="Miles parcourus avec un gallon de carburant")
+> lines(NW400$x,NW400$y,col="red")
+> title("Estimateur de Nadaraya Watson avec h=400")
 > 
-> ################################
-> ## Calcul des seuils observes ##
-> ################################
-> 
-> pvaleur.Deviance <- 1 - pchisq(Deviance,df=df) ; pvaleur.Deviance
-[1] 0.3396796
-> pvaleur.Pearson <- 1 - pchisq(Pearson,df=df) ; pvaleur.Pearson
-[1] 0.4661418
-\end{verbatim}
+> plot(X,Y,xlab="Poids de la voiture",
++      ylab="Miles parcourus avec un gallon de carburant")
+> lines(NW800$x,NW800$y,col="red")
+> title("Estimateur de Nadaraya Watson avec h=800")
+\end{verbatim} 
 
-\noindent On obtient des seuils observés de 0.339 et 0.466. Le modèle proposé est bien adéquat aux données.
-
-\subsection{Graphiques}
-
-Les graphiques de des résidus en fonction des numéros des observations ne doivent montrer qucune tendance. 
-
-\begin{verbatim}
-plot(residus.deviance,type="p",xlab="Numero d'observation",ylab="Residus deviance")
-plot(residus.Pearson,type="p",xlab="Numero d'observation",ylab="Residus Pearson")
-\end{verbatim}
-
-\noindent On obtient
+\noindent Et on obtient 
 \begin{center}
 \includegraphics[scale=0.3]{Graphique5.pdf}
 \end{center}
 
-et 
+\noindent Ces graphiques nous montr\sout{e}\textcolor{red}{ent} qu'on doit choisir le param\`etre $h$. Ceci est fait avec la m\'ethode de validation crois\'ee. Si on exclut une seule observation \`a la fois, on montre que l\sout{k}\textcolor{red}{}e crit\`ere de validation crois\'ee s'\'ecrit
+$$cv.n = \frac{1}{n} \sum_{i=1}^n \left(\frac{Y_i-\hat f(X_i)}{1-w_i(X_i)}\right)^2$$
 
+\noindent Si on revient \`a l'exemple des autos, on a :
+\begin{verbatim}
+> ####################
+> ## Selection de h ##
+> ####################
+> 
+> nw <- function(X,Y,h,K)
++ {
++ n <- length(X)
++ res <- NULL
++ for (i in 1:n)
++ {
++ W <- K((X-X[i])/h)
++ res <- c(res,sum(W*Y)/sum(W))
++ }
++ res
++ }
+> 
+> CV.NW <- function(X,Y,h,K=dnorm)
++ {
++ A <- Y - nw(X=X,Y=Y,h=h,K=K)
++ B <- (1 - K(0) / colSums(K(outer(X,X,"-") / h)))
++ sum((A/B)**2)
++ }
+> 
+> 
+> h.valeurs <- seq(50,400,10)
+> res.cv <- NULL
+> 
+> for(h in h.valeurs)
++ {
++ res.cv <- c(res.cv,CV.NW(X,Y,h))
++ }
+> 
+> plot(h.valeurs,res.cv,xlab="Valeurs de h",ylab="Criete de validation croisee")
+> 
+> h.min <- h.valeurs[which.min(res.cv)]; h.min
+[1] 110
+\end{verbatim}
+
+\noindent Et on obtient 
 \begin{center}
 \includegraphics[scale=0.3]{Graphique6.pdf}
 \end{center}
 
-\noindent Si ces graphiques ont \sout{tendance horizentales}\textcolor{red}{une tendance horizontale} mais plusieurs des valeurs sont supérieures \`a 3 en valeur absolue, cela peut suggèrer la présence d'une extra-variabilité. En effet, si la loi binomiale est bien spécifiée, alors on a $E[Y_i]=m_i \pi_i$ et $Var[Y_i]=m_i \pi_i (1-\pi_i)$. Il arrive dans certaines situations où on a $E[Y_i]=m_i \pi_i$ mais $Var[Y_i] > m_i \pi_i (1-\pi_i)$. On dit qu'on est en présence d'une extra-variabilité ({\it overdispersion} en anglais). Dans cette situation, on pose $Var[Y_i] = \phi m_i \pi_i (1-\pi_i)$ et on estime $\phi$ par $\chi^2_P/(n-(p+1))$
-
+\noindent Ainsi, le $h$ qui minimise le crit\`ere de validation crois\'ee est \'egal \`a $110$. avec cette valeur, on a : 
 \begin{verbatim}
-> Pearson/(n-(p+1))
-[1] 0.981905
+> NW.h.min <- locpoly(x=X, y=Y, degree=0, bandwidth=h.min) 
+> plot(X,Y,xlab="Poids de la voiture",
++      ylab="Miles parcourus avec un gallon de carburant")
+> lines(NW.h.min$x,NW.h.min$y,col="red")
+> title("Estimateur de Nadaraya Watson avec h=h.min")
 \end{verbatim}
 
-\noindent Dans notre cas, la valeur de $\chi^2_P/(n-(p+1))$ est très proche de 1. On ne détecte aucune extra-variabilité. Une solution \`a apporter en cas d'une éventuelle extra-variabilité est de spécifier l'option \textsf{family=quasibinomial()} au lieu de \textsf{family=binomial()}. Cette solution considère une distribution pour $Y_i$ telle que $E[Y_i]=m_i \pi_i$ et $Var[Y_i]= \phi m_i \pi_i (1-\pi_i)$, avec $\phi>1$.
-
-\noindent Pour vérifier la linéarité $\eta_i=\beta_0+\beta_1 X_{i1}+\cdots+\beta_p X_{ip}$, on trace le nuage de points $\{(\hat\pi_i,\tilde\pi_i),i=1\cdots,n\}$. Ici, $\hat\pi_i=g^{-1}(\hat\eta_i)$ est l'estimateur de $\pi_i$ selon le modèle considéré et $\tilde\pi_i=y_i/m_i$ est l'estimateur empirique de $\pi_i$. Si la relation $\eta_i=\beta_0+\beta_1 X_{i1}+\cdots+\beta_p X_{ip}$ est bien spécifiée, les estimateurs $\hat\pi_i$ et $\tilde\pi_i$ doivent \^etre proches et le nuage de points doit \^etre autour de la droite $x=y$.
-
-\begin{verbatim}
-> pi.chapeau <- fitted(modele)
-> pi.tilde <- deposit$Killed/deposit$Number
-> 
-> plot(pi.chapeau,pi.tilde,type="p",xlim=c(0,1),ylim=c(0,1),
-+      xlab="Estimateurs de pi selon le modele",ylab="Estimateurs empiriques de pi")
-> abline(0,1,col="red")
-
-\end{verbatim}
-
-\noindent On obtient
+\noindent Et on obtient 
 \begin{center}
 \includegraphics[scale=0.3]{Graphique7.pdf}
 \end{center}
 
-\subsection{Observations aberrantes \& valeurs influentes}
+\section{R\'egression logistique et classification}
 
-Le principe des observations aberrantes et valeurs influentes est identique pour les régressions logistique et linéaire. Les définitions des leviers des observations, des résidus standardi\sout{és}\textcolor{red}{sés} et studenti\sout{és}\textcolor{red}{sés} sont différentes dans la cas d'une régression logistique mais ces quantités ont la m\^eme interprétation et utilité que dans le cadre d'une régression linéaire. C'est la m\^eme chose pour la distance de Cook, les DFBETAS, DFFITS et rapport de ratios. 
+Dans les exemple pr\'ec\'edents, on a consid\'er\'e seulement le cas o\`u la variable r\'eponse est continue.
 
-\subsection{Spécificité, sensibilité et courbe ROC}
+\noindent Consid\'erons maintenant le jeu de donn\'ees \textsf{Default} de la library \texttt{ISLR} du logiciel \textrm{R}. Ce jeu de donn\'ees contient 10000 observations $\{(Y_i,X_i), i=1,\cdots,n\}$. La variable r\'eponse $Y_i$ est binaire. Elle vaut 1 si le sujet $i$ a fait d\'efault et n'a pas pay\'e sa carte de cr\'edit et z\'ero sinon. La variable explicative est continue. C<est le solde \`a payer sur la carte de cr\'edit.
 
-Toutes les procédures de diagnostique et validation de modèle citées ci-haut ne sont valides que pour les données groupées. Dans le cas de données individuelles, c'est plus difficile d'évaluer l'adéquation des modèles. Cependant, il est possible de mesurer la capacité prédictive du modèle. 
-
-\noindent Considérons un modèle avec des données individuelles où la variable réponse est $Y_i \in \{0,1\}$, avec $P(Y_i=1)=\pi_i=g^{-1}(\nu_i)$, $\nu_i=\beta_0+\beta_1 X_{i1}+\cdots+\beta_p X_{ip}$ et $P(Y_i=0)=1-P(Y_i=1)$. On ajuste le modèle, on obtient $\hat\beta_0$, $\hat\beta_1$, $\cdots$, $\hat\beta_p$ et on calcule les probabilités prédites $\hat\pi_i=g^{-1}(\hat\eta_i)$ avec $\hat\eta_i=\hat\beta_0+\hat\beta_1 X_{i1}+\cdots+\hat\beta_p X_{ip}$.
-
-\noindent Fixons maintenant un réel $u \in [0,1]$. Dans un contexte de classification, on pose $\hat y_i=1$ si $\hat\pi_i>u$ et $\hat y_i=0$ sinon. La valeur la plus utilisée est $u=1/2$. On mesure la capacité prédictive du modèle par la spécificité et la sensibilité, définies respectivement par $Spec = P(\hat y=0| y=0)$ et $Sens = P(\hat y=1| y=1)$. La spécificité et la sensibilité r\sout{efèrent}\textcolor{red}{éfèrent} aux taux de vrais négatifs et vrais positifs, respectivement. Plus ces valeurs sont proches de 1, plus grande est la capacité prédictive du modèle. 
-
-\noindent Pour un $u$ fixé, on calcule $\hat y_1, \cdots, \hat y_n$ et on estime la spécificité et la sensibilité du modèle par 
-\begin{eqnarray*}
-\widehat{Spec}(u)&=&\sout{\frac{\sum_{i=1}^n I_{\{\hat y_i=0\}}}{\sum_{i=1}^n I_{\{(\hat y_i=0)\&(y_i=0)\}}} = \frac{\sum_{i=1}^n I_{\{\hat \pi_i < u \}}}{\sum_{i=1}^n I_{\{(\hat \pi_i < u)\&(y_i=0)\}}}} \textcolor{red}{\frac{\sum_{i=1}^n I_{\{(\hat \pi_i < u)\&(y_i=0)\}}}{\sum_{i=1}^n I_{\{y_i=0\}}}} \\
-\widehat{Sens}(u)&=&\sout{\frac{\sum_{i=1}^n I_{\{\hat y_i=1\}}}{\sum_{i=1}^n I_{\{(\hat y_i=1)\&(y_i=1)\}}} = \frac{\sum_{i=1}^n I_{\{\hat \pi_i > u \}}}{\sum_{i=1}^n I_{\{(\hat \pi_i > u)\&(y_i=1)\}}}} \textcolor{red}{\frac{\sum_{i=1}^n I_{\{(\hat \pi_i > u)\&(y_i=1)\}}}{\sum_{i=1}^n I_{\{y_i=1\}}}}
-\end{eqnarray*}
-
-\noindent Faisons maintenant varier $u$ \`a l'intérieur d'une grille de $B$ points dans $[0,1]$: $\{u_1=0,\sout{u_1,u+2}\textcolor{red}{u_2,}\cdots,u_B=1\}$, avec $B$ suffis\sout{a}\textcolor{red}{a}ment grand.
-
-\noindent Pour $b=0,1,\cdots,B$, on calcule $\widehat{Spec}(u_b)$ et $\widehat{Sens}(u_b)$. On trace le nuage de points $\{(1-\widehat{Spec}(u_b),\widehat{Sens}(u_b)),b=0,\cdots,B\}$. En reliant ces points, on obtient une courbe qu'on appelle la courbe ROC. On calcule l'aire sous cette courbe. Plus cette aire est grande, plus la capacité prédictive du modèle est grande. 
-$$
-\mbox{Aire sous la courbe ROC} \in \begin{cases}
-[0.9,1], & \mbox{ le modèle est excellent} \\
-[0.8,0.9], & \mbox{ le modèle est bon} \\
-[0.7,0.8], & \mbox{ le modèle est moyen} \\
-[0.6,0.7], & \mbox{ le modèle est mauvais} \\
-\sout{[0.7,0.8]}\textcolor{red}{[0.5,0.6]}, & \mbox{ le modèle est très faible.} \\
-\end{cases}
-$$
-
-\noindent Considérons maintenant le jeu de données \textsf{quilpie} de la library \texttt{GLMsData} du logiciel \textrm{R}. Ce jeu de données contient des observations de 1921 \`a 1988 de la quantité de pluie mesurée durant le mois de juillet \`a Quilpie en Australie. On considère une seule variable explicative $SOI$ qui mesure la pression atmosphérique. La variable réponse ne peut prendre que 2 valeurs: 1 si la quantié de pluie mesurée est supérieure \`a 10 millimètres et 0 sinon.
+\noindent Le mod\`ele dans ce contexte est $g(x)=P(Y=1|X=x)$. On estime $g$ par l'estimateur des $k$ plus proches voisins
+$$\hat g(x) = \frac{1}{k} \sum_{i \in N_k(x)} Y_i.$$
+\noindent Il est facile de voir que $\hat g(x) \in [0,1]$. 
 
 \begin{verbatim}
-> if (!require("GLMsData")) install.packages("GLMsData")
-Le chargement a nécessité le package : GLMsData
-> library("GLMsData")#### Installer la librairie GLMsData
+> if (!require("FNN")) install.packages("FNN")
+Le chargement a nécessité le package : FNN
+Message d'avis :
+le package ‘FNN’ a été compilé avec la version R 4.4.2 
+> library(FNN)
 > 
-> data(quilpie)
+> axe.x <- data.frame(lstat=min(X):max(X))
 > 
-> modele <- glm(y~SOI,family=binomial,data=quilpie)
+> pred_10 <- knn.reg(train=X,test=axe.x,y=Y,k=10)
+> pred_50 <- knn.reg(train=X,test=axe.x,y=Y,k=50)
+> pred_200 <- knn.reg(train=X,test=axe.x,y=Y,k=200)
+> pred_500 <- knn.reg(train=X,test=axe.x,y=Y,k=500)
 > 
-> if (!require("clinfun")) install.packages("clinfun")
-Le chargement a nécessité le package : clinfun
-> library("clinfun")#### Installer la librairie clinfun
+> par(mfrow = c(2,2))
 > 
-> courbe.roc <- roc.curve(marker=as.vector(fitted(modele)),
-+                         status=quilpie$y,method=c("empirical"))
-> print(courbe.roc)
-  ROC curve with AUC = 0.7835498 and s.e. = 0.05651002 
+> plot(X,Y,type="p")
+> lines(axe.x$lstat,pred_10$pred,col="red")
+> title("Regression KNN avec K=10")
+> 
+> plot(X,Y,type="p")
+> lines(axe.x$lstat,pred_50$pred,col="red")
+> title("Regression KNN avec K=50")
+> 
+> plot(X,Y,type="p")
+> lines(axe.x$lstat,pred_200$pred,col="red")
+> title("Regression KNN avec K=200")
+> 
+> plot(X,Y,type="p")
+> lines(axe.x$lstat,pred_500$pred,col="red")
+> title("Regression KNN avec K=500")
 \end{verbatim}
 
-\noindent On obtient une aire sous la courbe de 0.78 avec une erreur-type de 0.056. On conclut que le modèle est bon. On peut aussi tracer la courbe ROC:
-
-\begin{verbatim}
-> plot(courbe.roc)
-\end{verbatim}
-
-\noindent Et on obtient
-
+\noindent Et on obtient 
 \begin{center}
 \includegraphics[scale=0.3]{Graphique8.pdf}
 \end{center}
 
+\noindent Ces graphiques nous montrent encore une fois l'importance de bien choisir le param\`etre $k$. Dans la pratique, on choisi $k$ avec la m\'ethode de validation crois\'ee. On peut utiliser le taux d'erreur test comme crit\`ere pour la validation crois\'ee. Si on consid\`ere la version de la validation crois\'ee qui exclut une observation \`a la fois, on pose 
+\[ \hat Y_i = \begin{cases} 1 & \mbox{ si }  \hat f_{-i}(X_i)>u, \\ 0 & \mbox{sinon,} \end{cases}\]
+
+\noindent o\`u $u \in [0,1]$ est un entier fix\'e en avance. Ici, $\hat f_{-i}(X_i)$ est calcul\'e en utilisant toutes les observations, sauf la $i^{\mbox{\`eme}}$. Le taux d'erreur test est donc estim\'e par $$\frac{1}{n} \sum_{i=1}^n 1_{\{y_i \neq \hat y_i\}}$$
+
+\noindent Dans la pratique, on pose $u=1/2$ et on s\'electionne l'entier $k$ qui minimise le taux d'erreur test.
+
+\begin{verbatim}
+> ### Methode 1 : Taux d'erreur test 
+> 
+> valeurs.k <- seq(100,300,10)
+> res.cv.1 <- NULL
+> u <- 0.5
+> 
+> for (k in valeurs.k)
++ {
++ pred <- knn.reg(train=X,y=Y,k=k)
++ r <- pred$residuals
++ p.hat <- Y - r
++ Y.hat <- as.numeric(p.hat>u)
++ res.cv.1 <- c(res.cv.1,mean(Y!=Y.hat))
++ }
+> 
+> plot(valeurs.k,res.cv.1,xlab="Valeurs de k",
++      ylab="Taux d'erreur test")
+> 
+> k.min <- valeurs.k[which.min(res.cv.1)]; k.min
+[1] 190
+\end{verbatim}
+
+\noindent Et on obtient 
+\begin{center}
+\includegraphics[scale=0.23]{Graphique9.pdf}
+\end{center}
+
+\noindent Le taux d'erreur test est minimal pour $k=190$. On illustre le graphique obtenu avec $k=190$.
+
+\begin{verbatim}
+> pred_k.min <- knn.reg(train=X,test=axe.x,y=Y,k=k.min)
+> plot(X,Y,type="p")
+> lines(axe.x$lstat,pred_k.min$pred,col="red")
+> title("Regression KNN avec K=k.min qui minimise le taux d'erreur test")
+\end{verbatim}
+
+\noindent Et on obtient 
+\begin{center}
+\includegraphics[scale=0.23]{Graphique10.pdf}
+\end{center}
+
+\noindent La m\'ethode d\'ecrite ci-haut pour s\'electionner le param\`etre $k$ d\'epend de $u$. Par exemple, avec $u=1/4$, on obtient $k=290$ et avec $u=3/4$, on obtient $k=50$. Le choix de $u$ est arbitraire, m\^eme si $u=1/2$ para\^it un choix naturel. Pour rem\'edier \`a cette probl\'ematique, on peut consid\'erer l'aire sous la courbe ROC comme crit\`ere pour la validation crois\'ee. On choisira alors l'entier $k$ qui maximisera l'aire sous la courbe.
+
+\begin{verbatim}
+> library("pROC")#### Installer la librairie pROC
+> 
+> valeurs.k <- seq(100,300,10)
+> res.cv.2 <- NULL
+> for (k in valeurs.k)
++ {
++ pred <- knn.reg(train=X,y=Y,k=k)
++ r <- pred$residuals
++ p.hat <- Y - r
++ courbe.roc <- roc(response=Y,predictor=p.hat)
++ res.cv.2 <- c(res.cv.2,courbe.roc$auc)
++ }
+> plot(valeurs.k,res.cv.2,xlab="Valeurs de k",
++      ylab="Surface sous la courbe")
+> 
+> k.max <- valeurs.k[which.max(res.cv.2)]
+> k.max
+[1] 200
+\end{verbatim}
+
+\noindent On s\'electionne $k=200$, ce qui est proche du $k$ s\'electionn\'e par le taux d'erreur test avec $u=1/2$. 
 
 \end{document}
+

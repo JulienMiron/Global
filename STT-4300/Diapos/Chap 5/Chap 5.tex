@@ -7,7 +7,7 @@
 \newcommand{\RR}{\ensuremath{\mathbb{R}}}
 \newcommand{\RRn}[1]{\mathbb{R}^{#1}}
 \DeclareMathOperator{\function}{function}
- 
+
 % Code listing
 \usepackage[listings]{tcolorbox}
 \usepackage[normalem]{ulem}
@@ -18,380 +18,243 @@
 
 
 \begin{center}
-{\textbf{\LARGE Chapitre 5: Mod\`eles lin\'eaires g\'en\'eralis\'es}}
+{\textbf{\LARGE Chapitre 5: R\'egression non-lin\'eaire}}
 \end{center}
 
-\noindent Jusqu'\`a maintenant, on a vu la r\'egression lin\'eaire (Chapitre 2 et 3) et la r\'egression logistique (Chapitre 4). On constate que plusieurs concepts comme l'inf\'erence statistique concernant les coefficients de r\'egression $\beta$, la s\'election de mod\`eles et la d\'etection sont identiques pour les deux situations, m\^eme si chaque mod\`ele peut avoir des particularit\'es qui requi\`erent des proc\'edures sp\'ecifiques comme la courbe ROC pour la r\'egression \sout{lin\'eaire}\textcolor{red}{logistique}. Dans ce chap\sout{ire}\textcolor{red}{itre}, on consid\`ere une pr\'esentation unifi\'ee pour ces mod\`eles. On suppose que la variable r\'eponse $Y_i$ suit une distribution qui appartient \`a la famille exponentielle qui inclut la loi normale, la loi de Bernoulli et la loi binomiale.
+\tableofcontents
+\newpage
 
-\section{Famille exponentielle}
+\noindent Consid\'erons le jeu de donn\'ees \textsf{Auto} de la library \texttt{ISLR} du logiciel \textrm{R}. Ce jeu de donn\'ees contient 392 observations. La variable r\'eponse est \texttt{mpg}, la distance moyenne en miles parcourue par la voiture avec un gallon de carburant. On s'int\'eresse \`a une seule variable explicative, soit le poids de la voiture \textrm{weight}.
 
-\subsection{D\'efinition et exemples}
+\noindent On commence par tracer le nuage de points $\{(X_i,Y_i), i=1,\cdots,392\}$, o\`u $X_i$ et $Y_i$ sont, respectivement, le poids et la distance moyenne en miles parcourue avec un gallon de carburant de la voiture $i$. 
 
-Cette famille de lois contient la vaste majorit\'e des lois couramment utilis\'ees en pratique. On dit que la distribution de la variable al\'eatoire $Y$ appartient \textcolor{red}{\`a} la famille exponentielle si la fonction de probabilit\'e de $Y$ s'\'ecrit sous la forme:
-$$f_Y(y) = a(y,\phi) \exp\left\{\frac{y\theta-b(\theta)}{\phi}\right\}.$$
-\noindent Ici, $f_Y(y)$ est la fonction de densit\'e si $Y$ est continue et la fonction de mas\sout{s}\textcolor{red}{se} $P(Y=y)$ si $Y$ est discr\`ete.
-
-\noindent La distribution est param\'etr\'ee avec deux param\`etres: le param\`etre canonique $\theta$ et le param\`etre de dispersion $\phi$. On montre que $E[Y]=\sout{\mu }b'(\theta)$, o\`u $b'(u)=db(u)/du$ est la d\'eriv\'ee de $b(u)$ par rapport \`a $u$. Par cons\'equent, le param\`etre canonique est directement li\'e \`a l'esp\'erance de $Y$. On montre aussi que $Var(Y)=\phi b''(\theta)$, o\`u $b''(u)=d^2b(u)/du^2$ est la d\'eriv\'ee seconde de $b(u)$ par rapport \`a $u$. On en d\'eduit que $Var[Y]=\phi V(\mu)$, avec $V(u)=b''[{b'}^{-1}(u)]$. Le param\`etre de dispersion $\phi$ mod\'elise donc la variance de $Y$.
-
-\noindent Les distributions de la famille exponentielle poss\`\textcolor{red}{e}dent, en g\'en\'eral, deux param\`etres $\theta$ et $\phi$. Cependant, pour certaines distributions, le param\`etre de dispersion est fix\'e \`a 1 et on a ai\sout{sn}\textcolor{red}{n}si un seul param\`etre.
-
-\noindent Voici quelques exemples de ces distributions:
-\begin{enumerate}
-\item[$\bullet$] {\bf Loi normale:} Soit $Y \sim {\cal N}(\mu,\sigma^2)$. La fonction de densit\'e de $Y$ s'\'ecrit:
-\begin{eqnarray*}
-F_Y(y)&=&\frac{1}{\sqrt{2\pi \sigma^2}} \exp\left\{-\frac{(y-\mu)^2}{2\sigma^2}\right\} \\
-&=& \frac{1}{\sqrt{2\pi \sigma^2}} \exp\left\{\frac{y\mu-\mu^2/2}{\sigma^2}-\frac{y^2}{2\sigma^2}\right\}
-\end{eqnarray*}
-
-Cette fonction de densit\'e est un cas particulier d'une fonction de probabilit\'e d'une loi appartenant \`a la famille exponentielle avec $\theta=\mu$, $\phi=\sigma^2$, $$a(\sout{\theta}\textcolor{red}{y,\phi})=\frac{1}{\sqrt{2\pi \sigma^2}} \exp\left\{-\frac{y^2}{2\sigma^2}\right\}$$ et $b(\theta)=\theta^2/2$. Plus encore, on a $E(Y)=b'(\theta)=\theta=\mu$ et $Var(Y)=\phi b''(\theta) = \sigma^2$ puisque $b''(u)=1$. On en d\'eduit que $V(\mu)=1$.
-
-\item[$\bullet$]{\bf Loi binomiale:} Soit $Y \sim \mbox{Bin}(m,\pi)$. On a alors pour $y=0,1,\cdots,m$:
-\begin{eqnarray*}
-P(Y=y) &=& \binom{m}{y} \pi^y (1-\pi)^{m-y}\\
-&=& \binom{m}{y} \left(\frac{\pi}{1-\pi}\right)^y (1-\pi)^m \\
-&=& \binom{m}{y} \exp\left\{y \log\left(\frac{\pi}{1-\pi}\right) +m\log(1-\pi)\right\} \\
-\end{eqnarray*}
-
-On reconnait la fonction de probabilit\'e d'une famille exponentielle avec:
-\begin{eqnarray*}
-\theta &=& \log\left\{\frac{\pi}{1-\pi}\right\} \\
-\pi&=& \frac{e^{\theta}}{1+e^{\theta}} \\
-\phi&=&1 \\
-a(y,\phi)&=& \binom{m}{y} \\
-b(\theta)&=&-m\log(1-\pi) = m\log(1+e^{\theta}).
-\end{eqnarray*}
-
-On en d\'eduit que $E[Y]=b'(\theta)=m e^{\theta}/(1+e^{\theta})=m\pi$, $Var[Y]=\phi b''(\theta)=me^{\theta}/(1+e^{\theta})^2=m\pi(1-\pi)$ et $V(\mu)=\mu(m-\mu)/m$.
-
-\item[$\bullet$] {\bf Loi de Poisson:} Soit $Y \sim {\cal P}oisson(\lambda)$. On a alors pour $y=0,1,\cdots$, on a $$P(Y=y)=e^{-\lambda} \frac{\lambda^y}{y!}=\frac{1}{y!} \exp\left\{y\log(\lambda)-\lambda\right\}.$$ On reconnait la fonction de probabilit\'e d'une famille exponentielle avec: $\theta=\log(\lambda)$, $\phi=1$, $a(y,\phi)=1/y!$ et $b(\theta)=\lambda = e^{\theta}.$ On en d\'eduit que $E[Y]=b'(\theta)=e^{\theta}=\lambda=\mu$, $Var[Y]=\phi b''(\theta)=e^{\theta}=\lambda=\mu$ et $V(\mu)=\mu$.
-
-
-\item[$\bullet$] {\bf Loi Gamma:} Soit $Y \sim \mbox{Gamma}(\alpha,\beta)$. La fonction de densit\'e de $Y$ est donn\'ee par 
-$$
-f_Y(y) = \begin{cases} \frac{y^{\alpha-1}e^{-y/\beta}}{\Gamma(\alpha)\beta^\alpha}  & \mbox{si } y \ge 0 \\
-0 & \mbox{si } y<0
-\end{cases}
-$$
-o\`u $\Gamma(\alpha)=\int_0^\infty t^{\alpha-1} e^{-t} dt$. Avec cette param\'etrisation, on a $E[Y]=\alpha\beta$ et $Var[Y]=\alpha \beta^2$. Pour montrer que la loi Gamma appartient \`a la famille exponentielle, on reparam\'etrise la fonction de densit\'e comme suit. On pose $\mu=\alpha\beta$ et $\phi=1/\alpha$ et on obtient
-\begin{eqnarray*}
-f_Y(y) &=& \left(\frac{y}{\phi\mu}\right)^{1/\phi} \frac{1}{y} \frac{1}{\Gamma(1/\phi)} \exp\left\{-\frac{y}{\phi\mu}\right\}  \\
-&=& \left(\frac{y}{\mu}\right)^{1/\phi} \frac{1}{y} \frac{1}{\Gamma(1/\phi)} \exp\left\{-\frac{y}{\phi\mu}-\frac{\log(\mu)}{\phi}\right\}.
-\end{eqnarray*}
-
-On reconnait la fonction de probabilit\'e d'une famille exponentielle avec:
-\begin{eqnarray*}
-\theta &=& -1/\mu \\
-a(y,\phi)&=& \left(\frac{y}{\mu}\right)^{1/\phi} \frac{1}{y} \frac{1}{\Gamma(1/\phi)}\\
-b(\theta)&=&\log(\mu)=\log(-1/\theta)=-\log(-\theta)
-\end{eqnarray*}
-
-On en d\'eduit que $E[Y]=b'(\theta)=-1/\theta=\mu$, $Var[Y]=\phi b''(\theta) = \phi/\theta^2 = \phi \mu^2$ et $V(\mu)=\mu^2$.
-\end{enumerate}
-
-\subsection{D\'eviance}
-
-Soit $Y$ une variable a\'eatoire qui suit une distribution appartenant \`a la famille exponentielle. On pose $t(y,\mu)=y\theta-b(\theta)$ et $d(y,\mu)=2\{t(y,y)-t(y,\mu)\}$. On a alors 
-\begin{eqnarray*}
-\frac{\partial d(y,\mu)}{\partial \theta}&=& - \left\{y - b'(\theta)\right\} \\
-\frac{\partial^2 d(y,\mu)}{\partial \theta^2}&=&   b''(\theta) = V(\mu) >0 \\
-\end{eqnarray*}
-\noindent On en d\'eduit que $\partial d(y,\mu)/\partial \theta$ est \'egale \`a 0 lorsque $\mu=y$. Par cons\'equent, $d(y,\mu)$ est toujours positive et ne s'annule que lorsque $\mu=y$. 
-
-\noindent Pour la loi normale ${\cal N}(\mu,\sigma^2)$, on a $t(y,\mu)=y\mu-\mu^2/2$ et $d(y,\mu)=(y-\mu)^2$. 
-
-\noindent \`A la table 5.1 du livre {\it Generalized linear models with examples in R}, on trouve les expressions de $d(y,\mu)$ pour plusieurs distributions usuelles.
-
-\noindent On montre que lorsque $Y$ suit une distribution appartenant \`a la famille exponentielle, $d(Y,\mu)/\phi$ suit approximativement une distribution de Khi-deux \`a 1 degr\'e de libert\'e $\chi^2_1$. Supposons maintenant qu'on a un ensemble de variables al\'eatoires ind\'ependantes $\{Y_1,\cdots,Y_n\}$ qui suivent une distribution appartenant \`a la famille exponentielle. On suppose que pour $i=1,\cdots,n$, les param\`etres de la distributions de $Y_i$ sont $(\mu_i,\phi)$. Ainsi, chaque variable al\'eatoire poss\`ede sont propre param\`etre canonique mais le param\`etre de dispersion $\phi$ est commun \`a l'ensemble des variables. La d\'eviance et la d\'eviance standardi\'ee de $\{Y_1,\cdots,Y_n\}$ sont d\'efinies respectivement par 
-$D(y,\mu) = \sum_{i=1}^n d(y_i,\mu_i)$ et $D^*(y,\mu)=D(y,\mu)/\phi$. On en d\'eduit que $D^*(y,\mu)$ suit approximativement une distribution de Khi-deux \`a $n$ degr\'es de libert\'e $\chi^2_n$.
-
-\section{Mod\`eles lin\'eaires g\'en\'eralis\'es}
-
-\subsection{Donn\'ees et mod\`ele}
-Consid\'erons les donn\'ees $\Delta=\{(Y_i,X_i), i=1,\cdots,n\}$. Pour $i=1,\cdots,n$, $Y_i$ est la variable r\'eponse et $X_i=(X_{i1},\cdots,X_{ip})^\top$ est un ensemble de $p$ variables explicatives pour l'observation $i$. Un mod\`ele lin\'eaire g\'en\'earlis\'e est compos\'e de 3 composantes:
-\begin{enumerate}
-\item[$\bullet$] {\bf Composante al\'eatoire:} On sp\'ecifie une distribution pour $Y_i$. Explicitement, on suppose que $Y_i$ suit une distribution qui appartient \`a la famille exponentielle et que les param\`etres de cette distribution sont $\theta_i$ et $\phi$. Encore une fois, On suppose que chaque observation poss\`de son propre param\`etre canonique $\theta_i$ mais que le param\`etre de dispersion $\phi$ est commun \`a l'ensemble des variables. Ainsi, on a $E[Y_i]=\mu_i=b'(\theta_i)$ et $Var[Y_i]=\phi b''(\theta_i) = \phi V(\mu_i)$.
-\item[$\bullet$] {\bf Composante syst\'ematique:} On sp\'ecifie une composante syst\'ematique $\eta_i=f_\beta(X_{i1},\cdots,X_{ip})$  o\`u $f_\beta$ est une fonction connue param\'etr\'ee par un ensemble de param\`etres $\beta$. La composante syst\'ematique la plus populaire prend la forme lin\'eaire $\eta_i=\beta_0+\beta_1 X_{i1}+\beta_2 X_{i2} + \cdots + \beta_p X_{ip}$.
-\item[$\bullet$] {\bf Fonction de lien:} La fonction de lien relie la composante al\'eatoire \`a la composante syst\'ematique $g(\mu_i)=\eta_i$. On en d\'eduit que $\eta_i=g[b'(\theta_i)]$. La fonction de lien $g(\cdot)$ est dite fonction de lien {\it canonique} si $g[b'(u)]=u, \forall u \in \Re$, autrement dit, si elle assure que $\eta_i=\theta_i$.
-\end{enumerate}
-\noindent Les param\`etres du mod\`ele consid\'er\'e sont $\beta$ et $\phi$.
-
-\subsection{Estimation des param\`etres}
-
-\noindent La fonction log-vraisemblanace des donn\'ees $\Delta=\{(Y_i,X_i), i=1,\cdots,n\}$ s'\'ecrit:
-\begin{eqnarray*}
-l(\beta,\phi|\Delta) &=& \sum_{i=1}^n \log\left[f_Y(y_i)\right] \\
-&=& \sum_{i=1}^n \left\{ \log\left[a(y_i,\phi)\right] + \frac{y_i\theta_i-b(\theta_i)}{\phi} \right\}  \\
-&=& \sum_{i=1}^n \log\left[a(y_i,\phi)\right] + \frac{1}{\phi} \sum_{i=1}^n \left[y_i\theta_i-b(\theta_i)\right] \\
-&=& l_1(\phi) + \frac{1}{\phi} l_2(\beta),
-\end{eqnarray*}
-\noindent o\`u $l_1(\phi)=\sum_{i=1}^n \log\left[a(y_i,\phi)\right]$ et $l_2(\beta)=\sum_{i=1}^n \left[y_i\theta_i-b(\theta_i)\right]$
-
-\noindent On calcule $\hat\beta$ l'estimateur de maximum de vraisemblance $\hat\beta$ en maximisant $l_2(\beta)$. On montre que la distribution asymptotique de cet estimateur est
-$$\hat\beta \sim {\cal N}\left\{\beta,\phi(X^\top W X)^{-1}\right\},$$
-\noindent o\`u $W=\mbox{diag}\{W_1,W_2,\cdots,W_n\}$ est une matrice diagonale de dimension $n$, $$W_i=\frac{1}{V(\hat\mu_i)\left[g'(\hat\mu_i)\right]^2},$$
-
-\noindent et $\hat\mu_i=g^{-1}(\hat\eta_i)$ et $\hat\eta_i=\hat\beta_0+\hat\beta_1 X_{i1}+\cdots+\hat\beta_p X_{ip}$ sont les valeurs pr\'edites pour $\mu_i$ et $\eta_i$, respectivement.
-
-\noindent Si $\phi$ est fix\'e, comme c'est le cas pour la r\'egression logistique ou la r\'egression Poisson, alors la proc\'edure d'estimation s'arr\^ete ici.
-
-
-\noindent Si $\phi$ est inconnu, comme c'est le cas pour la r\'egression lin\'eaire avec une distribution normale ou Gamma, alors on doit l'estimer. L'estimateur de maximum de vraisemblance de $\phi$ est obtenu en maximisant $l_1(\phi) + l_2(\hat\beta)/\phi$. Cependant, l'estimateur obtenu est biais\'e pour les petites tailles d'\'echantillon. C'est pour cette raison qu'on lui pr\'ef\`ere des estimateurs obtenus par la m\'ethode des moments.
-
-\noindent \`A cette fin, on calcule les statistiques 
-$$X^2= \sum_{i=1}^n \frac{(y_i-\hat\mu_i)^2}{V(\hat\mu_i)}$$
-et $$D(y,\hat \mu).$$
-
-\noindent On montre que $X^2/\phi$ et $D(y,\hat\mu)/\phi$ sont approximativement distribu\'ees selon $\chi^2_{n-(p+1)}$. On en d\'eduit les estimateurs de Pearson et d\'eviance d\'efinis respectivement par $$\tilde \phi_P=\frac{X^2}{n-(p+1)}$$ et $$\tilde \phi_D=\frac{D(y,\hat\mu)}{n-(p+1)}.$$
-
-\noindent Les deux estimateurs $\tilde \phi_P$ et $\tilde \phi_D$ sont faciles \`a calculer et poss\`edent de bonnes propri\'et\'es th\'eoriques. L'estimateur Pearson poss\`ede un biais n\'egligeable et est robuste lorsque la distribution est mal sp\'ecifi\'ee. C'est l'estimateur par d\'efaut de la fonction $\textsf{glm}$ du logiciel \textrm{R}.  L'estimateur d\'eviance poss\`ede une faible variance. Cependant, cet estimateur peut \^etre sensible lorsque certaines valeurs de $y$ sont proches des limites de leur support. C'est pour cette raison que $\tilde \phi_P$ est plus populaire.
-
-\subsection{Inf\'erence statistique avec $\phi$ fix\'e}
-
-\noindent Si $\phi$ est fix\'e, comme c'est le cas pour la r\'egression logistique ou la r\'egression Poisson, alors un intervalle de confiance \`a $(1-\alpha)100\%$ pour $\beta_j$ est construit comme suit:
-$$\left[\hat\beta_j -z_{\alpha/2} \sqrt{ \phi v_j},\hat\beta_j +z_{\alpha/2} \sqrt{ \phi v_j} \right],$$
-o\`u $v_j$ est $(j+1)^{\mbox{\`eme}}$ \'el\'ement de la diagonale de la matrice $(X^\top W X)^{-1}$, $j=0,1,\cdots,p$.
-
-\noindent Consid\'erons maintenant une observation future $X^*=(1,X_1^*,X_2^*,\cdots,X_p^*)^\top$ et posons $\eta^*=\beta_0+\beta_1 X_1^* + \cdots + \beta_p X_p^*= {X^*}^\top\beta$ et $\mu^*=g^{-1}(\eta^*)$. La valeur pr\'edite de $\mu$ pour cette observation est $\hat\mu^*=g^{-1}(\hat\eta^*)$, o\`u $\hat\eta^*={X^*}^\top\hat\beta$. On  alors $Var[\hat\eta^*]={X^*}^\top Var[\hat\beta]X^* =\phi {X^*}^\top (X^\top W X)^{-1} X^*$. 
-
-\noindent Des intervalles de confiance \`a $(1-\alpha)100\%$ pour $\eta^*$ et $\mu^*$ sont donc donn\'es par
-$$\left[{X^*}^\top\hat\beta -  z_{\alpha/2} \sqrt{\phi {X^*}^\top (X^\top W X)^{-1} X^*}, {X^*}^\top\hat\beta +  z_{\alpha/2} \sqrt{\phi {X^*}^\top (X^\top W X)^{-1} X^*}\right]$$
-et
-$$\left[g^{-1}\left({X^*}^\top\hat\beta -  z_{\alpha/2} \sqrt{\phi {X^*}^\top (X^\top W X)^{-1} X^*}\right), g^{-1}\left({X^*}^\top\hat\beta +  z_{\alpha/2} \sqrt{\phi {X^*}^\top (X^\top W X)^{-1} X^*}\right)\right],$$
-\noindent respectivement.
-
-\noindent Supposons maintenant que l'on veuille comparer deux mod\`eles embo\^it\'es: un mod\`ele r\'eduit $A$ et un mod\`ele complet $B$. On construit la statistique de test
-$$X_{obs} = \frac{D_A(y,\hat\mu)-D_B(y,\hat\mu)}{\phi}.$$
-
-\noindent Cette statistique suit une loi de Khi-deux \`a $d$ degr\'es de libert\'e lorsque le mod\`ele r\'eduit est vrai. Ici, $d$ est la diff\'erence entre les nombres de param\`etres entre les deux mod\`eles. On rejette au seuil $\alpha$ l'hypoth\`ese que le mod\`ele r\'eduit est valide si $X_{obs}>\chi^2_{d,\alpha}$. Le seuil observ\'e est $\alpha^*=P(\chi^2_d > X_{obs})$.
-
-\subsection{Inf\'erence statistique avec $\phi$ inconnu}
-
-\noindent Lorsque le param\`etre $\phi$ est inconnu, on le remplace par son estimateur $\tilde \phi_P$. En faisant cette modification, on doit aussi remplacer les quantiles de la loi normale standard ${\cal N}(0,1)$ par les quantiles d'une loi $t$ de Student \`a $n-(p+1)$ degr\'es de libert\'e dans les expressions des bornes des intervalles de confiance de $\beta_j$, $\eta^*$ et $\mu^*$. Par exemple, l'intervalle de confiance pour $\beta_j$ devient
-$$\left[\hat\beta_j -t_{\alpha/2,n-(p+1)} \sqrt{ \tilde \phi_P v_j},\hat\beta_j +t_{\alpha/2,n-(p+1)} \sqrt{ \tilde \phi_P v_j} \right],$$
-
-\noindent De la m\^eme mani\`ere, l'expression de $X_{obs}$ pour comparer deux mod\`eles embo\^it\'es devient
-$$X_{obs} = \frac{\{D_A(y,\hat\mu)-D_B(y,\hat\mu)\}/d}{\tilde \phi_P}.$$
-
-\noindent La distribution de $X_{obs}$ lorsque le mod\`ele r\'eduit est valide devient $F_{d,n-(p+1)}$. On rejette au seuil $\alpha$ l'hypoth\`ese que le mod\`ele r\'eduit est valide si $X_{obs}>F_{d,n-(p+1),\alpha}$. Le seuil observ\'e devient $\alpha^*=P[F_{d,n-(p+1)} > X_{obs}]$.
-
-\section{S\'election et validation de mod\`eles}
-
-Les principes des proc\'edures pas \`a pas {\it backward}, {\it forward} et {\it stepwise} vues pour la r\'egression lin\'eaire et r\'egression logistique demeurent valident pour n'importe quel mod\`ele lin\'eaire g\'en\'eralis\'e. Ces mod\`eles se basent sur le $AIC$ et le $BIC$ d\'efinis par:
-\begin{eqnarray*}
-AIC &=& -2 l(\hat\beta,\tilde\phi_P|\Delta) + 2 (p+1) \\
-BIC &=& -2 l(\hat\beta,\tilde\phi_P|\Delta) + \log(n) (p+1) \\
-\end{eqnarray*}
-\noindent Pareillement, les outils de validation de mod\`eles et de d\'etection d'observations aberrantes et influentes tels que les r\'esidus, les DFBETAS et les DFFITS vus dans les chapitres pr\'ec\'edents dans le cadre de r\'egression lin\'eaire et/ou r\'egression logistique restent valides pour l'ensemble des mod\`eles lin\'eaires g\'en\'eralis\'es.
-
-\section{Exemple: r\'egression Poisson}
-
-Consid\'erons les donn\'ees $\Delta=\{(Y_i,X_i),i=1\cdots,n\}$. La variable r\'eponse $Y_i$ d\'enote un d\'enombrement. Par exemple, $Y_i$ peut \^etre le nombre de nouveaux cas d'une maladie dans une ville durant une ann\'ee ou le nombre d'absences d'un \'el\`eve durant la session. Par cons\'equent, on suppose que $Y_i \in \mathbb{N}$. D'autre part, $X_i=(X_{i1},X_{i2},\cdots,X_{in})^\top$ est un ensemble de $p$ variables explicatives.
-
-\noindent La r\'egression Poisson suppose que la variable r\'eponse $Y_i$ suit une loi Poisson avec un param\`etre $\mu_i$. Pour $y_i \in \mathbb{N}$, on a $$P(Y_i=y_i)=e^{-\mu_i} \frac{\mu_i^{y_i}}{y_i!}.$$
-\noindent En plus, on a $E[Y_i]=Var[Y_i]=\mu_i$.
-
-
-\noindent Comme on l'a vu plus haut, la famille exponentielle inclut la loi Poisson. Dans ce qui suit, on utilise la fonction de lien canonique $g(\mu_i)=\eta_i=\log(\mu_i)$. Avec cette fonction de lien, on a 
-\begin{eqnarray*}
-\mu_i &=& e^{\beta_0+\beta_1 X_{i1}+\cdots+\beta_p X_{ip}} \\
-&=& e^{\beta_0} \times \left\{e^{\beta_1}\right\}^{X_{i1}} \times \cdots \times \left\{e^{\beta_p}\right\}^{X_{ip}}
-\end{eqnarray*}
-\noindent Ainsi, si $X_{ij}$ augmente de 1, $\mu_i$ est multipli\'e par $e^{\beta_j}$. Si $\beta_j>0$, alors $e^{\beta_j}>1$ et $\mu_i$ croit s'il est multipli\'e par $e^{\beta_j}$.
-
-\noindent Les param\`etres de ce mod\`eles sont donc les coefficients de r\'egression $\beta=(\beta_0,\beta_1,\cdots,\beta_p)^\top$. L'estimateur de maximum de vraisemblence est obtenu en maximisant la fonction log-vraisemblance
-$$l(\beta) = \sum_{i=1}^n \left\{y_i(\beta_0+\beta_1 X_{i1}+\cdots+\beta_p X_{ip})-e^{\beta_0+\beta_1 X_{i1}+\cdots+\beta_p X_{ip}}\right\} + K, $$
-\noindent o\`u $K=-\sum_{i=1}^n \log(y_i!)$ est une constante qui ne d\'epent pas de $\beta$.
-
-\noindent La distribution asymptotique de $\hat\beta$ v\'erifie
-$$\hat\beta \sim {\cal N}\left\{\beta,(X^\top WX)^{-1}\right\},$$
-\noindent o\`u $W$ est une matrice diagonale de taille $n$ avec les \'el\'ements $w_i=\hat\mu_i=\sout{\hat\beta_0+\hat\beta_1 X_{i1}+\cdots+\hat\beta_p X_{ip}}\textcolor{red}{e^{\hat\beta_0+\hat\beta_1 X_{i1}+\cdots+\hat\beta_p X_{ip}}}, i=1,\cdots,n$ sur la diagonale.
-
-\noindent La d\'eviance de ce mod\`ele est 
-$$d(y,\mu)=2\left\{y\log(\frac{y}{\mu})-(y-\mu)\right\}$$
-et on v\'erifie l'ad\'equation de ce mod\`ele \`a un ensemble de donn\'ees a l'aide des statistiques d'ajustement
-$$X^2 = \sum_{i=1}^n \frac{(y_i-\hat\mu_i)^2}{\hat\mu_i} \, \, \, \mbox{ et } \, \, \, D = \sum_{i=1}^n d(y_i,\hat\mu_i).$$
-\noindent Ces deux statistiques suivent approximativement une loi de Khi-deux \`a $n-(p+1)$ degr\'es de libert\'e si le mod\`ele de Poisson est bien adapt\'e aux donn\'ees. 
-
-\noindent Les proc\'edures d'inf\'erence statistique et de s\'election et validation de mod\`eles sont conduites en suivant la m\'ethodologie g\'en\'erale pour les mod\`eles lin\'eaires g\'en\'eralis\'es pr\'esent\'ee plus haut.
-
-\noindent Dans ce qui suit, on s'int\'eresse \`a deux aspects sp\'ecifiques 'a la r\'egression Poisson: les variables explicatives {\it offset} et l'extra-variabilit\'e, aussi appel\'ee variabilit\'e extra-Poissonni\`ene. 
-
-\noindent Pour ces illustrer ces aspects, on consid\`ere le jeu de donn\'ees \textsf{danishlc} de la library \texttt{GLMsData} du logiciel \textrm{R}. Ce jeu de donn\'ees contient deux variables explicatives : la ville et la tranche d'\^age. En effet, les donn\'ees sont collect\'ees dans 4 villes diff\'erentes et concernent 6 tranches d'\^age. La variable r\'eponse est le nombre de nouveaux cas de cancer des poumons entre 1968 et 1971. La base de donn\'ees contient une autre variable int\'eressante: la population de chaque tranche d'\^age dans chaque ville. 
-
-\subsection{Variables explicatives {\it offset}}
-
-La variable r\'eponse $Y_i$ est le nombre de nouveaux cas de cancer des poumons parmi $m_i$ qui repr\'esente la population d'une tranche d'\^age dans une ville donn\'ee. Normalement, on aurait eu une r\'egression logistique avec $Y_i \sim \mbox{Bin}(m_i,\pi_i)$, o\`u $\pi_i$ est la probabilit\'e qu'un individu d\'eveloppe le cancer en question. Une estimation empirique de $\pi_i$ est donn\'ee par $\tilde\pi_i=Y_i/m_i$. Selon les donn\'ees qu'on a, $\sout{\tilde pi_1}\textcolor{red}{\tilde\pi_1}=11/3059 \approx 3.6 \times 10^{-3}$. Cette est probabilit\'e est tr\`es petite et une r\'egression logistique ne semble pas \^etre appropri\'ee pour analyser ces donn\'ees. 
-
-\noindent Une alternative est de mod\'eliser l'esp\'erance du ratio $Y_i/m_i$ en fonction des variables explicatives. Autrement dit, on \'ecrit que $Y_i$ suit une loi de Poisson avec un param\`etre $\mu_i$ qui v\'erifie
-$$\log(\frac{\mu_i}{m_i}) = \beta_0+\beta_1 X_{i1}+\cdots+\beta_p X_{ip}.$$
-\noindent Cette derni\`ere \'egalit\'e s'\'ecrit aussi:
-$$\log(\mu_i) = \beta_0+\log(m_i)+\beta_1 X_{i1}+\cdots+\beta_p X_{ip}.$$
-\noindent Ainsi, le terme $\log(m_i)$ peut \^etre consid\'er\'e comme une variable explicative avec un coefficient $\beta_j$ fix\'e \`a 1. On parle d'une variable explicative {\it offset}. Dans une r\'egression Poisson avec un lien $\log$, un terme {\it offset} est utile lorsqu'on pense que l'esp\'erance de la variable $Y_i$ est proportionnelle \`a une autre variable qu'on veut inclure dans le mod\`ele.
- 
 \begin{verbatim}
-> if (!require("GLMsData")) install.packages("GLMsData")
-> library("GLMsData")#### Installer la librairie GLMsData
+> if (!require("ISLR")) install.packages("ISLR")
+> library("ISLR")#### Installer la librairie ISLR
 > 
-> data(danishlc)  #### Rendre le jeu de donnees danishlc disponible
+> data(Auto)
+> X <- Auto$weight
+> Y <- Auto$mpg
 > 
-> modele.additif<-glm(Cases~offset(log(Pop))+City+Age,family=poisson,data=danishlc)
-> modele.City<-glm(Cases~offset(log(Pop))+City,family=poisson,data=danishlc)
-> modele.Age<-glm(Cases~offset(log(Pop))+Age,family=poisson,data=danishlc)
-> 
-> Q1 <- deviance(modele.City)-deviance(modele.additif)
-> Q2 <- deviance(modele.Age)-deviance(modele.additif)
-> 
-> df1 <- summary(modele.City)$df[2]-summary(modele.additif)$df[2]
-> df2 <- summary(modele.Age)$df[2]-summary(modele.additif)$df[2]
-> 
-> 1-pchisq(Q1,df=df1)
-[1] 0
-> 1-pchisq(Q2,df=df2)
-[1] 0.182414
-\end{verbatim} 
+> plot(X,Y,xlab="Poids de la voiture",
++      ylab="Distance parcourue avec un gallon de carburant")
+\end{verbatim}
 
-\noindent Il y a une diff\'erence significative entre les incidences du cancer des poumons des diff\'erentes tranches d'\^age. Cependant, ces incidences par tranche d'\^age 
- semblent \^etre les m\^emes pour les diff\'erentes villes.
- 
-\subsection{Variabilit\'e extra-Poissonni\`ene}
+\noindent Et on obtient 
+\begin{center}
+\includegraphics[scale=0.3]{Graphique1.pdf}
+\end{center}
 
-Avec une variable r\'eponse $Y_i$ qui suit une distribution Poisson, on doit avoir $E[Y_i]=Var[Y_i]=\mu_i$. Dans la pratique, il arrive qu'on ait $\sout{E[Y_i]>Var[Y_i]}\textcolor{red}{Var[Y_i]>E[Y_i]}$. Dans ce qui suit, on pr\'esente deux strat\'egies pour rem\'edier \`a ce probl\`eme. 
 
-\subsubsection{Approche Quasi-Poisson} La premi\`ere strat\'egie consiste \`a consid\'erer un mod\`ele Quasi-Poisson. Avec ce mod\`ele, on sp\'ecifie seulement les deux premiers moment de la distribution de $Y_i$: $E[Y_i]=\mu_i$ et $Var[Y_i]=\phi \mu_i$. Avec cette approche, on obtient les m\^emes estimateurs $\hat\beta$ qu'un mod\`ele de Poisson mais la matrice $Var(\hat\beta)$ est multipli\'e par $\tilde \phi_P=X^2/(n-(p+1))$.
+\noindent Ce graphique montre que la relation entre $X$ et $Y$ n'est clairement pas \sout{clairement pas }lin\'eaire. Dans le chapitre pr\'ec\'edent, on a consid\'er\'e deux \sout{approaches}\textcolor{red}{approches} pour \'etudier la relation entre $X$ et $Y$; soient l'estimateur des $k$ plus proches voisins et l'estimateur par noyau. Ces approches nous ont permis d'estimer $f(x)=E[Y|X=x]$. Dans ce chapitre, on pr\'esente des approches al\sout{e}\textcolor{red}{}ternatives pour estimer $f(x)$.
+
+\section{R\'egression polynomiale}
+
+\noindent L'id\'ee de la r\'egression polynomiale est d'approximer $f(x)$ par un polyn\^ome de degr\'e $p$.  Ainsi, on pose 
+$$f(x) = \beta_0 + \beta_1 x + \cdots + \beta_p x\textcolor{red}{^p}$$
+et on obtient le mod\`ele lin\'eaire 
+$$Y_i = \beta_0 + \beta_1 X_i + \cdots + \beta_p X_i^p + \epsilon_i, \, \, \, i=1,\cdots,n.$$
+\noindent On peut faire l'hypoth\`ese que $\epsilon_i \sim {\cal N}(0,\sigma^2)$ ou que simplement $E[\epsilon_i]=0$ et $Var[\epsilon_i]=\sigma^2>0$.
+
+\noindent Dans tous les cas, on estime $\beta=(\beta_0,\beta_1,\cdots,\beta_p)^\top$ par 
+$$\hat \beta = (X^\top X)^{-1} X^\top Y,$$
+o\`u
+$$X =\begin{pmatrix} 1 & X_1 & \cdots & X_1^p \\
+                     1 & X_2 & \cdots & X_2^p \\
+                     \vdots & \vdots & \ddots & \vdots \\
+                     1 & X_n & \cdots & X_n^p \\
+\end{pmatrix}.$$ 
+
+\noindent Le vecteur $\beta$ de coefficients de regr\'ession contient $p+1$ \'el\'ements. On dit qu'on a $p+1$ degr\'es de libert\'e.
+
+\noindent Pour s\'electioner la valeur la plus ad\'equate pour $p$, on peut se fier \`a des crit\`eres comme l'AIC ou le BIC ou encore effectuer des tests d'hypoth\`eses avec des statistiques $F$. Dans ce chapitre, on adopte l'esprit du chapitre pr\'ec\'edent et on choisi\textcolor{red}{t} la valeur de $p$ qui minimise le taux d'erreur test. On peut estimer le taux d'erreur test avec la proc\'edure qui exclut une observation du jeu de donn\'ees entrainement \`a la fois. On a vu au Chapitre 7 que cette m\'ethode nous conduit \`a une expression explicite pour le crit\`ere de la validation crois\'ee.
+
+\noindent Une fois qu'on choisi\textcolor{red}{t} la valeur de $p$, on a alors
+$$\hat f(x) = \hat\beta_0 + \hat\beta_1 x + \cdots + \sout{\beta_p}\textcolor{red}{\hat\beta_p} x^p = x_* \hat\beta;$$
+\noindent o\`u $x_* = \begin{pmatrix} 1 & x & x^2 & \cdots & \sout{x_p}\textcolor{red}{x^p} \end{pmatrix}$.
+\noindent On en d\'eduit que $Var[\hat f(x)]= x_* Var[\hat\beta] x_*^\top$. Cette expression nous permet d'obtenir des bandes de confiance autour de $\hat f(x)$.
 
 \begin{verbatim}
 > ############################
-> ## Approche Quasi-Poisson ##
+> ## Regression polynomiale ##
 > ############################
 > 
-> modele.Age.Quasi <- glm(Cases~offset(log(Pop))+Age,
-+                         family=quasipoisson,data=danishlc)
-> Pearson <- sum((danishlc$Cases-fitted(modele.Age))^2/fitted(modele.Age))
-> phi.P.tilde <- Pearson/(n-(p+1)); phi.P.tilde
-[1] 1.447135
-> summary(modele.Age.Quasi)
-
-Call:
-glm(formula = Cases ~ offset(log(Pop)) + Age, family = quasipoisson, 
-    data = danishlc)
-
-Deviance Residuals: 
-    Min       1Q   Median       3Q      Max  
--2.8520  -0.6424  -0.1067   0.7853   1.5468  
-
-Coefficients:
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept) -4.45397    0.21606 -20.615 5.71e-14 ***
-Age40-54    -1.40828    0.30089  -4.680 0.000186 ***
-Age55-59    -0.32594    0.30316  -1.075 0.296511    
-Age60-64     0.09339    0.28344   0.330 0.745574    
-Age65-69     0.34201    0.28079   1.218 0.238937    
-Age70-74     0.43894    0.28785   1.525 0.144669    
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-(Dispersion parameter for quasipoisson family taken to be 1.447135)
-
-    Null deviance: 129.908  on 23  degrees of freedom
-Residual deviance:  28.307  on 18  degrees of freedom
-AIC: NA
-
-Number of Fisher Scoring iterations: 5
-
-> cbind(coef(modele.Age),coef(modele.Age.Quasi))
-                   [,1]        [,2]
-(Intercept) -4.45397213 -4.45397213
-Age40-54    -1.40828068 -1.40828068
-Age55-59    -0.32593887 -0.32593887
-Age60-64     0.09339483  0.09339483
-Age65-69     0.34200597  0.34200597
-Age70-74     0.43894138  0.43894138
-> phi.P.tilde*vcov(modele.Age)
-            (Intercept)    Age40-54    Age55-59    Age60-64    Age65-69    Age70-74
-(Intercept)  0.04668176 -0.04668176 -0.04668176 -0.04668176 -0.04668176 -0.04668176
-Age40-54    -0.04668176  0.09053432  0.04668176  0.04668176  0.04668176  0.04668176
-Age55-59    -0.04668176  0.04668176  0.09190471  0.04668176  0.04668176  0.04668176
-Age60-64    -0.04668176  0.04668176  0.04668176  0.08033605  0.04668176  0.04668176
-Age65-69    -0.04668176  0.04668176  0.04668176  0.04668176  0.07884030  0.04668176
-Age70-74    -0.04668176  0.04668176  0.04668176  0.04668176  0.04668176  0.08286012
-> vcov(modele.Age.Quasi)
-            (Intercept)    Age40-54    Age55-59    Age60-64    Age65-69    Age70-74
-(Intercept)  0.04668176 -0.04668176 -0.04668176 -0.04668176 -0.04668176 -0.04668176
-Age40-54    -0.04668176  0.09053432  0.04668176  0.04668176  0.04668176  0.04668176
-Age55-59    -0.04668176  0.04668176  0.09190471  0.04668176  0.04668176  0.04668176
-Age60-64    -0.04668176  0.04668176  0.04668176  0.08033605  0.04668176  0.04668176
-Age65-69    -0.04668176  0.04668176  0.04668176  0.04668176  0.07884030  0.04668176
-Age70-74    -0.04668176  0.04668176  0.04668176  0.04668176  0.04668176  0.08286012
+> modele.polynomial <- lm(mpg~ poly(weight,2,raw=TRUE),data=Auto)
+> 
+> axe.poids <- seq(min(Auto$weight),max(Auto$weight),1)
+> prediction.polynomial <- predict(modele.polynomial,
+>                                  newdata=list(weight=axe.poids),se=TRUE)
+> 
+> plot(mpg~weight,data=Auto)
+> lines(axe.poids,prediction.polynomial$fit,col="red")
+> lines(axe.poids,
+> prediction.polynomial$fit-1.96*prediction.polynomial$se.fit,lty=2,col="blue")
+> lines(axe.poids,
+> prediction.polynomial$fit+1.96*prediction.polynomial$se.fit,lty=2,col="blue")
 \end{verbatim}
 
-\noindent Cette approache permet de calculer $\hat\beta$ et $Var[\hat\beta]$, de contruire des intervalles de confiance et d'effectuer des tests d'hypoth\`eses sur les coefficients $\beta$. Cependant, il est primordial de pr\'eciser que cette approche n'implique pas de distribution et donc ne permet pas de calculer des quantit\'es comme $AIC$ ou $BIC$ car on ne d\'efinit pas de fonction de log-vraisemblance.
+\noindent Et on obtient 
+\begin{center}
+\includegraphics[scale=0.3]{Graphique2.pdf}
+\end{center}
 
-\subsubsection{Mod\`ele avec la loi binomiale n\'egative}
 
-On dit que $Y_i$ suit une loi binomiale n\'egative avec les param\`etres $\mu_i$ et $\alpha$ si 
-$$P(Y_i=y_i) = \frac{\Gamma(y_i+1/\alpha)}{\Gamma(y_i+1)\Gamma(1/\alpha)} \left(\frac{1/\alpha}{\mu_i+1/\alpha}\right)^{1/\alpha} \left(\frac{\mu_i}{\mu_i+1/\alpha}\right)^{y_i}, \, \, \, y_i=0,1,2,\cdots, \, \, \, \mbox{ et } \alpha>0.$$
 
-\noindent Avec cette loi, on a $E[Y_i]=\mu_i$ et $Var[Y_i]=\mu_i+\alpha \mu_i^2$. On retrouve la loi de Poisson de param\`etre $\mu_i$ lorsque $\alpha \rightarrow 0$.
+\noindent La regr\'ession polynomiale peut \^etre vue comme une regr\'ession sur des transformations connues de la variable explicative: 
+$$Y_i = \beta_0 b_0(X_i)+ \beta_1 b_1(X_i) + \cdots + \beta_p b_p(X_i) + \epsilon_i, \, \, \, i=1,\cdots,n,$$
 
-\noindent Pour d\'efinir un mod\`ele de r\'egression, on pose $\mu_i = e^{\beta_0+\beta_1 X_{i1}+\cdots+\beta_p X_{ip}}$. Avec cette fonction de lien, les coefficients $\beta$ gardent la m\^eme interpr\'etation que dans une r\'egression Poisson.
+\noindent avec $b_k(x)=x^k$ pour $k=0,1,\cdots,p$. Cette approche peut \^etre g\'en\'eralis\'ee de plusieurs fa\c{c}ons.
 
-\noindent Les param\`etres de ce mod\`ele\sout{s} sont donc $\beta$ et $\alpha$ et on retrouve la r\'egress\sout{s}ion Poisson lorsque $\alpha \rightarrow 0$. Le principal inconv\'eniant de ce mod\`ele est qu'on doit estimer $\alpha$ et $\beta$ simultan\'ement. Ceci peut causer des probl\`emes au niveau num\'erique.
+\section{R\'egression avec des fonctions constantes par mo\sout{c}\textcolor{red}{r}ceaux}
 
-\noindent Un avantage int\'eressant pour ce mod\`ele est qu'il nous permet de tester l'hypoth\`ese nulle $H_0:\alpha=0$. \`A cet effet, on ajuste le mod\`ele Poisson et le mod\`ele avec une loi binomiale n\'egative et on calcule les d\'eviances des deux mod\`eles, disons $D_0$ et $D_1$. La statistique du test sera alors $Q_{obs}=D_0-D_1$. Sous l'hypoth\`ese nulle $H_0:\alpha=0$, on a $$Q \sim \frac{1}{2} \chi^2_0 + \frac{1}{2} \chi^2_1$$
-car on teste $\alpha$ sur la limite de son domaine de d\'efinition. Le seuil observ\'e est alors \'egal \`a $\alpha^*=P(\chi^2_1>Q_{obs})/2$. 
+Posons $[A,B]$ le domaine de d\'efinition de la variable explicative $X$. Dans la pratique, on peut par exemple, poser $A=\mbox{min}\{X_1,\cdots,X_n\}-\varepsilon$ et $B=\mbox{\sout{min}}\textcolor{red}{max}\{X_1,\cdots,X_n\}+\varepsilon$ o\`u $\varepsilon$ est un tr\`es petit r\'eel positif. 
+
+\noindent Consid\'erons une partition $A = c_0 < c_1 < \cdots < c_K = B$ de l'intervalle $[A,B]$. Pour $k=1,\cdots,K$, on d\'efi\sout{tion}\textcolor{red}{nit} la fonction indicatrice $b_k(x)$ par:
+$$b_k(x) = \begin{cases} 1 & \mbox{ si } x \in [c_{k-1},c_k] \\ 0 & \mbox{ sinon }\end{cases}$$
+
+\noindent Cette approche approxime $f(x)$ par une fonction constante par escalier: $f(x)=\beta_k$ si $x \in [c_{k-1},c_k]$. Autrement dit, on a
+$$f(x) = \beta_1 b_1(x) + \beta_2 b_2(x) + \cdots + \beta_K b_K(x)$$
+\noindent et le mod\`ele devient 
+$$Y_i = \beta_1 b_1(X_i) + \beta_2 b_2(X_i) + \cdots + \beta_K b_K(X_i) + \epsilon_i$$
+\noindent La variable explicative $X$ a donc \'et\'e discr\'etis\'ee et on a un mod\`ele d'ANOVA \`a un facteur fixe \`a $K$ modalit\'es. On montre que l'estimateur des moindres carr\'es de $\beta_k$ est
+$$\hat\beta_k = \frac{\sum\limits_{i=1}^n b_k(X_i)Y_i}{n_k},$$
+\noindent o\`u $n_k=\sum\limits_{i=1}^n b_k(X_i)$ est le nombre d'observations $X_i$ qui appartiennent \`a $[c_{k-1},c_k]$. Finalement, on a $Var[\hat\beta_k]=\sigma^2/n_k$. 
 
 \begin{verbatim}
-> #################################
-> ## Approche binomiale negative ##
-> #################################
+> #######################################
+> ## Regression constante par morceaux ##
+> #######################################
 > 
-> library(MASS)
+> modele.par.morceaux <- lm(mpg~ cut(weight,4),data=Auto)
+> prediction.par.morceaux <- predict(modele.par.morceaux,
+>                                    newdata=list(weight=axe.poids),se=TRUE)
 > 
-> modele.Age.NB <- glm.nb(formula = Cases~offset(log(Pop))+Age,link="log",data=danishlc)
-> 
-> summary(modele.Age.NB)
-
-Call:
-glm.nb(formula = Cases ~ offset(log(Pop)) + Age, data = danishlc, 
-    link = "log", init.theta = 195.5841968)
-
-Deviance Residuals: 
-    Min       1Q   Median       3Q      Max  
--2.8126  -0.6293  -0.1091   0.7648   1.5098  
-
-Coefficients:
-            Estimate Std. Error z value Pr(>|z|)    
-(Intercept) -4.45209    0.18300 -24.328  < 2e-16 ***
-Age40-54    -1.41012    0.25510  -5.528 3.25e-08 ***
-Age55-59    -0.32639    0.25689  -1.271   0.2039    
-Age60-64     0.09184    0.24089   0.381   0.7030    
-Age65-69     0.34153    0.23871   1.431   0.1525    
-Age70-74     0.43705    0.24449   1.788   0.0738 .  
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-(Dispersion parameter for Negative Binomial(195.5842) family taken to be 1)
-
-    Null deviance: 122.207  on 23  degrees of freedom
-Residual deviance:  27.168  on 18  degrees of freedom
-AIC: 138.67
-
-Number of Fisher Scoring iterations: 1
-
-
-              Theta:  196 
-          Std. Err.:  1364 
-
- 2 x log-likelihood:  -124.673 
-> 
-> Q.obs <- deviance(modele.Age)-deviance(modele.Age.NB)
-> 
-> pvalue <- (1-pchisq(Q.obs,df=1))/2 
-> 
-> pvalue
-[1] 0.1429792
+> plot(mpg~weight,data=Auto)
+> lines(axe.poids,prediction.par.morceaux$fit,col="red")
+> lines(axe.poids,
+> prediction.par.morceaux$fit-1.96*prediction.par.morceaux$se.fit,lty=2,col="blue")
+> lines(axe.poids,
+> prediction.par.morceaux$fit+1.96*prediction.par.morceaux$se.fit,lty=2,col="blue")
 \end{verbatim}
 
-\noindent On ne rejette pas l'hypoth\`ese nulle $H_0:\alpha=0$. On peut donc supposer qu'il n'y a pas de variabilit\'e extra-Poissonni\`ene dans les donn\'ees.
+\noindent Et on obtient 
+\begin{center}
+\includegraphics[scale=0.3]{Graphique3.pdf}
+\end{center}
+
+
+\section{R\'egression avec des splines}
+
+Les splines sont des polyn\^omes d\'efinis par intervalles. On commence par un cas simple avec $K=2$ et $p=3$. On divise le domaine $[A,B]$ en deux intervalles : $[c_0,c_1)$ et $[c_1,c_2)$. On approxime la fonction $f$ par 
+$$
+f(x) = \begin{cases} \beta_0 + \beta_1 x + \beta_2 x^2 + \beta_3 x^3 & \mbox{ si } x \in [c_0,c_1), \\ 
+                     \gamma_0 + \gamma_1 x + \gamma_2 x^2 + \gamma_3 x^3 & \mbox{ si } x \in [c_1,c_2). \end{cases}
+$$
+
+\noindent On a donc $4+4=8$ degr\'es de libert\'e. En plus, on impose que $f$ soit continue et deux fois d\'erivable au point $c_1$. Ce qui nous donne 3 contraintes. Finalement, on se retrouve avec 8-3=5 degr\'es de libert\'e.
+
+\noindent G\'en\'eralisons ce qu'on vient de faire \`a $K$ et $p$ arbitraires. On a $K$ polyn\^omes de degr\'e $p$, ce qui nous donne $K\times (p+1)$ param\`etres. Aux $K-1$ points int\'erieurs, on impose que $f$ soit continue et $p-1$ fois d\'erivable, ce qui nous donne $p\times (K-1)$ contraintes. Finalement, on a $K(p+1)-(K-1)p=K+p$ degr\'es de libert\'e.
+
+\noindent Pour un $p$ et un $K$ donn\'es, un choix math\'ematiquement convivial pour construire une base de $K+p$ splines est donn\'e par: $b_1(x)=1, b_2(x)=x, \cdots, b_{p+1}(x)=x^p, b_{p+2}(x)=h(x,c_1), b_{p+3}=h(x,c_2), \cdots, b_{p+K}=h(x,c_{K-1}),$
+
+\noindent o\`u $$h(x,c)=\begin{cases} (x-c)^p & \mbox{ si } x \geq c  \\ 0 \mbox{ sinon.} \end{cases}$$
+
+\noindent Il existe une infinit\'e de choix pour construire une base de $K+p$ splines. En effet, n'importe quelles $K+p$ combinaisons lin\'eaires ind\'ependantes de la base qu'on vient de d\'efinir est encore une base de $K+p$ splines.
+
+\noindent On d\'efinit alors le mod\`ele 
+$$Y_i  = \beta_1 b_1(X_i) + \beta_2 b_2(X_i) + \cdots + \beta_{K+p} b_{K+p}(X_i) + \epsilon_i, \, \, \, i=1,\cdots,n.$$ 
+
+\noindent L'estimateur des moindres carr\'es de $\beta=(\sout{beta_1}\textcolor{red}{\beta_1},\cdots,\beta_{K+p})^\top$ est $(X^\top X)^{-1} X^\top Y,$ o\`u 
+$$X =
+\begin{pmatrix}
+b_1(X_1) & b_2(X_1) & \cdots & b_{K+p}(X_1) \\
+b_1(X_2) & b_2(X_2) & \cdots & b_{K+p}(X_2) \\
+\vdots & \vdots & \ddots & \vdots \\
+b_1(X_n) & b_2(X_n) & \cdots & b_{K+p}(X_n) 
+\end{pmatrix}.
+$$
+
+\noindent On obtient finalement $\hat f(x) = \hat\beta_1 b_1(x) + \hat\beta_2 b_2(x) + \cdots + \hat\beta_{K+p} b_{K+p}(x)$.
+
+\begin{verbatim}
+######################
+## Splines cubiques ##
+######################
+
+if (!require("splines")) install.packages("splines")
+library("splines")	#### Installer la librairie splines
+
+modele.splines <- lm(mpg~bs(weight,knots=c(2200,2800,3600)),data=Auto)
+prediction.splines <- predict(modele.splines,
+                              newdata=list(weight=axe.poids),se=TRUE)
+plot(mpg~weight,data=Auto)
+lines(axe.poids,prediction.splines$fit,col="red")
+lines(axe.poids,
+prediction.splines$fit+1.96*prediction.splines$se.fit,lty=2,col="blue")
+lines(axe.poids,
+prediction.splines$fit-1.96*prediction.splines$se.fit,lty=2,col="blue")
+\end{verbatim}
+
+\noindent Et on obtient 
+\begin{center}
+\includegraphics[scale=0.3]{Graphique4.pdf}
+\end{center}
+
+\noindent Cet estimateur peut \^etre instable aux extr\'emit\'es du domaine de $X$. Pour rem\'edier \`a ce probl\`eme, on consid\`ere les splines naturelles. Celles-ci sont d\'efinies exactement comme les splines, \`a l'exception qu'on consid\`ere seulement des fonctions lin\'eaires sur les intervalles $[c_0,c_1)$ et $[c_{K-1},c_K)$.
+
+\begin{verbatim}
+
+#################################
+## Splines cubiques naturelles ##
+#################################
+
+modele.sn <- lm(mpg~ns(weight,df=4),data=Auto)
+prediction.sn <- predict(modele.sn,newdata=list(weight=axe.poids),se=TRUE)
+plot(mpg~weight,data=Auto)
+lines(axe.poids,prediction.sn$fit,col="blue")
+lines(axe.poids,
+prediction.sn$fit+1.96*prediction.sn$se.fit,lty=2,col="blue")
+lines(axe.poids,
+prediction.sn$fit-1.96*prediction.sn$se.fit,lty=2,col="blue")
+\end{verbatim}
+
+\noindent Et on obtient 
+\begin{center}
+\includegraphics[scale=0.3]{Graphique5.pdf}
+\end{center}
+
+\noindent Un autre d\'efau\sout{l}t des splines est qu'elles peuvent avoir tendance \`a aller chercher le maximum de points. Pour rem\'edier \`a ce probl\`eme, on impose une p\'enalit\'e pour les splines trop variables. Ainsi, on estime $\beta$ en minimisant
+$$\sum_{i=1}^n \left\{Y_i - [\beta_1 b_1(X_i) + \beta_2 b_2(X_i) + \cdots + \beta_{K+p} b_{K+p}(X_i)]\right\}^2 + \lambda \int_A^B f''(t)^2 dt.$$
+
+\noindent On montre que l'estimateur qui en r\'esulte est donn\'e par
+$$\hat \beta_\lambda = (X^\top X + \lambda M)^{-1} X^\top Y.$$
+
+\noindent Ici, $M$ est une matrice carr\'e\textcolor{red}{e} de dimensi\sout{oo}\textcolor{red}{o}n $K+p$ et l'\'el\'ement \`a la position $(l,q)$ de la matrice $M$ est \'egal \`a $\int_A^B b''_l(t) b''_q(t) dt$.
+
+\noindent Le param\`etre $\lambda$ est un param\`etre qui contr\^ole la r\'egularit\'e de $\hat f$. Dans la pratique, on estime ce param\`etre par validation crois\'ee.
+
+\begin{verbatim}
+> #######################
+> ## Splines penalites ##
+> #######################
+> 
+> modele.sp.df.16 <- smooth.spline(Auto$weight,Auto$mpg,df=16)
+> 
+> plot(mpg~weight,data=Auto)
+> lines(modele.sp.df.16,col="green")
+> 
+> modele.sp.cv <- smooth.spline(Auto$weight,Auto$mpg,cv=TRUE)
+Message d'avis :
+Dans smooth.spline(Auto$weight, Auto$mpg, cv = TRUE) :
+  la validation croisée avec des valeurs de 'x' non uniques paraît douteuse
+> modele.sp.cv$df
+[1] 10.35561
+> lines(modele.sp.cv,col="purple")
+\end{verbatim}
+
+\noindent Et on obtient 
+\begin{center}
+\includegraphics[scale=0.3]{Graphique6.pdf}
+\end{center}
 
 \end{document}
