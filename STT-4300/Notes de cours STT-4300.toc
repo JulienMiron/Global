@@ -1,78 +1,93 @@
 \babel@toc {french}{}\relax 
-\contentsline {section}{\numberline {1}Introduction et motivation}{3}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Formulation générale}{3}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Notation}{3}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Principes de la modélisation statistique}{3}{subsection.1.3}%
-\contentsline {section}{\numberline {2}Modèles linéaires généralisés (MLG)}{4}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Définition}{4}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Famille exponentielle}{4}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Composantes d'un MLG}{5}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Exemples de MLG}{5}{subsection.2.4}%
-\contentsline {subsubsection}{\numberline {2.4.1}Loi normale~: $Y_i \sim \mathcal {N}(\mu _i, \sigma ^2)$}{5}{subsubsection.2.4.1}%
-\contentsline {subsubsection}{\numberline {2.4.2}Loi binomiale~: $Y_i \sim \mathcal {B}(m_i, p_i)$}{5}{subsubsection.2.4.2}%
-\contentsline {subsubsection}{\numberline {2.4.3}Loi de Poisson~: $Y_i \sim \mathcal {P}(\lambda _i)$}{5}{subsubsection.2.4.3}%
-\contentsline {subsubsection}{\numberline {2.4.4}Loi gamma~: $Y_i \sim \Gamma (\mu _i, \nu )$}{5}{subsubsection.2.4.4}%
-\contentsline {subsection}{\numberline {2.5}Extensions~: loi multinomiale}{5}{subsection.2.5}%
-\contentsline {subsubsection}{\numberline {2.5.1}Données nominales}{5}{subsubsection.2.5.1}%
-\contentsline {subsubsection}{\numberline {2.5.2}Données ordinales}{5}{subsubsection.2.5.2}%
-\contentsline {subsection}{\numberline {2.6}Estimation des paramètres~: maximum de vraisemblance}{6}{subsection.2.6}%
-\contentsline {subsubsection}{\numberline {2.6.1}Newton-Raphson et méthode de scoring}{6}{subsubsection.2.6.1}%
-\contentsline {subsection}{\numberline {2.7}Algorithme MCPI (IWLS)}{6}{subsection.2.7}%
-\contentsline {subsection}{\numberline {2.8}Vérification du modèle}{6}{subsection.2.8}%
-\contentsline {subsubsection}{\numberline {2.8.1}Déviance}{6}{subsubsection.2.8.1}%
-\contentsline {subsubsection}{\numberline {2.8.2}Statistique $X^2$ de Pearson}{6}{subsubsection.2.8.2}%
-\contentsline {subsubsection}{\numberline {2.8.3}Mesures globales}{7}{subsubsection.2.8.3}%
-\contentsline {subsubsection}{\numberline {2.8.4}Résidus}{7}{subsubsection.2.8.4}%
-\contentsline {subsection}{\numberline {2.9}Intervalles de confiance et tests z}{7}{subsection.2.9}%
-\contentsline {subsection}{\numberline {2.10}Tests d'hypothèses}{7}{subsection.2.10}%
-\contentsline {subsection}{\numberline {2.11}Sélection de variables}{7}{subsection.2.11}%
-\contentsline {subsubsection}{\numberline {2.11.1}Différence de déviances}{7}{subsubsection.2.11.1}%
-\contentsline {subsubsection}{\numberline {2.11.2}Critère d'Akaike (AIC)}{8}{subsubsection.2.11.2}%
-\contentsline {subsection}{\numberline {2.12}Ce qui peut mal tourner}{8}{subsection.2.12}%
-\contentsline {subsubsection}{\numberline {2.12.1}Surdispersion}{8}{subsubsection.2.12.1}%
-\contentsline {subsubsection}{\numberline {2.12.2}Séparation (quasi-)complète}{8}{subsubsection.2.12.2}%
-\contentsline {subsubsection}{\numberline {2.12.3}Phénomène de Hauck-Donner}{8}{subsubsection.2.12.3}%
-\contentsline {section}{\numberline {3}Modélisation de l'excès de zéros dans les données de comptage}{9}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Modèle hurdle}{9}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Modèle ZIP (zero-inflated Poisson)}{9}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Comparaison hurdle vs ZIP}{9}{subsection.3.3}%
-\contentsline {section}{\numberline {4}Équations d'estimation généralisées (GEE)}{10}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Données longitudinales}{10}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Approches possibles}{10}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Modèles marginaux et GEE}{10}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Choix de la matrice de corrélation de travail $R(\alpha )$}{10}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}Estimation de $\phi $ et $\alpha $}{10}{subsection.4.5}%
-\contentsline {subsection}{\numberline {4.6}Distribution asymptotique}{10}{subsection.4.6}%
-\contentsline {subsection}{\numberline {4.7}Diagnostics et inférence}{11}{subsection.4.7}%
-\contentsline {section}{\numberline {5}Modèles linéaires généralisés mixtes (MLGM)}{12}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Motivation}{12}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Définition}{12}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Cas gaussien avec lien identité}{12}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Estimation}{12}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}Interprétation des effets fixes}{12}{subsection.5.5}%
-\contentsline {subsection}{\numberline {5.6}Prédiction des effets aléatoires}{13}{subsection.5.6}%
-\contentsline {section}{\numberline {6}Méthodes robustes}{14}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Motivation}{14}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Outils de mesure de la robustesse}{14}{subsection.6.2}%
-\contentsline {subsubsection}{\numberline {6.2.1}Fonction d'influence}{14}{subsubsection.6.2.1}%
-\contentsline {subsubsection}{\numberline {6.2.2}Point de rupture (\textit {breakdown point})}{14}{subsubsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.3}M-estimation}{14}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}MLG robustes}{14}{subsection.6.4}%
-\contentsline {subsection}{\numberline {6.5}Sélection de variables robuste}{14}{subsection.6.5}%
-\contentsline {subsection}{\numberline {6.6}GEE robustes}{15}{subsection.6.6}%
-\contentsline {subsection}{\numberline {6.7}Modèle hurdle robuste}{15}{subsection.6.7}%
-\contentsline {section}{\numberline {7}Modèles additifs généralisés (MAG)}{16}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Idée générale}{16}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Lissage univarié}{16}{subsection.7.2}%
-\contentsline {subsubsection}{\numberline {7.2.1}Fonctions de base}{16}{subsubsection.7.2.1}%
-\contentsline {subsubsection}{\numberline {7.2.2}Lissage pénalisé}{16}{subsubsection.7.2.2}%
-\contentsline {subsubsection}{\numberline {7.2.3}Matrice d'influence et degrés de liberté effectifs}{16}{subsubsection.7.2.3}%
-\contentsline {subsubsection}{\numberline {7.2.4}Interprétation bayésienne}{16}{subsubsection.7.2.4}%
-\contentsline {subsubsection}{\numberline {7.2.5}Choix de $\lambda $ par validation croisée}{17}{subsubsection.7.2.5}%
-\contentsline {subsection}{\numberline {7.3}Modèles additifs (plusieurs prédicteurs)}{17}{subsection.7.3}%
-\contentsline {subsubsection}{\numberline {7.3.1}Tests d'hypothèses}{17}{subsubsection.7.3.1}%
-\contentsline {subsubsection}{\numberline {7.3.2}Intervalles de confiance pour $f_j$}{17}{subsubsection.7.3.2}%
-\contentsline {subsection}{\numberline {7.4}Modèles additifs généralisés (GAM)}{17}{subsection.7.4}%
-\contentsline {subsubsection}{\numberline {7.4.1}Algorithme de score local}{18}{subsubsection.7.4.1}%
-\contentsline {subsubsection}{\numberline {7.4.2}Choix de $\lambda _1,\ldots ,\lambda _p$}{18}{subsubsection.7.4.2}%
-\contentsline {subsubsection}{\numberline {7.4.3}Comparaison de modèles}{18}{subsubsection.7.4.3}%
+\contentsline {section}{\numberline {1}Rappels de régression linéaire}{4}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Le modèle linéaire}{4}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Estimation par moindres carrés}{4}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Inférence statistique}{4}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}Intervalles de confiance et tests sur les coefficients}{4}{subsubsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.2}Test F et comparaison de modèles emboîtés}{5}{subsubsection.1.3.2}%
+\contentsline {subsubsection}{\numberline {1.3.3}Coefficient de détermination}{5}{subsubsection.1.3.3}%
+\contentsline {subsection}{\numberline {1.4}Prédiction}{5}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Diagnostics du modèle}{5}{subsection.1.5}%
+\contentsline {subsubsection}{\numberline {1.5.1}Résidus}{5}{subsubsection.1.5.1}%
+\contentsline {subsubsection}{\numberline {1.5.2}Observations aberrantes et influentes}{6}{subsubsection.1.5.2}%
+\contentsline {subsection}{\numberline {1.6}Sélection de variables~: AIC et BIC}{6}{subsection.1.6}%
+\contentsline {subsection}{\numberline {1.7}Limites du modèle linéaire}{6}{subsection.1.7}%
+\contentsline {section}{\numberline {2}Modèles de régression pour données binaires}{7}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Données et modèle}{7}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Données individuelles (Bernoulli)}{7}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Données groupées (binomiale)}{7}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.3}Fonctions de lien}{8}{subsubsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.2}Inférence statistique}{8}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Estimation des paramètres $\beta $}{8}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Tests d'hypothèses et intervalles de confiance}{8}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Intervalle de confiance pour une probabilité prédite}{9}{subsubsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.3}Sélection de modèles}{9}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Déviance}{9}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Comparaison de modèles emboîtés}{9}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}Comparaison de modèles non emboîtés~: AIC et BIC}{10}{subsubsection.2.3.3}%
+\contentsline {subsubsection}{\numberline {2.3.4}Sélection automatique}{10}{subsubsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.4}Validation et diagnostic de modèles}{10}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Résidus}{10}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Tests d'adéquation globale}{10}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Graphiques et extra-variabilité}{10}{subsubsection.2.4.3}%
+\contentsline {subsubsection}{\numberline {2.4.4}Observations aberrantes et valeurs influentes}{11}{subsubsection.2.4.4}%
+\contentsline {subsection}{\numberline {2.5}Spécificité, sensibilité et courbe ROC}{11}{subsection.2.5}%
+\contentsline {section}{\numberline {3}Modèles linéaires généralisés}{12}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Famille exponentielle}{12}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Définition}{12}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Exemples}{12}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}Déviance}{13}{subsubsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.2}Définition d'un MLG}{13}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Estimation des paramètres}{13}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Estimation de $\phi $}{14}{subsubsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.4}Inférence statistique}{14}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Cas $\phi $ fixé}{14}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Cas $\phi $ inconnu}{14}{subsubsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.5}Sélection et validation de modèles}{15}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Exemple détaillé~: la régression Poisson}{15}{subsection.3.6}%
+\contentsline {subsubsection}{\numberline {3.6.1}Variables explicatives \textit {offset}}{15}{subsubsection.3.6.1}%
+\contentsline {subsubsection}{\numberline {3.6.2}Variabilité extra-Poissonienne}{16}{subsubsection.3.6.2}%
+\contentsline {paragraph}{Approche quasi-Poisson.}{16}{section*.2}%
+\contentsline {paragraph}{Loi binomiale négative.}{16}{section*.3}%
+\contentsline {section}{\numberline {4}Prédiction, mesures de performance et validation croisée}{17}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Adéquation versus précision de prédiction}{17}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Validation croisée}{17}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Approche par ensemble de validation}{17}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Validation croisée avec exclusion d'une observation (LOOCV)}{17}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}Validation croisée à $K$ blocs}{18}{subsubsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.3}Mesures de performance pour la classification}{18}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Sélection de variables et régularisation}{19}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Sélection de variables~: rappel}{19}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Régression régularisée}{19}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}Régression ridge}{19}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2}Régression lasso}{20}{subsubsection.5.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.3}Sélection du paramètre $\lambda $}{20}{subsubsection.5.2.3}%
+\contentsline {section}{\numberline {6}Régression non-paramétrique~: $k$ plus proches voisins et estimateur de noyau}{21}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Estimateur des $k$ plus proches voisins}{21}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}Définition}{21}{subsubsection.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.2}Compromis biais-variance et choix de $k$}{21}{subsubsection.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.1.3}Plusieurs variables explicatives et distance de Mahalanobis}{22}{subsubsection.6.1.3}%
+\contentsline {subsection}{\numberline {6.2}Estimateur de noyau (Nadaraya-Watson)}{22}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}Des voisins aux noyaux}{22}{subsubsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2}Choix du paramètre de fenêtre $h$}{22}{subsubsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.3}Régression non-paramétrique et classification}{23}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Régression non-linéaire~: polynômes, fonctions par morceaux et splines}{24}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Régression polynomiale}{24}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Régression avec des fonctions constantes par morceaux}{24}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Régression avec des splines}{25}{subsection.7.3}%
+\contentsline {subsubsection}{\numberline {7.3.1}Splines de régression}{25}{subsubsection.7.3.1}%
+\contentsline {subsubsection}{\numberline {7.3.2}Base des puissances tronquées}{25}{subsubsection.7.3.2}%
+\contentsline {subsubsection}{\numberline {7.3.3}B-splines}{25}{subsubsection.7.3.3}%
+\contentsline {subsubsection}{\numberline {7.3.4}Splines naturelles}{26}{subsubsection.7.3.4}%
+\contentsline {subsubsection}{\numberline {7.3.5}Splines de lissage (splines pénalisées)}{26}{subsubsection.7.3.5}%
+\contentsline {section}{\numberline {8}Modèles additifs et modèles additifs généralisés (GAM)}{27}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Motivation}{27}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Estimation par moindres carrés pénalisés}{27}{subsection.8.2}%
+\contentsline {subsubsection}{\numberline {8.2.1}Matrice d'influence et degrés de liberté effectifs}{27}{subsubsection.8.2.1}%
+\contentsline {subsubsection}{\numberline {8.2.2}Choix des paramètres de lissage}{28}{subsubsection.8.2.2}%
+\contentsline {subsubsection}{\numberline {8.2.3}Inférence}{28}{subsubsection.8.2.3}%
+\contentsline {subsection}{\numberline {8.3}Modèles additifs généralisés}{28}{subsection.8.3}%
+\contentsline {subsubsection}{\numberline {8.3.1}Algorithme d'ajustement (moindres carrés pondérés itératifs pénalisés)}{28}{subsubsection.8.3.1}%
+\contentsline {subsubsection}{\numberline {8.3.2}Choix des paramètres de lissage et comparaison de modèles}{29}{subsubsection.8.3.2}%
+\contentsline {subsubsection}{\numberline {8.3.3}En pratique avec R}{29}{subsubsection.8.3.3}%
+\contentsline {subsection}{\numberline {8.4}Synthèse du cours}{29}{subsection.8.4}%

@@ -1,33 +1,22 @@
 \documentclass[11pt,letterpaper]{article}
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 \usepackage[french]{babel}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{geometry}
 \geometry{margin=2.5cm}
 \usepackage{enumitem}
-\usepackage{hyperref}
 \usepackage{booktabs}
-\usepackage[
-	backend=biber,
-	style=authoryear,
-	natbib=true,
-	sorting=nyt
-]{biblatex}
-\IfFileExists{STT-4300-references.bib}{%
-	\addbibresource{STT-4300-references.bib}%
-}{%
-	\addbibresource{STT-4300/STT-4300-references.bib}%
-}
-
-\providecommand{\citeN}{\citet}
-\providecommand{\citeNP}{\citealt}
+\usepackage{hyperref}
 
 \newtheorem{definition}{Définition}[section]
 \newtheorem{propriete}{Propriété}[section]
 \newtheorem{remarque}{Remarque}[section]
 \newtheorem{exemple}{Exemple}[section]
 
-\title{\textbf{Notes de cours --- STT-4300}\\Modèles linéaires généralisés et additifs}
+\title{\textbf{Notes de cours --- STT-4300}\\[1ex]
+Rappels de régression linéaire, modèles linéaires généralisés,\\
+régression non-linéaire et non-paramétrique, modèles additifs généralisés}
 \author{}
 \date{}
 
@@ -37,589 +26,924 @@
 \newpage
 
 %% ============================================================
-%% CHAPITRE 1 : Introduction et motivation
+%% CHAPITRE 1 : Rappels de régression linéaire
 %% ============================================================
-\section{Introduction et motivation}
+\section{Rappels de régression linéaire}
 
-\subsection{Formulation générale}
+\subsection{Le modèle linéaire}
 
-Tous les modèles étudiés dans ce cours partagent la même formulation générale~:
-$$g(E(Y_i)) = g(\mu_i) = \eta_i = \begin{cases}
-\beta_0 + \beta_1 x_{i1} + \cdots + \beta_p x_{ip} & \text{(linéaire)}\\
-\alpha + f_1(x_{i1}) + \cdots + f_p(x_{ip}) & \text{(additif)}
-\end{cases}$$
-où $g$ est la \textbf{fonction de lien} (\textit{link function}) et $\eta_i$ est le \textbf{prédicteur linéaire} (ou additif).
+On dispose de données $\{(Y_i, X_i),\, i=1,\ldots,n\}$, où $Y_i$ est la variable réponse (continue) et $X_i = (X_{i1},\ldots,X_{ip})^\top$ est un vecteur de $p$ variables explicatives. Le modèle de régression linéaire multiple s'écrit~:
+$$Y_i = \beta_0 + \beta_1 X_{i1} + \cdots + \beta_p X_{ip} + \epsilon_i, \qquad i=1,\ldots,n,$$
+où $\beta = (\beta_0,\beta_1,\ldots,\beta_p)^\top$ est le vecteur des coefficients de régression et les erreurs $\epsilon_i$ sont indépendantes et identiquement distribuées selon $\mathcal{N}(0,\sigma^2)$.
 
-\subsection{Notation}
+En écriture matricielle, on a $Y = X\beta + \epsilon$, où $X$ est la matrice de plan (\textit{design matrix}) de dimension $n\times(p+1)$ dont la première colonne ne contient que des 1 (ordonnée à l'origine)~:
+$$X = \begin{pmatrix} 1 & X_{11} & \cdots & X_{1p} \\ \vdots & \vdots & & \vdots \\ 1 & X_{n1} & \cdots & X_{np}\end{pmatrix}.$$
 
-\textbf{Variable réponse~:} observations $y_1,\ldots,y_n$ pour $n$ individus, correspondant aux variables aléatoires $Y_1,\ldots,Y_n$.
+Sous ces hypothèses, on a $E[Y_i] = \mu_i = \beta_0 + \beta_1 X_{i1} + \cdots + \beta_p X_{ip}$ et $Var[Y_i] = \sigma^2$ (homoscédasticité).
 
-\textbf{Propriétés distributionnelles~:} $Y_i \sim F_{\theta_i}$, avec $E(Y_i) = \mu_i$ et $Var(Y_i) = v_i = v(\mu_i)$.
+\subsection{Estimation par moindres carrés}
 
-\textbf{Variables explicatives~:} $x_i = (x_{i0}, x_{i1},\ldots,x_{ip})^T$, où $x_{i0}=1$ (ordonnée à l'origine). La matrice de plan (\textit{design matrix}) est
-$$X = \begin{pmatrix} x_1^T \\ \vdots \\ x_n^T \end{pmatrix} = \begin{pmatrix} x_{10} & x_{11} & \cdots & x_{1p} \\ \vdots & \vdots & & \vdots \\ x_{n0} & x_{n1} & \cdots & x_{np}\end{pmatrix}.$$
+On estime $\beta$ en minimisant la somme des carrés des écarts~:
+$$l(\beta) = \sum_{i=1}^n \left\{Y_i - (\beta_0 + \beta_1 X_{i1} + \cdots + \beta_p X_{ip})\right\}^2 = (Y-X\beta)^\top(Y-X\beta).$$
 
-\subsection{Principes de la modélisation statistique}
+La solution explicite est
+$$\boxed{\hat\beta = (X^\top X)^{-1} X^\top Y}$$
+et l'estimateur obtenu vérifie
+$$\hat\beta \sim \mathcal{N}\left\{\beta,\, \sigma^2 (X^\top X)^{-1}\right\}.$$
 
+Sous l'hypothèse de normalité des erreurs, l'estimateur des moindres carrés coïncide avec l'estimateur du maximum de vraisemblance. Il est sans biais et de variance minimale parmi les estimateurs linéaires sans biais (théorème de Gauss-Markov).
+
+Les valeurs prédites sont $\hat Y = X\hat\beta = HY$, où $H = X(X^\top X)^{-1}X^\top$ est la \textbf{matrice chapeau} (\textit{hat matrix}). Les éléments diagonaux $h_i = H_{ii}$ sont les \textbf{leviers} (\textit{leverage}) des observations. L'estimateur usuel de $\sigma^2$ est
+$$\hat\sigma^2 = \frac{SSE}{n-(p+1)}, \qquad SSE = \sum_{i=1}^n (Y_i - \hat Y_i)^2.$$
+
+\subsection{Inférence statistique}
+
+\subsubsection{Intervalles de confiance et tests sur les coefficients}
+
+Un intervalle de confiance à $100\times(1-\alpha)\%$ pour $\beta_j$ est donné par
+$$\left[\hat\beta_j - t_{\alpha/2,\,n-(p+1)}\, se(\hat\beta_j)\,;\ \hat\beta_j + t_{\alpha/2,\,n-(p+1)}\, se(\hat\beta_j)\right],$$
+où $se(\hat\beta_j) = \sqrt{\hat\sigma^2 \left[(X^\top X)^{-1}\right]_{j+1,j+1}}$ et $t_{\gamma,\nu}$ est le quantile d'ordre $1-\gamma$ de la loi de Student à $\nu$ degrés de liberté.
+
+Pour tester $H_0: \beta_j = 0$ contre $H_1 : \beta_j \neq 0$, on utilise la statistique $t_{obs} = \hat\beta_j / se(\hat\beta_j)$, qui suit une loi $t_{n-(p+1)}$ sous $H_0$. On rejette $H_0$ au seuil $\alpha$ si $|t_{obs}| > t_{\alpha/2,\,n-(p+1)}$.
+
+\subsubsection{Test F et comparaison de modèles emboîtés}
+
+Deux modèles sont \textbf{emboîtés} si l'un est un cas particulier de l'autre. Pour comparer un modèle réduit (à $q+1$ paramètres) à un modèle complet (à $p+1$ paramètres, $q < p$), on utilise la statistique
+$$F_{obs} = \frac{(SSE_{r\acute{e}duit} - SSE_{complet})/(p-q)}{SSE_{complet}/(n-(p+1))},$$
+qui suit une loi $F_{p-q,\, n-(p+1)}$ sous l'hypothèse nulle que le modèle réduit est adéquat.
+
+\subsubsection{Coefficient de détermination}
+
+Le coefficient de détermination
+$$R^2 = 1 - \frac{SSE}{SST}, \qquad SST = \sum_{i=1}^n (Y_i - \bar Y)^2,$$
+mesure la proportion de la variabilité de $Y$ expliquée par le modèle. Comme $R^2$ augmente mécaniquement avec le nombre de variables, on utilise aussi le $R^2$ ajusté~:
+$$R^2_{adj} = 1 - \frac{SSE/(n-(p+1))}{SST/(n-1)}.$$
+
+\subsection{Prédiction}
+
+Pour une nouvelle observation $X^* = (1, X_1^*,\ldots,X_p^*)^\top$, la valeur prédite est $\hat Y^* = {X^*}^\top\hat\beta$ et $Var[\hat Y^*] = \sigma^2 {X^*}^\top (X^\top X)^{-1} X^*$. On distingue~:
+\begin{itemize}
+\item l'\textbf{intervalle de confiance pour la moyenne} $E[Y^*]$~:
+$${X^*}^\top\hat\beta \pm t_{\alpha/2,\,n-(p+1)}\,\hat\sigma\sqrt{{X^*}^\top (X^\top X)^{-1} X^*}\,;$$
+\item l'\textbf{intervalle de prédiction} pour une observation individuelle $Y^*$~:
+$${X^*}^\top\hat\beta \pm t_{\alpha/2,\,n-(p+1)}\,\hat\sigma\sqrt{1 + {X^*}^\top (X^\top X)^{-1} X^*}.$$
+\end{itemize}
+
+\subsection{Diagnostics du modèle}
+
+\subsubsection{Résidus}
+
+Les \textbf{résidus} sont $e_i = Y_i - \hat Y_i$. Les \textbf{résidus standardisés} sont $r_i = e_i / (\hat\sigma\sqrt{1-h_i})$ et les \textbf{résidus studentisés} sont calculés en excluant l'observation $i$ de l'estimation de $\sigma$. L'inspection graphique des résidus permet de vérifier~:
+\begin{itemize}
+\item la \textbf{linéarité} (résidus vs valeurs ajustées~: aucune tendance)~;
+\item l'\textbf{homoscédasticité} (dispersion constante des résidus)~;
+\item la \textbf{normalité} (diagramme quantile-quantile)~;
+\item l'\textbf{indépendance} (résidus dans l'ordre des observations).
+\end{itemize}
+
+\subsubsection{Observations aberrantes et influentes}
+
+Le \textbf{levier} $h_i$ mesure le potentiel d'influence de l'observation $i$~; une valeur dépassant $2(p+1)/n$ mérite examen. La \textbf{distance de Cook},
+$$D_i = \frac{r_i^2}{p+1}\cdot\frac{h_i}{1-h_i},$$
+mesure l'influence globale de l'observation $i$ sur les coefficients estimés. Les \textbf{DFBETAS} et \textbf{DFFITS} mesurent respectivement l'effet du retrait de l'observation $i$ sur chaque coefficient et sur la valeur ajustée $\hat Y_i$.
+
+\subsection{Sélection de variables~: AIC et BIC}
+
+Pour comparer des modèles (emboîtés ou non), on utilise les critères d'information
+\begin{align*}
+AIC &= -2\, l(\hat\beta;\, y) + 2\,(p+1),\\
+BIC &= -2\, l(\hat\beta;\, y) + \log(n)\,(p+1),
+\end{align*}
+où $l(\hat\beta; y)$ est la log-vraisemblance maximisée. Le modèle ayant le plus petit $AIC$ (ou $BIC$) est préférable. Le $BIC$ pénalise plus fortement les modèles complexes dès que $n \geq 8$.
+
+Les procédures de sélection automatique \textit{forward} (ajout progressif), \textit{backward} (retrait progressif) et \textit{stepwise} (mixte) explorent l'espace des modèles en se basant sur ces critères~; en \textrm{R}, on utilise la fonction \textsf{step}.
+
+\subsection{Limites du modèle linéaire}
+
+Le modèle linéaire classique repose sur deux hypothèses restrictives~:
 \begin{enumerate}
-\item \textbf{Analyse exploratoire des données~:} vérifier la qualité des données et aider à la formulation du modèle (échelle de mesure, forme de la distribution, associations entre variables).
-\item \textbf{Formulation du modèle~:} distribution de probabilité de $Y$ et lien avec les variables explicatives.
-\item \textbf{Estimation des paramètres~:} maximum de vraisemblance, moindres carrés, méthode des moments, etc.
-\item \textbf{Résidus et vérification du modèle~:} inspection graphique des résidus, tests d'adéquation.
-\item \textbf{Inférence et interprétation~:} tester les hypothèses pour obtenir un modèle parcimonieux, puis interpréter les paramètres.
+\item la variable réponse est continue et normalement distribuée~;
+\item la relation entre $E[Y]$ et les variables explicatives est linéaire.
 \end{enumerate}
+Dans de nombreuses applications, la réponse est binaire (défaut de paiement, présence d'une maladie), un dénombrement (nombre de cas de cancer), ou la relation est fortement non linéaire. Les chapitres suivants présentent des extensions qui lèvent ces restrictions~: les modèles linéaires généralisés (chapitres~\ref{sec:logistique} et~\ref{sec:mlg}), puis les méthodes non-paramétriques et additives (chapitres~\ref{sec:knn} à~\ref{sec:gam}).
 
 \newpage
 %% ============================================================
-%% CHAPITRE 2 : Modèles linéaires généralisés (MLG)
+%% CHAPITRE 2 : Régression pour données binaires (logistique)
 %% ============================================================
-\section{Modèles linéaires généralisés (MLG)}
+\section{Modèles de régression pour données binaires}
+\label{sec:logistique}
 
-\subsection{Définition}
+Les modèles de régression linéaire ne permettent de considérer que les cas où la variable réponse $Y_i$ est normale. Cependant, dans plusieurs situations, on a une variable réponse discrète qui ne peut prendre qu'un nombre fini (ou dénombrable) de valeurs possibles. Dans ce chapitre, on s'intéresse au cas où $Y_i$ suit une loi de Bernoulli ou une loi binomiale.
 
-Le modèle linéaire classique $Y_i = x_i^T \beta + \epsilon_i$ avec $\epsilon_i \sim \mathcal{N}(0,\sigma^2)$ est un cas particulier. Les MLG généralisent en permettant~:
+\begin{exemple}
+Quatre exemples tirés de la librairie \texttt{GLMsData} de \textrm{R}~:
 \begin{enumerate}
-\item des distributions de la variable réponse autres que la loi normale (même discrètes ou catégorielles),
-\item une relation entre la réponse et les variables explicatives qui n'est pas nécessairement linéaire simple.
+\item \textsf{quilpie}~: observations de 1921 à 1988 de la quantité de pluie mesurée en juillet à Quilpie (Australie). La réponse vaut 1 si la quantité de pluie dépasse 10~mm et 0 sinon~; les variables explicatives concernent la pression atmosphérique (SOI).
+\item \textsf{nminer}~: 31 observations~; la réponse vaut 1 si un mineur bruyant (oiseau) est détecté dans la parcelle et 0 sinon.
+\item \textsf{deposit}~: 18 observations~; la réponse $Y_i$ est le nombre d'insectes tués parmi les $m_i$ insectes exposés, avec deux variables explicatives (type d'insecticide $A$, $B$ ou $C$, et dose).
+\item \textsf{turbines}~: 11 observations~; la réponse $Y_i$ est le nombre de machines présentant des fissures parmi $m_i$ machines, en fonction du nombre d'heures de fonctionnement.
 \end{enumerate}
+\end{exemple}
 
-La forme générale d'un MLG est~:
-$$\boxed{g(E(Y_i)) = g(\mu_i) = \eta_i = x_i^T \beta}$$
-où $g$ est la fonction de lien et $Var(Y_i) = v(\mu_i)$.
+\subsection{Données et modèle}
 
-\subsection{Famille exponentielle}
+\subsubsection{Données individuelles (Bernoulli)}
 
-\begin{definition}
-Une densité (ou fonction de probabilité) appartient à la \textbf{famille exponentielle} si elle s'écrit~:
-$$f(y;\theta,\phi) = \exp\left(A\,\frac{y\theta - b(\theta)}{\phi} + c\Big(y,\frac{\phi}{A}\Big)\right),$$
-pour des fonctions spécifiques $b(\cdot)$ et $c(\cdot)$ et une constante $A$. Si $\phi$ est connu, c'est une famille exponentielle avec \textbf{paramètre canonique} $\theta$.
-\end{definition}
+Dans les deux premiers exemples, la variable réponse $Y_i \in \{0,1\}$. Les données sont sous la forme $\{(Y_i,X_i),\, i=1,\ldots,n\}$. On dit que $Y_i$ suit une loi de Bernoulli de paramètre $\pi_i \in [0,1]$~:
+\begin{align*}
+P(Y_i = y_i) &= \pi_i^{y_i}(1-\pi_i)^{1-y_i}, \quad y_i \in \{0,1\},\\
+E[Y_i] &= \mu_i = \pi_i,\\
+Var[Y_i] &= \pi_i(1-\pi_i).
+\end{align*}
 
-Une fonction de lien $g$ est dite \textbf{canonique} si $\theta(\mu) = \eta$, c'est-à-dire $g(\cdot) = (b')^{-1}(\cdot)$.
+On pose $\eta_i = \beta_0 + \beta_1 X_{i1} + \cdots + \beta_p X_{ip}$ (le \textbf{prédicteur linéaire}) et on relie $\pi_i$ à $\eta_i$ par une \textbf{fonction de lien} $g$ supposée connue~: $\eta_i = g(\pi_i)$, c'est-à-dire
+$$\pi_i = P(Y_i = 1) = g^{-1}(\beta_0 + \beta_1 X_{i1} + \cdots + \beta_p X_{ip}).$$
 
-\begin{propriete}
-Pour la famille exponentielle~:
-\begin{align}
-E(Y) &= \mu = b'(\theta) \label{eq:esp}\\
-Var(Y) &= \frac{b''(\theta)\,\phi}{A} \label{eq:var}
-\end{align}
-\end{propriete}
+\subsubsection{Données groupées (binomiale)}
 
-\textbf{Démonstration.} On utilise les identités classiques~:
-$$E\left(\frac{\partial l}{\partial \theta}\right) = 0 \quad \text{et} \quad E\left(\frac{\partial^2 l}{\partial \theta^2}\right) + E\left(\left(\frac{\partial l}{\partial \theta}\right)^2\right) = 0.$$
-Comme $\frac{\partial l}{\partial \theta} = A\frac{y - b'(\theta)}{\phi}$ et $\frac{\partial^2 l}{\partial \theta^2} = -A\frac{b''(\theta)}{\phi}$, on obtient les résultats \eqref{eq:esp} et \eqref{eq:var}.
+Dans les deux derniers exemples, $Y_i \in \{0,1,\ldots,m_i\}$, où $m_i$ est un entier connu représentant le nombre total d'expériences indépendantes~; $Y_i$ est le nombre de succès. On écrit $Y_i \sim \mathrm{Bin}(m_i,\pi_i)$~:
+\begin{align*}
+P(Y_i = y_i) &= \binom{m_i}{y_i}\pi_i^{y_i}(1-\pi_i)^{m_i - y_i}, \quad y_i \in \{0,1,\ldots,m_i\},\\
+E[Y_i] &= \mu_i = m_i\pi_i,\\
+Var[Y_i] &= m_i\pi_i(1-\pi_i) = \frac{\mu_i(m_i - \mu_i)}{m_i}.
+\end{align*}
+On pose de nouveau $\eta_i = g(\pi_i)$. Si $m_1 = \cdots = m_n = 1$, on retrouve la loi de Bernoulli~: celle-ci est un cas particulier de la loi binomiale, et les développements qui suivent couvrent les deux situations.
 
-\bigskip
+\subsubsection{Fonctions de lien}
 
-\begin{center}
-\begin{tabular}{|l|c|c|c|c|}
-\hline
-Distribution & $A$ & $\phi$ & $b(\theta)$ & Lien canonique \\
-\hline
-$\mathcal{N}(\mu,\sigma^2)$ & $1$ & $\sigma^2$ & $\theta^2/2$ & Identité \\
-$\mathcal{P}(\lambda)$ & $1$ & $1$ & $\exp(\theta)$ & $\log$ \\
-$\mathcal{B}(m,p)/m$ & & & & Logit \\
-$\Gamma(\mu,\nu)$ & & & & $1/\mu$ \\
-\hline
-\end{tabular}
-\end{center}
+La fonction de lien doit assurer que $\pi_i = g^{-1}(\eta_i) \in [0,1]$. Trois choix sont courants~:
+\begin{description}
+\item[Logit~:] $g(u) = \mathrm{logit}(u) = \log\!\left(\dfrac{u}{1-u}\right)$, d'où $\pi_i = \dfrac{e^{\eta_i}}{1+e^{\eta_i}}$. En \textrm{R}~: \textsf{link="logit"} dans \textsf{glm}.
+\item[Probit~:] $g(u) = \Phi^{-1}(u)$, où $\Phi$ est la fonction de répartition de la $\mathcal{N}(0,1)$, d'où $\pi_i = \Phi(\eta_i)$. En \textrm{R}~: \textsf{link="probit"}.
+\item[C-log-log~:] $g(u) = \log\{-\log(1-u)\}$, d'où $\pi_i = 1 - e^{-e^{\eta_i}}$. En \textrm{R}~: \textsf{link="cloglog"}.
+\end{description}
+Dans les trois cas, $g^{-1}(\cdot)$ est une fonction de répartition. En pratique, les trois liens donnent souvent des résultats très similaires.
 
-\subsection{Composantes d'un MLG}
-
-Un MLG comporte \textbf{trois composantes}~:
-\begin{enumerate}
-\item Des réponses indépendantes $Y_1,\ldots,Y_n$ de la même distribution de la famille exponentielle.
-\item Un ensemble de paramètres $\beta$ et de variables explicatives $x_i^T = (1, x_{i1},\ldots,x_{ip})$.
-\item Une fonction de lien $g$ monotone et dérivable telle que $g(\mu_i) = x_i^T \beta = \eta_i$.
-\end{enumerate}
-
-La transformation via la fonction de lien assure que $\mu_i$ estimé se situe dans l'espace admissible des valeurs (par ex.\ $(0,1)$ pour Bernoulli, $(0,\infty)$ pour Poisson).
-
-\subsection{Exemples de MLG}
-
-\subsubsection{Loi normale~: $Y_i \sim \mathcal{N}(\mu_i, \sigma^2)$}
-Lien canonique~: identité $g(\mu_i) = \mu_i$. Utilisée pour les données continues symétriques.
-
-\subsubsection{Loi binomiale~: $Y_i \sim \mathcal{B}(m_i, p_i)$}
-Trois fonctions de lien courantes (restreignent $\mu_i \in (0,1)$)~:
-\begin{itemize}
-\item \textbf{Logit} (canonique)~: $g(p_i) = \log\left(\frac{p_i}{1-p_i}\right)$
-\item \textbf{Probit}~: $g(p_i) = \Phi^{-1}(p_i)$
-\item \textbf{Log-log complémentaire}~: $g(p_i) = \log(-\log(1-p_i))$
-\end{itemize}
-
-Les valeurs $o_i = p_i/(1-p_i)$ sont les \textbf{cotes} (\textit{odds}). Le lien logit permet l'interprétation sur l'échelle des cotes~: un changement unitaire de $x_j$ multiplie les cotes par $\exp(\beta_j)$.
-
-\subsubsection{Loi de Poisson~: $Y_i \sim \mathcal{P}(\lambda_i)$}
-Lien canonique~: $g(\lambda_i) = \log(\lambda_i)$. Utilisée pour les données de dénombrement.
-
-\subsubsection{Loi gamma~: $Y_i \sim \Gamma(\mu_i, \nu)$}
-Utilisée pour les données continues asymétriques (revenus, coûts). Le lien courant est $g(\mu_i) = \log(\mu_i)$. Le lien canonique $1/\mu_i$ est plus rarement utilisé.
-
-\subsection{Extensions~: loi multinomiale}
-
-\subsubsection{Données nominales}
-On lie les prédicteurs aux probabilités par~:
-$$\log\left(\frac{p_{ik}}{p_{i1}}\right) = x_i^T \beta_k, \quad k=2,\ldots,K.$$
-
-\subsubsection{Données ordinales}
-Modèle à \textbf{cotes proportionnelles}~:
-$$\log\left(\frac{\gamma_k(x_i)}{1-\gamma_k(x_i)}\right) = \alpha_k - x_i^T \beta, \quad k=1,\ldots,K-1,$$
-où $\gamma_k(x_i) = P(Y_i \leq k \mid x_i)$. Le rapport de cotes $\frac{\text{odds}(Y \leq k \mid x)}{\text{odds}(Y \leq k \mid \tilde{x})} = \exp(-(x-\tilde{x})^T\beta)$ est indépendant de $\alpha_k$.
-
-\subsection{Estimation des paramètres~: maximum de vraisemblance}
-
-La log-vraisemblance de la famille exponentielle est~:
-$$l(\theta_1,\ldots,\theta_n; y) = \frac{A}{\phi}\sum_{i=1}^n y_i\theta_i - \frac{A}{\phi}\sum_{i=1}^n b(\theta_i) + \sum_{i=1}^n c\Big(y_i, \frac{\phi}{A}\Big).$$
-
-On utilise la relation $g(\mu_i) = x_i^T\beta$ et on maximise par rapport à $\beta$ en résolvant les équations de score. Aucune forme fermée en général.
-
-\subsubsection{Newton-Raphson et méthode de scoring}
-Pour maximiser $l(\beta;y)$~:
-\begin{itemize}
-\item \textbf{Newton-Raphson}~: $\beta^{(m)} = \beta^{(m-1)} - [U'^{(m-1)}]^{-1} U^{(m-1)}$
-\item \textbf{Méthode de scoring}~: $\beta^{(m)} = \beta^{(m-1)} + [\mathcal{J}^{(m-1)}]^{-1} U^{(m-1)}$
-\end{itemize}
-où $U = \partial l/\partial \beta$ et $\mathcal{J} = -E(U') $ (information de Fisher).
-
-\subsection{Algorithme MCPI (IWLS)}
-
-L'algorithme des \textbf{moindres carrés pondérés itératifs} résout itérativement~:
-$$X^T W^{(m-1)} X \, \beta^{(m)} = X^T W^{(m-1)} z^{(m-1)},$$
-où $W$ est diagonale avec $w_{ii} = \frac{1}{Var(Y_i)}\left(\frac{\partial \mu_i}{\partial \eta_i}\right)^2$ et 
-$$z_i^{(m-1)} = x_i^T \beta^{(m-1)} + (y_i - \mu_i^{(m-1)})\left(\frac{\partial \eta_i}{\partial \mu_i}\right)^{(m-1)}.$$
-
-\begin{remarque}
-Lorsque le lien canonique est utilisé, les équations de score se simplifient~: $U_j = \sum_i (y_i - \mu_i) x_{ij}$.
+\begin{remarque}[Interprétation du lien logit]
+Avec le lien logit, les quantités $o_i = \pi_i/(1-\pi_i)$ sont les \textbf{cotes} (\textit{odds}). Une augmentation unitaire de $X_j$ multiplie la cote par $e^{\beta_j}$~; $e^{\beta_j}$ est le \textbf{rapport de cotes} (\textit{odds ratio}).
 \end{remarque}
 
-\subsection{Vérification du modèle}
+\subsection{Inférence statistique}
+
+\subsubsection{Estimation des paramètres $\beta$}
+
+La fonction de log-vraisemblance est
+\begin{align*}
+\sum_{i=1}^n \log\left[P(Y_i = y_i)\right]
+&= \sum_{i=1}^n \left\{\log\binom{m_i}{y_i} + y_i\log(\pi_i) + (m_i - y_i)\log(1-\pi_i)\right\}.
+\end{align*}
+Cette fonction dépend de $\beta$ à travers $\pi_i = g^{-1}(\beta_0 + \beta_1 X_{i1}+\cdots+\beta_p X_{ip})$. En remplaçant $\pi_i$ par $\mu_i/m_i$, on montre qu'elle s'écrit
+$$l(\mu; y) = \sum_{i=1}^n \left\{y_i\log(\mu_i) + (m_i - y_i)\log(m_i - \mu_i)\right\} + K,$$
+où $K$ est une constante ne dépendant pas de $\beta$. L'estimateur du maximum de vraisemblance $\hat\beta$ maximise cette fonction~; il n'a pas de forme fermée et est obtenu numériquement (moindres carrés pondérés itératifs).
+
+On calcule ensuite la matrice d'information de Fisher $I$ dont l'élément $(j,k)$ est $-\partial^2 l/\partial\beta_j\partial\beta_k$ évalué en $\hat\beta$. La matrice de variance-covariance de $\hat\beta$ est estimée par $v(\hat\beta) = I^{-1}$ et la distribution asymptotique de $\hat\beta$ est approximée par $\mathcal{N}\{\beta,\, v(\hat\beta)\}$.
+
+On montre que $v(\hat\beta) = (X^\top W X)^{-1}$, où $W$ est une matrice diagonale d'entrées $w_i = \hat\mu_i(m_i - \hat\mu_i)/m_i$, avec
+$$\hat\mu_i = m_i\hat\pi_i = m_i\, g^{-1}(\hat\beta_0 + \hat\beta_1 X_{i1} + \cdots + \hat\beta_p X_{ip}).$$
+
+\subsubsection{Tests d'hypothèses et intervalles de confiance}
+
+Les intervalles de confiance et tests concernant les $\beta_j$ sont obtenus par la méthode de \textbf{Wald}. Un intervalle de confiance à $100\times(1-\alpha)\%$ pour $\beta_j$ est
+$$\left[\hat\beta_j - z_{\alpha/2}\sqrt{v(\hat\beta_j)}\,;\ \hat\beta_j + z_{\alpha/2}\sqrt{v(\hat\beta_j)}\right],$$
+où $z_\gamma$ est le quantile de la $\mathcal{N}(0,1)$ défini par $P(Z > z_\gamma) = \gamma$.
+
+Pour tester $H_0: \beta_j = 0$ contre $H_1: \beta_j\neq 0$, on rejette $H_0$ au seuil $\alpha$ si $|z_{obs}| > z_{\alpha/2}$, avec $z_{obs} = \hat\beta_j/\sqrt{v(\hat\beta_j)}$. Le seuil observé ($p$-valeur) est $\alpha^* = 2P(Z > |z_{obs}|)$.
+
+\subsubsection{Intervalle de confiance pour une probabilité prédite}
+
+Pour $X^* = (1, X_1^*,\ldots,X_p^*)^\top$, on estime $\pi^*$ par $\hat\pi^* = g^{-1}({X^*}^\top\hat\beta)$. Deux approches~:
+\begin{enumerate}
+\item \textbf{Transformation de l'intervalle sur $\eta^*$}~: un IC pour ${X^*}^\top\beta$ est
+$$\left[{X^*}^\top\hat\beta \pm z_{\alpha/2}\sqrt{v({X^*}^\top\hat\beta)}\right], \qquad v({X^*}^\top\hat\beta) = {X^*}^\top v(\hat\beta)\, X^*,$$
+et on applique $g^{-1}$ aux deux bornes. Cet intervalle respecte toujours $[0,1]$.
+\item \textbf{Règle du delta}~: $v(\hat\pi^*) = h({X^*}^\top\hat\beta)\, v({X^*}^\top\hat\beta)$ avec $h(u) = \{\partial g^{-1}(u)/\partial u\}^2$, d'où l'IC approximatif $\left[\hat\pi^* \pm z_{\alpha/2}\sqrt{v(\hat\pi^*)}\right]$.
+\end{enumerate}
+Les deux méthodes donnent en pratique des résultats très similaires.
+
+\begin{exemple}[Jeu de données \textsf{turbines}]
+On ajuste le modèle avec les trois fonctions de lien~:
+\begin{verbatim}
+modele.logit   <- glm(cbind(Fissures,Turbines-Fissures)~Hours,
+                      data=turbines, family=binomial(link="logit"))
+modele.probit  <- glm(cbind(Fissures,Turbines-Fissures)~Hours,
+                      data=turbines, family=binomial(link="probit"))
+modele.cloglog <- glm(cbind(Fissures,Turbines-Fissures)~Hours,
+                      data=turbines, family=binomial(link="cloglog"))
+\end{verbatim}
+Les trois liens mènent à des coefficients significatifs et à des courbes prédites $\hat\pi^*$ très similaires. Les intervalles de confiance se calculent avec \textsf{predict(..., se.fit=TRUE)} sur l'échelle du lien (méthode 1) ou avec \textsf{type="response"} (méthode 2).
+\end{exemple}
+
+\subsection{Sélection de modèles}
 
 \subsubsection{Déviance}
 
-La \textbf{déviance réduite} est~:
-$$D^*(y,\mu) = 2[l(y;y) - l(\hat{\beta};y)] = \sum_{i=1}^n d_i,$$
-et la \textbf{déviance}~: $D(y,\mu) = \phi\, D^*(y,\mu)$.
+Considérons le \textbf{modèle saturé} avec $n$ paramètres $\{\tilde\mu_1,\ldots,\tilde\mu_n\}$ et sans variables explicatives~; ses estimateurs du maximum de vraisemblance sont $\{y_1,\ldots,y_n\}$. La statistique du rapport de vraisemblance entre le modèle saturé et le modèle considéré est
+$$D = 2\left\{l(y,y) - l(\hat\mu,y)\right\} = 2\sum_{i=1}^n\left\{y_i\log\!\left(\frac{y_i}{\hat\mu_i}\right) + (m_i - y_i)\log\!\left(\frac{m_i - y_i}{m_i - \hat\mu_i}\right)\right\} = \sum_{i=1}^n d_i.$$
+$D$ est la \textbf{déviance} du modèle et $d_i$ la déviance individuelle de l'observation $i$. La déviance joue le même rôle que la somme des carrés des résidus en régression linéaire~: elle sert à évaluer l'adéquation du modèle et à comparer des modèles.
 
-De grandes valeurs de $D$ indiquent un mauvais ajustement. Sous certaines conditions, $D^* \sim \chi^2_{n-(p+1)}$ approximativement.
+\subsubsection{Comparaison de modèles emboîtés}
 
-\textbf{Attention}~: $D$ est inutilisable quand $Y_i \sim \text{Bernoulli}(p_i)$.
+Pour comparer deux modèles emboîtés de déviances $D_1$ (complet) et $D_2$ (réduit), la statistique de test est $\chi^2 = D_2 - D_1$. Sous $H_0$ (le modèle réduit est adéquat), $\chi^2$ suit une loi du khi-deux à $d$ degrés de liberté, où $d$ est la différence du nombre de paramètres.
 
-\subsubsection{Statistique $X^2$ de Pearson}
-$$X^2 = \sum_{i=1}^n \frac{(y_i - \hat{\mu}_i)^2}{v(\hat{\mu}_i)}.$$
+\begin{exemple}[\textsf{turbines}, termes quadratique et cubique]
+On teste $H_0: \beta_2 = \beta_3 = 0$ (modèle avec \textsf{Hours} seulement contre modèle avec termes en \textsf{Hours}$^2$ et \textsf{Hours}$^3$)~:
+\begin{verbatim}
+stat.test <- deviance(modele.reduit) - deviance(modele.complet)
+p.valeur  <- 1 - pchisq(stat.test, df=2)   # 0.4767
+\end{verbatim}
+On ne rejette pas $H_0$~: le modèle réduit est adéquat.
+\end{exemple}
 
-\subsubsection{Mesures globales}
-\begin{itemize}
-\item Proportion de déviance expliquée~: $(D_{null} - D)/D_{null}$.
-\item Extension du $R^2$ de Nagelkerke~: $\widetilde{R}^2 = \frac{1 - (L_{null}/L)^{2/n}}{1 - L_{null}^{2/n}}$.
-\end{itemize}
+\subsubsection{Comparaison de modèles non emboîtés~: AIC et BIC}
+
+Comme pour les modèles linéaires, on utilise
+$$AIC = -2\,l(\hat\mu;y) + 2(p+1), \qquad BIC = -2\,l(\hat\mu;y) + \log(n)(p+1).$$
+Le modèle ayant le plus petit $AIC$ (ou $BIC$) est préférable. En \textrm{R}~: \textsf{extractAIC(modele)} et \textsf{extractAIC(modele, k=log(n))}.
+
+\subsubsection{Sélection automatique}
+
+Les méthodes pas à pas \textit{forward}, \textit{backward} et \textit{stepwise} fonctionnent exactement comme pour les modèles linéaires (fonction \textsf{step} avec l'argument \textsf{direction}). Sur le jeu de données \textsf{deposit}, les trois procédures retiennent le modèle incluant le type d'insecticide, la dose et le terme quadratique de la dose.
+
+\subsection{Validation et diagnostic de modèles}
 
 \subsubsection{Résidus}
+
+On distingue deux types de résidus~:
 \begin{itemize}
-\item \textbf{Résidus de Pearson}~: $r_{iP} = \frac{y_i - \hat{\mu}_i}{\sqrt{v(\hat{\mu}_i)}}$
-\item \textbf{Résidus de déviance}~: $r_{iD} = \text{sign}(y_i - \hat{\mu}_i)\sqrt{d_i}$
-\item \textbf{Résidus de déviance standardisés}~: $r_{iDS} = r_{iD}/\sqrt{1-h_{ii}}$
-\item \textbf{Résidus quantiles randomisés}~: si $F$ continue, $r_{iQ} = \Phi^{-1}(F(y_i; \hat{\mu}_i, \hat{\phi}))$. Distribution exactement $\mathcal{N}(0,1)$ sous le vrai modèle.
+\item \textbf{Résidus déviance}~: $r_{D,i} = \mathrm{signe}(y_i - \hat\mu_i)\sqrt{d_i}$, avec
+$$d_i = 2\left\{y_i\log\!\left(\frac{y_i}{\hat\mu_i}\right) + (m_i - y_i)\log\!\left(\frac{m_i - y_i}{m_i - \hat\mu_i}\right)\right\}.$$
+\item \textbf{Résidus de Pearson}~:
+$$r_{P,i} = \frac{y_i - m_i\hat\pi_i}{\sqrt{m_i\hat\pi_i(1-\hat\pi_i)}} = \frac{y_i - \hat\mu_i}{\sqrt{\hat\mu_i(m_i-\hat\mu_i)/m_i}}.$$
 \end{itemize}
 
-\textbf{Note}~: $\sum r_{iP}^2 = X^2$ et $\sum r_{iD}^2 = D$.
+\subsubsection{Tests d'adéquation globale}
 
-Les résidus sont représentés~: vs valeurs ajustées, vs quantiles normaux (QQ), dans l'ordre des observations, vs chaque covariable continue.
+Deux statistiques permettent de tester l'adéquation globale~: la déviance $D = \sum_i r_{D,i}^2$ et la statistique du khi-deux de Pearson
+$$\chi^2_P = \sum_{i=1}^n r_{P,i}^2 = \sum_{i=1}^n \frac{m_i(y_i - \hat\mu_i)^2}{\hat\mu_i(m_i - \hat\mu_i)}.$$
+Lorsque tous les $m_i \to \infty$, $D$ et $\chi^2_P$ convergent en loi vers une $\chi^2_{n-(p+1)}$ si le modèle est bien spécifié.
 
-\subsection{Intervalles de confiance et tests z}
+\begin{remarque}
+Ces tests ne sont valides que pour des \textbf{données groupées} avec des $m_i$ élevés, car ils reposent sur un résultat asymptotique en $m_i$. Ils sont inutilisables pour des données individuelles (Bernoulli).
+\end{remarque}
 
-De la normalité asymptotique $(\hat{\beta} - \beta) \sim \mathcal{N}(0, \tilde{\mathcal{J}}^{-1})$~:
-$$IC_{1-\alpha}(\beta_i) = \left[\hat{\beta}_i \pm z_{1-\alpha/2} \sqrt{(\tilde{\mathcal{J}}^{-1})_{ii}}\right].$$
+\subsubsection{Graphiques et extra-variabilité}
 
-Les \textbf{intervalles de vraisemblance profilée} ne supposent pas la normalité de l'estimateur et fonctionnent mieux en petits échantillons (obtenus en inversant les tests du rapport de vraisemblance).
+Les graphiques des résidus en fonction des numéros d'observations ne doivent montrer aucune tendance. Si plusieurs résidus dépassent 3 en valeur absolue, cela peut suggérer une \textbf{extra-variabilité} (\textit{overdispersion})~: $E[Y_i] = m_i\pi_i$ mais $Var[Y_i] > m_i\pi_i(1-\pi_i)$. On pose alors $Var[Y_i] = \phi\, m_i\pi_i(1-\pi_i)$ et on estime $\phi$ par $\chi^2_P/(n-(p+1))$. En cas d'extra-variabilité, on spécifie \textsf{family=quasibinomial()} au lieu de \textsf{family=binomial()} dans \textsf{glm}.
 
-\textbf{Statistique z (ou t)}~: $z = \hat{\beta}_i / se(\hat{\beta}_i) \sim \mathcal{N}(0,1)$ sous $H_0: \beta_i = 0$. Si $\phi$ est inconnu, on utilise $t_{n-(p+1)}$.
+Pour vérifier la linéarité du prédicteur, on trace le nuage de points $\{(\hat\pi_i, \tilde\pi_i)\}$, où $\hat\pi_i = g^{-1}(\hat\eta_i)$ et $\tilde\pi_i = y_i/m_i$~: si le modèle est bien spécifié, les points doivent être autour de la droite $y=x$.
 
-\subsection{Tests d'hypothèses}
+\subsubsection{Observations aberrantes et valeurs influentes}
 
-Pour tester $H_0: \beta = \tilde{\beta}$~:
-\begin{description}
-\item[Wald~:] $(\hat{\beta}-\tilde{\beta})^T \mathcal{J}(\tilde{\beta})(\hat{\beta}-\tilde{\beta}) \sim \chi^2_{p+1}$
-\item[Score~:] $U(\tilde{\beta})^T \mathcal{J}(\tilde{\beta})^{-1} U(\tilde{\beta}) \sim \chi^2_{p+1}$
-\item[Rapport de vraisemblance~:] $2[l(\hat{\beta};y) - l(\tilde{\beta};y)] \sim \chi^2_{p+1}$
-\end{description}
+Le principe est identique à la régression linéaire. Les définitions des leviers, résidus standardisés et studentisés diffèrent, mais ces quantités ont la même interprétation. Il en va de même pour la distance de Cook, les DFBETAS et les DFFITS.
 
-\subsection{Sélection de variables}
+\subsection{Spécificité, sensibilité et courbe ROC}
+\label{subsec:roc}
 
-\subsubsection{Différence de déviances}
+Pour des données individuelles, l'adéquation est difficile à évaluer, mais on peut mesurer la \textbf{capacité prédictive} du modèle. On ajuste le modèle et on calcule les probabilités prédites $\hat\pi_i = g^{-1}(\hat\eta_i)$.
 
-Pour comparer un modèle $\mathcal{M}_{p+1}$ à un sous-modèle $\mathcal{M}_{p+1-q}$~:
-$$\Delta D^* = D^*(y,\hat{\mu}^{p+1-q}) - D^*(y,\hat{\mu}^{p+1}) \sim \chi^2_q \quad \text{sous } H_0.$$
+Fixons un seuil $u \in [0,1]$ (souvent $u=1/2$). On classe $\hat y_i = 1$ si $\hat\pi_i > u$ et $\hat y_i = 0$ sinon. On mesure la capacité prédictive par~:
+\begin{align*}
+\text{Spécificité (taux de vrais négatifs)~:}\quad & Spec = P(\hat y = 0 \mid y = 0),\\
+\text{Sensibilité (taux de vrais positifs)~:}\quad & Sens = P(\hat y = 1 \mid y = 1).
+\end{align*}
+Pour un $u$ fixé, on les estime par
+$$\widehat{Spec}(u) = \frac{\sum_{i=1}^n \mathbf{1}_{\{(\hat\pi_i < u)\,\&\,(y_i = 0)\}}}{\sum_{i=1}^n \mathbf{1}_{\{y_i = 0\}}},
+\qquad
+\widehat{Sens}(u) = \frac{\sum_{i=1}^n \mathbf{1}_{\{(\hat\pi_i > u)\,\&\,(y_i = 1)\}}}{\sum_{i=1}^n \mathbf{1}_{\{y_i = 1\}}}.$$
 
-Si $\phi$ est inconnu~:
-$$\frac{(D(y,\hat{\mu}^{p+1-q}) - D(y,\hat{\mu}^{p+1}))/q}{\hat{\phi}} \sim F_{q,\, n-(p+1)}.$$
+En faisant varier $u$ sur une grille $\{u_1 = 0, u_2, \ldots, u_B = 1\}$ et en traçant les points $\{(1-\widehat{Spec}(u_b),\, \widehat{Sens}(u_b))\}$, on obtient la \textbf{courbe ROC}. L'\textbf{aire sous la courbe} (AUC) quantifie la capacité prédictive~:
+$$\mbox{AUC} \in \begin{cases}
+[0.9,\,1] & \mbox{modèle excellent},\\
+[0.8,\,0.9) & \mbox{modèle bon},\\
+[0.7,\,0.8) & \mbox{modèle moyen},\\
+[0.6,\,0.7) & \mbox{modèle mauvais},\\
+[0.5,\,0.6) & \mbox{modèle très faible}.
+\end{cases}$$
 
-\subsubsection{Critère d'Akaike (AIC)}
-$$AIC = -2\,l(\hat{\beta}^d;y) + 2d.$$
-Les modèles avec un AIC faible sont préférés. On peut utiliser l'AIC pas-à-pas lorsque $2^p$ est trop grand.
-
-\subsection{Ce qui peut mal tourner}
-
-\subsubsection{Surdispersion}
-Si $Var(Y_i) > E(Y_i)$ (Poisson) ou $Var(Y_i) > m_i p_i(1-p_i)$ (binomiale), on parle de \textbf{surdispersion}. On peut~:
-\begin{itemize}
-\item Utiliser un modèle quasi-vraisemblance avec $Var(Y_i) = \sigma^2 v(\mu_i)$ ($\sigma^2$ estimé).
-\item Utiliser la \textbf{loi binomiale négative}~: $Var(Y_i) = \mu_i(1 + \mu_i/\vartheta)$.
-\item Utiliser la \textbf{loi bêta-binomiale} pour les données binomiales surdispersées.
-\end{itemize}
-
-\textbf{Modèle de taux}~: le terme $\log(\text{Aggregate})$ (offset) contrôle le nombre d'occasions (\textit{effort}).
-
-\subsubsection{Séparation (quasi-)complète}
-En régression binaire, si les réponses 0 et 1 peuvent être (presque) séparées par les covariables, l'EMV n'existe pas ou diverge. Corrections possibles~: régression logistique exacte, approche robuste, méthode de réduction du biais de Firth.
-
-\subsubsection{Phénomène de Hauck-Donner}
-La statistique $z$ de Wald peut être trompeuse quand les probabilités ajustées sont proches de 0 ou 1~: une petite valeur de $z$ peut correspondre à un $|\hat{\beta}|$ très grand avec une mauvaise approximation de Wald.
+\begin{exemple}[\textsf{quilpie}]
+Avec la variable explicative SOI et le lien logit~:
+\begin{verbatim}
+modele <- glm(y ~ SOI, family=binomial, data=quilpie)
+library(clinfun)
+courbe.roc <- roc.curve(marker=as.vector(fitted(modele)),
+                        status=quilpie$y, method=c("empirical"))
+# AUC = 0.784, s.e. = 0.057
+\end{verbatim}
+L'aire sous la courbe est de 0.78~: le modèle est bon.
+\end{exemple}
 
 \newpage
 %% ============================================================
-%% CHAPITRE 3 : Excès de zéros
+%% CHAPITRE 3 : Modèles linéaires généralisés
 %% ============================================================
-\section{Modélisation de l'excès de zéros dans les données de comptage}
+\section{Modèles linéaires généralisés}
+\label{sec:mlg}
 
-Dans de nombreuses applications, la variable réponse contient plus de zéros que ce qu'impliquerait une loi de Poisson ou binomiale négative.
+La régression linéaire et la régression logistique partagent plusieurs concepts~: inférence sur les coefficients $\beta$, sélection de modèles, diagnostics. Ce chapitre en donne une présentation unifiée~: on suppose que la distribution de la variable réponse appartient à la \textbf{famille exponentielle}, qui inclut notamment les lois normale, de Bernoulli, binomiale, de Poisson et gamma.
 
-\subsection{Modèle hurdle}
+\subsection{Famille exponentielle}
 
-\begin{align*}
-P(Y=y) = \begin{cases}
-1-p(x) & y=0\\
-p(x)\,\dfrac{e^{-\lambda(z)}\lambda(z)^y}{y!\,(1-e^{-\lambda(z)})} & y=1,2,\ldots
-\end{cases}
-\end{align*}
-On peut utiliser un modèle logistique pour $p(x)$~: $\text{logit}(p(x)) = x^T\beta$ et un modèle log-linéaire pour $\lambda(z)$~: $\log(\lambda(z)) = z^T\gamma$.
+\subsubsection{Définition}
 
-\textbf{Moments}~:
-$$E(Y_i) = p(x_i)\,\frac{\lambda_i}{1-e^{-\lambda_i}}, \qquad Var(Y_i) = p(x_i)\,\frac{\lambda_i + \lambda_i^2}{1-e^{-\lambda_i}} - (E(Y_i))^2.$$
+\begin{definition}
+La distribution de la variable aléatoire $Y$ appartient à la famille exponentielle si sa fonction de probabilité (densité si $Y$ est continue, fonction de masse si $Y$ est discrète) s'écrit
+$$f_Y(y) = a(y,\phi)\exp\left\{\frac{y\theta - b(\theta)}{\phi}\right\},$$
+où $\theta$ est le \textbf{paramètre canonique} et $\phi$ le \textbf{paramètre de dispersion}.
+\end{definition}
 
-\textbf{Propriété clé}~: la log-vraisemblance se sépare en $l(\beta) + l(\gamma)$ $\Rightarrow$ les deux composantes peuvent être ajustées séparément (paramètres orthogonaux).
+\begin{propriete}
+\label{prop:famexp}
+Si $Y$ appartient à la famille exponentielle, alors
+$$E[Y] = \mu = b'(\theta) \qquad \mbox{et} \qquad Var[Y] = \phi\, b''(\theta) = \phi\, V(\mu),$$
+où $V(u) = b''\!\left[(b')^{-1}(u)\right]$ est la \textbf{fonction de variance}.
+\end{propriete}
 
-\subsection{Modèle ZIP (zero-inflated Poisson)}
+Le paramètre canonique est donc directement lié à l'espérance de $Y$, et le paramètre de dispersion module la variance. Pour certaines distributions (Bernoulli, binomiale, Poisson), $\phi$ est fixé à 1.
 
-\begin{align*}
-P(Y=y) = \begin{cases}
-\pi(x) + (1-\pi(x))\,e^{-\lambda(z)} & y=0\\
-(1-\pi(x))\,\dfrac{e^{-\lambda(z)}\lambda(z)^y}{y!} & y=1,2,\ldots
-\end{cases}
-\end{align*}
+\subsubsection{Exemples}
 
-\textbf{Moments}~:
-$$E(Y_i) = (1-\pi(x_i))\,\lambda_i, \qquad Var(Y_i) = (1-\pi(x_i))(\lambda_i + \pi(x_i)\lambda_i^2) > E(Y_i) \text{ si } \pi > 0.$$
+\begin{itemize}
+\item \textbf{Loi normale} $Y\sim\mathcal{N}(\mu,\sigma^2)$~:
+$$f_Y(y) = \frac{1}{\sqrt{2\pi\sigma^2}}\exp\left\{\frac{y\mu - \mu^2/2}{\sigma^2} - \frac{y^2}{2\sigma^2}\right\},$$
+d'où $\theta = \mu$, $\phi = \sigma^2$, $b(\theta) = \theta^2/2$, $a(y,\phi) = (2\pi\sigma^2)^{-1/2}e^{-y^2/(2\sigma^2)}$. On vérifie $E[Y] = \theta = \mu$, $Var[Y] = \sigma^2$ et $V(\mu) = 1$.
 
-La vraisemblance doit être maximisée conjointement ou par l'algorithme EM.
+\item \textbf{Loi binomiale} $Y\sim\mathrm{Bin}(m,\pi)$~:
+$$P(Y=y) = \binom{m}{y}\exp\left\{y\log\!\left(\frac{\pi}{1-\pi}\right) + m\log(1-\pi)\right\},$$
+d'où $\theta = \log\{\pi/(1-\pi)\}$ (donc $\pi = e^\theta/(1+e^\theta)$), $\phi = 1$, $a(y,\phi) = \binom{m}{y}$ et $b(\theta) = m\log(1+e^\theta)$. On vérifie $E[Y] = m\pi$, $Var[Y] = m\pi(1-\pi)$ et $V(\mu) = \mu(m-\mu)/m$.
 
-\subsection{Comparaison hurdle vs ZIP}
+\item \textbf{Loi de Poisson} $Y\sim\mathcal{P}(\lambda)$~:
+$$P(Y=y) = \frac{1}{y!}\exp\left\{y\log(\lambda) - \lambda\right\},$$
+d'où $\theta = \log(\lambda)$, $\phi = 1$, $a(y,\phi) = 1/y!$ et $b(\theta) = e^\theta$. On vérifie $E[Y] = Var[Y] = \lambda$ et $V(\mu) = \mu$.
 
+\item \textbf{Loi gamma} $Y\sim\mathrm{Gamma}(\alpha,\beta)$, reparamétrée avec $\mu = \alpha\beta$ et $\phi = 1/\alpha$~: on obtient $\theta = -1/\mu$, $b(\theta) = -\log(-\theta)$, d'où $E[Y] = -1/\theta = \mu$, $Var[Y] = \phi\mu^2$ et $V(\mu) = \mu^2$.
+\end{itemize}
+
+Le tableau suivant résume ces résultats~:
 \begin{center}
-\begin{tabular}{l|l|l}
-& \textbf{Hurdle} & \textbf{ZIP} \\
-\hline
-Paramétrisation & orthogonale & non orthogonale \\
-Ajustement & séparé & simultané (ou EM) \\
-Interprétation & $p_i$ = prob.\ de présence & $\pi$ = prob.\ de mélange \\
+\begin{tabular}{lcccc}
+\toprule
+Distribution & $\theta$ & $\phi$ & $b(\theta)$ & $V(\mu)$ \\
+\midrule
+$\mathcal{N}(\mu,\sigma^2)$ & $\mu$ & $\sigma^2$ & $\theta^2/2$ & $1$ \\
+$\mathrm{Bin}(m,\pi)$ & $\log\{\pi/(1-\pi)\}$ & $1$ & $m\log(1+e^\theta)$ & $\mu(m-\mu)/m$ \\
+$\mathcal{P}(\lambda)$ & $\log(\lambda)$ & $1$ & $e^\theta$ & $\mu$ \\
+$\mathrm{Gamma}(\mu,\phi)$ & $-1/\mu$ & $\phi$ & $-\log(-\theta)$ & $\mu^2$ \\
+\bottomrule
 \end{tabular}
 \end{center}
 
-\textbf{Validation}~: tests du rapport de vraisemblance, AIC. Pour le modèle hurdle, le cadre des MLG s'applique pleinement.
+\subsubsection{Déviance}
 
-\newpage
-%% ============================================================
-%% CHAPITRE 4 : GEE
-%% ============================================================
-\section{Équations d'estimation généralisées (GEE)}
+Posons $t(y,\mu) = y\theta - b(\theta)$ et $d(y,\mu) = 2\{t(y,y) - t(y,\mu)\}$. On a
+$$\frac{\partial d(y,\mu)}{\partial\theta} = -\{y - b'(\theta)\} \qquad \mbox{et} \qquad \frac{\partial^2 d(y,\mu)}{\partial\theta^2} = b''(\theta) = V(\mu) > 0.$$
+La dérivée s'annule lorsque $\mu = y$~: la quantité $d(y,\mu)$ est donc toujours positive et ne s'annule que si $\mu = y$. Pour la loi normale, $d(y,\mu) = (y-\mu)^2$~: la déviance généralise la somme des carrés des résidus.
 
-\subsection{Données longitudinales}
+On montre que $d(Y,\mu)/\phi$ suit approximativement une $\chi^2_1$. Pour des variables indépendantes $\{Y_1,\ldots,Y_n\}$ de paramètres $(\mu_i,\phi)$ (dispersion commune), la \textbf{déviance} et la \textbf{déviance standardisée} sont
+$$D(y,\mu) = \sum_{i=1}^n d(y_i,\mu_i) \qquad\mbox{et}\qquad D^*(y,\mu) = \frac{D(y,\mu)}{\phi} \ \stackrel{approx.}{\sim}\ \chi^2_n.$$
 
-Dans les \textbf{études longitudinales}, les individus sont mesurés de façon répétée au fil du temps. L'indépendance est supposée entre les individus, mais pas entre les mesures d'un même individu.
+\subsection{Définition d'un MLG}
 
-\subsection{Approches possibles}
+Un modèle linéaire généralisé est composé de \textbf{trois composantes}~:
+\begin{enumerate}
+\item \textbf{Composante aléatoire}~: $Y_i$ suit une distribution de la famille exponentielle de paramètres $(\theta_i, \phi)$~; chaque observation possède son propre paramètre canonique $\theta_i$, mais le paramètre de dispersion $\phi$ est commun. Ainsi $E[Y_i] = \mu_i = b'(\theta_i)$ et $Var[Y_i] = \phi\, V(\mu_i)$.
+\item \textbf{Composante systématique}~: $\eta_i = \beta_0 + \beta_1 X_{i1} + \cdots + \beta_p X_{ip}$ (prédicteur linéaire).
+\item \textbf{Fonction de lien}~: $g(\mu_i) = \eta_i$, avec $g$ monotone et dérivable. La fonction de lien est dite \textbf{canonique} si $g[b'(u)] = u$ pour tout $u$, c'est-à-dire si elle assure $\eta_i = \theta_i$.
+\end{enumerate}
+Les paramètres du modèle sont $\beta$ et $\phi$. Cas particuliers~: régression linéaire (normale, lien identité), régression logistique (binomiale, lien logit), régression Poisson (Poisson, lien log).
 
-\begin{itemize}
-\item \textbf{Modèles marginaux}~: $g(E(Y_{it})) = x_{it}^T \beta$ et $Var(Y_i) = V_i(\phi,\alpha)$.
-\item \textbf{Modèles à effets aléatoires}~: $g(E(Y_{it}|\gamma_i)) = x_{it}^T \beta + z_{it}^T \gamma_i$.
-\end{itemize}
+\subsection{Estimation des paramètres}
 
-\subsection{Modèles marginaux et GEE}
+La log-vraisemblance des données $\Delta = \{(Y_i,X_i)\}$ s'écrit
+$$l(\beta,\phi\mid\Delta) = \sum_{i=1}^n\log[a(y_i,\phi)] + \frac{1}{\phi}\sum_{i=1}^n[y_i\theta_i - b(\theta_i)] = l_1(\phi) + \frac{1}{\phi}\, l_2(\beta).$$
+L'estimateur du maximum de vraisemblance $\hat\beta$ maximise $l_2(\beta)$ (il ne dépend pas de $\phi$). Sa distribution asymptotique est
+$$\hat\beta \sim \mathcal{N}\left\{\beta,\ \phi\,(X^\top W X)^{-1}\right\},$$
+où $W = \mathrm{diag}\{W_1,\ldots,W_n\}$ avec
+$$W_i = \frac{1}{V(\hat\mu_i)\left[g'(\hat\mu_i)\right]^2},$$
+$\hat\mu_i = g^{-1}(\hat\eta_i)$ et $\hat\eta_i = \hat\beta_0 + \hat\beta_1 X_{i1} + \cdots + \hat\beta_p X_{ip}$.
 
-L'inférence est de type \textbf{moyenne populationnelle}. Les paramètres $\beta$ sont estimés en résolvant~:
-$$\sum_{i=1}^n D_i^T V_i(\alpha)^{-1}(Y_i - \mu_i) = 0,$$
-avec $D_i = \partial \mu_i/\partial \beta$, $V_i(\alpha) = \phi\, A_i^{1/2} R(\alpha) A_i^{1/2}$, et $R(\alpha)$ la \textbf{matrice de corrélation de travail}.
+\subsubsection{Estimation de $\phi$}
 
-\subsection{Choix de la matrice de corrélation de travail $R(\alpha)$}
+Si $\phi$ est fixé (logistique, Poisson), la procédure s'arrête ici. Sinon (normale, gamma), on doit estimer $\phi$. L'EMV de $\phi$ est biaisé en petits échantillons~; on lui préfère des estimateurs par la méthode des moments. On calcule
+$$X^2 = \sum_{i=1}^n\frac{(y_i - \hat\mu_i)^2}{V(\hat\mu_i)} \qquad\mbox{et}\qquad D(y,\hat\mu),$$
+qui, divisées par $\phi$, suivent approximativement une $\chi^2_{n-(p+1)}$. On en déduit les estimateurs de \textbf{Pearson} et de \textbf{déviance}~:
+$$\tilde\phi_P = \frac{X^2}{n-(p+1)}, \qquad \tilde\phi_D = \frac{D(y,\hat\mu)}{n-(p+1)}.$$
+L'estimateur de Pearson possède un biais négligeable et est robuste à une mauvaise spécification de la distribution~; c'est l'estimateur par défaut de la fonction \textsf{glm} de \textrm{R}. L'estimateur déviance a une faible variance, mais peut être sensible lorsque des valeurs de $y$ sont proches des limites de leur support.
 
-\begin{description}
-\item[Indépendance~:] $R(\alpha) = I$ (revient à un MLG).
-\item[Échangeable~:] $R(\alpha)_{t,t'} = \alpha$ pour tout $t \neq t'$.
-\item[Autorégressive (AR)~:] $R(\alpha)_{t,t'} = \alpha^{|t-t'|}$.
-\item[$m$-dépendance~:] corrélation jusqu'à distance temporelle $m$.
-\item[Non structurée~:] $R(\alpha)$ totalement libre.
-\end{description}
+\subsection{Inférence statistique}
 
-\subsection{Estimation de $\phi$ et $\alpha$}
+\subsubsection{Cas $\phi$ fixé}
 
-On utilise une procédure itérative~: scoring de Fisher modifié pour $\beta$ et estimation par les moments de $\alpha$ et $\phi$. Par exemple~:
-$$\hat{\phi} = \frac{\sum_i \sum_t \hat{r}_{it}^2}{N - (p+1)}, \quad \text{où } r_{it} = \frac{y_{it} - \mu_{it}}{\sqrt{v(\mu_{it})}}.$$
+Un intervalle de confiance à $(1-\alpha)100\%$ pour $\beta_j$ est
+$$\left[\hat\beta_j - z_{\alpha/2}\sqrt{\phi\, v_j}\,;\ \hat\beta_j + z_{\alpha/2}\sqrt{\phi\, v_j}\right],$$
+où $v_j$ est le $(j+1)^{\text{ème}}$ élément diagonal de $(X^\top W X)^{-1}$.
 
-\subsection{Distribution asymptotique}
+Pour une observation future $X^*$, avec $\eta^* = {X^*}^\top\beta$ et $\mu^* = g^{-1}(\eta^*)$, on a $Var[\hat\eta^*] = \phi\,{X^*}^\top(X^\top W X)^{-1}X^*$, d'où l'IC pour $\eta^*$~:
+$$\left[{X^*}^\top\hat\beta \pm z_{\alpha/2}\sqrt{\phi\,{X^*}^\top(X^\top WX)^{-1}X^*}\right],$$
+et l'IC pour $\mu^*$ obtenu en appliquant $g^{-1}$ aux deux bornes.
 
-$\sqrt{n}(\hat{\beta} - \beta)$ est asymptotiquement normal avec variance $\Omega = \lim_{n\to\infty} n\,M^{-1}QM^{-1}$, où~:
-$$M = \sum_i D_i^T V_i^{-1} D_i, \qquad Q = \sum_i D_i^T V_i^{-1} Var(Y_i) V_i^{-1} D_i.$$
+Pour comparer deux modèles emboîtés $A$ (réduit) et $B$ (complet), la statistique
+$$X_{obs} = \frac{D_A(y,\hat\mu) - D_B(y,\hat\mu)}{\phi}$$
+suit une $\chi^2_d$ sous l'hypothèse que le modèle réduit est vrai ($d$ = différence du nombre de paramètres). On rejette au seuil $\alpha$ si $X_{obs} > \chi^2_{d,\alpha}$.
 
-\begin{remarque}
-La convergence de $\hat{\beta}$ ne dépend que de la spécification correcte de la moyenne $\mu_i$, pas de la corrélation. Choisir $R$ proche de la vraie corrélation augmente l'efficacité.
+\subsubsection{Cas $\phi$ inconnu}
+
+On remplace $\phi$ par $\tilde\phi_P$ et les quantiles de la $\mathcal{N}(0,1)$ par ceux de la loi de Student à $n-(p+1)$ degrés de liberté~:
+$$\left[\hat\beta_j - t_{\alpha/2,\,n-(p+1)}\sqrt{\tilde\phi_P\, v_j}\,;\ \hat\beta_j + t_{\alpha/2,\,n-(p+1)}\sqrt{\tilde\phi_P\, v_j}\right].$$
+Pour la comparaison de modèles emboîtés, la statistique devient
+$$X_{obs} = \frac{\{D_A(y,\hat\mu) - D_B(y,\hat\mu)\}/d}{\tilde\phi_P}\ \sim\ F_{d,\,n-(p+1)} \quad\mbox{sous } H_0.$$
+
+\subsection{Sélection et validation de modèles}
+
+Les procédures pas à pas \textit{backward}, \textit{forward} et \textit{stepwise} restent valides pour tout MLG, sur la base de
+$$AIC = -2\,l(\hat\beta,\tilde\phi_P\mid\Delta) + 2(p+1), \qquad BIC = -2\,l(\hat\beta,\tilde\phi_P\mid\Delta) + \log(n)(p+1).$$
+De même, les outils de validation (résidus, DFBETAS, DFFITS, distance de Cook) vus pour les régressions linéaire et logistique restent valides pour l'ensemble des MLG.
+
+\subsection{Exemple détaillé~: la régression Poisson}
+\label{subsec:poisson}
+
+La variable réponse $Y_i \in \mathbb{N}$ dénote un dénombrement (nombre de nouveaux cas d'une maladie, nombre d'absences, etc.). La régression Poisson suppose $Y_i \sim \mathcal{P}(\mu_i)$~:
+$$P(Y_i = y_i) = e^{-\mu_i}\frac{\mu_i^{y_i}}{y_i!}, \qquad E[Y_i] = Var[Y_i] = \mu_i.$$
+
+Avec la fonction de lien canonique $g(\mu_i) = \log(\mu_i)$, on a
+$$\mu_i = e^{\beta_0 + \beta_1 X_{i1} + \cdots + \beta_p X_{ip}} = e^{\beta_0}\times\left\{e^{\beta_1}\right\}^{X_{i1}}\times\cdots\times\left\{e^{\beta_p}\right\}^{X_{ip}}.$$
+
+\begin{remarque}[Interprétation]
+Si $X_{ij}$ augmente de 1, $\mu_i$ est \textbf{multiplié} par $e^{\beta_j}$. Si $\beta_j > 0$, alors $e^{\beta_j} > 1$ et $\mu_i$ croît.
 \end{remarque}
 
-L'estimateur de la variance (dit ``sandwich'') est $\hat{\Omega} = \hat{M}^{-1}\hat{Q}\hat{M}^{-1}$.
+La log-vraisemblance est
+$$l(\beta) = \sum_{i=1}^n\left\{y_i(\beta_0 + \beta_1 X_{i1} + \cdots + \beta_p X_{ip}) - e^{\beta_0 + \beta_1 X_{i1} + \cdots + \beta_p X_{ip}}\right\} + K,$$
+et la distribution asymptotique de $\hat\beta$ est $\mathcal{N}\{\beta,\,(X^\top WX)^{-1}\}$, où $W = \mathrm{diag}(w_i)$ avec $w_i = \hat\mu_i = e^{\hat\eta_i}$.
 
-\subsection{Diagnostics et inférence}
+La déviance individuelle est
+$$d(y,\mu) = 2\left\{y\log\!\left(\frac{y}{\mu}\right) - (y - \mu)\right\}$$
+et l'adéquation se vérifie avec
+$$X^2 = \sum_{i=1}^n\frac{(y_i - \hat\mu_i)^2}{\hat\mu_i} \qquad\mbox{et}\qquad D = \sum_{i=1}^n d(y_i,\hat\mu_i),$$
+qui suivent approximativement une $\chi^2_{n-(p+1)}$ si le modèle est bien adapté.
 
-\textbf{Résidus de Pearson}~: $\hat{r}_{it} = (y_{it} - \hat{\mu}_{it})/\sqrt{v(\hat{\mu}_{it})}$.
+\subsubsection{Variables explicatives \textit{offset}}
 
-L'inférence est limitée par l'absence de fonction de vraisemblance (pas de test du rapport de vraisemblance, pas d'AIC standard).
+Considérons le jeu de données \textsf{danishlc} (librairie \texttt{GLMsData})~: nombre de nouveaux cas de cancer du poumon par ville (4 villes) et tranche d'âge (6 tranches), avec la population $m_i$ de chaque strate.
+
+Lorsque la probabilité individuelle est très petite (ici $\tilde\pi_1 = 11/3059 \approx 3.6\times10^{-3}$), une régression logistique n'est pas appropriée. On modélise plutôt l'espérance du \textbf{taux} $Y_i/m_i$~:
+$$\log\!\left(\frac{\mu_i}{m_i}\right) = \beta_0 + \beta_1 X_{i1} + \cdots + \beta_p X_{ip}
+\quad\Longleftrightarrow\quad
+\log(\mu_i) = \beta_0 + \log(m_i) + \beta_1 X_{i1} + \cdots + \beta_p X_{ip}.$$
+Le terme $\log(m_i)$ est une variable explicative dont le coefficient est \textbf{fixé à 1}~: on parle de variable \textbf{offset}. Un offset est utile lorsque l'espérance de $Y_i$ est proportionnelle à une autre variable (population, durée d'exposition, effort).
+
+\begin{verbatim}
+modele.additif <- glm(Cases ~ offset(log(Pop)) + City + Age,
+                      family=poisson, data=danishlc)
+\end{verbatim}
+Les tests par différence de déviances montrent une différence significative entre les tranches d'âge, mais pas entre les villes.
+
+\subsubsection{Variabilité extra-Poissonienne}
+
+En pratique, il arrive que $Var[Y_i] > E[Y_i]$ (\textbf{surdispersion}). Deux stratégies~:
+
+\paragraph{Approche quasi-Poisson.} On spécifie seulement les deux premiers moments~: $E[Y_i] = \mu_i$ et $Var[Y_i] = \phi\,\mu_i$. On obtient les mêmes estimateurs $\hat\beta$ que la régression Poisson, mais $Var(\hat\beta)$ est multipliée par $\tilde\phi_P = X^2/(n-(p+1))$. En \textrm{R}~: \textsf{family=quasipoisson}. Cette approche permet des IC et des tests sur $\beta$, mais \textbf{n'implique pas de vraisemblance}~: l'$AIC$ et le $BIC$ ne sont pas définis.
+
+\paragraph{Loi binomiale négative.} On dit que $Y_i$ suit une loi binomiale négative de paramètres $\mu_i$ et $\alpha$ si
+$$P(Y_i = y_i) = \frac{\Gamma(y_i + 1/\alpha)}{\Gamma(y_i+1)\Gamma(1/\alpha)}\left(\frac{1/\alpha}{\mu_i + 1/\alpha}\right)^{1/\alpha}\left(\frac{\mu_i}{\mu_i + 1/\alpha}\right)^{y_i}, \quad y_i = 0,1,2,\ldots,\ \alpha > 0.$$
+On a $E[Y_i] = \mu_i$ et $Var[Y_i] = \mu_i + \alpha\mu_i^2$~; la loi de Poisson est retrouvée quand $\alpha \to 0$. Avec $\mu_i = e^{x_i^\top\beta}$, les coefficients gardent la même interprétation que la régression Poisson. En \textrm{R}~: \textsf{glm.nb} de la librairie \texttt{MASS}.
+
+Ce modèle permet de tester $H_0 : \alpha = 0$. On calcule $Q_{obs} = D_0 - D_1$ (déviances des modèles Poisson et binomiale négative). Comme on teste $\alpha$ à la frontière de son domaine,
+$$Q \sim \tfrac{1}{2}\chi^2_0 + \tfrac{1}{2}\chi^2_1 \quad\mbox{sous } H_0,$$
+et le seuil observé est $\alpha^* = P(\chi^2_1 > Q_{obs})/2$. Sur les données \textsf{danishlc}, $\alpha^* = 0.143$~: pas de variabilité extra-Poissonienne détectée.
 
 \newpage
 %% ============================================================
-%% CHAPITRE 5 : MLGM (GLMM)
+%% CHAPITRE 4 : Prédiction, taux d'erreur, validation croisée
 %% ============================================================
-\section{Modèles linéaires généralisés mixtes (MLGM)}
+\section{Prédiction, mesures de performance et validation croisée}
+\label{sec:cv}
+
+\subsection{Adéquation versus précision de prédiction}
+
+Considérons le jeu de données \textsf{Auto} (librairie \texttt{ISLR}, $n = 392$)~: la réponse est \texttt{mpg} (miles par gallon) et la variable explicative est la puissance \textsf{horsepower}. On veut choisir parmi les modèles~:
+\begin{align*}
+\mbox{Modèle 1~: } Y_i &= \beta_0 + \beta_1 X_i + \epsilon_i,\\
+\mbox{Modèle 2~: } Y_i &= \beta_0 + \beta_1 X_i + \beta_2\log(X_i) + \epsilon_i,\\
+\mbox{Modèle 3~: } Y_i &= \beta_0 + \beta_1 X_i + \beta_2 X_i^2 + \epsilon_i,\\
+\mbox{Modèle 4~: } Y_i &= \beta_0 + \beta_1 X_i + \beta_2 X_i^2 + \beta_3 X_i^3 + \epsilon_i.
+\end{align*}
+
+Pour chaque modèle, on peut calculer $SSE = \sum_i(Y_i - \hat Y_i)^2$, l'$AIC$, le $BIC$, ou effectuer des tests pour modèles emboîtés~: toutes ces procédures cherchent le modèle avec le meilleur \textbf{ajustement} aux données.
+
+Supposons plutôt qu'on veuille prédire la réponse $Y_0$ d'une nouvelle observation $X_0$~: on cherche alors le modèle qui minimise $E[(Y_0 - \hat Y_0)^2]$. Les deux critères (adéquation et précision de la prédiction) sont différents et peuvent être contradictoires~: avec $n$ points, un polynôme d'ordre $n-1$ a une adéquation parfaite ($SSE = 0$) mais sera inutile pour prédire des valeurs futures (\textbf{surajustement}).
+
+On distingue donc~:
+\begin{itemize}
+\item le \textbf{taux d'erreur d'entraînement}, évalué par $SSE$, qui mesure l'adéquation aux données observées~;
+\item le \textbf{taux d'erreur test}, qui mesure la précision de prédiction pour une observation future.
+\end{itemize}
+
+\subsection{Validation croisée}
+
+\subsubsection{Approche par ensemble de validation}
+
+On partage le jeu de données en deux parties~: un \textbf{jeu d'entraînement} (pour estimer les paramètres) et un \textbf{jeu test} (pour estimer le taux d'erreur test). Avec $n_1$ observations d'entraînement et $n_2 = n - n_1$ observations test~:
+$$\widehat{Err}_{test} = \frac{1}{n_2}\sum_{i = n_1+1}^{n}(Y_i - \hat Y_i)^2,$$
+où $\hat Y_i$ est calculé avec les paramètres estimés sur le jeu d'entraînement.
+
+Cette approche a deux défauts~: (i) la partition est arbitraire, ce qui introduit de la variabilité~; (ii) on n'estime $\beta$ qu'avec une fraction des données, ce qui augmente la variance de $\hat\beta$. Pour le premier défaut, on peut répéter la partition aléatoirement un grand nombre de fois et moyenner les erreurs obtenues.
+
+\subsubsection{Validation croisée avec exclusion d'une observation (LOOCV)}
+
+Pour remédier au deuxième défaut, pour $i = 1,\ldots,n$, on estime $\beta$ avec toutes les observations \textbf{sauf} la $i^{\text{ème}}$ et on calcule $\hat y_{i,(-i)}$. Le critère est
+$$VC_{(n)} = \frac{1}{n}\sum_{i=1}^n\left(y_i - \hat y_{i,(-i)}\right)^2.$$
+
+\begin{propriete}[Formule explicite pour la régression linéaire]
+$$VC_{(n)} = \frac{1}{n}\sum_{i=1}^n\left(\frac{y_i - \hat y_i}{1 - h_i}\right)^2,$$
+où $h_i$ est le levier de l'observation $i$. Il n'est donc pas nécessaire d'ajuster $n$ régressions~: un seul ajustement suffit.
+\end{propriete}
+
+\subsubsection{Validation croisée à $K$ blocs}
+
+Pour d'autres modèles (notamment les MLG), le calcul de $VC_{(n)}$ requiert l'ajustement de $n$ modèles, ce qui peut être coûteux. On considère alors la validation croisée à $K$ blocs (en pratique $K = 5$ ou $K = 10$). On partage le jeu de données en $K$ parties de tailles quasiment égales $A_1,\ldots,A_K$. Pour $k = 1,\ldots,K$, on estime $\beta$ à partir de toutes les données sauf $A_k$ et on calcule
+$$MSE_k = \frac{1}{n_k}\sum_{i\in A_k}\left\{y_i - \hat y_{i,(-k)}\right\}^2,$$
+où $n_k$ est la taille de $A_k$. On estime le taux d'erreur test par
+$$VC_{(K)} = \frac{1}{K}\sum_{k=1}^K MSE_k.$$
+
+En \textrm{R}, la fonction \textsf{cv.glm} de la librairie \texttt{boot} calcule $VC_{(n)}$ (par défaut) et $VC_{(K)}$ (argument \textsf{K}).
+
+\begin{exemple}[\textsf{Auto}]
+Sur les quatre modèles polynomiaux, la validation croisée ($VC_{(n)}$, $VC_{(5)}$ et $VC_{(10)}$) désigne systématiquement le modèle 3 (quadratique) comme le meilleur pour la prédiction ($VC_{(n)} \approx 19.25$), alors que l'approche par ensemble de validation unique pouvait suggérer le modèle 4.
+\end{exemple}
+
+\subsection{Mesures de performance pour la classification}
+
+Pour une réponse binaire, le taux d'erreur test devient le \textbf{taux de mauvaise classification}
+$$\frac{1}{n}\sum_{i=1}^n \mathbf{1}_{\{y_i \neq \hat y_i\}},$$
+avec $\hat y_i = \mathbf{1}_{\{\hat\pi_i > u\}}$ pour un seuil $u$ (souvent $1/2$). Les notions de \textbf{sensibilité}, \textbf{spécificité}, \textbf{courbe ROC} et \textbf{AUC} présentées à la section~\ref{subsec:roc} fournissent des mesures de performance qui ne dépendent pas du choix d'un seuil unique~: l'AUC est notamment utilisée comme critère de validation croisée en classification (voir chapitre~\ref{sec:knn}).
+
+\newpage
+%% ============================================================
+%% CHAPITRE 5 : Sélection de variables et régularisation
+%% ============================================================
+\section{Sélection de variables et régularisation}
+\label{sec:regularisation}
+
+\subsection{Sélection de variables~: rappel}
+
+Les chapitres précédents ont présenté deux familles d'outils de sélection de variables~:
+\begin{itemize}
+\item les \textbf{tests pour modèles emboîtés} (test $F$ en régression linéaire, différence de déviances pour les MLG)~;
+\item les \textbf{critères d'information} $AIC$ et $BIC$, combinés aux procédures pas à pas \textit{forward}, \textit{backward} et \textit{stepwise}, pour les modèles non emboîtés ou lorsque le nombre de sous-modèles ($2^p$) est trop grand pour une recherche exhaustive.
+\end{itemize}
+La régression régularisée, présentée ci-dessous, offre une troisième approche qui effectue simultanément l'estimation et (pour le lasso) la sélection de variables.
+
+\subsection{Régression régularisée}
+
+Considérons le modèle de régression
+$$Y_i = \beta_0 + \beta_1 X_{i1} + \cdots + \beta_p X_{ip} + \epsilon_i, \qquad \epsilon_i \sim \mathcal{N}(0,\sigma^2).$$
+L'estimateur des moindres carrés $\hat\beta$ est sans biais et de variance minimale parmi les estimateurs sans biais. Cependant, rien ne garantit qu'il possède la plus petite \textbf{erreur quadratique moyenne}~:
+$$E\left[(\beta_j - \hat\beta_j)^2\right] = \mbox{biais}(\hat\beta_j)^2 + Var(\hat\beta_j).$$
+
+La régression régularisée impose une pénalité au critère des moindres carrés~: on minimise
+$$l_\lambda(\beta) = l(\beta) + \lambda\, g(\beta_1,\ldots,\beta_p),$$
+où $g$ est une fonction de pénalité connue et $\lambda \geq 0$ est le \textbf{coefficient de pénalité}. La pénalité \textbf{réduit la variance} des estimateurs au prix d'un \textbf{biais}~; avec un choix judicieux de $g$ et de $\lambda$, on diminue l'erreur quadratique moyenne et on obtient des prédictions plus précises. C'est le \textbf{compromis biais-variance}.
+
+\begin{remarque}
+L'ordonnée à l'origine $\beta_0$ n'est pas pénalisée. Par ailleurs, les variables explicatives sont généralement standardisées avant l'ajustement, car la pénalité n'est pas invariante à l'échelle des variables.
+\end{remarque}
+
+\subsubsection{Régression ridge}
+
+La régression ridge minimise
+$$l^{(R)}_\lambda(\beta) = \sum_{i=1}^n\left\{Y_i - (\beta_0 + \beta_1 X_{i1} + \cdots + \beta_p X_{ip})\right\}^2 + \lambda\sum_{j=1}^p\beta_j^2.$$
+En écriture matricielle, $l^{(R)}_\lambda(\beta) = (Y - X\beta)^\top(Y-X\beta) + \lambda\,\beta^\top\tilde I_p\,\beta$, où $\tilde I_p$ est diagonale de taille $p+1$ avec un 0 en première position (pas de pénalité sur $\beta_0$) et des 1 ailleurs. La solution est explicite~:
+$$\boxed{\hat\beta^{(R)}_\lambda = (X^\top X + \lambda\tilde I_p)^{-1}X^\top Y}$$
+et on en déduit
+\begin{align*}
+E[\hat\beta^{(R)}_\lambda] &= (X^\top X + \lambda\tilde I_p)^{-1}X^\top X\beta \neq \beta,\\
+Var[\hat\beta^{(R)}_\lambda] &= \sigma^2(X^\top X + \lambda\tilde I_p)^{-1}X^\top X(X^\top X + \lambda\tilde I_p)^{-1}.
+\end{align*}
+L'estimateur est donc biaisé, sauf si $\lambda = 0$. Lorsque $\lambda = 0$, $\hat\beta^{(R)}_\lambda = \hat\beta$~; lorsque $\lambda\to\infty$, tous les $\hat\beta^{(R)}_{j,\lambda}$ ($j\geq1$) tendent vers 0 et l'ordonnée à l'origine tend vers $\bar Y$. On parle d'un phénomène de \textbf{rétrécissement} (\textit{shrinkage}).
+
+\begin{exemple}[\textsf{Hitters}, librairie \texttt{ISLR}]
+La réponse est le salaire d'un joueur de baseball (19 variables explicatives). En \textrm{R}, la régression ridge s'ajuste avec \textsf{glmnet(x, y, alpha=0)}. Avec $\lambda = e^6$, on observe $\sum_j[\hat\beta^{(R)}_{j,\lambda}]^2 = 5721$ contre $\sum_j\hat\beta_j^2 = 18469$ pour les moindres carrés~: rétrécissement marqué. Sur une partition entraînement/test, le taux d'erreur test passe de $124\,716$ (moindres carrés) à $91\,274$ (ridge), soit une diminution de près de 27\%.
+\end{exemple}
+
+\subsubsection{Régression lasso}
+
+La régression lasso minimise
+$$l^{(L)}_\lambda(\beta) = \sum_{i=1}^n\left\{Y_i - (\beta_0 + \beta_1 X_{i1} + \cdots + \beta_p X_{ip})\right\}^2 + \lambda\sum_{j=1}^p|\beta_j|.$$
+Il n'existe pas d'expression explicite pour $\hat\beta^{(L)}_\lambda$, mais des algorithmes d'optimisation efficaces existent (en \textrm{R}~: \textsf{glmnet(x, y, alpha=1)}).
+
+La caractéristique clé du lasso~: pour les grandes valeurs de $\lambda$, certains coefficients $\hat\beta^{(L)}_{j,\lambda}$ deviennent \textbf{identiquement égaux à 0}. Le lasso effectue donc une \textbf{sélection de variables} automatique, intuitive et naturelle. Comme pour ridge~: quand $\lambda$ croît, le biais croît et la variance diminue.
+
+\begin{exemple}[\textsf{Hitters}, suite]
+Avec $\lambda = e^2$, le lasso annule les coefficients de \textsf{HmRun}, \textsf{Runs}, \textsf{RBI}, \textsf{CAtBat}, \textsf{CHits}, \textsf{Assists} et \textsf{NewLeagueN}~: le modèle retenu ne contient plus que 12 variables.
+\end{exemple}
+
+\subsubsection{Sélection du paramètre $\lambda$}
+
+La méthode la plus intuitive est basée sur le taux d'erreur test, estimé par \textbf{validation croisée} pour une grille de valeurs de $\lambda$~; on choisit la valeur qui minimise le taux d'erreur test. En \textrm{R}~:
+\begin{verbatim}
+reg.ridge.select <- cv.glmnet(x, y, alpha=0, lambda=grille.lambda)
+reg.ridge.select$lambda.min
+\end{verbatim}
+Sur les données \textsf{Hitters}, on obtient $\lambda = e^{2.2}$ pour ridge et $\lambda = e^3$ pour le lasso.
+
+\newpage
+%% ============================================================
+%% CHAPITRE 6 : kNN et estimateur de noyau
+%% ============================================================
+\section{Régression non-paramétrique~: $k$ plus proches voisins et estimateur de noyau}
+\label{sec:knn}
+
+Considérons le jeu de données \textsf{Auto}~: la réponse $Y$ est \texttt{mpg} et la variable explicative $X$ est le poids de la voiture (\textsf{weight}). Le nuage de points montre que la relation entre $X$ et $Y$ n'est clairement pas linéaire. Ce chapitre présente des approches \textbf{non-paramétriques} pour étudier une telle relation, sans postuler de forme fonctionnelle.
+
+\subsection{Estimateur des $k$ plus proches voisins}
+
+\subsubsection{Définition}
+
+On suppose que la relation entre $X$ et $Y$ s'écrit
+$$Y_i = f(X_i) + \epsilon_i,$$
+où $f$ est une fonction inconnue à estimer et $\epsilon_i$ vérifie $E[\epsilon_i\mid X_i] = 0$. On suppose $f$ assez lisse (deux fois dérivable). Sous ces hypothèses,
+$$f(x) = E[Y\mid X = x].$$
+On suppose de plus $X$ continue, de sorte que $P(X_i = X_{i'}) = 0$ si $i\neq i'$.
+
+L'estimateur des $k$ plus proches voisins ($k$NN) est
+$$\hat f(x) = \frac{1}{k}\sum_{i\in N_k(x)} Y_i,$$
+où $N_k(x)$ est l'ensemble des indices des $k$ plus proches voisins de $x$~: on pose $d_i(x) = (X_i - x)^2$, on ordonne $d_{(1)}(x) < \cdots < d_{(n)}(x)$, et $N_k(x)$ contient les indices $i$ tels que $d_i(x) \leq d_{(k)}(x)$.
+
+En \textrm{R}~: fonction \textsf{knn.reg} de la librairie \texttt{FNN}.
+
+\subsubsection{Compromis biais-variance et choix de $k$}
+
+Le comportement de $\hat f$ dépend fortement de $k$. Lorsque $X_i$ est proche de $x$, un développement de Taylor donne
+$$E[\hat f(x)] \approx f(x) + f'(x)\,\frac{1}{k}\sum_{i\in N_k(x)}(E[X_i] - x) + \frac{1}{2k}f''(x)\sum_{i\in N_k(x)}(E[X_i] - x)^2.$$
+Si les $X_i$ sont symétriquement distribués autour de $x$, le terme du premier ordre s'annule et
+$$\mbox{biais}[\hat f(x)] \approx \frac{1}{2k}f''(x)\sum_{i\in N_k(x)}(E[X_i] - x)^2,$$
+quantité qui \textbf{croît avec $k$} (les voisins sont de plus en plus éloignés). D'autre part, si $Var[\epsilon_i] = \sigma^2$, alors
+$$Var[\hat f(x)] = \frac{\sigma^2}{k},$$
+qui \textbf{décroît avec $k$}. Il faut donc sélectionner le $k$ qui minimise l'erreur quadratique moyenne
+$$\mbox{biais}^2[\hat f(x)] + Var[\hat f(x)].$$
+En pratique, on sélectionne $k$ par \textbf{validation croisée} (le critère \textsf{PRESS} de \textsf{knn.reg} correspond au LOOCV). Sur les données \textsf{Auto}, on obtient $k_{\min} = 45$.
+
+\subsubsection{Plusieurs variables explicatives et distance de Mahalanobis}
+
+Avec deux variables explicatives, le modèle devient $Y_i = f(X_{i1}, X_{i2}) + \epsilon_i$ et l'estimateur $k$NN est identique, seule la définition de la distance change. La distance euclidienne
+$$d_i(x) = (X_{i1} - x_1)^2 + (X_{i2} - x_2)^2$$
+pose problème si les ordres de grandeur des variables diffèrent (p.~ex.\ poids en kg de 1500 à 5000 et cylindrée en pouces$^3$ de 60 à 500)~: la variable de plus grande amplitude domine. On pondère alors par l'inverse de la matrice de variance-covariance empirique~:
+$$d_i(x) = \begin{pmatrix} X_{i1}-x_1 \\ X_{i2}-x_2\end{pmatrix}^{\!\top} V^{-1}\begin{pmatrix} X_{i1}-x_1 \\ X_{i2}-x_2\end{pmatrix},
+\qquad V = \begin{pmatrix} s_1^2 & s_{12} \\ s_{12} & s_2^2\end{pmatrix}.$$
+C'est la \textbf{distance de Mahalanobis}, qui se généralise directement à $p$ variables continues.
+
+\subsection{Estimateur de noyau (Nadaraya-Watson)}
+
+\subsubsection{Des voisins aux noyaux}
+
+L'estimateur $k$NN peut s'écrire
+$$\hat f(x) = \frac{\sum_{i=1}^n \mathbf{1}_{\{i\in N_k(x)\}}Y_i}{\sum_{i=1}^n \mathbf{1}_{\{i\in N_k(x)\}}}.$$
+On peut définir le voisinage autrement~: $x$ et $X_i$ sont voisins si $|X_i - x| \leq h$, où $h > 0$ est un \textbf{paramètre de fenêtre} jouant le même rôle que $k$. On obtient
+$$\hat f(x) = \frac{\sum_{i=1}^n K\!\left(\frac{X_i - x}{h}\right)Y_i}{\sum_{i=1}^n K\!\left(\frac{X_i - x}{h}\right)} = \sum_{i=1}^n w_i(x)\,Y_i,$$
+où $K(u) = \mathbf{1}_{\{|u|<1\}}$ est appelé \textbf{noyau} et
+$$w_i(x) = \frac{K\!\left(\frac{X_i - x}{h}\right)}{\sum_{j=1}^n K\!\left(\frac{X_j - x}{h}\right)}$$
+sont des poids positifs de somme 1.
+
+Avec le noyau uniforme, la contribution d'une observation passe brusquement de $1/A$ à 0 lorsque $x$ sort de son voisinage~: $\hat f$ est \textbf{discontinue}. L'idée de l'\textbf{estimateur de Nadaraya-Watson} est d'utiliser des poids qui diminuent de façon continue au fur et à mesure que $x$ s'éloigne de $X_i$~: on prend par exemple le \textbf{noyau gaussien} $K(u) = e^{-u^2/2}$, qui donne des poids continus et un estimateur $\hat f_{NW}$ continu.
+
+En \textrm{R}~: \textsf{locpoly(x=X, y=Y, degree=0, bandwidth=h)} de la librairie \texttt{KernSmooth}.
+
+\subsubsection{Choix du paramètre de fenêtre $h$}
+
+Comme pour $k$NN~: un $h$ trop petit produit une courbe très oscillante (variance élevée), un $h$ trop grand écrase la structure (biais élevé). On choisit $h$ par validation croisée. En excluant une observation à la fois, on montre que le critère s'écrit
+$$cv.n = \frac{1}{n}\sum_{i=1}^n\left(\frac{Y_i - \hat f(X_i)}{1 - w_i(X_i)}\right)^2.$$
+Sur les données \textsf{Auto} avec le noyau gaussien, on obtient $h_{\min} = 110$.
+
+\subsection{Régression non-paramétrique et classification}
+
+Considérons le jeu de données \textsf{Default} (librairie \texttt{ISLR}, $n = 10\,000$)~: la réponse binaire $Y_i$ vaut 1 si le sujet fait défaut sur sa carte de crédit, la variable explicative est le solde à payer. Le modèle est $g(x) = P(Y = 1\mid X = x)$, qu'on estime par $k$NN~:
+$$\hat g(x) = \frac{1}{k}\sum_{i\in N_k(x)}Y_i \in [0,1].$$
+
+Pour choisir $k$, deux critères de validation croisée~:
+\begin{enumerate}
+\item \textbf{Taux d'erreur test}~: on pose $\hat Y_i = \mathbf{1}_{\{\hat f_{-i}(X_i) > u\}}$ (avec $u = 1/2$ en pratique) et on minimise
+$$\frac{1}{n}\sum_{i=1}^n\mathbf{1}_{\{y_i\neq\hat y_i\}}.$$
+Sur \textsf{Default}, on obtient $k = 190$. Le résultat dépend toutefois du seuil arbitraire $u$ (avec $u = 1/4$~: $k = 290$~; avec $u = 3/4$~: $k = 50$).
+\item \textbf{Aire sous la courbe ROC}~: on choisit le $k$ qui \textbf{maximise} l'AUC (librairie \texttt{pROC}), critère qui ne dépend d'aucun seuil. Sur \textsf{Default}, on obtient $k = 200$, proche du résultat précédent avec $u = 1/2$.
+\end{enumerate}
+
+\newpage
+%% ============================================================
+%% CHAPITRE 7 : Régression non-linéaire (polynômes, splines)
+%% ============================================================
+\section{Régression non-linéaire~: polynômes, fonctions par morceaux et splines}
+\label{sec:splines}
+
+Le chapitre précédent a présenté deux estimateurs locaux de $f(x) = E[Y\mid X=x]$~: l'estimateur $k$NN et l'estimateur de noyau. Ce chapitre présente des approches alternatives fondées sur des \textbf{bases de fonctions}~: on écrit
+$$Y_i = \beta_0\, b_0(X_i) + \beta_1\, b_1(X_i) + \cdots + \beta_q\, b_q(X_i) + \epsilon_i,$$
+où les $b_k(\cdot)$ sont des transformations connues de la variable explicative. Le modèle reste \textbf{linéaire en $\beta$}~: toute la machinerie des moindres carrés (estimation, IC, tests) s'applique.
+
+\subsection{Régression polynomiale}
+
+On approxime $f(x)$ par un polynôme de degré $p$~:
+$$f(x) = \beta_0 + \beta_1 x + \cdots + \beta_p x^p,$$
+ce qui donne le modèle linéaire $Y_i = \beta_0 + \beta_1 X_i + \cdots + \beta_p X_i^p + \epsilon_i$. On estime $\beta$ par
+$$\hat\beta = (X^\top X)^{-1}X^\top Y, \qquad
+X = \begin{pmatrix} 1 & X_1 & \cdots & X_1^p\\ \vdots & \vdots & & \vdots\\ 1 & X_n & \cdots & X_n^p \end{pmatrix}.$$
+Le vecteur $\beta$ contient $p+1$ éléments~: on dit qu'on a $p+1$ \textbf{degrés de liberté}.
+
+Pour sélectionner $p$, on peut utiliser l'$AIC$, le $BIC$, des tests $F$, ou --- dans l'esprit du chapitre~\ref{sec:cv} --- choisir la valeur qui minimise le taux d'erreur test estimé par validation croisée (la version LOOCV admet une expression explicite).
+
+Une fois $p$ choisi, $\hat f(x) = x_*\hat\beta$ avec $x_* = (1,\ x,\ x^2,\ \ldots,\ x^p)$, et
+$$Var[\hat f(x)] = x_*\, Var[\hat\beta]\, x_*^\top,$$
+ce qui permet de construire des bandes de confiance autour de $\hat f(x)$. En \textrm{R}~: \textsf{lm(mpg \textasciitilde{} poly(weight, 2, raw=TRUE))}.
+
+\subsection{Régression avec des fonctions constantes par morceaux}
+
+Posons $[A,B]$ le domaine de $X$ (en pratique $A = \min_i X_i - \varepsilon$ et $B = \max_i X_i + \varepsilon$). Considérons une partition $A = c_0 < c_1 < \cdots < c_K = B$ et définissons, pour $k = 1,\ldots,K$,
+$$b_k(x) = \begin{cases} 1 & \mbox{si } x\in[c_{k-1},c_k],\\ 0 & \mbox{sinon}.\end{cases}$$
+On approxime $f$ par une fonction en escalier~: $f(x) = \beta_1 b_1(x) + \cdots + \beta_K b_K(x)$. La variable $X$ a été discrétisée et on retrouve un modèle d'ANOVA à un facteur à $K$ modalités. L'estimateur des moindres carrés est
+$$\hat\beta_k = \frac{\sum_{i=1}^n b_k(X_i)Y_i}{n_k}, \qquad n_k = \sum_{i=1}^n b_k(X_i),$$
+c'est-à-dire la moyenne des $Y_i$ dans l'intervalle $k$, et $Var[\hat\beta_k] = \sigma^2/n_k$. En \textrm{R}~: \textsf{lm(mpg \textasciitilde{} cut(weight, 4))}.
+
+\subsection{Régression avec des splines}
+
+\subsubsection{Splines de régression}
+
+Les \textbf{splines} sont des polynômes définis par intervalles, avec des contraintes de régularité aux points de jonction (\textbf{n\oe uds}, \textit{knots}).
+
+Cas simple ($K=2$ intervalles, degré $p=3$)~: on divise $[A,B]$ en $[c_0,c_1)$ et $[c_1,c_2)$ et on approxime
+$$f(x) = \begin{cases}\beta_0 + \beta_1 x + \beta_2 x^2 + \beta_3 x^3 & \mbox{si } x\in[c_0,c_1),\\ \gamma_0 + \gamma_1 x + \gamma_2 x^2 + \gamma_3 x^3 & \mbox{si } x\in[c_1,c_2).\end{cases}$$
+On a $4+4 = 8$ degrés de liberté~; en imposant que $f$ soit continue et deux fois dérivable en $c_1$ (3 contraintes), il reste $8-3 = 5$ degrés de liberté.
+
+\textbf{Cas général}~: avec $K$ intervalles et un degré $p$, on a $K(p+1)$ paramètres et $p(K-1)$ contraintes (continuité de $f, f',\ldots,f^{(p-1)}$ aux $K-1$ n\oe uds intérieurs), d'où
+$$K(p+1) - p(K-1) = K + p \ \mbox{ degrés de liberté}.$$
+
+\subsubsection{Base des puissances tronquées}
+
+Pour $p$ et $K$ donnés, un choix mathématiquement commode de base de $K+p$ splines est
+$$b_1(x) = 1,\quad b_2(x) = x,\ \ldots,\ b_{p+1}(x) = x^p,\quad b_{p+1+k}(x) = h(x, c_k),\ k=1,\ldots,K-1,$$
+où
+$$h(x,c) = (x - c)_+^p = \begin{cases}(x-c)^p & \mbox{si } x\geq c,\\ 0 & \mbox{sinon}.\end{cases}$$
+Il existe une infinité de bases équivalentes~: n'importe quelles $K+p$ combinaisons linéaires indépendantes de cette base forment encore une base de splines.
+
+Le modèle s'écrit alors
+$$Y_i = \beta_1 b_1(X_i) + \cdots + \beta_{K+p}\, b_{K+p}(X_i) + \epsilon_i,$$
+et l'estimateur des moindres carrés est $\hat\beta = (X^\top X)^{-1}X^\top Y$ avec $X_{ik} = b_k(X_i)$. On obtient $\hat f(x) = \sum_k\hat\beta_k b_k(x)$.
+
+\subsubsection{B-splines}
+\label{subsec:bsplines}
+
+La base des puissances tronquées est conceptuellement simple mais numériquement instable ($X^\top X$ mal conditionnée). En pratique, les logiciels utilisent la base des \textbf{B-splines}, une base équivalente dont les fonctions sont à \textbf{support compact}~: chaque $B$-spline de degré $p$ est non nulle sur au plus $p+1$ intervalles consécutifs.
+
+Les B-splines se définissent par la récurrence de Cox-de Boor. Sur une suite de n\oe uds augmentée $\{t_j\}$, les B-splines de degré 0 sont
+$$B_{j,0}(x) = \mathbf{1}_{\{t_j \leq x < t_{j+1}\}},$$
+et pour $d = 1,\ldots,p$~:
+$$B_{j,d}(x) = \frac{x - t_j}{t_{j+d} - t_j}\,B_{j,d-1}(x) + \frac{t_{j+d+1} - x}{t_{j+d+1} - t_{j+1}}\,B_{j+1,d-1}(x).$$
+Propriétés~: chaque $B_{j,p}(x) \geq 0$, $\sum_j B_{j,p}(x) = 1$ pour tout $x$ (partition de l'unité), et la matrice de plan est \textbf{creuse par bandes}, ce qui rend les calculs stables et rapides.
+
+En \textrm{R}, la fonction \textsf{bs} de la librairie \texttt{splines} construit la base de B-splines cubiques~:
+\begin{verbatim}
+library(splines)
+modele.splines <- lm(mpg ~ bs(weight, knots=c(2200,2800,3600)), data=Auto)
+\end{verbatim}
+
+\subsubsection{Splines naturelles}
+
+L'estimateur par splines peut être instable aux extrémités du domaine de $X$ (comportement erratique des polynômes au-delà des n\oe uds extrêmes). Les \textbf{splines naturelles} remédient à ce problème~: elles sont définies exactement comme les splines, à l'exception qu'on impose que la fonction soit \textbf{linéaire} sur les intervalles extrêmes $[c_0,c_1)$ et $[c_{K-1},c_K)$. Ces contraintes supplémentaires libèrent des degrés de liberté qui peuvent être réinvestis en n\oe uds intérieurs. En \textrm{R}~: \textsf{lm(mpg \textasciitilde{} ns(weight, df=4))}.
+
+\subsubsection{Splines de lissage (splines pénalisées)}
+
+Un autre défaut des splines de régression est qu'elles peuvent avoir tendance à « aller chercher » le maximum de points (surajustement). Pour y remédier, on impose une pénalité sur la rugosité de $f$~: on estime $\beta$ en minimisant
+$$\sum_{i=1}^n\left\{Y_i - \sum_{k}\beta_k b_k(X_i)\right\}^2 + \lambda\int_A^B f''(t)^2\,dt.$$
+Comme $f = \sum_k \beta_k b_k$, la pénalité s'écrit $\lambda\,\beta^\top M\beta$ avec $M_{lq} = \int_A^B b''_l(t)\,b''_q(t)\,dt$, et l'estimateur qui en résulte est explicite~:
+$$\boxed{\hat\beta_\lambda = (X^\top X + \lambda M)^{-1}X^\top Y}$$
+Le paramètre $\lambda$ contrôle la régularité de $\hat f$~:
+\begin{itemize}
+\item $\lambda = 0$~: aucune pénalité, risque de surajustement~;
+\item $\lambda\to\infty$~: $f''\equiv 0$, on retrouve la droite des moindres carrés.
+\end{itemize}
+On remarque l'analogie parfaite avec la régression ridge du chapitre~\ref{sec:regularisation}. En pratique, $\lambda$ est choisi par validation croisée. En \textrm{R}~:
+\begin{verbatim}
+modele.sp <- smooth.spline(Auto$weight, Auto$mpg, cv=TRUE)
+modele.sp$df   # degrés de liberté effectifs, ~10.4 sur Auto
+\end{verbatim}
+
+\begin{remarque}[Degrés de liberté effectifs]
+Pour un estimateur linéaire $\hat Y = A_\lambda Y$ avec $A_\lambda = X(X^\top X + \lambda M)^{-1}X^\top$, les \textbf{degrés de liberté effectifs} sont $\mathrm{Tr}(A_\lambda)$. Ils décroissent de $K+p$ (pour $\lambda = 0$) vers 2 (pour $\lambda\to\infty$) et fournissent une échelle interprétable pour calibrer le lissage.
+\end{remarque}
+
+\newpage
+%% ============================================================
+%% CHAPITRE 8 : Modèles additifs généralisés (GAM)
+%% ============================================================
+\section{Modèles additifs et modèles additifs généralisés (GAM)}
+\label{sec:gam}
 
 \subsection{Motivation}
 
-Avec des données longitudinales ou groupées, il faut tenir compte de la corrélation intra-grappe. Le MLGM étend le MLG en permettant aux coefficients de varier selon la grappe.
-
-\subsection{Définition}
-
-\textbf{Ingrédients}~:
-\begin{itemize}
-\item Réponse~: $Y_i = (Y_{i1},\ldots,Y_{in_i})$.
-\item Matrice de plan $X_i$ pour les \textbf{effets fixes}, $Z_i$ pour les \textbf{effets aléatoires}.
-\item $\gamma_i$ : effets aléatoires latents (non observés).
-\end{itemize}
-
-\textbf{Hypothèses}~:
-\begin{itemize}
-\item $Y_{it} \mid \gamma_i$ indépendants, de la famille exponentielle.
-\item $\gamma_i \stackrel{iid}{\sim} \mathcal{N}(0, \Psi)$.
-\end{itemize}
-
-\textbf{Modèle conditionnel}~:
-$$g(E(Y_{it} \mid \gamma_i)) = g(\mu_{it}) = x_{it}^T \beta + z_{it}^T \gamma_i, \qquad Var(Y_{it} \mid \gamma_i) = v(\mu_{it}).$$
-
-\subsection{Cas gaussien avec lien identité}
-
-$$Y_i = X_i\beta + Z_i\gamma_i + \epsilon_i, \quad \epsilon_i \sim \mathcal{N}(0,\sigma^2_\epsilon I), \quad \gamma_i \sim \mathcal{N}(0,\Psi).$$
-Cela implique $Y_i \sim \mathcal{N}(X_i\beta,\, Z_i\Psi Z_i^T + \sigma^2_\epsilon I)$.
-
-\subsection{Estimation}
-
-On s'appuie sur la \textbf{vraisemblance marginale}~:
-$$L(\beta,\phi,\Psi) = \prod_{i=1}^n \int \prod_{t=1}^{n_i} f(y_{it} \mid \gamma_i,\beta,\phi)\, f(\gamma_i \mid \Psi)\, d\gamma_i.$$
-
-Cette intégrale ne peut en général pas être calculée en forme fermée. Approximations~:
-\begin{itemize}
-\item Quadrature de Gauss-Hermite
-\item Approximation de Laplace (défaut dans \texttt{lme4})
-\item Quasi-vraisemblance pénalisée (PQL) / marginale (MQL) -- peuvent produire des estimateurs biaisés
-\item MCMC
-\end{itemize}
-
-\subsection{Interprétation des effets fixes}
-
-Un MLGM est une analyse \textbf{spécifique au sujet}~: $\mu_{it} = g^{-1}(x_{it}^T\beta + z_{it}^T\gamma_i)$.
-
-La moyenne populationnelle est~:
-$$E(Y_{it}) = \int g^{-1}(x_{it}^T\beta + z_{it}^T\gamma_i)\,dF(\gamma_i) \neq g^{-1}(x_{it}^T\beta),$$
-sauf dans le cas gaussien avec lien identité.
-
-\subsection{Prédiction des effets aléatoires}
-
-Les logiciels fournissent les \textbf{modes conditionnels}~: valeurs maximisant $f(\gamma_i \mid y)$. Les meilleurs prédicteurs seraient $\hat{\gamma}_i = E(\gamma_i \mid y_i)$.
-
-\textbf{Prédiction}~:
-\begin{itemize}
-\item Nouveau point dans un groupe existant~: $g^{-1}(x_{it}^T\hat{\beta} + z_{it}^T\hat{\gamma}_i)$.
-\item Nouveau groupe~: $g^{-1}(x_{it}^T\hat{\beta})$.
-\end{itemize}
-
-\newpage
-%% ============================================================
-%% CHAPITRE 6 : Méthodes robustes
-%% ============================================================
-\section{Méthodes robustes}
-
-\subsection{Motivation}
-
-Les analyses statistiques classiques peuvent être fortement affectées par les valeurs aberrantes. La \textbf{statistique robuste} considère que~:
-\begin{itemize}
-\item les modèles sont au mieux des approximations,
-\item des déviations par rapport aux hypothèses sont presque toujours présentes.
-\end{itemize}
-
-On suppose que la distribution provient d'un \textbf{voisinage du modèle postulé}~:
-$$F_\epsilon = (1-\epsilon)F_\theta + \epsilon G,$$
-où $G$ est une distribution arbitraire de contamination.
-
-\subsection{Outils de mesure de la robustesse}
-
-\subsubsection{Fonction d'influence}
-$$IF(z; T, F) = \lim_{\epsilon \to 0} \frac{T(F_\epsilon) - T(F)}{\epsilon},$$
-où $F_\epsilon = (1-\epsilon)F + \epsilon\Delta_z$. Mesure l'effet d'une contamination infinitésimale au point $z$. Une \textbf{fonction d'influence bornée} est souhaitable.
-
-\subsubsection{Point de rupture (\textit{breakdown point})}
-Pourcentage maximal de la minorité tel que celle-ci n'a qu'une influence limitée. Plus le point de rupture est \textbf{grand}, plus l'estimateur est robuste.
-
-\subsection{M-estimation}
-
-Les \textbf{estimateurs M} sont définis par~: $\sum_{i=1}^n \Psi(y_i, \theta) = 0$.
-
-Propriétés~: $\sqrt{n}(\hat{\theta}-\theta) \sim \mathcal{N}(0, M^{-1}QM^{-1})$ et $IF \propto \Psi$.
-
-L'EMV pour les MLG est un estimateur M avec $\Psi$ non bornée $\Rightarrow$ \textbf{non robuste}.
-
-\subsection{MLG robustes}
-
-On introduit~:
-$$\sum_{i=1}^n \left[\psi(r_i)\,w(x_i)\,\frac{\mu_i'}{v^{1/2}(\mu_i)} - a(\beta)\right] = 0,$$
-où $\psi$ contrôle les grandes déviations en $y$, $w(x_i)$ réduit l'influence des points à levier, et $a(\beta)$ assure la consistance de Fisher.
-
-\textbf{Fonction de Huber}~: $\psi_c(r) = r\cdot\min(1, c/|r|)$, où $c$ contrôle le compromis robustesse/efficacité (en pratique $c \in [1,2]$).
-
-\textbf{Poids $w(x_i)$}~: basés sur les éléments diagonaux de la matrice chapeau ou les distances de Mahalanobis robustes.
-
-\subsection{Sélection de variables robuste}
-
-On utilise la \textbf{quasi-vraisemblance robuste} et la statistique $\Lambda_{QM}$ (différence de quasi-vraisemblances). Sa distribution sous $H_0$ est une combinaison linéaire de $\chi^2$.
-
-\subsection{GEE robustes}
-
-Version robuste des GEE~:
-$$\sum_{i=1}^n D_i^T \Gamma_i^T V_i^{-1}(\psi_i - c_i) = 0,$$
-où $\psi_i = W_i(Y_i - \mu_i)$ avec $W_i$ diagonale pour limiter l'influence.
-
-\subsection{Modèle hurdle robuste}
-
-Combine une régression binaire robuste pour séparer zéros/non-zéros et un MLG robuste pour la Poisson tronquée.
-
-\newpage
-%% ============================================================
-%% CHAPITRE 7 : MAG (GAM)
-%% ============================================================
-\section{Modèles additifs généralisés (MAG)}
-
-\subsection{Idée générale}
-
-On remplace la partie linéaire du MLG par des fonctions non paramétriques~:
-$$g(\mu_i) = \alpha + f_1(x_{i1}) + \cdots + f_p(x_{ip}).$$
+Les méthodes non-paramétriques des chapitres~\ref{sec:knn} et~\ref{sec:splines} fonctionnent bien avec une ou deux variables explicatives, mais se heurtent au \textbf{fléau de la dimension} lorsque $p$ est grand~: les voisinages deviennent vides et le nombre de fonctions de base explose. Les \textbf{modèles additifs} offrent un compromis entre la flexibilité des méthodes non-paramétriques et l'interprétabilité des modèles linéaires~: on remplace la partie linéaire par une somme de fonctions univariées,
+$$Y_i = \alpha + f_1(X_{i1}) + f_2(X_{i2}) + \cdots + f_p(X_{ip}) + \epsilon_i,$$
+où chaque $f_j$ est une fonction lisse inconnue.
 
 \begin{center}
 \textit{Laissons les données nous montrer la forme fonctionnelle appropriée.}
 \end{center}
 
-\subsection{Lissage univarié}
+Chaque $f_j$ est représentée par une base de splines (chapitre~\ref{sec:splines})~: $f_j(x) = \sum_{k=1}^{K_j} b_{jk}(x)\,\beta_{jk}$. Pour assurer l'\textbf{identifiabilité} (une constante peut être transférée entre $\alpha$ et les $f_j$), on impose la contrainte de centrage
+$$\sum_{i=1}^n f_j(X_{ij}) = 0, \qquad j = 1,\ldots,p.$$
 
-\subsubsection{Fonctions de base}
-On représente $f(x)$ par~: $f(x) = \sum_{k=1}^K b_k(x)\beta_k$. Le modèle devient $Y = X\beta + \epsilon$, ajusté par moindres carrés.
+\subsection{Estimation par moindres carrés pénalisés}
 
-Exemples de bases~: polynomiale, linéaire par morceaux (tente), splines.
-
-\subsubsection{Lissage pénalisé}
-
-Plutôt que sélectionner $K$, on choisit $K$ ``suffisamment grand'' et on pénalise l'oscillation~:
-$$\hat{\beta} = \arg\min_\beta \left\{\|y - X\beta\|^2 + \lambda\,\beta^T S\beta\right\},$$
-avec solution explicite~:
-$$\hat{\beta} = (X^TX + \lambda S)^{-1}X^Ty.$$
-
-Le \textbf{paramètre de lissage} $\lambda$ contrôle le compromis régularité/fidélité~:
-\begin{itemize}
-\item $\lambda \to \infty$~: estimation linéaire de $f$.
-\item $\lambda = 0$~: régression non pénalisée (risque de surajustement).
-\end{itemize}
+Plutôt que de choisir soigneusement le nombre de n\oe uds de chaque base, on prend des bases « suffisamment riches » et on pénalise la rugosité de chaque fonction~: on minimise
+$$\left\|Y - X\beta\right\|^2 + \sum_{j=1}^p\lambda_j\,\beta^\top S_j\,\beta,$$
+où $X$ regroupe toutes les fonctions de base évaluées aux observations, et $S_j$ est la matrice de pénalité de la $j^{\text{ème}}$ fonction ($\beta^\top S_j\beta = \int f_j''(t)^2dt$). La solution est explicite~:
+$$\hat\beta = \Bigl(X^\top X + \sum_{j=1}^p\lambda_j S_j\Bigr)^{-1}X^\top Y.$$
+Chaque paramètre de lissage $\lambda_j$ contrôle le compromis régularité/fidélité de la fonction $f_j$~: $\lambda_j\to\infty$ force $f_j$ à être linéaire, $\lambda_j = 0$ laisse $f_j$ libre (risque de surajustement).
 
 \subsubsection{Matrice d'influence et degrés de liberté effectifs}
 
-$$\hat{y} = Ay, \quad A = X(X^TX + \lambda S)^{-1}X^T.$$
+Les valeurs ajustées s'écrivent $\hat Y = AY$ avec $A = X(X^\top X + \sum_j\lambda_j S_j)^{-1}X^\top$. Les \textbf{degrés de liberté effectifs} du modèle sont $\mathrm{Tr}(A)$~; on peut les décomposer par fonction $f_j$, ce qui donne une mesure interprétable de la complexité de chaque effet. La pénalisation induit un biais~: $E(\hat\beta)\neq\beta$, exactement comme pour ridge.
 
-Les \textbf{degrés de liberté effectifs} (DLE) sont~:
-$$\text{DLE} = Tr(F), \quad F = (X^TX + \lambda S)^{-1}X^TX.$$
+\subsubsection{Choix des paramètres de lissage}
 
-La pénalisation induit un \textbf{biais}~: $E(\hat{\beta}) = F\beta \neq \beta$.
+Les $\lambda_j$ sont choisis en minimisant un estimateur de l'erreur de prédiction~:
+\begin{itemize}
+\item \textbf{Validation croisée ordinaire (OCV)}~:
+$$OCV(\lambda) = \frac{1}{n}\sum_{i=1}^n\left(\frac{y_i - \hat f_\lambda(x_i)}{1 - A_{ii}}\right)^2\,;$$
+\item \textbf{Validation croisée généralisée (GCV)}, qui remplace les $A_{ii}$ par leur moyenne~:
+$$GCV(\lambda) = \frac{n\sum_i(y_i - \hat f_\lambda(x_i))^2}{\left(n - \mathrm{Tr}(A)\right)^2}.$$
+\end{itemize}
 
-\subsubsection{Interprétation bayésienne}
+\subsubsection{Inférence}
 
-La pénalisation est équivalente à une loi a priori gaussienne~:
-$$\beta \sim \mathcal{N}(0, S^{-}\sigma^2/\lambda).$$
+De la forme ridge de l'estimateur, on tire $\hat\beta\sim\mathcal{N}(E(\hat\beta),\, V_\beta)$ avec $V_\beta = \sigma^2(X^\top X + \sum_j\lambda_j S_j)^{-1}X^\top X(X^\top X + \sum_j\lambda_j S_j)^{-1}$~; l'approche bayésienne (pénalité = loi a priori gaussienne sur $\beta$) donne la forme plus simple $V_\beta = \sigma^2(X^\top X + \sum_j\lambda_j S_j)^{-1}$, dont les intervalles de crédibilité
+$$\hat f_j(x) \pm z_{\alpha/2}\sqrt{\widehat{Var}[\hat f_j(x)]}$$
+possèdent de bonnes propriétés de couverture fréquentistes. Pour tester $H_0: f_j = 0$, on utilise des statistiques de type Wald basées sur $\hat\beta_j^\top V_{\beta_j}^{-1}\hat\beta_j$, référées à une $\chi^2$ ($\phi$ connu) ou une $F$ ($\phi$ inconnu).
 
-On obtient la loi a posteriori~:
-$$\beta \mid y \sim \mathcal{N}(\hat{\beta},\, \sigma^2(X^TX + \lambda S)^{-1}).$$
+\subsection{Modèles additifs généralisés}
 
-\subsubsection{Choix de $\lambda$ par validation croisée}
+Comme pour les MLG, on combine la structure additive avec les distributions de la famille exponentielle~: $Y_i$ suit une loi de la famille exponentielle avec $E[Y_i] = \mu_i$ et
+$$g(\mu_i) = \alpha + f_1(X_{i1}) + \cdots + f_p(X_{ip}),$$
+où $g$ est une fonction de lien. Cas particuliers~: GAM logistique (réponse binaire), GAM Poisson (dénombrements, avec offset au besoin).
 
-\textbf{Validation croisée ordinaire (OCV)}~:
-$$OCV(\lambda) = \frac{1}{n}\sum_{i=1}^n\left(\frac{y_i - \hat{f}_\lambda(x_i)}{1-A_{ii}}\right)^2.$$
+L'estimation se fait en minimisant la \textbf{déviance pénalisée}~:
+$$\hat\beta = \arg\min_\beta\left\{D(y,\mu) + \sum_{j=1}^p\lambda_j\,\beta^\top S_j\,\beta\right\},$$
+où $D(y,\mu)$ est la déviance du chapitre~\ref{sec:mlg}.
 
-\textbf{Validation croisée généralisée (GCV)}~:
-$$GCV(\lambda) = \frac{n\sum_i(y_i - \hat{f}_\lambda(x_i))^2}{(n - Tr(A))^2}.$$
+\subsubsection{Algorithme d'ajustement (moindres carrés pondérés itératifs pénalisés)}
 
-\subsection{Modèles additifs (plusieurs prédicteurs)}
-
-$$y = \alpha + f_1(x_1) + f_2(x_2) + \cdots + f_p(x_p) + \epsilon,$$
-avec la contrainte d'identifiabilité $\sum_i f_j(x_{ji}) = 0$ pour tout $j$.
-
-On résout~:
-$$\hat{\beta} = \arg\min_\beta\left\{\|y - X\beta\|^2 + \sum_{j=1}^p \lambda_j\beta^TS_j\beta\right\},$$
-avec solution~: $\hat{\beta} = (X^TX + \sum_j \lambda_j S_j)^{-1}X^Ty$.
-
-\textbf{Distribution a posteriori}~: $\beta \mid y \sim \mathcal{N}(\hat{\beta}, V_\beta)$ avec $V_\beta = \sigma^2(X^TX + \sum_j \lambda_j S_j)^{-1}$.
-
-\subsubsection{Tests d'hypothèses}
-
-Pour tester $H_0: \beta_j = 0$ (sous-vecteur de taille $p_j$)~:
-$$\hat{\beta}_j^T V_{\beta_j}^{-1}\hat{\beta}_j / p_j \sim F_{p_j, n-p} \quad (\phi \text{ inconnu}), \qquad \hat{\beta}_j^T V_{\beta_j}^{-1}\hat{\beta}_j \sim \chi^2_{p_j} \quad (\phi \text{ connu}).$$
-
-\subsubsection{Intervalles de confiance pour $f_j$}
-$$\hat{f}_{ji} \pm z_{\alpha/2}\sqrt{v_i}, \quad v = \text{diag}(\tilde{X}V_\beta\tilde{X}^T).$$
-Les intervalles de crédibilité bayésiens possèdent de bonnes propriétés de couverture fréquentistes.
-
-\subsection{Modèles additifs généralisés (GAM)}
-
-Comme pour les MLG, on combine la structure additive avec les distributions de la famille exponentielle~:
-$$g(\mu_i) = \alpha + \sum_{j=1}^p f_j(x_{ij}) = \alpha + \sum_{j=1}^p X^{(j)}\delta^{(j)}.$$
-
-On minimise~:
-$$\hat{\beta} = \arg\min_\beta\left\{D(y,\mu) + \sum_{j=1}^p \lambda_j \beta^T S_j \beta\right\},$$
-où $D(y,\mu)$ est la déviance.
-
-\subsubsection{Algorithme de score local}
-
-À l'étape $(m-1)$~:
+L'ajustement combine l'algorithme des moindres carrés pondérés itératifs des MLG et le lissage pénalisé. À l'itération $m$~:
 \begin{enumerate}
-\item Construire la variable dépendante ajustée $z_i^{(m-1)} = \eta_i^{(m-1)} + (y_i - \mu_i^{(m-1)})\left(\frac{\partial \eta_i}{\partial \mu_i}\right)^{(m-1)}$.
-\item Construire les poids $w_i^{(m-1)} = \frac{1}{Var(Y_i)^{(m-1)}}\left(\frac{\partial \mu_i}{\partial \eta_i}\right)^2_{(m-1)}$.
-\item Ajuster un modèle additif pondéré à $z^{(m-1)}$.
-\item Répéter jusqu'à convergence.
+\item construire la variable dépendante ajustée
+$$z_i^{(m)} = \eta_i^{(m)} + (y_i - \mu_i^{(m)})\left(\frac{\partial\eta_i}{\partial\mu_i}\right)^{(m)}\,;$$
+\item construire les poids
+$$w_i^{(m)} = \frac{1}{V(\mu_i^{(m)})}\left(\frac{\partial\mu_i}{\partial\eta_i}\right)^2_{(m)}\,;$$
+\item ajuster un modèle additif pénalisé pondéré à $z^{(m)}$~;
+\item répéter jusqu'à convergence.
 \end{enumerate}
 
-\subsubsection{Choix de $\lambda_1,\ldots,\lambda_p$}
+\subsubsection{Choix des paramètres de lissage et comparaison de modèles}
 
 \begin{itemize}
-\item Si $\phi$ connu~: \textbf{UBRE} $= D(y,\hat{\mu}) + 2\phi\,Tr(F)/n$ (aussi appelé $C_p$ de Mallows).
-\item Si $\phi$ inconnu~: \textbf{GCV} $= \frac{n\,D(y,\hat{\mu})}{(n-Tr(F))^2}$.
+\item Si $\phi$ est connu (logistique, Poisson)~: critère \textbf{UBRE} (équivalent au $C_p$ de Mallows)
+$$UBRE(\lambda) = \frac{D(y,\hat\mu)}{n} + \frac{2\phi\,\mathrm{Tr}(A)}{n}\,;$$
+\item si $\phi$ est inconnu~: \textbf{GCV}
+$$GCV(\lambda) = \frac{n\,D(y,\hat\mu)}{\left(n - \mathrm{Tr}(A)\right)^2}.$$
 \end{itemize}
+Pour comparer des modèles~: $AIC = -2\,l(\hat\beta;y) + 2\,\mathrm{Tr}(A)$ (les degrés de liberté effectifs remplacent le nombre de paramètres), GCV, ou proportion de déviance expliquée $(D_{null} - D)/D_{null}$. Plus petit $AIC$ ou $GCV$ = meilleur modèle.
 
-\subsubsection{Comparaison de modèles}
+\subsubsection{En pratique avec R}
 
-\begin{itemize}
-\item \textbf{AIC}~: $-2l(\hat{\beta};y) + 2\phi\,Tr(F)$. Plus petit = meilleur.
-\item \textbf{GCV}~: estime l'erreur de prédiction. Plus petit = meilleur.
-\item Proportion de déviance expliquée.
-\end{itemize}
+La librairie \texttt{mgcv} ajuste les GAM avec sélection automatique des paramètres de lissage~:
+\begin{verbatim}
+library(mgcv)
+## Modèle additif gaussien
+mod1 <- gam(mpg ~ s(weight) + s(horsepower), data=Auto)
+## GAM logistique
+mod2 <- gam(y ~ s(SOI), family=binomial, data=quilpie)
+## GAM Poisson avec offset
+mod3 <- gam(Cases ~ s(AgeNum) + City + offset(log(Pop)),
+            family=poisson, data=danishlc)
+summary(mod1)   # tests approximatifs de f_j = 0, DLE par fonction
+plot(mod1)      # courbes estimées avec bandes de confiance
+\end{verbatim}
+La fonction \textsf{summary} rapporte, pour chaque fonction lisse, ses degrés de liberté effectifs et un test approximatif de nullité~; \textsf{plot} trace chaque $\hat f_j$ avec ses bandes de confiance. Une fonction dont les degrés de liberté effectifs sont proches de 1 peut être remplacée par un terme linéaire~: le GAM sert ainsi aussi d'outil diagnostique pour guider la spécification d'un MLG paramétrique.
 
-\newpage
-\printbibliography
+\subsection{Synthèse du cours}
+
+Le tableau suivant situe les principales méthodes du cours selon la nature de la réponse et la forme de la relation avec les variables explicatives~:
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+ & \textbf{Relation linéaire} & \textbf{Relation flexible} \\
+\midrule
+Réponse normale & régression linéaire & polynômes, splines, $k$NN,\\
+ & (+ ridge/lasso) & Nadaraya-Watson, modèle additif \\
+Réponse binaire & régression logistique & GAM logistique, $k$NN \\
+Dénombrement & régression Poisson & GAM Poisson \\
+Famille exponentielle & MLG & GAM \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Dans tous les cas, l'\textbf{estimation de l'erreur de prévision} (validation croisée) fournit le fil conducteur pour choisir la complexité du modèle~: le degré du polynôme, le nombre de voisins $k$, la fenêtre $h$, le coefficient de pénalité $\lambda$ ou les paramètres de lissage $\lambda_j$.
 
 \end{document}

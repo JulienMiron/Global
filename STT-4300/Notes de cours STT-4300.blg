@@ -1,9 +1,0 @@
-[0] Config.pm:308> INFO - This is Biber 2.20
-[0] Config.pm:311> INFO - Logfile is '/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Notes de cours STT-4300.blg'
-[28] biber-darwin:340> INFO - === Mon Aug  3, 2026, 12:48:59
-[123] Biber.pm:420> INFO - Reading '/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Notes de cours STT-4300.bcf'
-[151] Biber.pm:994> INFO - Found 0 citekeys in bib section 0
-[156] bbl.pm:676> INFO - Writing '/Users/jmiron/Library/CloudStorage/OneDrive-UniversitÃ©Laval/Github/Global/STT-4300/Notes de cours STT-4300.bbl' with encoding 'UTF-8'
-[156] bbl.pm:779> INFO - Output to /Users/jmiron/Library/CloudStorage/OneDrive-UniversitÃ©Laval/Github/Global/STT-4300/Notes de cours STT-4300.bbl
-[156] Biber.pm:131> WARN - The file '/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Notes de cours STT-4300.bcf' does not contain any citations!
-[156] Biber.pm:133> INFO - WARNINGS: 1

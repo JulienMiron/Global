@@ -13,6 +13,9 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/inputenc.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/inputenc.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/fontenc.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/fontenc.sty
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/ecrm1095.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/babel/babel.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/babel/babel.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/babel/txtbabel.def
@@ -51,6 +54,8 @@ INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/iftex/iftex.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/iftex/iftex.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/enumitem/enumitem.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/enumitem/enumitem.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/booktabs/booktabs.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/booktabs/booktabs.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/hyperref.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/hyperref.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
@@ -106,51 +111,8 @@ INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/booktabs/booktabs.sty
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/booktabs/booktabs.sty
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.sty
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.sty
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/logreq/logreq.sty
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/logreq/logreq.sty
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/logreq/logreq.def
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/logreq/logreq.def
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/logreq/logreq.def
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/ifthen.sty
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/ifthen.sty
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-dm.def
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-dm.def
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-dm.def
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-compat.def
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-compat.def
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-compat.def
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.def
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.def
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.def
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-natbib.def
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-natbib.def
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-natbib.def
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/bbx/authoryear.bbx
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/bbx/authoryear.bbx
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/bbx/authoryear.bbx
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/cbx/authoryear.cbx
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/cbx/authoryear.cbx
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/cbx/authoryear.cbx
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.cfg
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.cfg
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/biblatex.cfg
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/l3kernel/expl3.sty
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/l3kernel/expl3.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/STT-4300-references.bib
-INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/STT-4300-references.bib
 INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Notes de cours STT-4300.aux
 INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Notes de cours STT-4300.aux
 INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Notes de cours STT-4300.aux
@@ -163,17 +125,9 @@ OUTPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Globa
 INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Notes de cours STT-4300.out
 INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Notes de cours STT-4300.out
 OUTPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Notes de cours STT-4300.out
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/french.lbx
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/french.lbx
-INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/french.lbx
-OUTPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Notes de cours STT-4300.bcf
-INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Notes de cours STT-4300.bbl
-INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Notes de cours STT-4300.bbl
-INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Notes de cours STT-4300.bbl
-INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Notes de cours STT-4300.bbl
-INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Notes de cours STT-4300.bbl
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/ecrm1728.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/ecbx1728.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/ecrm1200.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
@@ -198,43 +152,73 @@ INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/ecrm1440.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/ecbx1440.tfm
 INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Notes de cours STT-4300.toc
 INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Notes de cours STT-4300.toc
 INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Notes de cours STT-4300.toc
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/ecbx1095.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/ecti1095.tfm
 OUTPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Notes de cours STT-4300.toc
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/ecss1095.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/ecit1095.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/ecsi1095.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/ecbi1095.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/ectt1095.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/ecrm0800.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/ecrm0600.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbxti10.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Notes de cours STT-4300.aux
 INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Notes de cours STT-4300.out
 INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Notes de cours STT-4300.out
-INPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Notes de cours STT-4300.run.xml
-OUTPUT /Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-4300/Notes de cours STT-4300.run.xml
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbi1095.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfit1095.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfsi1095.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb
