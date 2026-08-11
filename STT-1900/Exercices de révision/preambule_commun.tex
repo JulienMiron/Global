@@ -1,0 +1,41 @@
+% Préambule commun aux deux versions
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{lmodern}
+\usepackage[letterpaper,margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{comment}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+% Numérotation manuelle des chapitres (pour permettre 8.1 et 8.2)
+\newcommand{\chapitre}[2]{%
+  \clearpage
+  \phantomsection
+  \addcontentsline{toc}{section}{#1\quad #2}%
+  \begin{center}
+    {\LARGE\bfseries Chapitre #1}\\[6pt]
+    {\Large\bfseries #2}%
+  \end{center}
+  \vspace{1em}
+  \setcounter{exocount}{0}%
+  \def\chapnum{#1}%
+}
+
+% Compteur et environnement d'exercice
+\newcounter{exocount}
+\newenvironment{exercice}{%
+  \refstepcounter{exocount}%
+  \par\medskip\noindent
+  {\bfseries Exercice \chapnum.\arabic{exocount}}\par\smallskip
+}{\par\medskip}
+
+% Guillemets français
+\providecommand{\og}{«~}
+\providecommand{\fg}{~»}
+\providecommand{\ieme}{\textsuperscript{e}}
