@@ -216,6 +216,35 @@ Soit $X_1$ et $X_2$ deux variables aléatoires dont la densité conjointe est do
 \chapitre{3}{Loi normale et théorème central limite}
 
 \begin{exercice}
+Soit $\{X_1,X_2,\dots,X_n\}$ des variables aléatoires indépendantes telles que
+$X_i\sim N(\mu,\sigma^2)$ pour $i=1,2,\dots,n$. Trouver la taille d'échantillon $n$ requise
+pour avoir
+\[
+  P\!\left(|\bar X-\mu|<\frac{\sqrt{\sigma^2}}{4}\right)=0,95,
+\]
+où $\bar X=\sum_{i=1}^{n}X_i/n$.
+\begin{solution}
+Comme $\bar X=\frac1n X_1+\dots+\frac1n X_n$ et que les $X_i$ sont i.i.d.\ $N(\mu,\sigma^2)$,
+on sait que $\bar X\sim N(\mu,\sigma^2/n)$, car
+\[
+  E(\bar X)=\frac1n\,n\mu=\mu
+  \qquad\text{et}\qquad
+  V(\bar X)=\frac{1}{n^2}\,n\sigma^2=\frac{\sigma^2}{n}.
+\]
+Ainsi,
+\[
+  0,95=P\!\left(-\frac{\sigma}{4}<\bar X-\mu<\frac{\sigma}{4}\right)
+  =P\!\left(-\frac{\sqrt n}{4}<Z<\frac{\sqrt n}{4}\right),
+\]
+où $Z\sim N(0,1)$. De la table normale, $\frac{\sqrt n}{4}=1,96$, d'où
+\[
+  n=(4\times 1,96)^2=61,5\;\Longrightarrow\;n=62.
+\]
+\end{solution}
+\end{exercice}
+
+
+\begin{exercice}
 La chaîne Pizza Napoli affirme dans sa publicité que sa toute nouvelle pizza est servie en
 cinq minutes. Par souci d'intégrité et d'efficacité, le gérant d'une succursale a mené sa
 petite enquête dans son restaurant, et a fait les constatations suivantes :
@@ -439,33 +468,6 @@ Déterminez si les énoncés suivants sont vrais ou faux.
 
 \chapitre{6}{Loi échantillonnale et estimation ponctuelle}
 
-\begin{exercice}
-Soit $\{X_1,X_2,\dots,X_n\}$ des variables aléatoires indépendantes telles que
-$X_i\sim N(\mu,\sigma^2)$ pour $i=1,2,\dots,n$. Trouver la taille d'échantillon $n$ requise
-pour avoir
-\[
-  P\!\left(|\bar X-\mu|<\frac{\sqrt{\sigma^2}}{4}\right)=0,95,
-\]
-où $\bar X=\sum_{i=1}^{n}X_i/n$.
-\begin{solution}
-Comme $\bar X=\frac1n X_1+\dots+\frac1n X_n$ et que les $X_i$ sont i.i.d.\ $N(\mu,\sigma^2)$,
-on sait que $\bar X\sim N(\mu,\sigma^2/n)$, car
-\[
-  E(\bar X)=\frac1n\,n\mu=\mu
-  \qquad\text{et}\qquad
-  V(\bar X)=\frac{1}{n^2}\,n\sigma^2=\frac{\sigma^2}{n}.
-\]
-Ainsi,
-\[
-  0,95=P\!\left(-\frac{\sigma}{4}<\bar X-\mu<\frac{\sigma}{4}\right)
-  =P\!\left(-\frac{\sqrt n}{4}<Z<\frac{\sqrt n}{4}\right),
-\]
-où $Z\sim N(0,1)$. De la table normale, $\frac{\sqrt n}{4}=1,96$, d'où
-\[
-  n=(4\times 1,96)^2=61,5\;\Longrightarrow\;n=62.
-\]
-\end{solution}
-\end{exercice}
 
 \chapitre{7}{Intervalles de confiance}
 
