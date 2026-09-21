@@ -111,6 +111,10 @@
 % --- Tableaux ---
 \RequirePackage{multirow}          % Cellules fusionnées verticalement
 \RequirePackage{array}             % Colonnes personnalisées : >{}, m{}, p{}
+% Type de colonne P{largeur} : comme p{largeur}, mais centré horizontalement
+% et verticalement. Utilisé dans plusieurs examens.
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\RequirePackage{diagbox}           % Cellules diagonales : \diagbox{X}{Y}
 
 % --- Boîtes et couleurs ---
 \RequirePackage[many]{tcolorbox}   % Boîtes colorées (si besoin dans un examen)
