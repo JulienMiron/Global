@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1790034256.42101 "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1000/Examens/STT-1000-Intra-A26.tex" "STT-1000-Intra-A26.pdf" "STT-1000-Intra-A26" 1790034257.68898 0
-  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/Evaluation.cls" 1772568870.41713 18851 d8b8a845b64ea1372f301b8d9587b073 ""
+["pdflatex"] 1790034378.04643 "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1000/Examens/STT-1000-Intra-A26.tex" "STT-1000-Intra-A26.pdf" "STT-1000-Intra-A26" 1790034379.72773 0
+  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/Evaluation.cls" 1790034377.70668 19112 90200ac9f04ac935e92fd5b17511bfdf ""
   "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/logo_ul.pdf" 1771010540.30133 24889 6ad5d339e8b9c5d473a3c0752b7f7a43 ""
   "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1000/Examens/STT-1000-Intra-A26.tex" 1790034256.23972 20364 7e1fb9d37f26ff557b130f0e9a32ebef ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevoml.enc" 1153172756 2921 ae68ca7d9a4902b5e8c8b47846fadadb ""
@@ -151,6 +151,7 @@
   "/usr/local/texlive/2025/texmf-dist/tex/latex/bera/beramono.sty" 1137109926 767 619e175cf21788218aa95de61f93b82f ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/carlisle/scalefnt.sty" 1137109962 1360 df2086bf924b14b72d6121fe9502fcdb ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/comment/comment.sty" 1472166125 10197 204f75d5d8d88aa345a8c402e879e63b ""
+  "/usr/local/texlive/2025/texmf-dist/tex/latex/diagbox/diagbox.sty" 1583276710 14481 3bd2c6a722b221038c31c25ef3d51ba6 ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/enumitem/enumitem.sty" 1738874546 52272 63d293bc0d496619edb57585740861a2 ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/environ/environ.sty" 1399239813 4378 f429f0da968c278653359293040a8f52 ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty" 1579991033 13886 d1306dcf79a944f6988e688c1785f9ce ""
@@ -201,6 +202,9 @@
   "/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgffor.sty" 1601326656 348 ee405e64380c11319f0e249fed57e6c5 ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty" 1601326656 274 5ae372b7df79135d240456a1c6f2cf9a ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty" 1601326656 325 f9f16d12354225b7dd52a3321f085955 ""
+  "/usr/local/texlive/2025/texmf-dist/tex/latex/pict2e/p2e-pdftex.def" 1454715303 1168 efb94e82cc1584d4f62679f3487b5339 ""
+  "/usr/local/texlive/2025/texmf-dist/tex/latex/pict2e/pict2e.cfg" 1454715303 1920 2185073db458618f4a8a794158cf3681 ""
+  "/usr/local/texlive/2025/texmf-dist/tex/latex/pict2e/pict2e.sty" 1601586370 30933 ccdcd551eb516817cc8f41862254e6e7 ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/tcolorbox/tcbbreakable.code.tex" 1729629551 34681 5ad5619477798e0585ce97e92ba075bc ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/tcolorbox/tcbfitting.code.tex" 1729629551 17164 002bdbaf09e605e895c644057c268091 ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/tcolorbox/tcbhooks.code.tex" 1729629551 10373 24c63e0637d2172d23a50c61238bcc41 ""
@@ -225,7 +229,7 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1770864152 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "STT-1000-Intra-A26.aux" 1790034257.61928 6116 43fc97102fa18b3dea68110f7abfefee "pdflatex"
+  "STT-1000-Intra-A26.aux" 1790034379.64071 6116 43fc97102fa18b3dea68110f7abfefee "pdflatex"
   (generated)
   "STT-1000-Intra-A26.aux"
   "STT-1000-Intra-A26.log"
