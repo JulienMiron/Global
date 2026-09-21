@@ -16,5 +16,16 @@
                 "%DOC%"
             ]
         }
-    ]
+    ],
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/Aide-mémoire global.aux": true,
+        "**/Aide-mémoire global.log": true,
+        "**/Aide-mémoire global.gz": true,
+        "**/Aide-mémoire global.out": true
+    }
 }
