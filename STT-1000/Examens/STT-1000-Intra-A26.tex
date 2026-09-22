@@ -1,6 +1,6 @@
 \def\Ponderation{50}
 \def\SigleNumero{STT-1000}
-\def\NomCours{Probabilités et statstique}
+\def\NomCours{Probabilités et statistique}
 \def\DateEvaluation{22 octobre 2026}
 \def\HeureEvaluation{18h 30 à 21h 20}
 \def\Session{}
@@ -18,7 +18,7 @@
 % Mettre le nom de chacun des enseignants et enseignantes entre les accolades
 % Une case à cocher sera générée pour chacune des sections
 \def\SectionA{Lajmi Lakhal-Chaieb}
-\def\SectionB{Julien Miron }
+\def\SectionB{Julien Miron}
 \def\SectionC{}
 \def\SectionD{}
 
@@ -75,7 +75,7 @@ B = \{c,d,e,f\}, \qquad
 C = \{b,d,f,h\}.
 \]
 
-Calculez les ensembles suivants :\\
+Déterminez les ensembles suivants :\\
 \begin{parts}
 \part[3] \(A \cap B^c\)
 \begin{solution}
@@ -258,84 +258,64 @@ Par le théorème de Bayes,
 \]
 \end{solution}
 
-\vfill
 
-\part \begin{subparts}
-\subpart[1] Les événements \(C_1\), \(C_2\) et \(C_3\) forment une partition de l'espace échantillonnal.
-
-\begin{oneparcheckboxes}
-\correctchoice Vrai
-\choice Faux
-\end{oneparcheckboxes}
-
-\subpart[1] Les événements \(C_1\) et \(D\) sont indépendants.
-
-\begin{oneparcheckboxes}
-\choice Vrai
-\correctchoice Faux
-\end{oneparcheckboxes}
-
-\subpart[1] Les événements \(C_1\) et \(D\) sont mutuellement exclusifs.
-
-\begin{oneparcheckboxes}
-\choice Vrai
-\correctchoice Faux
-\end{oneparcheckboxes}
-\end{subparts}
-\vspace{0.5cm}
 \end{parts}
 
 \pageblanche
 
 %%%%%%%%%%%%%%%% QUESTION MODULE 2 - VARIABLE ALÉATOIRE CONTINUE %%%%%%%%%%%%%%%%
 
-\question[]\label{densitetriangle} Soit \(X\) une variable aléatoire continue de densité \(f_X\) définie par
+\question[]\label{densitetriangle} Soit \(X\) une variable aléatoire continue dont la fonction de répartition est donnée par
 \[
-f_X(x) = \begin{cases}
-kx & \text{si } 0 \le x < 2,\\
-k(4-x) & \text{si } 2 \le x \le 4,\\
+F_X(x) = \begin{cases}
+0 & \text{si } x < 0,\\
+\displaystyle\frac{x^2}{8} & \text{si } 0 \le x < 2,\\
+1 - \displaystyle\frac{(4-x)^2}{8} & \text{si } 2 \le x \le 4,\\
+1 & \text{si } x > 4.
+\end{cases}
+\]
+ 
+\begin{parts}
+
+ 
+\part[4] Calculez la densité \(f_X(x)\) associée à cette fonction de répartition.
+ 
+\begin{solution}
+On dérive \(F_X\) sur chacun des morceaux :
+\[
+f_X(x) = F_X'(x) = \begin{cases}
+\displaystyle\dfrac{d}{dx}\left(\displaystyle\dfrac{x^2}{8}\right) = \displaystyle\dfrac{x}{4} & \text{si } 0 \le x < 2,\\[2mm]
+\displaystyle\dfrac{d}{dx}\left(1-\displaystyle\dfrac{(4-x)^2}{8}\right) = \displaystyle\dfrac{4-x}{4} & \text{si } 2 \le x \le 4,\\[2mm]
 0 & \text{sinon.}
 \end{cases}
 \]
-
-\begin{parts}
-\part[4] Trouvez la valeur de \(k\).
-
-\begin{solution}
-On veut que l'aire totale sous la courbe vaille 1 :
-\[
-1 = \int_0^2 kx\,dx + \int_2^4 k(4-x)\,dx = k\left[\frac{x^2}{2}\right]_0^2 + k\left[4x-\frac{x^2}{2}\right]_2^4.
-\]
-\[
-1 = k(2) + k\big[(16-8)-(8-2)\big] = 2k + 2k = 4k.
-\]
-\[
-\boxed{k = \frac{1}{4}.}
-\]
 \end{solution}
-
+ 
 \vspace{5cm}
-
-\part[5] Calculez \(\mathbb{P}(1 < X < 3)\).
-
+ 
+\part[4] Calculez \(\mathbb{P}(1 < X < 3)\).
+ 
 \begin{solution}
-\begin{align*}
-\mathbb{P}(1<X<3) &= \int_1^2 \frac{1}{4}x\,dx + \int_2^3 \frac{1}{4}(4-x)\,dx\\
-&= \frac{1}{4}\left[\frac{x^2}{2}\right]_1^2 + \frac{1}{4}\left[4x-\frac{x^2}{2}\right]_2^3\\
-&= \frac{1}{4}(2-0{,}5) + \frac{1}{4}\big[(12-4{,}5)-(8-2)\big]\\
-&= 0{,}375 + 0{,}375 = 0{,}75.
-\end{align*}
+\[
+\mathbb{P}(1<X<3) = F_X(3)-F_X(1).
+\]
+\[
+F_X(1) = \displaystyle\frac{1^2}{8} = 0{,}125, \qquad F_X(3) = 1-\displaystyle\frac{(4-3)^2}{8} = 1-\displaystyle\frac{1}{8} = 0{,}875.
+\]
+\[
+\boxed{\mathbb{P}(1<X<3) = 0{,}875-0{,}125 = 0{,}75.}
+\]
 \end{solution}
-
+ 
 \vfill
-
+ 
 \pagesuivante{\ref{densitetriangle}}
-
-\part[5] Calculez \(\mathbb{E}(X)\).
-
+ 
+\part[4] Calculez \(\mathbb{E}(X)\).
+ 
 \begin{solution}
 \begin{align*}
-\mathbb{E}(X) &= \int_0^2 x\cdot\frac{1}{4}x\,dx + \int_2^4 x\cdot\frac{1}{4}(4-x)\,dx\\
+\mathbb{E}(X) &= \int_0^2 x\cdot\frac{x}{4}\,dx + \int_2^4 x\cdot\frac{4-x}{4}\,dx\\
 &= \frac{1}{4}\left[\frac{x^3}{3}\right]_0^2 + \frac{1}{4}\left[2x^2-\frac{x^3}{3}\right]_2^4\\
 &= \frac{1}{4}\cdot\frac{8}{3} + \frac{1}{4}\left[\left(32-\frac{64}{3}\right)-\left(8-\frac{8}{3}\right)\right]\\
 &= \frac{2}{3} + \frac{1}{4}\left(\frac{32}{3}-\frac{16}{3}\right) = \frac{2}{3}+\frac{4}{3} = 2.
@@ -343,9 +323,8 @@ On veut que l'aire totale sous la courbe vaille 1 :
 \textit{Remarque : ce résultat était prévisible par symétrie de la densité autour de \(x=2\).}
 \end{solution}
 \end{parts}
-
+ 
 \pageblanche
-
 %%%%%%%%%%%%%%%% QUESTION MODULE 3 - LOIS DISCRÈTES %%%%%%%%%%%%%%%%
 
 \question[]
@@ -388,27 +367,7 @@ Soit \(Y\) le nombre de colis en retard parmi les \(15\). Alors \(Y \sim \text{B
 
 \vfill
 
-\part \begin{subparts}
-\subpart[3] Une représentante commerciale conclut une vente avec probabilité \(p=0{,}25\) à chaque appel, indépendamment des autres appels. Quelle est la probabilité que sa première vente survienne exactement au \(4^\text{e}\) appel?
 
-\begin{solution}
-Le nombre d'appels avant la première vente suit une loi géométrique de paramètre \(p=0{,}25\).
-\[
-\mathbb{P}(X=4) = (0{,}75)^3(0{,}25) \approx 0{,}1055.
-\]
-\end{solution}
-
-\vspace{4cm}
-
-\subpart[3] En moyenne, combien d'appels devra-t-elle faire pour obtenir \(5\) ventes?
-
-\begin{solution}
-Le nombre d'appels nécessaires pour obtenir \(r=5\) succès suit une loi de Pascal (binomiale négative) de paramètre \(p=0{,}25\). L'espérance du nombre d'essais est
-\[
-\mathbb{E}(\text{appels}) = \frac{r}{p} = \frac{5}{0{,}25} = 20.
-\]
-\end{solution}
-\end{subparts}
 \end{parts}
 
 \pageblanche
@@ -440,22 +399,14 @@ La loi exponentielle est sans mémoire, donc
 \]
 \end{solution}
 
-\vspace{4cm}
-
-\part[6] En moyenne, combien de temps faudra-t-il attendre avant d'observer \(4\) pannes?
-
-\begin{solution}
-Le temps nécessaire pour observer \(k=4\) pannes suit une loi gamma de paramètre de forme \(k=4\) et de taux \(\lambda = 0{,}02\). L'espérance vaut
-\[
-\mathbb{E}(\text{temps}) = \frac{k}{\lambda} = \frac{4}{0{,}02} = 200 \text{ heures.}
-\]
-\end{solution}
+\end{parts}
 
 \pagebreak
 
-Une chaîne de production remplit des sacs de farine dont le poids \(X\) suit une loi normale d'espérance \(\mu = 1000\) g et de variance \(\sigma^2 = 225\) g\(^2\). On prélève un échantillon aléatoire de \(36\) sacs.
+\question[6]
+Une chaîne de production remplit des sacs de farine dont le poids \(X\) a une espérance de \(\mu = 1000\) g et une variance de \(\sigma^2 = 225\) g\(^2\). On prélève un échantillon aléatoire de \(36\) sacs.
 
-\part[4] Quelle est la probabilité que le poids moyen de l'échantillon soit inférieur à \(995\) g?
+Quelle est la probabilité que le poids moyen de l'échantillon soit inférieur à \(995\) g?
 
 \begin{solution}
 \(\overline{X}\sim\mathcal{N}\left(1000;\,\dfrac{225}{36}\right) = \mathcal{N}(1000;\,6{,}25)\), donc l'écart-type de \(\overline{X}\) est \(2{,}5\).
@@ -465,14 +416,7 @@ Une chaîne de production remplit des sacs de farine dont le poids \(X\) suit un
 \end{align*}
 \end{solution}
 
-\vspace{4cm}
 
-\part[4] Si l'on ignorait que \(X\) suit une loi normale, mais que l'on savait tout de même que \(\mathbb{E}(X)=1000\) et \(V(X)=225\), pourrait-on tout de même approximer la probabilité calculée en (d)? Expliquez votre réponse.
-
-\begin{solution}
-Oui. Puisque \(n=36\) est suffisamment grand, le théorème central limite (TCL) permet d'approximer la loi de \(\overline{X}\) par une loi normale d'espérance \(1000\) et de variance \(225/36\), peu importe la loi exacte de \(X\). Le calcul et la réponse numérique de la partie (d) demeurent donc valides en approximation.
-\end{solution}
-\end{parts}
 
 \pageblanche
 

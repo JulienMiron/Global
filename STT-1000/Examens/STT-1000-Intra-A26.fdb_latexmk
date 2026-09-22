@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1790034498.52639 "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1000/Examens/STT-1000-Intra-A26.tex" "STT-1000-Intra-A26.pdf" "STT-1000-Intra-A26" 1790034499.86739 0
+["pdflatex"] 1790035503.09609 "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1000/Examens/STT-1000-Intra-A26.tex" "STT-1000-Intra-A26.pdf" "STT-1000-Intra-A26" 1790035504.44103 0
   "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/Evaluation.cls" 1790034377.70668 19112 90200ac9f04ac935e92fd5b17511bfdf ""
   "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/logo_ul.pdf" 1771010540.30133 24889 6ad5d339e8b9c5d473a3c0752b7f7a43 ""
-  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1000/Examens/STT-1000-Intra-A26.tex" 1790034498.34612 20365 eab1e899238a32f81c2957c64e1a5762 ""
+  "/Users/jmiron/Library/CloudStorage/OneDrive-UniversitéLaval/Github/Global/STT-1000/Examens/STT-1000-Intra-A26.tex" 1790035502.93105 18188 e78386393b792cccf5c5dc4be9a1f0af ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevoml.enc" 1153172756 2921 ae68ca7d9a4902b5e8c8b47846fadadb ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevoms.enc" 1153172756 3537 5668d9ed3132b78b010223039ece2e6f ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/arev/arevot1.enc" 1153172756 3020 a1ac7e8d91c840af41a220ec7126413f ""
@@ -229,7 +229,7 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1770864152 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "STT-1000-Intra-A26.aux" 1790034499.79529 6116 43fc97102fa18b3dea68110f7abfefee "pdflatex"
+  "STT-1000-Intra-A26.aux" 1790035504.37011 4949 620e657aa271973c73903ec8c98339e1 "pdflatex"
   (generated)
   "STT-1000-Intra-A26.aux"
   "STT-1000-Intra-A26.log"
