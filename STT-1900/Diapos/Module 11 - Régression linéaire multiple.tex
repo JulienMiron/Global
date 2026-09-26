@@ -300,7 +300,7 @@ Si on augmente la taxe sur l'essence de 1 cent par gallon, mais qu'\alert{on ne 
 
 \begin{itemize}\itemsep1cm
 
-\item Si on retire une variable du modèle (p.ex. $X_4$) du modèle, les estimations des coefficients de régression pour les autres variables (p.ex. $\beta_1,\,\beta_2,\,\beta_3$) sont susceptibles de changer.
+\item Si on retire une variable du modèle (p.ex. $X_4$), les estimations des coefficients de régression pour les autres variables (p.ex. $\beta_1,\,\beta_2,\,\beta_3$) sont susceptibles de changer.
 
 \item Si on garde le même échantillon, l'estimation de l'ordonnée à l'origine $\beta_0$ va changer selon les variables que l'on inclut dans le modèle.
 
@@ -421,8 +421,8 @@ $\Rightarrow$ sélection de variables (plus loin).
 \begin{tabular}{cccccc}\hline
 Source de       & Somme de & Degrés de & Carré moyen & $F_0$ & Valeur $P$ \\
 variabilité   & carrés  & liberté & & & \\ \hline
-Régression    & $399\,425$  & $4$      & $99\,856.32$           & $22.71$ & $3.907\times 10^{-10}$ \\
-Erreur          & $189\,072$    & $43$  & $66.31^2 = 4\,397.02$ &                           & \\ \hline
+Régression    & $399\,425$  & $4$      & $99\,856,32$           & $22,71$ & $3,907\times 10^{-10}$ \\
+Erreur          & $189\,072$    & $43$  & $66,31^2 = 4\,397,02$ &                           & \\ \hline
 Totale          & $588\,497$    & $47$     &                           &                           & \\ \hline
 \end{tabular}
 
@@ -944,8 +944,8 @@ Si on utilise le modèle linéaire avec  $E[Y|X_1,X_2]=\beta_0+\beta_1X_1+\beta_
   \item  Valeur-P pour Taxes $= 0,0103 < 0,05$. On rejette $H_0: \beta_1=0$, l'effet est significatif. \\
       Puisque  $10\;\in \; IC(\beta_2)$, on ne rejette pas  $H_0: \beta_2=10$.
   \item La ligne du haut représente le $R^2_{ajuste}$ maximal. On retient tout sauf Routes.
-  \item $\hat Y_0=307.328-29.484(7)+13.748(54)-68.023(4) =571.22 $
-  \item Le minimum de $E(Y)$ est atteint en  $x=-\beta_1/2\beta_2$.
+  \item $\hat Y_0=307,328-29,484(7)+13,748(54)-68,023(4) =571,22 $
+  \item Le minimum de $E(Y)$ est atteint en  $x=-\dfrac{\beta_1}{2\beta_2}$.
   \end{enumerate}
 
  }

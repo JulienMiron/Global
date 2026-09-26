@@ -206,7 +206,7 @@ B &12,3 & 12,1 & 12,2 & 12,4 &12,4& 12,28&0,017 \\
 
 \begin{frame}[t]{Exemple 1 (suite)}
 
-En supposant que la loi normale est appropriée pour les résistances, peut-on conclure au seuil $\alpha = 0,10$ que la variabilité des résistances des deux fournisseurs sont différentes?
+En supposant que la loi normale est appropriée pour les résistances, peut-on conclure au seuil $\alpha = 0,10$ que la variabilité des résistances des deux fournisseurs est différente?
 
 {\ }
 \end{frame}
@@ -215,7 +215,7 @@ En supposant que la loi normale est appropriée pour les résistances, peut-on c
 
 \section[Comparer 2 moyennes]{Comparaison de deux moyennes}
 
-\subsection{Cas 1: Populations normales, variances connues, échantillons indépendants}
+\subsection{Cas 2: Populations normales, variances connues, échantillons indépendants}
 
 
 \begin{frame}[t]{Rappel}
@@ -386,7 +386,7 @@ On aimerait maintenant comparer le fournisseur A à un nouveau fournisseur, qu'o
 $\begin{array}{|c|lllll|cc|}\hline
 \text{Fournisseur} &\multicolumn{5}{c|}{\text{Résistances (en kN)}}&\overline x&s^2\\\hline
 A &12,1 & 11,8 & 12,0 & 12,2 & 11,9&12,00 &0,025 \\ \hline
-C &11,7 & 12,9 & 11,8 & 12,7 &12,1& 12,24&0.288 \\
+C &11,7 & 12,9 & 11,8 & 12,7 &12,1& 12,24&0,288 \\
 \hline
 \end{array}$
 
@@ -571,8 +571,9 @@ Par erreur, vous faites l'analyse de l'exemple 2 comme s'il s'agissait d'échant
 {\scriptsize
 
 \begin{enumerate}
-  \item  $H_0:\sigma_1^2=\sigma_2^2$ contre $H_1:\sigma_1^2\ne\sigma_2^2$. Puisque $0,135<f_0=0,59<9,36$ ($\alpha^*=0,57$), on ne rejette pas l'égalité des variances.\\
-      $H_0:\mu_1=\mu_2$ contre $H_1:\mu_1>\mu_2$. Puisque $t_0=0,757\not>1,83$ ($\alpha^*=0,234$), on ne rejette pas $H_0$. La concentration moyenne de la rivière 1 n'excède pas celle de la rivière 2 de façon significative.
+  \item  $H_0:\sigma_1^2=\sigma_2^2$ contre $H_1:\sigma_1^2\ne\sigma_2^2$ (fournisseurs A et B). Puisque $0,104<f_0=1,47<9,60$ ($\alpha^*=0,72$), on ne rejette pas l'égalité des variances.\\
+      $H_0:\mu_1=\mu_2$ contre $H_1:\mu_1\ne\mu_2$ (cas 3). Puisque $|t_0|=3,06>2,306$ ($\alpha^*=0,016$), on rejette $H_0$. La résistance moyenne du fournisseur B est significativement supérieure à celle du fournisseur A.\\
+      Pour les fournisseurs A et C, $H_0:\mu_1=\mu_2$ contre $H_1:\mu_1\ne\mu_2$ (cas 4). Puisque $|t_0^*|=0,96\not>2,62$ ($\alpha^*=0,38$), on ne rejette pas $H_0$. Les résistances moyennes de A et C ne sont pas significativement différentes.
   \item $H_0:\mu_1=\mu_2$ contre $H_1:\mu_1\ne\mu_2$. Puisque $|t_0|=7,53>2,365$ ($\alpha^*=0,00013$), on  rejette $H_0$. La moyenne à l'examen 1 est significativement supérieure à celle de l'examen 2.
 %  \item $H_0:\sigma_1^2=\sigma_2^2$ contre $H_1:\sigma_1^2<\sigma_2^2$. Puisque $f_0=0,535\not< 0,33$ ($\alpha^*=0,232$), on ne rejette pas l'égalité des variances.\\
  \end{enumerate}

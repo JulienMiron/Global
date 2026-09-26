@@ -127,7 +127,7 @@ Vous devez valider qu'une structure de béton a une résistance moyenne supérie
 
 \begin{enumerate}\itemsep 15mm
 \item Quelles sont vos hypothèses statistiques?
-\item Vous obtenez une moyenne échantillonnale de $\overline x = 81,6$ MPa. Pouvez-vous conclure quelque chose? \href{https://019fb417-85fc-c920-58b0-6360cad55086.share.connect.posit.cloud/}{Illustration}
+\item Vous obtenez une moyenne échantillonnale de $\overline x = 81,6$ MPa. Pouvez-vous conclure quelque chose? \href{https://jmiron-introtest.share.connect.posit.cloud/}{Illustration}
 \end{enumerate}
 
 \vspace{1.5cm}
@@ -279,7 +279,7 @@ $\begin{array}{lcl}
 \begin{frame}[t]{Quelques remarques}
 \begin{itemize}\itemsep4mm
 \item {\bf L'erreur de type I  est la plus grave}, donc $\alpha$ est fixé par le chercheur à une faible valeur (souvent $\alpha=0,05$ ou $0,01$).
-\item Plus $\alpha$ est petit, plus $\beta$ est grand...\\donc on fixe $\alpha$ et contrôlera souvent $\beta$ avec la taille d'échantillon.
+\item Plus $\alpha$ est petit, plus $\beta$ est grand...\\donc on fixe $\alpha$ et on contrôle souvent $\beta$ avec la taille d'échantillon.
 \end{itemize}
 
 \vspace{3cm}
@@ -322,7 +322,7 @@ On doit maintenant trouver la valeur de $k$ qui nous donne la probabilité d'err
 
 \end{tikzpicture}
 
-Si nous connaissons la loi de $\overline X$ sous $H_0$, nous sommes capable d'en déduire la valeur de $k$ qui nous donne la région critique désirée.
+Si nous connaissons la loi de $\overline X$ sous $H_0$, nous sommes capables d'en déduire la valeur de $k$ qui nous donne la région critique désirée.
 \end{frame}
 
 
@@ -535,7 +535,7 @@ $\alpha$   & 0,057 & 0,0008\\ \hline
 
 \vspace{1cm}
 
-\href{https://019fb418-0e34-5848-33d7-c7751db6bddd.share.connect.posit.cloud/}{Illustration}
+\href{https://jmiron-valeurp.share.connect.posit.cloud/}{Illustration}
 \end{center}
 
 }
@@ -568,7 +568,7 @@ $\alpha$   & 0,057 & 0,0008\\ \hline
 
 % \vspace{1cm}
 
-% \href{https://019fb418-0e34-5848-33d7-c7751db6bddd.share.connect.posit.cloud/}{Illustration}
+% \href{https://jmiron-valeurp.share.connect.posit.cloud/}{Illustration}
 % \end{center}
 
 % }
@@ -616,7 +616,7 @@ on peut définir une \textbf{région critique} de la forme $x \ge m$ où $m$ est
 calculer ici, grâce au théorème de Bayes).}
 }
 
-\href{https://019fb416-cc6a-732d-2954-fe9c9ab63ab7.share.connect.posit.cloud/}{En simulation}
+\href{https://jmiron-exempledes.share.connect.posit.cloud/}{En simulation}
 \end{frame}
 
 \begin{frame}{4 cas étudiés}
@@ -663,7 +663,7 @@ $H_1 : \mu > \mu_0$ (unilatérale à droite) \\
 
 
 
-\subsection{Hypothèse alternative bilatérale: $H_1 : \mu \ne \mu_0$}
+\subsection{Hypothèse alternative unilatérale à droite}
 
 \begin{frame}[t]{Hypothèse alternative unilatérale à droite}
 
@@ -864,7 +864,7 @@ On peut résumer cette règle par $\displaystyle |Z_0|>z_{\alpha/2}$
 
   
 \node[below] at (\a,0) {\small $z_{\alpha/2}$};
-\node[below] at (-\a,0) {\small $z_{\alpha/2}$};
+\node[below] at (-\a,0) {\small $-z_{\alpha/2}$};
 
 \node at (0,0.5) {\small Densité de $Z$};
 \node[below] at (0,0) {\small $0$};
@@ -948,7 +948,7 @@ les formules générales suivantes (pour le cas 1: loi normale, $\sigma^2$ connu
 
  \begin{itemize}\itemsep4mm
  \item Pour $H_0 : \mu = \mu_0 \mbox{ vs } H_1 : \mu \neq \mu_0$:\\
- $\alpha^*=P(|Z|>|z_{0}|)=2\,P(Z>|z_{o}|)$.
+ $\alpha^*=P(|Z|>|z_{0}|)=2\,P(Z>|z_{0}|)$.
  \item Pour $H_0 : \mu = \mu_0 \mbox{ vs } H_1 : \mu > \mu_0$:\\
  $\alpha^*=P(Z>z_{0})$.
  \item Pour $H_0 : \mu = \mu_0 \mbox{ vs } H_1 : \mu < \mu_0$:\\
@@ -1327,7 +1327,7 @@ Vrai, faux, ou info insuffisante?
 
 \begin{enumerate}
   \item $H_0:\mu=0,10$ contre $H_1: \mu>0,10$. $\quad\alpha_1>\alpha_2; \quad\beta_1<\beta_2 \quad1-\beta_1>1-\beta_2$. ($\alpha^*=0,041$)
-  \item $\alpha^*\approx 0,33~\%$, alors que $P(H_0\text{\ est vraie}\;|\;X=4)\approx13,56\%$
+  \item $\alpha^*\approx 0,33~\%$, alors que $P(H_0\text{\ est vraie}\;|\;X=4)\approx12,98\%$
   \item $H_0:\mu=1100$ contre $H_1: \mu<1100$. Rejet de $H_0$ si $z_0<-1,645$. $z_0=-1,79$, donc le remboursement moyen est significativement inférieur à 1100 \$. ($\alpha^*=0,037$)
   \item $1-\beta = 0,218$, $n=291$
   \item $H_0:\mu=155$ contre $H_1: \mu\ne 155$. Rejet de $H_0$ si $|T_0|>2,861$. $T_0=-1,34$, donc le changement de moyenne n'est pas significatif au seuil de 1\%. ($\alpha^*=0,196$)
